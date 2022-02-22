@@ -85,7 +85,6 @@
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            this.btnSettings.Leave += new System.EventHandler(this.btnSettings_Leave);
             // 
             // btnRediger
             // 
@@ -102,7 +101,6 @@
             this.btnRediger.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnRediger.UseVisualStyleBackColor = true;
             this.btnRediger.Click += new System.EventHandler(this.btnRediger_Click);
-            this.btnRediger.Leave += new System.EventHandler(this.btnRediger_Leave);
             // 
             // btnOppdater
             // 
@@ -119,7 +117,6 @@
             this.btnOppdater.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnOppdater.UseVisualStyleBackColor = true;
             this.btnOppdater.Click += new System.EventHandler(this.btnOppdater_Click);
-            this.btnOppdater.Leave += new System.EventHandler(this.btnOppdater_Leave);
             // 
             // btnFilter
             // 
@@ -136,7 +133,6 @@
             this.btnFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            this.btnFilter.Leave += new System.EventHandler(this.btnFilter_Leave);
             // 
             // btnPoisjon
             // 
@@ -153,7 +149,6 @@
             this.btnPoisjon.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnPoisjon.UseVisualStyleBackColor = true;
             this.btnPoisjon.Click += new System.EventHandler(this.btnPoisjon_Click);
-            this.btnPoisjon.Leave += new System.EventHandler(this.btnPoisjon_Leave);
             // 
             // panel2
             // 

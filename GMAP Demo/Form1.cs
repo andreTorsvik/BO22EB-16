@@ -49,6 +49,8 @@ namespace GMAP_Demo
 
         private void btnPoisjon_Click(object sender, EventArgs e)
         {
+            byttefarge();
+
             pnlNav.Show();
             pnlNav.Height = btnPoisjon.Height;
             pnlNav.Top = btnPoisjon.Top;
@@ -65,6 +67,7 @@ namespace GMAP_Demo
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            byttefarge();
             pnlNav.Show();
             pnlNav.Height = btnFilter.Height;
             pnlNav.Top = btnFilter.Top;
@@ -80,6 +83,7 @@ namespace GMAP_Demo
 
         private void btnOppdater_Click(object sender, EventArgs e)
         {
+            byttefarge();
             pnlNav.Show();
             pnlNav.Height = btnOppdater.Height;
             pnlNav.Top = btnOppdater.Top;
@@ -88,6 +92,7 @@ namespace GMAP_Demo
 
         private void btnRediger_Click(object sender, EventArgs e)
         {
+            byttefarge();
             pnlNav.Show();
             pnlNav.Height = btnRediger.Height;
             pnlNav.Top = btnRediger.Top;
@@ -96,34 +101,21 @@ namespace GMAP_Demo
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-           
+            byttefarge();
+            pnlNav.Show();
             pnlNav.Height = btnSettings.Height;
             pnlNav.Top = btnSettings.Top;
             btnSettings.BackColor = Color.FromArgb(46, 51, 73);
         }
 
-        private void btnPoisjon_Leave(object sender, EventArgs e)
+        
+
+        void byttefarge()
         {
             btnPoisjon.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnFilter_Leave(object sender, EventArgs e)
-        {
             btnFilter.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnOppdater_Leave(object sender, EventArgs e)
-        {
             btnOppdater.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnRediger_Leave(object sender, EventArgs e)
-        {
             btnRediger.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnSettings_Leave(object sender, EventArgs e)
-        {
             btnSettings.BackColor = Color.FromArgb(24, 30, 54);
         }
     }
