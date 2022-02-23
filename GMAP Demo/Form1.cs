@@ -19,26 +19,30 @@ namespace GMAP_Demo
         public Form1()
         {
             InitializeComponent();
-            pnlNav.Hide();
+            //pnlNav.Hide();
             
-            //start form
+            //start form Posisjon
             this.PnlFormLoader.Controls.Clear();
             frmPosisjon frmPosisjon_vrb = new frmPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
             frmPosisjon_vrb.Show();
 
-            //start posisjon kart
-            map.MapProvider = GMapProviders.OpenStreetMap;
-            PointLatLng point = new PointLatLng(60.36893643470203, 5.350878781967968);
-            map.Position = point;
+            //sette Blåpanel til Posisjonknapp 
+            pnlNav.Height = btnPosisjon.Height;
+            pnlNav.Top = btnPosisjon.Top;
+            pnlNav.Left = btnPosisjon.Left;
+            btnPosisjon.BackColor = Color.FromArgb(46, 51, 73);
+
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //kode for å få runde kanter
-
+            //start posisjon kart
+            map.MapProvider = GMapProviders.OpenStreetMap;
+            PointLatLng point = new PointLatLng(60.36893643470203, 5.350878781967968);
+            map.Position = point;
             //settings for kart
             map.MinZoom = 0; // min zoom level
             map.MaxZoom = 27; // maximum
@@ -49,13 +53,13 @@ namespace GMAP_Demo
 
         private void btnPoisjon_Click(object sender, EventArgs e)
         {
-            byttefarge();
+            BytteFargeTilStandar();
 
-            pnlNav.Show();
-            pnlNav.Height = btnPoisjon.Height;
-            pnlNav.Top = btnPoisjon.Top;
-            pnlNav.Left = btnPoisjon.Left;
-            btnPoisjon.BackColor = Color.FromArgb(46, 51, 73);
+            
+            pnlNav.Height = btnPosisjon.Height;
+            pnlNav.Top = btnPosisjon.Top;
+            pnlNav.Left = btnPosisjon.Left;
+            btnPosisjon.BackColor = Color.FromArgb(46, 51, 73);
 
             this.PnlFormLoader.Controls.Clear();
             frmPosisjon frmPosisjon_vrb = new frmPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -67,8 +71,8 @@ namespace GMAP_Demo
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            byttefarge();
-            pnlNav.Show();
+            BytteFargeTilStandar();
+            
             pnlNav.Height = btnFilter.Height;
             pnlNav.Top = btnFilter.Top;
             btnFilter.BackColor = Color.FromArgb(46, 51, 73);
@@ -83,8 +87,8 @@ namespace GMAP_Demo
 
         private void btnOppdater_Click(object sender, EventArgs e)
         {
-            byttefarge();
-            pnlNav.Show();
+            BytteFargeTilStandar();
+            
             pnlNav.Height = btnOppdater.Height;
             pnlNav.Top = btnOppdater.Top;
             btnOppdater.BackColor = Color.FromArgb(46, 51, 73);
@@ -92,17 +96,19 @@ namespace GMAP_Demo
 
         private void btnRediger_Click(object sender, EventArgs e)
         {
-            byttefarge();
-            pnlNav.Show();
+            BytteFargeTilStandar();
+            
             pnlNav.Height = btnRediger.Height;
             pnlNav.Top = btnRediger.Top;
             btnRediger.BackColor = Color.FromArgb(46, 51, 73);
+
+
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            byttefarge();
-            pnlNav.Show();
+            BytteFargeTilStandar();
+            
             pnlNav.Height = btnSettings.Height;
             pnlNav.Top = btnSettings.Top;
             btnSettings.BackColor = Color.FromArgb(46, 51, 73);
@@ -110,9 +116,9 @@ namespace GMAP_Demo
 
         
 
-        void byttefarge()
+        void BytteFargeTilStandar()
         {
-            btnPoisjon.BackColor = Color.FromArgb(24, 30, 54);
+            btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
             btnFilter.BackColor = Color.FromArgb(24, 30, 54);
             btnOppdater.BackColor = Color.FromArgb(24, 30, 54);
             btnRediger.BackColor = Color.FromArgb(24, 30, 54);

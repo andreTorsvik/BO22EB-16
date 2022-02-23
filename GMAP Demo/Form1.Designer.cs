@@ -34,7 +34,7 @@
             this.btnRediger = new System.Windows.Forms.Button();
             this.btnOppdater = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
-            this.btnPoisjon = new System.Windows.Forms.Button();
+            this.btnPosisjon = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             this.panel1.Controls.Add(this.btnRediger);
             this.panel1.Controls.Add(this.btnOppdater);
             this.panel1.Controls.Add(this.btnFilter);
-            this.panel1.Controls.Add(this.btnPoisjon);
+            this.panel1.Controls.Add(this.btnPosisjon);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -134,21 +134,21 @@
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
-            // btnPoisjon
+            // btnPosisjon
             // 
-            this.btnPoisjon.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPoisjon.FlatAppearance.BorderSize = 0;
-            this.btnPoisjon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPoisjon.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPoisjon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnPoisjon.Location = new System.Drawing.Point(0, 249);
-            this.btnPoisjon.Name = "btnPoisjon";
-            this.btnPoisjon.Size = new System.Drawing.Size(316, 84);
-            this.btnPoisjon.TabIndex = 1;
-            this.btnPoisjon.Text = "Posisjon";
-            this.btnPoisjon.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnPoisjon.UseVisualStyleBackColor = true;
-            this.btnPoisjon.Click += new System.EventHandler(this.btnPoisjon_Click);
+            this.btnPosisjon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPosisjon.FlatAppearance.BorderSize = 0;
+            this.btnPosisjon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPosisjon.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPosisjon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnPosisjon.Location = new System.Drawing.Point(0, 249);
+            this.btnPosisjon.Name = "btnPosisjon";
+            this.btnPosisjon.Size = new System.Drawing.Size(316, 84);
+            this.btnPosisjon.TabIndex = 1;
+            this.btnPosisjon.Text = "Posisjon";
+            this.btnPosisjon.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPosisjon.UseVisualStyleBackColor = true;
+            this.btnPosisjon.Click += new System.EventHandler(this.btnPoisjon_Click);
             // 
             // panel2
             // 
@@ -260,7 +260,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnPoisjon;
+        private System.Windows.Forms.Button btnPosisjon;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnOppdater;
         private System.Windows.Forms.Button btnFilter;
