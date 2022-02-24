@@ -246,6 +246,7 @@
             this.Name = "frmRediger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rediger ressurser ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRediger_FormClosing);
             this.Load += new System.EventHandler(this.frmRediger_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

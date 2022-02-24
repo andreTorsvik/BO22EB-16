@@ -115,5 +115,12 @@ namespace GMAP_Demo
             map.DragButton = MouseButtons.Left;
             map.ShowCenter = true; // false om man vil ha den bort
         }
+
+        private void frmRediger_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+            //uten denne funskjone vil programmet forsatt være i debugging 
+            //når man trykker "X"
+        }
     }
 }

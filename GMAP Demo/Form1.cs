@@ -139,5 +139,13 @@ namespace GMAP_Demo
             btnRediger.BackColor = Color.FromArgb(24, 30, 54);
             btnSettings.BackColor = Color.FromArgb(24, 30, 54);
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+            //uten denne funskjone vil programmet forsatt være i debugging 
+            //når man trykker "X"
+
+        }
     }
 }
