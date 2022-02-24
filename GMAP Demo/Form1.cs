@@ -30,7 +30,10 @@ namespace GMAP_Demo
             frmPosisjon_vrb.Show();
 
             //sette Blåpanel til Posisjonknapp 
-           
+            pnlNav.Height = btnPosisjon.Height;
+            pnlNav.Top = btnPosisjon.Top;
+            pnlNav.Left = btnPosisjon.Left;
+            btnPosisjon.BackColor = Color.FromArgb(46, 51, 73);
 
 
         }
