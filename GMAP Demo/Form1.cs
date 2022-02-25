@@ -29,7 +29,7 @@ namespace GMAP_Demo
             this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
             frmPosisjon_vrb.Show();
 
-            //sette Blåpanel til Posisjonknapp 
+            //sette Blåpanel til vesntre for Posisjonknapp 
             pnlNav.Height = btnPosisjon.Height;
             pnlNav.Top = btnPosisjon.Top;
             pnlNav.Left = btnPosisjon.Left;
@@ -47,8 +47,9 @@ namespace GMAP_Demo
         {
             //start posisjon kart
             map.MapProvider = GMapProviders.OpenStreetMap;
-            //PointLatLng point = new PointLatLng(60.36893643470203, 5.350878781967968);
-            map.Position = Punkt_til_neste_kart;
+            
+            map.Position = Punkt_til_neste_kart; //PointLatLng(60.36893643470203, 5.350878781967968);
+
             //settings for kart
             map.MinZoom = 0; // min zoom level
             map.MaxZoom = 27; // maximum
@@ -59,7 +60,7 @@ namespace GMAP_Demo
 
         private void btnPoisjon_Click(object sender, EventArgs e)
         {
-            KnappefargeTilStandar();
+            AlleKnapperTilStandarfarge();
 
             
             pnlNav.Height = btnPosisjon.Height;
@@ -77,7 +78,7 @@ namespace GMAP_Demo
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            KnappefargeTilStandar();
+            AlleKnapperTilStandarfarge();
             
             pnlNav.Height = btnFilter.Height;
             pnlNav.Top = btnFilter.Top;
@@ -93,7 +94,7 @@ namespace GMAP_Demo
 
         private void btnOppdater_Click(object sender, EventArgs e)
         {
-            KnappefargeTilStandar();
+            AlleKnapperTilStandarfarge();
             
             pnlNav.Height = btnOppdater.Height;
             pnlNav.Top = btnOppdater.Top;
@@ -102,7 +103,7 @@ namespace GMAP_Demo
 
         private void btnRediger_Click(object sender, EventArgs e)
         {
-            KnappefargeTilStandar();
+            AlleKnapperTilStandarfarge();
             
             pnlNav.Height = btnRediger.Height;
             pnlNav.Top = btnRediger.Top;
@@ -122,7 +123,7 @@ namespace GMAP_Demo
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            KnappefargeTilStandar();
+            AlleKnapperTilStandarfarge();
             
             pnlNav.Height = btnSettings.Height;
             pnlNav.Top = btnSettings.Top;
@@ -131,8 +132,9 @@ namespace GMAP_Demo
 
         
 
-        void KnappefargeTilStandar()
+        void AlleKnapperTilStandarfarge()
         {
+            //setter alle knappen til standarfarge
             btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
             btnFilter.BackColor = Color.FromArgb(24, 30, 54);
             btnOppdater.BackColor = Color.FromArgb(24, 30, 54);
