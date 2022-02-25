@@ -202,7 +202,7 @@
             this.btnLoggInn.Name = "btnLoggInn";
             this.btnLoggInn.Size = new System.Drawing.Size(316, 84);
             this.btnLoggInn.TabIndex = 1;
-            this.btnLoggInn.Text = "Logg in/endre bruker";
+            this.btnLoggInn.Text = "Logg inn/endre bruker";
             this.btnLoggInn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLoggInn.UseVisualStyleBackColor = true;
             this.btnLoggInn.Click += new System.EventHandler(this.btnLoggInn_Click);

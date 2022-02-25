@@ -107,33 +107,25 @@ namespace GMAP_Demo
 
         private void btnOppdater_Click(object sender, EventArgs e)
         {
-            AlleKnapperTilStandarfarge();
+            //hvis man trenger det
+            //AlleKnapperTilStandarfarge();
 
-            //Flytte blåPanelet til rett plass
-            pnlNav.Height = btnOppdater.Height;
-            pnlNav.Top = btnOppdater.Top;
-            btnOppdater.BackColor = Color.FromArgb(46, 51, 73);
+            ////Flytte blåPanelet til rett plass
+            //pnlNav.Height = btnOppdater.Height;
+            //pnlNav.Top = btnOppdater.Top;
+            //btnOppdater.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void btnRediger_Click(object sender, EventArgs e)
         {
-            AlleKnapperTilStandarfarge();
-
-            //Flytte blåPanelet til rett plass
-            pnlNav.Height = btnRediger.Height;
-            pnlNav.Top = btnRediger.Top;
-            btnRediger.BackColor = Color.FromArgb(46, 51, 73);
-
+            //for å sende posisjonen til neste kart
             Punkt_til_neste_kart = map.Position;
-            //prøvde å sende zoom level også men opplevde et par bugs da
+            //Prøvde å sende zoom level også men opplevde et par bugs da
 
             //for å åpne Fjern/rediger form
             this.Hide();
             frmRediger frmRediger = new frmRediger(); // instance 
             frmRediger.Show();
-
-
-
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
@@ -169,5 +161,7 @@ namespace GMAP_Demo
             //når man trykker "X"
 
         }
+
+
     }
 }
