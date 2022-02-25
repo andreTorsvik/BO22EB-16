@@ -22,7 +22,7 @@ namespace GMAP_Demo
 
 
 
-            //sette OransjePanelet til Posisjonknapp
+            //sette oransjePanelet til Posisjonknapp
             pnlNav.Height = btnObjekt.Height;
             pnlNav.Top = btnObjekt.Top;
             pnlNav.Left = btnObjekt.Left;
@@ -44,7 +44,7 @@ namespace GMAP_Demo
             form1.Show();
         }
 
-        void KnappefargeTilStandar()
+        void AlleKnapperTilStandarfarge()
         {
             btnObjekt.BackColor = Color.FromArgb(24, 30, 54);
             btnOmråde.BackColor = Color.FromArgb(24, 30, 54);
@@ -55,9 +55,9 @@ namespace GMAP_Demo
         private void btnObjekt_Click(object sender, EventArgs e)
         {
 
-            KnappefargeTilStandar();
+            AlleKnapperTilStandarfarge();
 
-
+            //Flytte oransjePanelet til rett plass
             pnlNav.Height = btnObjekt.Height;
             pnlNav.Top = btnObjekt.Top;
             pnlNav.Left = btnObjekt.Left;
@@ -67,9 +67,9 @@ namespace GMAP_Demo
         private void btnOmråde_Click(object sender, EventArgs e)
         {
 
-            KnappefargeTilStandar();
+            AlleKnapperTilStandarfarge();
 
-
+            //Flytte oransjePanelet til rett plass
             pnlNav.Height = btnOmråde.Height;
             pnlNav.Top = btnOmråde.Top;
             pnlNav.Left = btnOmråde.Left;
@@ -79,9 +79,9 @@ namespace GMAP_Demo
         private void btnRediger_obj_områ_Click(object sender, EventArgs e)
         {
 
-            KnappefargeTilStandar();
+            AlleKnapperTilStandarfarge();
 
-
+            //Flytte oransjePanelet til rett plass
             pnlNav.Height = btnRediger_obj_områ.Height;
             pnlNav.Top = btnRediger_obj_områ.Top;
             pnlNav.Left = btnRediger_obj_områ.Left;
@@ -91,9 +91,9 @@ namespace GMAP_Demo
         private void btnFjern_obj_områ_Click(object sender, EventArgs e)
         {
 
-            KnappefargeTilStandar();
+            AlleKnapperTilStandarfarge();
 
-
+            //Flytte oransjePanelet til rett plass
             pnlNav.Height = btnFjern_obj_områ.Height;
             pnlNav.Top = btnFjern_obj_områ.Top;
             pnlNav.Left = btnFjern_obj_områ.Left;
@@ -104,8 +104,7 @@ namespace GMAP_Demo
         {
             //start posisjon kart
             map.MapProvider = GMapProviders.OpenStreetMap;
-            //PointLatLng point = new PointLatLng(60.36893643470203, 5.350878781967968);
-            PointLatLng point = Form1.Punkt_til_neste_kart;
+            PointLatLng point = Form1.Punkt_til_neste_kart; 
             map.Position = point;
 
             //settings for kart
