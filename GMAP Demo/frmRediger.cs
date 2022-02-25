@@ -27,6 +27,12 @@ namespace GMAP_Demo
             pnlNav.Top = btnObjekt.Top;
             pnlNav.Left = btnObjekt.Left;
             btnObjekt.BackColor = Color.FromArgb(46, 51, 73);
+
+            this.PnlFormLoader.Controls.Clear();
+            frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_R_LeggTilObjekt_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_R_LeggTilObjekt_vrb);
+            frm_R_LeggTilObjekt_vrb.Show();
         }
 
         private void frmRediger_Load(object sender, EventArgs e)
@@ -34,8 +40,21 @@ namespace GMAP_Demo
             SetupKart();
             
         }
-    
 
+        void SetupKart()
+        {
+            //start posisjon kart
+            map.MapProvider = GMapProviders.OpenStreetMap;
+            PointLatLng point = Form1.Punkt_til_neste_kart;
+            map.Position = point;
+
+            //settings for kart
+            map.MinZoom = 0; // min zoom level
+            map.MaxZoom = 27; // maximum
+            map.Zoom = 17;
+            map.DragButton = MouseButtons.Left;
+            map.ShowCenter = true; // false om man vil ha den bort
+        }
         private void btnTilbake_Click(object sender, EventArgs e)
         {
             Form1.Punkt_til_neste_kart = map.Position;
@@ -62,6 +81,13 @@ namespace GMAP_Demo
             pnlNav.Top = btnObjekt.Top;
             pnlNav.Left = btnObjekt.Left;
             btnObjekt.BackColor = Color.FromArgb(46, 51, 73);
+
+            //legge inn rett forms i panelet
+            this.PnlFormLoader.Controls.Clear();
+            frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_R_LeggTilObjekt_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_R_LeggTilObjekt_vrb);
+            frm_R_LeggTilObjekt_vrb.Show();
         }
 
         private void btnOmråde_Click(object sender, EventArgs e)
@@ -74,6 +100,13 @@ namespace GMAP_Demo
             pnlNav.Top = btnOmråde.Top;
             pnlNav.Left = btnOmråde.Left;
             btnOmråde.BackColor = Color.FromArgb(46, 51, 73);
+
+            //legge inn rett form i panelet
+            this.PnlFormLoader.Controls.Clear();
+            frm_R_LeggTilOmråde frm_R_LeggTilOmråde_vrb = new frm_R_LeggTilOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_R_LeggTilOmråde_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_R_LeggTilOmråde_vrb);
+            frm_R_LeggTilOmråde_vrb.Show();
         }
 
         private void btnRediger_obj_områ_Click(object sender, EventArgs e)
@@ -86,6 +119,13 @@ namespace GMAP_Demo
             pnlNav.Top = btnRediger_obj_områ.Top;
             pnlNav.Left = btnRediger_obj_områ.Left;
             btnRediger_obj_områ.BackColor = Color.FromArgb(46, 51, 73);
+
+            //legge inn rett form i panelet
+            this.PnlFormLoader.Controls.Clear();
+            frm_R_RedigerObjektOmråde frm_R_RedigerObjektOmråde_vrb = new frm_R_RedigerObjektOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_R_RedigerObjektOmråde_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_R_RedigerObjektOmråde_vrb);
+            frm_R_RedigerObjektOmråde_vrb.Show();
         }
 
         private void btnFjern_obj_områ_Click(object sender, EventArgs e)
@@ -98,22 +138,16 @@ namespace GMAP_Demo
             pnlNav.Top = btnFjern_obj_områ.Top;
             pnlNav.Left = btnFjern_obj_områ.Left;
             btnFjern_obj_områ.BackColor = Color.FromArgb(46, 51, 73);
+
+            //legge inn rett form i panelet
+            this.PnlFormLoader.Controls.Clear();
+            frm_R_FjernObjektOmråde frm_R_FjernObjektOmråde_vrb = new frm_R_FjernObjektOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_R_FjernObjektOmråde_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_R_FjernObjektOmråde_vrb);
+            frm_R_FjernObjektOmråde_vrb.Show();
         }
 
-        void SetupKart()
-        {
-            //start posisjon kart
-            map.MapProvider = GMapProviders.OpenStreetMap;
-            PointLatLng point = Form1.Punkt_til_neste_kart; 
-            map.Position = point;
 
-            //settings for kart
-            map.MinZoom = 0; // min zoom level
-            map.MaxZoom = 27; // maximum
-            map.Zoom = 17;
-            map.DragButton = MouseButtons.Left;
-            map.ShowCenter = true; // false om man vil ha den bort
-        }
 
         private void frmRediger_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -121,5 +155,7 @@ namespace GMAP_Demo
             //uten denne funskjone vil programmet forsatt være i debugging 
             //når man trykker "X"
         }
+
+
     }
 }

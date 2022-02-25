@@ -16,15 +16,15 @@ namespace GMAP_Demo
 {
     public partial class Form1 : Form
     {
-        public static PointLatLng Punkt_til_neste_kart;
-
+        public static PointLatLng Punkt_til_neste_kart = new PointLatLng(60.36893643470203, 5.350878781967968);
+        private static bool KjørEnGang = true;
 
 
         public Form1()
         {
             InitializeComponent();
             //pnlNav.Hide();
-            OpprettingAvGlobaleVariabler();
+            if(KjørEnGang) OpprettingAvGlobaleVariabler();
 
             //start form Posisjon
             this.PnlFormLoader.Controls.Clear();
@@ -44,7 +44,10 @@ namespace GMAP_Demo
 
         private void OpprettingAvGlobaleVariabler()
         {
+            // må legge inn start posisjon
             Punkt_til_neste_kart = new PointLatLng(60.36893643470203, 5.350878781967968);
+
+            KjørEnGang = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -71,7 +74,7 @@ namespace GMAP_Demo
         {
             AlleKnapperTilStandarfarge();
 
-            
+            //Flytte blåPanelet til rett plass
             pnlNav.Height = btnPosisjon.Height;
             pnlNav.Top = btnPosisjon.Top;
             pnlNav.Left = btnPosisjon.Left;
@@ -88,7 +91,8 @@ namespace GMAP_Demo
         private void btnFilter_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
-            
+
+            //Flytte blåPanelet til rett plass
             pnlNav.Height = btnFilter.Height;
             pnlNav.Top = btnFilter.Top;
             btnFilter.BackColor = Color.FromArgb(46, 51, 73);
@@ -104,7 +108,8 @@ namespace GMAP_Demo
         private void btnOppdater_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
-            
+
+            //Flytte blåPanelet til rett plass
             pnlNav.Height = btnOppdater.Height;
             pnlNav.Top = btnOppdater.Top;
             btnOppdater.BackColor = Color.FromArgb(46, 51, 73);
@@ -113,7 +118,8 @@ namespace GMAP_Demo
         private void btnRediger_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
-            
+
+            //Flytte blåPanelet til rett plass
             pnlNav.Height = btnRediger.Height;
             pnlNav.Top = btnRediger.Top;
             btnRediger.BackColor = Color.FromArgb(46, 51, 73);
@@ -133,10 +139,15 @@ namespace GMAP_Demo
         private void btnSettings_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
-            
+
+            //Flytte blåPanelet til rett plass
             pnlNav.Height = btnSettings.Height;
             pnlNav.Top = btnSettings.Top;
             btnSettings.BackColor = Color.FromArgb(46, 51, 73);
+
+            this.Hide();
+            frmSettings frmSettings = new frmSettings(); // instance 
+            frmSettings.Show();
         }
 
         
