@@ -58,6 +58,7 @@ namespace GMAP_Demo
         private void btnTilbake_Click(object sender, EventArgs e)
         {
             Form1.Punkt_til_neste_kart = map.Position;
+            PnlFormLoader.Controls.Clear();
             this.Hide();
             Form1 form1 = new Form1();
             form1.Show();

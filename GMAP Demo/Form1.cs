@@ -125,6 +125,7 @@ namespace GMAP_Demo
             //Prøvde å sende zoom level også men opplevde et par bugs da
 
             //for å åpne Fjern/rediger form
+            PnlFormLoader.Controls.Clear();
             this.Hide();
             frmRediger frmRediger = new frmRediger(); // instance 
             frmRediger.Show();
