@@ -35,7 +35,6 @@
             this.btnTilbake = new System.Windows.Forms.Button();
             this.btnEkstra = new System.Windows.Forms.Button();
             this.btnBrukerInfo = new System.Windows.Forms.Button();
-            this.btnDatabase = new System.Windows.Forms.Button();
             this.btnEndreBilde = new System.Windows.Forms.Button();
             this.btnLeggTilBilde = new System.Windows.Forms.Button();
             this.btnStartPosisjon = new System.Windows.Forms.Button();
@@ -60,7 +59,6 @@
             this.panel1.Controls.Add(this.btnTilbake);
             this.panel1.Controls.Add(this.btnEkstra);
             this.panel1.Controls.Add(this.btnBrukerInfo);
-            this.panel1.Controls.Add(this.btnDatabase);
             this.panel1.Controls.Add(this.btnEndreBilde);
             this.panel1.Controls.Add(this.btnLeggTilBilde);
             this.panel1.Controls.Add(this.btnStartPosisjon);
@@ -102,7 +100,7 @@
             this.btnEkstra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEkstra.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEkstra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnEkstra.Location = new System.Drawing.Point(0, 504);
+            this.btnEkstra.Location = new System.Drawing.Point(0, 420);
             this.btnEkstra.Name = "btnEkstra";
             this.btnEkstra.Size = new System.Drawing.Size(316, 84);
             this.btnEkstra.TabIndex = 1;
@@ -118,7 +116,7 @@
             this.btnBrukerInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBrukerInfo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrukerInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnBrukerInfo.Location = new System.Drawing.Point(0, 420);
+            this.btnBrukerInfo.Location = new System.Drawing.Point(0, 336);
             this.btnBrukerInfo.Name = "btnBrukerInfo";
             this.btnBrukerInfo.Size = new System.Drawing.Size(316, 84);
             this.btnBrukerInfo.TabIndex = 1;
@@ -126,22 +124,6 @@
             this.btnBrukerInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBrukerInfo.UseVisualStyleBackColor = true;
             this.btnBrukerInfo.Click += new System.EventHandler(this.btnBrukerInfo_Click);
-            // 
-            // btnDatabase
-            // 
-            this.btnDatabase.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDatabase.FlatAppearance.BorderSize = 0;
-            this.btnDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDatabase.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDatabase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDatabase.Location = new System.Drawing.Point(0, 336);
-            this.btnDatabase.Name = "btnDatabase";
-            this.btnDatabase.Size = new System.Drawing.Size(316, 84);
-            this.btnDatabase.TabIndex = 1;
-            this.btnDatabase.Text = "database?";
-            this.btnDatabase.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnDatabase.UseVisualStyleBackColor = true;
-            this.btnDatabase.Click += new System.EventHandler(this.btnDatabase_Click);
             // 
             // btnEndreBilde
             // 
@@ -236,6 +218,5 @@
         private System.Windows.Forms.Button btnLoggInn;
         private System.Windows.Forms.Button btnEkstra;
         private System.Windows.Forms.Button btnBrukerInfo;
-        private System.Windows.Forms.Button btnDatabase;
     }
 }

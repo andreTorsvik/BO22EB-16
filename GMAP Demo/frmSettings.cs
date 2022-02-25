@@ -21,6 +21,13 @@ namespace GMAP_Demo
             pnlNav.Top = btnLoggInn.Top;
             pnlNav.Left = btnLoggInn.Left;
             btnLoggInn.BackColor = Color.FromArgb(46, 51, 73);
+
+            this.PnlFormLoader.Controls.Clear();
+            frm_S_LoggInn frm_S_LoggInn_vrb = new frm_S_LoggInn() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
+            frm_S_LoggInn_vrb.Show();
+
         }
 
         private void frmSettings_Load(object sender, EventArgs e)
@@ -31,7 +38,7 @@ namespace GMAP_Demo
         {
             this.Hide();
             Form1 form1 = new Form1();
-            form1.Show();
+            form1.Show();   
         }
 
         void AlleKnapperTilStandarfarge()
@@ -40,7 +47,6 @@ namespace GMAP_Demo
             btnStartPosisjon.BackColor = Color.FromArgb(24, 30, 54);
             btnLeggTilBilde.BackColor = Color.FromArgb(24, 30, 54);
             btnEndreBilde.BackColor = Color.FromArgb(24, 30, 54);
-            btnDatabase.BackColor = Color.FromArgb(24, 30, 54);
             btnBrukerInfo.BackColor = Color.FromArgb(24, 30, 54);
             btnEkstra.BackColor = Color.FromArgb(24, 30, 54);
         }
@@ -53,6 +59,14 @@ namespace GMAP_Demo
             pnlNav.Top = btnLoggInn.Top;
             pnlNav.Left = btnLoggInn.Left;
             btnLoggInn.BackColor = Color.FromArgb(46, 51, 73);
+
+            this.PnlFormLoader.Controls.Clear();
+            frm_S_LoggInn frm_S_LoggInn_vrb = new frm_S_LoggInn() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
+            frm_S_LoggInn_vrb.Show();
+
+
         }
 
         private void btnStartPosisjon_Click(object sender, EventArgs e)
@@ -63,6 +77,12 @@ namespace GMAP_Demo
             pnlNav.Top = btnStartPosisjon.Top;
             pnlNav.Left = btnStartPosisjon.Left;
             btnStartPosisjon.BackColor = Color.FromArgb(46, 51, 73);
+
+            this.PnlFormLoader.Controls.Clear();
+            Frm_S_StartPosisjon frm_S_StartPosisjon_vrb = new Frm_S_StartPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_S_StartPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_S_StartPosisjon_vrb);
+            frm_S_StartPosisjon_vrb.Show();
         }
 
         private void btnLeggTilBilde_Click(object sender, EventArgs e)
@@ -73,6 +93,14 @@ namespace GMAP_Demo
             pnlNav.Top = btnLeggTilBilde.Top;
             pnlNav.Left = btnLeggTilBilde.Left;
             btnLeggTilBilde.BackColor = Color.FromArgb(46, 51, 73);
+
+
+            this.PnlFormLoader.Controls.Clear();
+            frm_S_LeggTilBilde frm_S_LeggTilBilde_vrb = new frm_S_LeggTilBilde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_S_LeggTilBilde_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_S_LeggTilBilde_vrb);
+            frm_S_LeggTilBilde_vrb.Show();
+
         }
 
         private void btnEndreBilde_Click(object sender, EventArgs e)
@@ -83,17 +111,14 @@ namespace GMAP_Demo
             pnlNav.Top = btnEndreBilde.Top;
             pnlNav.Left = btnEndreBilde.Left;
             btnEndreBilde.BackColor = Color.FromArgb(46, 51, 73);
+
+            this.PnlFormLoader.Controls.Clear();
+            frm_S_EndreLagretBilde frm_S_EndreLagretBilde_vrb = new frm_S_EndreLagretBilde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_S_EndreLagretBilde_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_S_EndreLagretBilde_vrb);
+            frm_S_EndreLagretBilde_vrb.Show();
         }
 
-        private void btnDatabase_Click(object sender, EventArgs e)
-        {
-            AlleKnapperTilStandarfarge();
-
-            pnlNav.Height = btnDatabase.Height;
-            pnlNav.Top = btnDatabase.Top;
-            pnlNav.Left = btnDatabase.Left;
-            btnDatabase.BackColor = Color.FromArgb(46, 51, 73);
-        }
 
         private void btnBrukerInfo_Click(object sender, EventArgs e)
         {
@@ -103,6 +128,12 @@ namespace GMAP_Demo
             pnlNav.Top = btnBrukerInfo.Top;
             pnlNav.Left = btnBrukerInfo.Left;
             btnBrukerInfo.BackColor = Color.FromArgb(46, 51, 73);
+
+            this.PnlFormLoader.Controls.Clear();
+            frm_S_BrukerInfo frm_S_BrukerInfo_vrb = new frm_S_BrukerInfo() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_S_BrukerInfo_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_S_BrukerInfo_vrb);
+            frm_S_BrukerInfo_vrb.Show();
         }
 
         private void btnEkstra_Click(object sender, EventArgs e)

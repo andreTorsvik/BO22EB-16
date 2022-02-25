@@ -37,6 +37,7 @@ namespace GMAP_Demo
             pnlNav.Height = btnPosisjon.Height;
             pnlNav.Top = btnPosisjon.Top;
             pnlNav.Left = btnPosisjon.Left;
+            //endre farge
             btnPosisjon.BackColor = Color.FromArgb(46, 51, 73);
 
 
@@ -95,6 +96,7 @@ namespace GMAP_Demo
             //Flytte blåPanelet til rett plass
             pnlNav.Height = btnFilter.Height;
             pnlNav.Top = btnFilter.Top;
+            //endre farge op knapp
             btnFilter.BackColor = Color.FromArgb(46, 51, 73);
 
             this.PnlFormLoader.Controls.Clear();

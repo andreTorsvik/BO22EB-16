@@ -79,7 +79,6 @@ namespace GMAP_Demo
             //Flytte oransjePanelet til rett plass
             pnlNav.Height = btnObjekt.Height;
             pnlNav.Top = btnObjekt.Top;
-            pnlNav.Left = btnObjekt.Left;
             btnObjekt.BackColor = Color.FromArgb(46, 51, 73);
 
             //legge inn rett forms i panelet
@@ -98,7 +97,6 @@ namespace GMAP_Demo
             //Flytte oransjePanelet til rett plass
             pnlNav.Height = btnOmråde.Height;
             pnlNav.Top = btnOmråde.Top;
-            pnlNav.Left = btnOmråde.Left;
             btnOmråde.BackColor = Color.FromArgb(46, 51, 73);
 
             //legge inn rett form i panelet
@@ -117,7 +115,7 @@ namespace GMAP_Demo
             //Flytte oransjePanelet til rett plass
             pnlNav.Height = btnRediger_obj_områ.Height;
             pnlNav.Top = btnRediger_obj_områ.Top;
-            pnlNav.Left = btnRediger_obj_områ.Left;
+
             btnRediger_obj_områ.BackColor = Color.FromArgb(46, 51, 73);
 
             //legge inn rett form i panelet
@@ -136,7 +134,7 @@ namespace GMAP_Demo
             //Flytte oransjePanelet til rett plass
             pnlNav.Height = btnFjern_obj_områ.Height;
             pnlNav.Top = btnFjern_obj_områ.Top;
-            pnlNav.Left = btnFjern_obj_områ.Left;
+            //pnlNav.Left = btnFjern_obj_områ.Left;
             btnFjern_obj_områ.BackColor = Color.FromArgb(46, 51, 73);
 
             //legge inn rett form i panelet
