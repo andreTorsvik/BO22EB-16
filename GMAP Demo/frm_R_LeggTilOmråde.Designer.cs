@@ -38,9 +38,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(309, 46);
+            this.label3.Size = new System.Drawing.Size(317, 46);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Legg til område";
+            this.label3.Text = "Legg til Område";
             // 
             // frm_R_LeggTilOmråde
             // 

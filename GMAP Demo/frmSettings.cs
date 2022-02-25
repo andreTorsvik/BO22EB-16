@@ -57,7 +57,7 @@ namespace GMAP_Demo
 
             pnlNav.Height = btnLoggInn.Height;
             pnlNav.Top = btnLoggInn.Top;
-            pnlNav.Left = btnLoggInn.Left;
+            //pnlNav.Left = btnLoggInn.Left;
             btnLoggInn.BackColor = Color.FromArgb(46, 51, 73);
 
             this.PnlFormLoader.Controls.Clear();
@@ -75,7 +75,7 @@ namespace GMAP_Demo
 
             pnlNav.Height = btnStartPosisjon.Height;
             pnlNav.Top = btnStartPosisjon.Top;
-            pnlNav.Left = btnStartPosisjon.Left;
+            //pnlNav.Left = btnStartPosisjon.Left;
             btnStartPosisjon.BackColor = Color.FromArgb(46, 51, 73);
 
             this.PnlFormLoader.Controls.Clear();
@@ -91,7 +91,7 @@ namespace GMAP_Demo
 
             pnlNav.Height = btnLeggTilBilde.Height;
             pnlNav.Top = btnLeggTilBilde.Top;
-            pnlNav.Left = btnLeggTilBilde.Left;
+            //pnlNav.Left = btnLeggTilBilde.Left;
             btnLeggTilBilde.BackColor = Color.FromArgb(46, 51, 73);
 
 
@@ -109,7 +109,7 @@ namespace GMAP_Demo
 
             pnlNav.Height = btnEndreBilde.Height;
             pnlNav.Top = btnEndreBilde.Top;
-            pnlNav.Left = btnEndreBilde.Left;
+            //pnlNav.Left = btnEndreBilde.Left;
             btnEndreBilde.BackColor = Color.FromArgb(46, 51, 73);
 
             this.PnlFormLoader.Controls.Clear();
@@ -126,7 +126,7 @@ namespace GMAP_Demo
 
             pnlNav.Height = btnBrukerInfo.Height;
             pnlNav.Top = btnBrukerInfo.Top;
-            pnlNav.Left = btnBrukerInfo.Left;
+            //pnlNav.Left = btnBrukerInfo.Left;
             btnBrukerInfo.BackColor = Color.FromArgb(46, 51, 73);
 
             this.PnlFormLoader.Controls.Clear();
@@ -142,7 +142,7 @@ namespace GMAP_Demo
 
             pnlNav.Height = btnEkstra.Height;
             pnlNav.Top = btnEkstra.Top;
-            pnlNav.Left = btnEkstra.Left;
+            //pnlNav.Left = btnEkstra.Left;
             btnEkstra.BackColor = Color.FromArgb(46, 51, 73);
         }
 

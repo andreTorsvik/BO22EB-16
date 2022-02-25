@@ -134,7 +134,7 @@ namespace GMAP_Demo
             //Flytte oransjePanelet til rett plass
             pnlNav.Height = btnFjern_obj_områ.Height;
             pnlNav.Top = btnFjern_obj_områ.Top;
-            //pnlNav.Left = btnFjern_obj_områ.Left;
+           
             btnFjern_obj_områ.BackColor = Color.FromArgb(46, 51, 73);
 
             //legge inn rett form i panelet
