@@ -160,8 +160,8 @@ namespace GMAP_Demo
         {
             PnlFormLoader.Controls.Clear();
             this.Hide();
-            frm_S_DatabaseView frm_S_DatabaseView = new frm_S_DatabaseView();
-            frm_S_DatabaseView.Show();
+            frmDatabaseView frmDatabaseView = new frmDatabaseView();
+            frmDatabaseView.Show();
         }
     }
 }

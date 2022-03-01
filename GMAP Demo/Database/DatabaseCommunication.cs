@@ -27,13 +27,13 @@ namespace GMAP_Demo
         }
         //
 
-
+        
 
 
 
         public List<Bruker> ListAllBrukerFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("SQLtest.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
             {
                 var output = connection.Query<Bruker>("SELECT * FROM dbo.Bruker").ToList();
                 return output;
@@ -41,7 +41,7 @@ namespace GMAP_Demo
         }
         public List<Kategorier_Bilde> ListAllKategorier_BildeFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("SQLtest.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
             {
                 var output = connection.Query<Kategorier_Bilde>("SELECT * FROM dbo.Kategorier_Bilde").ToList();
                 return output;
@@ -49,7 +49,7 @@ namespace GMAP_Demo
         }
         public List<Måling> ListAllMålingFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("SQLtest.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
             {
                 var output = connection.Query<Måling>("SELECT * FROM dbo.Måling").ToList();
                 return output;
@@ -57,7 +57,7 @@ namespace GMAP_Demo
         }
         public List<Overlay_Område> ListAllOverlay_OmrådeFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("SQLtest.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
             {
                 var output = connection.Query<Overlay_Område>("SELECT * FROM dbo.Overlay_Område").ToList();
                 return output;
@@ -65,7 +65,7 @@ namespace GMAP_Demo
         }
         public List<Overlay_Ressurs> ListAllOverlay_RessursFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("SQLtest.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
             {
                 var output = connection.Query<Overlay_Ressurs>("SELECT * FROM dbo.Overlay_Ressurs").ToList();
                 return output;
@@ -73,7 +73,7 @@ namespace GMAP_Demo
         }
         public List<Punkter_område> ListAllPunkter_områdeFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("SQLtest.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
             {
                 var output = connection.Query<Punkter_område>("SELECT * FROM dbo.Punkter_område").ToList();
                 return output;
@@ -81,7 +81,7 @@ namespace GMAP_Demo
         }
         public List<Ressurs> ListAllRessursFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("SQLtest.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
             {
                 var output = connection.Query<Ressurs>("SELECT * FROM dbo.Ressurs").ToList();
                 return output;

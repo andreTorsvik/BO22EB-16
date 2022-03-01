@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_S_DatabaseView : Form
+    public partial class frmDatabaseView : Form
     {
         List<Bruker> brukerList = new List<Bruker>();
         List<Kategorier_Bilde> kategorier_BildeList = new List<Kategorier_Bilde>();
@@ -23,9 +23,10 @@ namespace GMAP_Demo
 
 
 
-        public frm_S_DatabaseView()
+        public frmDatabaseView()
         {
             InitializeComponent();
+            //label1.Text = CnnVal().ToString();
         }
 
         private void UpdateBinding()

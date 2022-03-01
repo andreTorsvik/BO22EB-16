@@ -121,11 +121,11 @@
     <Compile Include="Forms\frmRediger.Designer.cs">
       <DependentUpon>frmRediger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_S_DatabaseView.cs">
+    <Compile Include="Forms\frmDatabaseView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_S_DatabaseView.Designer.cs">
-      <DependentUpon>frm_S_DatabaseView.cs</DependentUpon>
+    <Compile Include="Forms\frmDatabaseView.Designer.cs">
+      <DependentUpon>frmDatabaseView.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmSettings.cs">
       <SubType>Form</SubType>
@@ -201,8 +201,8 @@
     <EmbeddedResource Include="Forms\frmRediger.resx">
       <DependentUpon>frmRediger.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_S_DatabaseView.resx">
-      <DependentUpon>frm_S_DatabaseView.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmDatabaseView.resx">
+      <DependentUpon>frmDatabaseView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>

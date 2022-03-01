@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_S_DatabaseView
+    partial class frmDatabaseView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_S_DatabaseView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDatabaseView));
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.listBoxDatabaseView = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDbRessursView = new System.Windows.Forms.Button();
             this.pnlNav = new System.Windows.Forms.Panel();
+            this.btnDbRessursView = new System.Windows.Forms.Button();
             this.btnTilbake = new System.Windows.Forms.Button();
             this.btnDbPunkter_områdeView = new System.Windows.Forms.Button();
             this.btnDbOverlay_RessursView = new System.Windows.Forms.Button();
@@ -41,6 +41,7 @@
             this.btnDbMålingView = new System.Windows.Forms.Button();
             this.btnDbKategorier_BildeView = new System.Windows.Forms.Button();
             this.btnDbBrukerView = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.PnlFormLoader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -48,28 +49,32 @@
             // PnlFormLoader
             // 
             this.PnlFormLoader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.PnlFormLoader.Controls.Add(this.label1);
             this.PnlFormLoader.Controls.Add(this.listBoxDatabaseView);
             this.PnlFormLoader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlFormLoader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.PnlFormLoader.Location = new System.Drawing.Point(237, 0);
             this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(2);
             this.PnlFormLoader.Name = "PnlFormLoader";
-            this.PnlFormLoader.Size = new System.Drawing.Size(973, 708);
+            this.PnlFormLoader.Size = new System.Drawing.Size(1027, 681);
             this.PnlFormLoader.TabIndex = 4;
             // 
             // listBoxDatabaseView
             // 
+            this.listBoxDatabaseView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxDatabaseView.FormattingEnabled = true;
-            this.listBoxDatabaseView.Location = new System.Drawing.Point(15, 12);
+            this.listBoxDatabaseView.Location = new System.Drawing.Point(5, 12);
             this.listBoxDatabaseView.Name = "listBoxDatabaseView";
-            this.listBoxDatabaseView.Size = new System.Drawing.Size(473, 680);
+            this.listBoxDatabaseView.Size = new System.Drawing.Size(1010, 641);
             this.listBoxDatabaseView.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.btnDbRessursView);
             this.panel1.Controls.Add(this.pnlNav);
+            this.panel1.Controls.Add(this.btnDbRessursView);
             this.panel1.Controls.Add(this.btnTilbake);
             this.panel1.Controls.Add(this.btnDbPunkter_områdeView);
             this.panel1.Controls.Add(this.btnDbOverlay_RessursView);
@@ -81,8 +86,17 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 708);
+            this.panel1.Size = new System.Drawing.Size(237, 681);
             this.panel1.TabIndex = 3;
+            // 
+            // pnlNav
+            // 
+            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.pnlNav.Location = new System.Drawing.Point(0, 612);
+            this.pnlNav.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlNav.Name = "pnlNav";
+            this.pnlNav.Size = new System.Drawing.Size(2, 68);
+            this.pnlNav.TabIndex = 1;
             // 
             // btnDbRessursView
             // 
@@ -95,20 +109,11 @@
             this.btnDbRessursView.Margin = new System.Windows.Forms.Padding(2);
             this.btnDbRessursView.Name = "btnDbRessursView";
             this.btnDbRessursView.Size = new System.Drawing.Size(237, 68);
-            this.btnDbRessursView.TabIndex = 2;
+            this.btnDbRessursView.TabIndex = 1;
             this.btnDbRessursView.Text = "Ressurs";
             this.btnDbRessursView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnDbRessursView.UseVisualStyleBackColor = true;
             this.btnDbRessursView.Click += new System.EventHandler(this.btnDbRessursView_Click);
-            // 
-            // pnlNav
-            // 
-            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlNav.Location = new System.Drawing.Point(0, 258);
-            this.pnlNav.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(2, 81);
-            this.pnlNav.TabIndex = 1;
             // 
             // btnTilbake
             // 
@@ -117,7 +122,7 @@
             this.btnTilbake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTilbake.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTilbake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnTilbake.Location = new System.Drawing.Point(0, 640);
+            this.btnTilbake.Location = new System.Drawing.Point(0, 613);
             this.btnTilbake.Margin = new System.Windows.Forms.Padding(2);
             this.btnTilbake.Name = "btnTilbake";
             this.btnTilbake.Size = new System.Drawing.Size(237, 68);
@@ -229,21 +234,32 @@
             this.btnDbBrukerView.UseVisualStyleBackColor = true;
             this.btnDbBrukerView.Click += new System.EventHandler(this.btnDbBrukerView_Click);
             // 
-            // frm_S_DatabaseView
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(239, 660);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
+            // 
+            // frmDatabaseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1210, 708);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.PnlFormLoader);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frm_S_DatabaseView";
+            this.Name = "frmDatabaseView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Settings";
+            this.Text = "Database sjekk";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSettings_FormClosing);
             this.Load += new System.EventHandler(this.frmSettings_Load);
             this.PnlFormLoader.ResumeLayout(false);
+            this.PnlFormLoader.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -262,5 +278,6 @@
         private System.Windows.Forms.Button btnDbOverlay_RessursView;
         private System.Windows.Forms.Button btnDbRessursView;
         private System.Windows.Forms.ListBox listBoxDatabaseView;
+        private System.Windows.Forms.Label label1;
     }
 }

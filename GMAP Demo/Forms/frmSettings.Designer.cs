@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnEkstra = new System.Windows.Forms.Button();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnTilbake = new System.Windows.Forms.Button();
             this.btnDatabaseView = new System.Windows.Forms.Button();
+            this.btnEkstra = new System.Windows.Forms.Button();
             this.btnBrukerInfo = new System.Windows.Forms.Button();
             this.btnEndreBilde = new System.Windows.Forms.Button();
             this.btnLeggTilBilde = new System.Windows.Forms.Button();
@@ -51,16 +51,16 @@
             this.PnlFormLoader.Location = new System.Drawing.Point(237, 0);
             this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(2);
             this.PnlFormLoader.Name = "PnlFormLoader";
-            this.PnlFormLoader.Size = new System.Drawing.Size(973, 708);
+            this.PnlFormLoader.Size = new System.Drawing.Size(1027, 681);
             this.PnlFormLoader.TabIndex = 4;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.btnEkstra);
             this.panel1.Controls.Add(this.pnlNav);
             this.panel1.Controls.Add(this.btnTilbake);
             this.panel1.Controls.Add(this.btnDatabaseView);
+            this.panel1.Controls.Add(this.btnEkstra);
             this.panel1.Controls.Add(this.btnBrukerInfo);
             this.panel1.Controls.Add(this.btnEndreBilde);
             this.panel1.Controls.Add(this.btnLeggTilBilde);
@@ -70,7 +70,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 708);
+            this.panel1.Size = new System.Drawing.Size(237, 681);
             this.panel1.TabIndex = 3;
             // 
             // btnEkstra
@@ -84,7 +84,7 @@
             this.btnEkstra.Margin = new System.Windows.Forms.Padding(2);
             this.btnEkstra.Name = "btnEkstra";
             this.btnEkstra.Size = new System.Drawing.Size(237, 68);
-            this.btnEkstra.TabIndex = 2;
+            this.btnEkstra.TabIndex = 1;
             this.btnEkstra.Text = "Hvis vi trenger mer";
             this.btnEkstra.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnEkstra.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             this.btnTilbake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTilbake.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTilbake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnTilbake.Location = new System.Drawing.Point(0, 640);
+            this.btnTilbake.Location = new System.Drawing.Point(0, 613);
             this.btnTilbake.Margin = new System.Windows.Forms.Padding(2);
             this.btnTilbake.Name = "btnTilbake";
             this.btnTilbake.Size = new System.Drawing.Size(237, 68);
@@ -222,7 +222,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1210, 708);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.PnlFormLoader);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
