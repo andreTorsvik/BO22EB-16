@@ -50,6 +50,7 @@ namespace GMAP_Demo
             btnLeggTilBilde.BackColor = Color.FromArgb(24, 30, 54);
             btnEndreBilde.BackColor = Color.FromArgb(24, 30, 54);
             btnBrukerInfo.BackColor = Color.FromArgb(24, 30, 54);
+            btnDatabaseView.BackColor = Color.FromArgb(24, 30, 54);
             btnEkstra.BackColor = Color.FromArgb(24, 30, 54);
         }
 
@@ -148,9 +149,19 @@ namespace GMAP_Demo
             btnEkstra.BackColor = Color.FromArgb(46, 51, 73);
         }
 
+
+
         private void frmSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnDatabaseView_Click(object sender, EventArgs e)
+        {
+            PnlFormLoader.Controls.Clear();
+            this.Hide();
+            frmDatabaseView frmDatabaseView = new frmDatabaseView();
+            frmDatabaseView.Show();
         }
     }
 }
