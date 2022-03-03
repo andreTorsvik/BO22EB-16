@@ -18,7 +18,7 @@ namespace GMAP_Demo
     {
         public static PointLatLng Punkt_til_neste_kart = new PointLatLng(60.36893643470203, 5.350878781967968);
         private static bool KjørEnGang = true;
-
+        private static Color knapp_trykket;
 
         public Form1()
         {
@@ -34,11 +34,14 @@ namespace GMAP_Demo
             frmPosisjon_vrb.Show();
 
             //sette Blåpanel til vesntre for Posisjonknapp 
-            pnlNav.Height = btnPosisjon.Height;
-            pnlNav.Top = btnPosisjon.Top;
+            int høyde = btnPosisjon.Height;
+            int top = btnPosisjon.Top;
+            FlyttNavigasjonsPanel(høyde, top);
+            //denne trenger kun å bli kjørt en gang
             pnlNav.Left = btnPosisjon.Left;
+
             //endre farge
-            btnPosisjon.BackColor = Color.FromArgb(46, 51, 73);
+            btnPosisjon.BackColor = knapp_trykket;
 
 
         }
@@ -47,7 +50,7 @@ namespace GMAP_Demo
         {
             // må legge inn start posisjon
             Punkt_til_neste_kart = new PointLatLng(60.36893643470203, 5.350878781967968);
-
+            knapp_trykket = Color.FromArgb(46, 51, 73);
             KjørEnGang = false;
         }
 
@@ -74,12 +77,14 @@ namespace GMAP_Demo
         private void btnPoisjon_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnPosisjon.BackColor = knapp_trykket;
 
             //Flytte blåPanelet til rett plass
-            pnlNav.Height = btnPosisjon.Height;
-            pnlNav.Top = btnPosisjon.Top;
-            pnlNav.Left = btnPosisjon.Left;
-            btnPosisjon.BackColor = Color.FromArgb(46, 51, 73);
+            int høyde = btnPosisjon.Height;
+            int top = btnPosisjon.Top;
+            FlyttNavigasjonsPanel(høyde, top);
+
+            
 
             this.PnlFormLoader.Controls.Clear();
             frmPosisjon frmPosisjon_vrb = new frmPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -92,12 +97,13 @@ namespace GMAP_Demo
         private void btnFilter_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnFilter.BackColor = knapp_trykket;
 
-            //Flytte blåPanelet til rett plass
-            pnlNav.Height = btnFilter.Height;
-            pnlNav.Top = btnFilter.Top;
-            //endre farge op knapp
-            btnFilter.BackColor = Color.FromArgb(46, 51, 73);
+            int høyde = btnFilter.Height;
+            int top = btnFilter.Top;
+            FlyttNavigasjonsPanel(høyde, top);
+
+            
 
             this.PnlFormLoader.Controls.Clear();
             frmFilter frmPosisjon_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -109,13 +115,7 @@ namespace GMAP_Demo
 
         private void btnOppdater_Click(object sender, EventArgs e)
         {
-            //hvis man trenger det
-            //AlleKnapperTilStandarfarge();
 
-            ////Flytte blåPanelet til rett plass
-            //pnlNav.Height = btnOppdater.Height;
-            //pnlNav.Top = btnOppdater.Top;
-            //btnOppdater.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void btnRediger_Click(object sender, EventArgs e)
@@ -135,11 +135,6 @@ namespace GMAP_Demo
         {
             AlleKnapperTilStandarfarge();
 
-            //Flytte blåPanelet til rett plass
-            pnlNav.Height = btnSettings.Height;
-            pnlNav.Top = btnSettings.Top;
-            btnSettings.BackColor = Color.FromArgb(46, 51, 73);
-
             this.Hide();
             frmSettings frmSettings = new frmSettings(); // instance 
             frmSettings.Show();
@@ -149,12 +144,10 @@ namespace GMAP_Demo
 
         void AlleKnapperTilStandarfarge()
         {
-            //setter alle knappen til standarfarge
+            //setter alle nødvendige knappen til standarfarge
             btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
             btnFilter.BackColor = Color.FromArgb(24, 30, 54);
-            btnOppdater.BackColor = Color.FromArgb(24, 30, 54);
-            btnRediger.BackColor = Color.FromArgb(24, 30, 54);
-            btnSettings.BackColor = Color.FromArgb(24, 30, 54);
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -163,6 +156,12 @@ namespace GMAP_Demo
             //uten denne funskjone vil programmet forsatt være i debugging 
             //når man trykker "X"
 
+        }
+
+        public void FlyttNavigasjonsPanel(int høyde, int top)
+        {
+            pnlNav.Height = høyde;
+            pnlNav.Top = top;
         }
 
 
