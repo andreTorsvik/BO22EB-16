@@ -12,15 +12,15 @@ namespace GMAP_Demo
 {
     public partial class frmSettings : Form
     {
+        private static Color knapp_trykket;
         public frmSettings()
         {
             InitializeComponent();
-
+            knapp_trykket = Color.FromArgb(46, 51, 73);
             //sette Blåpanel til vesntre for Posisjonknapp 
-            pnlNav.Height = btnLoggInn.Height;
-            pnlNav.Top = btnLoggInn.Top;
-            pnlNav.Left = btnLoggInn.Left;
-            btnLoggInn.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnLoggInn.Height, btnLoggInn.Top);
+
+            btnLoggInn.BackColor = knapp_trykket;
 
             this.PnlFormLoader.Controls.Clear();
             frm_S_LoggInn frm_S_LoggInn_vrb = new frm_S_LoggInn() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -36,7 +36,6 @@ namespace GMAP_Demo
         }
         private void btnTilbake_Click(object sender, EventArgs e)
         {
-
             PnlFormLoader.Controls.Clear();
             this.Hide();
             Form1 form1 = new Form1();
@@ -45,42 +44,38 @@ namespace GMAP_Demo
 
         void AlleKnapperTilStandarfarge()
         {
-            btnLoggInn.BackColor = Color.FromArgb(24, 30, 54);
-            btnStartPosisjon.BackColor = Color.FromArgb(24, 30, 54);
-            btnLeggTilBilde.BackColor = Color.FromArgb(24, 30, 54);
-            btnEndreBilde.BackColor = Color.FromArgb(24, 30, 54);
-            btnBrukerInfo.BackColor = Color.FromArgb(24, 30, 54);
-            btnDatabaseView.BackColor = Color.FromArgb(24, 30, 54);
-            btnEkstra.BackColor = Color.FromArgb(24, 30, 54);
+            Color StandarFarge = Color.FromArgb(24, 30, 54);
+
+            btnLoggInn.BackColor = StandarFarge;
+            btnStartPosisjon.BackColor = StandarFarge;
+            btnLeggTilBilde.BackColor = StandarFarge;
+            btnEndreBilde.BackColor = StandarFarge;
+            btnBrukerInfo.BackColor = StandarFarge;
+            btnDatabaseView.BackColor = StandarFarge;
+            btnEkstra.BackColor = StandarFarge;
         }
 
         private void btnLoggInn_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnLoggInn.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnLoggInn.Height;
-            pnlNav.Top = btnLoggInn.Top;
-            //pnlNav.Left = btnLoggInn.Left;
-            btnLoggInn.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnLoggInn.Height, btnLoggInn.Top);
 
             this.PnlFormLoader.Controls.Clear();
             frm_S_LoggInn frm_S_LoggInn_vrb = new frm_S_LoggInn() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
             frm_S_LoggInn_vrb.Show();
-
-
         }
 
         private void btnStartPosisjon_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnStartPosisjon.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnStartPosisjon.Height;
-            pnlNav.Top = btnStartPosisjon.Top;
-            //pnlNav.Left = btnStartPosisjon.Left;
-            btnStartPosisjon.BackColor = Color.FromArgb(46, 51, 73);
-
+            FlyttNavigasjonsPanel(btnStartPosisjon.Height, btnStartPosisjon.Top);
+           
             this.PnlFormLoader.Controls.Clear();
             Frm_S_StartPosisjon frm_S_StartPosisjon_vrb = new Frm_S_StartPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frm_S_StartPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
@@ -91,12 +86,9 @@ namespace GMAP_Demo
         private void btnLeggTilBilde_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnLeggTilBilde.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnLeggTilBilde.Height;
-            pnlNav.Top = btnLeggTilBilde.Top;
-            //pnlNav.Left = btnLeggTilBilde.Left;
-            btnLeggTilBilde.BackColor = Color.FromArgb(46, 51, 73);
-
+            FlyttNavigasjonsPanel(btnLeggTilBilde.Height, btnLeggTilBilde.Top);
 
             this.PnlFormLoader.Controls.Clear();
             frm_S_LeggTilBilde frm_S_LeggTilBilde_vrb = new frm_S_LeggTilBilde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -109,11 +101,9 @@ namespace GMAP_Demo
         private void btnEndreBilde_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnEndreBilde.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnEndreBilde.Height;
-            pnlNav.Top = btnEndreBilde.Top;
-            //pnlNav.Left = btnEndreBilde.Left;
-            btnEndreBilde.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnEndreBilde.Height, btnEndreBilde.Top);
 
             this.PnlFormLoader.Controls.Clear();
             frm_S_EndreLagretBilde frm_S_EndreLagretBilde_vrb = new frm_S_EndreLagretBilde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -126,12 +116,10 @@ namespace GMAP_Demo
         private void btnBrukerInfo_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnBrukerInfo.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnBrukerInfo.Height;
-            pnlNav.Top = btnBrukerInfo.Top;
-            //pnlNav.Left = btnBrukerInfo.Left;
-            btnBrukerInfo.BackColor = Color.FromArgb(46, 51, 73);
-
+            FlyttNavigasjonsPanel(btnBrukerInfo.Height, btnBrukerInfo.Top);
+            
             this.PnlFormLoader.Controls.Clear();
             frm_S_BrukerInfo frm_S_BrukerInfo_vrb = new frm_S_BrukerInfo() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frm_S_BrukerInfo_vrb.FormBorderStyle = FormBorderStyle.None;
@@ -142,11 +130,10 @@ namespace GMAP_Demo
         private void btnEkstra_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnEkstra.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnEkstra.Height;
-            pnlNav.Top = btnEkstra.Top;
             //pnlNav.Left = btnEkstra.Left;
-            btnEkstra.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnEkstra.Height, btnEkstra.Top);
         }
 
 
@@ -162,6 +149,15 @@ namespace GMAP_Demo
             this.Hide();
             frmDatabaseView frmDatabaseView = new frmDatabaseView();
             frmDatabaseView.Show();
+        }
+
+        public void FlyttNavigasjonsPanel(int høyde, int top)
+        {
+            //henter Høyde på knapp og hvor toppen er plassert 
+            pnlNav.Height = høyde;
+            pnlNav.Top = top;
+            //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
+            pnlNav.Left = btnLoggInn.Left;
         }
     }
 }

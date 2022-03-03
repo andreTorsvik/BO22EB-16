@@ -33,11 +33,8 @@ namespace GMAP_Demo
             frmPosisjon_vrb.Show();
 
             //sette Blåpanel til vesntre for Posisjonknapp 
-            int høyde = btnPosisjon.Height;
-            int top = btnPosisjon.Top;
-            FlyttNavigasjonsPanel(høyde, top);
-            //denne trenger kun å bli kjørt en gang for å flytte panelet til venstre
-            pnlNav.Left = btnPosisjon.Left;
+            FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
+            
 
             //endre farge
             btnPosisjon.BackColor = knapp_trykket;
@@ -77,10 +74,7 @@ namespace GMAP_Demo
             AlleKnapperTilStandarfarge();
             btnPosisjon.BackColor = knapp_trykket;
 
-            //Flytte blåPanelet til rett plass
-            int høyde = btnPosisjon.Height;
-            int top = btnPosisjon.Top;
-            FlyttNavigasjonsPanel(høyde, top);
+            FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
 
             
 
@@ -94,14 +88,12 @@ namespace GMAP_Demo
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            //endre farge
+            //Endre farge
             AlleKnapperTilStandarfarge();
             btnFilter.BackColor = knapp_trykket;
 
             //Flytte panelet til rett posisjon
             FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
-
-            
 
             this.PnlFormLoader.Controls.Clear();
             frmFilter frmPosisjon_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -113,6 +105,7 @@ namespace GMAP_Demo
 
         private void btnOppdater_Click(object sender, EventArgs e)
         {
+            //kode for  å oppdatere overlays på kartet 
 
         }
 
@@ -120,10 +113,9 @@ namespace GMAP_Demo
         {
             //for å sende posisjonen til neste kart
             Punkt_fra_forrige_kart = map.Position;
-            //Prøvde å sende zoom level også men opplevde et par bugs da
 
             //for å åpne Fjern/rediger form
-            PnlFormLoader.Controls.Clear();
+            PnlFormLoader.Controls.Clear(); // usiker om denne trengs 
             this.Hide();
             frmRediger frmRediger = new frmRediger(); // instance 
             frmRediger.Show();
@@ -131,8 +123,7 @@ namespace GMAP_Demo
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            //AlleKnapperTilStandarfarge();
-
+            PnlFormLoader.Controls.Clear(); // usikker om denne trengs 
             this.Hide();
             frmSettings frmSettings = new frmSettings(); // instance 
             frmSettings.Show();
@@ -150,16 +141,18 @@ namespace GMAP_Demo
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
             //uten denne funskjone vil programmet forsatt være i debugging 
             //når man trykker "X"
-
+            Application.Exit();
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
         {
+            //henter Høyde på knapp og hvor toppen er plassert 
             pnlNav.Height = høyde;
             pnlNav.Top = top;
+            //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
+            pnlNav.Left = btnPosisjon.Left;
         }
 
 

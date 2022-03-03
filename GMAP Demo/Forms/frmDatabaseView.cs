@@ -20,12 +20,14 @@ namespace GMAP_Demo
         List<Overlay_Ressurs> overlay_RessursList = new List<Overlay_Ressurs>();
         List<Punkter_område> punkter_områdeList = new List<Punkter_område>();
         List<Ressurs> ressursListe = new List<Ressurs>();
+        private static Color knapp_trykket;
 
 
 
         public frmDatabaseView()
         {
             InitializeComponent();
+            knapp_trykket = Color.FromArgb(46, 51, 73);
             //label1.Text = CnnVal().ToString();
         }
 
@@ -48,13 +50,15 @@ namespace GMAP_Demo
 
         void AlleKnapperTilStandarfarge()
         {
-            btnDbBrukerView.BackColor = Color.FromArgb(24, 30, 54);
-            btnDbKategorier_BildeView.BackColor = Color.FromArgb(24, 30, 54);
-            btnDbMålingView.BackColor = Color.FromArgb(24, 30, 54);
-            btnDbOverlay_OmrådeView.BackColor = Color.FromArgb(24, 30, 54);
-            btnDbOverlay_RessursView.BackColor = Color.FromArgb(24, 30, 54);
-            btnDbPunkter_områdeView.BackColor = Color.FromArgb(24, 30, 54);
-            btnDbRessursView.BackColor = Color.FromArgb(24, 30, 54);
+            Color StandarFarge = Color.FromArgb(24, 30, 54);
+
+            btnDbBrukerView.BackColor = StandarFarge;
+            btnDbKategorier_BildeView.BackColor = StandarFarge;
+            btnDbMålingView.BackColor = StandarFarge;
+            btnDbOverlay_OmrådeView.BackColor = StandarFarge;
+            btnDbOverlay_RessursView.BackColor = StandarFarge;
+            btnDbPunkter_områdeView.BackColor = StandarFarge;
+            btnDbRessursView.BackColor = StandarFarge;
         }
 
         private void frmSettings_FormClosing(object sender, FormClosingEventArgs e)
@@ -65,11 +69,10 @@ namespace GMAP_Demo
         private void btnDbBrukerView_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnDbBrukerView.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnDbBrukerView.Height;
-            pnlNav.Top = btnDbBrukerView.Top;
-            btnDbBrukerView.BackColor = Color.FromArgb(46, 51, 73);
-
+            FlyttNavigasjonsPanel(btnDbBrukerView.Height, btnDbBrukerView.Top);
+            
             DatabaseCommunication db = new DatabaseCommunication();
             brukerList = db.ListAllBrukerFromDb();
             listBoxDatabaseView.DataSource = brukerList;
@@ -79,10 +82,9 @@ namespace GMAP_Demo
         private void btnDbKategorier_BildeView_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnDbKategorier_BildeView.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnDbKategorier_BildeView.Height;
-            pnlNav.Top = btnDbKategorier_BildeView.Top;
-            btnDbKategorier_BildeView.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnDbKategorier_BildeView.Height, btnDbKategorier_BildeView.Top);
 
             DatabaseCommunication db = new DatabaseCommunication();
             kategorier_BildeList = db.ListAllKategorier_BildeFromDb();
@@ -93,10 +95,9 @@ namespace GMAP_Demo
         private void btnDbMålingView_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnDbMålingView.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnDbMålingView.Height;
-            pnlNav.Top = btnDbMålingView.Top;
-            btnDbMålingView.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnDbMålingView.Height, btnDbMålingView.Top);
 
             DatabaseCommunication db = new DatabaseCommunication();
             målingList = db.ListAllMålingFromDb();
@@ -107,11 +108,10 @@ namespace GMAP_Demo
         private void btnDbOverlay_OmrådeView_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnDbOverlay_OmrådeView.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnDbOverlay_OmrådeView.Height;
-            pnlNav.Top = btnDbOverlay_OmrådeView.Top;
-            btnDbOverlay_OmrådeView.BackColor = Color.FromArgb(46, 51, 73);
-
+            FlyttNavigasjonsPanel(btnDbOverlay_OmrådeView.Height, btnDbOverlay_OmrådeView.Top);
+            
             DatabaseCommunication db = new DatabaseCommunication();
             overlay_OmrådeList = db.ListAllOverlay_OmrådeFromDb();
             listBoxDatabaseView.DataSource = overlay_OmrådeList;
@@ -121,10 +121,9 @@ namespace GMAP_Demo
         private void btnDbOverlay_RessursView_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnDbOverlay_RessursView.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnDbOverlay_RessursView.Height;
-            pnlNav.Top = btnDbOverlay_RessursView.Top;
-            btnDbOverlay_RessursView.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnDbOverlay_RessursView.Height, btnDbOverlay_RessursView.Top);
 
             DatabaseCommunication db = new DatabaseCommunication();
             overlay_RessursList = db.ListAllOverlay_RessursFromDb();
@@ -135,10 +134,9 @@ namespace GMAP_Demo
         private void btnDbPunkter_områdeView_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
+            btnDbPunkter_områdeView.BackColor = knapp_trykket;
 
-            pnlNav.Height = btnDbPunkter_områdeView.Height;
-            pnlNav.Top = btnDbPunkter_områdeView.Top;
-            btnDbPunkter_områdeView.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnDbPunkter_områdeView.Height, btnDbPunkter_områdeView.Top);
 
             DatabaseCommunication db = new DatabaseCommunication();
             punkter_områdeList = db.ListAllPunkter_områdeFromDb();
@@ -149,15 +147,23 @@ namespace GMAP_Demo
         private void btnDbRessursView_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
-
-            pnlNav.Height = btnDbRessursView.Height;
-            pnlNav.Top = btnDbRessursView.Top;
-            btnDbRessursView.BackColor = Color.FromArgb(46, 51, 73);
+            btnDbRessursView.BackColor = knapp_trykket;
+            
+            FlyttNavigasjonsPanel(btnDbRessursView.Height, btnDbRessursView.Top);
 
             DatabaseCommunication db = new DatabaseCommunication();
             ressursListe = db.ListAllRessursFromDb();
             listBoxDatabaseView.DataSource = ressursListe;
             listBoxDatabaseView.DisplayMember = "ressursDataTypeToString";
+        }
+
+        public void FlyttNavigasjonsPanel(int høyde, int top)
+        {
+            //henter Høyde på knapp og hvor toppen er plassert 
+            pnlNav.Height = høyde;
+            pnlNav.Top = top;
+            //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
+            pnlNav.Left = btnDbBrukerView.Left;
         }
     }
 }

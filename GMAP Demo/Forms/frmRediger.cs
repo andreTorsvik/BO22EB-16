@@ -16,17 +16,15 @@ namespace GMAP_Demo
 {
     public partial class frmRediger : Form
     {
+        private static Color knapp_trykket;
         public frmRediger()
         {
             InitializeComponent();
-
-
+            knapp_trykket = Color.FromArgb(46, 51, 73);
 
             //sette oransjePanelet til Posisjonknapp
-            pnlNav.Height = btnObjekt.Height;
-            pnlNav.Top = btnObjekt.Top;
-            pnlNav.Left = btnObjekt.Left;
-            btnObjekt.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnObjekt.Height, btnObjekt.Top);
+            btnObjekt.BackColor = knapp_trykket;
 
             this.PnlFormLoader.Controls.Clear();
             frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -67,21 +65,22 @@ namespace GMAP_Demo
 
         void AlleKnapperTilStandarfarge()
         {
-            btnObjekt.BackColor = Color.FromArgb(24, 30, 54);
-            btnOmråde.BackColor = Color.FromArgb(24, 30, 54);
-            btnRediger_obj_områ.BackColor = Color.FromArgb(24, 30, 54);
-            btnFjern_obj_områ.BackColor = Color.FromArgb(24, 30, 54);
+            Color StandarFarge = Color.FromArgb(24, 30, 54);
+
+            btnObjekt.BackColor = StandarFarge;
+            btnOmråde.BackColor = StandarFarge;
+            btnRediger_obj_områ.BackColor = StandarFarge;
+            btnFjern_obj_områ.BackColor = StandarFarge;
         }
 
         private void btnObjekt_Click(object sender, EventArgs e)
         {
 
             AlleKnapperTilStandarfarge();
+            btnObjekt.BackColor = knapp_trykket;
 
             //Flytte oransjePanelet til rett plass
-            pnlNav.Height = btnObjekt.Height;
-            pnlNav.Top = btnObjekt.Top;
-            btnObjekt.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnObjekt.Height, btnObjekt.Top);
 
             //legge inn rett forms i panelet
             this.PnlFormLoader.Controls.Clear();
@@ -95,11 +94,9 @@ namespace GMAP_Demo
         {
 
             AlleKnapperTilStandarfarge();
-
+            btnOmråde.BackColor = knapp_trykket;
             //Flytte oransjePanelet til rett plass
-            pnlNav.Height = btnOmråde.Height;
-            pnlNav.Top = btnOmråde.Top;
-            btnOmråde.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnOmråde.Height, btnOmråde.Top);
 
             //legge inn rett form i panelet
             this.PnlFormLoader.Controls.Clear();
@@ -111,14 +108,12 @@ namespace GMAP_Demo
 
         private void btnRediger_obj_områ_Click(object sender, EventArgs e)
         {
-
+            
             AlleKnapperTilStandarfarge();
-
+            btnRediger_obj_områ.BackColor = knapp_trykket;
             //Flytte oransjePanelet til rett plass
-            pnlNav.Height = btnRediger_obj_områ.Height;
-            pnlNav.Top = btnRediger_obj_områ.Top;
-
-            btnRediger_obj_områ.BackColor = Color.FromArgb(46, 51, 73);
+            FlyttNavigasjonsPanel(btnRediger_obj_områ.Height, btnRediger_obj_områ.Top);
+            
 
             //legge inn rett form i panelet
             this.PnlFormLoader.Controls.Clear();
@@ -132,12 +127,12 @@ namespace GMAP_Demo
         {
 
             AlleKnapperTilStandarfarge();
-
+            btnFjern_obj_områ.BackColor = knapp_trykket;
             //Flytte oransjePanelet til rett plass
-            pnlNav.Height = btnFjern_obj_områ.Height;
-            pnlNav.Top = btnFjern_obj_områ.Top;
+
+            FlyttNavigasjonsPanel(btnFjern_obj_områ.Height, btnFjern_obj_områ.Top);
            
-            btnFjern_obj_områ.BackColor = Color.FromArgb(46, 51, 73);
+
 
             //legge inn rett form i panelet
             this.PnlFormLoader.Controls.Clear();
@@ -151,11 +146,20 @@ namespace GMAP_Demo
 
         private void frmRediger_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
             //uten denne funskjone vil programmet forsatt være i debugging 
             //når man trykker "X"
+            Application.Exit();
+
         }
 
+        public void FlyttNavigasjonsPanel(int høyde, int top)
+        {
+            //henter Høyde på knapp og hvor toppen er plassert 
+            pnlNav.Height = høyde;
+            pnlNav.Top = top;
+            //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
+            pnlNav.Left = btnObjekt.Left;
+        }
 
     }
 }
