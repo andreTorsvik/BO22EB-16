@@ -16,15 +16,14 @@ namespace GMAP_Demo
 {
     public partial class Form1 : Form
     {
-        public static PointLatLng Punkt_til_neste_kart = new PointLatLng(60.36893643470203, 5.350878781967968);
+        public static PointLatLng Punkt_fra_forrige_kart;
         private static bool KjørEnGang = true;
         private static Color knapp_trykket;
 
         public Form1()
         {
+            if (KjørEnGang) OpprettingAvGlobaleVariabler();
             InitializeComponent();
-            //pnlNav.Hide();
-            if(KjørEnGang) OpprettingAvGlobaleVariabler();
 
             //start form Posisjon
             this.PnlFormLoader.Controls.Clear();
@@ -37,7 +36,7 @@ namespace GMAP_Demo
             int høyde = btnPosisjon.Height;
             int top = btnPosisjon.Top;
             FlyttNavigasjonsPanel(høyde, top);
-            //denne trenger kun å bli kjørt en gang
+            //denne trenger kun å bli kjørt en gang for å flytte panelet til venstre
             pnlNav.Left = btnPosisjon.Left;
 
             //endre farge
@@ -49,7 +48,7 @@ namespace GMAP_Demo
         private void OpprettingAvGlobaleVariabler()
         {
             // må legge inn start posisjon
-            Punkt_til_neste_kart = new PointLatLng(60.36893643470203, 5.350878781967968);
+            Punkt_fra_forrige_kart = new PointLatLng(60.36893643470203, 5.350878781967968);
             knapp_trykket = Color.FromArgb(46, 51, 73);
             KjørEnGang = false;
         }
@@ -64,14 +63,13 @@ namespace GMAP_Demo
             //start posisjon kart
             map.MapProvider = GMapProviders.OpenStreetMap;
             
-            map.Position = Punkt_til_neste_kart; //PointLatLng(60.36893643470203, 5.350878781967968);
+            map.Position = Punkt_fra_forrige_kart; //PointLatLng(60.36893643470203, 5.350878781967968);
 
             //settings for kart
             map.MinZoom = 0; // min zoom level
             map.MaxZoom = 27; // maximum
-            map.Zoom = 17; //
+            map.Zoom = 17; // Behagelig Zoom level 
             map.DragButton = MouseButtons.Left;
-            map.ShowCenter = true; // false om man vil ha den bort
         }
 
         private void btnPoisjon_Click(object sender, EventArgs e)
@@ -96,12 +94,12 @@ namespace GMAP_Demo
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            //endre farge
             AlleKnapperTilStandarfarge();
             btnFilter.BackColor = knapp_trykket;
 
-            int høyde = btnFilter.Height;
-            int top = btnFilter.Top;
-            FlyttNavigasjonsPanel(høyde, top);
+            //Flytte panelet til rett posisjon
+            FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
 
             
 
@@ -121,7 +119,7 @@ namespace GMAP_Demo
         private void btnRediger_Click(object sender, EventArgs e)
         {
             //for å sende posisjonen til neste kart
-            Punkt_til_neste_kart = map.Position;
+            Punkt_fra_forrige_kart = map.Position;
             //Prøvde å sende zoom level også men opplevde et par bugs da
 
             //for å åpne Fjern/rediger form
@@ -133,7 +131,7 @@ namespace GMAP_Demo
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            AlleKnapperTilStandarfarge();
+            //AlleKnapperTilStandarfarge();
 
             this.Hide();
             frmSettings frmSettings = new frmSettings(); // instance 

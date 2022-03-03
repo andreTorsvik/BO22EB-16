@@ -45,7 +45,7 @@ namespace GMAP_Demo
         {
             //start posisjon kart
             map.MapProvider = GMapProviders.OpenStreetMap;
-            PointLatLng point = Form1.Punkt_til_neste_kart;
+            PointLatLng point = Form1.Punkt_fra_forrige_kart;
             map.Position = point;
 
             //settings for kart
@@ -57,7 +57,7 @@ namespace GMAP_Demo
         }
         private void btnTilbake_Click(object sender, EventArgs e)
         {
-            Form1.Punkt_til_neste_kart = map.Position;
+            Form1.Punkt_fra_forrige_kart = map.Position;
             PnlFormLoader.Controls.Clear();
             
             this.Hide();
