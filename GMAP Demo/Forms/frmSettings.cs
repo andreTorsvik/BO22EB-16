@@ -39,6 +39,8 @@ namespace GMAP_Demo
             PnlFormLoader.Controls.Clear();
             this.Hide();
             Form1 form1 = new Form1();
+            form1.Size = this.Size;
+            form1.Location = this.Location;
             form1.Show();   
         }
 
@@ -148,6 +150,8 @@ namespace GMAP_Demo
             PnlFormLoader.Controls.Clear();
             this.Hide();
             frmDatabaseView frmDatabaseView = new frmDatabaseView();
+            frmDatabaseView.Size = this.Size;
+            frmDatabaseView.Location = this.Location;
             frmDatabaseView.Show();
         }
 

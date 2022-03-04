@@ -125,6 +125,8 @@ namespace GMAP_Demo
             PnlFormLoader.Controls.Clear(); // usiker om denne trengs 
             this.Hide();
             frmRediger frmRediger = new frmRediger(); // instance 
+            frmRediger.Size = this.Size;
+            frmRediger.Location = this.Location;
             frmRediger.Show();
         }
 
@@ -135,6 +137,8 @@ namespace GMAP_Demo
             PnlFormLoader.Controls.Clear(); // usikker om denne trengs 
             this.Hide();
             frmSettings frmSettings = new frmSettings(); // instance 
+            frmSettings.Size = this.Size;
+            frmSettings.Location = this.Location;
             frmSettings.Show();
         }
 

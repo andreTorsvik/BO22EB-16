@@ -79,7 +79,7 @@
             this.listBoxDatabaseView.FormattingEnabled = true;
             this.listBoxDatabaseView.ItemHeight = 25;
             this.listBoxDatabaseView.Location = new System.Drawing.Point(10, 23);
-            this.listBoxDatabaseView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBoxDatabaseView.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxDatabaseView.Name = "listBoxDatabaseView";
             this.listBoxDatabaseView.Size = new System.Drawing.Size(1412, 954);
             this.listBoxDatabaseView.TabIndex = 0;
@@ -276,7 +276,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmDatabaseView";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Database sjekk";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSettings_FormClosing);
             this.Load += new System.EventHandler(this.frmSettings_Load);
