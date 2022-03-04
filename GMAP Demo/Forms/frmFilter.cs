@@ -16,32 +16,33 @@ namespace GMAP_Demo
 {
     public partial class frmFilter : Form
     {
-        public static List<Ressurs> LRessurs = new List<Ressurs>();
+        
 
         public frmFilter()
         {
             InitializeComponent();
-             
+            
         }
 
 
         private void btnLeggTil_Click(object sender, EventArgs e)
         {
-            LRessurs.Clear();
+
+            Form1.LRessurs.Clear();
 
             DatabaseCommunication db = new DatabaseCommunication();
             var RessursList = db.ListAllRessursFromDb();
             foreach (var item in RessursList)
             {
-                LRessurs.Add(item);
+                Form1.LRessurs.Add(item);
             }
 
-            txtAntall.Text = LRessurs.Count.ToString();
+            txtAntall.Text = Form1.LRessurs.Count.ToString();
         }
 
         private void btnRessurs_Click(object sender, EventArgs e)
         {
-            Form1.LeggTilRessursPåKart(LRessurs);
+            Form1.LeggTilRessursPåKart(Form1.LRessurs);
         }
 
         private void txtAntall_TextChanged(object sender, EventArgs e)

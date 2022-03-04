@@ -21,7 +21,9 @@ namespace GMAP_Demo
         public static PointLatLng Punkt_fra_forrige_kart;
         private static bool KjørEnGang = true;
         private static Color knapp_trykket;
-        
+        public static List<Ressurs> LRessurs;
+        public static int WinduHøyde;
+        public static int Windubrede;
 
         public Form1()
         {
@@ -51,6 +53,7 @@ namespace GMAP_Demo
             Punkt_fra_forrige_kart = new PointLatLng(60.36893643470203, 5.350878781967968);
             knapp_trykket = Color.FromArgb(46, 51, 73);
             KjørEnGang = false;
+            LRessurs = new List<Ressurs>();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -126,6 +129,8 @@ namespace GMAP_Demo
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            WinduHøyde = ClientSize.Height;
+            Windubrede = ClientSize.Width;
             PnlFormLoader.Controls.Clear(); // usikker om denne trengs 
             this.Hide();
             frmSettings frmSettings = new frmSettings(); // instance 
@@ -195,7 +200,7 @@ namespace GMAP_Demo
 
         public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            frmFilter.txtInfo.Text = frmFilter.LRessurs[Convert.ToInt32(item.Tag)].ressursDataTypeToString;
+            frmFilter.txtInfo.Text = LRessurs[Convert.ToInt32(item.Tag)].ressursDataTypeToString;
         }
     }
 }

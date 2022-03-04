@@ -31,6 +31,8 @@ namespace GMAP_Demo
             frm_R_LeggTilObjekt_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frm_R_LeggTilObjekt_vrb);
             frm_R_LeggTilObjekt_vrb.Show();
+
+            
         }
 
         private void frmRediger_Load(object sender, EventArgs e)
@@ -57,7 +59,6 @@ namespace GMAP_Demo
         {
             Form1.Punkt_fra_forrige_kart = map.Position;
             PnlFormLoader.Controls.Clear();
-            
             this.Hide();
             Form1 form1 = new Form1();
             form1.Show();

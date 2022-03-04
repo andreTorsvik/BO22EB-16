@@ -54,20 +54,19 @@
             this.PnlFormLoader.Controls.Add(this.listBoxDatabaseView);
             this.PnlFormLoader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlFormLoader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.PnlFormLoader.Location = new System.Drawing.Point(474, 0);
-            this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(4);
+            this.PnlFormLoader.Location = new System.Drawing.Point(316, 0);
             this.PnlFormLoader.Name = "PnlFormLoader";
-            this.PnlFormLoader.Size = new System.Drawing.Size(2054, 1310);
+            this.PnlFormLoader.Size = new System.Drawing.Size(967, 675);
             this.PnlFormLoader.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(478, 1269);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(319, 812);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 25);
+            this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
@@ -77,11 +76,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxDatabaseView.FormattingEnabled = true;
-            this.listBoxDatabaseView.ItemHeight = 25;
-            this.listBoxDatabaseView.Location = new System.Drawing.Point(10, 23);
-            this.listBoxDatabaseView.Margin = new System.Windows.Forms.Padding(6);
+            this.listBoxDatabaseView.ItemHeight = 16;
+            this.listBoxDatabaseView.Location = new System.Drawing.Point(7, 15);
+            this.listBoxDatabaseView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBoxDatabaseView.Name = "listBoxDatabaseView";
-            this.listBoxDatabaseView.Size = new System.Drawing.Size(2016, 1229);
+            this.listBoxDatabaseView.Size = new System.Drawing.Size(943, 612);
             this.listBoxDatabaseView.TabIndex = 0;
             // 
             // panel1
@@ -99,9 +98,8 @@
             this.panel1.Controls.Add(this.btnDbBrukerView);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 1310);
+            this.panel1.Size = new System.Drawing.Size(316, 675);
             this.panel1.TabIndex = 3;
             // 
             // btnDbOmrådeView
@@ -111,10 +109,9 @@
             this.btnDbOmrådeView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDbOmrådeView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDbOmrådeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDbOmrådeView.Location = new System.Drawing.Point(0, 917);
-            this.btnDbOmrådeView.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDbOmrådeView.Location = new System.Drawing.Point(0, 588);
             this.btnDbOmrådeView.Name = "btnDbOmrådeView";
-            this.btnDbOmrådeView.Size = new System.Drawing.Size(474, 131);
+            this.btnDbOmrådeView.Size = new System.Drawing.Size(316, 84);
             this.btnDbOmrådeView.TabIndex = 1;
             this.btnDbOmrådeView.Text = "Område";
             this.btnDbOmrådeView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -124,10 +121,9 @@
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlNav.Location = new System.Drawing.Point(0, 1177);
-            this.pnlNav.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlNav.Location = new System.Drawing.Point(0, 753);
             this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(4, 131);
+            this.pnlNav.Size = new System.Drawing.Size(3, 84);
             this.pnlNav.TabIndex = 1;
             // 
             // btnDbRessursView
@@ -137,10 +133,9 @@
             this.btnDbRessursView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDbRessursView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDbRessursView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDbRessursView.Location = new System.Drawing.Point(0, 786);
-            this.btnDbRessursView.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDbRessursView.Location = new System.Drawing.Point(0, 504);
             this.btnDbRessursView.Name = "btnDbRessursView";
-            this.btnDbRessursView.Size = new System.Drawing.Size(474, 131);
+            this.btnDbRessursView.Size = new System.Drawing.Size(316, 84);
             this.btnDbRessursView.TabIndex = 1;
             this.btnDbRessursView.Text = "Ressurs";
             this.btnDbRessursView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -154,10 +149,9 @@
             this.btnTilbake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTilbake.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTilbake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnTilbake.Location = new System.Drawing.Point(0, 1179);
-            this.btnTilbake.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTilbake.Location = new System.Drawing.Point(0, 591);
             this.btnTilbake.Name = "btnTilbake";
-            this.btnTilbake.Size = new System.Drawing.Size(474, 131);
+            this.btnTilbake.Size = new System.Drawing.Size(316, 84);
             this.btnTilbake.TabIndex = 1;
             this.btnTilbake.Text = "Tilbake";
             this.btnTilbake.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -171,10 +165,9 @@
             this.btnDbPunkter_områdeView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDbPunkter_områdeView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDbPunkter_områdeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDbPunkter_områdeView.Location = new System.Drawing.Point(0, 655);
-            this.btnDbPunkter_områdeView.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDbPunkter_områdeView.Location = new System.Drawing.Point(0, 420);
             this.btnDbPunkter_områdeView.Name = "btnDbPunkter_områdeView";
-            this.btnDbPunkter_områdeView.Size = new System.Drawing.Size(474, 131);
+            this.btnDbPunkter_områdeView.Size = new System.Drawing.Size(316, 84);
             this.btnDbPunkter_områdeView.TabIndex = 1;
             this.btnDbPunkter_områdeView.Text = "Punkter_område";
             this.btnDbPunkter_områdeView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -188,10 +181,9 @@
             this.btnDbOverlay_RessursView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDbOverlay_RessursView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDbOverlay_RessursView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDbOverlay_RessursView.Location = new System.Drawing.Point(0, 524);
-            this.btnDbOverlay_RessursView.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDbOverlay_RessursView.Location = new System.Drawing.Point(0, 336);
             this.btnDbOverlay_RessursView.Name = "btnDbOverlay_RessursView";
-            this.btnDbOverlay_RessursView.Size = new System.Drawing.Size(474, 131);
+            this.btnDbOverlay_RessursView.Size = new System.Drawing.Size(316, 84);
             this.btnDbOverlay_RessursView.TabIndex = 1;
             this.btnDbOverlay_RessursView.Text = "Overlay_Ressurs";
             this.btnDbOverlay_RessursView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -205,10 +197,9 @@
             this.btnDbOverlay_OmrådeView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDbOverlay_OmrådeView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDbOverlay_OmrådeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDbOverlay_OmrådeView.Location = new System.Drawing.Point(0, 393);
-            this.btnDbOverlay_OmrådeView.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDbOverlay_OmrådeView.Location = new System.Drawing.Point(0, 252);
             this.btnDbOverlay_OmrådeView.Name = "btnDbOverlay_OmrådeView";
-            this.btnDbOverlay_OmrådeView.Size = new System.Drawing.Size(474, 131);
+            this.btnDbOverlay_OmrådeView.Size = new System.Drawing.Size(316, 84);
             this.btnDbOverlay_OmrådeView.TabIndex = 1;
             this.btnDbOverlay_OmrådeView.Text = "Overlay_Område";
             this.btnDbOverlay_OmrådeView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -222,10 +213,9 @@
             this.btnDbMålingView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDbMålingView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDbMålingView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDbMålingView.Location = new System.Drawing.Point(0, 262);
-            this.btnDbMålingView.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDbMålingView.Location = new System.Drawing.Point(0, 168);
             this.btnDbMålingView.Name = "btnDbMålingView";
-            this.btnDbMålingView.Size = new System.Drawing.Size(474, 131);
+            this.btnDbMålingView.Size = new System.Drawing.Size(316, 84);
             this.btnDbMålingView.TabIndex = 1;
             this.btnDbMålingView.Text = "Måling";
             this.btnDbMålingView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -239,10 +229,9 @@
             this.btnDbKategorier_BildeView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDbKategorier_BildeView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDbKategorier_BildeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDbKategorier_BildeView.Location = new System.Drawing.Point(0, 131);
-            this.btnDbKategorier_BildeView.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDbKategorier_BildeView.Location = new System.Drawing.Point(0, 84);
             this.btnDbKategorier_BildeView.Name = "btnDbKategorier_BildeView";
-            this.btnDbKategorier_BildeView.Size = new System.Drawing.Size(474, 131);
+            this.btnDbKategorier_BildeView.Size = new System.Drawing.Size(316, 84);
             this.btnDbKategorier_BildeView.TabIndex = 1;
             this.btnDbKategorier_BildeView.Text = "Kategorier_Bilde";
             this.btnDbKategorier_BildeView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -257,9 +246,8 @@
             this.btnDbBrukerView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDbBrukerView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnDbBrukerView.Location = new System.Drawing.Point(0, 0);
-            this.btnDbBrukerView.Margin = new System.Windows.Forms.Padding(4);
             this.btnDbBrukerView.Name = "btnDbBrukerView";
-            this.btnDbBrukerView.Size = new System.Drawing.Size(474, 131);
+            this.btnDbBrukerView.Size = new System.Drawing.Size(316, 84);
             this.btnDbBrukerView.TabIndex = 1;
             this.btnDbBrukerView.Text = "Bruker";
             this.btnDbBrukerView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -268,13 +256,12 @@
             // 
             // frmDatabaseView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2528, 1310);
+            this.ClientSize = new System.Drawing.Size(1283, 675);
             this.Controls.Add(this.PnlFormLoader);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDatabaseView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Database sjekk";

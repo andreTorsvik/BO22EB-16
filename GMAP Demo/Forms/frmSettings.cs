@@ -32,7 +32,7 @@ namespace GMAP_Demo
 
         private void frmSettings_Load(object sender, EventArgs e)
         {
-
+            //ClientSize = new Size(Form1.Windubrede,Form1.WinduHøyde);
         }
         private void btnTilbake_Click(object sender, EventArgs e)
         {
