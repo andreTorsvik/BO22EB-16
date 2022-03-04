@@ -43,7 +43,28 @@ namespace GMAP_Demo
 
         private void btnRessurs_Click(object sender, EventArgs e)
         {
-            Form1.LeggTilRessursPåKart(Form1.LRessurs);
+            //Form1.LeggTilRessursPåKart(Form1.LRessurs);
+            int tag = 0;
+            GMapMarker marker;
+            foreach (var item in Form1.LRessurs)
+            {
+                PointLatLng punkt = item.GiPunktet();
+
+                marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
+
+                marker.ToolTipText = String.Format("{0}", item.Navn);
+                marker.ToolTip.Fill = Brushes.Black;
+                marker.ToolTip.Foreground = Brushes.White;
+                marker.ToolTip.Stroke = Pens.Black;
+                marker.ToolTip.TextPadding = new Size(20, 20);
+                marker.Tag = tag;
+                tag++;
+
+                GMapOverlay markers = new GMapOverlay("test1");
+                markers.Markers.Add(marker);
+                Form1.instance.map.Overlays.Add(markers);
+            }
+            Form1.reff();
         }
 
         private void txtAntall_TextChanged(object sender, EventArgs e)

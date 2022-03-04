@@ -133,6 +133,6 @@
         private System.Windows.Forms.TextBox txtAntall;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFjern;
-        public static System.Windows.Forms.TextBox txtInfo;
+        public System.Windows.Forms.TextBox txtInfo;
     }
 }

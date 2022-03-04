@@ -171,30 +171,6 @@ namespace GMAP_Demo
             pnlNav.Left = btnPosisjon.Left;
         }
 
-        public static void LeggTilRessursPåKart(List<Ressurs> LRessurs)
-        {
-            int tag = 0;
-            GMapMarker marker;
-            foreach (var item in LRessurs)
-            {
-                PointLatLng punkt = item.GiPunktet();
-
-                marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
-
-                marker.ToolTipText = String.Format("{0}", item.Navn);
-                marker.ToolTip.Fill = Brushes.Black;
-                marker.ToolTip.Foreground = Brushes.White;
-                marker.ToolTip.Stroke = Pens.Black;
-                marker.ToolTip.TextPadding = new Size(20, 20);
-                marker.Tag = tag;
-                tag++;
-
-                GMapOverlay markers = new GMapOverlay("test1");
-                markers.Markers.Add(marker);
-                Form1.instance.map.Overlays.Add(markers);
-            }
-            reff();
-        }
         public static void reff()
         {
             Form1.instance.map.Zoom++;
@@ -203,7 +179,7 @@ namespace GMAP_Demo
 
         public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            frmFilter.txtInfo.Text = LRessurs[Convert.ToInt32(item.Tag)].ressursDataTypeToString;
+            frmFilter.instance.txtInfo.Text = LRessurs[Convert.ToInt32(item.Tag)].ressursDataTypeToString;
         }
 
         private void map_MouseDoubleClick(object sender, MouseEventArgs e)
