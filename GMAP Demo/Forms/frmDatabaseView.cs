@@ -13,6 +13,7 @@ namespace GMAP_Demo
 {
     public partial class frmDatabaseView : Form
     {
+        ProgramAppearance appearance = new ProgramAppearance();
         List<Bruker> brukerList = new List<Bruker>();
         List<Kategorier_Bilde> kategorier_BildeList = new List<Kategorier_Bilde>();
         List<Måling> målingList = new List<Måling>();
@@ -46,6 +47,10 @@ namespace GMAP_Demo
         {
             this.Hide();
             frmSettings frmSettings = new frmSettings(); // instance 
+            //frmSettings.Size = new Size(appearance.SizeHight, appearance.SizeWidth);
+            frmSettings.Size = this.Size;
+            //frmSettings.Location = new Point(appearance.LocationX, appearance.LocationY);
+            frmSettings.Location = this.Location;
             frmSettings.Show();
         }
 
@@ -66,6 +71,10 @@ namespace GMAP_Demo
         private void frmSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+            appearance.LocationX = this.Location.X;
+            appearance.LocationY = this.Location.Y;
+            appearance.SizeHight = this.Size.Height;
+            appearance.SizeWidth = this.Size.Width;
         }
 
         private void btnDbBrukerView_Click(object sender, EventArgs e)
