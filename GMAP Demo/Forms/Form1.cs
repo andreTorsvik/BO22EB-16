@@ -222,5 +222,11 @@ namespace GMAP_Demo
         {
 
         }
+
+        public static void AdresseTilKart(string Adresse)
+        {
+            map.SetPositionByKeywords(Adresse);
+        }
+
     }
 }

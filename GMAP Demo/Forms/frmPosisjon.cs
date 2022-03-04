@@ -21,7 +21,12 @@ namespace GMAP_Demo
 
         private void btnSøk_Click(object sender, EventArgs e)
         {
-            
+            string svar = " ";
+            svar += txtAdresse.Text +",";
+            svar += txtByKommune.Text+ ",";
+            svar += txtLand.Text;
+            svar = svar.Trim();
+            Form1.AdresseTilKart(svar);
         }
 
         public static void OppdaterLatLongText(PointLatLng punkt)
@@ -32,8 +37,6 @@ namespace GMAP_Demo
 
             txtLat.Text = lat.ToString();
             txtLong.Text = lng.ToString();
-
-
         }
     }
 }
