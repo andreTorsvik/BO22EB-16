@@ -12,9 +12,16 @@ namespace GMAP_Demo
 {
     public partial class frm_R_LeggTilObjekt : Form
     {
+        public static frm_R_LeggTilObjekt instance;
         public frm_R_LeggTilObjekt()
         {
             InitializeComponent();
+            instance = this;
+        }
+
+        private void frm_R_LeggTilObjekt_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

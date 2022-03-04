@@ -14,14 +14,15 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
+    
     public partial class frmFilter : Form
     {
-        
+        public static frmFilter instance;
 
         public frmFilter()
         {
             InitializeComponent();
-            
+            instance = this;
         }
 
 

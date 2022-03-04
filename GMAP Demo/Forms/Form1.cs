@@ -23,11 +23,14 @@ namespace GMAP_Demo
         private static Color knapp_trykket;
         public static List<Ressurs> LRessurs;
         public static PointLatLng DoubleClick_punkt;
+        public static Form1 instance;
+        
 
         public Form1()
         {
             if (KjørEnGang) OpprettingAvGlobaleVariabler();
             InitializeComponent();
+            instance = this;
 
             //start form Posisjon
             this.PnlFormLoader.Controls.Clear();
@@ -214,7 +217,11 @@ namespace GMAP_Demo
             {
                 DoubleClick_punkt = map.FromLocalToLatLng(e.X, e.Y);
 
-                frmPosisjon.OppdaterLatLongText(DoubleClick_punkt);
+                double lat = DoubleClick_punkt.Lat;
+                double lng = DoubleClick_punkt.Lng;
+
+                frmPosisjon.instance.txtLat.Text = lat.ToString();
+                frmPosisjon.instance.txtLong.Text = lng.ToString();
             }
         }
 

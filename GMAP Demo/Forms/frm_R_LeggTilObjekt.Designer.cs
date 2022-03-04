@@ -52,6 +52,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_R_LeggTilObjekt";
             this.Text = "frm_R_LeggTilObjekt";
+            this.Load += new System.EventHandler(this.frm_R_LeggTilObjekt_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -17,9 +17,11 @@ namespace GMAP_Demo
     public partial class frmRediger : Form
     {
         private static Color knapp_trykket;
+        public static frmRediger instance;
         public frmRediger()
         {
             InitializeComponent();
+            instance = this;
             knapp_trykket = Color.FromArgb(46, 51, 73);
 
             //sette oransjePanelet til Posisjonknapp
