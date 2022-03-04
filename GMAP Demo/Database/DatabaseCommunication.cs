@@ -55,6 +55,14 @@ namespace GMAP_Demo
                 return output;
             }
         }
+        public List<Område> ListAllOmrådeFromDb()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
+            {
+                var output = connection.Query<Område>("SELECT * FROM dbo.Område").ToList();
+                return output;
+            }
+        }
         public List<Overlay_Område> ListAllOverlay_OmrådeFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))

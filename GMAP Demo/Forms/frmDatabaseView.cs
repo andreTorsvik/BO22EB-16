@@ -16,10 +16,11 @@ namespace GMAP_Demo
         List<Bruker> brukerList = new List<Bruker>();
         List<Kategorier_Bilde> kategorier_BildeList = new List<Kategorier_Bilde>();
         List<Måling> målingList = new List<Måling>();
+        List<Område> områdeList = new List<Område>();
         List<Overlay_Område> overlay_OmrådeList = new List<Overlay_Område>();
         List<Overlay_Ressurs> overlay_RessursList = new List<Overlay_Ressurs>();
         List<Punkter_område> punkter_områdeList = new List<Punkter_område>();
-        List<Ressurs> ressursListe = new List<Ressurs>();
+        List<Ressurs> ressursList = new List<Ressurs>();
         private static Color knapp_trykket;
 
 
@@ -33,7 +34,7 @@ namespace GMAP_Demo
 
         private void UpdateBinding()
         {
-            listBoxDatabaseView.DataSource = ressursListe;
+            listBoxDatabaseView.DataSource = ressursList;
             listBoxDatabaseView.DisplayMember = "ressursDataTypeToString";
         }
 
@@ -55,6 +56,7 @@ namespace GMAP_Demo
             btnDbBrukerView.BackColor = StandarFarge;
             btnDbKategorier_BildeView.BackColor = StandarFarge;
             btnDbMålingView.BackColor = StandarFarge;
+            btnDbOmrådeView.BackColor = StandarFarge;
             btnDbOverlay_OmrådeView.BackColor = StandarFarge;
             btnDbOverlay_RessursView.BackColor = StandarFarge;
             btnDbPunkter_områdeView.BackColor = StandarFarge;
@@ -152,8 +154,8 @@ namespace GMAP_Demo
             FlyttNavigasjonsPanel(btnDbRessursView.Height, btnDbRessursView.Top);
 
             DatabaseCommunication db = new DatabaseCommunication();
-            ressursListe = db.ListAllRessursFromDb();
-            listBoxDatabaseView.DataSource = ressursListe;
+            ressursList = db.ListAllRessursFromDb();
+            listBoxDatabaseView.DataSource = ressursList;
             listBoxDatabaseView.DisplayMember = "ressursDataTypeToString";
         }
 
@@ -164,6 +166,19 @@ namespace GMAP_Demo
             pnlNav.Top = top;
             //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
             pnlNav.Left = btnDbBrukerView.Left;
+        }
+
+        private void btnDbOmrådeView_Click(object sender, EventArgs e)
+        {
+            AlleKnapperTilStandarfarge();
+            btnDbOmrådeView.BackColor = knapp_trykket;
+
+            FlyttNavigasjonsPanel(btnDbOmrådeView.Height, btnDbOmrådeView.Top);
+
+            DatabaseCommunication db = new DatabaseCommunication();
+            områdeList = db.ListAllOmrådeFromDb();
+            listBoxDatabaseView.DataSource = områdeList;
+            listBoxDatabaseView.DisplayMember = "områdeDataTypeToString";
         }
     }
 }
