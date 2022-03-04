@@ -24,6 +24,7 @@ namespace GMAP_Demo
         public static List<Ressurs> LRessurs;
         public static int WinduHøyde;
         public static int Windubrede;
+        public static PointLatLng DoubleClick_punkt;
 
         public Form1()
         {
@@ -201,6 +202,21 @@ namespace GMAP_Demo
         public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
             frmFilter.txtInfo.Text = LRessurs[Convert.ToInt32(item.Tag)].ressursDataTypeToString;
+        }
+
+        private void map_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DoubleClick_punkt = map.FromLocalToLatLng(e.X, e.Y);
+
+                frmPosisjon.OppdaterLatLongText(DoubleClick_punkt);
+            }
+        }
+
+        private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
+        {
+
         }
     }
 }

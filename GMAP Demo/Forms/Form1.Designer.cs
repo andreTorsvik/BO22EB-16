@@ -219,32 +219,34 @@
             map.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            map.Bearing = 0F;
-            map.CanDragMap = true;
-            map.EmptyTileColor = System.Drawing.Color.Navy;
-            map.GrayScaleMode = false;
-            map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            map.LevelsKeepInMemory = 5;
-            map.Location = new System.Drawing.Point(727, 0);
-            map.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            map.MarkersEnabled = true;
-            map.MaxZoom = 2;
-            map.MinZoom = 2;
-            map.MouseWheelZoomEnabled = true;
-            map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.ViewCenter;
-            map.Name = "map";
-            map.NegativeMode = false;
-            map.PolygonsEnabled = true;
-            map.RetryLoadTile = 0;
-            map.RoutesEnabled = true;
-            map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            map.ShowTileGridLines = false;
-            map.Size = new System.Drawing.Size(960, 838);
-            map.TabIndex = 2;
-            map.Zoom = 0D;
-            map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(map_OnMarkerClick);
-            map.Load += new System.EventHandler(this.map_Load);
+           map.Bearing = 0F;
+           map.CanDragMap = true;
+           map.EmptyTileColor = System.Drawing.Color.Navy;
+           map.GrayScaleMode = false;
+           map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+           map.LevelsKeepInMemory = 5;
+           map.Location = new System.Drawing.Point(727, 0);
+           map.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+           map.MarkersEnabled = true;
+           map.MaxZoom = 2;
+           map.MinZoom = 2;
+           map.MouseWheelZoomEnabled = true;
+           map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.ViewCenter;
+           map.Name = "map";
+           map.NegativeMode = false;
+           map.PolygonsEnabled = true;
+           map.RetryLoadTile = 0;
+           map.RoutesEnabled = true;
+           map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+           map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+           map.ShowTileGridLines = false;
+           map.Size = new System.Drawing.Size(960, 838);
+           map.TabIndex = 2;
+           map.Zoom = 0D;
+           map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(map_OnMarkerClick);
+           map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
+           map.Load += new System.EventHandler(this.map_Load);
+           map.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.map_MouseDoubleClick);
             // 
             // Form1
             // 

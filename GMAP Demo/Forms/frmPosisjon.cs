@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GMap.NET;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,27 @@ namespace GMAP_Demo
 {
     public partial class frmPosisjon : Form
     {
+
         public frmPosisjon()
         {
             InitializeComponent();
         }
 
+        private void btnSøk_Click(object sender, EventArgs e)
+        {
+            
+        }
 
+        public static void OppdaterLatLongText(PointLatLng punkt)
+        {
+            double lat = punkt.Lat;
+            double lng = punkt.Lng;
+
+
+            txtLat.Text = lat.ToString();
+            txtLong.Text = lng.ToString();
+
+
+        }
     }
 }
