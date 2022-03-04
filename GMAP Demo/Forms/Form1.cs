@@ -11,6 +11,8 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET;
 using GMap.NET.MapProviders;
+using GMAP_Demo.Database.DataTypes;
+
 
 namespace GMAP_Demo
 {
@@ -19,6 +21,7 @@ namespace GMAP_Demo
         public static PointLatLng Punkt_fra_forrige_kart;
         private static bool KjørEnGang = true;
         private static Color knapp_trykket;
+        
 
         public Form1()
         {
@@ -155,6 +158,44 @@ namespace GMAP_Demo
             pnlNav.Left = btnPosisjon.Left;
         }
 
+        private void map_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        public static void LeggTilRessursPåKart(List<Ressurs> LRessurs)
+        {
+            int tag = 0;
+            GMapMarker marker;
+            foreach (var item in LRessurs)
+            {
+                PointLatLng punkt = item.GiPunktet();
+
+                marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
+
+                marker.ToolTipText = String.Format("{0}", item.Navn);
+                marker.ToolTip.Fill = Brushes.Black;
+                marker.ToolTip.Foreground = Brushes.White;
+                marker.ToolTip.Stroke = Pens.Black;
+                marker.ToolTip.TextPadding = new Size(20, 20);
+                marker.Tag = tag;
+                tag++;
+
+                GMapOverlay markers = new GMapOverlay("test1");
+                markers.Markers.Add(marker);
+                map.Overlays.Add(markers);
+            }
+            reff();
+        }
+        public static void reff()
+        {
+            map.Zoom++;
+            map.Zoom--;
+        }
+
+        public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
+        {
+            frmFilter.txtInfo.Text = frmFilter.LRessurs[Convert.ToInt32(item.Tag)].ressursDataTypeToString;
+        }
     }
 }

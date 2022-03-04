@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GMap.NET;
 
 namespace GMAP_Demo.Database.DataTypes
 {
-    internal class Ressurs
+    public class Ressurs
     {
         // Løpenummer_ressurs som skriver til databasen må bruke DEFAULT pga constraintSequence
         private string defa = "DEFAULT";
@@ -23,9 +24,6 @@ namespace GMAP_Demo.Database.DataTypes
         public float Lat { get; set; }
         public float Lang { get; set; }
 
-
-
-
         public string ressursDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
         {
             get
@@ -33,6 +31,14 @@ namespace GMAP_Demo.Database.DataTypes
                 return $"({Løpenummer_ressurs} - {Navn} - {Kategori} - {Dato_opprettet} - {Opprettet_av_bruker} - {Sikkerhetsklarering} - {Kommentar} - {Lat} - {Lang})";
             }
         }
+
+        public PointLatLng GiPunktet()
+        {
+            PointLatLng point = new PointLatLng(Lat, Lang);
+            return point;
+        }
+
+
 
 
 
