@@ -171,11 +171,6 @@ namespace GMAP_Demo
             pnlNav.Left = btnPosisjon.Left;
         }
 
-        private void map_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public static void LeggTilRessursPåKart(List<Ressurs> LRessurs)
         {
             int tag = 0;

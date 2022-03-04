@@ -170,7 +170,7 @@
             // 
             this.btnStart.Location = new System.Drawing.Point(21, 483);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(102, 34);
+            this.btnStart.Size = new System.Drawing.Size(127, 34);
             this.btnStart.TabIndex = 14;
             this.btnStart.Text = "Bruk som start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -180,7 +180,7 @@
             // 
             this.btnSlutt.Location = new System.Drawing.Point(179, 483);
             this.btnSlutt.Name = "btnSlutt";
-            this.btnSlutt.Size = new System.Drawing.Size(102, 34);
+            this.btnSlutt.Size = new System.Drawing.Size(116, 34);
             this.btnSlutt.TabIndex = 15;
             this.btnSlutt.Text = "Bruk som Mål";
             this.btnSlutt.UseVisualStyleBackColor = true;
@@ -236,7 +236,7 @@
             // 
             // btnFjernRute
             // 
-            this.btnFjernRute.Location = new System.Drawing.Point(20, 722);
+            this.btnFjernRute.Location = new System.Drawing.Point(179, 670);
             this.btnFjernRute.Name = "btnFjernRute";
             this.btnFjernRute.Size = new System.Drawing.Size(102, 34);
             this.btnFjernRute.TabIndex = 21;
