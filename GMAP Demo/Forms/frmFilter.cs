@@ -56,6 +56,7 @@ namespace GMAP_Demo
             //Form1.map.Overlays.Remove("test1");
             Form1.reff();
             txtInfo.Text = "";
+            
         }
     }
 }

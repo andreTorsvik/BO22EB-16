@@ -42,11 +42,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnSlutt = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnFinnRute = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            txtLong = new System.Windows.Forms.TextBox();
+            this.txtLong = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            txtLat = new System.Windows.Forms.TextBox();
+            this.txtLat = new System.Windows.Forms.TextBox();
+            this.btnFjernRute = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -126,7 +127,7 @@
             // 
             // txtFra
             // 
-            this.txtFra.Location = new System.Drawing.Point(229, 539);
+            this.txtFra.Location = new System.Drawing.Point(21, 557);
             this.txtFra.Multiline = true;
             this.txtFra.Name = "txtFra";
             this.txtFra.ReadOnly = true;
@@ -135,7 +136,7 @@
             // 
             // txtTil
             // 
-            this.txtTil.Location = new System.Drawing.Point(229, 670);
+            this.txtTil.Location = new System.Drawing.Point(181, 557);
             this.txtTil.Multiline = true;
             this.txtTil.Name = "txtTil";
             this.txtTil.ReadOnly = true;
@@ -147,7 +148,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label5.Location = new System.Drawing.Point(225, 516);
+            this.label5.Location = new System.Drawing.Point(17, 534);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 20);
             this.label5.TabIndex = 12;
@@ -158,38 +159,42 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label6.Location = new System.Drawing.Point(225, 647);
+            this.label6.Location = new System.Drawing.Point(177, 534);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 20);
             this.label6.TabIndex = 13;
             this.label6.Text = "Til";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(21, 539);
+            this.btnStart.Location = new System.Drawing.Point(21, 483);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(102, 44);
+            this.btnStart.Size = new System.Drawing.Size(102, 34);
             this.btnStart.TabIndex = 14;
             this.btnStart.Text = "Bruk som start";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnSlutt
             // 
-            this.btnSlutt.Location = new System.Drawing.Point(21, 670);
+            this.btnSlutt.Location = new System.Drawing.Point(179, 483);
             this.btnSlutt.Name = "btnSlutt";
-            this.btnSlutt.Size = new System.Drawing.Size(102, 44);
+            this.btnSlutt.Size = new System.Drawing.Size(102, 34);
             this.btnSlutt.TabIndex = 15;
             this.btnSlutt.Text = "Bruk som Mål";
             this.btnSlutt.UseVisualStyleBackColor = true;
+            this.btnSlutt.Click += new System.EventHandler(this.btnSlutt_Click);
             // 
-            // button3
+            // btnFinnRute
             // 
-            this.button3.Location = new System.Drawing.Point(21, 767);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(102, 34);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Finn Rute";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnFinnRute.Location = new System.Drawing.Point(20, 670);
+            this.btnFinnRute.Name = "btnFinnRute";
+            this.btnFinnRute.Size = new System.Drawing.Size(102, 34);
+            this.btnFinnRute.TabIndex = 16;
+            this.btnFinnRute.Text = "Finn Rute";
+            this.btnFinnRute.UseVisualStyleBackColor = true;
+            this.btnFinnRute.Click += new System.EventHandler(this.button3_Click);
             // 
             // label7
             // 
@@ -204,11 +209,11 @@
             // 
             // txtLong
             // 
-            txtLong.Location = new System.Drawing.Point(20, 428);
-            txtLong.Name = "txtLong";
-            txtLong.ReadOnly = true;
-            txtLong.Size = new System.Drawing.Size(261, 22);
-            txtLong.TabIndex = 19;
+            this.txtLong.Location = new System.Drawing.Point(20, 428);
+            this.txtLong.Name = "txtLong";
+            this.txtLong.ReadOnly = true;
+            this.txtLong.Size = new System.Drawing.Size(261, 22);
+            this.txtLong.TabIndex = 19;
             // 
             // label8
             // 
@@ -223,11 +228,20 @@
             // 
             // txtLat
             // 
-            txtLat.Location = new System.Drawing.Point(20, 371);
-            txtLat.Name = "txtLat";
-            txtLat.ReadOnly = true;
-            txtLat.Size = new System.Drawing.Size(261, 22);
-            txtLat.TabIndex = 17;
+            this.txtLat.Location = new System.Drawing.Point(20, 371);
+            this.txtLat.Name = "txtLat";
+            this.txtLat.ReadOnly = true;
+            this.txtLat.Size = new System.Drawing.Size(261, 22);
+            this.txtLat.TabIndex = 17;
+            // 
+            // btnFjernRute
+            // 
+            this.btnFjernRute.Location = new System.Drawing.Point(20, 722);
+            this.btnFjernRute.Name = "btnFjernRute";
+            this.btnFjernRute.Size = new System.Drawing.Size(102, 34);
+            this.btnFjernRute.TabIndex = 21;
+            this.btnFjernRute.Text = "Fjern Rute";
+            this.btnFjernRute.UseVisualStyleBackColor = true;
             // 
             // frmPosisjon
             // 
@@ -235,11 +249,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(408, 872);
+            this.Controls.Add(this.btnFjernRute);
             this.Controls.Add(this.label7);
-            this.Controls.Add(txtLong);
+            this.Controls.Add(this.txtLong);
             this.Controls.Add(this.label8);
-            this.Controls.Add(txtLat);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.txtLat);
+            this.Controls.Add(this.btnFinnRute);
             this.Controls.Add(this.btnSlutt);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label6);
@@ -278,10 +293,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnSlutt;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnFinnRute;
         private System.Windows.Forms.Label label7;
-        static public System.Windows.Forms.TextBox txtLong;
         private System.Windows.Forms.Label label8;
-        static public System.Windows.Forms.TextBox txtLat;
+        private System.Windows.Forms.Button btnFjernRute;
+        public System.Windows.Forms.TextBox txtLong;
+        public System.Windows.Forms.TextBox txtLat;
     }
 }

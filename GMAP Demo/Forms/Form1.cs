@@ -22,8 +22,6 @@ namespace GMAP_Demo
         private static bool KjørEnGang = true;
         private static Color knapp_trykket;
         public static List<Ressurs> LRessurs;
-        public static int WinduHøyde;
-        public static int Windubrede;
         public static PointLatLng DoubleClick_punkt;
 
         public Form1()
@@ -113,7 +111,11 @@ namespace GMAP_Demo
         private void btnOppdater_Click(object sender, EventArgs e)
         {
             //kode for  å oppdatere overlays på kartet 
-
+            //for å finne målene til winduet
+            int bredde = this.Size.Width;
+            int høyde = this.Size.Height;
+            string svar = string.Format("bredde:{0} høyde:{1}", bredde.ToString(), høyde.ToString());
+            MessageBox.Show(svar);
         }
 
         private void btnRediger_Click(object sender, EventArgs e)
@@ -132,8 +134,6 @@ namespace GMAP_Demo
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            WinduHøyde = ClientSize.Height;
-            Windubrede = ClientSize.Width;
             PnlFormLoader.Controls.Clear(); // usikker om denne trengs 
             this.Hide();
             frmSettings frmSettings = new frmSettings(); // instance 
