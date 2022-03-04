@@ -41,7 +41,7 @@
             this.pnlNav = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PnlFormLoader = new System.Windows.Forms.Panel();
-            map = new GMap.NET.WindowsForms.GMapControl();
+            this.map = new GMap.NET.WindowsForms.GMapControl();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -216,35 +216,36 @@
             // 
             // map
             // 
-            map.Bearing = 0F;
-            map.CanDragMap = true;
-            map.Dock = System.Windows.Forms.DockStyle.Fill;
-            map.EmptyTileColor = System.Drawing.Color.Navy;
-            map.GrayScaleMode = false;
-            map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            map.LevelsKeepInMemory = 5;
-            map.Location = new System.Drawing.Point(725, 0);
-            map.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            map.MarkersEnabled = true;
-            map.MaxZoom = 2;
-            map.MinZoom = 2;
-            map.MouseWheelZoomEnabled = true;
-            map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.ViewCenter;
-            map.Name = "map";
-            map.NegativeMode = false;
-            map.PolygonsEnabled = true;
-            map.RetryLoadTile = 0;
-            map.RoutesEnabled = true;
-            map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            map.ShowTileGridLines = false;
-            map.Size = new System.Drawing.Size(729, 675);
-            map.TabIndex = 2;
-            map.Zoom = 0D;
-            map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(map_OnMarkerClick);
-            map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
-            map.Load += new System.EventHandler(this.map_Load);
-            map.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.map_MouseDoubleClick);
+            this.map.Bearing = 0F;
+            this.map.CanDragMap = true;
+            this.map.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.map.EmptyTileColor = System.Drawing.Color.Navy;
+            this.map.GrayScaleMode = false;
+            this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.map.LevelsKeepInMemory = 5;
+            this.map.Location = new System.Drawing.Point(725, 0);
+            this.map.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.map.MarkersEnabled = true;
+            this.map.MaxZoom = 2;
+            this.map.MinZoom = 2;
+            this.map.MouseWheelZoomEnabled = true;
+            this.map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.ViewCenter;
+            this.map.Name = "map";
+            this.map.NegativeMode = false;
+            this.map.PolygonsEnabled = true;
+            this.map.RetryLoadTile = 0;
+            this.map.RoutesEnabled = true;
+            this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.map.ShowTileGridLines = false;
+            this.map.Size = new System.Drawing.Size(729, 675);
+            this.map.TabIndex = 2;
+            this.map.Zoom = 0D;
+            this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(map_OnMarkerClick);
+            this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
+            this.map.OnMapZoomChanged += new GMap.NET.MapZoomChanged(this.map_OnMapZoomChanged);
+            this.map.Load += new System.EventHandler(this.map_Load);
+            this.map.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.map_MouseDoubleClick);
             // 
             // Form1
             // 
@@ -252,7 +253,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1454, 675);
-            this.Controls.Add(map);
+            this.Controls.Add(this.map);
             this.Controls.Add(this.PnlFormLoader);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -284,7 +285,7 @@
         private System.Windows.Forms.Panel pnlNav;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel PnlFormLoader;
-        public static  GMap.NET.WindowsForms.GMapControl map;
+        public GMap.NET.WindowsForms.GMapControl map;
     }
 }
 

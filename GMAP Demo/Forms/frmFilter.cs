@@ -53,7 +53,7 @@ namespace GMAP_Demo
 
         private void btnFjern_Click(object sender, EventArgs e)
         {
-            Form1.map.Overlays.Clear();
+            Form1.instance.map.Overlays.Clear();
             //Form1.map.Overlays.Remove("test1");
             Form1.reff();
             txtInfo.Text = "";

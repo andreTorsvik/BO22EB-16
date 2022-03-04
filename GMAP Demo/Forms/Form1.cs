@@ -196,14 +196,14 @@ namespace GMAP_Demo
 
                 GMapOverlay markers = new GMapOverlay("test1");
                 markers.Markers.Add(marker);
-                map.Overlays.Add(markers);
+                Form1.instance.map.Overlays.Add(markers);
             }
             reff();
         }
         public static void reff()
         {
-            map.Zoom++;
-            map.Zoom--;
+            Form1.instance.map.Zoom++;
+            Form1.instance.map.Zoom--;
         }
 
         public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
@@ -232,8 +232,12 @@ namespace GMAP_Demo
 
         public static void AdresseTilKart(string Adresse)
         {
-            map.SetPositionByKeywords(Adresse);
+            Form1.instance.map.SetPositionByKeywords(Adresse);
         }
 
+        private void map_OnMapZoomChanged()
+        {
+
+        }
     }
 }
