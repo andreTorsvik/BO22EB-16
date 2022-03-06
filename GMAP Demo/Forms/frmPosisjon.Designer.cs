@@ -209,11 +209,13 @@
             // 
             // txtLong
             // 
+            this.txtLong.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txtLong.Location = new System.Drawing.Point(20, 428);
             this.txtLong.Name = "txtLong";
             this.txtLong.ReadOnly = true;
             this.txtLong.Size = new System.Drawing.Size(261, 22);
             this.txtLong.TabIndex = 19;
+            this.txtLong.Text = "klikk på kartet ";
             // 
             // label8
             // 
@@ -228,11 +230,13 @@
             // 
             // txtLat
             // 
+            this.txtLat.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txtLat.Location = new System.Drawing.Point(20, 371);
             this.txtLat.Name = "txtLat";
             this.txtLat.ReadOnly = true;
             this.txtLat.Size = new System.Drawing.Size(261, 22);
             this.txtLat.TabIndex = 17;
+            this.txtLat.Text = "klikk på kartet";
             // 
             // btnFjernRute
             // 

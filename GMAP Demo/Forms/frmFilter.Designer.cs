@@ -34,7 +34,7 @@
             this.txtAntall = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFjern = new System.Windows.Forms.Button();
-            txtInfo = new System.Windows.Forms.TextBox();
+            this.txtInfo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label3
@@ -98,11 +98,11 @@
             // 
             // txtInfo
             // 
-          txtInfo.Location = new System.Drawing.Point(39, 275);
-          txtInfo.Multiline = true;
-          txtInfo.Name = "txtInfo";
-          txtInfo.Size = new System.Drawing.Size(113, 120);
-          txtInfo.TabIndex = 9;
+            this.txtInfo.Location = new System.Drawing.Point(39, 275);
+            this.txtInfo.Multiline = true;
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.Size = new System.Drawing.Size(161, 260);
+            this.txtInfo.TabIndex = 9;
             // 
             // frmFilter
             // 
@@ -110,7 +110,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(408, 872);
-            this.Controls.Add(txtInfo);
+            this.Controls.Add(this.txtInfo);
             this.Controls.Add(this.btnFjern);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtAntall);

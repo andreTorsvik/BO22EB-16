@@ -169,7 +169,7 @@
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnSettings.Location = new System.Drawing.Point(0, 591);
+            this.btnSettings.Location = new System.Drawing.Point(0, 627);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(316, 84);
@@ -202,7 +202,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 675);
+            this.panel1.Size = new System.Drawing.Size(316, 711);
             this.panel1.TabIndex = 0;
             // 
             // PnlFormLoader
@@ -211,7 +211,7 @@
             this.PnlFormLoader.Location = new System.Drawing.Point(316, 0);
             this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PnlFormLoader.Name = "PnlFormLoader";
-            this.PnlFormLoader.Size = new System.Drawing.Size(409, 675);
+            this.PnlFormLoader.Size = new System.Drawing.Size(409, 711);
             this.PnlFormLoader.TabIndex = 1;
             // 
             // map
@@ -238,7 +238,7 @@
             this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(729, 675);
+            this.map.Size = new System.Drawing.Size(574, 711);
             this.map.TabIndex = 2;
             this.map.Zoom = 0D;
             this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(map_OnMarkerClick);
@@ -251,12 +251,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1454, 675);
+            this.ClientSize = new System.Drawing.Size(1299, 711);
             this.Controls.Add(this.map);
             this.Controls.Add(this.PnlFormLoader);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimumSize = new System.Drawing.Size(1106, 616);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Gmap Demo";

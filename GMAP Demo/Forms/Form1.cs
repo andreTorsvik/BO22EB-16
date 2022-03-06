@@ -204,6 +204,7 @@ namespace GMAP_Demo
         public static void AdresseTilKart(string Adresse)
         {
             Form1.instance.map.SetPositionByKeywords(Adresse);
+            //Form1.instance.map.Zoom = 17;
         }
 
         private void map_OnMapZoomChanged()
