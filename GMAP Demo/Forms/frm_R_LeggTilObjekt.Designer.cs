@@ -48,11 +48,11 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lbTilgjengligFarge = new System.Windows.Forms.ListBox();
+            this.lbTilgjengligKategori = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtfarge = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtKategori = new System.Windows.Forms.TextBox();
+            this.txtNyKategori = new System.Windows.Forms.TextBox();
+            this.btnLeggTilNyKategori = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -260,14 +260,15 @@
             this.label11.TabIndex = 31;
             this.label11.Text = "valgt for dette Objektet";
             // 
-            // lbTilgjengligFarge
+            // lbTilgjengligKategori
             // 
-            this.lbTilgjengligFarge.FormattingEnabled = true;
-            this.lbTilgjengligFarge.ItemHeight = 16;
-            this.lbTilgjengligFarge.Location = new System.Drawing.Point(17, 191);
-            this.lbTilgjengligFarge.Name = "lbTilgjengligFarge";
-            this.lbTilgjengligFarge.Size = new System.Drawing.Size(138, 20);
-            this.lbTilgjengligFarge.TabIndex = 61;
+            this.lbTilgjengligKategori.FormattingEnabled = true;
+            this.lbTilgjengligKategori.ItemHeight = 16;
+            this.lbTilgjengligKategori.Location = new System.Drawing.Point(17, 190);
+            this.lbTilgjengligKategori.Name = "lbTilgjengligKategori";
+            this.lbTilgjengligKategori.Size = new System.Drawing.Size(138, 36);
+            this.lbTilgjengligKategori.TabIndex = 61;
+            this.lbTilgjengligKategori.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligKategori_MouseDoubleClick);
             // 
             // label2
             // 
@@ -280,33 +281,34 @@
             this.label2.TabIndex = 60;
             this.label2.Text = "Kategori";
             // 
-            // txtfarge
+            // txtKategori
             // 
-            this.txtfarge.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtfarge.Location = new System.Drawing.Point(164, 190);
-            this.txtfarge.Name = "txtfarge";
-            this.txtfarge.ReadOnly = true;
-            this.txtfarge.Size = new System.Drawing.Size(138, 22);
-            this.txtfarge.TabIndex = 59;
+            this.txtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtKategori.Location = new System.Drawing.Point(164, 190);
+            this.txtKategori.Name = "txtKategori";
+            this.txtKategori.ReadOnly = true;
+            this.txtKategori.Size = new System.Drawing.Size(138, 22);
+            this.txtKategori.TabIndex = 59;
             // 
-            // textBox1
+            // txtNyKategori
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Location = new System.Drawing.Point(16, 227);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(139, 22);
-            this.textBox1.TabIndex = 63;
+            this.txtNyKategori.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNyKategori.Location = new System.Drawing.Point(17, 235);
+            this.txtNyKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNyKategori.Name = "txtNyKategori";
+            this.txtNyKategori.Size = new System.Drawing.Size(139, 22);
+            this.txtNyKategori.TabIndex = 63;
             // 
-            // button1
+            // btnLeggTilNyKategori
             // 
-            this.button1.Location = new System.Drawing.Point(164, 225);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 27);
-            this.button1.TabIndex = 62;
-            this.button1.Text = "Legg til ny Kategori";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLeggTilNyKategori.Location = new System.Drawing.Point(166, 233);
+            this.btnLeggTilNyKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLeggTilNyKategori.Name = "btnLeggTilNyKategori";
+            this.btnLeggTilNyKategori.Size = new System.Drawing.Size(140, 27);
+            this.btnLeggTilNyKategori.TabIndex = 62;
+            this.btnLeggTilNyKategori.Text = "Legg til ny Kategori";
+            this.btnLeggTilNyKategori.UseVisualStyleBackColor = true;
+            this.btnLeggTilNyKategori.Click += new System.EventHandler(this.btnLeggTilNyKategori_Click);
             // 
             // frm_R_LeggTilObjekt
             // 
@@ -314,11 +316,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(391, 825);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lbTilgjengligFarge);
+            this.Controls.Add(this.txtNyKategori);
+            this.Controls.Add(this.btnLeggTilNyKategori);
+            this.Controls.Add(this.lbTilgjengligKategori);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtfarge);
+            this.Controls.Add(this.txtKategori);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -371,10 +373,10 @@
         public System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ListBox lbTilgjengligFarge;
+        private System.Windows.Forms.ListBox lbTilgjengligKategori;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtfarge;
-        public System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtKategori;
+        public System.Windows.Forms.TextBox txtNyKategori;
+        private System.Windows.Forms.Button btnLeggTilNyKategori;
     }
 }

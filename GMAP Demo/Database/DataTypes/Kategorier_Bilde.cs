@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GMAP_Demo.Database.DataTypes
 {
-    internal class Kategorier_Bilde
+    public class Kategorier_Bilde
     {
         public string Kategorinavn { get; set; }
         public byte[] Bilde { get; set; }

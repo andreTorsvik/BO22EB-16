@@ -22,8 +22,10 @@ namespace GMAP_Demo
         private static bool KjørEnGang = true;
         private static Color knapp_trykket;
         public static List<Ressurs> LRessurs;
+        public static List<Kategorier_Bilde> LKategori;
         public static PointLatLng DoubleClick_punkt;
         public static Form1 instance;
+        
         
 
         public Form1()
@@ -56,6 +58,7 @@ namespace GMAP_Demo
             knapp_trykket = Color.FromArgb(46, 51, 73);
             KjørEnGang = false;
             LRessurs = new List<Ressurs>();
+            LKategori = new List<Kategorier_Bilde>();
         }
 
         private void Form1_Load(object sender, EventArgs e)

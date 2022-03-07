@@ -19,6 +19,9 @@ namespace GMAP_Demo
             instance = this;
         }
 
+        private void frm_R_LeggTilOmråde_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
