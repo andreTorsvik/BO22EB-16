@@ -97,7 +97,7 @@ namespace GMAP_Demo
             }
         }
 
-
+        
 
         public void InsertRessursToDb(string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {
@@ -117,6 +117,22 @@ namespace GMAP_Demo
 
 
                 connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", ressursToAdd);
+            }
+        }
+
+
+        public void InsertKategorier_BildeToDb(string kategorinavn)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Kategorier_Bilde kategorier_BildeToAdd = new Kategorier_Bilde
+                {
+                    Kategorinavn = kategorinavn
+                    //Bilde = NULL, ordnes av Procedure
+                };
+
+
+                connection.Execute("[dbo].[PROCEDUREinsertIntoKategorier_Bilde] @Kategorinavn", kategorier_BildeToAdd);
             }
         }
 
