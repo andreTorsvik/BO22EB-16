@@ -30,8 +30,6 @@ namespace GMAP_Demo
         }
         //
 
-        
-
 
 
         public List<Bruker> ListAllBrukerFromDb()
@@ -101,7 +99,27 @@ namespace GMAP_Demo
 
 
 
+        public void InsertRessursToDb(string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                //Resurspunkt newResurspunkt = new Resurspunkt { Lat = lat, Lang = lang };
+                Ressurs ressursToAdd = new Ressurs {
+                    //Løpenummer_ressurs = "DEFAULT", ordnes av Procedure
+                    Navn = navn,
+                    Kategori = kategori,
+                    //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
+                    Opprettet_av_bruker = opprettet_av_bruker,
+                    Sikkerhetsklarering = sikkerhetsklarering,
+                    Kommentar = kommentar,
+                    Lat = lat,
+                    Lang = lang 
+                };
 
+
+                connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", ressursToAdd);
+            }
+        }
 
     }
 }

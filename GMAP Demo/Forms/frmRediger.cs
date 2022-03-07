@@ -17,6 +17,7 @@ namespace GMAP_Demo
     public partial class frmRediger : Form
     {
         private static Color knapp_trykket;
+        public static PointLatLng DoubleClick_punkt;
         public static frmRediger instance;
         public frmRediger()
         {
@@ -166,5 +167,18 @@ namespace GMAP_Demo
             pnlNav.Left = btnObjekt.Left;
         }
 
+        private void map_MouseDoubleClick(PointLatLng pointClick, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DoubleClick_punkt = map.FromLocalToLatLng(e.X, e.Y);
+
+                double lat = DoubleClick_punkt.Lat;
+                double lng = DoubleClick_punkt.Lng;
+
+                frm_R_LeggTilObjekt.instance.txtLat.Text = lat.ToString();
+                frm_R_LeggTilObjekt.instance.txtLong.Text = lng.ToString();
+            }
+        }
     }
 }

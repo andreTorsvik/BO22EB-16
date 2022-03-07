@@ -28,5 +28,19 @@ namespace GMAP_Demo
         {
 
         }
+
+        private void btnLeggTilObjekt_Click(object sender, EventArgs e)
+        {
+            DatabaseCommunication db = new DatabaseCommunication();
+
+            db.InsertRessursToDb(txtNavn.Text.ToString(), "termometer", "ola.nordman@stud.hvl.no", Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
+
+            txtNavn.Text = "";
+            txtKommentar.Text = "";
+            txtSikkerhetsklarering.Text = "";
+            txtLat.Text = "";
+            txtLong.Text = "";
+
+        }
     }
 }
