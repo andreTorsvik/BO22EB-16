@@ -29,7 +29,7 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             knapp_trykket = Color.FromArgb(46, 51, 73);
-            //label1.Text = CnnVal().ToString();
+            lblDatabasePath.Text = GMAP_Demo.DatabaseCommunication.CnnVal(GMAP_Demo.DatabaseCommunication.bo22eb16DatabasePathUrlLocation).ToString();
         }
 
         private void UpdateBinding()

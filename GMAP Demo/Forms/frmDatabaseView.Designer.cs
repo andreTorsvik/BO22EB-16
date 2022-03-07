@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDatabaseView));
             this.PnlFormLoader = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblDatabasePath = new System.Windows.Forms.Label();
             this.listBoxDatabaseView = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDbOmrådeView = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             // PnlFormLoader
             // 
             this.PnlFormLoader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.PnlFormLoader.Controls.Add(this.label1);
+            this.PnlFormLoader.Controls.Add(this.lblDatabasePath);
             this.PnlFormLoader.Controls.Add(this.listBoxDatabaseView);
             this.PnlFormLoader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlFormLoader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
@@ -60,16 +60,16 @@
             this.PnlFormLoader.Size = new System.Drawing.Size(1450, 1055);
             this.PnlFormLoader.TabIndex = 4;
             // 
-            // label1
+            // lblDatabasePath
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(478, 1269);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.lblDatabasePath.AutoSize = true;
+            this.lblDatabasePath.ForeColor = System.Drawing.Color.White;
+            this.lblDatabasePath.Location = new System.Drawing.Point(10, 9);
+            this.lblDatabasePath.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblDatabasePath.Name = "lblDatabasePath";
+            this.lblDatabasePath.Size = new System.Drawing.Size(70, 25);
+            this.lblDatabasePath.TabIndex = 1;
+            this.lblDatabasePath.Text = "label1";
             // 
             // listBoxDatabaseView
             // 
@@ -78,10 +78,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxDatabaseView.FormattingEnabled = true;
             this.listBoxDatabaseView.ItemHeight = 25;
-            this.listBoxDatabaseView.Location = new System.Drawing.Point(10, 23);
+            this.listBoxDatabaseView.Location = new System.Drawing.Point(10, 73);
             this.listBoxDatabaseView.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxDatabaseView.Name = "listBoxDatabaseView";
-            this.listBoxDatabaseView.Size = new System.Drawing.Size(1412, 954);
+            this.listBoxDatabaseView.Size = new System.Drawing.Size(1412, 904);
             this.listBoxDatabaseView.TabIndex = 0;
             // 
             // panel1
@@ -300,7 +300,7 @@
         private System.Windows.Forms.Button btnDbOverlay_RessursView;
         private System.Windows.Forms.Button btnDbRessursView;
         private System.Windows.Forms.ListBox listBoxDatabaseView;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDatabasePath;
         private System.Windows.Forms.Button btnDbOmrådeView;
     }
 }
