@@ -69,6 +69,10 @@ namespace GMAP_Demo
 
             nyKategori = txtNyKategori.Text;
 
+            DatabaseCommunication db = new DatabaseCommunication();
+
+            db.InsertKategorier_BildeToDb(nyKategori);
+
             lbTilgjengligKategori.Items.Add(nyKategori);
             lbTilgjengligKategori.Sorted = true;
             txtNyKategori.Text = "";
