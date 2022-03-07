@@ -98,150 +98,150 @@
     <Compile Include="Database\DataTypes\Overlay_Ressurs.cs" />
     <Compile Include="Database\DataTypes\Punkter_område.cs" />
     <Compile Include="Database\DataTypes\Ressurs.cs" />
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\Visning\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
+    <Compile Include="Forms\Visning\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmFilter.cs">
+    <Compile Include="Forms\Visning\frmFilter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmFilter.Designer.cs">
+    <Compile Include="Forms\Visning\frmFilter.Designer.cs">
       <DependentUpon>frmFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPosisjon.cs">
+    <Compile Include="Forms\Visning\frmPosisjon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmPosisjon.Designer.cs">
+    <Compile Include="Forms\Visning\frmPosisjon.Designer.cs">
       <DependentUpon>frmPosisjon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmRediger.cs">
+    <Compile Include="Forms\Redigering\frmRediger.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmRediger.Designer.cs">
+    <Compile Include="Forms\Redigering\frmRediger.Designer.cs">
       <DependentUpon>frmRediger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmDatabaseView.cs">
+    <Compile Include="Forms\Settings\frmDatabaseView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmDatabaseView.Designer.cs">
+    <Compile Include="Forms\Settings\frmDatabaseView.Designer.cs">
       <DependentUpon>frmDatabaseView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSettings.cs">
+    <Compile Include="Forms\Settings\frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSettings.Designer.cs">
+    <Compile Include="Forms\Settings\frmSettings.Designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_R_FjernObjektOmråde.cs">
+    <Compile Include="Forms\Redigering\frm_R_FjernObjektOmråde.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_R_FjernObjektOmråde.Designer.cs">
+    <Compile Include="Forms\Redigering\frm_R_FjernObjektOmråde.Designer.cs">
       <DependentUpon>frm_R_FjernObjektOmråde.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_R_LeggTilObjekt.cs">
+    <Compile Include="Forms\Redigering\frm_R_LeggTilObjekt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_R_LeggTilObjekt.Designer.cs">
+    <Compile Include="Forms\Redigering\frm_R_LeggTilObjekt.Designer.cs">
       <DependentUpon>frm_R_LeggTilObjekt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_R_LeggTilOmråde.cs">
+    <Compile Include="Forms\Redigering\frm_R_LeggTilOmråde.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_R_LeggTilOmråde.Designer.cs">
+    <Compile Include="Forms\Redigering\frm_R_LeggTilOmråde.Designer.cs">
       <DependentUpon>frm_R_LeggTilOmråde.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_R_RedigerObjekt.cs">
+    <Compile Include="Forms\Redigering\frm_R_RedigerObjekt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_R_RedigerObjekt.Designer.cs">
+    <Compile Include="Forms\Redigering\frm_R_RedigerObjekt.Designer.cs">
       <DependentUpon>frm_R_RedigerObjekt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_S_BrukerInfo.cs">
+    <Compile Include="Forms\Settings\frm_S_BrukerInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_S_BrukerInfo.Designer.cs">
+    <Compile Include="Forms\Settings\frm_S_BrukerInfo.Designer.cs">
       <DependentUpon>frm_S_BrukerInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_S_EndreLagretBilde.cs">
+    <Compile Include="Forms\Settings\frm_S_EndreLagretBilde.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_S_EndreLagretBilde.Designer.cs">
+    <Compile Include="Forms\Settings\frm_S_EndreLagretBilde.Designer.cs">
       <DependentUpon>frm_S_EndreLagretBilde.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_S_LeggTilBilde.cs">
+    <Compile Include="Forms\Settings\frm_S_LeggTilBilde.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_S_LeggTilBilde.Designer.cs">
+    <Compile Include="Forms\Settings\frm_S_LeggTilBilde.Designer.cs">
       <DependentUpon>frm_S_LeggTilBilde.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_S_LoggInn.cs">
+    <Compile Include="Forms\Settings\frm_S_LoggInn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_S_LoggInn.Designer.cs">
+    <Compile Include="Forms\Settings\frm_S_LoggInn.Designer.cs">
       <DependentUpon>frm_S_LoggInn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_S_StartPosisjon.cs">
+    <Compile Include="Forms\Settings\Frm_S_StartPosisjon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_S_StartPosisjon.Designer.cs">
+    <Compile Include="Forms\Settings\Frm_S_StartPosisjon.Designer.cs">
       <DependentUpon>Frm_S_StartPosisjon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_R_RedigerOmråde.cs">
+    <Compile Include="Forms\Redigering\frm_R_RedigerOmråde.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_R_RedigerOmråde.Designer.cs">
+    <Compile Include="Forms\Redigering\frm_R_RedigerOmråde.Designer.cs">
       <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Form1.resx">
+    <EmbeddedResource Include="Forms\Visning\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmFilter.resx">
+    <EmbeddedResource Include="Forms\Visning\frmFilter.resx">
       <DependentUpon>frmFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPosisjon.resx">
+    <EmbeddedResource Include="Forms\Visning\frmPosisjon.resx">
       <DependentUpon>frmPosisjon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmRediger.resx">
+    <EmbeddedResource Include="Forms\Redigering\frmRediger.resx">
       <DependentUpon>frmRediger.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmDatabaseView.resx">
+    <EmbeddedResource Include="Forms\Settings\frmDatabaseView.resx">
       <DependentUpon>frmDatabaseView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSettings.resx">
+    <EmbeddedResource Include="Forms\Settings\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_R_FjernObjektOmråde.resx">
+    <EmbeddedResource Include="Forms\Redigering\frm_R_FjernObjektOmråde.resx">
       <DependentUpon>frm_R_FjernObjektOmråde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_R_LeggTilObjekt.resx">
+    <EmbeddedResource Include="Forms\Redigering\frm_R_LeggTilObjekt.resx">
       <DependentUpon>frm_R_LeggTilObjekt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_R_LeggTilOmråde.resx">
+    <EmbeddedResource Include="Forms\Redigering\frm_R_LeggTilOmråde.resx">
       <DependentUpon>frm_R_LeggTilOmråde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_R_RedigerObjekt.resx">
+    <EmbeddedResource Include="Forms\Redigering\frm_R_RedigerObjekt.resx">
       <DependentUpon>frm_R_RedigerObjekt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_R_RedigerOmråde.resx">
+    <EmbeddedResource Include="Forms\Redigering\frm_R_RedigerOmråde.resx">
       <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_S_BrukerInfo.resx">
+    <EmbeddedResource Include="Forms\Settings\frm_S_BrukerInfo.resx">
       <DependentUpon>frm_S_BrukerInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_S_EndreLagretBilde.resx">
+    <EmbeddedResource Include="Forms\Settings\frm_S_EndreLagretBilde.resx">
       <DependentUpon>frm_S_EndreLagretBilde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_S_LeggTilBilde.resx">
+    <EmbeddedResource Include="Forms\Settings\frm_S_LeggTilBilde.resx">
       <DependentUpon>frm_S_LeggTilBilde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_S_LoggInn.resx">
+    <EmbeddedResource Include="Forms\Settings\frm_S_LoggInn.resx">
       <DependentUpon>frm_S_LoggInn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_S_StartPosisjon.resx">
+    <EmbeddedResource Include="Forms\Settings\Frm_S_StartPosisjon.resx">
       <DependentUpon>Frm_S_StartPosisjon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
