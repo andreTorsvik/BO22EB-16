@@ -77,7 +77,12 @@ namespace GMAP_Demo
             Form1.instance.map.Overlays.Clear();
             //Form1.map.Overlays.Remove("test1");
             Form1.reff();
-            txtInfo.Text = "";
+            txtNavn.Text = "";
+            txtKategori.Text = "";
+            txtDato_opprettet.Text = "";
+            txtOpprettetAvBruker.Text = "";
+            txtSikkerhetsklarering.Text = "";
+            txtKommentar.Text = "";
             
         }
     }

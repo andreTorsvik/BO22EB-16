@@ -182,7 +182,12 @@ namespace GMAP_Demo
 
         public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            frmFilter.instance.txtInfo.Text = LRessurs[Convert.ToInt32(item.Tag)].ressursDataTypeToString;
+            frmFilter.instance.txtNavn.Text = LRessurs[Convert.ToInt32(item.Tag)].Navn;
+            frmFilter.instance.txtKategori.Text = LRessurs[Convert.ToInt32(item.Tag)].Kategori;
+            frmFilter.instance.txtDato_opprettet.Text = LRessurs[Convert.ToInt32(item.Tag)].Dato_opprettet;
+            frmFilter.instance.txtOpprettetAvBruker.Text = LRessurs[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
+            frmFilter.instance.txtSikkerhetsklarering.Text = LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+            frmFilter.instance.txtKommentar.Text = LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
         }
 
         private void map_MouseDoubleClick(object sender, MouseEventArgs e)
