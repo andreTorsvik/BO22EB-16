@@ -206,7 +206,7 @@
             // 
             // btnLeggTilObjekt
             // 
-            this.btnLeggTilObjekt.Location = new System.Drawing.Point(20, 779);
+            this.btnLeggTilObjekt.Location = new System.Drawing.Point(20, 788);
             this.btnLeggTilObjekt.Name = "btnLeggTilObjekt";
             this.btnLeggTilObjekt.Size = new System.Drawing.Size(123, 34);
             this.btnLeggTilObjekt.TabIndex = 36;
@@ -288,7 +288,7 @@
             // 
             // txtfarge
             // 
-            this.txtfarge.Location = new System.Drawing.Point(167, 233);
+            this.txtfarge.Location = new System.Drawing.Point(167, 232);
             this.txtfarge.Name = "txtfarge";
             this.txtfarge.ReadOnly = true;
             this.txtfarge.Size = new System.Drawing.Size(138, 22);
