@@ -288,6 +288,7 @@
             // 
             // txtfarge
             // 
+            this.txtfarge.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txtfarge.Location = new System.Drawing.Point(167, 232);
             this.txtfarge.Name = "txtfarge";
             this.txtfarge.ReadOnly = true;

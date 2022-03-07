@@ -285,6 +285,7 @@
             this.txtfarge.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txtfarge.Location = new System.Drawing.Point(164, 190);
             this.txtfarge.Name = "txtfarge";
+            this.txtfarge.ReadOnly = true;
             this.txtfarge.Size = new System.Drawing.Size(138, 22);
             this.txtfarge.TabIndex = 59;
             // 
