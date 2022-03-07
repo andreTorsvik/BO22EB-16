@@ -152,11 +152,11 @@
     <Compile Include="Forms\frm_R_LeggTilOmråde.Designer.cs">
       <DependentUpon>frm_R_LeggTilOmråde.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_R_RedigerObjektOmråde.cs">
+    <Compile Include="Forms\frm_R_RedigerObjekt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_R_RedigerObjektOmråde.Designer.cs">
-      <DependentUpon>frm_R_RedigerObjektOmråde.cs</DependentUpon>
+    <Compile Include="Forms\frm_R_RedigerObjekt.Designer.cs">
+      <DependentUpon>frm_R_RedigerObjekt.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frm_S_BrukerInfo.cs">
       <SubType>Form</SubType>
@@ -188,6 +188,12 @@
     <Compile Include="Forms\Frm_S_StartPosisjon.Designer.cs">
       <DependentUpon>Frm_S_StartPosisjon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm_R_RedigerOmråde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_R_RedigerOmråde.Designer.cs">
+      <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Form1.resx">
@@ -217,8 +223,11 @@
     <EmbeddedResource Include="Forms\frm_R_LeggTilOmråde.resx">
       <DependentUpon>frm_R_LeggTilOmråde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_R_RedigerObjektOmråde.resx">
-      <DependentUpon>frm_R_RedigerObjektOmråde.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frm_R_RedigerObjekt.resx">
+      <DependentUpon>frm_R_RedigerObjekt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_R_RedigerOmråde.resx">
+      <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_S_BrukerInfo.resx">
       <DependentUpon>frm_S_BrukerInfo.cs</DependentUpon>

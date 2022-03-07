@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_R_RedigerObjektOmråde : Form
+    public partial class frm_R_RedigerOmråde : Form
     {
-        public static frm_R_RedigerObjektOmråde instance;
-        public frm_R_RedigerObjektOmråde()
+        public frm_R_RedigerOmråde()
         {
             InitializeComponent();
-            instance = this;
-        }
-
-        private void frm_R_RedigerObjektOmråde_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

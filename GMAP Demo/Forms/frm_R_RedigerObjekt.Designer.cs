@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_R_RedigerObjektOmråde
+    partial class frm_R_RedigerObjekt
     {
         /// <summary>
         /// Required designer variable.
@@ -38,11 +38,11 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 46);
+            this.label3.Size = new System.Drawing.Size(300, 46);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Rediger";
+            this.label3.Text = "Rediger Objekt";
             // 
-            // frm_R_RedigerObjektOmråde
+            // frm_R_RedigerObjekt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -50,7 +50,7 @@
             this.ClientSize = new System.Drawing.Size(391, 825);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frm_R_RedigerObjektOmråde";
+            this.Name = "frm_R_RedigerObjekt";
             this.Text = "frm_R_RedigerObjektOmråde";
             this.Load += new System.EventHandler(this.frm_R_RedigerObjektOmråde_Load);
             this.ResumeLayout(false);

@@ -76,6 +76,7 @@ namespace GMAP_Demo
             btnObjekt.BackColor = StandarFarge;
             btnOmråde.BackColor = StandarFarge;
             btnRediger_obj_områ.BackColor = StandarFarge;
+            btnRedigerOmråde.BackColor = StandarFarge;
             btnFjern_obj_områ.BackColor = StandarFarge;
         }
 
@@ -123,7 +124,7 @@ namespace GMAP_Demo
 
             //legge inn rett form i panelet
             this.PnlFormLoader.Controls.Clear();
-            frm_R_RedigerObjektOmråde frm_R_RedigerObjektOmråde_vrb = new frm_R_RedigerObjektOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_R_RedigerObjekt frm_R_RedigerObjektOmråde_vrb = new frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frm_R_RedigerObjektOmråde_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frm_R_RedigerObjektOmråde_vrb);
             frm_R_RedigerObjektOmråde_vrb.Show();
@@ -179,6 +180,24 @@ namespace GMAP_Demo
                 frm_R_LeggTilObjekt.instance.txtLat.Text = lat.ToString();
                 frm_R_LeggTilObjekt.instance.txtLong.Text = lng.ToString();
             }
+        }
+
+        private void btnRedigerOmråde_Click(object sender, EventArgs e)
+        {
+            AlleKnapperTilStandarfarge();
+            btnRedigerOmråde.BackColor = knapp_trykket;
+            //Flytte oransjePanelet til rett plass
+
+            FlyttNavigasjonsPanel(btnRedigerOmråde.Height, btnRedigerOmråde.Top);
+
+
+
+            //legge inn rett form i panelet
+            this.PnlFormLoader.Controls.Clear();
+            frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_R_RedigerOmråde_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_R_RedigerOmråde_vrb);
+            frm_R_RedigerOmråde_vrb.Show();
         }
     }
 }
