@@ -57,7 +57,7 @@
             this.PnlFormLoader.Location = new System.Drawing.Point(474, 0);
             this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PnlFormLoader.Name = "PnlFormLoader";
-            this.PnlFormLoader.Size = new System.Drawing.Size(1450, 1055);
+            this.PnlFormLoader.Size = new System.Drawing.Size(2070, 1401);
             this.PnlFormLoader.TabIndex = 4;
             // 
             // lblDatabasePath
@@ -81,7 +81,7 @@
             this.listBoxDatabaseView.Location = new System.Drawing.Point(10, 73);
             this.listBoxDatabaseView.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxDatabaseView.Name = "listBoxDatabaseView";
-            this.listBoxDatabaseView.Size = new System.Drawing.Size(1412, 904);
+            this.listBoxDatabaseView.Size = new System.Drawing.Size(2032, 1229);
             this.listBoxDatabaseView.TabIndex = 0;
             // 
             // panel1
@@ -101,7 +101,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 1055);
+            this.panel1.Size = new System.Drawing.Size(474, 1401);
             this.panel1.TabIndex = 3;
             // 
             // btnDbOmrådeView
@@ -154,7 +154,7 @@
             this.btnTilbake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTilbake.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTilbake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnTilbake.Location = new System.Drawing.Point(0, 924);
+            this.btnTilbake.Location = new System.Drawing.Point(0, 1270);
             this.btnTilbake.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnTilbake.Name = "btnTilbake";
             this.btnTilbake.Size = new System.Drawing.Size(474, 131);
@@ -270,11 +270,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize = new System.Drawing.Size(2544, 1401);
             this.Controls.Add(this.PnlFormLoader);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(2558, 1325);
             this.Name = "frmDatabaseView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Database sjekk";

@@ -54,9 +54,9 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(316, 249);
+            this.panel2.Size = new System.Drawing.Size(474, 389);
             this.panel2.TabIndex = 1;
             // 
             // label2
@@ -64,9 +64,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(178)))));
-            this.label2.Location = new System.Drawing.Point(63, 187);
+            this.label2.Location = new System.Drawing.Point(94, 292);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 20);
+            this.label2.Size = new System.Drawing.Size(156, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Some User text here";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -77,9 +78,10 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label1.Location = new System.Drawing.Point(95, 161);
+            this.label1.Location = new System.Drawing.Point(142, 252);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 25);
+            this.label1.Size = new System.Drawing.Size(96, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "User name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -87,10 +89,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.pictureBox1.Location = new System.Drawing.Point(87, 32);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(130, 50);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 127);
+            this.pictureBox1.Size = new System.Drawing.Size(202, 198);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -101,10 +103,10 @@
             this.btnPosisjon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPosisjon.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPosisjon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnPosisjon.Location = new System.Drawing.Point(0, 249);
-            this.btnPosisjon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPosisjon.Location = new System.Drawing.Point(0, 389);
+            this.btnPosisjon.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPosisjon.Name = "btnPosisjon";
-            this.btnPosisjon.Size = new System.Drawing.Size(316, 84);
+            this.btnPosisjon.Size = new System.Drawing.Size(474, 131);
             this.btnPosisjon.TabIndex = 1;
             this.btnPosisjon.Text = "Posisjon";
             this.btnPosisjon.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -118,10 +120,10 @@
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnFilter.Location = new System.Drawing.Point(0, 333);
-            this.btnFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFilter.Location = new System.Drawing.Point(0, 520);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(316, 84);
+            this.btnFilter.Size = new System.Drawing.Size(474, 131);
             this.btnFilter.TabIndex = 1;
             this.btnFilter.Text = "Filter";
             this.btnFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -135,10 +137,10 @@
             this.btnOppdater.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOppdater.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOppdater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnOppdater.Location = new System.Drawing.Point(0, 417);
-            this.btnOppdater.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnOppdater.Location = new System.Drawing.Point(0, 651);
+            this.btnOppdater.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnOppdater.Name = "btnOppdater";
-            this.btnOppdater.Size = new System.Drawing.Size(316, 84);
+            this.btnOppdater.Size = new System.Drawing.Size(474, 131);
             this.btnOppdater.TabIndex = 1;
             this.btnOppdater.Text = "Oppdater Kart";
             this.btnOppdater.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -152,10 +154,10 @@
             this.btnRediger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRediger.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRediger.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnRediger.Location = new System.Drawing.Point(0, 501);
-            this.btnRediger.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRediger.Location = new System.Drawing.Point(0, 782);
+            this.btnRediger.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnRediger.Name = "btnRediger";
-            this.btnRediger.Size = new System.Drawing.Size(316, 84);
+            this.btnRediger.Size = new System.Drawing.Size(474, 131);
             this.btnRediger.TabIndex = 1;
             this.btnRediger.Text = "Fjern/rediger";
             this.btnRediger.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -169,10 +171,10 @@
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnSettings.Location = new System.Drawing.Point(0, 627);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSettings.Location = new System.Drawing.Point(0, 1270);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(316, 84);
+            this.btnSettings.Size = new System.Drawing.Size(474, 131);
             this.btnSettings.TabIndex = 1;
             this.btnSettings.Text = "Settings";
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -182,10 +184,10 @@
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlNav.Location = new System.Drawing.Point(0, 316);
-            this.pnlNav.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlNav.Location = new System.Drawing.Point(0, 494);
+            this.pnlNav.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(3, 100);
+            this.pnlNav.Size = new System.Drawing.Size(4, 156);
             this.pnlNav.TabIndex = 1;
             // 
             // panel1
@@ -200,18 +202,18 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 711);
+            this.panel1.Size = new System.Drawing.Size(474, 1401);
             this.panel1.TabIndex = 0;
             // 
             // PnlFormLoader
             // 
             this.PnlFormLoader.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlFormLoader.Location = new System.Drawing.Point(316, 0);
-            this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PnlFormLoader.Location = new System.Drawing.Point(474, 0);
+            this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PnlFormLoader.Name = "PnlFormLoader";
-            this.PnlFormLoader.Size = new System.Drawing.Size(409, 711);
+            this.PnlFormLoader.Size = new System.Drawing.Size(614, 1401);
             this.PnlFormLoader.TabIndex = 1;
             // 
             // map
@@ -223,8 +225,8 @@
             this.map.GrayScaleMode = false;
             this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.map.LevelsKeepInMemory = 5;
-            this.map.Location = new System.Drawing.Point(725, 0);
-            this.map.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.map.Location = new System.Drawing.Point(1088, 0);
+            this.map.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.map.MarkersEnabled = true;
             this.map.MaxZoom = 2;
             this.map.MinZoom = 2;
@@ -238,7 +240,7 @@
             this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(574, 711);
+            this.map.Size = new System.Drawing.Size(1456, 1401);
             this.map.TabIndex = 2;
             this.map.Zoom = 0D;
             this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(map_OnMarkerClick);
@@ -248,16 +250,16 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1299, 711);
+            this.ClientSize = new System.Drawing.Size(2544, 1401);
             this.Controls.Add(this.map);
             this.Controls.Add(this.PnlFormLoader);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(1106, 616);
+            this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.MinimumSize = new System.Drawing.Size(2558, 1325);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Gmap Demo";

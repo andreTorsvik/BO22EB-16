@@ -49,9 +49,9 @@
             this.PnlFormLoader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlFormLoader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.PnlFormLoader.Location = new System.Drawing.Point(474, 0);
-            this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(4);
             this.PnlFormLoader.Name = "PnlFormLoader";
-            this.PnlFormLoader.Size = new System.Drawing.Size(2054, 1310);
+            this.PnlFormLoader.Size = new System.Drawing.Size(2070, 1401);
             this.PnlFormLoader.TabIndex = 4;
             // 
             // panel1
@@ -68,16 +68,16 @@
             this.panel1.Controls.Add(this.btnLoggInn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 1310);
+            this.panel1.Size = new System.Drawing.Size(474, 1401);
             this.panel1.TabIndex = 3;
             // 
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.pnlNav.Location = new System.Drawing.Point(0, 496);
-            this.pnlNav.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlNav.Margin = new System.Windows.Forms.Padding(4);
             this.pnlNav.Name = "pnlNav";
             this.pnlNav.Size = new System.Drawing.Size(4, 156);
             this.pnlNav.TabIndex = 1;
@@ -89,8 +89,8 @@
             this.btnTilbake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTilbake.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTilbake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnTilbake.Location = new System.Drawing.Point(0, 1179);
-            this.btnTilbake.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTilbake.Location = new System.Drawing.Point(0, 1270);
+            this.btnTilbake.Margin = new System.Windows.Forms.Padding(4);
             this.btnTilbake.Name = "btnTilbake";
             this.btnTilbake.Size = new System.Drawing.Size(474, 131);
             this.btnTilbake.TabIndex = 1;
@@ -107,7 +107,7 @@
             this.btnDatabaseView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDatabaseView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnDatabaseView.Location = new System.Drawing.Point(0, 786);
-            this.btnDatabaseView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDatabaseView.Margin = new System.Windows.Forms.Padding(4);
             this.btnDatabaseView.Name = "btnDatabaseView";
             this.btnDatabaseView.Size = new System.Drawing.Size(474, 131);
             this.btnDatabaseView.TabIndex = 1;
@@ -124,7 +124,7 @@
             this.btnEkstra.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEkstra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnEkstra.Location = new System.Drawing.Point(0, 655);
-            this.btnEkstra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEkstra.Margin = new System.Windows.Forms.Padding(4);
             this.btnEkstra.Name = "btnEkstra";
             this.btnEkstra.Size = new System.Drawing.Size(474, 131);
             this.btnEkstra.TabIndex = 1;
@@ -141,7 +141,7 @@
             this.btnBrukerInfo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrukerInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnBrukerInfo.Location = new System.Drawing.Point(0, 524);
-            this.btnBrukerInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBrukerInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnBrukerInfo.Name = "btnBrukerInfo";
             this.btnBrukerInfo.Size = new System.Drawing.Size(474, 131);
             this.btnBrukerInfo.TabIndex = 1;
@@ -158,7 +158,7 @@
             this.btnEndreBilde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEndreBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnEndreBilde.Location = new System.Drawing.Point(0, 393);
-            this.btnEndreBilde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEndreBilde.Margin = new System.Windows.Forms.Padding(4);
             this.btnEndreBilde.Name = "btnEndreBilde";
             this.btnEndreBilde.Size = new System.Drawing.Size(474, 131);
             this.btnEndreBilde.TabIndex = 1;
@@ -175,7 +175,7 @@
             this.btnLeggTilBilde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLeggTilBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnLeggTilBilde.Location = new System.Drawing.Point(0, 262);
-            this.btnLeggTilBilde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLeggTilBilde.Margin = new System.Windows.Forms.Padding(4);
             this.btnLeggTilBilde.Name = "btnLeggTilBilde";
             this.btnLeggTilBilde.Size = new System.Drawing.Size(474, 131);
             this.btnLeggTilBilde.TabIndex = 1;
@@ -192,7 +192,7 @@
             this.btnStartPosisjon.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartPosisjon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnStartPosisjon.Location = new System.Drawing.Point(0, 131);
-            this.btnStartPosisjon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStartPosisjon.Margin = new System.Windows.Forms.Padding(4);
             this.btnStartPosisjon.Name = "btnStartPosisjon";
             this.btnStartPosisjon.Size = new System.Drawing.Size(474, 131);
             this.btnStartPosisjon.TabIndex = 1;
@@ -209,7 +209,7 @@
             this.btnLoggInn.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoggInn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnLoggInn.Location = new System.Drawing.Point(0, 0);
-            this.btnLoggInn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoggInn.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoggInn.Name = "btnLoggInn";
             this.btnLoggInn.Size = new System.Drawing.Size(474, 131);
             this.btnLoggInn.TabIndex = 1;
@@ -222,11 +222,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2528, 1310);
+            this.ClientSize = new System.Drawing.Size(2544, 1401);
             this.Controls.Add(this.PnlFormLoader);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(2558, 1325);
             this.Name = "frmSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Settings";
