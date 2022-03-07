@@ -103,7 +103,6 @@ namespace GMAP_Demo
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
-                //Resurspunkt newResurspunkt = new Resurspunkt { Lat = lat, Lang = lang };
                 Ressurs ressursToAdd = new Ressurs {
                     //Løpenummer_ressurs = "DEFAULT", ordnes av Procedure
                     Navn = navn,
