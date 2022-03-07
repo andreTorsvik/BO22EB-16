@@ -23,6 +23,7 @@ namespace GMAP_Demo
         // Alternative SQLdatabase connection settings - Uses data from App.config <connectionString>
 
         public static string bo22eb16DatabasePathUrlLocation = "GMAP_Demo.Properties.Settings.bo22eb16ConnectionString";
+
         public static string CnnVal(string name)
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
@@ -35,7 +36,7 @@ namespace GMAP_Demo
 
         public List<Bruker> ListAllBrukerFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 var output = connection.Query<Bruker>("[dbo].[PROCEDUREListAllBrukerFromDb]").ToList();
                 return output;
@@ -43,7 +44,7 @@ namespace GMAP_Demo
         }
         public List<Kategorier_Bilde> ListAllKategorier_BildeFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 var output = connection.Query<Kategorier_Bilde>("[dbo].[PROCEDUREListAllKategorier_BildeFromDb]").ToList();
                 return output;
@@ -51,7 +52,7 @@ namespace GMAP_Demo
         }
         public List<Måling> ListAllMålingFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 var output = connection.Query<Måling>("[dbo].[PROCEDUREListAllMålingFromDb]").ToList();
                 return output;
@@ -59,7 +60,7 @@ namespace GMAP_Demo
         }
         public List<Område> ListAllOmrådeFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 var output = connection.Query<Område>("[dbo].[PROCEDUREListAllOmrådeFromDb]").ToList();
                 return output;
@@ -67,7 +68,7 @@ namespace GMAP_Demo
         }
         public List<Overlay_Område> ListAllOverlay_OmrådeFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 var output = connection.Query<Overlay_Område>("[dbo].[PROCEDUREListAllOverlay_OmrådeFromDb]").ToList();
                 return output;
@@ -75,7 +76,7 @@ namespace GMAP_Demo
         }
         public List<Overlay_Ressurs> ListAllOverlay_RessursFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 var output = connection.Query<Overlay_Ressurs>("[dbo].[PROCEDUREListAllOverlay_RessursFromDb]").ToList();
                 return output;
@@ -83,7 +84,7 @@ namespace GMAP_Demo
         }
         public List<Punkter_område> ListAllPunkter_områdeFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 var output = connection.Query<Punkter_område>("[dbo].[PROCEDUREListAllPunkter_områdeFromDb]").ToList();
                 return output;
@@ -91,7 +92,7 @@ namespace GMAP_Demo
         }
         public List<Ressurs> ListAllRessursFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal("GMAP_Demo.Properties.Settings.bo22eb16ConnectionString")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 var output = connection.Query<Ressurs>("[dbo].[PROCEDUREListAllRessursFromDb]").ToList();
                 return output;
