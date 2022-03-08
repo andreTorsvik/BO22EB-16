@@ -9,6 +9,7 @@ using Dapper;
 using System.Data;
 using System.Data.SqlClient;
 using GMAP_Demo.Database.DataTypes;
+using System.IO;
 
 namespace GMAP_Demo
 {
@@ -125,14 +126,30 @@ namespace GMAP_Demo
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
-                Kategorier_Bilde kategorier_BildeToAdd = new Kategorier_Bilde
+                Kategorier_Bilde kategorier_BildeKategoriToAdd = new Kategorier_Bilde
                 {
                     Kategorinavn = kategorinavn
                     //Bilde = NULL, ordnes av Procedure
                 };
 
 
-                connection.Execute("[dbo].[PROCEDUREinsertIntoKategorier_Bilde] @Kategorinavn", kategorier_BildeToAdd);
+                connection.Execute("[dbo].[PROCEDUREinsertIntoKategorier_Bilde] @Kategorinavn", kategorier_BildeKategoriToAdd);
+            }
+        }
+
+        public void InsertBildeToChosenKategorier_BildeToDb(string kategorinavn, byte[] bilde)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Kategorier_Bilde kategorier_BildeBildeToAdd = new Kategorier_Bilde
+                {
+                    Kategorinavn = kategorinavn,
+                    Bilde = bilde
+                };
+
+
+                connection.Execute("INSERT INTO dbo.Kategorier_Bilde WHERE Kategorinavn = @Kategorinavn", kategorier_BildeBildeToAdd);
+                //INSERT INTO dbo.Kategorier_Bilde VALUES(1, (SELECT * FROM OPENROWSET(BULK N'C:\img\1.png', SINGLE_BLOB) as T1))
             }
         }
 
