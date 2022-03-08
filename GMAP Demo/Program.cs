@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GMAP_Demo.Database.DataTypes;
 
 namespace GMAP_Demo
 {
@@ -16,6 +17,19 @@ namespace GMAP_Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            try
+            {
+                List<Ressurs> ressursList = new List<Ressurs>();
+                DatabaseCommunication db = new DatabaseCommunication();
+                ressursList = db.ListAllRessursFromDb();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                System.Environment.Exit(1);
+
+            }
             Application.Run(new Form1());
         }
     }
