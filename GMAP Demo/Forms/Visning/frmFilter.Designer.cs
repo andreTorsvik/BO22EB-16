@@ -53,19 +53,18 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label3.Location = new System.Drawing.Point(9, 7);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 37);
+            this.label3.Size = new System.Drawing.Size(114, 46);
             this.label3.TabIndex = 3;
             this.label3.Text = "Filter";
             // 
             // btnRessurs
             // 
-            this.btnRessurs.Location = new System.Drawing.Point(29, 140);
-            this.btnRessurs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRessurs.Location = new System.Drawing.Point(39, 172);
+            this.btnRessurs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRessurs.Name = "btnRessurs";
-            this.btnRessurs.Size = new System.Drawing.Size(85, 37);
+            this.btnRessurs.Size = new System.Drawing.Size(113, 46);
             this.btnRessurs.TabIndex = 4;
             this.btnRessurs.Text = "Legg til Markører kartet";
             this.btnRessurs.UseVisualStyleBackColor = true;
@@ -73,10 +72,10 @@
             // 
             // btnLeggTil
             // 
-            this.btnLeggTil.Location = new System.Drawing.Point(29, 97);
-            this.btnLeggTil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLeggTil.Location = new System.Drawing.Point(39, 119);
+            this.btnLeggTil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLeggTil.Name = "btnLeggTil";
-            this.btnLeggTil.Size = new System.Drawing.Size(85, 38);
+            this.btnLeggTil.Size = new System.Drawing.Size(113, 47);
             this.btnLeggTil.TabIndex = 5;
             this.btnLeggTil.Text = "hent ressurs fra database";
             this.btnLeggTil.UseVisualStyleBackColor = true;
@@ -84,10 +83,10 @@
             // 
             // txtAntall
             // 
-            this.txtAntall.Location = new System.Drawing.Point(130, 106);
-            this.txtAntall.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAntall.Location = new System.Drawing.Point(173, 130);
+            this.txtAntall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAntall.Name = "txtAntall";
-            this.txtAntall.Size = new System.Drawing.Size(38, 20);
+            this.txtAntall.Size = new System.Drawing.Size(49, 22);
             this.txtAntall.TabIndex = 6;
             this.txtAntall.TextChanged += new System.EventHandler(this.txtAntall_TextChanged);
             // 
@@ -95,19 +94,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(128, 91);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(171, 112);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.Size = new System.Drawing.Size(99, 16);
             this.label1.TabIndex = 7;
             this.label1.Text = "Antall ressurser";
             // 
             // btnFjern
             // 
-            this.btnFjern.Location = new System.Drawing.Point(29, 181);
-            this.btnFjern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFjern.Location = new System.Drawing.Point(39, 223);
+            this.btnFjern.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFjern.Name = "btnFjern";
-            this.btnFjern.Size = new System.Drawing.Size(85, 26);
+            this.btnFjern.Size = new System.Drawing.Size(113, 32);
             this.btnFjern.TabIndex = 8;
             this.btnFjern.Text = "Fjern markør ";
             this.btnFjern.UseVisualStyleBackColor = true;
@@ -115,20 +113,23 @@
             // 
             // txtNavn
             // 
-            this.txtNavn.Location = new System.Drawing.Point(131, 226);
-            this.txtNavn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNavn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtNavn.Location = new System.Drawing.Point(173, 278);
+            this.txtNavn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNavn.Multiline = true;
             this.txtNavn.Name = "txtNavn";
-            this.txtNavn.Size = new System.Drawing.Size(164, 20);
+            this.txtNavn.ReadOnly = true;
+            this.txtNavn.Size = new System.Drawing.Size(217, 24);
             this.txtNavn.TabIndex = 9;
             // 
             // lblNavn
             // 
             this.lblNavn.AutoSize = true;
             this.lblNavn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNavn.Location = new System.Drawing.Point(29, 229);
+            this.lblNavn.Location = new System.Drawing.Point(39, 282);
+            this.lblNavn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNavn.Name = "lblNavn";
-            this.lblNavn.Size = new System.Drawing.Size(33, 13);
+            this.lblNavn.Size = new System.Drawing.Size(39, 16);
             this.lblNavn.TabIndex = 10;
             this.lblNavn.Text = "Navn";
             // 
@@ -136,9 +137,10 @@
             // 
             this.lblKategori.AutoSize = true;
             this.lblKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKategori.Location = new System.Drawing.Point(29, 253);
+            this.lblKategori.Location = new System.Drawing.Point(39, 311);
+            this.lblKategori.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKategori.Name = "lblKategori";
-            this.lblKategori.Size = new System.Drawing.Size(46, 13);
+            this.lblKategori.Size = new System.Drawing.Size(57, 16);
             this.lblKategori.TabIndex = 11;
             this.lblKategori.Text = "Kategori";
             // 
@@ -146,9 +148,10 @@
             // 
             this.lblDato_opprettet.AutoSize = true;
             this.lblDato_opprettet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblDato_opprettet.Location = new System.Drawing.Point(29, 277);
+            this.lblDato_opprettet.Location = new System.Drawing.Point(39, 341);
+            this.lblDato_opprettet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDato_opprettet.Name = "lblDato_opprettet";
-            this.lblDato_opprettet.Size = new System.Drawing.Size(75, 13);
+            this.lblDato_opprettet.Size = new System.Drawing.Size(92, 16);
             this.lblDato_opprettet.TabIndex = 12;
             this.lblDato_opprettet.Text = "Dato opprettet";
             // 
@@ -156,9 +159,10 @@
             // 
             this.lblOpprettetAvBruker.AutoSize = true;
             this.lblOpprettetAvBruker.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblOpprettetAvBruker.Location = new System.Drawing.Point(29, 301);
+            this.lblOpprettetAvBruker.Location = new System.Drawing.Point(39, 370);
+            this.lblOpprettetAvBruker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOpprettetAvBruker.Name = "lblOpprettetAvBruker";
-            this.lblOpprettetAvBruker.Size = new System.Drawing.Size(99, 13);
+            this.lblOpprettetAvBruker.Size = new System.Drawing.Size(121, 16);
             this.lblOpprettetAvBruker.TabIndex = 13;
             this.lblOpprettetAvBruker.Text = "Opprettet av bruker";
             // 
@@ -166,9 +170,10 @@
             // 
             this.lblSikkerhetsklarering.AutoSize = true;
             this.lblSikkerhetsklarering.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(29, 325);
+            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(39, 400);
+            this.lblSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSikkerhetsklarering.Name = "lblSikkerhetsklarering";
-            this.lblSikkerhetsklarering.Size = new System.Drawing.Size(97, 13);
+            this.lblSikkerhetsklarering.Size = new System.Drawing.Size(122, 16);
             this.lblSikkerhetsklarering.TabIndex = 14;
             this.lblSikkerhetsklarering.Text = "Sikkerhetsklarering";
             // 
@@ -176,63 +181,74 @@
             // 
             this.lblKommentar.AutoSize = true;
             this.lblKommentar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKommentar.Location = new System.Drawing.Point(29, 349);
+            this.lblKommentar.Location = new System.Drawing.Point(39, 430);
+            this.lblKommentar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKommentar.Name = "lblKommentar";
-            this.lblKommentar.Size = new System.Drawing.Size(60, 13);
+            this.lblKommentar.Size = new System.Drawing.Size(75, 16);
             this.lblKommentar.TabIndex = 15;
             this.lblKommentar.Text = "Kommentar";
             // 
             // txtKategori
             // 
-            this.txtKategori.Location = new System.Drawing.Point(131, 250);
-            this.txtKategori.Margin = new System.Windows.Forms.Padding(2);
+            this.txtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtKategori.Location = new System.Drawing.Point(173, 308);
+            this.txtKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKategori.Multiline = true;
             this.txtKategori.Name = "txtKategori";
-            this.txtKategori.Size = new System.Drawing.Size(164, 20);
+            this.txtKategori.ReadOnly = true;
+            this.txtKategori.Size = new System.Drawing.Size(217, 24);
             this.txtKategori.TabIndex = 16;
             // 
             // txtDato_opprettet
             // 
-            this.txtDato_opprettet.Location = new System.Drawing.Point(130, 274);
-            this.txtDato_opprettet.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDato_opprettet.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtDato_opprettet.Location = new System.Drawing.Point(173, 337);
+            this.txtDato_opprettet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDato_opprettet.Multiline = true;
             this.txtDato_opprettet.Name = "txtDato_opprettet";
-            this.txtDato_opprettet.Size = new System.Drawing.Size(164, 20);
+            this.txtDato_opprettet.ReadOnly = true;
+            this.txtDato_opprettet.Size = new System.Drawing.Size(217, 24);
             this.txtDato_opprettet.TabIndex = 17;
             // 
             // txtOpprettetAvBruker
             // 
-            this.txtOpprettetAvBruker.Location = new System.Drawing.Point(130, 298);
-            this.txtOpprettetAvBruker.Margin = new System.Windows.Forms.Padding(2);
+            this.txtOpprettetAvBruker.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtOpprettetAvBruker.Location = new System.Drawing.Point(173, 367);
+            this.txtOpprettetAvBruker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOpprettetAvBruker.Multiline = true;
             this.txtOpprettetAvBruker.Name = "txtOpprettetAvBruker";
-            this.txtOpprettetAvBruker.Size = new System.Drawing.Size(164, 20);
+            this.txtOpprettetAvBruker.ReadOnly = true;
+            this.txtOpprettetAvBruker.Size = new System.Drawing.Size(217, 24);
             this.txtOpprettetAvBruker.TabIndex = 18;
             // 
             // txtSikkerhetsklarering
             // 
-            this.txtSikkerhetsklarering.Location = new System.Drawing.Point(130, 322);
-            this.txtSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSikkerhetsklarering.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtSikkerhetsklarering.Location = new System.Drawing.Point(173, 396);
+            this.txtSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSikkerhetsklarering.Multiline = true;
             this.txtSikkerhetsklarering.Name = "txtSikkerhetsklarering";
-            this.txtSikkerhetsklarering.Size = new System.Drawing.Size(164, 20);
+            this.txtSikkerhetsklarering.ReadOnly = true;
+            this.txtSikkerhetsklarering.Size = new System.Drawing.Size(217, 24);
             this.txtSikkerhetsklarering.TabIndex = 19;
             // 
             // txtKommentar
             // 
-            this.txtKommentar.Location = new System.Drawing.Point(130, 346);
-            this.txtKommentar.Margin = new System.Windows.Forms.Padding(2);
+            this.txtKommentar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtKommentar.Location = new System.Drawing.Point(173, 426);
+            this.txtKommentar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKommentar.Multiline = true;
             this.txtKommentar.Name = "txtKommentar";
-            this.txtKommentar.Size = new System.Drawing.Size(164, 76);
+            this.txtKommentar.ReadOnly = true;
+            this.txtKommentar.Size = new System.Drawing.Size(217, 93);
             this.txtKommentar.TabIndex = 20;
             // 
             // frmFilter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(306, 708);
+            this.ClientSize = new System.Drawing.Size(408, 871);
             this.Controls.Add(this.txtKommentar);
             this.Controls.Add(this.txtSikkerhetsklarering);
             this.Controls.Add(this.txtOpprettetAvBruker);
@@ -252,7 +268,7 @@
             this.Controls.Add(this.btnRessurs);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmFilter";
             this.Text = "frmFilter";
             this.ResumeLayout(false);
