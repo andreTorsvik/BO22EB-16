@@ -9,15 +9,10 @@ namespace GMAP_Demo.Database.DataTypes
 {
     public class Ressurs
     {
-        // Løpenummer_ressurs som skriver til databasen må bruke DEFAULT pga constraintSequence
-        private string defa = "DEFAULT";
-        // Dato_opprettet som skriver til databasen må bruke CURRENT_TIMESTAMP pga DATETIME
-        private string cuti = "CURRENT_TIMESTAMP";
-
-        public int Løpenummer_ressurs { get; set; } 
+        public int Løpenummer_ressurs { get; set; } // Løpenummer_ressurs som skriver til databasen må bruke DEFAULT pga constraintSequence
         public string Navn { get; set; }
         public string Kategori { get; set; }
-        public string Dato_opprettet { get; set; } 
+        public string Dato_opprettet { get; set; } // Dato_opprettet som skriver til databasen må bruke CURRENT_TIMESTAMP pga DATETIME
         public string Opprettet_av_bruker { get; set; }
         public int Sikkerhetsklarering { get; set; }
         public string Kommentar { get; set; }

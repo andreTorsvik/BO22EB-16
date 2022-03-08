@@ -8,10 +8,7 @@ namespace GMAP_Demo.Database.DataTypes
 {
     internal class Overlay_Område
     {
-        // Løpenummer_til_område som skriver til databasen må bruke DEFAULT pga constraintSequence
-        private string defa = "DEFAULT";
-
-        public int Løpenummer_til_område { get; set; }
+        public int Løpenummer_til_område { get; set; } // Løpenummer_til_område som skriver til databasen må bruke DEFAULT pga constraintSequence
         public string Kategori { get; set; }
 
 

@@ -8,16 +8,11 @@ namespace GMAP_Demo.Database.DataTypes
 {
     internal class Måling
     {
-        // Løpenummer_til_ressurs som skriver til databasen må bruke DEFAULT pga constraintSequence
-        private string defa = "DEFAULT";
-        // Dato som skriver til databasen må bruke CURRENT_TIMESTAMP pga DATETIME
-        private string cuti = "CURRENT_TIMESTAMP";
-
         public string Navn_på_sensor { get; set; }
         public float Verdi { get; set; }
-        public int Løpenummer_til_ressurs { get; set; }
+        public int Løpenummer_til_ressurs { get; set; } // Løpenummer_til_ressurs som skriver til databasen må bruke DEFAULT pga constraintSequence
         public int Måling_id { get; set; }
-        public string Dato { get; set; }
+        public string Dato { get; set; } // Dato som skriver til databasen må bruke CURRENT_TIMESTAMP pga DATETIME
         public string Enhet { get; set; }
 
 

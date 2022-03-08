@@ -8,14 +8,9 @@ namespace GMAP_Demo.Database.DataTypes
 {
     internal class Område
     {
-        // Løpenummer_område som skriver til databasen må bruke DEFAULT pga constraintSequence
-        private string defa = "DEFAULT";
-        // Dato som skriver til databasen må bruke CURRENT_TIMESTAMP pga DATETIME
-        private string cuti = "CURRENT_TIMESTAMP";
-
-        public int Løpenummer_område { get; set; }
+        public int Løpenummer_område { get; set; } // Løpenummer_område som skriver til databasen må bruke DEFAULT pga constraintSequence
         public string Navn { get; set; }
-        public string Dato_opprettet { get; set; }
+        public string Dato_opprettet { get; set; } // Dato som skriver til databasen må bruke CURRENT_TIMESTAMP pga DATETIME
         public string Opprettet_av_bruker { get; set; }
         public string Kommentar { get; set; }
         public int Sikkerhetsklarering { get; set; }
