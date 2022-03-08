@@ -12,9 +12,11 @@ namespace GMAP_Demo
 {
     public partial class frm_R_RedigerOmråde : Form
     {
+        public static frm_R_RedigerOmråde instance;
         public frm_R_RedigerOmråde()
         {
             InitializeComponent();
+            instance = this;
         }
     }
 }

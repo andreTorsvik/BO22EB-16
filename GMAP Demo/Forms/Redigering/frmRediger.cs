@@ -177,8 +177,33 @@ namespace GMAP_Demo
                 double lat = DoubleClick_punkt.Lat;
                 double lng = DoubleClick_punkt.Lng;
 
-                frm_R_LeggTilObjekt.instance.txtLat.Text = lat.ToString();
-                frm_R_LeggTilObjekt.instance.txtLong.Text = lng.ToString();
+                if (frm_R_LeggTilObjekt.instance != null)
+                {
+                    frm_R_LeggTilObjekt.instance.txtLat.Text = lat.ToString();
+                    frm_R_LeggTilObjekt.instance.txtLong.Text = lng.ToString();
+                }
+
+
+                if (frm_R_LeggTilOmråde.instance != null)
+                {
+                    frm_R_LeggTilOmråde.instance.txtLat.Text = lat.ToString();
+                    frm_R_LeggTilOmråde.instance.txtLong.Text = lng.ToString();
+                }
+
+
+                if (frm_R_RedigerObjekt.instance != null)
+                {
+                    frm_R_RedigerObjekt.instance.txtLat.Text = lat.ToString();
+                    frm_R_RedigerObjekt.instance.txtLong.Text = lng.ToString();
+                }
+
+
+                if (frm_R_RedigerOmråde.instance != null)
+                {
+                    frm_R_RedigerOmråde.instance.txtLat.Text = lat.ToString();
+                    frm_R_RedigerOmråde.instance.txtLong.Text = lng.ToString();
+                }
+
             }
         }
 
