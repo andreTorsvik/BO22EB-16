@@ -26,7 +26,6 @@ namespace GMAP_Demo
         public static PointLatLng DoubleClick_punkt;
         public static Form1 instance;
         
-        
 
         public Form1()
         {
@@ -118,10 +117,6 @@ namespace GMAP_Demo
         {
             //kode for  å oppdatere overlays på kartet 
             //for å finne målene til winduet
-            int bredde = this.Size.Width;
-            int høyde = this.Size.Height;
-            string svar = string.Format("bredde:{0} høyde:{1}", bredde.ToString(), høyde.ToString());
-            MessageBox.Show(svar);
         }
 
         private void btnRediger_Click(object sender, EventArgs e)

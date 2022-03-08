@@ -19,9 +19,33 @@ namespace GMAP_Demo
             instance = this;
         }
 
-        private void frm_R_RedigerObjektOmråde_Load(object sender, EventArgs e)
-        {
+       
 
+        private void lbTilgjengligKategori_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string selectedItemtext = lbTilgjengligKategori.SelectedItem.ToString();
+
+            txtKategori.Text = selectedItemtext;
+        }
+
+        private void frm_R_RedigerObjekt_Load(object sender, EventArgs e)
+        {
+            LastInnKategorier();
+        }
+
+        private void LastInnKategorier()
+        {
+            Form1.LKategori.Clear();
+            DatabaseCommunication db = new DatabaseCommunication();
+            var KategoriListe = db.ListAllKategorier_BildeFromDb();
+
+            foreach (var item in KategoriListe)
+            {
+                Form1.LKategori.Add(item);
+                lbTilgjengligKategori.Items.Add(item.Kategorinavn);
+            }
+
+            lbTilgjengligKategori.Sorted = true;
         }
     }
 }

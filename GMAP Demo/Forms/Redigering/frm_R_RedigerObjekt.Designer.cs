@@ -37,7 +37,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNyOverlay = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtLong = new System.Windows.Forms.TextBox();
@@ -93,6 +93,7 @@
             this.lbTilgjengligKategori.Name = "lbTilgjengligKategori";
             this.lbTilgjengligKategori.Size = new System.Drawing.Size(138, 36);
             this.lbTilgjengligKategori.TabIndex = 85;
+            this.lbTilgjengligKategori.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligKategori_MouseDoubleClick);
             // 
             // label2
             // 
@@ -147,14 +148,14 @@
             this.label9.TabIndex = 80;
             this.label9.Text = "Ny Overlay ";
             // 
-            // textBox2
+            // txtNyOverlay
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.Location = new System.Drawing.Point(13, 669);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 22);
-            this.textBox2.TabIndex = 79;
+            this.txtNyOverlay.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNyOverlay.Location = new System.Drawing.Point(13, 669);
+            this.txtNyOverlay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNyOverlay.Name = "txtNyOverlay";
+            this.txtNyOverlay.Size = new System.Drawing.Size(121, 22);
+            this.txtNyOverlay.TabIndex = 79;
             // 
             // label6
             // 
@@ -320,7 +321,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtNyOverlay);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtLong);
@@ -340,7 +341,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_R_RedigerObjekt";
             this.Text = "frm_R_RedigerObjektOmråde";
-            this.Load += new System.EventHandler(this.frm_R_RedigerObjektOmråde_Load);
+            this.Load += new System.EventHandler(this.frm_R_RedigerObjekt_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,25 +354,25 @@
         private System.Windows.Forms.Button btnLeggTilNyKategori;
         private System.Windows.Forms.ListBox lbTilgjengligKategori;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtKategori;
+        public System.Windows.Forms.TextBox txtKategori;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txtNyOverlay;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.TextBox txtLong;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox txtLat;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtKommentar;
+        public System.Windows.Forms.TextBox txtKommentar;
         private System.Windows.Forms.Button btnLeggTilOverlay;
         private System.Windows.Forms.ListBox lbValgt;
         private System.Windows.Forms.ListBox lbTilgjengelige;
         private System.Windows.Forms.Button btnLeggTilObjekt;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtSikkerhetsklarering;
+        public System.Windows.Forms.TextBox txtSikkerhetsklarering;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNavn;
+        public System.Windows.Forms.TextBox txtNavn;
     }
 }

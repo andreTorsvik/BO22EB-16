@@ -11,6 +11,8 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET;
 using GMap.NET.MapProviders;
+using GMAP_Demo.Database.DataTypes;
+
 
 namespace GMAP_Demo
 {
@@ -34,13 +36,12 @@ namespace GMAP_Demo
             frm_R_LeggTilObjekt_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frm_R_LeggTilObjekt_vrb);
             frm_R_LeggTilObjekt_vrb.Show();
-
-            
         }
 
         private void frmRediger_Load(object sender, EventArgs e)
         {
             SetupKart();
+            VisRessurser();
             
         }
 
@@ -82,7 +83,6 @@ namespace GMAP_Demo
 
         private void btnObjekt_Click(object sender, EventArgs e)
         {
-
             AlleKnapperTilStandarfarge();
             btnObjekt.BackColor = knapp_trykket;
 
@@ -99,9 +99,9 @@ namespace GMAP_Demo
 
         private void btnOmråde_Click(object sender, EventArgs e)
         {
-
             AlleKnapperTilStandarfarge();
             btnOmråde.BackColor = knapp_trykket;
+
             //Flytte oransjePanelet til rett plass
             FlyttNavigasjonsPanel(btnOmråde.Height, btnOmråde.Top);
 
@@ -115,13 +115,12 @@ namespace GMAP_Demo
 
         private void btnRediger_obj_områ_Click(object sender, EventArgs e)
         {
-            
             AlleKnapperTilStandarfarge();
             btnRediger_obj_områ.BackColor = knapp_trykket;
+
             //Flytte oransjePanelet til rett plass
             FlyttNavigasjonsPanel(btnRediger_obj_områ.Height, btnRediger_obj_områ.Top);
             
-
             //legge inn rett form i panelet
             this.PnlFormLoader.Controls.Clear();
             frm_R_RedigerObjekt frm_R_RedigerObjektOmråde_vrb = new frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -132,15 +131,12 @@ namespace GMAP_Demo
 
         private void btnFjern_obj_områ_Click(object sender, EventArgs e)
         {
-
             AlleKnapperTilStandarfarge();
             btnFjern_obj_områ.BackColor = knapp_trykket;
-            //Flytte oransjePanelet til rett plass
 
+            //Flytte oransjePanelet til rett plass
             FlyttNavigasjonsPanel(btnFjern_obj_områ.Height, btnFjern_obj_områ.Top);
            
-
-
             //legge inn rett form i panelet
             this.PnlFormLoader.Controls.Clear();
             frm_R_FjernObjektOmråde frm_R_FjernObjektOmråde_vrb = new frm_R_FjernObjektOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -182,28 +178,21 @@ namespace GMAP_Demo
                     frm_R_LeggTilObjekt.instance.txtLat.Text = lat.ToString();
                     frm_R_LeggTilObjekt.instance.txtLong.Text = lng.ToString();
                 }
-
-
                 if (frm_R_LeggTilOmråde.instance != null)
                 {
                     frm_R_LeggTilOmråde.instance.txtLat.Text = lat.ToString();
                     frm_R_LeggTilOmråde.instance.txtLong.Text = lng.ToString();
                 }
-
-
                 if (frm_R_RedigerObjekt.instance != null)
                 {
                     frm_R_RedigerObjekt.instance.txtLat.Text = lat.ToString();
                     frm_R_RedigerObjekt.instance.txtLong.Text = lng.ToString();
                 }
-
-
                 if (frm_R_RedigerOmråde.instance != null)
                 {
                     frm_R_RedigerOmråde.instance.txtLat.Text = lat.ToString();
                     frm_R_RedigerOmråde.instance.txtLong.Text = lng.ToString();
                 }
-
             }
         }
 
@@ -211,11 +200,9 @@ namespace GMAP_Demo
         {
             AlleKnapperTilStandarfarge();
             btnRedigerOmråde.BackColor = knapp_trykket;
+
             //Flytte oransjePanelet til rett plass
-
             FlyttNavigasjonsPanel(btnRedigerOmråde.Height, btnRedigerOmråde.Top);
-
-
 
             //legge inn rett form i panelet
             this.PnlFormLoader.Controls.Clear();
@@ -223,6 +210,59 @@ namespace GMAP_Demo
             frm_R_RedigerOmråde_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frm_R_RedigerOmråde_vrb);
             frm_R_RedigerOmråde_vrb.Show();
+        }
+
+        void VisRessurser()
+        {
+            if (Form1.LRessurs.Count > 0)
+            {
+                int tag = 0;
+                GMapMarker marker;
+                foreach (var item in Form1.LRessurs)
+                {
+                    PointLatLng punkt = item.GiPunktet();
+
+                    marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
+
+                    marker.ToolTipText = String.Format("{0}", item.Navn);
+                    marker.ToolTip.Fill = Brushes.Black;
+                    marker.ToolTip.Foreground = Brushes.White;
+                    marker.ToolTip.Stroke = Pens.Black;
+                    marker.ToolTip.TextPadding = new Size(20, 20);
+                    marker.Tag = tag;
+                    tag++;
+
+                    GMapOverlay markers = new GMapOverlay("test1");
+                    markers.Markers.Add(marker);
+                    frmRediger.instance.map.Overlays.Add(markers);
+                }
+                frmRediger.reff();
+            }
+        }
+        public static void reff()
+        {
+            frmRediger.instance.map.Zoom++;
+            frmRediger.instance.map.Zoom--;
+        }
+
+        public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
+        {
+            
+            if (frm_R_RedigerObjekt.instance != null)
+            {
+                frm_R_RedigerObjekt.instance.txtNavn.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Navn;
+                frm_R_RedigerObjekt.instance.txtKategori.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
+                frm_R_RedigerObjekt.instance.txtSikkerhetsklarering.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frm_R_RedigerObjekt.instance.txtKommentar.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
+                frm_R_RedigerObjekt.instance.txtLat.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Lat.ToString();
+                frm_R_RedigerObjekt.instance.txtLong.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
+
+            }
+            if (frm_R_RedigerOmråde.instance != null)
+            {
+                //frm_R_RedigerOmråde.instance.txtLat.Text = lat.ToString();
+                //frm_R_RedigerOmråde.instance.txtLong.Text = lng.ToString();
+            }
         }
     }
 }
