@@ -98,7 +98,7 @@ namespace GMAP_Demo
             }
         }
 
-        
+
 
         public void InsertRessursToDb(string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {
@@ -113,7 +113,7 @@ namespace GMAP_Demo
                     Sikkerhetsklarering = sikkerhetsklarering,
                     Kommentar = kommentar,
                     Lat = lat,
-                    Lang = lang 
+                    Lang = lang
                 };
 
 
@@ -137,21 +137,21 @@ namespace GMAP_Demo
             }
         }
 
-        public void InsertBildeToChosenKategorier_BildeToDb(string kategorinavn, byte[] bilde)
+        public void InsertBildeToChosenKategorier_BildeToDb(string kategorinavn, byte[] imageData)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 Kategorier_Bilde kategorier_BildeBildeToAdd = new Kategorier_Bilde
                 {
                     Kategorinavn = kategorinavn,
-                    Bilde = bilde
+                    Bilde = imageData
                 };
 
+                connection.Execute("[dbo].[PROCEDUREinsertBildeIntoKategorier_Bilde] @Kategorinavn, @Bilde", (kategorier_BildeBildeToAdd));
 
-                connection.Execute("INSERT INTO dbo.Kategorier_Bilde WHERE Kategorinavn = @Kategorinavn", kategorier_BildeBildeToAdd);
-                //INSERT INTO dbo.Kategorier_Bilde VALUES(1, (SELECT * FROM OPENROWSET(BULK N'C:\img\1.png', SINGLE_BLOB) as T1))
             }
         }
+
 
     }
 }

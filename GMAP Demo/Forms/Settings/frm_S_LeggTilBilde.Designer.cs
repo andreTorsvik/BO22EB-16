@@ -35,9 +35,10 @@
             this.lblTilgjengeligeKategorier = new System.Windows.Forms.Label();
             this.lblValgtKategori = new System.Windows.Forms.Label();
             this.pbValgtBilde = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblValgtBilde = new System.Windows.Forms.Label();
+            this.lblVelgBilde = new System.Windows.Forms.Label();
             this.btnLeggTilIDb = new System.Windows.Forms.Button();
+            this.lblLastOppTilDB = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbValgtBilde)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,33 +117,33 @@
             this.pbValgtBilde.TabIndex = 68;
             this.pbValgtBilde.TabStop = false;
             // 
-            // label1
+            // lblValgtBilde
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label1.Location = new System.Drawing.Point(257, 257);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 17);
-            this.label1.TabIndex = 70;
-            this.label1.Text = "Valgt Kategori";
+            this.lblValgtBilde.AutoSize = true;
+            this.lblValgtBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValgtBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblValgtBilde.Location = new System.Drawing.Point(257, 257);
+            this.lblValgtBilde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblValgtBilde.Name = "lblValgtBilde";
+            this.lblValgtBilde.Size = new System.Drawing.Size(86, 17);
+            this.lblValgtBilde.TabIndex = 70;
+            this.lblValgtBilde.Text = "Valgt Bilde";
             // 
-            // label2
+            // lblVelgBilde
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label2.Location = new System.Drawing.Point(40, 257);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 17);
-            this.label2.TabIndex = 69;
-            this.label2.Text = "Tilgjengelige Kategorier";
+            this.lblVelgBilde.AutoSize = true;
+            this.lblVelgBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVelgBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblVelgBilde.Location = new System.Drawing.Point(40, 257);
+            this.lblVelgBilde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVelgBilde.Name = "lblVelgBilde";
+            this.lblVelgBilde.Size = new System.Drawing.Size(81, 17);
+            this.lblVelgBilde.TabIndex = 69;
+            this.lblVelgBilde.Text = "Velg Bilde";
             // 
             // btnLeggTilIDb
             // 
-            this.btnLeggTilIDb.Location = new System.Drawing.Point(95, 556);
+            this.btnLeggTilIDb.Location = new System.Drawing.Point(35, 471);
             this.btnLeggTilIDb.Margin = new System.Windows.Forms.Padding(2);
             this.btnLeggTilIDb.Name = "btnLeggTilIDb";
             this.btnLeggTilIDb.Size = new System.Drawing.Size(166, 44);
@@ -151,15 +152,28 @@
             this.btnLeggTilIDb.UseVisualStyleBackColor = true;
             this.btnLeggTilIDb.Click += new System.EventHandler(this.btnLeggTilIDb_Click);
             // 
+            // lblLastOppTilDB
+            // 
+            this.lblLastOppTilDB.AutoSize = true;
+            this.lblLastOppTilDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastOppTilDB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblLastOppTilDB.Location = new System.Drawing.Point(32, 452);
+            this.lblLastOppTilDB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLastOppTilDB.Name = "lblLastOppTilDB";
+            this.lblLastOppTilDB.Size = new System.Drawing.Size(273, 17);
+            this.lblLastOppTilDB.TabIndex = 72;
+            this.lblLastOppTilDB.Text = "Last opp valgt bilde til valgt kategori";
+            // 
             // frm_S_LeggTilBilde
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(960, 670);
+            this.Controls.Add(this.lblLastOppTilDB);
             this.Controls.Add(this.btnLeggTilIDb);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblValgtBilde);
+            this.Controls.Add(this.lblVelgBilde);
             this.Controls.Add(this.pbValgtBilde);
             this.Controls.Add(this.lblValgtKategori);
             this.Controls.Add(this.lblTilgjengeligeKategorier);
@@ -168,7 +182,7 @@
             this.Controls.Add(this.btnLVelgBildeFraFiler);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frm_S_LeggTilBilde";
             this.Text = "frm_S_LeggTilBilde";
             this.Load += new System.EventHandler(this.frm_S_LeggTilBilde_Load);
@@ -187,8 +201,9 @@
         private System.Windows.Forms.Label lblTilgjengeligeKategorier;
         private System.Windows.Forms.Label lblValgtKategori;
         private System.Windows.Forms.PictureBox pbValgtBilde;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblValgtBilde;
+        private System.Windows.Forms.Label lblVelgBilde;
         private System.Windows.Forms.Button btnLeggTilIDb;
+        private System.Windows.Forms.Label lblLastOppTilDB;
     }
 }
