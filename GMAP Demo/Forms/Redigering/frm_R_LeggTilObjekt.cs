@@ -22,18 +22,7 @@ namespace GMAP_Demo
 
         private void frm_R_LeggTilObjekt_Load(object sender, EventArgs e)
         {
-            Form1.LKategori.Clear();
-
-            DatabaseCommunication db = new DatabaseCommunication();
-            var KategoriListe = db.ListAllKategorier_BildeFromDb();
-
-            foreach (var item in KategoriListe)
-            {
-                Form1.LKategori.Add(item);
-                lbTilgjengligKategori.Items.Add(item.Kategorinavn);
-            }
-            
-            lbTilgjengligKategori.Sorted = true;
+            LastInnKategorier();
         }
 
         private void btnLeggTilOverlay_Click(object sender, EventArgs e)
@@ -76,6 +65,20 @@ namespace GMAP_Demo
             lbTilgjengligKategori.Items.Add(nyKategori);
             lbTilgjengligKategori.Sorted = true;
             txtNyKategori.Text = "";
+        }
+        private void LastInnKategorier()
+        {
+            Form1.LKategori.Clear();
+            DatabaseCommunication db = new DatabaseCommunication();
+            var KategoriListe = db.ListAllKategorier_BildeFromDb();
+
+            foreach (var item in KategoriListe)
+            {
+                Form1.LKategori.Add(item);
+                lbTilgjengligKategori.Items.Add(item.Kategorinavn);
+            }
+
+            lbTilgjengligKategori.Sorted = true;
         }
     }
 }

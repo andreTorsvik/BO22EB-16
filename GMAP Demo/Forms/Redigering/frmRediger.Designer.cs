@@ -34,6 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnTilbake = new System.Windows.Forms.Button();
+            this.btnFjern_obj_områ = new System.Windows.Forms.Button();
             this.btnRedigerOmråde = new System.Windows.Forms.Button();
             this.btnRediger_obj_områ = new System.Windows.Forms.Button();
             this.btnOmråde = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnFjern_obj_områ = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,6 +76,7 @@
             this.map.TabIndex = 5;
             this.map.Zoom = 0D;
             this.map.OnMapDoubleClick += new GMap.NET.WindowsForms.MapDoubleClick(this.map_MouseDoubleClick);
+            this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(map_OnMarkerClick);
             // 
             // PnlFormLoader
             // 
@@ -129,6 +130,23 @@
             this.btnTilbake.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnTilbake.UseVisualStyleBackColor = true;
             this.btnTilbake.Click += new System.EventHandler(this.btnTilbake_Click);
+            // 
+            // btnFjern_obj_områ
+            // 
+            this.btnFjern_obj_områ.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFjern_obj_områ.FlatAppearance.BorderSize = 0;
+            this.btnFjern_obj_områ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFjern_obj_områ.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFjern_obj_områ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnFjern_obj_områ.Location = new System.Drawing.Point(0, 585);
+            this.btnFjern_obj_områ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFjern_obj_områ.Name = "btnFjern_obj_områ";
+            this.btnFjern_obj_områ.Size = new System.Drawing.Size(316, 84);
+            this.btnFjern_obj_områ.TabIndex = 1;
+            this.btnFjern_obj_områ.Text = "Fjern obj/område";
+            this.btnFjern_obj_områ.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnFjern_obj_områ.UseVisualStyleBackColor = true;
+            this.btnFjern_obj_områ.Click += new System.EventHandler(this.btnFjern_obj_områ_Click);
             // 
             // btnRedigerOmråde
             // 
@@ -245,23 +263,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // btnFjern_obj_områ
-            // 
-            this.btnFjern_obj_områ.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFjern_obj_områ.FlatAppearance.BorderSize = 0;
-            this.btnFjern_obj_områ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFjern_obj_områ.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFjern_obj_områ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnFjern_obj_områ.Location = new System.Drawing.Point(0, 585);
-            this.btnFjern_obj_områ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFjern_obj_områ.Name = "btnFjern_obj_områ";
-            this.btnFjern_obj_områ.Size = new System.Drawing.Size(316, 84);
-            this.btnFjern_obj_områ.TabIndex = 1;
-            this.btnFjern_obj_områ.Text = "Fjern obj/område";
-            this.btnFjern_obj_områ.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnFjern_obj_områ.UseVisualStyleBackColor = true;
-            this.btnFjern_obj_områ.Click += new System.EventHandler(this.btnFjern_obj_områ_Click);
-            // 
             // frmRediger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -289,7 +290,7 @@
 
         #endregion
 
-        private GMap.NET.WindowsForms.GMapControl map;
+        public GMap.NET.WindowsForms.GMapControl map;
         private System.Windows.Forms.Panel PnlFormLoader;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlNav;

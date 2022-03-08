@@ -11,6 +11,8 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET;
 using GMap.NET.MapProviders;
+using GMAP_Demo.Database.DataTypes;
+
 
 namespace GMAP_Demo
 {
@@ -39,6 +41,8 @@ namespace GMAP_Demo
         private void frmRediger_Load(object sender, EventArgs e)
         {
             SetupKart();
+            VisRessurser();
+            
         }
 
         void SetupKart()
@@ -206,6 +210,59 @@ namespace GMAP_Demo
             frm_R_RedigerOmråde_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frm_R_RedigerOmråde_vrb);
             frm_R_RedigerOmråde_vrb.Show();
+        }
+
+        void VisRessurser()
+        {
+            if (Form1.LRessurs.Count > 0)
+            {
+                int tag = 0;
+                GMapMarker marker;
+                foreach (var item in Form1.LRessurs)
+                {
+                    PointLatLng punkt = item.GiPunktet();
+
+                    marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
+
+                    marker.ToolTipText = String.Format("{0}", item.Navn);
+                    marker.ToolTip.Fill = Brushes.Black;
+                    marker.ToolTip.Foreground = Brushes.White;
+                    marker.ToolTip.Stroke = Pens.Black;
+                    marker.ToolTip.TextPadding = new Size(20, 20);
+                    marker.Tag = tag;
+                    tag++;
+
+                    GMapOverlay markers = new GMapOverlay("test1");
+                    markers.Markers.Add(marker);
+                    frmRediger.instance.map.Overlays.Add(markers);
+                }
+                frmRediger.reff();
+            }
+        }
+        public static void reff()
+        {
+            frmRediger.instance.map.Zoom++;
+            frmRediger.instance.map.Zoom--;
+        }
+
+        public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
+        {
+            
+            if (frm_R_RedigerObjekt.instance != null)
+            {
+                frm_R_RedigerObjekt.instance.txtNavn.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Navn;
+                frm_R_RedigerObjekt.instance.txtKategori.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
+                frm_R_RedigerObjekt.instance.txtSikkerhetsklarering.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frm_R_RedigerObjekt.instance.txtKommentar.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
+                frm_R_RedigerObjekt.instance.txtLat.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Lat.ToString();
+                frm_R_RedigerObjekt.instance.txtLong.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
+
+            }
+            if (frm_R_RedigerOmråde.instance != null)
+            {
+                //frm_R_RedigerOmråde.instance.txtLat.Text = lat.ToString();
+                //frm_R_RedigerOmråde.instance.txtLong.Text = lng.ToString();
+            }
         }
     }
 }
