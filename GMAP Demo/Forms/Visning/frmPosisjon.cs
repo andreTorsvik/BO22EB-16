@@ -23,11 +23,20 @@ namespace GMAP_Demo
         private void btnSøk_Click(object sender, EventArgs e)
         {
             string svar = " ";
+            int ZoomLevel = 0;
             svar += txtAdresse.Text +",";
             svar += txtByKommune.Text+ ",";
             svar += txtLand.Text;
             svar = svar.Trim();
             Form1.AdresseTilKart(svar);
+
+            //tror det finnes bedre metoder for dette
+            if (txtLand.Text != "") ZoomLevel = 5;
+            if (txtByKommune.Text != "") ZoomLevel = 11;
+            if (txtAdresse.Text != "") ZoomLevel = 18;
+
+            Form1.instance.map.Zoom = ZoomLevel;
+
         }
 
         private void btnStart_Click(object sender, EventArgs e)
