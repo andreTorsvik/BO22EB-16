@@ -80,5 +80,7 @@ namespace GMAP_Demo
 
             lbTilgjengligKategori.Sorted = true;
         }
+
+
     }
 }
