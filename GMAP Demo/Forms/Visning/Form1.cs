@@ -21,7 +21,8 @@ namespace GMAP_Demo
         public static PointLatLng Punkt_fra_forrige_kart;
         private static bool KjørEnGang = true;
         private static Color knapp_trykket;
-        public static List<Ressurs> LRessurs;
+        public List<Ressurs> LRessurs;
+        public List<Område> LOmråde;
         public static List<Kategorier_Bilde> LKategori;
         public static PointLatLng DoubleClick_punkt;
         public static Form1 instance;
@@ -56,6 +57,7 @@ namespace GMAP_Demo
             KjørEnGang = false;
             LRessurs = new List<Ressurs>();
             LKategori = new List<Kategorier_Bilde>();
+            LOmråde = new List<Område>();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -170,12 +172,12 @@ namespace GMAP_Demo
 
         public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            frmFilter.instance.txtNavn.Text = LRessurs[Convert.ToInt32(item.Tag)].Navn;
-            frmFilter.instance.txtKategori.Text = LRessurs[Convert.ToInt32(item.Tag)].Kategori;
-            frmFilter.instance.txtDato_opprettet.Text = LRessurs[Convert.ToInt32(item.Tag)].Dato_opprettet;
-            frmFilter.instance.txtOpprettetAvBruker.Text = LRessurs[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
-            frmFilter.instance.txtSikkerhetsklarering.Text = LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-            frmFilter.instance.txtKommentar.Text = LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
+            frmFilter.instance.txtNavn.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
+            frmFilter.instance.txtKategori.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
+            frmFilter.instance.txtDato_opprettet.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Dato_opprettet;
+            frmFilter.instance.txtOpprettetAvBruker.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
+            frmFilter.instance.txtSikkerhetsklarering.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+            frmFilter.instance.txtKommentar.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
         }
 
         private void map_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -194,7 +196,12 @@ namespace GMAP_Demo
 
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
-
+            frmFilter.instance.txtNavn.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
+            frmFilter.instance.txtKategori.Text = "";
+            frmFilter.instance.txtDato_opprettet.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Dato_opprettet;
+            frmFilter.instance.txtOpprettetAvBruker.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
+            frmFilter.instance.txtSikkerhetsklarering.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+            frmFilter.instance.txtKommentar.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
         }
 
         public static void AdresseTilKart(string Adresse)

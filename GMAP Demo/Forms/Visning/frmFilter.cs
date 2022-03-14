@@ -28,17 +28,17 @@ namespace GMAP_Demo
 
         private void btnLeggTil_Click(object sender, EventArgs e)
         {
-            Form1.LRessurs.Clear();
+            Form1.instance.LRessurs.Clear();
 
             DatabaseCommunication db = new DatabaseCommunication();
             var RessursList = db.ListAllRessursFromDb();
 
             foreach (var item in RessursList)
             {
-                Form1.LRessurs.Add(item);
+                Form1.instance.LRessurs.Add(item);
             }
 
-            txtAntall.Text = Form1.LRessurs.Count.ToString();
+            txtAntall.Text = Form1.instance.LRessurs.Count.ToString();
         }
 
         private void btnRessurs_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace GMAP_Demo
             //Form1.LeggTilRessursPåKart(Form1.LRessurs);
             int tag = 0;
             GMapMarker marker;
-            foreach (var item in Form1.LRessurs)
+            foreach (var item in Form1.instance.LRessurs)
             {
                 PointLatLng punkt = item.GiPunktet();
 
@@ -82,6 +82,82 @@ namespace GMAP_Demo
             txtOpprettetAvBruker.Text = "";
             txtSikkerhetsklarering.Text = "";
             txtKommentar.Text = "";  
+        }
+
+        private void btnHentOmråde_Click(object sender, EventArgs e)
+        {
+            Form1.instance.LOmråde.Clear();
+
+            DatabaseCommunication db = new DatabaseCommunication();
+            var OmrådeListe = db.ListAllOmrådeFromDb();
+
+            foreach (var item in OmrådeListe)
+            {
+                Form1.instance.LOmråde.Add(item);
+            }
+
+            txtAntallOmråder.Text = Form1.instance.LOmråde.Count.ToString();
+        }
+
+        private void btnLeggTilOmrådet_Click(object sender, EventArgs e)
+        {
+
+            int Tag = 0;
+            foreach (var item in Form1.instance.LOmråde)
+            {
+                List<PointLatLng> Lpunkter = item.HentPunkter();
+
+                GMapPolygon polygon = BestemFarge(Lpunkter, item.Farge);
+                //GMapPolygon polygon = new GMapPolygon(Lpunkter, "My area")
+                //{
+                //    Stroke = new Pen(Color.Green, 2),
+                //    //Fill = new SolidBrush(Color.FromArgb(50, Color.Red))
+                //    Fill = new SolidBrush(Color.FromArgb(50, Color.Green))
+                //};
+
+                polygon.Tag = Tag;
+                Tag++;
+                polygon.IsHitTestVisible = true; // nødvendig for å kunne trykke på Polygonet
+                GMapOverlay polygons = new GMapOverlay("Polygons");
+                polygons.Polygons.Add(polygon);
+                Form1.instance.map.Overlays.Add(polygons);
+                //txtInfo.Text =  item.ToString();
+            }
+            Form1.reff();
+        }
+
+        private GMapPolygon BestemFarge(List<PointLatLng> Lpunkter,string Farge)
+        {
+            GMapPolygon polygon;
+
+            switch (Farge)
+            {
+                case "Oransje":
+                    polygon = new GMapPolygon(Lpunkter, "My area")
+                    {
+                        Stroke = new Pen(Color.Orange, 2),
+                        Fill = new SolidBrush(Color.FromArgb(50, Color.Orange))
+                    };
+                    break;
+
+                case "Rødt":
+                    polygon = new GMapPolygon(Lpunkter, "My area")
+                    {
+                        Stroke = new Pen(Color.Red, 2),
+                        Fill = new SolidBrush(Color.FromArgb(50, Color.Red))
+                    };
+                    break;
+
+                default:
+                    polygon = new GMapPolygon(Lpunkter, "My area")
+                    {
+                        Stroke = new Pen(Color.Green, 2),
+                        Fill = new SolidBrush(Color.FromArgb(50, Color.Green))
+                    };
+                    break;
+            }
+
+            return polygon;
         }
     }
 }

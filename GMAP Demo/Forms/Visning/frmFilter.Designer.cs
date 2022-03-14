@@ -46,6 +46,10 @@
             this.txtOpprettetAvBruker = new System.Windows.Forms.TextBox();
             this.txtSikkerhetsklarering = new System.Windows.Forms.TextBox();
             this.txtKommentar = new System.Windows.Forms.TextBox();
+            this.btnHentOmråde = new System.Windows.Forms.Button();
+            this.btnLeggTilOmrådet = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtAntallOmråder = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label3
@@ -243,12 +247,56 @@
             this.txtKommentar.Size = new System.Drawing.Size(217, 93);
             this.txtKommentar.TabIndex = 20;
             // 
+            // btnHentOmråde
+            // 
+            this.btnHentOmråde.Location = new System.Drawing.Point(39, 572);
+            this.btnHentOmråde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHentOmråde.Name = "btnHentOmråde";
+            this.btnHentOmråde.Size = new System.Drawing.Size(113, 47);
+            this.btnHentOmråde.TabIndex = 21;
+            this.btnHentOmråde.Text = "Hent Område fra database";
+            this.btnHentOmråde.UseVisualStyleBackColor = true;
+            this.btnHentOmråde.Click += new System.EventHandler(this.btnHentOmråde_Click);
+            // 
+            // btnLeggTilOmrådet
+            // 
+            this.btnLeggTilOmrådet.Location = new System.Drawing.Point(39, 623);
+            this.btnLeggTilOmrådet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLeggTilOmrådet.Name = "btnLeggTilOmrådet";
+            this.btnLeggTilOmrådet.Size = new System.Drawing.Size(113, 46);
+            this.btnLeggTilOmrådet.TabIndex = 22;
+            this.btnLeggTilOmrådet.Text = "Legg til Områdene";
+            this.btnLeggTilOmrådet.UseVisualStyleBackColor = true;
+            this.btnLeggTilOmrådet.Click += new System.EventHandler(this.btnLeggTilOmrådet_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(171, 572);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 16);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Antall områder";
+            // 
+            // txtAntallOmråder
+            // 
+            this.txtAntallOmråder.Location = new System.Drawing.Point(173, 590);
+            this.txtAntallOmråder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAntallOmråder.Name = "txtAntallOmråder";
+            this.txtAntallOmråder.Size = new System.Drawing.Size(49, 22);
+            this.txtAntallOmråder.TabIndex = 23;
+            // 
             // frmFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(408, 871);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtAntallOmråder);
+            this.Controls.Add(this.btnLeggTilOmrådet);
+            this.Controls.Add(this.btnHentOmråde);
             this.Controls.Add(this.txtKommentar);
             this.Controls.Add(this.txtSikkerhetsklarering);
             this.Controls.Add(this.txtOpprettetAvBruker);
@@ -296,5 +344,9 @@
         public System.Windows.Forms.TextBox txtOpprettetAvBruker;
         public System.Windows.Forms.TextBox txtSikkerhetsklarering;
         public System.Windows.Forms.TextBox txtKommentar;
+        private System.Windows.Forms.Button btnHentOmråde;
+        private System.Windows.Forms.Button btnLeggTilOmrådet;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtAntallOmråder;
     }
 }

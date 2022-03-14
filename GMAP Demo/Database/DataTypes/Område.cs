@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GMap.NET;
 
 namespace GMAP_Demo.Database.DataTypes
 {
-    internal class Område
+    public class Område
     {
         public int Løpenummer_område { get; set; } // Løpenummer_område som skriver til databasen må bruke DEFAULT pga constraintSequence
         public string Navn { get; set; }
@@ -26,6 +27,22 @@ namespace GMAP_Demo.Database.DataTypes
             }
         }
 
+        public List<PointLatLng> HentPunkter()
+        {
+            List<PointLatLng> Lsvar = new List<PointLatLng>();
+            DatabaseCommunication db = new DatabaseCommunication();
+            var punktListe = db.ListAllPunkter_områdeFromDb();
+
+            foreach (var item in punktListe)
+            {      
+                if(item.Løpenummer_til_område == Løpenummer_område)
+                {
+                    PointLatLng punkt = new PointLatLng(Convert.ToDouble(item.Lat), Convert.ToDouble(item.Lang));
+                    Lsvar.Add(punkt);
+                }
+            }
+            return Lsvar;
+        }
 
     }
 }

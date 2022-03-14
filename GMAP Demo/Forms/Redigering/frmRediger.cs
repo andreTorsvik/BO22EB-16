@@ -214,11 +214,11 @@ namespace GMAP_Demo
 
         void VisRessurser()
         {
-            if (Form1.LRessurs.Count > 0)
+            if (Form1.instance.LRessurs.Count > 0)
             {
                 int tag = 0;
                 GMapMarker marker;
-                foreach (var item in Form1.LRessurs)
+                foreach (var item in Form1.instance.LRessurs)
                 {
                     PointLatLng punkt = item.GiPunktet();
 
@@ -250,12 +250,12 @@ namespace GMAP_Demo
             
             if (frm_R_RedigerObjekt.instance != null)
             {
-                frm_R_RedigerObjekt.instance.txtNavn.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Navn;
-                frm_R_RedigerObjekt.instance.txtKategori.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
-                frm_R_RedigerObjekt.instance.txtSikkerhetsklarering.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-                frm_R_RedigerObjekt.instance.txtKommentar.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
-                frm_R_RedigerObjekt.instance.txtLat.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Lat.ToString();
-                frm_R_RedigerObjekt.instance.txtLong.Text = Form1.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
+                frm_R_RedigerObjekt.instance.txtNavn.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
+                frm_R_RedigerObjekt.instance.txtKategori.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
+                frm_R_RedigerObjekt.instance.txtSikkerhetsklarering.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frm_R_RedigerObjekt.instance.txtKommentar.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
+                frm_R_RedigerObjekt.instance.txtLat.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Lat.ToString();
+                frm_R_RedigerObjekt.instance.txtLong.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
 
             }
             if (frm_R_RedigerOmråde.instance != null)
