@@ -28,11 +28,11 @@ namespace GMAP_Demo
 
         private void btnLeggTil_Click(object sender, EventArgs e)
         {
-
             Form1.LRessurs.Clear();
 
             DatabaseCommunication db = new DatabaseCommunication();
             var RessursList = db.ListAllRessursFromDb();
+
             foreach (var item in RessursList)
             {
                 Form1.LRessurs.Add(item);
@@ -51,7 +51,6 @@ namespace GMAP_Demo
                 PointLatLng punkt = item.GiPunktet();
 
                 marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
-
                 marker.ToolTipText = String.Format("{0}", item.Navn);
                 marker.ToolTip.Fill = Brushes.Black;
                 marker.ToolTip.Foreground = Brushes.White;
@@ -82,8 +81,7 @@ namespace GMAP_Demo
             txtDato_opprettet.Text = "";
             txtOpprettetAvBruker.Text = "";
             txtSikkerhetsklarering.Text = "";
-            txtKommentar.Text = "";
-            
+            txtKommentar.Text = "";  
         }
     }
 }

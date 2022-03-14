@@ -77,7 +77,7 @@
             this.btnLeggTil.Name = "btnLeggTil";
             this.btnLeggTil.Size = new System.Drawing.Size(113, 47);
             this.btnLeggTil.TabIndex = 5;
-            this.btnLeggTil.Text = "hent ressurs fra database";
+            this.btnLeggTil.Text = "Hent ressurs fra database";
             this.btnLeggTil.UseVisualStyleBackColor = true;
             this.btnLeggTil.Click += new System.EventHandler(this.btnLeggTil_Click);
             // 

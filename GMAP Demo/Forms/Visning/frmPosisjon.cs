@@ -1,12 +1,7 @@
 ﻿using GMap.NET;
+using GMap.NET.MapProviders;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GMAP_Demo
@@ -14,6 +9,8 @@ namespace GMAP_Demo
     public partial class frmPosisjon : Form
     {
         public static frmPosisjon instance;
+        public PointLatLng Til;
+        public PointLatLng Fra;
         public frmPosisjon()
         {
             InitializeComponent();
@@ -24,8 +21,8 @@ namespace GMAP_Demo
         {
             string svar = " ";
             int ZoomLevel = 0;
-            svar += txtAdresse.Text +",";
-            svar += txtByKommune.Text+ ",";
+            svar += txtAdresse.Text + ",";
+            svar += txtByKommune.Text + ",";
             svar += txtLand.Text;
             svar = svar.Trim();
             Form1.AdresseTilKart(svar);
@@ -36,36 +33,99 @@ namespace GMAP_Demo
             if (txtAdresse.Text != "") ZoomLevel = 18;
 
             Form1.instance.map.Zoom = ZoomLevel;
-
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            //kode som skriver in lat og long til adresse og legger det inn i
-            //txtStart
-            //hvis ikke man finner adresse bruker man lat og long
+            List<string> LAdresse = new List<string>();
+            try
+            {
+                PointLatLng point = new PointLatLng(Convert.ToDouble(txtLat.Text), Convert.ToDouble(txtLong.Text));
+                LAdresse = GetAddress(point);
+                Fra = point;
+            }
+            catch (Exception)
+            {
 
+            }
+
+            if (LAdresse != null)
+                txtFra.Text = "Addresse: \n-----------------" + string.Join(", ", LAdresse.ToArray());
+            else
+                txtFra.Text = "Unable to load Address";
         }
 
         private void btnSlutt_Click(object sender, EventArgs e)
         {
-            //kode som skriver in lat og long til adresse og legger det inn i
-            //txtSlutt
-            //hvis ikke man finner adresse bruker man lat og long
+            List<string> LAdresse = new List<string>();
+            try
+            {
+                PointLatLng point = new PointLatLng(Convert.ToDouble(txtLat.Text), Convert.ToDouble(txtLong.Text));
+                LAdresse = GetAddress(point);
+                Til = point;
+            }
+            catch (Exception)
+            {
 
-            
+            }
+
+            if (LAdresse != null)
+                txtTil.Text = "Addresse: \n-----------------" + string.Join(", ", LAdresse.ToArray());
+            else
+                txtTil.Text = "Unable to load Address";
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnFinnRute_Click(object sender, EventArgs e)
         {
-            //finner rute melleom punktene og og legger ruten på kartet
-            //
+            if (!Fra.IsEmpty && !Til.IsEmpty)
+            {
+                try
+                {
+                    Form1.LeggTilRute(Fra, Til);
+                    
+                }
+                catch (Exception)
+                {
 
+                    
+                }
+            }
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void btnFjernRute_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < Form1.instance.map.Overlays.Count; i++)
+            {
+                if (Form1.instance.map.Overlays[i].Id == "routes")
+                {  
+                    Form1.instance.map.Overlays.RemoveAt(i);
+                    Form1.reff();
+                    break;
+                }
+            }
+        }
 
+        private List<string> GetAddress(PointLatLng point)
+        {
+            //må bruke google API  for denne delen av koden
+            //hvis man ikke har google API vil denne delen ikke virke
+            try
+            {
+                List<Placemark> Info = null;
+                var statusCode = GMapProviders.GoogleMap.GetPlacemarks(point, out Info);
+                //var statusCode = GMapProviders.OpenStreetMap.GetPlacemarks(point,out Info);
+                if (statusCode == GeoCoderStatusCode.OK && Info != null)
+                {
+                    List<string> addresse = new List<string>();
+                    addresse.Add(Info[0].Address);
+                    return addresse;
+                }
+            }
+            catch (Exception)
+            {
+    
+            }
+            return null;
         }
     }
 }

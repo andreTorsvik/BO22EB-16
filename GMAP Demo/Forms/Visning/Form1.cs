@@ -29,6 +29,7 @@ namespace GMAP_Demo
 
         public Form1()
         {
+            GMapProviders.GoogleMap.ApiKey = "AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM";
             if (KjørEnGang) OpprettingAvGlobaleVariabler();
             InitializeComponent();
             instance = this;
@@ -42,12 +43,9 @@ namespace GMAP_Demo
 
             //sette Blåpanel til vesntre for Posisjonknapp 
             FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
-            
-
+           
             //endre farge
             btnPosisjon.BackColor = knapp_trykket;
-
-
         }
 
         private void OpprettingAvGlobaleVariabler()
@@ -86,14 +84,11 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
 
-            
-
             this.PnlFormLoader.Controls.Clear();
             frmPosisjon frmPosisjon_vrb = new frmPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
             frmPosisjon_vrb.Show();
-
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
@@ -110,7 +105,6 @@ namespace GMAP_Demo
             frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
             frmPosisjon_vrb.Show();
-
         }
 
         private void btnOppdater_Click(object sender, EventArgs e)
@@ -149,8 +143,7 @@ namespace GMAP_Demo
         {
             //setter alle nødvendige knappen til standarfarge
             btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
-            btnFilter.BackColor = Color.FromArgb(24, 30, 54);
-            
+            btnFilter.BackColor = Color.FromArgb(24, 30, 54);           
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -171,8 +164,8 @@ namespace GMAP_Demo
 
         public static void reff()
         {
-            Form1.instance.map.Zoom++;
-            Form1.instance.map.Zoom--;
+            instance.map.Zoom++;
+            instance.map.Zoom--;
         }
 
         public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
@@ -206,13 +199,33 @@ namespace GMAP_Demo
 
         public static void AdresseTilKart(string Adresse)
         {
-            Form1.instance.map.SetPositionByKeywords(Adresse);
+            instance.map.SetPositionByKeywords(Adresse);
             //Form1.instance.map.Zoom = 17;
+            PointLatLng punkt = instance.map.Position;
+
+            frmPosisjon.instance.txtLat.Text = punkt.Lat.ToString();
+            frmPosisjon.instance.txtLong.Text = punkt.Lng.ToString();
         }
 
         private void map_OnMapZoomChanged()
         {
 
+        }
+
+        public static void LeggTilRute(PointLatLng fra,PointLatLng til)
+        {
+            //bruker google API 
+            //false false
+            var route = GoogleMapProvider.Instance.GetRoute(fra, til, false, false, 14);
+
+            var r = new GMapRoute(route.Points, "My rute")
+            {
+                Stroke = new Pen(Color.Red, 5)
+            };
+            var routes = new GMapOverlay("routes");
+            routes.Routes.Add(r);
+            instance.map.Overlays.Add(routes);
+            instance.map.Position = fra;
         }
     }
 }

@@ -164,7 +164,6 @@
             this.label6.Size = new System.Drawing.Size(30, 20);
             this.label6.TabIndex = 13;
             this.label6.Text = "Til";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // btnStart
             // 
@@ -194,7 +193,7 @@
             this.btnFinnRute.TabIndex = 16;
             this.btnFinnRute.Text = "Finn Rute";
             this.btnFinnRute.UseVisualStyleBackColor = true;
-            this.btnFinnRute.Click += new System.EventHandler(this.button3_Click);
+            this.btnFinnRute.Click += new System.EventHandler(this.btnFinnRute_Click);
             // 
             // label7
             // 
@@ -246,6 +245,7 @@
             this.btnFjernRute.TabIndex = 21;
             this.btnFjernRute.Text = "Fjern Rute";
             this.btnFjernRute.UseVisualStyleBackColor = true;
+            this.btnFjernRute.Click += new System.EventHandler(this.btnFjernRute_Click);
             // 
             // frmPosisjon
             // 
