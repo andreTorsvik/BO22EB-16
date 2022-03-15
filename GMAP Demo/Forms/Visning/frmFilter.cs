@@ -150,7 +150,6 @@ namespace GMAP_Demo
                     };
                     break;
             }
-
             return polygon;
         }
     }

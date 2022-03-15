@@ -281,10 +281,20 @@ namespace GMAP_Demo
                 frm_R_RedigerObjekt.instance.txtLong.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
                 frm_R_RedigerObjekt.instance.Løpenummer_til_redigering = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
             }
+            
+        }
+
+        private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
+        {
             if (frm_R_RedigerOmråde.instance != null)
             {
+                frm_R_RedigerOmråde.instance.txtNavn.Text = Form1.instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
+                frm_R_RedigerOmråde.instance.txtSikkerhetsklarering.Text = Form1.instance.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frm_R_RedigerOmråde.instance.txtKommentar.Text = Form1.instance.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
+                frm_R_RedigerOmråde.instance.txtfarge.Text = Form1.instance.LOmråde[Convert.ToInt32(item.Tag)].Farge;
 
             }
+            
         }
     }
 }

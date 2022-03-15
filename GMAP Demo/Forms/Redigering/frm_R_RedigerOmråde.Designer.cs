@@ -365,8 +365,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox lbTilgjengligFarge;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtfarge;
-        private System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox txtfarge;
+        public System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ListBox lbPunkter;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label11;
@@ -379,14 +379,14 @@
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox txtLat;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtKommentar;
+        public System.Windows.Forms.TextBox txtKommentar;
         private System.Windows.Forms.Button btnLeggTilOverlay;
         private System.Windows.Forms.ListBox lbValgtOverlays;
         private System.Windows.Forms.ListBox lbTilgjengeligeOverlays;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtSikkerhetsklarering;
+        public System.Windows.Forms.TextBox txtSikkerhetsklarering;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNavn;
+        public System.Windows.Forms.TextBox txtNavn;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnLeggTilObjekt;
     }
