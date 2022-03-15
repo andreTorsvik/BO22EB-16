@@ -88,6 +88,7 @@ namespace GMAP_Demo
             return result;
         }
 
+        // Skalerer Bitmap basert på en faktor og tilnærmet beholder "Aspect Ratio". Basert på ResizeBitmap()
         public Bitmap ScaleBitmap(Bitmap bmp, double scalar)
         {
             double Width = bmp.Width;
@@ -105,7 +106,7 @@ namespace GMAP_Demo
         }
 
         
-        public Bitmap AutoScaleBitmap(Bitmap bmp) // Autoskalerer Bitmap og tilnærmet beholder "Aspect Ratio".
+        public Bitmap AutoScaleBitmap(Bitmap bmp) // Autoskalerer Bitmap og tilnærmet beholder "Aspect Ratio". Basert på ScaleBitmap()
         {
             double MaxWidth = 40.0; // Max bredde i pixler
             double MaxHeight = 70.0; // Max Høyde i pixler
@@ -143,13 +144,13 @@ namespace GMAP_Demo
             }
 
 
-            Bitmap newImage = new Bitmap(newWidth, newHeight);
-            using (Graphics g = Graphics.FromImage(newImage))
+            Bitmap newBmp = new Bitmap(newWidth, newHeight);
+            using (Graphics g = Graphics.FromImage(newBmp))
             {
                 g.DrawImage(bmp, 0, 0, newWidth, newHeight);
             }
 
-            return newImage;
+            return newBmp;
         }
 
     }
