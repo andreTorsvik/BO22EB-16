@@ -18,13 +18,13 @@ namespace GMAP_Demo
 {
     public partial class Form1 : Form
     {
-        public static PointLatLng Punkt_fra_forrige_kart;
-        private static bool KjørEnGang = true;
-        private static Color knapp_trykket;
+        public PointLatLng Punkt_fra_forrige_kart;
+        private bool KjørEnGang = true;
+        private Color knapp_trykket;
         public List<Ressurs> LRessurs;
         public List<Område> LOmråde;
-        public static List<Kategorier_Bilde> LKategori;
-        public static PointLatLng DoubleClick_punkt;
+        public List<Kategorier_Bilde> LKategori;
+        public PointLatLng DoubleClick_punkt;
         public static Form1 instance;
         
 

@@ -12,7 +12,7 @@ namespace GMAP_Demo
 {
     public partial class frmSettings : Form
     {
-        private static Color knapp_trykket;
+        private Color knapp_trykket;
         public frmSettings()
         {
             InitializeComponent();

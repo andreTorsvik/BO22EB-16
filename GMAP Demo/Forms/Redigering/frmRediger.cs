@@ -18,8 +18,8 @@ namespace GMAP_Demo
 {
     public partial class frmRediger : Form
     {
-        private static Color knapp_trykket;
-        public static PointLatLng DoubleClick_punkt;
+        private Color knapp_trykket;
+        public  PointLatLng DoubleClick_punkt;
         public static frmRediger instance;
         public frmRediger()
         {
@@ -49,7 +49,7 @@ namespace GMAP_Demo
         {
             //start posisjon kart
             map.MapProvider = GMapProviders.OpenStreetMap;
-            PointLatLng point = Form1.Punkt_fra_forrige_kart;
+            PointLatLng point = Form1.instance.Punkt_fra_forrige_kart;
             map.Position = point;
 
             //settings for kart
@@ -61,7 +61,7 @@ namespace GMAP_Demo
         }
         private void btnTilbake_Click(object sender, EventArgs e)
         {
-            Form1.Punkt_fra_forrige_kart = map.Position;
+            Form1.instance.Punkt_fra_forrige_kart = map.Position;
             PnlFormLoader.Controls.Clear();
             this.Hide();
             Form1 form1 = new Form1();
