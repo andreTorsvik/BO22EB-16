@@ -89,6 +89,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bildebehandling\Bildebehandling.cs" />
     <Compile Include="Database\DatabaseCommunication.cs" />
     <Compile Include="Database\DataTypes\Bruker.cs" />
     <Compile Include="Database\DataTypes\Kategorier_Bilde.cs" />
