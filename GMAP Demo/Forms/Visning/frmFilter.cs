@@ -112,6 +112,8 @@ namespace GMAP_Demo
 
                 Bitmap bitmap = new Bitmap(image);
 
+                bitmap = bildebehandling.ResizeBitmap(bitmap, 20, 25);
+
                 kategorier_Bilde.Clear();
 
                 return bitmap;
