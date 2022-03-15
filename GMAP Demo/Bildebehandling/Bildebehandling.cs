@@ -39,5 +39,21 @@ namespace GMAP_Demo
             return result;
         }
 
+        public Bitmap ScaleBitmap(Bitmap bmp, double scalar)
+        {
+            double Width = bmp.Width;
+            double Height = bmp.Height;
+            int newWidth = Convert.ToInt32(System.Math.Round(Width * scalar));
+            int newHeight = Convert.ToInt32(System.Math.Round(Height * scalar));
+
+            Bitmap newImage = new Bitmap(newWidth, newHeight);
+            using (Graphics g = Graphics.FromImage(newImage))
+            {
+                g.DrawImage(bmp, 0, 0, newWidth, newHeight);
+            }
+
+            return newImage;
+        }
+
     }
 }
