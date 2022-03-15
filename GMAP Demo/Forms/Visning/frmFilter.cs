@@ -183,12 +183,21 @@ namespace GMAP_Demo
             Form1.reff();
         }
 
+        public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla };
         public GMapPolygon BestemFarge(List<PointLatLng> Lpunkter,string Farge)
         {
             GMapPolygon polygon;
 
             switch (Farge)
             {
+                case "Rødt":
+                    polygon = new GMapPolygon(Lpunkter, "My area")
+                    {
+                        Stroke = new Pen(Color.Red, 2),
+                        Fill = new SolidBrush(Color.FromArgb(50, Color.Red))
+                    };
+                    break;
+
                 case "Oransje":
                     polygon = new GMapPolygon(Lpunkter, "My area")
                     {
@@ -197,11 +206,35 @@ namespace GMAP_Demo
                     };
                     break;
 
-                case "Rødt":
+                case "Grønn":
+                         polygon = new GMapPolygon(Lpunkter, "My area")
+                         {
+                             Stroke = new Pen(Color.Green, 2),
+                             Fill = new SolidBrush(Color.FromArgb(50, Color.Green))
+                         };
+                    break;
+
+                case "Blå":
                     polygon = new GMapPolygon(Lpunkter, "My area")
                     {
-                        Stroke = new Pen(Color.Red, 2),
-                        Fill = new SolidBrush(Color.FromArgb(50, Color.Red))
+                        Stroke = new Pen(Color.Blue, 2),
+                        Fill = new SolidBrush(Color.FromArgb(50, Color.Blue))
+                    };
+                    break;
+
+                case "Gul":
+                    polygon = new GMapPolygon(Lpunkter, "My area")
+                    {
+                        Stroke = new Pen(Color.Yellow, 2),
+                        Fill = new SolidBrush(Color.FromArgb(50, Color.Yellow))
+                    };
+                    break;
+
+                case "Lilla":
+                    polygon = new GMapPolygon(Lpunkter, "My area")
+                    {
+                        Stroke = new Pen(Color.Purple, 2),
+                        Fill = new SolidBrush(Color.FromArgb(50, Color.Purple))
                     };
                     break;
 
@@ -212,7 +245,10 @@ namespace GMAP_Demo
                         Fill = new SolidBrush(Color.FromArgb(50, Color.Green))
                     };
                     break;
+
+
             }
+
             return polygon;
         }
     }

@@ -26,7 +26,7 @@ namespace GMAP_Demo
         public List<Kategorier_Bilde> LKategori;
         public PointLatLng DoubleClick_punkt;
         public static Form1 instance;
-        public enum MuligeFarger {Rød, Oransje, Grønn, Blå ,Gul, Lilla,};
+        
 
         public Form1()
         {
