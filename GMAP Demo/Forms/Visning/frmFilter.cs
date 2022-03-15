@@ -28,7 +28,9 @@ namespace GMAP_Demo
 
         private void btnLeggTil_Click(object sender, EventArgs e)
         {
-            Form1.instance.LRessurs.Clear();
+            
+            if(Form1.instance.LRessurs.Count >0) Form1.instance.LRessurs.Clear();
+
 
             DatabaseCommunication db = new DatabaseCommunication();
             var RessursList = db.ListAllRessursFromDb();
@@ -43,7 +45,6 @@ namespace GMAP_Demo
 
         private void btnRessurs_Click(object sender, EventArgs e)
         {
-            //Form1.LeggTilRessursPåKart(Form1.LRessurs);
             int tag = 0;
             GMapMarker marker;
             foreach (var item in Form1.instance.LRessurs)
@@ -108,12 +109,6 @@ namespace GMAP_Demo
                 List<PointLatLng> Lpunkter = item.HentPunkter();
 
                 GMapPolygon polygon = BestemFarge(Lpunkter, item.Farge);
-                //GMapPolygon polygon = new GMapPolygon(Lpunkter, "My area")
-                //{
-                //    Stroke = new Pen(Color.Green, 2),
-                //    //Fill = new SolidBrush(Color.FromArgb(50, Color.Red))
-                //    Fill = new SolidBrush(Color.FromArgb(50, Color.Green))
-                //};
 
                 polygon.Tag = Tag;
                 Tag++;
@@ -121,7 +116,6 @@ namespace GMAP_Demo
                 GMapOverlay polygons = new GMapOverlay("Polygons");
                 polygons.Polygons.Add(polygon);
                 Form1.instance.map.Overlays.Add(polygons);
-                //txtInfo.Text =  item.ToString();
             }
             Form1.reff();
         }

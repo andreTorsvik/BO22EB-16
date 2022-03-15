@@ -116,7 +116,6 @@ namespace GMAP_Demo
                     Lang = lang
                 };
 
-
                 connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", ressursToAdd);
             }
         }
@@ -131,7 +130,6 @@ namespace GMAP_Demo
                     Kategorinavn = kategorinavn
                     //Bilde = NULL, ordnes av Procedure
                 };
-
 
                 connection.Execute("[dbo].[PROCEDUREinsertIntoKategorier_Bilde] @Kategorinavn", kategorier_BildeKategoriToAdd);
             }
@@ -148,10 +146,7 @@ namespace GMAP_Demo
                 };
 
                 connection.Execute("[dbo].[PROCEDUREinsertBildeIntoKategorier_Bilde] @Kategorinavn, @Bilde", (kategorier_BildeBildeToAdd));
-
             }
         }
-
-
     }
 }
