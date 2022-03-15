@@ -42,7 +42,7 @@ namespace GMAP_Demo
         {
             SetupKart();
             VisRessurser();
-            
+            VisOmråder();
         }
 
         void SetupKart()
@@ -212,7 +212,7 @@ namespace GMAP_Demo
             frm_R_RedigerOmråde_vrb.Show();
         }
 
-        void VisRessurser()
+        private void VisRessurser()
         {
             if (Form1.instance.LRessurs.Count > 0)
             {
@@ -234,15 +234,38 @@ namespace GMAP_Demo
 
                     GMapOverlay markers = new GMapOverlay("test1");
                     markers.Markers.Add(marker);
-                    frmRediger.instance.map.Overlays.Add(markers);
+                    instance.map.Overlays.Add(markers);
                 }
                 frmRediger.reff();
             }
         }
+
+        private void VisOmråder()
+        {
+            if (Form1.instance.LOmråde.Count > 0)
+            {
+                int Tag = 0;
+                foreach (var item in Form1.instance.LOmråde)
+                {
+                    List<PointLatLng> Lpunkter = item.HentPunkter();
+
+                    GMapPolygon polygon = frmFilter.instance.BestemFarge(Lpunkter, item.Farge);
+
+                    polygon.Tag = Tag;
+                    Tag++;
+                    polygon.IsHitTestVisible = true; // nødvendig for å kunne trykke på Polygonet
+                    GMapOverlay polygons = new GMapOverlay("Polygons");
+                    polygons.Polygons.Add(polygon);
+                    instance.map.Overlays.Add(polygons);
+                }
+                reff();
+            }
+            
+        }
         public static void reff()
         {
-            frmRediger.instance.map.Zoom++;
-            frmRediger.instance.map.Zoom--;
+            instance.map.Zoom++;
+            instance.map.Zoom--;
         }
 
         public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
@@ -256,12 +279,11 @@ namespace GMAP_Demo
                 frm_R_RedigerObjekt.instance.txtKommentar.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
                 frm_R_RedigerObjekt.instance.txtLat.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Lat.ToString();
                 frm_R_RedigerObjekt.instance.txtLong.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
-
+                frm_R_RedigerObjekt.instance.Løpenummer_til_redigering = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
             }
             if (frm_R_RedigerOmråde.instance != null)
             {
-                //frm_R_RedigerOmråde.instance.txtLat.Text = lat.ToString();
-                //frm_R_RedigerOmråde.instance.txtLong.Text = lng.ToString();
+
             }
         }
     }

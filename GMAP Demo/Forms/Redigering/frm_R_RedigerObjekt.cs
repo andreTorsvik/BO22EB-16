@@ -13,6 +13,7 @@ namespace GMAP_Demo
     public partial class frm_R_RedigerObjekt : Form
     {
         public static frm_R_RedigerObjekt instance;
+        public int Løpenummer_til_redigering;
         public frm_R_RedigerObjekt()
         {
             InitializeComponent();
