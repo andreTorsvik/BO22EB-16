@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,7 +52,17 @@ namespace GMAP_Demo
             {
                 PointLatLng punkt = item.GiPunktet();
 
-                marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
+
+                if (sjekkOmKategoriHarBilde(item))
+                {
+                    marker = new GMarkerGoogle(punkt, oppdaterBildeForMarkør(item));
+                }
+                else
+                {
+                    marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
+                }
+                
+
                 marker.ToolTipText = String.Format("{0}", item.Navn);
                 marker.ToolTip.Fill = Brushes.Black;
                 marker.ToolTip.Foreground = Brushes.White;
@@ -66,6 +77,58 @@ namespace GMAP_Demo
             }
             Form1.reff();
         }
+
+        private bool sjekkOmKategoriHarBilde(Ressurs item)
+        {
+            DatabaseCommunication db = new DatabaseCommunication();
+            List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
+            kategorier_Bilde = db.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
+
+            if (kategorier_Bilde[0].Bilde != null)
+            {
+                kategorier_Bilde.Clear();
+
+                return true;
+            }
+            else
+            {
+                kategorier_Bilde.Clear();
+
+                return false;
+            }
+        }
+
+        private Bitmap oppdaterBildeForMarkør(Ressurs item)
+        {
+            DatabaseCommunication db = new DatabaseCommunication();
+            List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
+            kategorier_Bilde = db.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
+
+            if (kategorier_Bilde[0] != null) 
+            {
+                Image image = byteArrayToImage(kategorier_Bilde[0].Bilde);
+
+                Bitmap bitmap = new Bitmap(image);
+
+                kategorier_Bilde.Clear();
+
+                return bitmap;
+            }
+            else
+            {
+                kategorier_Bilde.Clear();
+
+                return null;
+            }
+        }
+
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
+
 
         private void txtAntall_TextChanged(object sender, EventArgs e)
         {
