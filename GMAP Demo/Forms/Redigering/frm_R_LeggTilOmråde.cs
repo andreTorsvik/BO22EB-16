@@ -17,11 +17,79 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
+            
         }
 
         private void frm_R_LeggTilOmråde_Load(object sender, EventArgs e)
         {
+            LastInnOverlays();
+            LastInnFargerMuligheter();
+        }
+
+        private void LastInnOverlays()
+        {
+            HashSet<string> AlleOverlay = new HashSet<string>();
+
+            DatabaseCommunication db = new DatabaseCommunication();
+
+            var OverlayOListe = db.ListAllOverlay_OmrådeFromDb();
+            foreach (var item in OverlayOListe)
+            {
+                AlleOverlay.Add(item.Kategori.ToString());
+            }
+            
+            var OverlayRListe = db.ListAllOverlay_RessursFromDb();
+            foreach (var item in OverlayRListe)
+            {
+                AlleOverlay.Add(item.Kategori.ToString());
+            }
+
+            foreach (var item in AlleOverlay)
+            {
+                lbTilgjengeligeOverlays.Items.Add(item);
+            }
+            lbTilgjengeligeOverlays.Sorted = true;
+        }
+
+        private void LastInnFargerMuligheter()
+        {
+            foreach (var val in Enum.GetValues(typeof(Form1.MuligeFarger)))
+            {
+                lbTilgjengligFarge.Items.Add(val);
+            }
+            lbTilgjengligFarge.Sorted = true;
+        }
+        private void lbTilgjengeligeOverlays_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string selectedItemtext = lbTilgjengeligeOverlays.SelectedItem.ToString();
+
+            lbValgtOverlays.Items.Add(selectedItemtext);
+
+            lbTilgjengeligeOverlays.Items.Remove(selectedItemtext);
+
+            lbValgtOverlays.Sorted = true;
+        }
+
+        private void lbValgtOverlays_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string selectedItemtext = lbValgtOverlays.SelectedItem.ToString();
+
+            lbTilgjengeligeOverlays.Items.Add(selectedItemtext);
+
+            lbValgtOverlays.Items.Remove(selectedItemtext);
+        }
+
+        private void lbTilgjengligFarge_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string selectedItemtext = lbTilgjengligFarge.SelectedItem.ToString();
+
+            txtfarge.Text = selectedItemtext;
+        }
+
+        private void lbTilgjengligFarge_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
+    
 }

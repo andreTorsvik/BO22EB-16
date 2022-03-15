@@ -34,8 +34,8 @@
             this.txtSikkerhetsklarering = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNavn = new System.Windows.Forms.TextBox();
-            this.lbTilgjengelige = new System.Windows.Forms.ListBox();
-            this.lbValgt = new System.Windows.Forms.ListBox();
+            this.lbTilgjengeligeOverlays = new System.Windows.Forms.ListBox();
+            this.lbValgtOverlays = new System.Windows.Forms.ListBox();
             this.btnLeggTilOverlay = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtKommentar = new System.Windows.Forms.TextBox();
@@ -45,7 +45,7 @@
             this.txtLat = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNyOverlay = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lbTilgjengligKategori = new System.Windows.Forms.ListBox();
@@ -115,25 +115,27 @@
             this.txtNavn.Size = new System.Drawing.Size(285, 22);
             this.txtNavn.TabIndex = 10;
             // 
-            // lbTilgjengelige
+            // lbTilgjengeligeOverlays
             // 
-            this.lbTilgjengelige.FormattingEnabled = true;
-            this.lbTilgjengelige.ItemHeight = 16;
-            this.lbTilgjengelige.Location = new System.Drawing.Point(16, 451);
-            this.lbTilgjengelige.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbTilgjengelige.Name = "lbTilgjengelige";
-            this.lbTilgjengelige.Size = new System.Drawing.Size(141, 196);
-            this.lbTilgjengelige.TabIndex = 17;
+            this.lbTilgjengeligeOverlays.FormattingEnabled = true;
+            this.lbTilgjengeligeOverlays.ItemHeight = 16;
+            this.lbTilgjengeligeOverlays.Location = new System.Drawing.Point(16, 451);
+            this.lbTilgjengeligeOverlays.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbTilgjengeligeOverlays.Name = "lbTilgjengeligeOverlays";
+            this.lbTilgjengeligeOverlays.Size = new System.Drawing.Size(141, 196);
+            this.lbTilgjengeligeOverlays.TabIndex = 17;
+            this.lbTilgjengeligeOverlays.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengelige_MouseDoubleClick);
             // 
-            // lbValgt
+            // lbValgtOverlays
             // 
-            this.lbValgt.FormattingEnabled = true;
-            this.lbValgt.ItemHeight = 16;
-            this.lbValgt.Location = new System.Drawing.Point(163, 451);
-            this.lbValgt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbValgt.Name = "lbValgt";
-            this.lbValgt.Size = new System.Drawing.Size(140, 196);
-            this.lbValgt.TabIndex = 18;
+            this.lbValgtOverlays.FormattingEnabled = true;
+            this.lbValgtOverlays.ItemHeight = 16;
+            this.lbValgtOverlays.Location = new System.Drawing.Point(163, 451);
+            this.lbValgtOverlays.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbValgtOverlays.Name = "lbValgtOverlays";
+            this.lbValgtOverlays.Size = new System.Drawing.Size(140, 196);
+            this.lbValgtOverlays.TabIndex = 18;
+            this.lbValgtOverlays.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtOverlays_MouseDoubleClick);
             // 
             // btnLeggTilOverlay
             // 
@@ -229,14 +231,14 @@
             this.label9.TabIndex = 29;
             this.label9.Text = "Ny Overlay ";
             // 
-            // textBox2
+            // txtNyOverlay
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.Location = new System.Drawing.Point(14, 672);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 22);
-            this.textBox2.TabIndex = 28;
+            this.txtNyOverlay.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNyOverlay.Location = new System.Drawing.Point(14, 672);
+            this.txtNyOverlay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNyOverlay.Name = "txtNyOverlay";
+            this.txtNyOverlay.Size = new System.Drawing.Size(121, 22);
+            this.txtNyOverlay.TabIndex = 28;
             // 
             // label10
             // 
@@ -324,7 +326,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtNyOverlay);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtLong);
@@ -333,8 +335,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtKommentar);
             this.Controls.Add(this.btnLeggTilOverlay);
-            this.Controls.Add(this.lbValgt);
-            this.Controls.Add(this.lbTilgjengelige);
+            this.Controls.Add(this.lbValgtOverlays);
+            this.Controls.Add(this.lbTilgjengeligeOverlays);
             this.Controls.Add(this.btnLeggTilObjekt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSikkerhetsklarering);
@@ -359,8 +361,8 @@
         private System.Windows.Forms.TextBox txtSikkerhetsklarering;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNavn;
-        private System.Windows.Forms.ListBox lbTilgjengelige;
-        private System.Windows.Forms.ListBox lbValgt;
+        private System.Windows.Forms.ListBox lbTilgjengeligeOverlays;
+        private System.Windows.Forms.ListBox lbValgtOverlays;
         private System.Windows.Forms.Button btnLeggTilOverlay;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKommentar;
@@ -370,7 +372,7 @@
         public System.Windows.Forms.TextBox txtLat;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txtNyOverlay;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ListBox lbTilgjengligKategori;

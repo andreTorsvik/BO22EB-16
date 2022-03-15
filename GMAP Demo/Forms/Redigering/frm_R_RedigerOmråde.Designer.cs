@@ -38,7 +38,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNyOverlay = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtLong = new System.Windows.Forms.TextBox();
@@ -47,8 +47,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtKommentar = new System.Windows.Forms.TextBox();
             this.btnLeggTilOverlay = new System.Windows.Forms.Button();
-            this.lbValgt = new System.Windows.Forms.ListBox();
-            this.lbTilgjengelige = new System.Windows.Forms.ListBox();
+            this.lbValgtOverlays = new System.Windows.Forms.ListBox();
+            this.lbTilgjengeligeOverlays = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSikkerhetsklarering = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -76,6 +76,7 @@
             this.lbTilgjengligFarge.Name = "lbTilgjengligFarge";
             this.lbTilgjengligFarge.Size = new System.Drawing.Size(138, 36);
             this.lbTilgjengligFarge.TabIndex = 80;
+            this.lbTilgjengligFarge.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligFarge_MouseDoubleClick);
             // 
             // label2
             // 
@@ -156,13 +157,13 @@
             this.label9.TabIndex = 72;
             this.label9.Text = "Ny Overlay ";
             // 
-            // textBox2
+            // txtNyOverlay
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.Location = new System.Drawing.Point(16, 749);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(122, 22);
-            this.textBox2.TabIndex = 71;
+            this.txtNyOverlay.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNyOverlay.Location = new System.Drawing.Point(16, 749);
+            this.txtNyOverlay.Name = "txtNyOverlay";
+            this.txtNyOverlay.Size = new System.Drawing.Size(122, 22);
+            this.txtNyOverlay.TabIndex = 71;
             // 
             // label6
             // 
@@ -242,23 +243,25 @@
             this.btnLeggTilOverlay.Text = "Legg til";
             this.btnLeggTilOverlay.UseVisualStyleBackColor = true;
             // 
-            // lbValgt
+            // lbValgtOverlays
             // 
-            this.lbValgt.FormattingEnabled = true;
-            this.lbValgt.ItemHeight = 16;
-            this.lbValgt.Location = new System.Drawing.Point(163, 523);
-            this.lbValgt.Name = "lbValgt";
-            this.lbValgt.Size = new System.Drawing.Size(140, 196);
-            this.lbValgt.TabIndex = 62;
+            this.lbValgtOverlays.FormattingEnabled = true;
+            this.lbValgtOverlays.ItemHeight = 16;
+            this.lbValgtOverlays.Location = new System.Drawing.Point(163, 523);
+            this.lbValgtOverlays.Name = "lbValgtOverlays";
+            this.lbValgtOverlays.Size = new System.Drawing.Size(140, 196);
+            this.lbValgtOverlays.TabIndex = 62;
+            this.lbValgtOverlays.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtOverlays_MouseDoubleClick);
             // 
-            // lbTilgjengelige
+            // lbTilgjengeligeOverlays
             // 
-            this.lbTilgjengelige.FormattingEnabled = true;
-            this.lbTilgjengelige.ItemHeight = 16;
-            this.lbTilgjengelige.Location = new System.Drawing.Point(16, 523);
-            this.lbTilgjengelige.Name = "lbTilgjengelige";
-            this.lbTilgjengelige.Size = new System.Drawing.Size(141, 196);
-            this.lbTilgjengelige.TabIndex = 61;
+            this.lbTilgjengeligeOverlays.FormattingEnabled = true;
+            this.lbTilgjengeligeOverlays.ItemHeight = 16;
+            this.lbTilgjengeligeOverlays.Location = new System.Drawing.Point(16, 523);
+            this.lbTilgjengeligeOverlays.Name = "lbTilgjengeligeOverlays";
+            this.lbTilgjengeligeOverlays.Size = new System.Drawing.Size(141, 196);
+            this.lbTilgjengeligeOverlays.TabIndex = 61;
+            this.lbTilgjengeligeOverlays.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengeligeOverlays_MouseDoubleClick);
             // 
             // label4
             // 
@@ -313,6 +316,7 @@
             this.btnLeggTilObjekt.TabIndex = 82;
             this.btnLeggTilObjekt.Text = "Lagre endring";
             this.btnLeggTilObjekt.UseVisualStyleBackColor = true;
+            this.btnLeggTilObjekt.Click += new System.EventHandler(this.btnLeggTilObjekt_Click);
             // 
             // frm_R_RedigerOmråde
             // 
@@ -331,7 +335,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtNyOverlay);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtLong);
@@ -340,8 +344,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtKommentar);
             this.Controls.Add(this.btnLeggTilOverlay);
-            this.Controls.Add(this.lbValgt);
-            this.Controls.Add(this.lbTilgjengelige);
+            this.Controls.Add(this.lbValgtOverlays);
+            this.Controls.Add(this.lbTilgjengeligeOverlays);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSikkerhetsklarering);
             this.Controls.Add(this.label1);
@@ -350,6 +354,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_R_RedigerOmråde";
             this.Text = "frm_R_RedigerOmråde";
+            this.Load += new System.EventHandler(this.frm_R_RedigerOmråde_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,7 +372,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txtNyOverlay;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.TextBox txtLong;
@@ -376,8 +381,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKommentar;
         private System.Windows.Forms.Button btnLeggTilOverlay;
-        private System.Windows.Forms.ListBox lbValgt;
-        private System.Windows.Forms.ListBox lbTilgjengelige;
+        private System.Windows.Forms.ListBox lbValgtOverlays;
+        private System.Windows.Forms.ListBox lbTilgjengeligeOverlays;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSikkerhetsklarering;
         private System.Windows.Forms.Label label1;

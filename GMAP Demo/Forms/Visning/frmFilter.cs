@@ -183,7 +183,7 @@ namespace GMAP_Demo
             Form1.reff();
         }
 
-        private GMapPolygon BestemFarge(List<PointLatLng> Lpunkter,string Farge)
+        public GMapPolygon BestemFarge(List<PointLatLng> Lpunkter,string Farge)
         {
             GMapPolygon polygon;
 
