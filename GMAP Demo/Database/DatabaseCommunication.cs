@@ -154,6 +154,12 @@ namespace GMAP_Demo
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 var output = connection.Query<Kategorier_Bilde>($"SELECT Kategorinavn, Bilde FROM [dbo].[Kategorier_Bilde] WHERE Kategorinavn = '{ kategorinavn }'").ToList();
+                
+                
+                
+                // Stored procedure virker ikke helt enda. Får en syntax error. 
+                //kategorinavn = $"'{kategorinavn}'";
+                //var output = connection.Query<Kategorier_Bilde>("[dbo].[Zz], @Kategorinavn", kategorinavn).ToList();
                 return output;
             }
         }

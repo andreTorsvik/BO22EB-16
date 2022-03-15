@@ -46,6 +46,7 @@ namespace GMAP_Demo
 
         private void btnRessurs_Click(object sender, EventArgs e)
         {
+            Bildebehandling bildebehandling = new Bildebehandling();
             int tag = 0;
             GMapMarker marker;
             foreach (var item in Form1.instance.LRessurs)
@@ -53,9 +54,9 @@ namespace GMAP_Demo
                 PointLatLng punkt = item.GiPunktet();
 
 
-                if (sjekkOmKategoriHarBilde(item))
+                if (bildebehandling.sjekkOmKategoriHarBilde(item))
                 {
-                    marker = new GMarkerGoogle(punkt, oppdaterBildeForMarkør(item));
+                    marker = new GMarkerGoogle(punkt, bildebehandling.oppdaterBildeForMarkør(item));
                 }
                 else
                 {
@@ -78,53 +79,9 @@ namespace GMAP_Demo
             Form1.reff();
         }
 
-        private bool sjekkOmKategoriHarBilde(Ressurs item)
-        {
-            DatabaseCommunication db = new DatabaseCommunication();
-            List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
-            kategorier_Bilde = db.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
 
-            if (kategorier_Bilde[0].Bilde != null)
-            {
-                kategorier_Bilde.Clear();
 
-                return true;
-            }
-            else
-            {
-                kategorier_Bilde.Clear();
 
-                return false;
-            }
-        }
-
-        private Bitmap oppdaterBildeForMarkør(Ressurs item)
-        {
-            DatabaseCommunication db = new DatabaseCommunication();
-            Bildebehandling bildebehandling = new Bildebehandling();
-
-            List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
-            kategorier_Bilde = db.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
-
-            if (kategorier_Bilde[0] != null) 
-            {
-                Image image = bildebehandling.byteArrayToImage(kategorier_Bilde[0].Bilde);
-
-                Bitmap bitmap = new Bitmap(image);
-
-                bitmap = bildebehandling.ScaleBitmap(bitmap, 0.1);
-
-                kategorier_Bilde.Clear();
-
-                return bitmap;
-            }
-            else
-            {
-                kategorier_Bilde.Clear();
-
-                return null;
-            }
-        }
 
 
 

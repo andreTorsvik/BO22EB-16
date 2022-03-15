@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GMAP_Demo.Database.DataTypes;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -28,6 +29,54 @@ namespace GMAP_Demo
             }
         }
 
+        internal bool sjekkOmKategoriHarBilde(Ressurs item)
+        {
+            DatabaseCommunication db = new DatabaseCommunication();
+            List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
+            kategorier_Bilde = db.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
+
+            if (kategorier_Bilde[0].Bilde != null)
+            {
+                kategorier_Bilde.Clear();
+
+                return true;
+            }
+            else
+            {
+                kategorier_Bilde.Clear();
+
+                return false;
+            }
+        }
+
+        internal Bitmap oppdaterBildeForMarkør(Ressurs item)
+        {
+            DatabaseCommunication db = new DatabaseCommunication();
+
+            List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
+            kategorier_Bilde = db.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
+
+            if (kategorier_Bilde[0] != null)
+            {
+                Image image = this.byteArrayToImage(kategorier_Bilde[0].Bilde);
+
+                Bitmap bitmap = new Bitmap(image);
+
+                bitmap = this.AutoScaleBitmap(bitmap);
+
+                kategorier_Bilde.Clear();
+
+                return bitmap;
+            }
+            else
+            {
+                kategorier_Bilde.Clear();
+
+                return null;
+            }
+        }
+
+
         public Bitmap ResizeBitmap(Bitmap bmp, int width, int height)
         {
             Bitmap result = new Bitmap(width, height);
@@ -45,6 +94,54 @@ namespace GMAP_Demo
             double Height = bmp.Height;
             int newWidth = Convert.ToInt32(System.Math.Round(Width * scalar));
             int newHeight = Convert.ToInt32(System.Math.Round(Height * scalar));
+
+            Bitmap newImage = new Bitmap(newWidth, newHeight);
+            using (Graphics g = Graphics.FromImage(newImage))
+            {
+                g.DrawImage(bmp, 0, 0, newWidth, newHeight);
+            }
+
+            return newImage;
+        }
+
+        
+        public Bitmap AutoScaleBitmap(Bitmap bmp) // Autoskalerer Bitmap og tilnærmet beholder "Aspect Ratio".
+        {
+            double MaxWidth = 40.0; // Max bredde i pixler
+            double MaxHeight = 70.0; // Max Høyde i pixler
+            double WidthScalar = 1;
+            double HeightScalar = 1;
+            double Increments = 0.9; // (0 < Increments < 1) Oppløsning for Autoskalering. Større tall = større oppløsning, og mer krevende for programmet.
+            double Width = bmp.Width;
+            double Height = bmp.Height;
+            double testWidth = bmp.Width;
+            double testHeight = bmp.Height;
+            int newWidth;
+            int newHeight;
+
+
+            while (testWidth > MaxWidth)
+            {
+                testWidth = testWidth * Increments;
+                WidthScalar = WidthScalar * Increments;
+            }
+            while (testHeight > MaxHeight)
+            {
+                testHeight = testHeight * Increments;
+                HeightScalar = HeightScalar * Increments;
+            }
+
+            if (WidthScalar > HeightScalar)
+            {
+                newWidth = Convert.ToInt32(System.Math.Round(Width * HeightScalar));
+                newHeight = Convert.ToInt32(System.Math.Round(Height * HeightScalar));
+            }
+            else
+            {
+                newWidth = Convert.ToInt32(System.Math.Round(Width * WidthScalar));
+                newHeight = Convert.ToInt32(System.Math.Round(Height * WidthScalar));
+            }
+
 
             Bitmap newImage = new Bitmap(newWidth, newHeight);
             using (Graphics g = Graphics.FromImage(newImage))
