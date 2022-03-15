@@ -101,12 +101,14 @@ namespace GMAP_Demo
         private Bitmap oppdaterBildeForMarkør(Ressurs item)
         {
             DatabaseCommunication db = new DatabaseCommunication();
+            Bildebehandling bildebehandling = new Bildebehandling();
+
             List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
             kategorier_Bilde = db.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
 
             if (kategorier_Bilde[0] != null) 
             {
-                Image image = byteArrayToImage(kategorier_Bilde[0].Bilde);
+                Image image = bildebehandling.byteArrayToImage(kategorier_Bilde[0].Bilde);
 
                 Bitmap bitmap = new Bitmap(image);
 
@@ -122,12 +124,7 @@ namespace GMAP_Demo
             }
         }
 
-        public Image byteArrayToImage(byte[] byteArrayIn)
-        {
-            MemoryStream ms = new MemoryStream(byteArrayIn);
-            Image returnImage = Image.FromStream(ms);
-            return returnImage;
-        }
+
 
 
         private void txtAntall_TextChanged(object sender, EventArgs e)

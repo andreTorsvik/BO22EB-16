@@ -32,6 +32,7 @@ namespace GMAP_Demo
 
         private void btnLeggTilBilde_Click(object sender, EventArgs e)
         {
+            Bildebehandling bildebehandling = new Bildebehandling();
             OpenFileDialog dialog = new OpenFileDialog();
             string filepath = null;
 
@@ -41,7 +42,7 @@ namespace GMAP_Demo
             }
 
             image = Image.FromFile(filepath);
-            imageData = ImageToByteArray(image);
+            imageData = bildebehandling.ImageToByteArray(image);
 
             pbValgtBilde.SizeMode = PictureBoxSizeMode.StretchImage;
             pbValgtBilde.Image = image;
@@ -70,13 +71,6 @@ namespace GMAP_Demo
         }
 
 
-        public byte[] ImageToByteArray(System.Drawing.Image imageIn)
-        {
-            using (var ms = new MemoryStream())
-            {
-                imageIn.Save(ms, imageIn.RawFormat);
-                return ms.ToArray();
-            }
-        }
+
     }
 }
