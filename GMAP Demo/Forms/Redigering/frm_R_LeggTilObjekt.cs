@@ -23,6 +23,7 @@ namespace GMAP_Demo
         private void frm_R_LeggTilObjekt_Load(object sender, EventArgs e)
         {
             LastInnKategorier();
+            LastInnOverlays();
         }
 
         private void btnLeggTilOverlay_Click(object sender, EventArgs e)
@@ -81,6 +82,50 @@ namespace GMAP_Demo
             lbTilgjengligKategori.Sorted = true;
         }
 
+        private void LastInnOverlays()
+        {
+            HashSet<string> AlleOverlay = new HashSet<string>();
 
+            DatabaseCommunication db = new DatabaseCommunication();
+            var OverlayOListe = db.ListAllOverlay_OmrådeFromDb();
+
+            foreach (var item in OverlayOListe)
+            {
+                AlleOverlay.Add(item.Kategori.ToString());
+            }
+
+            var OverlayRListe = db.ListAllOverlay_RessursFromDb();
+
+            foreach (var item in OverlayRListe)
+            {
+                AlleOverlay.Add(item.Kategori.ToString());
+            }
+
+            foreach (var item in AlleOverlay)
+            {
+                lbTilgjengeligeOverlays.Items.Add(item);
+            }
+            lbTilgjengeligeOverlays.Sorted = true;
+        }
+
+        private void lbTilgjengelige_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string selectedItemtext = lbTilgjengeligeOverlays.SelectedItem.ToString();
+
+            lbValgtOverlays.Items.Add(selectedItemtext);
+
+            lbTilgjengeligeOverlays.Items.Remove(selectedItemtext);
+
+            lbValgtOverlays.Sorted = true;
+        }
+
+        private void lbValgtOverlays_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string selectedItemtext = lbValgtOverlays.SelectedItem.ToString();
+
+            lbTilgjengeligeOverlays.Items.Add(selectedItemtext);
+
+            lbValgtOverlays.Items.Remove(selectedItemtext);
+        }
     }
 }

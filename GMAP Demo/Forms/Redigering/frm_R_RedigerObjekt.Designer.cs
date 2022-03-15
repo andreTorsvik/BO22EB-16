@@ -46,8 +46,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtKommentar = new System.Windows.Forms.TextBox();
             this.btnLeggTilOverlay = new System.Windows.Forms.Button();
-            this.lbValgt = new System.Windows.Forms.ListBox();
-            this.lbTilgjengelige = new System.Windows.Forms.ListBox();
+            this.lbValgtOverlays = new System.Windows.Forms.ListBox();
+            this.lbTilgjengeligeOverlays = new System.Windows.Forms.ListBox();
             this.btnLeggTilObjekt = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSikkerhetsklarering = new System.Windows.Forms.TextBox();
@@ -84,6 +84,7 @@
             this.btnLeggTilNyKategori.TabIndex = 86;
             this.btnLeggTilNyKategori.Text = "Legg til ny Kategori";
             this.btnLeggTilNyKategori.UseVisualStyleBackColor = true;
+            this.btnLeggTilNyKategori.Click += new System.EventHandler(this.btnLeggTilNyKategori_Click);
             // 
             // lbTilgjengligKategori
             // 
@@ -239,25 +240,27 @@
             this.btnLeggTilOverlay.Text = "Legg til";
             this.btnLeggTilOverlay.UseVisualStyleBackColor = true;
             // 
-            // lbValgt
+            // lbValgtOverlays
             // 
-            this.lbValgt.FormattingEnabled = true;
-            this.lbValgt.ItemHeight = 16;
-            this.lbValgt.Location = new System.Drawing.Point(162, 448);
-            this.lbValgt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbValgt.Name = "lbValgt";
-            this.lbValgt.Size = new System.Drawing.Size(140, 196);
-            this.lbValgt.TabIndex = 70;
+            this.lbValgtOverlays.FormattingEnabled = true;
+            this.lbValgtOverlays.ItemHeight = 16;
+            this.lbValgtOverlays.Location = new System.Drawing.Point(162, 448);
+            this.lbValgtOverlays.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbValgtOverlays.Name = "lbValgtOverlays";
+            this.lbValgtOverlays.Size = new System.Drawing.Size(140, 196);
+            this.lbValgtOverlays.TabIndex = 70;
+            this.lbValgtOverlays.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtOverlays_MouseDoubleClick);
             // 
-            // lbTilgjengelige
+            // lbTilgjengeligeOverlays
             // 
-            this.lbTilgjengelige.FormattingEnabled = true;
-            this.lbTilgjengelige.ItemHeight = 16;
-            this.lbTilgjengelige.Location = new System.Drawing.Point(15, 448);
-            this.lbTilgjengelige.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbTilgjengelige.Name = "lbTilgjengelige";
-            this.lbTilgjengelige.Size = new System.Drawing.Size(141, 196);
-            this.lbTilgjengelige.TabIndex = 69;
+            this.lbTilgjengeligeOverlays.FormattingEnabled = true;
+            this.lbTilgjengeligeOverlays.ItemHeight = 16;
+            this.lbTilgjengeligeOverlays.Location = new System.Drawing.Point(15, 448);
+            this.lbTilgjengeligeOverlays.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbTilgjengeligeOverlays.Name = "lbTilgjengeligeOverlays";
+            this.lbTilgjengeligeOverlays.Size = new System.Drawing.Size(141, 196);
+            this.lbTilgjengeligeOverlays.TabIndex = 69;
+            this.lbTilgjengeligeOverlays.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengeligeOverlays_MouseDoubleClick);
             // 
             // btnLeggTilObjekt
             // 
@@ -330,8 +333,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtKommentar);
             this.Controls.Add(this.btnLeggTilOverlay);
-            this.Controls.Add(this.lbValgt);
-            this.Controls.Add(this.lbTilgjengelige);
+            this.Controls.Add(this.lbValgtOverlays);
+            this.Controls.Add(this.lbTilgjengeligeOverlays);
             this.Controls.Add(this.btnLeggTilObjekt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSikkerhetsklarering);
@@ -367,8 +370,8 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtKommentar;
         private System.Windows.Forms.Button btnLeggTilOverlay;
-        private System.Windows.Forms.ListBox lbValgt;
-        private System.Windows.Forms.ListBox lbTilgjengelige;
+        private System.Windows.Forms.ListBox lbValgtOverlays;
+        private System.Windows.Forms.ListBox lbTilgjengeligeOverlays;
         private System.Windows.Forms.Button btnLeggTilObjekt;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox txtSikkerhetsklarering;
