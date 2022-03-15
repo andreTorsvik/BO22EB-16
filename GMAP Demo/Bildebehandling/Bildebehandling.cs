@@ -29,7 +29,7 @@ namespace GMAP_Demo
             }
         }
 
-        internal bool sjekkOmKategoriHarBilde(Ressurs item)
+        internal bool sjekkOmKategoriHarBilde(Ressurs item) // Mottar en ressurs og ser om ressursens kategori har et tilhørende bilde.
         {
             DatabaseCommunication db = new DatabaseCommunication();
             List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
