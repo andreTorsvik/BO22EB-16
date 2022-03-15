@@ -53,7 +53,7 @@ namespace GMAP_Demo
 
         private void LastInnFargerMuligheter()
         {
-            foreach (var val in Enum.GetValues(typeof(Form1.MuligeFarger)))
+            foreach (var val in Enum.GetValues(typeof(frmFilter.MuligeFarger)))
             {
                 lbTilgjengligFarge.Items.Add(val);
             }
