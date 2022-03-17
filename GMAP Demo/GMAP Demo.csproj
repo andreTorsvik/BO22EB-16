@@ -99,6 +99,12 @@
     <Compile Include="Database\DataTypes\Overlay_Ressurs.cs" />
     <Compile Include="Database\DataTypes\Punkter_område.cs" />
     <Compile Include="Database\DataTypes\Ressurs.cs" />
+    <Compile Include="Forms\Innlogging\frmInnlogging.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Innlogging\frmInnlogging.Designer.cs">
+      <DependentUpon>frmInnlogging.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Visning\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,8 +201,12 @@
     <Compile Include="Forms\Redigering\frm_R_RedigerOmråde.Designer.cs">
       <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
     </Compile>
+    <Compile Include="InnloggetBruker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Innlogging\frmInnlogging.resx">
+      <DependentUpon>frmInnlogging.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Visning\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

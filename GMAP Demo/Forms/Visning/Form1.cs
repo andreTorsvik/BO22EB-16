@@ -47,6 +47,9 @@ namespace GMAP_Demo
            
             //endre farge
             btnPosisjon.BackColor = knapp_trykket;
+
+            // Viser innlogget bruker
+            lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
         }
 
         private void OpprettingAvGlobaleVariabler()

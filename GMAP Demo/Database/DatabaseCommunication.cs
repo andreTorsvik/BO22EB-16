@@ -32,6 +32,14 @@ namespace GMAP_Demo
         //
 
 
+        public List<Bruker> CheckLoginAgainstDb(string Username, string Password)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                var output = connection.Query<Bruker>($"SELECT Epost FROM [dbo].[Bruker] WHERE ( (Epost = '{Username}') AND (Passord = '{Password}') )").ToList();
+                return output;
+            }
+        }
 
         public List<Bruker> ListAllBrukerFromDb()
         {

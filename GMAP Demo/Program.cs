@@ -13,6 +13,7 @@ namespace GMAP_Demo
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+        
         static void Main()
         {
             Application.EnableVisualStyles();
@@ -30,7 +31,7 @@ namespace GMAP_Demo
                 System.Environment.Exit(1);
 
             }
-            Application.Run(new Form1());
+            Application.Run(new frmInnlogging());
         }
     }
 }
