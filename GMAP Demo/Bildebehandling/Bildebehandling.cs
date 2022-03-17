@@ -110,39 +110,20 @@ namespace GMAP_Demo
         {
             double MaxWidth = 40.0; // Max bredde i pixler
             double MaxHeight = 70.0; // Max Høyde i pixler
-            double WidthScalar = 1;
-            double HeightScalar = 1;
             double Increments = 0.9; // (0 < Increments < 1) Oppløsning for Autoskalering. Større tall = større oppløsning, og mer krevende for programmet.
             double Width = bmp.Width;
             double Height = bmp.Height;
-            double testWidth = bmp.Width;
-            double testHeight = bmp.Height;
             int newWidth;
             int newHeight;
 
-
-            while (testWidth > MaxWidth)
+            while ((Width > MaxWidth) || (Height > MaxHeight))
             {
-                testWidth = testWidth * Increments;
-                WidthScalar = WidthScalar * Increments;
-            }
-            while (testHeight > MaxHeight)
-            {
-                testHeight = testHeight * Increments;
-                HeightScalar = HeightScalar * Increments;
+                Width = Width * Increments;
+                Height = Height * Increments;
             }
 
-            if (WidthScalar > HeightScalar)
-            {
-                newWidth = Convert.ToInt32(System.Math.Round(Width * HeightScalar));
-                newHeight = Convert.ToInt32(System.Math.Round(Height * HeightScalar));
-            }
-            else
-            {
-                newWidth = Convert.ToInt32(System.Math.Round(Width * WidthScalar));
-                newHeight = Convert.ToInt32(System.Math.Round(Height * WidthScalar));
-            }
-
+            newWidth = Convert.ToInt32(System.Math.Round(Width));
+            newHeight = Convert.ToInt32(System.Math.Round(Height));
 
             Bitmap newBmp = new Bitmap(newWidth, newHeight);
             using (Graphics g = Graphics.FromImage(newBmp))
