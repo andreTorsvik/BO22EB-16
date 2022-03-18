@@ -237,23 +237,31 @@
             // btnZoomPluss
             // 
             this.btnZoomPluss.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnZoomPluss.BackColor = System.Drawing.SystemColors.Control;
+            this.btnZoomPluss.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZoomPluss.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnZoomPluss.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnZoomPluss.Location = new System.Drawing.Point(1240, 635);
             this.btnZoomPluss.Name = "btnZoomPluss";
             this.btnZoomPluss.Size = new System.Drawing.Size(20, 20);
             this.btnZoomPluss.TabIndex = 0;
             this.btnZoomPluss.Text = "+";
-            this.btnZoomPluss.UseVisualStyleBackColor = true;
+            this.btnZoomPluss.UseVisualStyleBackColor = false;
             this.btnZoomPluss.Click += new System.EventHandler(this.btnZoomPluss_Click);
             // 
             // btnZoomMinus
             // 
             this.btnZoomMinus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnZoomMinus.BackColor = System.Drawing.SystemColors.Control;
+            this.btnZoomMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZoomMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnZoomMinus.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnZoomMinus.Location = new System.Drawing.Point(1240, 661);
             this.btnZoomMinus.Name = "btnZoomMinus";
             this.btnZoomMinus.Size = new System.Drawing.Size(20, 20);
             this.btnZoomMinus.TabIndex = 3;
             this.btnZoomMinus.Text = "-";
-            this.btnZoomMinus.UseVisualStyleBackColor = true;
+            this.btnZoomMinus.UseVisualStyleBackColor = false;
             this.btnZoomMinus.Click += new System.EventHandler(this.btnZoomMinus_Click);
             // 
             // Form1
