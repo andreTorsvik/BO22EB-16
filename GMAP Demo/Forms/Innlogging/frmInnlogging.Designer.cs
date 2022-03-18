@@ -177,12 +177,13 @@
             this.LbNyBruker.AutoSize = true;
             this.LbNyBruker.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbNyBruker.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.LbNyBruker.Location = new System.Drawing.Point(71, 253);
+            this.LbNyBruker.Location = new System.Drawing.Point(71, 247);
             this.LbNyBruker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbNyBruker.Name = "LbNyBruker";
             this.LbNyBruker.Size = new System.Drawing.Size(106, 16);
             this.LbNyBruker.TabIndex = 11;
             this.LbNyBruker.Text = "Opprett bruker";
+            this.LbNyBruker.Click += new System.EventHandler(this.LbNyBruker_Click);
             this.LbNyBruker.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LbNyBruker_MouseClick);
             this.LbNyBruker.MouseEnter += new System.EventHandler(this.LbNyBruker_MouseEnter);
             this.LbNyBruker.MouseLeave += new System.EventHandler(this.LbNyBruker_MouseLeave);
@@ -205,6 +206,7 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(490, 481);
             this.Name = "frmInnlogging";

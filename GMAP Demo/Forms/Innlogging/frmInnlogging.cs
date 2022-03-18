@@ -126,5 +126,14 @@ namespace GMAP_Demo
         {
 
         }
+
+        private void LbNyBruker_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmRegistering form1 = new frmRegistering(); // instance
+            form1.Size = this.Size;
+            form1.Location =this.Location;
+            form1.Show();
+        }
     }
 }

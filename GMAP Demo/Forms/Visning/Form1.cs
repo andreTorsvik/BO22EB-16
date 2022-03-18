@@ -126,6 +126,7 @@ namespace GMAP_Demo
 
             //for å åpne Fjern/rediger form
             PnlFormLoader.Controls.Clear(); // usiker om denne trengs 
+            //Close();
             this.Hide();
             frmRediger frmRediger = new frmRediger(); // instance 
             frmRediger.Size = this.Size;
