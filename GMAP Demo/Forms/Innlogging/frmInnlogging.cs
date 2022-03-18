@@ -61,8 +61,8 @@ namespace GMAP_Demo
 
         private void btnTestUser_Click(object sender, EventArgs e)
         {
-            tbUserName.Text = "ola.nordman@stud.hvl.no";
-            tbPassword.Text = "PassOla";
+            tbUserName.Text = "Gjest@stud.hvl.no";
+            tbPassword.Text = "PassGjest";
         }
     }
 }

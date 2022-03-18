@@ -34,7 +34,7 @@ namespace GMAP_Demo
             if (KjørEnGang) OpprettingAvGlobaleVariabler();
             InitializeComponent();
             instance = this;
-
+            
             //start form Posisjon
             this.PnlFormLoader.Controls.Clear();
             frmPosisjon frmPosisjon_vrb = new frmPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -65,6 +65,7 @@ namespace GMAP_Demo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            lblUserName.TextAlign = ContentAlignment.MiddleCenter;
             Setupkart();
         }
 
@@ -173,7 +174,7 @@ namespace GMAP_Demo
             instance.map.Zoom--;
         }
 
-        public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
+        private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
             frmFilter.instance.txtNavn.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
             frmFilter.instance.txtKategori.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
