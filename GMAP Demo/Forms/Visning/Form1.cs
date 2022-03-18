@@ -238,5 +238,15 @@ namespace GMAP_Demo
             instance.map.Overlays.Add(routes);
             instance.map.Position = fra;
         }
+
+        private void btnZoomPluss_Click(object sender, EventArgs e)
+        {
+            instance.map.Zoom++;
+        }
+
+        private void btnZoomMinus_Click(object sender, EventArgs e)
+        {
+            instance.map.Zoom--;
+        }
     }
 }
