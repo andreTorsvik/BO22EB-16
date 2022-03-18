@@ -56,7 +56,7 @@ namespace GMAP_Demo
                     //Legg til i database
                     try
                     {
-
+                        //legge til i database
                         opprettet = true;
                     }
                     catch (Exception) { }
@@ -81,7 +81,6 @@ namespace GMAP_Demo
         private double GenereTallKode()
         {
             double tallkode = 0;
-
             Random r = new Random();
 
             for (int i = 0; i < 7; i++)
@@ -89,7 +88,6 @@ namespace GMAP_Demo
                 tallkode += r.Next(9) * Math.Pow(10, Convert.ToDouble(i));
             }
             if (tallkode == 0) return -1;
-
 
             return tallkode;
         }
