@@ -39,6 +39,7 @@
             this.lblTest = new System.Windows.Forms.Label();
             this.lblTitle2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             // 
             this.tbUserName.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbUserName.Location = new System.Drawing.Point(232, 151);
-            this.tbUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUserName.Margin = new System.Windows.Forms.Padding(4);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(132, 22);
             this.tbUserName.TabIndex = 3;
@@ -91,7 +92,7 @@
             // 
             this.tbPassword.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbPassword.Location = new System.Drawing.Point(232, 197);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(132, 22);
             this.tbPassword.TabIndex = 4;
@@ -103,7 +104,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(244, 241);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 28);
             this.btnLogin.TabIndex = 5;
@@ -117,7 +118,7 @@
             this.btnTestUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTestUser.ForeColor = System.Drawing.Color.White;
             this.btnTestUser.Location = new System.Drawing.Point(244, 343);
-            this.btnTestUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTestUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnTestUser.Name = "btnTestUser";
             this.btnTestUser.Size = new System.Drawing.Size(100, 28);
             this.btnTestUser.TabIndex = 6;
@@ -153,12 +154,22 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(51, 43);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(68, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(68, 280);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 32);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Send Epost";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmInnlogging
             // 
@@ -166,6 +177,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(475, 444);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTitle2);
             this.Controls.Add(this.lblTest);
@@ -176,7 +188,7 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblTitle);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(490, 481);
             this.Name = "frmInnlogging";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -200,5 +212,6 @@
         private System.Windows.Forms.Label lblTest;
         private System.Windows.Forms.Label lblTitle2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
