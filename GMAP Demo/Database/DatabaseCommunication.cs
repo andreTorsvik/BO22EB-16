@@ -106,6 +106,15 @@ namespace GMAP_Demo
             }
         }
 
+        public List<Bruker> ListBrukerInfoFromDb(string username)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                var output = connection.Query<Bruker>($"SELECT * FROM [dbo].[Bruker] WHERE (Epost = '{username}')").ToList();
+                return output;
+            }
+        }
+
 
 
         public void InsertRessursToDb(string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
