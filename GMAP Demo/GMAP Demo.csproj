@@ -201,11 +201,20 @@
     <Compile Include="Forms\Redigering\frm_R_RedigerOmråde.Designer.cs">
       <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Innlogging\frmRegistering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Innlogging\frmRegistering.Designer.cs">
+      <DependentUpon>frmRegistering.cs</DependentUpon>
+    </Compile>
     <Compile Include="InnloggetBruker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Innlogging\frmInnlogging.resx">
       <DependentUpon>frmInnlogging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Innlogging\frmRegistering.resx">
+      <DependentUpon>frmRegistering.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Visning\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

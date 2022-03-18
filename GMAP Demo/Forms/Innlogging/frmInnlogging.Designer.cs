@@ -40,6 +40,7 @@
             this.lblTitle2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.LbNyBruker = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,7 +164,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(68, 280);
+            this.button1.Location = new System.Drawing.Point(68, 388);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 32);
             this.button1.TabIndex = 10;
@@ -171,12 +172,28 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // LbNyBruker
+            // 
+            this.LbNyBruker.AutoSize = true;
+            this.LbNyBruker.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbNyBruker.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.LbNyBruker.Location = new System.Drawing.Point(71, 253);
+            this.LbNyBruker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LbNyBruker.Name = "LbNyBruker";
+            this.LbNyBruker.Size = new System.Drawing.Size(106, 16);
+            this.LbNyBruker.TabIndex = 11;
+            this.LbNyBruker.Text = "Opprett bruker";
+            this.LbNyBruker.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LbNyBruker_MouseClick);
+            this.LbNyBruker.MouseEnter += new System.EventHandler(this.LbNyBruker_MouseEnter);
+            this.LbNyBruker.MouseLeave += new System.EventHandler(this.LbNyBruker_MouseLeave);
+            // 
             // frmInnlogging
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(475, 444);
+            this.Controls.Add(this.LbNyBruker);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTitle2);
@@ -192,7 +209,7 @@
             this.MinimumSize = new System.Drawing.Size(490, 481);
             this.Name = "frmInnlogging";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmInnlogging";
+            this.Text = "Logg inn";
             this.Load += new System.EventHandler(this.frmInnlogging_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -213,5 +230,6 @@
         private System.Windows.Forms.Label lblTitle2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label LbNyBruker;
     }
 }

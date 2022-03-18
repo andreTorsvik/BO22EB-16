@@ -110,5 +110,21 @@ namespace GMAP_Demo
             }
 
         }
+
+
+        private void LbNyBruker_MouseEnter(object sender, EventArgs e)
+        {
+            LbNyBruker.Font = new Font(LbNyBruker.Font, FontStyle.Underline);
+        }
+
+        private void LbNyBruker_MouseLeave(object sender, EventArgs e)
+        {
+            LbNyBruker.Font = new Font(LbNyBruker.Font,FontStyle.Regular);
+        }
+
+        private void LbNyBruker_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
