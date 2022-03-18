@@ -296,5 +296,15 @@ namespace GMAP_Demo
             }
             
         }
+
+        private void btnZoomPluss_Click(object sender, EventArgs e)
+        {
+            instance.map.Zoom++;
+        }
+
+        private void btnZoomMinus_Click(object sender, EventArgs e)
+        {
+            instance.map.Zoom--;
+        }
     }
 }
