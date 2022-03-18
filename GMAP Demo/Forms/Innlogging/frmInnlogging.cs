@@ -47,7 +47,7 @@ namespace GMAP_Demo
                     this.Hide();
                     Form1 form1 = new Form1(); // instance
                     form1.Size = this.Size;
-                    form1.Location = this.Location;
+                    //form1.Location =this.Location;
                     form1.Show();
                 }
             }
