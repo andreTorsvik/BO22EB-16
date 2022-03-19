@@ -143,6 +143,7 @@
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(132, 22);
             this.txtTelefon.TabIndex = 19;
+            this.txtTelefon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefon_KeyPress);
             // 
             // label1
             // 
@@ -258,6 +259,7 @@
             this.Name = "frmRegistering";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registering";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRegistering_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

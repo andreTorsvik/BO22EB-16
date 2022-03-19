@@ -30,13 +30,38 @@ namespace GMAP_Demo
         {
             bool altUtfylt = true;
             bool opprettet = false;
+            string utFyllingsmangler = "Du mangler:";
             //kode for sjekk at alle felten er utfylt
-            if (string.IsNullOrWhiteSpace(txtFornavn.Text)) altUtfylt=false;
-            else if(string.IsNullOrWhiteSpace(txtEtternavn.Text)) altUtfylt = false;
-            else if (string.IsNullOrWhiteSpace(txtTelefon.Text)) altUtfylt = false;
-            else if (string.IsNullOrWhiteSpace(txtEpost.Text)) altUtfylt = false;
-            else if (string.IsNullOrWhiteSpace(txtPassord.Text)) altUtfylt = false;
-            else if (string.IsNullOrWhiteSpace(txtBePassord.Text)) altUtfylt = false;
+            if (string.IsNullOrWhiteSpace(txtFornavn.Text))
+            { 
+                altUtfylt = false; 
+                utFyllingsmangler += " Fornavn";
+            }
+            else if (string.IsNullOrWhiteSpace(txtEtternavn.Text))
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " Etternavn";
+            }
+            else if (string.IsNullOrWhiteSpace(txtTelefon.Text))
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " Telefonnummer";
+            }
+            else if (string.IsNullOrWhiteSpace(txtEpost.Text))
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " Epost";
+            }
+            else if (string.IsNullOrWhiteSpace(txtPassord.Text))
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " Passord";
+            }
+            else if (string.IsNullOrWhiteSpace(txtBePassord.Text))
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " bekrefte passord";
+            }
 
             if (altUtfylt)
             {
@@ -62,12 +87,12 @@ namespace GMAP_Demo
                     catch (Exception) { }
                 }     
             }
-            else MessageBox.Show("Fyll ut alle feltene");
+            else MessageBox.Show(utFyllingsmangler);
 
             //om sjekk ok
             if (opprettet)
             {
-                MessageBox.Show("Bruker er nå opprett, og venter for å bli godkjent av en admin. hvis den blir godkjent " +
+                MessageBox.Show("Bruker er nå opprett, og venter for å bli godkjent av en admin. Hvis den blir godkjent " +
                     "vil du motta en mail med en kode.");
 
                 this.Close();
@@ -90,6 +115,19 @@ namespace GMAP_Demo
             if (tallkode == 0) return -1;
 
             return tallkode;
+        }
+
+        private void frmRegistering_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void txtTelefon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
