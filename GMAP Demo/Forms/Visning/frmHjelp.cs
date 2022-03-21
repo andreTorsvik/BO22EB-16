@@ -16,5 +16,16 @@ namespace GMAP_Demo
         {
             InitializeComponent();
         }
+
+        private void CloseForm(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ClearData(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+        }
+
     }
 }
