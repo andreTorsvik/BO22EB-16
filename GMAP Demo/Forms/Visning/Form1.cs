@@ -51,6 +51,9 @@ namespace GMAP_Demo
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
 
+            // Første gang programmet starter etter innlogging så vises vinduet i midten av skjermen.
+            this.CenterToScreen();
+
         }
 
         private void OpprettingAvGlobaleVariabler()
