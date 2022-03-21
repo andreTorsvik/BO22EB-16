@@ -27,7 +27,7 @@ namespace GMAP_Demo
         public PointLatLng DoubleClick_punkt;
         public static Form1 instance;
         
-
+        //hei
         public Form1()
         {
             GMapProviders.GoogleMap.ApiKey = "AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM";
