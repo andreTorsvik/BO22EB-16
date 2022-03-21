@@ -16,10 +16,13 @@ namespace GMAP_Demo
 {
     public partial class frmInnlogging : Form
     {
+        public static frmInnlogging instance;
+
 
         public frmInnlogging()
         {
             InitializeComponent();
+            instance = this;
         }
 
         private void frmInnlogging_Load(object sender, EventArgs e)
@@ -49,16 +52,18 @@ namespace GMAP_Demo
                     this.Hide();
                     Form1 form1 = new Form1(); // instance
                     form1.Size = this.Size;
-                    //form1.Location =this.Location;
                     form1.Show();
+
+                    if(frmVertifiseringskode.instance != null)
+                    {
+                        frmVertifiseringskode.instance.Close();
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("Ikke gyldig innlogging!");
-            }
-
-            
+            }    
         }
 
         private void btnTestUser_Click(object sender, EventArgs e)
@@ -129,11 +134,13 @@ namespace GMAP_Demo
 
         private void LbNyBruker_Click(object sender, EventArgs e)
         {
+            
             this.Hide();
-            frmRegistering form1 = new frmRegistering(); // instance
-            form1.Size = this.Size;
-            form1.Location =this.Location;
-            form1.Show();
+            frmRegistering frmRegistering = new frmRegistering(); // instance
+            frmRegistering.Size = this.Size;
+            frmRegistering.Location =this.Location;
+            frmRegistering.Show();
+            
         }
     }
 }

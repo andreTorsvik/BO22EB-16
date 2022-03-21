@@ -176,7 +176,7 @@
             // 
             this.LbNyBruker.AutoSize = true;
             this.LbNyBruker.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbNyBruker.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.LbNyBruker.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.LbNyBruker.Location = new System.Drawing.Point(71, 247);
             this.LbNyBruker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbNyBruker.Name = "LbNyBruker";
