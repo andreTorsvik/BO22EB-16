@@ -277,7 +277,7 @@
             this.btnHelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(27, 25);
-            this.btnHelp.TabIndex = 4;
+            this.btnHelp.TabIndex = 1;
             this.btnHelp.Text = "?";
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
