@@ -96,6 +96,9 @@ namespace GMAP_Demo
                     try
                     {
                         //legge til i database
+
+
+
                         opprettet = true;
                     }
                     catch (Exception) { }

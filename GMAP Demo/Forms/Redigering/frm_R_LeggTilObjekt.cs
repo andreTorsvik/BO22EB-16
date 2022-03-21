@@ -33,16 +33,58 @@ namespace GMAP_Demo
 
         private void btnLeggTilObjekt_Click(object sender, EventArgs e)
         {
-            DatabaseCommunication db = new DatabaseCommunication();
+            bool altUtfylt = true;
+            string utFyllingsmangler = "Du mangler:";
+            //kode for sjekk at alle felten er utfylt
+            if (string.IsNullOrWhiteSpace(txtNavn.Text))
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " Navn";
+            }
+            if (string.IsNullOrWhiteSpace(txtKategori.Text))
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " Kategori";
+            }
+            if (string.IsNullOrWhiteSpace(txtSikkerhetsklarering.Text))
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " Sikkerhetsklarering";
+            }
+            if (string.IsNullOrWhiteSpace(txtKommentar.Text))
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " Kommentar";
+            }
+            if (string.IsNullOrWhiteSpace(txtLat.Text))
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " lat";
+            }
+            if (string.IsNullOrWhiteSpace(txtLong.Text))
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " long";
+            }
+            if (lbValgtOverlays.Items.Count > 0)
+            {
+                altUtfylt = false;
+                utFyllingsmangler += " Overlay";
+            }
 
-            db.InsertRessursToDb(txtNavn.Text.ToString(), txtKategori.Text.ToString(), "ola.nordman@stud.hvl.no", Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
+            if (altUtfylt)
+            {
+                DatabaseCommunication db = new DatabaseCommunication();
+                db.InsertRessursToDb(txtNavn.Text.ToString(), txtKategori.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
 
-            txtNavn.Text = "";
-            txtKategori.Text = "";
-            txtKommentar.Text = "";
-            txtSikkerhetsklarering.Text = "";
-            txtLat.Text = "";
-            txtLong.Text = "";
+                txtNavn.Text = "";
+                txtKategori.Text = "";
+                txtKommentar.Text = "";
+                txtSikkerhetsklarering.Text = "";
+                txtLat.Text = "";
+                txtLong.Text = "";
+            }
+            else MessageBox.Show(utFyllingsmangler);
 
         }
 
