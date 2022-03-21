@@ -30,20 +30,32 @@
         {
             this.lblMenu1 = new System.Windows.Forms.Label();
             this.lblMap1 = new System.Windows.Forms.Label();
-            this.lblMenu2 = new System.Windows.Forms.Label();
-            this.lblMenu3 = new System.Windows.Forms.Label();
+            this.lblMenu4 = new System.Windows.Forms.Label();
+            this.lblMenu5 = new System.Windows.Forms.Label();
             this.lblBruker1 = new System.Windows.Forms.Label();
             this.lblBruker2 = new System.Windows.Forms.Label();
             this.lblMiddle1 = new System.Windows.Forms.Label();
-            this.lblMiddle2 = new System.Windows.Forms.Label();
             this.lblMiddle3 = new System.Windows.Forms.Label();
+            this.lblMiddle4 = new System.Windows.Forms.Label();
             this.lblMap2 = new System.Windows.Forms.Label();
-            this.lblMap3 = new System.Windows.Forms.Label();
-            this.lblMap4 = new System.Windows.Forms.Label();
             this.lblMap5 = new System.Windows.Forms.Label();
             this.lblMap6 = new System.Windows.Forms.Label();
+            this.lblMap8 = new System.Windows.Forms.Label();
+            this.lblMap7 = new System.Windows.Forms.Label();
             this.llblOSM = new System.Windows.Forms.LinkLabel();
             this.llblGMAP = new System.Windows.Forms.LinkLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblMiddle2 = new System.Windows.Forms.Label();
+            this.lblMenu6 = new System.Windows.Forms.Label();
+            this.lblMenu3 = new System.Windows.Forms.Label();
+            this.lblMenu2 = new System.Windows.Forms.Label();
+            this.lblMap3 = new System.Windows.Forms.Label();
+            this.lblMap4 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblMenu1
@@ -51,11 +63,11 @@
             this.lblMenu1.AutoSize = true;
             this.lblMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenu1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMenu1.Location = new System.Drawing.Point(12, 313);
+            this.lblMenu1.Location = new System.Drawing.Point(12, 125);
             this.lblMenu1.Name = "lblMenu1";
-            this.lblMenu1.Size = new System.Drawing.Size(397, 13);
+            this.lblMenu1.Size = new System.Drawing.Size(198, 13);
             this.lblMenu1.TabIndex = 0;
-            this.lblMenu1.Text = "Seksjonen til venstre består av et \"Panel\" som grupperer \"Button\"s. ";
+            this.lblMenu1.Text = "Seksjonen til venstre består av et";
             // 
             // lblMap1
             // 
@@ -63,51 +75,51 @@
             this.lblMap1.AutoSize = true;
             this.lblMap1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMap1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMap1.Location = new System.Drawing.Point(595, 180);
+            this.lblMap1.Location = new System.Drawing.Point(570, 163);
             this.lblMap1.Name = "lblMap1";
             this.lblMap1.Size = new System.Drawing.Size(235, 13);
             this.lblMap1.TabIndex = 1;
             this.lblMap1.Text = "Her er et \"Panel\" som inneholder kartet.";
             // 
-            // lblMenu2
+            // lblMenu4
             // 
-            this.lblMenu2.AutoSize = true;
-            this.lblMenu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenu2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMenu2.Location = new System.Drawing.Point(12, 337);
-            this.lblMenu2.Name = "lblMenu2";
-            this.lblMenu2.Size = new System.Drawing.Size(356, 13);
-            this.lblMenu2.TabIndex = 2;
-            this.lblMenu2.Text = "Disse knappene oppretter nye Forms enten i panelet til høyre ";
+            this.lblMenu4.AutoSize = true;
+            this.lblMenu4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu4.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblMenu4.Location = new System.Drawing.Point(12, 179);
+            this.lblMenu4.Name = "lblMenu4";
+            this.lblMenu4.Size = new System.Drawing.Size(182, 13);
+            this.lblMenu4.TabIndex = 2;
+            this.lblMenu4.Text = "Forms enten i panelet til høyre,";
             // 
-            // lblMenu3
+            // lblMenu5
             // 
-            this.lblMenu3.AutoSize = true;
-            this.lblMenu3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenu3.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMenu3.Location = new System.Drawing.Point(12, 350);
-            this.lblMenu3.Name = "lblMenu3";
-            this.lblMenu3.Size = new System.Drawing.Size(347, 13);
-            this.lblMenu3.TabIndex = 3;
-            this.lblMenu3.Text = "eller lukker hele dette vinduet og oppretter et helt nytt form.";
+            this.lblMenu5.AutoSize = true;
+            this.lblMenu5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu5.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblMenu5.Location = new System.Drawing.Point(12, 215);
+            this.lblMenu5.Name = "lblMenu5";
+            this.lblMenu5.Size = new System.Drawing.Size(177, 13);
+            this.lblMenu5.TabIndex = 3;
+            this.lblMenu5.Text = "eller lukker hele dette vinduet";
             // 
             // lblBruker1
             // 
             this.lblBruker1.AutoSize = true;
             this.lblBruker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBruker1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblBruker1.Location = new System.Drawing.Point(47, 92);
+            this.lblBruker1.Location = new System.Drawing.Point(12, 80);
             this.lblBruker1.Name = "lblBruker1";
             this.lblBruker1.Size = new System.Drawing.Size(218, 13);
             this.lblBruker1.TabIndex = 4;
-            this.lblBruker1.Text = "\"Labels\" oppdateres med informasjon";
+            this.lblBruker1.Text = "\"Label\"s oppdateres med informasjon";
             // 
             // lblBruker2
             // 
             this.lblBruker2.AutoSize = true;
             this.lblBruker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBruker2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblBruker2.Location = new System.Drawing.Point(47, 105);
+            this.lblBruker2.Location = new System.Drawing.Point(12, 93);
             this.lblBruker2.Name = "lblBruker2";
             this.lblBruker2.Size = new System.Drawing.Size(223, 13);
             this.lblBruker2.TabIndex = 5;
@@ -118,33 +130,33 @@
             this.lblMiddle1.AutoSize = true;
             this.lblMiddle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMiddle1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMiddle1.Location = new System.Drawing.Point(243, 489);
+            this.lblMiddle1.Location = new System.Drawing.Point(58, 521);
             this.lblMiddle1.Name = "lblMiddle1";
-            this.lblMiddle1.Size = new System.Drawing.Size(340, 13);
+            this.lblMiddle1.Size = new System.Drawing.Size(192, 13);
             this.lblMiddle1.TabIndex = 6;
-            this.lblMiddle1.Text = "Seksjonen i midten er et \"Panel\" som viser et eget \"Form\".";
-            // 
-            // lblMiddle2
-            // 
-            this.lblMiddle2.AutoSize = true;
-            this.lblMiddle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMiddle2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMiddle2.Location = new System.Drawing.Point(243, 518);
-            this.lblMiddle2.Name = "lblMiddle2";
-            this.lblMiddle2.Size = new System.Drawing.Size(178, 13);
-            this.lblMiddle2.TabIndex = 7;
-            this.lblMiddle2.Text = "\"Button\"s til venstre kan laste";
+            this.lblMiddle1.Text = "Seksjonen i midten er et \"Panel\"";
             // 
             // lblMiddle3
             // 
             this.lblMiddle3.AutoSize = true;
             this.lblMiddle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMiddle3.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMiddle3.Location = new System.Drawing.Point(243, 531);
+            this.lblMiddle3.Location = new System.Drawing.Point(57, 564);
             this.lblMiddle3.Name = "lblMiddle3";
-            this.lblMiddle3.Size = new System.Drawing.Size(209, 13);
-            this.lblMiddle3.TabIndex = 8;
-            this.lblMiddle3.Text = "forskjellige \"Forms\" i dette \"Panel\".";
+            this.lblMiddle3.Size = new System.Drawing.Size(178, 13);
+            this.lblMiddle3.TabIndex = 7;
+            this.lblMiddle3.Text = "\"Button\"s til venstre kan laste";
+            // 
+            // lblMiddle4
+            // 
+            this.lblMiddle4.AutoSize = true;
+            this.lblMiddle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMiddle4.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblMiddle4.Location = new System.Drawing.Point(57, 577);
+            this.lblMiddle4.Name = "lblMiddle4";
+            this.lblMiddle4.Size = new System.Drawing.Size(209, 13);
+            this.lblMiddle4.TabIndex = 8;
+            this.lblMiddle4.Text = "forskjellige \"Forms\" i dette \"Panel\".";
             // 
             // lblMap2
             // 
@@ -152,35 +164,11 @@
             this.lblMap2.AutoSize = true;
             this.lblMap2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMap2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMap2.Location = new System.Drawing.Point(595, 193);
+            this.lblMap2.Location = new System.Drawing.Point(570, 176);
             this.lblMap2.Name = "lblMap2";
             this.lblMap2.Size = new System.Drawing.Size(253, 13);
             this.lblMap2.TabIndex = 9;
             this.lblMap2.Text = "Selve kartet blir laget av biblioteket GMAP.";
-            // 
-            // lblMap3
-            // 
-            this.lblMap3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMap3.AutoSize = true;
-            this.lblMap3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMap3.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMap3.Location = new System.Drawing.Point(595, 227);
-            this.lblMap3.Name = "lblMap3";
-            this.lblMap3.Size = new System.Drawing.Size(299, 13);
-            this.lblMap3.TabIndex = 10;
-            this.lblMap3.Text = "Ressurspunkter som tegnes i kartet er laget av oss ";
-            // 
-            // lblMap4
-            // 
-            this.lblMap4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMap4.AutoSize = true;
-            this.lblMap4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMap4.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMap4.Location = new System.Drawing.Point(595, 240);
-            this.lblMap4.Name = "lblMap4";
-            this.lblMap4.Size = new System.Drawing.Size(227, 13);
-            this.lblMap4.TabIndex = 11;
-            this.lblMap4.Text = "og inneholder lengde og breddegrader.";
             // 
             // lblMap5
             // 
@@ -188,11 +176,11 @@
             this.lblMap5.AutoSize = true;
             this.lblMap5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMap5.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMap5.Location = new System.Drawing.Point(595, 359);
+            this.lblMap5.Location = new System.Drawing.Point(570, 245);
             this.lblMap5.Name = "lblMap5";
-            this.lblMap5.Size = new System.Drawing.Size(358, 13);
-            this.lblMap5.TabIndex = 12;
-            this.lblMap5.Text = "GMAP henter kartdata fra OpenStreetMap (andre valg finnes).";
+            this.lblMap5.Size = new System.Drawing.Size(299, 13);
+            this.lblMap5.TabIndex = 10;
+            this.lblMap5.Text = "Ressurspunkter som tegnes i kartet er laget av oss ";
             // 
             // lblMap6
             // 
@@ -200,19 +188,44 @@
             this.lblMap6.AutoSize = true;
             this.lblMap6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMap6.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMap6.Location = new System.Drawing.Point(595, 313);
+            this.lblMap6.Location = new System.Drawing.Point(570, 258);
             this.lblMap6.Name = "lblMap6";
-            this.lblMap6.Size = new System.Drawing.Size(386, 13);
-            this.lblMap6.TabIndex = 13;
-            this.lblMap6.Text = "GMAP plasserer markørene på kartet ihht lengde og breddegraden.";
+            this.lblMap6.Size = new System.Drawing.Size(343, 13);
+            this.lblMap6.TabIndex = 11;
+            this.lblMap6.Text = "og inneholder lengde og breddegrader i tilleg til annen info.";
+            // 
+            // lblMap8
+            // 
+            this.lblMap8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMap8.AutoSize = true;
+            this.lblMap8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMap8.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblMap8.Location = new System.Drawing.Point(570, 312);
+            this.lblMap8.Name = "lblMap8";
+            this.lblMap8.Size = new System.Drawing.Size(358, 13);
+            this.lblMap8.TabIndex = 12;
+            this.lblMap8.Text = "GMAP henter kartdata fra OpenStreetMap (andre valg finnes).";
+            // 
+            // lblMap7
+            // 
+            this.lblMap7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMap7.AutoSize = true;
+            this.lblMap7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMap7.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblMap7.Location = new System.Drawing.Point(570, 285);
+            this.lblMap7.Name = "lblMap7";
+            this.lblMap7.Size = new System.Drawing.Size(386, 13);
+            this.lblMap7.TabIndex = 13;
+            this.lblMap7.Text = "GMAP plasserer markørene på kartet ihht lengde og breddegraden.";
             // 
             // llblOSM
             // 
             this.llblOSM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.llblOSM.AutoSize = true;
-            this.llblOSM.Location = new System.Drawing.Point(672, 583);
+            this.llblOSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llblOSM.Location = new System.Drawing.Point(618, 430);
             this.llblOSM.Name = "llblOSM";
-            this.llblOSM.Size = new System.Drawing.Size(158, 13);
+            this.llblOSM.Size = new System.Drawing.Size(187, 13);
             this.llblOSM.TabIndex = 14;
             this.llblOSM.TabStop = true;
             this.llblOSM.Text = "https://www.openstreetmap.org";
@@ -221,44 +234,156 @@
             // 
             this.llblGMAP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.llblGMAP.AutoSize = true;
-            this.llblGMAP.Location = new System.Drawing.Point(672, 605);
+            this.llblGMAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llblGMAP.Location = new System.Drawing.Point(618, 452);
             this.llblGMAP.Name = "llblGMAP";
-            this.llblGMAP.Size = new System.Drawing.Size(214, 13);
+            this.llblGMAP.Size = new System.Drawing.Size(253, 13);
             this.llblGMAP.TabIndex = 14;
             this.llblGMAP.TabStop = true;
             this.llblGMAP.Text = "https://github.com/judero01col/GMap.NET";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblBruker1);
+            this.panel1.Controls.Add(this.lblBruker2);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(237, 202);
+            this.panel1.TabIndex = 15;
+            this.panel1.Click += new System.EventHandler(this.CloseForm);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblMenu2);
+            this.panel2.Controls.Add(this.lblMenu1);
+            this.panel2.Controls.Add(this.lblMenu3);
+            this.panel2.Controls.Add(this.lblMenu4);
+            this.panel2.Controls.Add(this.lblMenu6);
+            this.panel2.Controls.Add(this.lblMenu5);
+            this.panel2.Location = new System.Drawing.Point(0, 202);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(237, 454);
+            this.panel2.TabIndex = 15;
+            this.panel2.Click += new System.EventHandler(this.CloseForm);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lblMiddle2);
+            this.panel3.Controls.Add(this.lblMiddle1);
+            this.panel3.Controls.Add(this.lblMiddle3);
+            this.panel3.Controls.Add(this.lblMiddle4);
+            this.panel3.Location = new System.Drawing.Point(238, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(307, 656);
+            this.panel3.TabIndex = 15;
+            this.panel3.Click += new System.EventHandler(this.CloseForm);
+            // 
+            // lblMiddle2
+            // 
+            this.lblMiddle2.AutoSize = true;
+            this.lblMiddle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMiddle2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblMiddle2.Location = new System.Drawing.Point(57, 534);
+            this.lblMiddle2.Name = "lblMiddle2";
+            this.lblMiddle2.Size = new System.Drawing.Size(155, 13);
+            this.lblMiddle2.TabIndex = 6;
+            this.lblMiddle2.Text = " som viser et eget \"Form\".";
+            // 
+            // lblMenu6
+            // 
+            this.lblMenu6.AutoSize = true;
+            this.lblMenu6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu6.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblMenu6.Location = new System.Drawing.Point(12, 228);
+            this.lblMenu6.Name = "lblMenu6";
+            this.lblMenu6.Size = new System.Drawing.Size(173, 13);
+            this.lblMenu6.TabIndex = 3;
+            this.lblMenu6.Text = "og oppretter et helt nytt form.";
+            // 
+            // lblMenu3
+            // 
+            this.lblMenu3.AutoSize = true;
+            this.lblMenu3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu3.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblMenu3.Location = new System.Drawing.Point(12, 166);
+            this.lblMenu3.Name = "lblMenu3";
+            this.lblMenu3.Size = new System.Drawing.Size(177, 13);
+            this.lblMenu3.TabIndex = 2;
+            this.lblMenu3.Text = "Disse knappene oppretter nye";
+            // 
+            // lblMenu2
+            // 
+            this.lblMenu2.AutoSize = true;
+            this.lblMenu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblMenu2.Location = new System.Drawing.Point(12, 138);
+            this.lblMenu2.Name = "lblMenu2";
+            this.lblMenu2.Size = new System.Drawing.Size(206, 13);
+            this.lblMenu2.TabIndex = 0;
+            this.lblMenu2.Text = " \"Panel\" som grupperer \"Button\"s. ";
+            // 
+            // lblMap3
+            // 
+            this.lblMap3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMap3.AutoSize = true;
+            this.lblMap3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMap3.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblMap3.Location = new System.Drawing.Point(570, 189);
+            this.lblMap3.Name = "lblMap3";
+            this.lblMap3.Size = new System.Drawing.Size(273, 13);
+            this.lblMap3.TabIndex = 9;
+            this.lblMap3.Text = "Kartet, zooming, panning mm ordnes av GMAP.";
+            // 
+            // lblMap4
+            // 
+            this.lblMap4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMap4.AutoSize = true;
+            this.lblMap4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMap4.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblMap4.Location = new System.Drawing.Point(570, 202);
+            this.lblMap4.Name = "lblMap4";
+            this.lblMap4.Size = new System.Drawing.Size(248, 13);
+            this.lblMap4.TabIndex = 9;
+            this.lblMap4.Text = "Knapper på top av kartet er lagt til av oss.";
             // 
             // frmHjelp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(968, 656);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.llblGMAP);
             this.Controls.Add(this.llblOSM);
+            this.Controls.Add(this.lblMap7);
+            this.Controls.Add(this.lblMap8);
             this.Controls.Add(this.lblMap6);
             this.Controls.Add(this.lblMap5);
             this.Controls.Add(this.lblMap4);
             this.Controls.Add(this.lblMap3);
             this.Controls.Add(this.lblMap2);
-            this.Controls.Add(this.lblMiddle3);
-            this.Controls.Add(this.lblMiddle2);
-            this.Controls.Add(this.lblMiddle1);
-            this.Controls.Add(this.lblBruker2);
-            this.Controls.Add(this.lblBruker1);
-            this.Controls.Add(this.lblMenu3);
-            this.Controls.Add(this.lblMenu2);
             this.Controls.Add(this.lblMap1);
-            this.Controls.Add(this.lblMenu1);
             this.ForeColor = System.Drawing.Color.RoyalBlue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(968, 656);
             this.Name = "frmHjelp";
-            this.Opacity = 0.5D;
+            this.Opacity = 0.85D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "frmHjelp";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClearData);
             this.Click += new System.EventHandler(this.CloseForm);
             this.Leave += new System.EventHandler(this.CloseForm);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,19 +393,28 @@
 
         private System.Windows.Forms.Label lblMenu1;
         private System.Windows.Forms.Label lblMap1;
-        private System.Windows.Forms.Label lblMenu2;
-        private System.Windows.Forms.Label lblMenu3;
+        private System.Windows.Forms.Label lblMenu4;
+        private System.Windows.Forms.Label lblMenu5;
         private System.Windows.Forms.Label lblBruker1;
         private System.Windows.Forms.Label lblBruker2;
         private System.Windows.Forms.Label lblMiddle1;
-        private System.Windows.Forms.Label lblMiddle2;
         private System.Windows.Forms.Label lblMiddle3;
+        private System.Windows.Forms.Label lblMiddle4;
         private System.Windows.Forms.Label lblMap2;
-        private System.Windows.Forms.Label lblMap3;
-        private System.Windows.Forms.Label lblMap4;
         private System.Windows.Forms.Label lblMap5;
         private System.Windows.Forms.Label lblMap6;
+        private System.Windows.Forms.Label lblMap8;
+        private System.Windows.Forms.Label lblMap7;
         private System.Windows.Forms.LinkLabel llblOSM;
         private System.Windows.Forms.LinkLabel llblGMAP;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblMiddle2;
+        private System.Windows.Forms.Label lblMenu2;
+        private System.Windows.Forms.Label lblMenu3;
+        private System.Windows.Forms.Label lblMenu6;
+        private System.Windows.Forms.Label lblMap3;
+        private System.Windows.Forms.Label lblMap4;
     }
 }
