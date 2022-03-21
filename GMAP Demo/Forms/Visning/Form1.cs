@@ -50,6 +50,7 @@ namespace GMAP_Demo
 
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
+
         }
 
         private void OpprettingAvGlobaleVariabler()
@@ -124,8 +125,6 @@ namespace GMAP_Demo
             //for å sende posisjonen til neste kart
             Punkt_fra_forrige_kart = map.Position;
 
-            //for å åpne Fjern/rediger form
-            PnlFormLoader.Controls.Clear(); // usiker om denne trengs 
             //Close();
             this.Hide();
             frmRediger frmRediger = new frmRediger(); // instance 
@@ -135,8 +134,7 @@ namespace GMAP_Demo
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
-        {
-            PnlFormLoader.Controls.Clear(); // usikker om denne trengs 
+        { 
             this.Hide();
             frmSettings frmSettings = new frmSettings(); // instance 
             frmSettings.Size = this.Size;
@@ -158,6 +156,7 @@ namespace GMAP_Demo
             //uten denne funskjone vil programmet forsatt være i debugging 
             //når man trykker "X"
             Application.Exit();
+
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)

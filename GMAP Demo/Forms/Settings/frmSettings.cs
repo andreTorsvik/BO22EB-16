@@ -12,10 +12,12 @@ namespace GMAP_Demo
 {
     public partial class frmSettings : Form
     {
+        public static frmSettings instance;
         private Color knapp_trykket;
         public frmSettings()
         {
             InitializeComponent();
+            instance = this;
             knapp_trykket = Color.FromArgb(46, 51, 73);
             //sette Blåpanel til vesntre for Posisjonknapp 
             FlyttNavigasjonsPanel(btnLoggInn.Height, btnLoggInn.Top);
@@ -37,11 +39,9 @@ namespace GMAP_Demo
         private void btnTilbake_Click(object sender, EventArgs e)
         {
             PnlFormLoader.Controls.Clear();
-            this.Hide();
-            Form1 form1 = new Form1();
-            form1.Size = this.Size;
-            form1.Location = this.Location;
-            form1.Show();   
+
+            Form1.instance.Show();
+            this.Close(); 
         }
 
         void AlleKnapperTilStandarfarge()
@@ -142,13 +142,13 @@ namespace GMAP_Demo
 
         private void frmSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+
         }
 
         private void btnDatabaseView_Click(object sender, EventArgs e)
         {
             PnlFormLoader.Controls.Clear();
-            this.Hide();
+            this.Close();
             frmDatabaseView frmDatabaseView = new frmDatabaseView();
             frmDatabaseView.Size = this.Size;
             frmDatabaseView.Location = this.Location;

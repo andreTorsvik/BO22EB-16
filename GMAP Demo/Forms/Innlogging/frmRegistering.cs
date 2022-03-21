@@ -20,8 +20,6 @@ namespace GMAP_Demo
         private void btnAvbryt_Click(object sender, EventArgs e)
         {
             frmInnlogging.instance.Location = this.Location;
-
-            frmInnlogging.instance.Show();
             this.Close();
 
         }
@@ -111,8 +109,6 @@ namespace GMAP_Demo
                 MessageBox.Show("Bruker er nå opprett, og venter for å bli godkjent av en admin. Hvis den blir godkjent " +
                     "vil du motta en mail med en kode.");
 
-
-                frmInnlogging.instance.Show();
                 this.Close();
             }
         }
@@ -134,7 +130,7 @@ namespace GMAP_Demo
         private void frmRegistering_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Application.Exit();
-
+            frmInnlogging.instance.Show();
         }
 
         private void txtTelefon_KeyPress(object sender, KeyPressEventArgs e)

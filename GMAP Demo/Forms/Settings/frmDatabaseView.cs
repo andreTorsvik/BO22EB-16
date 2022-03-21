@@ -44,7 +44,9 @@ namespace GMAP_Demo
         }
         private void btnTilbake_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
+
+            
             frmSettings frmSettings = new frmSettings(); // instance 
             frmSettings.Size = this.Size;
             frmSettings.Location = this.Location;
@@ -67,7 +69,7 @@ namespace GMAP_Demo
 
         private void frmSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+           
         }
 
         private void btnDbBrukerView_Click(object sender, EventArgs e)

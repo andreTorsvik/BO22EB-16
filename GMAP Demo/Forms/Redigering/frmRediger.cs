@@ -62,12 +62,8 @@ namespace GMAP_Demo
         private void btnTilbake_Click(object sender, EventArgs e)
         {
             Form1.instance.Punkt_fra_forrige_kart = map.Position;
-            PnlFormLoader.Controls.Clear();
-            this.Hide();
-            Form1 form1 = new Form1();
-            form1.Size = this.Size;
-            form1.Location = this.Location;
-            form1.Show();
+
+            this.Close();
         }
 
         void AlleKnapperTilStandarfarge()
@@ -149,10 +145,8 @@ namespace GMAP_Demo
 
         private void frmRediger_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //uten denne funskjone vil programmet forsatt være i debugging 
-            //når man trykker "X"
-            Application.Exit();
-
+            this.PnlFormLoader.Controls.Clear();
+            Form1.instance.Show();
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)

@@ -17,8 +17,6 @@ namespace GMAP_Demo
     public partial class frmInnlogging : Form
     {
         public static frmInnlogging instance;
-
-
         public frmInnlogging()
         {
             InitializeComponent();
@@ -49,6 +47,7 @@ namespace GMAP_Demo
                     tbUserName.Text = "";
                     tbPassword.Text = "";
 
+                    
                     this.Hide();
                     Form1 form1 = new Form1(); // instance
                     form1.Size = this.Size;
@@ -58,6 +57,7 @@ namespace GMAP_Demo
                     {
                         frmVertifiseringskode.instance.Close();
                     }
+                    
                 }
             }
             else
