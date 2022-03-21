@@ -75,19 +75,19 @@
             // txtEtternavn
             // 
             this.txtEtternavn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtEtternavn.Location = new System.Drawing.Point(183, 151);
+            this.txtEtternavn.Location = new System.Drawing.Point(193, 151);
             this.txtEtternavn.Margin = new System.Windows.Forms.Padding(4);
             this.txtEtternavn.Name = "txtEtternavn";
-            this.txtEtternavn.Size = new System.Drawing.Size(132, 22);
+            this.txtEtternavn.Size = new System.Drawing.Size(169, 22);
             this.txtEtternavn.TabIndex = 14;
             // 
             // txtFornavn
             // 
             this.txtFornavn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtFornavn.Location = new System.Drawing.Point(183, 121);
+            this.txtFornavn.Location = new System.Drawing.Point(193, 121);
             this.txtFornavn.Margin = new System.Windows.Forms.Padding(4);
             this.txtFornavn.Name = "txtFornavn";
-            this.txtFornavn.Size = new System.Drawing.Size(132, 22);
+            this.txtFornavn.Size = new System.Drawing.Size(169, 22);
             this.txtFornavn.TabIndex = 13;
             // 
             // lblEtternavn
@@ -129,19 +129,19 @@
             // txtEpost
             // 
             this.txtEpost.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtEpost.Location = new System.Drawing.Point(183, 211);
+            this.txtEpost.Location = new System.Drawing.Point(193, 211);
             this.txtEpost.Margin = new System.Windows.Forms.Padding(4);
             this.txtEpost.Name = "txtEpost";
-            this.txtEpost.Size = new System.Drawing.Size(132, 22);
+            this.txtEpost.Size = new System.Drawing.Size(169, 22);
             this.txtEpost.TabIndex = 20;
             // 
             // txtTelefon
             // 
             this.txtTelefon.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtTelefon.Location = new System.Drawing.Point(183, 181);
+            this.txtTelefon.Location = new System.Drawing.Point(193, 181);
             this.txtTelefon.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefon.Name = "txtTelefon";
-            this.txtTelefon.Size = new System.Drawing.Size(132, 22);
+            this.txtTelefon.Size = new System.Drawing.Size(169, 22);
             this.txtTelefon.TabIndex = 19;
             this.txtTelefon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefon_KeyPress);
             // 
@@ -172,20 +172,20 @@
             // txtBePassord
             // 
             this.txtBePassord.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtBePassord.Location = new System.Drawing.Point(183, 271);
+            this.txtBePassord.Location = new System.Drawing.Point(193, 271);
             this.txtBePassord.Margin = new System.Windows.Forms.Padding(4);
             this.txtBePassord.Name = "txtBePassord";
-            this.txtBePassord.Size = new System.Drawing.Size(132, 22);
+            this.txtBePassord.Size = new System.Drawing.Size(169, 22);
             this.txtBePassord.TabIndex = 24;
             this.txtBePassord.UseSystemPasswordChar = true;
             // 
             // txtPassord
             // 
             this.txtPassord.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPassord.Location = new System.Drawing.Point(183, 241);
+            this.txtPassord.Location = new System.Drawing.Point(193, 241);
             this.txtPassord.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassord.Name = "txtPassord";
-            this.txtPassord.Size = new System.Drawing.Size(132, 22);
+            this.txtPassord.Size = new System.Drawing.Size(169, 22);
             this.txtPassord.TabIndex = 23;
             this.txtPassord.UseSystemPasswordChar = true;
             // 
@@ -218,7 +218,7 @@
             this.btnOpprettbruker.Location = new System.Drawing.Point(193, 317);
             this.btnOpprettbruker.Name = "btnOpprettbruker";
             this.btnOpprettbruker.Size = new System.Drawing.Size(122, 26);
-            this.btnOpprettbruker.TabIndex = 0;
+            this.btnOpprettbruker.TabIndex = 25;
             this.btnOpprettbruker.Text = "Opprett Bruker";
             this.btnOpprettbruker.UseVisualStyleBackColor = true;
             this.btnOpprettbruker.Click += new System.EventHandler(this.btnOpprettbruker_Click);
@@ -228,7 +228,7 @@
             this.btnAvbryt.Location = new System.Drawing.Point(193, 349);
             this.btnAvbryt.Name = "btnAvbryt";
             this.btnAvbryt.Size = new System.Drawing.Size(122, 26);
-            this.btnAvbryt.TabIndex = 25;
+            this.btnAvbryt.TabIndex = 26;
             this.btnAvbryt.Text = "Avbryt";
             this.btnAvbryt.UseVisualStyleBackColor = true;
             this.btnAvbryt.Click += new System.EventHandler(this.btnAvbryt_Click);
@@ -237,6 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(475, 444);
             this.Controls.Add(this.btnAvbryt);
             this.Controls.Add(this.btnOpprettbruker);

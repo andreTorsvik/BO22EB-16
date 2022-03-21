@@ -19,11 +19,11 @@ namespace GMAP_Demo
 
         private void btnAvbryt_Click(object sender, EventArgs e)
         {
+            frmInnlogging.instance.Location = this.Location;
+
+            frmInnlogging.instance.Show();
             this.Close();
-            frmInnlogging frmInnlogg = new frmInnlogging(); // instance
-            frmInnlogg.Size = this.Size;
-            frmInnlogg.Location = this.Location;
-            frmInnlogg.Show();
+
         }
 
         private void btnOpprettbruker_Click(object sender, EventArgs e)
@@ -37,27 +37,27 @@ namespace GMAP_Demo
                 altUtfylt = false; 
                 utFyllingsmangler += " Fornavn";
             }
-            else if (string.IsNullOrWhiteSpace(txtEtternavn.Text))
+            if (string.IsNullOrWhiteSpace(txtEtternavn.Text))
             {
                 altUtfylt = false;
                 utFyllingsmangler += " Etternavn";
             }
-            else if (string.IsNullOrWhiteSpace(txtTelefon.Text))
+            if (string.IsNullOrWhiteSpace(txtTelefon.Text))
             {
                 altUtfylt = false;
                 utFyllingsmangler += " Telefonnummer";
             }
-            else if (string.IsNullOrWhiteSpace(txtEpost.Text))
+            if (string.IsNullOrWhiteSpace(txtEpost.Text))
             {
                 altUtfylt = false;
                 utFyllingsmangler += " Epost";
             }
-            else if (string.IsNullOrWhiteSpace(txtPassord.Text))
+            if (string.IsNullOrWhiteSpace(txtPassord.Text))
             {
                 altUtfylt = false;
                 utFyllingsmangler += " Passord";
             }
-            else if (string.IsNullOrWhiteSpace(txtBePassord.Text))
+            if (string.IsNullOrWhiteSpace(txtBePassord.Text))
             {
                 altUtfylt = false;
                 utFyllingsmangler += " bekrefte passord";
@@ -65,11 +65,27 @@ namespace GMAP_Demo
 
             if (altUtfylt)
             {
-                bool sjekkInnhold = false;
-
+                bool sjekkInnhold = true;
+                string feil = null;
                 //alle sjekkenede  
-                if(txtPassord.Text == txtBePassord.Text) sjekkInnhold = true;
-                else MessageBox.Show("Passord samsvarer ikke");
+                if (!(txtPassord.Text == txtBePassord.Text))
+                {
+                    sjekkInnhold = false;
+                    feil += "Passord samsvarer ikke";
+                    
+                }
+
+                //En enkel epost adresse sjekk 
+                if(!((txtEpost.Text.Contains(".com") || txtEpost.Text.Contains(".no") || txtEpost.Text.Contains(".net")) 
+                    && txtEpost.Text.Contains("@")))
+                {
+                    sjekkInnhold = false;
+                    if (feil == null) feil = "Du har ikke oppgitt en mail adresse";
+                    else feil += ", og du har ikke oppgitt en mail adresse";
+                }
+
+                if (feil != null) MessageBox.Show(feil);
+
 
                 if (sjekkInnhold)
                 {
@@ -89,17 +105,15 @@ namespace GMAP_Demo
             }
             else MessageBox.Show(utFyllingsmangler);
 
-            //om sjekk ok
+            //om bruker er oprrettet 
             if (opprettet)
             {
                 MessageBox.Show("Bruker er nå opprett, og venter for å bli godkjent av en admin. Hvis den blir godkjent " +
                     "vil du motta en mail med en kode.");
 
+
+                frmInnlogging.instance.Show();
                 this.Close();
-                frmInnlogging frmInnlogg = new frmInnlogging();
-                frmInnlogg.Size = this.Size;
-                frmInnlogg.Location = this.Location;
-                frmInnlogg.Show(); 
             }
         }
 
@@ -119,7 +133,8 @@ namespace GMAP_Demo
 
         private void frmRegistering_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+
         }
 
         private void txtTelefon_KeyPress(object sender, KeyPressEventArgs e)

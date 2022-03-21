@@ -264,5 +264,10 @@ namespace GMAP_Demo
             }
             finally { frmHjelp.Dispose(); }
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
