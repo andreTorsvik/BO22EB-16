@@ -51,6 +51,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnHelp);
             this.panel2.Controls.Add(this.lblUserName);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -267,11 +268,11 @@
             // 
             // btnHelp
             // 
-            this.btnHelp.BackColor = System.Drawing.SystemColors.Control;
+            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnHelp.Location = new System.Drawing.Point(549, 12);
+            this.btnHelp.Location = new System.Drawing.Point(3, 3);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(25, 25);
             this.btnHelp.TabIndex = 1;
@@ -285,7 +286,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1272, 693);
-            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnZoomMinus);
             this.Controls.Add(this.btnZoomPluss);
             this.Controls.Add(this.map);
