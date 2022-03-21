@@ -252,21 +252,13 @@ namespace GMAP_Demo
         private void btnHelp_Click(object sender, EventArgs e)
         {
             frmHjelp frmHjelp = new frmHjelp();
-            try
-            {
 
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally { frmHjelp.Dispose(); }
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
+            frmHjelp.Location = this.Location;
+            frmHjelp.Size = this.Size;
+            frmHjelp.TopMost = true;
+            frmHjelp.Show();
 
         }
+
     }
 }
