@@ -32,9 +32,9 @@
             this.txtKode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnVertifiser = new System.Windows.Forms.Button();
             this.btnAvbryt = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtKode
@@ -61,18 +61,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(5, 113);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(295, 16);
+            this.label2.Size = new System.Drawing.Size(267, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Den har kommet på mail, om du har blitt godkjent";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 129);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "(Sjekk Søppelpost) ";
+            this.label2.Text = "Den har kommet på mail(Sjekk Søppelpost)";
             // 
             // btnVertifiser
             // 
@@ -94,14 +85,23 @@
             this.btnAvbryt.UseVisualStyleBackColor = true;
             this.btnAvbryt.Click += new System.EventHandler(this.btnAvbryt_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 130);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(147, 16);
+            this.label4.TabIndex = 6;
+            this.label4.Text = " om du har blitt godkjent";
+            // 
             // frmVertifiseringskode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(314, 194);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAvbryt);
             this.Controls.Add(this.btnVertifiser);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtKode);
@@ -120,8 +120,8 @@
         private System.Windows.Forms.TextBox txtKode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnVertifiser;
         private System.Windows.Forms.Button btnAvbryt;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -38,6 +38,10 @@ namespace GMAP_Demo
                 form1.Size = this.Size;
                 form1.Show();
             }
+            else
+            {
+                MessageBox.Show("Feil kode");
+            }
         }
 
         private void btnAvbryt_Click(object sender, EventArgs e)
