@@ -137,6 +137,25 @@ namespace GMAP_Demo
             }
         }
 
+        public void InsertBrukerToDb(string fornavn, string etternavn, int telefonnummer, string epost, string passord, int tallkode)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Bruker brukerToAdd = new Bruker
+                {
+                    Fornavn = fornavn,
+                    Etternavn = etternavn,
+                    Telefonnummer = telefonnummer,
+                    Epost = epost,
+                    Sikkerhetsklarering = 1,
+                    Passord = passord,
+                    Tallkode = tallkode,
+                    Godkjent = false
+                };
+
+                connection.Execute("[dbo].[PROCEDUREinsertIntoBruker] @Fornavn, @Etternavn, @Telefonnummer, @Epost,@Sikkerhetsklarering ,@Passord, @Tallkode, @Godkjent", brukerToAdd);
+            }
+        }
 
         public void InsertKategorier_BildeToDb(string kategorinavn)
         {

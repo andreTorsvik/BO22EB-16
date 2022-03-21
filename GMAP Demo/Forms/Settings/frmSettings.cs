@@ -51,7 +51,7 @@ namespace GMAP_Demo
             btnLoggInn.BackColor = StandarFarge;
             btnStartPosisjon.BackColor = StandarFarge;
             btnLeggTilBilde.BackColor = StandarFarge;
-            btnEndreBilde.BackColor = StandarFarge;
+            btnAdmin.BackColor = StandarFarge;
             btnBrukerInfo.BackColor = StandarFarge;
             btnDatabaseView.BackColor = StandarFarge;
             btnEkstra.BackColor = StandarFarge;
@@ -100,21 +100,6 @@ namespace GMAP_Demo
 
         }
 
-        private void btnEndreBilde_Click(object sender, EventArgs e)
-        {
-            AlleKnapperTilStandarfarge();
-            btnEndreBilde.BackColor = knapp_trykket;
-
-            FlyttNavigasjonsPanel(btnEndreBilde.Height, btnEndreBilde.Top);
-
-            this.PnlFormLoader.Controls.Clear();
-            frm_S_EndreLagretBilde frm_S_EndreLagretBilde_vrb = new frm_S_EndreLagretBilde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frm_S_EndreLagretBilde_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(frm_S_EndreLagretBilde_vrb);
-            frm_S_EndreLagretBilde_vrb.Show();
-        }
-
-
         private void btnBrukerInfo_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
@@ -138,8 +123,6 @@ namespace GMAP_Demo
             FlyttNavigasjonsPanel(btnEkstra.Height, btnEkstra.Top);
         }
 
-
-
         private void frmSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
 
@@ -162,6 +145,20 @@ namespace GMAP_Demo
             pnlNav.Top = top;
             //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
             pnlNav.Left = btnLoggInn.Left;
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            AlleKnapperTilStandarfarge();
+            btnAdmin.BackColor = knapp_trykket;
+
+            FlyttNavigasjonsPanel(btnAdmin.Height, btnAdmin.Top);
+
+            this.PnlFormLoader.Controls.Clear();
+            frm_S_Admin frm_S_Admin_vrb = new frm_S_Admin() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_S_Admin_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frm_S_Admin_vrb);
+            frm_S_Admin_vrb.Show();
         }
     }
 }

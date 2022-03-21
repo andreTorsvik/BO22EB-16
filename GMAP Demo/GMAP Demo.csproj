@@ -177,11 +177,11 @@
     <Compile Include="Forms\Settings\frm_S_BrukerInfo.Designer.cs">
       <DependentUpon>frm_S_BrukerInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\frm_S_EndreLagretBilde.cs">
+    <Compile Include="Forms\Settings\frm_S_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings\frm_S_EndreLagretBilde.Designer.cs">
-      <DependentUpon>frm_S_EndreLagretBilde.cs</DependentUpon>
+    <Compile Include="Forms\Settings\frm_S_Admin.Designer.cs">
+      <DependentUpon>frm_S_Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\frm_S_LeggTilBilde.cs">
       <SubType>Form</SubType>
@@ -270,8 +270,8 @@
     <EmbeddedResource Include="Forms\Settings\frm_S_BrukerInfo.resx">
       <DependentUpon>frm_S_BrukerInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\frm_S_EndreLagretBilde.resx">
-      <DependentUpon>frm_S_EndreLagretBilde.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Settings\frm_S_Admin.resx">
+      <DependentUpon>frm_S_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frm_S_LeggTilBilde.resx">
       <DependentUpon>frm_S_LeggTilBilde.cs</DependentUpon>

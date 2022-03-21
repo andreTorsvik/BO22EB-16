@@ -90,5 +90,7 @@ namespace GMAP_Demo
 
             txtfarge.Text = selectedItemtext;
         }
+
+
     }
 }

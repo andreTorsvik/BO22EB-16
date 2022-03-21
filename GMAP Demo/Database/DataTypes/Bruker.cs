@@ -29,6 +29,14 @@ namespace GMAP_Demo.Database.DataTypes
             }
         }
 
+        public string BrukerDataTilAdmin
+        {
+            get
+            {
+                return $"{Epost} - {Fornavn} - {Etternavn} - {Sikkerhetsklarering}";
+            }
+        }
+
 
 
     }

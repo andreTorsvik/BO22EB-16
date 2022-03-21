@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GMAP_Demo
@@ -31,8 +24,8 @@ namespace GMAP_Demo
             string utFyllingsmangler = "Du mangler:";
             //kode for sjekk at alle felten er utfylt
             if (string.IsNullOrWhiteSpace(txtFornavn.Text))
-            { 
-                altUtfylt = false; 
+            {
+                altUtfylt = false;
                 utFyllingsmangler += " Fornavn";
             }
             if (string.IsNullOrWhiteSpace(txtEtternavn.Text))
@@ -70,11 +63,11 @@ namespace GMAP_Demo
                 {
                     sjekkInnhold = false;
                     feil += "Passord samsvarer ikke";
-                    
+
                 }
 
                 //En enkel epost adresse sjekk 
-                if(!((txtEpost.Text.Contains(".com") || txtEpost.Text.Contains(".no") || txtEpost.Text.Contains(".net")) 
+                if (!((txtEpost.Text.Contains(".com") || txtEpost.Text.Contains(".no") || txtEpost.Text.Contains(".net"))
                     && txtEpost.Text.Contains("@")))
                 {
                     sjekkInnhold = false;
@@ -89,20 +82,20 @@ namespace GMAP_Demo
                 {
                     //sjekk at ingen har samme epost
 
-                    //generer tall 
-                    double tallkode = GenereTallKode();
 
                     //Legg til i database
                     try
                     {
+                        //Generer tall 
+                        int Tallkode = GenereTallKode();
                         //legge til i database
-
-
+                        DatabaseCommunication db = new DatabaseCommunication();
+                        db.InsertBrukerToDb(txtFornavn.Text.ToString(), txtEtternavn.Text.ToString(), Convert.ToInt32(txtTelefon.Text), txtEpost.Text.ToString(), txtPassord.Text.ToString(), Tallkode);
 
                         opprettet = true;
                     }
                     catch (Exception) { }
-                }     
+                }
             }
             else MessageBox.Show(utFyllingsmangler);
 
@@ -116,18 +109,26 @@ namespace GMAP_Demo
             }
         }
 
-        private double GenereTallKode()
+        private int GenereTallKode()
         {
             double tallkode = 0;
             Random r = new Random();
-
-            for (int i = 0; i < 7; i++)
+            bool sjekk = true;
+            while (sjekk)
             {
-                tallkode += r.Next(9) * Math.Pow(10, Convert.ToDouble(i));
-            }
-            if (tallkode == 0) return -1;
+                for (int i = 0; i < 7; i++)
+                {
+                    tallkode += r.Next(9) * Math.Pow(10, Convert.ToDouble(i));
 
-            return tallkode;
+                }
+
+                sjekk = false;
+                if (tallkode == 0) sjekk = true;
+
+            }
+            int Tallkode = Convert.ToInt32(tallkode);
+
+            return Tallkode;
         }
 
         private void frmRegistering_FormClosing(object sender, FormClosingEventArgs e)
