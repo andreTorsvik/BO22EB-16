@@ -40,24 +40,31 @@ namespace GMAP_Demo
             {
                 if (listBruker[0].Epost == tbUserName.Text)
                 {
-                    // Definer bruker 'globalt'
-                    InnloggetBruker.BrukernavnInnlogget = tbUserName.Text;
-
-                    // Trenger vi å fjerne innloggingsinformasjon her?
-                    tbUserName.Text = "";
-                    tbPassword.Text = "";
-
-                    
-                    this.Hide();
-                    Form1 form1 = new Form1(); // instance
-                    form1.Size = this.Size;
-                    form1.Show();
-
-                    if(frmVertifiseringskode.instance != null)
+                    if (listBruker[0].Godkjent == 1)
                     {
-                        frmVertifiseringskode.instance.Close();
+                        // Definer bruker 'globalt'
+                        InnloggetBruker.BrukernavnInnlogget = tbUserName.Text;
+
+                        // Trenger vi å fjerne innloggingsinformasjon her?
+                        tbUserName.Text = "";
+                        tbPassword.Text = "";
+
+
+                        this.Hide();
+                        Form1 form1 = new Form1(); // instance
+                        form1.Size = this.Size;
+                        form1.Show();
+
+                        if (frmVertifiseringskode.instance != null)
+                        {
+                            frmVertifiseringskode.instance.Close();
+                        }
                     }
-                    
+                    else if (listBruker[0].Godkjent == 0)
+                    {
+                        frmVertifiseringskode vertifiseringskode = new frmVertifiseringskode();
+                        vertifiseringskode.Show();
+                    }
                 }
             }
             else

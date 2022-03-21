@@ -21,7 +21,7 @@ namespace GMAP_Demo
 
         private void btnVertifiser_Click(object sender, EventArgs e)
         {
-            if(txtKode.Text == "text fra mail")
+            if(txtKode.Text == frmInnlogging.instance.)
             {
                 //Endre database attributt bruker.godkjent = true
 

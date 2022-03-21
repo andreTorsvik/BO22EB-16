@@ -18,6 +18,7 @@ namespace GMAP_Demo.Database.DataTypes
 
 
 
+
         public string brukerDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
         {
             get
