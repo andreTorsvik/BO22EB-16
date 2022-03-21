@@ -260,5 +260,14 @@ namespace GMAP_Demo
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmHjelp frmHjelp = new frmHjelp();
+
+            frmHjelp.Location = this.Location;
+            frmHjelp.Size = this.Size;
+            frmHjelp.TopMost = true;
+            frmHjelp.Show();
+        }
     }
 }

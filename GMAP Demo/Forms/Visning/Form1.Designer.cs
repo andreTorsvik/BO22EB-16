@@ -44,6 +44,7 @@
             this.btnZoomPluss = new System.Windows.Forms.Button();
             this.btnZoomMinus = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -242,7 +243,7 @@
             this.btnZoomPluss.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnZoomPluss.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnZoomPluss.Location = new System.Drawing.Point(1653, 782);
-            this.btnZoomPluss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZoomPluss.Margin = new System.Windows.Forms.Padding(4);
             this.btnZoomPluss.Name = "btnZoomPluss";
             this.btnZoomPluss.Size = new System.Drawing.Size(27, 25);
             this.btnZoomPluss.TabIndex = 0;
@@ -258,7 +259,7 @@
             this.btnZoomMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnZoomMinus.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnZoomMinus.Location = new System.Drawing.Point(1653, 814);
-            this.btnZoomMinus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZoomMinus.Margin = new System.Windows.Forms.Padding(4);
             this.btnZoomMinus.Name = "btnZoomMinus";
             this.btnZoomMinus.Size = new System.Drawing.Size(27, 25);
             this.btnZoomMinus.TabIndex = 3;
@@ -274,7 +275,7 @@
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnHelp.Location = new System.Drawing.Point(1653, 15);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(4);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(27, 25);
             this.btnHelp.TabIndex = 1;
@@ -282,12 +283,23 @@
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1622, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 25);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1696, 853);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnZoomMinus);
             this.Controls.Add(this.btnZoomPluss);
@@ -326,6 +338,7 @@
         private System.Windows.Forms.Button btnZoomPluss;
         private System.Windows.Forms.Button btnZoomMinus;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Button button1;
     }
 }
 
