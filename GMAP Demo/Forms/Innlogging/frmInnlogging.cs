@@ -17,6 +17,7 @@ namespace GMAP_Demo
     public partial class frmInnlogging : Form
     {
         public static frmInnlogging instance;
+        public List<Bruker> listBruker;
         public frmInnlogging()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace GMAP_Demo
         private void btnLogin_Click(object sender, EventArgs e)
         {
             DatabaseCommunication db = new DatabaseCommunication();
-            List<Bruker> listBruker = new List<Bruker>();
+            listBruker = new List<Bruker>();
 
             listBruker = db.CheckLoginAgainstDb(tbUserName.Text, tbPassword.Text).ToList();
 
@@ -40,7 +41,7 @@ namespace GMAP_Demo
             {
                 if (listBruker[0].Epost == tbUserName.Text)
                 {
-                    if (listBruker[0].Godkjent == 1)
+                    if (listBruker[0].Godkjent == true)
                     {
                         // Definer bruker 'globalt'
                         InnloggetBruker.BrukernavnInnlogget = tbUserName.Text;
@@ -60,7 +61,7 @@ namespace GMAP_Demo
                             frmVertifiseringskode.instance.Close();
                         }
                     }
-                    else if (listBruker[0].Godkjent == 0)
+                    else if (listBruker[0].Godkjent == false)
                     {
                         frmVertifiseringskode vertifiseringskode = new frmVertifiseringskode();
                         vertifiseringskode.Show();

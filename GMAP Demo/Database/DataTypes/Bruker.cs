@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GMAP_Demo.Database.DataTypes
 {
-    internal class Bruker
+    public class Bruker
     {
         public string Fornavn { get; set; }
         public string Etternavn { get; set; }

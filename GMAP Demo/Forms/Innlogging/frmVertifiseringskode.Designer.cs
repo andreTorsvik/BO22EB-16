@@ -43,6 +43,8 @@
             this.txtKode.Name = "txtKode";
             this.txtKode.Size = new System.Drawing.Size(210, 22);
             this.txtKode.TabIndex = 0;
+            this.txtKode.TextChanged += new System.EventHandler(this.txtKode_TextChanged);
+            this.txtKode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKode_KeyPress);
             // 
             // label1
             // 
@@ -96,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 189);
+            this.ClientSize = new System.Drawing.Size(314, 194);
             this.Controls.Add(this.btnAvbryt);
             this.Controls.Add(this.btnVertifiser);
             this.Controls.Add(this.label3);
