@@ -43,6 +43,7 @@
             this.map = new GMap.NET.WindowsForms.GMapControl();
             this.btnZoomPluss = new System.Windows.Forms.Button();
             this.btnZoomMinus = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -264,12 +265,28 @@
             this.btnZoomMinus.UseVisualStyleBackColor = false;
             this.btnZoomMinus.Click += new System.EventHandler(this.btnZoomMinus_Click);
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.BackColor = System.Drawing.SystemColors.Control;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnHelp.Location = new System.Drawing.Point(1240, 12);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(20, 20);
+            this.btnHelp.TabIndex = 4;
+            this.btnHelp.Text = "?";
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1272, 693);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnZoomMinus);
             this.Controls.Add(this.btnZoomPluss);
             this.Controls.Add(this.map);
@@ -306,6 +323,7 @@
         public GMap.NET.WindowsForms.GMapControl map;
         private System.Windows.Forms.Button btnZoomPluss;
         private System.Windows.Forms.Button btnZoomMinus;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
 

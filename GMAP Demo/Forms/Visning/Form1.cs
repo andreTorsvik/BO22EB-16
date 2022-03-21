@@ -249,5 +249,20 @@ namespace GMAP_Demo
         {
             instance.map.Zoom--;
         }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            frmHjelp frmHjelp = new frmHjelp();
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { frmHjelp.Dispose(); }
+        }
     }
 }
