@@ -195,7 +195,7 @@ namespace GMAP_Demo
                 connection.Execute("[dbo].[PROCEDUREinsertBildeIntoKategorier_Bilde] @Kategorinavn, @Bilde", (kategorier_BildeBildeToAdd));
             }
         }
-        public void UpdateBuker_Godkjent(string epost, bool godkjent)
+        public void UpdateBruker_Godkjent(string epost, bool godkjent)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -208,6 +208,20 @@ namespace GMAP_Demo
                 connection.Execute("[dbo].[PROCEDUREUpdateBruker_godkjent] @Epost, @Godkjent", (UpdateGodkjent));
             }
         }
+        public void UpdateBruker_Sikkerhetsklarering(string epost, int klarering)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Bruker UpdateSikkerhetsklarering = new Bruker
+                {
+                    Epost = epost,
+                    Sikkerhetsklarering = klarering
+                };
+
+                connection.Execute("[dbo].[PROCEDUREUpgradeBruker_Sikkerhetsklarering] @Epost, @Sikkerhetsklarering", (UpdateSikkerhetsklarering));
+            }
+        }
+
         public List<Kategorier_Bilde> GetBildeForKategoriFromDbKategorier_Bilde(string kategorinavn)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))

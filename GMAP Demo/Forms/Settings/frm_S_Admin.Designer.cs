@@ -82,21 +82,23 @@
             // 
             // BtnNedgrader
             // 
-            this.BtnNedgrader.Location = new System.Drawing.Point(585, 361);
+            this.BtnNedgrader.Location = new System.Drawing.Point(585, 356);
             this.BtnNedgrader.Name = "BtnNedgrader";
             this.BtnNedgrader.Size = new System.Drawing.Size(142, 29);
             this.BtnNedgrader.TabIndex = 10;
             this.BtnNedgrader.Text = "Nedgrader";
             this.BtnNedgrader.UseVisualStyleBackColor = true;
+            this.BtnNedgrader.Click += new System.EventHandler(this.BtnNedgrader_Click);
             // 
             // btnOppgrader
             // 
-            this.btnOppgrader.Location = new System.Drawing.Point(585, 326);
+            this.btnOppgrader.Location = new System.Drawing.Point(585, 321);
             this.btnOppgrader.Name = "btnOppgrader";
             this.btnOppgrader.Size = new System.Drawing.Size(142, 29);
             this.btnOppgrader.TabIndex = 9;
             this.btnOppgrader.Text = "Oppgrader";
             this.btnOppgrader.UseVisualStyleBackColor = true;
+            this.btnOppgrader.Click += new System.EventHandler(this.btnOppgrader_Click);
             // 
             // lbListeOverbrukere
             // 

@@ -26,7 +26,7 @@ namespace GMAP_Demo
                 //Endre database attributt bruker.godkjent = true
                 DatabaseCommunication db = new DatabaseCommunication();
 
-                db.UpdateBuker_Godkjent(frmInnlogging.instance.listBruker[0].Epost, true);
+                db.UpdateBruker_Godkjent(frmInnlogging.instance.listBruker[0].Epost, true);
 
                 //logg inn
                 InnloggetBruker.BrukernavnInnlogget = frmInnlogging.instance.listBruker[0].Epost;
