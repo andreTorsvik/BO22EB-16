@@ -31,6 +31,10 @@ namespace GMAP_Demo
             FlyttNavigasjonsPanel(btnObjekt.Height, btnObjekt.Top);
             btnObjekt.BackColor = knapp_trykket;
 
+
+            // Viser innlogget bruker
+            lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
+
             this.PnlFormLoader.Controls.Clear();
             frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frm_R_LeggTilObjekt_vrb.FormBorderStyle = FormBorderStyle.None;
