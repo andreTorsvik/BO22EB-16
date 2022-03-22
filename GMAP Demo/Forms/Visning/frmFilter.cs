@@ -26,7 +26,6 @@ namespace GMAP_Demo
             instance = this;
         }
 
-
         private void btnLeggTil_Click(object sender, EventArgs e)
         {
             
@@ -53,7 +52,6 @@ namespace GMAP_Demo
             {
                 PointLatLng punkt = item.GiPunktet();
 
-
                 if (bildebehandling.sjekkOmKategoriHarBilde(item))
                 {
                     marker = new GMarkerGoogle(punkt, bildebehandling.oppdaterBildeForMarkør(item));
@@ -61,8 +59,7 @@ namespace GMAP_Demo
                 else
                 {
                     marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
-                }
-                
+                }               
 
                 marker.ToolTipText = String.Format("{0}", item.Navn);
                 marker.ToolTip.Fill = Brushes.Black;
@@ -79,13 +76,6 @@ namespace GMAP_Demo
             Form1.reff();
         }
 
-
-
-
-
-
-
-
         private void txtAntall_TextChanged(object sender, EventArgs e)
         {
 
@@ -93,15 +83,14 @@ namespace GMAP_Demo
 
         private void btnFjern_Click(object sender, EventArgs e)
         {
-            Form1.instance.map.Overlays.Clear();
-            //Form1.map.Overlays.Remove("test1");
-            Form1.reff();
-            txtNavn.Text = "";
-            txtKategori.Text = "";
-            txtDato_opprettet.Text = "";
-            txtOpprettetAvBruker.Text = "";
-            txtSikkerhetsklarering.Text = "";
-            txtKommentar.Text = "";  
+                Form1.instance.map.Overlays.Clear();
+                Form1.reff();
+                txtNavn.Text = "";
+                txtKategori.Text = "";
+                txtDato_opprettet.Text = "";
+                txtOpprettetAvBruker.Text = "";
+                txtSikkerhetsklarering.Text = "";
+                txtKommentar.Text = "";
         }
 
         private void btnHentOmråde_Click(object sender, EventArgs e)
@@ -201,8 +190,6 @@ namespace GMAP_Demo
                         Fill = new SolidBrush(Color.FromArgb(50, Color.Green))
                     };
                     break;
-
-
             }
 
             return polygon;

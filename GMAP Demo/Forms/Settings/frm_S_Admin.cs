@@ -31,23 +31,30 @@ namespace GMAP_Demo
                 else if (item.Godkjent == false) lbVenterPåGodkjenning.Items.Add(item.BrukerDataTilAdmin); // har ikke gjort det
 
             }
+            lbListeOverbrukere.Sorted = true;
+            lbVenterPåGodkjenning.Sorted = true;
         }
 
         private void btnGodta_Click(object sender, EventArgs e)
         {
-
             string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
-            string epost = BrukerInfo.Substring(0, BrukerInfo.IndexOf(" "));
 
-            //Brude lage en metode som tar epost som argument istendefor 
+            string epost = HentEpostFraInfo(BrukerInfo);
+
             DatabaseCommunication db = new DatabaseCommunication();
             
             //den delen skal ikke feile siden eposten finnes 
             var BrukerListe = db.ListBrukerInfoFromDb(epost);
 
             int tallkode = BrukerListe[0].Tallkode; ;
-
-            SendEpost(epost,tallkode);
+            try
+            {
+                SendEpost(epost, tallkode);
+                lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
+            }
+            catch (Exception)
+            {
+            }  
         }
 
         private void SendEpost(string epost,int tallkode)
@@ -93,6 +100,42 @@ namespace GMAP_Demo
                 MessageBox.Show("Mail send");
             }
 
+        }
+
+        private void lbVenterPåGodkjenning_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAvslå_Click(object sender, EventArgs e)
+        {
+            //finn mailen
+            string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
+            string epost = HentEpostFraInfo(BrukerInfo);
+
+            //fjern fra databasen 
+            try
+            {
+                DatabaseCommunication db = new DatabaseCommunication();
+                db.DeleteUser(epost);
+                lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private string HentEpostFraInfo(string info)
+        {
+            string Epost = "";
+            string BrukerInfo = info;
+            Epost = BrukerInfo.Substring(0, BrukerInfo.IndexOf(" "));
+
+            //eposten skal være uten mellom fra før av men kun for sikkerhetsskyld 
+            Epost.Trim();
+
+            return Epost;
         }
     }
 }

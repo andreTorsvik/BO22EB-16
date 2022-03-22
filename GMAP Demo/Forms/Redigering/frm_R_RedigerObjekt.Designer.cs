@@ -260,6 +260,7 @@
             this.lbTilgjengeligeOverlays.Name = "lbTilgjengeligeOverlays";
             this.lbTilgjengeligeOverlays.Size = new System.Drawing.Size(141, 196);
             this.lbTilgjengeligeOverlays.TabIndex = 69;
+            this.lbTilgjengeligeOverlays.SelectedIndexChanged += new System.EventHandler(this.lbTilgjengeligeOverlays_SelectedIndexChanged);
             this.lbTilgjengeligeOverlays.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengeligeOverlays_MouseDoubleClick);
             // 
             // btnLeggTilObjekt

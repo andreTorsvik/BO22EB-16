@@ -115,7 +115,18 @@ namespace GMAP_Demo
             }
         }
 
+        public void DeleteUser(string username)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Bruker DeleteUser = new Bruker
+                {
+                    Epost = username
+                };
 
+                connection.Execute("[dbo].[PROCEDURERemoveBruker] @Epost", (DeleteUser));
+            }
+        }
 
         public void InsertRessursToDb(string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {

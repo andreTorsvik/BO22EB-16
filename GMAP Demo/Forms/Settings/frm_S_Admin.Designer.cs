@@ -58,6 +58,7 @@
             this.lbVenterPåGodkjenning.Name = "lbVenterPåGodkjenning";
             this.lbVenterPåGodkjenning.Size = new System.Drawing.Size(496, 196);
             this.lbVenterPåGodkjenning.TabIndex = 5;
+            this.lbVenterPåGodkjenning.SelectedIndexChanged += new System.EventHandler(this.lbVenterPåGodkjenning_SelectedIndexChanged);
             // 
             // btnGodta
             // 
@@ -77,6 +78,7 @@
             this.btnAvslå.TabIndex = 7;
             this.btnAvslå.Text = "Avslå";
             this.btnAvslå.UseVisualStyleBackColor = true;
+            this.btnAvslå.Click += new System.EventHandler(this.btnAvslå_Click);
             // 
             // BtnNedgrader
             // 

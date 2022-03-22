@@ -108,5 +108,10 @@ namespace GMAP_Demo
 
             lbValgtOverlays.Items.Remove(selectedItemtext);
         }
+
+        private void lbTilgjengeligeOverlays_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
