@@ -16,10 +16,10 @@ namespace GMAP_Demo
 
         private void frm_S_Admin_Load(object sender, EventArgs e)
         {
-            HentAlleBrukere();
+            FyllListene();
         }
 
-        public void HentAlleBrukere()
+        public void FyllListene()
         {
             DatabaseCommunication db = new DatabaseCommunication();
             var BrukerListe = db.ListAllBrukerFromDb();
@@ -27,38 +27,33 @@ namespace GMAP_Demo
             //liste over brukere 
             foreach (var item in BrukerListe)
             {
-                if (item.Godkjent == true) lbListeOverbrukere.Items.Add(item.BrukerDataTilAdmin);
-                else if (item.Godkjent == false) lbVenterPåGodkjenning.Items.Add(item.BrukerDataTilAdmin);
+                if (item.Godkjent == true) lbListeOverbrukere.Items.Add(item.BrukerDataTilAdmin); // har logget in med vertifiseringskode
+                else if (item.Godkjent == false) lbVenterPåGodkjenning.Items.Add(item.BrukerDataTilAdmin); // har ikke gjort det
 
             }
-            //liste over Ventene brukere
-
-
         }
 
         private void btnGodta_Click(object sender, EventArgs e)
         {
 
-            string epost = lbVenterPåGodkjenning.SelectedItem.ToString();
-            epost = epost.Substring(0, epost.IndexOf(" "));
-            MessageBox.Show(epost);
+            string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
+            string epost = BrukerInfo.Substring(0, BrukerInfo.IndexOf(" "));
 
             //Brude lage en metode som tar epost som argument istendefor 
             DatabaseCommunication db = new DatabaseCommunication();
-            var BrukerListe = db.ListAllBrukerFromDb();
-            int tallkode = 0;
-            foreach (var item in BrukerListe)
-            {
-                if (item.Epost == epost)
-                {
-                    tallkode = item.Tallkode;
-                    break;
-                }
-            }
+            
+            //den delen skal ikke feile siden eposten finnes 
+            var BrukerListe = db.ListBrukerInfoFromDb(epost);
 
+            int tallkode = BrukerListe[0].Tallkode; ;
+
+            SendEpost(epost,tallkode);
+        }
+
+        private void SendEpost(string epost,int tallkode)
+        {
             try
             {
-
                 NetworkCredential login = new NetworkCredential("GmapDemo01@gmail.com", "Pass_Gmap_Demo_12!"); // brukernavn og passord må gjømes en plass
                 SmtpClient client = new SmtpClient("smtp.gmail.com");
                 client.Credentials = login;
@@ -81,14 +76,12 @@ namespace GMAP_Demo
 
 
             }
-
         }
-
-
 
 
         private void SendCompletedCallBack(object sender, AsyncCompletedEventArgs e)
         {
+            // blir brukt med SendEpost 
             if (e.Cancelled)
             {
                 MessageBox.Show(string.Format("{0} send canceled,", e.UserState), "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -97,7 +90,7 @@ namespace GMAP_Demo
                 MessageBox.Show(string.Format("{0} {1}", e.UserState, e.Error), "message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                MessageBox.Show("Melding send");
+                MessageBox.Show("Mail send");
             }
 
         }

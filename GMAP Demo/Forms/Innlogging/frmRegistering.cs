@@ -63,7 +63,6 @@ namespace GMAP_Demo
                 {
                     sjekkInnhold = false;
                     feil += "Passord samsvarer ikke";
-
                 }
 
                 //En enkel epost adresse sjekk 
@@ -81,20 +80,26 @@ namespace GMAP_Demo
                 if (sjekkInnhold)
                 {
                     //sjekk at ingen har samme epost
-
-
-                    //Legg til i database
-                    try
+                    DatabaseCommunication db = new DatabaseCommunication();
+                    var SjekkEpost = db.ListBrukerInfoFromDb(txtEpost.Text.Trim());
+                    if (SjekkEpost.Count == 0)
                     {
-                        //Generer tall 
-                        int Tallkode = GenereTallKode();
-                        //legge til i database
-                        DatabaseCommunication db = new DatabaseCommunication();
-                        db.InsertBrukerToDb(txtFornavn.Text.ToString(), txtEtternavn.Text.ToString(), Convert.ToInt32(txtTelefon.Text), txtEpost.Text.ToString(), txtPassord.Text.ToString(), Tallkode);
+                        try
+                        {
+                            //Generer tall 
+                            int Tallkode = GenereTallKode();
+                            //legge til i database
+                            db = new DatabaseCommunication();
+                            db.InsertBrukerToDb(txtFornavn.Text.ToString(), txtEtternavn.Text.ToString(), Convert.ToInt32(txtTelefon.Text), txtEpost.Text.ToString().Trim(), txtPassord.Text.ToString(), Tallkode);
 
-                        opprettet = true;
+                            opprettet = true;
+                        }
+                        catch (Exception) { }
                     }
-                    catch (Exception) { }
+                    else
+                    {
+                        MessageBox.Show("Mailen eksitere allerede i systemet");
+                    }
                 }
             }
             else MessageBox.Show(utFyllingsmangler);

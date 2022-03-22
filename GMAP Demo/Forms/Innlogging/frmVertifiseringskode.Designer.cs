@@ -43,7 +43,6 @@
             this.txtKode.Name = "txtKode";
             this.txtKode.Size = new System.Drawing.Size(210, 22);
             this.txtKode.TabIndex = 0;
-            this.txtKode.TextChanged += new System.EventHandler(this.txtKode_TextChanged);
             this.txtKode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKode_KeyPress);
             // 
             // label1
@@ -90,9 +89,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(5, 130);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 16);
+            this.label4.Size = new System.Drawing.Size(144, 16);
             this.label4.TabIndex = 6;
-            this.label4.Text = " om du har blitt godkjent";
+            this.label4.Text = "om du har blitt godkjent";
             // 
             // frmVertifiseringskode
             // 

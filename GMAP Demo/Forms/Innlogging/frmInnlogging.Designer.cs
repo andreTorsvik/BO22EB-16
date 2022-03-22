@@ -39,7 +39,6 @@
             this.lblTest = new System.Windows.Forms.Label();
             this.lblTitle2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.LbNyBruker = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -162,16 +161,6 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(68, 388);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 32);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Send Epost";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // LbNyBruker
             // 
             this.LbNyBruker.AutoSize = true;
@@ -184,7 +173,6 @@
             this.LbNyBruker.TabIndex = 11;
             this.LbNyBruker.Text = "Opprett bruker";
             this.LbNyBruker.Click += new System.EventHandler(this.LbNyBruker_Click);
-            this.LbNyBruker.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LbNyBruker_MouseClick);
             this.LbNyBruker.MouseEnter += new System.EventHandler(this.LbNyBruker_MouseEnter);
             this.LbNyBruker.MouseLeave += new System.EventHandler(this.LbNyBruker_MouseLeave);
             // 
@@ -195,7 +183,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(475, 444);
             this.Controls.Add(this.LbNyBruker);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTitle2);
             this.Controls.Add(this.lblTest);
@@ -231,7 +218,6 @@
         private System.Windows.Forms.Label lblTest;
         private System.Windows.Forms.Label lblTitle2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label LbNyBruker;
     }
 }
