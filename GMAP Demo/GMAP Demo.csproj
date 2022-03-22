@@ -189,11 +189,11 @@
     <Compile Include="Forms\Settings\frm_S_LeggTilBilde.Designer.cs">
       <DependentUpon>frm_S_LeggTilBilde.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\frm_S_LoggInn.cs">
+    <Compile Include="Forms\Settings\frm_S_LoggUt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings\frm_S_LoggInn.Designer.cs">
-      <DependentUpon>frm_S_LoggInn.cs</DependentUpon>
+    <Compile Include="Forms\Settings\frm_S_LoggUt.Designer.cs">
+      <DependentUpon>frm_S_LoggUt.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\Frm_S_StartPosisjon.cs">
       <SubType>Form</SubType>
@@ -276,8 +276,8 @@
     <EmbeddedResource Include="Forms\Settings\frm_S_LeggTilBilde.resx">
       <DependentUpon>frm_S_LeggTilBilde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\frm_S_LoggInn.resx">
-      <DependentUpon>frm_S_LoggInn.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Settings\frm_S_LoggUt.resx">
+      <DependentUpon>frm_S_LoggUt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\Frm_S_StartPosisjon.resx">
       <DependentUpon>Frm_S_StartPosisjon.cs</DependentUpon>

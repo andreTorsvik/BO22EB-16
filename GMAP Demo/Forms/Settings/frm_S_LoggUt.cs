@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_S_LoggInn : Form
+    public partial class frm_S_LoggUt : Form
     {
-        public frm_S_LoggInn()
+        public frm_S_LoggUt()
         {
             InitializeComponent();
+        }
+
+        private void btnLoggUt_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

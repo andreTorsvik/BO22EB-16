@@ -20,12 +20,12 @@ namespace GMAP_Demo
             instance = this;
             knapp_trykket = Color.FromArgb(46, 51, 73);
             //sette Blåpanel til vesntre for Posisjonknapp 
-            FlyttNavigasjonsPanel(btnLoggInn.Height, btnLoggInn.Top);
+            FlyttNavigasjonsPanel(btnLoggUt.Height, btnLoggUt.Top);
 
-            btnLoggInn.BackColor = knapp_trykket;
+            btnLoggUt.BackColor = knapp_trykket;
 
             this.PnlFormLoader.Controls.Clear();
-            frm_S_LoggInn frm_S_LoggInn_vrb = new frm_S_LoggInn() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_S_LoggUt frm_S_LoggInn_vrb = new frm_S_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
             frm_S_LoggInn_vrb.Show();
@@ -48,7 +48,7 @@ namespace GMAP_Demo
         {
             Color StandarFarge = Color.FromArgb(24, 30, 54);
 
-            btnLoggInn.BackColor = StandarFarge;
+            btnLoggUt.BackColor = StandarFarge;
             btnStartPosisjon.BackColor = StandarFarge;
             btnLeggTilBilde.BackColor = StandarFarge;
             btnAdmin.BackColor = StandarFarge;
@@ -60,12 +60,12 @@ namespace GMAP_Demo
         private void btnLoggInn_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
-            btnLoggInn.BackColor = knapp_trykket;
+            btnLoggUt.BackColor = knapp_trykket;
 
-            FlyttNavigasjonsPanel(btnLoggInn.Height, btnLoggInn.Top);
+            FlyttNavigasjonsPanel(btnLoggUt.Height, btnLoggUt.Top);
 
             this.PnlFormLoader.Controls.Clear();
-            frm_S_LoggInn frm_S_LoggInn_vrb = new frm_S_LoggInn() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_S_LoggUt frm_S_LoggInn_vrb = new frm_S_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
             frm_S_LoggInn_vrb.Show();
@@ -144,7 +144,7 @@ namespace GMAP_Demo
             pnlNav.Height = høyde;
             pnlNav.Top = top;
             //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
-            pnlNav.Left = btnLoggInn.Left;
+            pnlNav.Left = btnLoggUt.Left;
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
