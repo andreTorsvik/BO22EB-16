@@ -26,7 +26,7 @@ namespace GMAP_Demo.Database.DataTypes
         {
             get
             {
-                return $"({Fornavn} - {Etternavn} - {Telefonnummer} - {Epost} - {Sikkerhetsklarering} - {Passord} - {Tallkode} - {Godkjent})";
+                return $"({Fornavn} - {Etternavn} - {Telefonnummer} - {Epost} - {Sikkerhetsklarering} - {Passord} - {Tallkode} - {Godkjent} - {Verifisert})";
             }
         }
 
