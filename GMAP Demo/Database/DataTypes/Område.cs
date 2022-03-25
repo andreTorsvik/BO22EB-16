@@ -33,6 +33,8 @@ namespace GMAP_Demo.Database.DataTypes
             DatabaseCommunication db = new DatabaseCommunication();
             var punktListe = db.ListAllPunkter_områdeFromDb();
 
+            punktListe = punktListe.OrderBy(x => x.Løpenummer_til_område).ThenBy(x => x.Rekkefølge_punkter).ToList();
+
             foreach (var item in punktListe)
             {      
                 if(item.Løpenummer_til_område == Løpenummer_område)

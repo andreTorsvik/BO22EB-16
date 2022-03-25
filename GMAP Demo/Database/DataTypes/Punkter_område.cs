@@ -9,6 +9,7 @@ namespace GMAP_Demo.Database.DataTypes
     internal class Punkter_område
     {
         public int Løpenummer_til_område { get; set; } // Løpenummer_til_område som skriver til databasen må bruke DEFAULT pga constraintSequence
+        public int Rekkefølge_punkter { get; set; } 
         public float Lat { get; set; }
         public float Lang { get; set; }
 
@@ -19,7 +20,7 @@ namespace GMAP_Demo.Database.DataTypes
         {
             get
             {
-                return $"({Løpenummer_til_område} - {Lat}- {Lang})";
+                return $"({Løpenummer_til_område} - {Rekkefølge_punkter} - {Lat} - {Lang})";
             }
         }
 
