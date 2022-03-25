@@ -16,6 +16,7 @@ namespace GMAP_Demo.Database.DataTypes
         public string Passord { get; set; }
         public int Tallkode { get; set; }
         public bool Godkjent { get; set; }
+        public bool Verifisert { get; set; }
 
 
 
@@ -25,7 +26,7 @@ namespace GMAP_Demo.Database.DataTypes
         {
             get
             {
-                return $"({Fornavn} - {Etternavn} - {Telefonnummer} - {Epost} - {Sikkerhetsklarering} - {Passord} - {Tallkode} - {Godkjent})";
+                return $"({Fornavn} - {Etternavn} - {Telefonnummer} - {Epost} - {Sikkerhetsklarering} - {Passord} - {Tallkode} - {Godkjent} - {Verifisert})";
             }
         }
 
