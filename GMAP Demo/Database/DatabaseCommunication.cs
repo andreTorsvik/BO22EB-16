@@ -161,10 +161,11 @@ namespace GMAP_Demo
                     Sikkerhetsklarering = 1,
                     Passord = passord,
                     Tallkode = tallkode,
-                    Godkjent = false
+                    Godkjent = false,
+                    Verifisert = false
                 };
 
-                connection.Execute("[dbo].[PROCEDUREinsertIntoBruker] @Fornavn, @Etternavn, @Telefonnummer, @Epost,@Sikkerhetsklarering ,@Passord, @Tallkode, @Godkjent", brukerToAdd);
+                connection.Execute("[dbo].[PROCEDUREinsertIntoBruker] @Fornavn, @Etternavn, @Telefonnummer, @Epost,@Sikkerhetsklarering ,@Passord, @Tallkode, @Godkjent, @Verifisert ", brukerToAdd);
             }
         }
 
@@ -206,6 +207,19 @@ namespace GMAP_Demo
                 };
 
                 connection.Execute("[dbo].[PROCEDUREUpdateBruker_godkjent] @Epost, @Godkjent", (UpdateGodkjent));
+            }
+        }
+        public void UpdateBruker_Verifisert(string epost, bool godkjent)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Bruker UpdateVerifisert = new Bruker
+                {
+                    Epost = epost,
+                    Verifisert = godkjent
+                };
+
+                connection.Execute("[dbo].[PROCEDUREUpdateBruker_Verifisert] @Epost, @Verifisert", (UpdateVerifisert));
             }
         }
         public void UpdateBruker_Sikkerhetsklarering(string epost, int klarering)

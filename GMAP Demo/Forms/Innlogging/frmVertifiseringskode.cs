@@ -26,7 +26,8 @@ namespace GMAP_Demo
                 //Endre database attributt bruker.godkjent = true
                 DatabaseCommunication db = new DatabaseCommunication();
 
-                db.UpdateBruker_Godkjent(frmInnlogging.instance.listBruker[0].Epost, true);
+                //endre til updateBruker_vertifisert:
+                db.UpdateBruker_Verifisert(frmInnlogging.instance.listBruker[0].Epost, true);
 
                 //logg inn
                 InnloggetBruker.BrukernavnInnlogget = frmInnlogging.instance.listBruker[0].Epost;

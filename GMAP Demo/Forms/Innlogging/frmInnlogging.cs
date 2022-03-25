@@ -41,7 +41,7 @@ namespace GMAP_Demo
             {
                 if (listBruker[0].Epost == tbUserName.Text)
                 {
-                    if (listBruker[0].Godkjent == true)
+                    if (listBruker[0].Verifisert == true)
                     {
                         // Definer bruker 'globalt'
                         InnloggetBruker.BrukernavnInnlogget = tbUserName.Text;
@@ -49,7 +49,7 @@ namespace GMAP_Demo
                         this.Hide();
                         Form1 form1 = new Form1(); // instance
                         form1.Size = this.Size;
-                        
+
                         form1.Show();
 
                         if (frmVertifiseringskode.instance != null)
@@ -57,10 +57,17 @@ namespace GMAP_Demo
                             frmVertifiseringskode.instance.Close();
                         }
                     }
-                    else if (listBruker[0].Godkjent == false)
+                    else
                     {
-                        frmVertifiseringskode vertifiseringskode = new frmVertifiseringskode();
-                        vertifiseringskode.Show();
+                        if (listBruker[0].Godkjent == true)
+                        {
+                            frmVertifiseringskode vertifiseringskode = new frmVertifiseringskode();
+                            vertifiseringskode.Show();
+                        }
+                        else if (listBruker[0].Godkjent == false)
+                        {
+                            MessageBox.Show("Du har ikke blitt godkjent enda");
+                        }
                     }
                 }
             }

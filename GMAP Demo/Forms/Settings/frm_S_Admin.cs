@@ -68,12 +68,14 @@ namespace GMAP_Demo
 
             DatabaseCommunication db = new DatabaseCommunication();
             var BrukerListe = db.ListBrukerInfoFromDb(TilEpost);
+            db.UpdateBruker_Godkjent(BrukerListe[0].Epost, true);
 
             int tallkode = BrukerListe[0].Tallkode; ;
             try
             {
                 SendEpost(TilEpost, tallkode);
                 lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
+
             }
             catch (Exception)
             {
