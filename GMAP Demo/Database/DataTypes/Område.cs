@@ -33,6 +33,7 @@ namespace GMAP_Demo.Database.DataTypes
             DatabaseCommunication db = new DatabaseCommunication();
             var punktListe = db.ListAllPunkter_områdeFromDb();
 
+            // https://stackoverflow.com/questions/289010/c-sharp-list-sort-by-x-then-y
             punktListe = punktListe.OrderBy(x => x.Løpenummer_til_område).ThenBy(x => x.Rekkefølge_punkter).ToList();
 
             foreach (var item in punktListe)
