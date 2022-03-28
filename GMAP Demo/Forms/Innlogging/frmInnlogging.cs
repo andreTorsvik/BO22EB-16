@@ -44,8 +44,8 @@ namespace GMAP_Demo
                     if (listBruker[0].Verifisert == true)
                     {
                         // Definer bruker 'globalt'
-                        InnloggetBruker.BrukernavnInnlogget = tbUserName.Text;
-
+                        InnloggetBruker.BrukernavnInnlogget = listBruker[0].Epost;
+                        InnloggetBruker.Sikkerhetsklarering = listBruker[0].Sikkerhetsklarering;
                         this.Hide();
                         Form1 form1 = new Form1(); // instance
                         form1.Size = this.Size;
