@@ -144,7 +144,7 @@
             this.btnOppdater.Name = "btnOppdater";
             this.btnOppdater.Size = new System.Drawing.Size(237, 68);
             this.btnOppdater.TabIndex = 1;
-            this.btnOppdater.Text = "Oppdater Kart";
+            this.btnOppdater.Text = "Oppdater Kart [WIP]";
             this.btnOppdater.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnOppdater.UseVisualStyleBackColor = true;
             this.btnOppdater.Click += new System.EventHandler(this.btnOppdater_Click);

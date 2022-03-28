@@ -40,10 +40,10 @@
             this.btnOmråde = new System.Windows.Forms.Button();
             this.btnObjekt = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnZoomMinus = new System.Windows.Forms.Button();
             this.btnZoomPluss = new System.Windows.Forms.Button();
-            this.lblUserName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -77,7 +77,7 @@
             this.map.TabIndex = 5;
             this.map.Zoom = 0D;
             this.map.OnMapDoubleClick += new GMap.NET.WindowsForms.MapDoubleClick(this.map_MouseDoubleClick);
-            this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(map_OnMarkerClick);
+            this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.map_OnMarkerClick);
             this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
             // 
             // PnlFormLoader
@@ -145,7 +145,7 @@
             this.btnFjern_obj_områ.Name = "btnFjern_obj_områ";
             this.btnFjern_obj_områ.Size = new System.Drawing.Size(237, 68);
             this.btnFjern_obj_områ.TabIndex = 1;
-            this.btnFjern_obj_områ.Text = "Fjern obj/område";
+            this.btnFjern_obj_områ.Text = "Fjern obj/område [WIP]";
             this.btnFjern_obj_områ.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFjern_obj_områ.UseVisualStyleBackColor = true;
             this.btnFjern_obj_områ.Click += new System.EventHandler(this.btnFjern_obj_områ_Click);
@@ -162,7 +162,7 @@
             this.btnRedigerOmråde.Name = "btnRedigerOmråde";
             this.btnRedigerOmråde.Size = new System.Drawing.Size(237, 68);
             this.btnRedigerOmråde.TabIndex = 1;
-            this.btnRedigerOmråde.Text = "Rediger område";
+            this.btnRedigerOmråde.Text = "Rediger område [WIP]";
             this.btnRedigerOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnRedigerOmråde.UseVisualStyleBackColor = true;
             this.btnRedigerOmråde.Click += new System.EventHandler(this.btnRedigerOmråde_Click);
@@ -179,7 +179,7 @@
             this.btnRediger_obj_områ.Name = "btnRediger_obj_områ";
             this.btnRediger_obj_områ.Size = new System.Drawing.Size(237, 68);
             this.btnRediger_obj_områ.TabIndex = 1;
-            this.btnRediger_obj_områ.Text = "Rediger objekt";
+            this.btnRediger_obj_områ.Text = "Rediger objekt [WIP]";
             this.btnRediger_obj_områ.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnRediger_obj_områ.UseVisualStyleBackColor = true;
             this.btnRediger_obj_områ.Click += new System.EventHandler(this.btnRediger_obj_områ_Click);
@@ -196,7 +196,7 @@
             this.btnOmråde.Name = "btnOmråde";
             this.btnOmråde.Size = new System.Drawing.Size(237, 68);
             this.btnOmråde.TabIndex = 1;
-            this.btnOmråde.Text = "Legg til område";
+            this.btnOmråde.Text = "Legg til område [WIP]";
             this.btnOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnOmråde.UseVisualStyleBackColor = true;
             this.btnOmråde.Click += new System.EventHandler(this.btnOmråde_Click);
@@ -228,6 +228,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(237, 202);
             this.panel2.TabIndex = 1;
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblUserName.Location = new System.Drawing.Point(-27, 132);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(286, 20);
+            this.lblUserName.TabIndex = 2;
+            this.lblUserName.Text = "username.username@stud.hvl.no";
+            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -268,19 +281,6 @@
             this.btnZoomPluss.Text = "+";
             this.btnZoomPluss.UseVisualStyleBackColor = false;
             this.btnZoomPluss.Click += new System.EventHandler(this.btnZoomPluss_Click);
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblUserName.Location = new System.Drawing.Point(-27, 132);
-            this.lblUserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(286, 20);
-            this.lblUserName.TabIndex = 2;
-            this.lblUserName.Text = "username.username@stud.hvl.no";
-            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmRediger
             // 
