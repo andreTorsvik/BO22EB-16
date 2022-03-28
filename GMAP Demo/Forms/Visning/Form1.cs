@@ -121,8 +121,9 @@ namespace GMAP_Demo
         {
             instance.map.Overlays.Clear();
             //reff();
-            frmFilter.instance.LeggTilOmråde(Form1.instance.LOmråde);
             frmFilter.instance.LeggTilRessurs(Form1.instance.LRessurs);
+            frmFilter.instance.LeggTilOmråde(Form1.instance.LOmråde);
+            
             reff();
         }
 

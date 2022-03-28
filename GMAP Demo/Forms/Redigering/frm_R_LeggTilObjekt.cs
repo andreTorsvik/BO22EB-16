@@ -28,7 +28,13 @@ namespace GMAP_Demo
 
         private void btnLeggTilOverlay_Click(object sender, EventArgs e)
         {
+            string NyOverlay = "";
+            NyOverlay = txtNyOverlay.Text;
 
+            if (!string.IsNullOrEmpty(NyOverlay))
+            {
+
+            }
         }
 
         private void btnLeggTilObjekt_Click(object sender, EventArgs e)
@@ -101,13 +107,16 @@ namespace GMAP_Demo
 
             nyKategori = txtNyKategori.Text;
 
-            DatabaseCommunication db = new DatabaseCommunication();
+            if (!string.IsNullOrEmpty(nyKategori))
+            {
+                DatabaseCommunication db = new DatabaseCommunication();
 
-            db.InsertKategorier_BildeToDb(nyKategori);
+                db.InsertKategorier_BildeToDb(nyKategori);
 
-            lbTilgjengligKategori.Items.Add(nyKategori);
-            lbTilgjengligKategori.Sorted = true;
-            txtNyKategori.Text = "";
+                lbTilgjengligKategori.Items.Add(nyKategori);
+                lbTilgjengligKategori.Sorted = true;
+                txtNyKategori.Text = "";
+            }
         }
         private void LastInnKategorier()
         {

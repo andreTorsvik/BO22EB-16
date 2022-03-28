@@ -242,6 +242,7 @@
             this.btnLeggTilOverlay.TabIndex = 63;
             this.btnLeggTilOverlay.Text = "Legg til";
             this.btnLeggTilOverlay.UseVisualStyleBackColor = true;
+            this.btnLeggTilOverlay.Click += new System.EventHandler(this.btnLeggTilOverlay_Click);
             // 
             // lbValgtOverlays
             // 

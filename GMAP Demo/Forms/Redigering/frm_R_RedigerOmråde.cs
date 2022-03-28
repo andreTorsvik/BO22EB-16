@@ -91,6 +91,15 @@ namespace GMAP_Demo
             txtfarge.Text = selectedItemtext;
         }
 
+        private void btnLeggTilOverlay_Click(object sender, EventArgs e)
+        {
+            string NyOverlay = "";
+            NyOverlay = txtNyOverlay.Text;
 
+            if (!string.IsNullOrEmpty(NyOverlay))
+            {
+
+            }
+        }
     }
 }
