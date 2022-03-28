@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace GMAP_Demo
 {
@@ -85,6 +86,10 @@ namespace GMAP_Demo
 
         private void SendEpost(string TilEpost, int tallkode)
         {
+          
+            string Epost =  "";
+            string passord = "";
+  
             try
             {
                 NetworkCredential login = new NetworkCredential("GmapDemo01@gmail.com", "Pass_Gmap_Demo_12!"); // brukernavn og passord må gjømes en plass
@@ -111,6 +116,13 @@ namespace GMAP_Demo
 
             }
         }
+
+        public static string CnnVal(string name)
+        {
+            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+        }
+
+
 
 
         private void SendCompletedCallBack(object sender, AsyncCompletedEventArgs e)
