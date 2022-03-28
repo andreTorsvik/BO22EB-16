@@ -319,6 +319,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmFilter";
             this.Text = "frmFilter";
+            this.Load += new System.EventHandler(this.frmFilter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

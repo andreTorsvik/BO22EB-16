@@ -45,34 +45,7 @@ namespace GMAP_Demo
 
         private void btnRessurs_Click(object sender, EventArgs e)
         {
-            Bildebehandling bildebehandling = new Bildebehandling();
-            int tag = 0;
-            GMapMarker marker;
-            foreach (var item in Form1.instance.LRessurs)
-            {
-                PointLatLng punkt = item.GiPunktet();
-
-                if (bildebehandling.sjekkOmKategoriHarBilde(item))
-                {
-                    marker = new GMarkerGoogle(punkt, bildebehandling.oppdaterBildeForMarkør(item));
-                }
-                else
-                {
-                    marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
-                }               
-
-                marker.ToolTipText = String.Format("{0}", item.Navn);
-                marker.ToolTip.Fill = Brushes.Black;
-                marker.ToolTip.Foreground = Brushes.White;
-                marker.ToolTip.Stroke = Pens.Black;
-                marker.ToolTip.TextPadding = new Size(20, 20);
-                marker.Tag = tag;
-                tag++;
-
-                GMapOverlay markers = new GMapOverlay("test1");
-                markers.Markers.Add(marker);
-                Form1.instance.map.Overlays.Add(markers);
-            }
+            LeggTilRessurs(Form1.instance.LRessurs);
             Form1.reff();
         }
 
@@ -111,8 +84,47 @@ namespace GMAP_Demo
         private void btnLeggTilOmrådet_Click(object sender, EventArgs e)
         {
 
+            LeggTilOmråde(Form1.instance.LOmråde);
+            Form1.reff();
+        }
+        //burde ta listen som agrument 
+        public void LeggTilRessurs(List<Ressurs> Rlist)
+        {
+            Bildebehandling bildebehandling = new Bildebehandling();
+            int tag = 0;
+            GMapMarker marker;
+            foreach (var item in Rlist)
+            {
+                PointLatLng punkt = item.GiPunktet();
+
+                if (bildebehandling.sjekkOmKategoriHarBilde(item))
+                {
+                    marker = new GMarkerGoogle(punkt, bildebehandling.oppdaterBildeForMarkør(item));
+                }
+                else
+                {
+                    marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
+                }
+
+                marker.ToolTipText = String.Format("{0}", item.Navn);
+                marker.ToolTip.Fill = Brushes.Black;
+                marker.ToolTip.Foreground = Brushes.White;
+                marker.ToolTip.Stroke = Pens.Black;
+                marker.ToolTip.TextPadding = new Size(20, 20);
+                marker.Tag = tag;
+                tag++;
+
+                GMapOverlay markers = new GMapOverlay("test1");
+                markers.Markers.Add(marker);
+                Form1.instance.map.Overlays.Add(markers);
+            }
+        }
+
+        //burde ta listen som argument 
+        public void LeggTilOmråde( List<Område> Olist)
+        {
             int Tag = 0;
-            foreach (var item in Form1.instance.LOmråde)
+            foreach (var item in Olist)
             {
                 List<PointLatLng> Lpunkter = item.HentPunkter();
 
@@ -125,7 +137,7 @@ namespace GMAP_Demo
                 polygons.Polygons.Add(polygon);
                 Form1.instance.map.Overlays.Add(polygons);
             }
-            Form1.reff();
+
         }
 
         public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla };
@@ -193,6 +205,11 @@ namespace GMAP_Demo
             }
 
             return polygon;
+        }
+
+        private void frmFilter_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

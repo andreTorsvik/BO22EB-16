@@ -119,8 +119,11 @@ namespace GMAP_Demo
 
         private void btnOppdater_Click(object sender, EventArgs e)
         {
-            //kode for  å oppdatere overlays på kartet 
-            //for å finne målene til winduet
+            instance.map.Overlays.Clear();
+            //reff();
+            frmFilter.instance.LeggTilOmråde(Form1.instance.LOmråde);
+            frmFilter.instance.LeggTilRessurs(Form1.instance.LRessurs);
+            reff();
         }
 
         private void btnRediger_Click(object sender, EventArgs e)
