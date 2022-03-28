@@ -77,7 +77,7 @@
             this.map.TabIndex = 5;
             this.map.Zoom = 0D;
             this.map.OnMapDoubleClick += new GMap.NET.WindowsForms.MapDoubleClick(this.map_MouseDoubleClick);
-            this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.map_OnMarkerClick);
+            this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(map_OnMarkerClick);
             this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
             // 
             // PnlFormLoader
