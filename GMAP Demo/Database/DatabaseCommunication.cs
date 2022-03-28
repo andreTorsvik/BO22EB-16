@@ -31,7 +31,6 @@ namespace GMAP_Demo
         }
         //
 
-
         public List<Bruker> CheckLoginAgainstDb(string Username, string Password)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))

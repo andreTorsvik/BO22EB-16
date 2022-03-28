@@ -92,7 +92,7 @@ namespace GMAP_Demo
   
             try
             {
-                NetworkCredential login = new NetworkCredential("GmapDemo01@gmail.com", "Pass_Gmap_Demo_12!"); // brukernavn og passord må gjømes en plass
+                NetworkCredential login = new NetworkCredential("GmapDemo01@gmail.com", GMAP_Demo.Properties.Settings.Default.Passord); // brukernavn og passord må gjømes en plass
                 SmtpClient client = new SmtpClient("smtp.gmail.com");
                 client.Credentials = login;
                 client.Port = 587;
