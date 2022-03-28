@@ -41,11 +41,15 @@ namespace GMAP_Demo
                 filepath = dialog.FileName;
             }
 
-            image = Image.FromFile(filepath);
-            imageData = bildebehandling.ImageToByteArray(image);
+            if(filepath != null)
+            {
+                image = Image.FromFile(filepath);
+                imageData = bildebehandling.ImageToByteArray(image);
 
-            pbValgtBilde.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbValgtBilde.Image = image;
+                pbValgtBilde.SizeMode = PictureBoxSizeMode.StretchImage;
+                pbValgtBilde.Image = image;
+            }
+            
         }
 
         private void frm_S_LeggTilBilde_Load(object sender, EventArgs e)
