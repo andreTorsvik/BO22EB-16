@@ -74,9 +74,8 @@ namespace GMAP_Demo
             int tallkode = BrukerListe[0].Tallkode; ;
             try
             {
-                SendEpost(TilEpost, tallkode);
+                SendEpost(TilEpost, tallkode);                
                 lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
-
             }
             catch (Exception)
             {
@@ -85,11 +84,7 @@ namespace GMAP_Demo
         }
 
         private void SendEpost(string TilEpost, int tallkode)
-        {
-          
-            string Epost =  "";
-            string passord = "";
-  
+        {  
             try
             {
                 NetworkCredential login = new NetworkCredential("GmapDemo01@gmail.com", GMAP_Demo.Properties.Settings.Default.Passord); // brukernavn og passord må gjømes en plass
@@ -110,20 +105,8 @@ namespace GMAP_Demo
                 string userstae = "sending...";
                 client.SendAsync(msg, userstae);
             }
-            catch (Exception)
-            {
-
-
-            }
+            catch (Exception) {  }
         }
-
-        public static string CnnVal(string name)
-        {
-            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
-        }
-
-
-
 
         private void SendCompletedCallBack(object sender, AsyncCompletedEventArgs e)
         {
@@ -138,11 +121,6 @@ namespace GMAP_Demo
             {
                 MessageBox.Show("Mail send");
             }
-        }
-
-        private void lbVenterPåGodkjenning_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAvslå_Click(object sender, EventArgs e)
@@ -189,10 +167,7 @@ namespace GMAP_Demo
             catch (Exception)
             {
                 epost = null;
-                BrukerInfo = null;
-
             }
-
 
             if (epost != null)
             {
@@ -241,7 +216,6 @@ namespace GMAP_Demo
 
             OppdaterListenOverBrukere(selectetItem);
         }
-
         private bool KanOppgradere(int InnloggetBruker, int Aktuellbruker)
         {
             bool sjekk = false;

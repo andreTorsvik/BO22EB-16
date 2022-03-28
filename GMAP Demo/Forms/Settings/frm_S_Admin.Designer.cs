@@ -58,7 +58,6 @@
             this.lbVenterPåGodkjenning.Name = "lbVenterPåGodkjenning";
             this.lbVenterPåGodkjenning.Size = new System.Drawing.Size(496, 196);
             this.lbVenterPåGodkjenning.TabIndex = 5;
-            this.lbVenterPåGodkjenning.SelectedIndexChanged += new System.EventHandler(this.lbVenterPåGodkjenning_SelectedIndexChanged);
             // 
             // btnGodta
             // 
