@@ -130,5 +130,10 @@ namespace GMAP_Demo
             }
             return null;
         }
+
+        private void frmPosisjon_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

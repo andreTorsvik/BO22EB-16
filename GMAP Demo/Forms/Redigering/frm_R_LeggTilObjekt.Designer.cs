@@ -92,9 +92,11 @@
             // 
             this.txtSikkerhetsklarering.Location = new System.Drawing.Point(17, 146);
             this.txtSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSikkerhetsklarering.MaxLength = 1;
             this.txtSikkerhetsklarering.Name = "txtSikkerhetsklarering";
             this.txtSikkerhetsklarering.Size = new System.Drawing.Size(287, 22);
             this.txtSikkerhetsklarering.TabIndex = 14;
+            this.txtSikkerhetsklarering.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSikkerhetsklarering_KeyPress);
             // 
             // label1
             // 

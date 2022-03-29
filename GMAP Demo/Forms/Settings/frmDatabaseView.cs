@@ -46,11 +46,17 @@ namespace GMAP_Demo
         {
             this.Close();
 
-            
-            frmSettings frmSettings = new frmSettings(); // instance 
-            frmSettings.Size = this.Size;
-            frmSettings.Location = this.Location;
-            frmSettings.Show();
+           
+
+            //frmSettings frmSettings = new frmSettings(); // instance 
+            //frmSettings.Size = this.Size;
+            //frmSettings.Location = this.Location;
+            //frmSettings.Show();
+        }
+
+        private void frmSettings_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmSettings.instance.Show();
         }
 
         void AlleKnapperTilStandarfarge()
@@ -67,10 +73,7 @@ namespace GMAP_Demo
             btnDbRessursView.BackColor = StandarFarge;
         }
 
-        private void frmSettings_FormClosing(object sender, FormClosingEventArgs e)
-        {
-           
-        }
+        
 
         private void btnDbBrukerView_Click(object sender, EventArgs e)
         {

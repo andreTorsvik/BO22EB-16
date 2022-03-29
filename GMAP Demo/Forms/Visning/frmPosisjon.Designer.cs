@@ -215,7 +215,7 @@
             this.txtLong.ReadOnly = true;
             this.txtLong.Size = new System.Drawing.Size(261, 22);
             this.txtLong.TabIndex = 19;
-            this.txtLong.Text = "klikk på kartet ";
+            this.txtLong.Text = "Klikk på kartet ";
             // 
             // label8
             // 
@@ -236,7 +236,7 @@
             this.txtLat.ReadOnly = true;
             this.txtLat.Size = new System.Drawing.Size(261, 22);
             this.txtLat.TabIndex = 17;
-            this.txtLat.Text = "klikk på kartet";
+            this.txtLat.Text = "Klikk på kartet";
             // 
             // btnFjernRute
             // 
@@ -288,6 +288,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPosisjon";
             this.Text = "frmPosisjon";
+            this.Load += new System.EventHandler(this.frmPosisjon_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

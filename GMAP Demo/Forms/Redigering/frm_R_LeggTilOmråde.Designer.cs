@@ -231,9 +231,11 @@
             // txtSikkerhetsklarering
             // 
             this.txtSikkerhetsklarering.Location = new System.Drawing.Point(16, 145);
+            this.txtSikkerhetsklarering.MaxLength = 1;
             this.txtSikkerhetsklarering.Name = "txtSikkerhetsklarering";
             this.txtSikkerhetsklarering.Size = new System.Drawing.Size(287, 22);
             this.txtSikkerhetsklarering.TabIndex = 34;
+            this.txtSikkerhetsklarering.TextChanged += new System.EventHandler(this.txtSikkerhetsklarering_TextChanged);
             // 
             // label1
             // 

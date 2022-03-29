@@ -101,6 +101,11 @@ namespace GMAP_Demo
 
             }
         }
+
+        private void txtSikkerhetsklarering_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

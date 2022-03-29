@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
     public partial class frm_R_LeggTilObjekt : Form
     {
-        
+
         public static frm_R_LeggTilObjekt instance;
         public frm_R_LeggTilObjekt()
         {
@@ -178,5 +172,14 @@ namespace GMAP_Demo
 
             lbValgtOverlays.Items.Remove(selectedItemtext);
         }
+
+        private void txtSikkerhetsklarering_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }     
+        }
+
     }
 }

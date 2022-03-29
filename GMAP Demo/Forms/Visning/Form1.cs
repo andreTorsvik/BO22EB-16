@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using GMap.NET.WindowsForms;
-using GMap.NET.WindowsForms.Markers;
-using GMap.NET;
+﻿using GMap.NET;
 using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
 using GMAP_Demo.Database.DataTypes;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 
 namespace GMAP_Demo
@@ -26,7 +20,7 @@ namespace GMAP_Demo
         public List<Kategorier_Bilde> LKategori;
         public PointLatLng DoubleClick_punkt;
         public static Form1 instance;
-        
+
 
         public Form1()
         {
@@ -34,7 +28,7 @@ namespace GMAP_Demo
             if (KjørEnGang) OpprettingAvGlobaleVariabler();
             InitializeComponent();
             instance = this;
-            
+
             //start form Posisjon
             this.PnlFormLoader.Controls.Clear();
             frmPosisjon frmPosisjon_vrb = new frmPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -44,7 +38,7 @@ namespace GMAP_Demo
 
             //sette Blåpanel til vesntre for Posisjonknapp 
             FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
-           
+
             //endre farge
             btnPosisjon.BackColor = knapp_trykket;
 
@@ -77,7 +71,7 @@ namespace GMAP_Demo
         {
             //start posisjon kart
             map.MapProvider = GMapProviders.OpenStreetMap;
-            
+
             map.Position = Punkt_fra_forrige_kart; //PointLatLng(60.36893643470203, 5.350878781967968);
 
             //settings for kart
@@ -89,32 +83,36 @@ namespace GMAP_Demo
 
         private void btnPoisjon_Click(object sender, EventArgs e)
         {
-            AlleKnapperTilStandarfarge();
-            btnPosisjon.BackColor = knapp_trykket;
+            if (pnlNav.Top != btnPosisjon.Top)
+            {
+                AlleKnapperTilStandarfarge();
+                btnPosisjon.BackColor = knapp_trykket;
 
-            FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
+                FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
 
-            this.PnlFormLoader.Controls.Clear();
-            frmPosisjon frmPosisjon_vrb = new frmPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
-            frmPosisjon_vrb.Show();
+                this.PnlFormLoader.Controls.Clear();
+                frmPosisjon frmPosisjon_vrb = new frmPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
+                this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
+                frmPosisjon_vrb.Show();
+            }
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            //Endre farge
-            AlleKnapperTilStandarfarge();
-            btnFilter.BackColor = knapp_trykket;
+            if (pnlNav.Top != btnFilter.Top)
+            {
+                AlleKnapperTilStandarfarge();
+                btnFilter.BackColor = knapp_trykket;
 
-            //Flytte panelet til rett posisjon
-            FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
+                FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
 
-            this.PnlFormLoader.Controls.Clear();
-            frmFilter frmPosisjon_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
-            frmPosisjon_vrb.Show();
+                this.PnlFormLoader.Controls.Clear();
+                frmFilter frmPosisjon_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
+                this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
+                frmPosisjon_vrb.Show();
+            }
         }
 
         private void btnOppdater_Click(object sender, EventArgs e)
@@ -123,7 +121,7 @@ namespace GMAP_Demo
             //reff();
             frmFilter.instance.LeggTilRessurs(Form1.instance.LRessurs);
             frmFilter.instance.LeggTilOmråde(Form1.instance.LOmråde);
-            
+
             reff();
         }
 
@@ -132,7 +130,7 @@ namespace GMAP_Demo
             //for å sende posisjonen til neste kart
             Punkt_fra_forrige_kart = map.Position;
 
-            //Close();
+
             this.Hide();
             frmRediger frmRediger = new frmRediger(); // instance 
             frmRediger.Size = this.Size;
@@ -141,7 +139,7 @@ namespace GMAP_Demo
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
-        { 
+        {
             this.Hide();
             frmSettings frmSettings = new frmSettings(); // instance 
             frmSettings.Size = this.Size;
@@ -149,13 +147,13 @@ namespace GMAP_Demo
             frmSettings.Show();
         }
 
-        
+
 
         void AlleKnapperTilStandarfarge()
         {
             //setter alle nødvendige knappen til standarfarge
             btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
-            btnFilter.BackColor = Color.FromArgb(24, 30, 54);           
+            btnFilter.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -229,7 +227,7 @@ namespace GMAP_Demo
 
         }
 
-        public static void LeggTilRute(PointLatLng fra,PointLatLng til)
+        public static void LeggTilRute(PointLatLng fra, PointLatLng til)
         {
             //bruker google API 
             //false false
