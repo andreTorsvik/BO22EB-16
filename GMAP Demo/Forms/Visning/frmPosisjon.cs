@@ -83,6 +83,7 @@ namespace GMAP_Demo
                 {
                     Form1.LeggTilRute(Fra, Til);
                     
+                    
                 }
                 catch (Exception)
                 {
@@ -100,9 +101,11 @@ namespace GMAP_Demo
                 {  
                     Form1.instance.map.Overlays.RemoveAt(i);
                     Form1.reff();
+                    LbDistanse.Text = "[Distanse i Km]";
                     break;
                 }
             }
+
         }
 
         private List<string> GetAddress(PointLatLng point)

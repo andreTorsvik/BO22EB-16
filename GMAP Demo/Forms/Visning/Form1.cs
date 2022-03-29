@@ -190,6 +190,15 @@ namespace GMAP_Demo
             frmFilter.instance.txtSikkerhetsklarering.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
             frmFilter.instance.txtKommentar.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
         }
+        private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
+        {
+            frmFilter.instance.txtNavn.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
+            frmFilter.instance.txtKategori.Text = "";
+            frmFilter.instance.txtDato_opprettet.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Dato_opprettet;
+            frmFilter.instance.txtOpprettetAvBruker.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
+            frmFilter.instance.txtSikkerhetsklarering.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+            frmFilter.instance.txtKommentar.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
+        }
 
         private void map_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -203,16 +212,6 @@ namespace GMAP_Demo
                 frmPosisjon.instance.txtLat.Text = lat.ToString();
                 frmPosisjon.instance.txtLong.Text = lng.ToString();
             }
-        }
-
-        private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
-        {
-            frmFilter.instance.txtNavn.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
-            frmFilter.instance.txtKategori.Text = "";
-            frmFilter.instance.txtDato_opprettet.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Dato_opprettet;
-            frmFilter.instance.txtOpprettetAvBruker.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
-            frmFilter.instance.txtSikkerhetsklarering.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-            frmFilter.instance.txtKommentar.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
         }
 
         public static void AdresseTilKart(string Adresse)
@@ -244,6 +243,8 @@ namespace GMAP_Demo
             routes.Routes.Add(r);
             instance.map.Overlays.Add(routes);
             instance.map.Position = fra;
+
+            frmPosisjon.instance.LbDistanse.Text = route.Distance.ToString() + " Km";
         }
 
         private void btnZoomPluss_Click(object sender, EventArgs e)

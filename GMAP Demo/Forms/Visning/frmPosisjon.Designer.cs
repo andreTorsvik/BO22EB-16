@@ -48,6 +48,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtLat = new System.Windows.Forms.TextBox();
             this.btnFjernRute = new System.Windows.Forms.Button();
+            this.LbDistanse = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -247,12 +248,23 @@
             this.btnFjernRute.UseVisualStyleBackColor = true;
             this.btnFjernRute.Click += new System.EventHandler(this.btnFjernRute_Click);
             // 
+            // LbDistanse
+            // 
+            this.LbDistanse.AutoSize = true;
+            this.LbDistanse.ForeColor = System.Drawing.SystemColors.Control;
+            this.LbDistanse.Location = new System.Drawing.Point(18, 707);
+            this.LbDistanse.Name = "LbDistanse";
+            this.LbDistanse.Size = new System.Drawing.Size(96, 16);
+            this.LbDistanse.TabIndex = 22;
+            this.LbDistanse.Text = "[Distanse i Km]";
+            // 
             // frmPosisjon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(408, 872);
+            this.Controls.Add(this.LbDistanse);
             this.Controls.Add(this.btnFjernRute);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtLong);
@@ -303,5 +315,6 @@
         private System.Windows.Forms.Button btnFjernRute;
         public System.Windows.Forms.TextBox txtLong;
         public System.Windows.Forms.TextBox txtLat;
+        public System.Windows.Forms.Label LbDistanse;
     }
 }
