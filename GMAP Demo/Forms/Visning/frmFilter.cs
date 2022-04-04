@@ -19,7 +19,7 @@ namespace GMAP_Demo
     public partial class frmFilter : Form
     {
         public static frmFilter instance;
-        // BindingList for lbKategorierVises
+        // BindingList for lbKategorierVises REF: https://stackoverflow.com/questions/17615069/how-to-refresh-datasource-of-a-listbox, https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindinglist-1?view=net-6.0
         BindingList<Kategorier_Bilde> kategoriListeVises;
         private void InitializekategoriListeVises()
         {
@@ -274,12 +274,11 @@ namespace GMAP_Demo
         private void OppdaterKart()
         {
             Form1.instance.map.Overlays.Clear();
-
-            // Legg bare til valgte kategorier
             if (Form1.instance.LRessurs.Count > 0) Form1.instance.LRessurs.Clear();
 
             var RessursList = db.ListAllRessursFromDb();
 
+            // Er dette en tungvindt måte å gjøre det på? Kan dette forbedres?
             foreach (var item in RessursList)
             {
                 foreach (var item2 in kategoriListeVises)
@@ -289,8 +288,6 @@ namespace GMAP_Demo
                         Form1.instance.LRessurs.Add(item);
                     }
                 }
-                
-
             }
 
             LeggTilRessurs(Form1.instance.LRessurs);
