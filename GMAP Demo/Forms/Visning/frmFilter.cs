@@ -273,7 +273,28 @@ namespace GMAP_Demo
 
         private void OppdaterKart()
         {
+            Form1.instance.map.Overlays.Clear();
 
+            // Legg bare til valgte kategorier
+            if (Form1.instance.LRessurs.Count > 0) Form1.instance.LRessurs.Clear();
+
+            var RessursList = db.ListAllRessursFromDb();
+
+            foreach (var item in RessursList)
+            {
+                foreach (var item2 in kategoriListeVises)
+                {
+                    if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
+                    {
+                        Form1.instance.LRessurs.Add(item);
+                    }
+                }
+                
+
+            }
+
+            LeggTilRessurs(Form1.instance.LRessurs);
+            Form1.reff();
         }
 
 
