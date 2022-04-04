@@ -50,6 +50,10 @@
             this.btnLeggTilOmrådet = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtAntallOmråder = new System.Windows.Forms.TextBox();
+            this.lbKategorierSkjult = new System.Windows.Forms.ListBox();
+            this.lblKategorierSkjult = new System.Windows.Forms.Label();
+            this.lblKategorierVises = new System.Windows.Forms.Label();
+            this.lbKategorierVises = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label3
@@ -287,12 +291,56 @@
             this.txtAntallOmråder.Size = new System.Drawing.Size(55, 26);
             this.txtAntallOmråder.TabIndex = 23;
             // 
+            // lbKategorierSkjult
+            // 
+            this.lbKategorierSkjult.FormattingEnabled = true;
+            this.lbKategorierSkjult.ItemHeight = 20;
+            this.lbKategorierSkjult.Location = new System.Drawing.Point(24, 522);
+            this.lbKategorierSkjult.Name = "lbKategorierSkjult";
+            this.lbKategorierSkjult.Size = new System.Drawing.Size(125, 184);
+            this.lbKategorierSkjult.TabIndex = 25;
+            this.lbKategorierSkjult.DoubleClick += new System.EventHandler(this.lbKategorierSkjult_DoubleClick);
+            // 
+            // lblKategorierSkjult
+            // 
+            this.lblKategorierSkjult.AutoSize = true;
+            this.lblKategorierSkjult.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblKategorierSkjult.Location = new System.Drawing.Point(20, 499);
+            this.lblKategorierSkjult.Name = "lblKategorierSkjult";
+            this.lblKategorierSkjult.Size = new System.Drawing.Size(43, 20);
+            this.lblKategorierSkjult.TabIndex = 26;
+            this.lblKategorierSkjult.Text = "Skjul";
+            // 
+            // lblKategorierVises
+            // 
+            this.lblKategorierVises.AutoSize = true;
+            this.lblKategorierVises.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblKategorierVises.Location = new System.Drawing.Point(287, 499);
+            this.lblKategorierVises.Name = "lblKategorierVises";
+            this.lblKategorierVises.Size = new System.Drawing.Size(31, 20);
+            this.lblKategorierVises.TabIndex = 28;
+            this.lblKategorierVises.Text = "Vis";
+            // 
+            // lbKategorierVises
+            // 
+            this.lbKategorierVises.FormattingEnabled = true;
+            this.lbKategorierVises.ItemHeight = 20;
+            this.lbKategorierVises.Location = new System.Drawing.Point(291, 522);
+            this.lbKategorierVises.Name = "lbKategorierVises";
+            this.lbKategorierVises.Size = new System.Drawing.Size(125, 184);
+            this.lbKategorierVises.TabIndex = 27;
+            this.lbKategorierVises.DoubleClick += new System.EventHandler(this.lbKategorierVises_DoubleClick);
+            // 
             // frmFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(459, 1089);
+            this.Controls.Add(this.lblKategorierVises);
+            this.Controls.Add(this.lbKategorierVises);
+            this.Controls.Add(this.lblKategorierSkjult);
+            this.Controls.Add(this.lbKategorierSkjult);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAntallOmråder);
             this.Controls.Add(this.btnLeggTilOmrådet);
@@ -349,5 +397,9 @@
         private System.Windows.Forms.Button btnLeggTilOmrådet;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAntallOmråder;
+        private System.Windows.Forms.ListBox lbKategorierSkjult;
+        private System.Windows.Forms.Label lblKategorierSkjult;
+        private System.Windows.Forms.Label lblKategorierVises;
+        private System.Windows.Forms.ListBox lbKategorierVises;
     }
 }
