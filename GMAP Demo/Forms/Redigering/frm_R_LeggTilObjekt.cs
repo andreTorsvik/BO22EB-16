@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using GMAP_Demo.Database.DataTypes;
 
 namespace GMAP_Demo
 {
@@ -66,7 +67,7 @@ namespace GMAP_Demo
                 altUtfylt = false;
                 utFyllingsmangler += " long";
             }
-            if (lbValgtOverlays.Items.Count > 0)
+            if (lbValgtOverlays.Items.Count <= 0)
             {
                 altUtfylt = false;
                 utFyllingsmangler += " Overlay";
@@ -76,6 +77,7 @@ namespace GMAP_Demo
             {
                 DatabaseCommunication db = new DatabaseCommunication();
                 db.InsertRessursToDb(txtNavn.Text.ToString(), txtKategori.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
+                //fylle in overlays 
 
                 txtNavn.Text = "";
                 txtKategori.Text = "";

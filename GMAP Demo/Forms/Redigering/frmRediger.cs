@@ -214,6 +214,7 @@ namespace GMAP_Demo
                 {
                     frm_R_RedigerObjekt.instance.txtLat.Text = lat.ToString();
                     frm_R_RedigerObjekt.instance.txtLong.Text = lng.ToString();
+                    
                 }
                 if (frm_R_RedigerOmråde.instance != null)
                 {

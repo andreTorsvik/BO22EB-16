@@ -273,6 +273,7 @@
             this.btnLeggTilObjekt.TabIndex = 68;
             this.btnLeggTilObjekt.Text = "Lagre endering";
             this.btnLeggTilObjekt.UseVisualStyleBackColor = true;
+            this.btnLeggTilObjekt.Click += new System.EventHandler(this.btnLeggTilObjekt_Click);
             // 
             // label4
             // 

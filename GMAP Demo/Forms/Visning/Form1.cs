@@ -117,12 +117,19 @@ namespace GMAP_Demo
 
         private void btnOppdater_Click(object sender, EventArgs e)
         {
-            instance.map.Overlays.Clear();
-            //reff();
-            frmFilter.instance.LeggTilRessurs(Form1.instance.LRessurs);
-            frmFilter.instance.LeggTilOmråde(Form1.instance.LOmråde);
+            if (instance.map.Overlays.Count > 0)
+            {
+                instance.map.Overlays.Clear();
+                
+                //må tøme liste med ressurser og fylle igjen 
 
-            reff();
+
+                frmFilter.instance.LeggTilRessurs(Form1.instance.LRessurs);
+                frmFilter.instance.LeggTilOmråde(Form1.instance.LOmråde);
+
+                reff();
+            }
+
         }
 
         private void btnRediger_Click(object sender, EventArgs e)
