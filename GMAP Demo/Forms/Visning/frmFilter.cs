@@ -260,15 +260,21 @@ namespace GMAP_Demo
 
         private void lbKategorierVises_DoubleClick(object sender, EventArgs e)
         {
-            kategoriListeSkjult.Add((Kategorier_Bilde)lbKategorierVises.SelectedItem);
-            kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.SelectedItem);
-            OppdaterKart();
+            if (lbKategorierVises.Items.Count > 0)
+            {
+                kategoriListeSkjult.Add((Kategorier_Bilde)lbKategorierVises.SelectedItem);
+                kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.SelectedItem);
+                OppdaterKart();
+            }
         }
         private void lbKategorierSkjult_DoubleClick(object sender, EventArgs e)
         {
-            kategoriListeVises.Add((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
-            kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
-            OppdaterKart();
+            if (lbKategorierSkjult.Items.Count > 0)
+            {
+                kategoriListeVises.Add((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
+                kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
+                OppdaterKart();
+            }
         }
 
         private void OppdaterKart()
