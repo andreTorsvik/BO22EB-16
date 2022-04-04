@@ -92,7 +92,6 @@
             this.txtAntall.Name = "txtAntall";
             this.txtAntall.Size = new System.Drawing.Size(49, 22);
             this.txtAntall.TabIndex = 6;
-            this.txtAntall.TextChanged += new System.EventHandler(this.txtAntall_TextChanged);
             // 
             // label1
             // 
