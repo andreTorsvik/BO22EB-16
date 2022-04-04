@@ -176,7 +176,7 @@ namespace GMAP_Demo
 
                 int klarering = brukerListe[0].Sikkerhetsklarering;
 
-                if (brukerListe[0].Sikkerhetsklarering < 3)
+                if (brukerListe[0].Sikkerhetsklarering < Form1.instance.MaxSikkerhetsklarering)
                 {
                     klarering++;
                 }

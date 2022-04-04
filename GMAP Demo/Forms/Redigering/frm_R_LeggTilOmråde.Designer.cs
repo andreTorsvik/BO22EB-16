@@ -44,7 +44,7 @@
             this.lbValgtOverlays = new System.Windows.Forms.ListBox();
             this.lbTilgjengeligeOverlays = new System.Windows.Forms.ListBox();
             this.btnLeggTilObjekt = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.LabelSikkerhetsklarering = new System.Windows.Forms.Label();
             this.txtSikkerhetsklarering = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNavn = new System.Windows.Forms.TextBox();
@@ -217,16 +217,16 @@
             this.btnLeggTilObjekt.Text = "Lagre området";
             this.btnLeggTilObjekt.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // LabelSikkerhetsklarering
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(16, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(211, 20);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "Sikkerhetsklarering(1-3)";
+            this.LabelSikkerhetsklarering.AutoSize = true;
+            this.LabelSikkerhetsklarering.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelSikkerhetsklarering.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.LabelSikkerhetsklarering.Location = new System.Drawing.Point(16, 124);
+            this.LabelSikkerhetsklarering.Name = "LabelSikkerhetsklarering";
+            this.LabelSikkerhetsklarering.Size = new System.Drawing.Size(211, 20);
+            this.LabelSikkerhetsklarering.TabIndex = 35;
+            this.LabelSikkerhetsklarering.Text = "Sikkerhetsklarering(1-3)";
             // 
             // txtSikkerhetsklarering
             // 
@@ -349,7 +349,7 @@
             this.Controls.Add(this.lbValgtOverlays);
             this.Controls.Add(this.lbTilgjengeligeOverlays);
             this.Controls.Add(this.btnLeggTilObjekt);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.LabelSikkerhetsklarering);
             this.Controls.Add(this.txtSikkerhetsklarering);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNavn);
@@ -381,7 +381,7 @@
         private System.Windows.Forms.ListBox lbValgtOverlays;
         private System.Windows.Forms.ListBox lbTilgjengeligeOverlays;
         private System.Windows.Forms.Button btnLeggTilObjekt;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LabelSikkerhetsklarering;
         private System.Windows.Forms.TextBox txtSikkerhetsklarering;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNavn;

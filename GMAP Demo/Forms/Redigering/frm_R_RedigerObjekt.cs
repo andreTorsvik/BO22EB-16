@@ -26,6 +26,7 @@ namespace GMAP_Demo
         {
             LastInnKategorier();
             LastInnOverlays();
+            LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", Form1.instance.MaxSikkerhetsklarering);
         }
 
         private void lbTilgjengligKategori_MouseDoubleClick(object sender, MouseEventArgs e)

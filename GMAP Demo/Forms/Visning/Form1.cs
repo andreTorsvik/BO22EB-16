@@ -21,6 +21,7 @@ namespace GMAP_Demo
         public PointLatLng DoubleClick_punkt;
         public static Form1 instance;
 
+        public int MaxSikkerhetsklarering = 3;
 
         public Form1()
         {
