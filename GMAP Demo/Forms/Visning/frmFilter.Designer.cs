@@ -122,7 +122,7 @@
             // txtNavn
             // 
             this.txtNavn.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtNavn.Location = new System.Drawing.Point(164, 776);
+            this.txtNavn.Location = new System.Drawing.Point(164, 691);
             this.txtNavn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNavn.Multiline = true;
             this.txtNavn.Name = "txtNavn";
@@ -134,7 +134,7 @@
             // 
             this.lblNavn.AutoSize = true;
             this.lblNavn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNavn.Location = new System.Drawing.Point(13, 780);
+            this.lblNavn.Location = new System.Drawing.Point(13, 695);
             this.lblNavn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNavn.Name = "lblNavn";
             this.lblNavn.Size = new System.Drawing.Size(45, 20);
@@ -145,7 +145,7 @@
             // 
             this.lblKategori.AutoSize = true;
             this.lblKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKategori.Location = new System.Drawing.Point(13, 817);
+            this.lblKategori.Location = new System.Drawing.Point(13, 732);
             this.lblKategori.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKategori.Name = "lblKategori";
             this.lblKategori.Size = new System.Drawing.Size(68, 20);
@@ -156,7 +156,7 @@
             // 
             this.lblDato_opprettet.AutoSize = true;
             this.lblDato_opprettet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblDato_opprettet.Location = new System.Drawing.Point(13, 854);
+            this.lblDato_opprettet.Location = new System.Drawing.Point(13, 769);
             this.lblDato_opprettet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDato_opprettet.Name = "lblDato_opprettet";
             this.lblDato_opprettet.Size = new System.Drawing.Size(113, 20);
@@ -167,7 +167,7 @@
             // 
             this.lblOpprettetAvBruker.AutoSize = true;
             this.lblOpprettetAvBruker.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblOpprettetAvBruker.Location = new System.Drawing.Point(13, 890);
+            this.lblOpprettetAvBruker.Location = new System.Drawing.Point(13, 805);
             this.lblOpprettetAvBruker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOpprettetAvBruker.Name = "lblOpprettetAvBruker";
             this.lblOpprettetAvBruker.Size = new System.Drawing.Size(146, 20);
@@ -178,7 +178,7 @@
             // 
             this.lblSikkerhetsklarering.AutoSize = true;
             this.lblSikkerhetsklarering.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(13, 928);
+            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(13, 843);
             this.lblSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSikkerhetsklarering.Name = "lblSikkerhetsklarering";
             this.lblSikkerhetsklarering.Size = new System.Drawing.Size(144, 20);
@@ -189,7 +189,7 @@
             // 
             this.lblKommentar.AutoSize = true;
             this.lblKommentar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKommentar.Location = new System.Drawing.Point(13, 966);
+            this.lblKommentar.Location = new System.Drawing.Point(13, 881);
             this.lblKommentar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKommentar.Name = "lblKommentar";
             this.lblKommentar.Size = new System.Drawing.Size(91, 20);
@@ -199,7 +199,7 @@
             // txtKategori
             // 
             this.txtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtKategori.Location = new System.Drawing.Point(164, 813);
+            this.txtKategori.Location = new System.Drawing.Point(164, 728);
             this.txtKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKategori.Multiline = true;
             this.txtKategori.Name = "txtKategori";
@@ -210,7 +210,7 @@
             // txtDato_opprettet
             // 
             this.txtDato_opprettet.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtDato_opprettet.Location = new System.Drawing.Point(164, 849);
+            this.txtDato_opprettet.Location = new System.Drawing.Point(164, 764);
             this.txtDato_opprettet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDato_opprettet.Multiline = true;
             this.txtDato_opprettet.Name = "txtDato_opprettet";
@@ -221,7 +221,7 @@
             // txtOpprettetAvBruker
             // 
             this.txtOpprettetAvBruker.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtOpprettetAvBruker.Location = new System.Drawing.Point(164, 887);
+            this.txtOpprettetAvBruker.Location = new System.Drawing.Point(164, 802);
             this.txtOpprettetAvBruker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOpprettetAvBruker.Multiline = true;
             this.txtOpprettetAvBruker.Name = "txtOpprettetAvBruker";
@@ -232,7 +232,7 @@
             // txtSikkerhetsklarering
             // 
             this.txtSikkerhetsklarering.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSikkerhetsklarering.Location = new System.Drawing.Point(164, 923);
+            this.txtSikkerhetsklarering.Location = new System.Drawing.Point(164, 838);
             this.txtSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSikkerhetsklarering.Multiline = true;
             this.txtSikkerhetsklarering.Name = "txtSikkerhetsklarering";
@@ -243,7 +243,7 @@
             // txtKommentar
             // 
             this.txtKommentar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtKommentar.Location = new System.Drawing.Point(164, 960);
+            this.txtKommentar.Location = new System.Drawing.Point(164, 875);
             this.txtKommentar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKommentar.Multiline = true;
             this.txtKommentar.Name = "txtKommentar";
@@ -295,7 +295,7 @@
             // 
             this.lbKategorierSkjult.FormattingEnabled = true;
             this.lbKategorierSkjult.ItemHeight = 20;
-            this.lbKategorierSkjult.Location = new System.Drawing.Point(24, 522);
+            this.lbKategorierSkjult.Location = new System.Drawing.Point(24, 469);
             this.lbKategorierSkjult.Name = "lbKategorierSkjult";
             this.lbKategorierSkjult.Size = new System.Drawing.Size(125, 184);
             this.lbKategorierSkjult.TabIndex = 25;
@@ -305,7 +305,7 @@
             // 
             this.lblKategorierSkjult.AutoSize = true;
             this.lblKategorierSkjult.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKategorierSkjult.Location = new System.Drawing.Point(20, 499);
+            this.lblKategorierSkjult.Location = new System.Drawing.Point(20, 446);
             this.lblKategorierSkjult.Name = "lblKategorierSkjult";
             this.lblKategorierSkjult.Size = new System.Drawing.Size(43, 20);
             this.lblKategorierSkjult.TabIndex = 26;
@@ -315,7 +315,7 @@
             // 
             this.lblKategorierVises.AutoSize = true;
             this.lblKategorierVises.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKategorierVises.Location = new System.Drawing.Point(287, 499);
+            this.lblKategorierVises.Location = new System.Drawing.Point(287, 446);
             this.lblKategorierVises.Name = "lblKategorierVises";
             this.lblKategorierVises.Size = new System.Drawing.Size(31, 20);
             this.lblKategorierVises.TabIndex = 28;
@@ -325,7 +325,7 @@
             // 
             this.lbKategorierVises.FormattingEnabled = true;
             this.lbKategorierVises.ItemHeight = 20;
-            this.lbKategorierVises.Location = new System.Drawing.Point(291, 522);
+            this.lbKategorierVises.Location = new System.Drawing.Point(291, 469);
             this.lbKategorierVises.Name = "lbKategorierVises";
             this.lbKategorierVises.Size = new System.Drawing.Size(125, 184);
             this.lbKategorierVises.TabIndex = 27;
