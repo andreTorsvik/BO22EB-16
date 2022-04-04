@@ -19,6 +19,46 @@ namespace GMAP_Demo
     public partial class frmFilter : Form
     {
         public static frmFilter instance;
+        // BindingList for lbKategorierVises REF: https://stackoverflow.com/questions/17615069/how-to-refresh-datasource-of-a-listbox, https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindinglist-1?view=net-6.0
+        BindingList<Kategorier_Bilde> kategoriListeVises;
+        private void InitializekategoriListeVises()
+        {
+            // Create the new BindingList of Part type.
+            kategoriListeVises = new BindingList<Kategorier_Bilde>();
+
+            // Allow new parts to be added, but not removed once committed.        
+            kategoriListeVises.AllowNew = true;
+            kategoriListeVises.AllowRemove = true;
+
+            // Raise ListChanged events when new parts are added.
+            kategoriListeVises.RaiseListChangedEvents = true;
+
+            // Add items to the list.
+            List<Kategorier_Bilde> kategoriListeAlle = new List<Kategorier_Bilde>();
+            kategoriListeAlle = db.ListAllKategorier_BildeFromDb();
+            foreach (var item in kategoriListeAlle)
+            {
+                kategoriListeVises.Add(item);
+            }
+        }
+
+        // BindingList for lbKategorierSkjult
+        BindingList<Kategorier_Bilde> kategoriListeSkjult;
+        private void InitializekategoriListeSkjult()
+        {
+            // Create the new BindingList of Part type.
+            kategoriListeSkjult = new BindingList<Kategorier_Bilde>();
+
+            // Allow new parts to be added, but not removed once committed.        
+            kategoriListeSkjult.AllowNew = true;
+            kategoriListeSkjult.AllowRemove = true;
+
+            // Raise ListChanged events when new parts are added.
+            kategoriListeSkjult.RaiseListChangedEvents = true;
+        }
+
+        DatabaseCommunication db = new DatabaseCommunication();
+
 
         public frmFilter()
         {
@@ -204,7 +244,57 @@ namespace GMAP_Demo
 
         private void frmFilter_Load(object sender, EventArgs e)
         {
+            InitializekategoriListeVises();
+            InitializekategoriListeSkjult();
 
+            lbKategorierVises.DataSource = kategoriListeVises;
+            lbKategorierVises.DisplayMember = "Kategorinavn";
+            lbKategorierSkjult.DataSource = kategoriListeSkjult;
+            lbKategorierSkjult.DisplayMember ="Kategorinavn";
         }
+
+        private void lbKategorierVises_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbKategorierVises.Items.Count > 0)
+            {
+                kategoriListeSkjult.Add((Kategorier_Bilde)lbKategorierVises.SelectedItem);
+                kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.SelectedItem);
+                OppdaterKart();
+            }
+        }
+        private void lbKategorierSkjult_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbKategorierSkjult.Items.Count > 0)
+            {
+                kategoriListeVises.Add((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
+                kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
+                OppdaterKart();
+            }
+        }
+
+        private void OppdaterKart()
+        {
+            Form1.instance.map.Overlays.Clear();
+            if (Form1.instance.LRessurs.Count > 0) Form1.instance.LRessurs.Clear();
+
+            var RessursList = db.ListAllRessursFromDb();
+
+            // Er dette en tungvindt måte å gjøre det på? Kan dette forbedres?
+            foreach (var item in RessursList)
+            {
+                foreach (var item2 in kategoriListeVises)
+                {
+                    if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
+                    {
+                        Form1.instance.LRessurs.Add(item);
+                    }
+                }
+            }
+
+            LeggTilRessurs(Form1.instance.LRessurs);
+            Form1.reff();
+        }
+
+
     }
 }
