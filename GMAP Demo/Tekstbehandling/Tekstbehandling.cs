@@ -77,5 +77,39 @@ namespace GMAP_Demo
             }
             return utFyllingsmangler;
         }
+        public static string SjekkEndringerObjekt(List<Ressurs> rList,string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int ListeAntall)
+        {
+            string Endringer = string.Empty;
+            string newLine = Environment.NewLine;
+
+            if (rList[0].Navn != navn) Endringer += string.Format("Navn: {0} -> {1}" + newLine, rList[0].Navn, navn);
+            try
+            {
+                if (rList[0].Sikkerhetsklarering != Convert.ToInt16(sikkerhetsklarering))
+                {
+                    Endringer += string.Format("Sikkerhetsklarering: {0} -> {1}" + newLine, rList[0].Sikkerhetsklarering, sikkerhetsklarering);
+                }
+            }
+            catch (Exception) { }
+            if (rList[0].Kategori != kategori) Endringer += string.Format("Kategori: {0} -> {1}" + newLine, rList[0].Kategori, kategori);
+            if (rList[0].Kommentar != kommentar) Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, rList[0].Kommentar, kommentar);
+            try
+            {
+                if (Math.Round(rList[0].Lat, 5) != Math.Round(Convert.ToDouble(lat), 5))
+                    Endringer += string.Format("Lat: {0} -> {1}" + newLine, rList[0].Lat, lat);
+            }
+            catch (Exception) { }
+
+            try
+            {
+                if (Math.Round(rList[0].Lang, 5) != Math.Round(Convert.ToDouble(lang), 5))
+                    Endringer += string.Format("Long: {0} -> {1}" + newLine, rList[0].Lang, lang);
+            }
+            catch (Exception) { }
+
+            //må sjekke om hver overlay er likt 
+
+            return Endringer;
+        }
     }
 }

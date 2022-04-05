@@ -40,6 +40,15 @@ namespace GMAP_Demo
             kategoriListeSkjult.RaiseListChangedEvents = true;
         }
 
+        public static void Visning_OppdaterListeOgKart()
+        {
+            FrmVisning.instance.OppdaterKart();
+        }
+
+        public static void Redigering_OppdaterListeOgKart()
+        {
+            frmRediger.instance.OppdaterKart();
+        }
 
     }
 }

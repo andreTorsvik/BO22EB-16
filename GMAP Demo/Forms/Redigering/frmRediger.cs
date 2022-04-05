@@ -41,6 +41,7 @@ namespace GMAP_Demo
             SetupKart();
             VisRessurser();
             VisOmråder();
+            reff();
         }
 
         void SetupKart()
@@ -175,7 +176,6 @@ namespace GMAP_Demo
           
         }
       
-
         private void frmRediger_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.PnlFormLoader.Controls.Clear();
@@ -224,8 +224,6 @@ namespace GMAP_Demo
             }
         }
 
-        
-
         private void VisRessurser()
         {
             if (FrmVisning.instance.LRessurs.Count > 0)
@@ -250,7 +248,6 @@ namespace GMAP_Demo
                     markers.Markers.Add(marker);
                     instance.map.Overlays.Add(markers);
                 }
-                frmRediger.reff();
             }
         }
 
@@ -272,7 +269,6 @@ namespace GMAP_Demo
                     polygons.Polygons.Add(polygon);
                     instance.map.Overlays.Add(polygons);
                 }
-                reff();
             }
 
         }
@@ -327,6 +323,15 @@ namespace GMAP_Demo
         private void btnZoomMinus_Click(object sender, EventArgs e)
         {
             instance.map.Zoom--;
+        }
+
+        public void OppdaterKart()
+        {
+            map.Overlays.Clear();
+            VisRessurser();
+            VisOmråder();
+            reff();
+
         }
     }
 }

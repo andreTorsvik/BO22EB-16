@@ -30,37 +30,60 @@ namespace GMAP_Demo
 
         private void btnFjern_Click(object sender, EventArgs e)
         {
-            if (Løpenummer_til_Område == -1 && Løpenummer_til_objekt != -1)
+            if (Løpenummer_til_Område == -1 && Løpenummer_til_objekt != -1) // sletting av ressurs 
             {
                 try
                 {
-                    DatabaseCommunication.DeleteRessurs(Løpenummer_til_objekt);
-                    lableSlettet.Text = String.Format("Ressurs nr: {0} er slettet",Løpenummer_til_objekt);
-                    Løpenummer_til_objekt = -1;
-                    TømInnholdTekstboks();
-                    //Må oppdtaere listene og kart
+                    string caption = "Sletting";
+                    string tekst = string.Format("Vil du slette ressurs: {0} ", Løpenummer_til_objekt);
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result;
+
+                    // Displays the MessageBox.
+                    result = MessageBox.Show(tekst, caption, buttons);
+                    if (result == DialogResult.Yes)
+                    {
+                        DatabaseCommunication.DeleteRessurs(Løpenummer_til_objekt);
+                        lableSlettet.Text = String.Format("Ressurs nr: {0} er slettet", Løpenummer_til_objekt);
+                        Løpenummer_til_objekt = -1;
+                        TømInnholdTekstboks();
+                        //Må oppdtaere listene og kart
+                        Kart.Visning_OppdaterListeOgKart();
+                        Kart.Redigering_OppdaterListeOgKart();
+
+                    }
 
                 }
-                catch (Exception)
+                catch (Exception feil)
                 {
-                    MessageBox.Show("Noe galt skjedde");
+                    MessageBox.Show(String.Format("Noe galt skjedde: {0}",feil.Message));
                 }     
             }
-            else if (Løpenummer_til_objekt == -1 && Løpenummer_til_Område != -1)
+            else if (Løpenummer_til_objekt == -1 && Løpenummer_til_Område != -1) // sletting av Område
             {
                 try
                 {
-                    DatabaseCommunication.DeleteOmråde(Løpenummer_til_Område);
-                    lableSlettet.Text = String.Format("Område nr: {0} er slettet", Løpenummer_til_Område);
-                    Løpenummer_til_Område = -1;
-                    TømInnholdTekstboks();
-                    //Må oppdtaere listene og kart 
+                    string caption = "Sletting";
+                    string tekst = string.Format("Vil du slette Område: {0} ", Løpenummer_til_Område);
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result;
 
-
+                    // Displays the MessageBox.
+                    result = MessageBox.Show(tekst, caption, buttons);
+                    if (result == DialogResult.Yes)
+                    {
+                        DatabaseCommunication.DeleteOmråde(Løpenummer_til_Område);
+                        lableSlettet.Text = String.Format("Område nr: {0} er slettet", Løpenummer_til_Område);
+                        Løpenummer_til_Område = -1;
+                        TømInnholdTekstboks();
+                        //Må oppdtaere listene og kart 
+                        Kart.Visning_OppdaterListeOgKart();
+                        Kart.Redigering_OppdaterListeOgKart();
+                    }
                 }
-                catch (Exception)
+                catch (Exception feil)
                 {
-                    MessageBox.Show("Noe galt skjedde");
+                    MessageBox.Show(String.Format("Noe galt skjedde: {0}", feil.Message));
                 }
 
 

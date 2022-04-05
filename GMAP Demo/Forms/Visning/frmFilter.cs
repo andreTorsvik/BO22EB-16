@@ -42,7 +42,32 @@ namespace GMAP_Demo
             txtAntall.Text = FrmVisning.instance.LRessurs.Count.ToString();
         }
 
-        private void btnRessurs_Click(object sender, EventArgs e)
+        public void OppdaterRessursListe()
+        {
+            if (FrmVisning.instance.LRessurs.Count > 0) FrmVisning.instance.LRessurs.Clear();
+            var RessursList = DatabaseCommunication.ListAllRessursFromDb();
+
+            foreach (var item in RessursList)
+            {
+                FrmVisning.instance.LRessurs.Add(item);
+            }
+            LeggTilRessurs(FrmVisning.instance.LRessurs);
+        }
+        public void OppdaterOmrådeListe()
+        {
+            FrmVisning.instance.LOmråde.Clear();
+
+            var OmrådeListe = DatabaseCommunication.ListAllOmrådeFromDb();
+
+            foreach (var item in OmrådeListe)
+            {
+                FrmVisning.instance.LOmråde.Add(item);
+            }
+            LeggTilOmråde(FrmVisning.instance.LOmråde);
+           
+        }
+
+            private void btnRessurs_Click(object sender, EventArgs e)
         {
             LeggTilRessurs(FrmVisning.instance.LRessurs);
             FrmVisning.reff();
@@ -79,7 +104,7 @@ namespace GMAP_Demo
             LeggTilOmråde(FrmVisning.instance.LOmråde);
             FrmVisning.reff();
         }
-        //burde ta listen som agrument 
+
         public void LeggTilRessurs(List<Ressurs> Rlist)
         {
             Bildebehandling bildebehandling = new Bildebehandling();
@@ -112,7 +137,6 @@ namespace GMAP_Demo
             }
         }
 
-        //burde ta listen som argument 
         public void LeggTilOmråde( List<Område> Olist)
         {
             int Tag = 0;

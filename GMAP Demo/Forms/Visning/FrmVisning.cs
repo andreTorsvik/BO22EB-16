@@ -118,8 +118,12 @@ namespace GMAP_Demo
             if (instance.map.Overlays.Count > 0)
             {
                 instance.map.Overlays.Clear();
-                
-                //må tøme liste med ressurser og fylle igjen 
+
+                //må tøme liste med ressurser 
+                LRessurs.Clear();
+                LOmråde.Clear();
+
+                //fylle listene 
 
 
                 frmFilter.instance.LeggTilRessurs(FrmVisning.instance.LRessurs);
@@ -279,6 +283,14 @@ namespace GMAP_Demo
             frmHjelp.Size = this.Size;
             frmHjelp.TopMost = true;
             frmHjelp.Show();
+        }
+
+        public void OppdaterKart()
+        {
+            instance.map.Overlays.Clear();
+            frmFilter.instance.OppdaterRessursListe();
+            frmFilter.instance.OppdaterOmrådeListe();
+            reff();
         }
     }
 }

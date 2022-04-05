@@ -62,6 +62,8 @@ namespace GMAP_Demo
                     txtLong.Text = "";
                     lbValgtOverlays.Items.Clear();
                     LastInnOverlays();
+                    Kart.Visning_OppdaterListeOgKart();
+                    Kart.Redigering_OppdaterListeOgKart();
                 }
                 else
                 {
