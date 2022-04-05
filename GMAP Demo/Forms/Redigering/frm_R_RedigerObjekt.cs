@@ -136,7 +136,7 @@ namespace GMAP_Demo
             if (utFyllingsmangler == string.Empty)
             {
                 var d = DatabaseCommunication.ListRessursFromDb(Løpenummer_til_redigering);
-                string FeilTallSjekk = Tekstbehandling.sjekkTallData(txtSikkerhetsklarering.Text, txtLat.Text, txtLong.Text);
+                string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData(txtSikkerhetsklarering.Text, txtLat.Text, txtLong.Text);
                 if (FeilTallSjekk == string.Empty)
                 {
                     string sjekk = Tekstbehandling.SjekkEndringerObjekt(d, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);

@@ -19,65 +19,21 @@ namespace GMAP_Demo
 
         private void btnOpprettbruker_Click(object sender, EventArgs e)
         {
-            bool altUtfylt = true;
             bool opprettet = false;
-            string utFyllingsmangler = "Du mangler:";
-            //kode for sjekk at alle felten er utfylt
-            if (string.IsNullOrWhiteSpace(txtFornavn.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Fornavn";
-            }
-            if (string.IsNullOrWhiteSpace(txtEtternavn.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Etternavn";
-            }
-            if (string.IsNullOrWhiteSpace(txtTelefon.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Telefonnummer";
-            }
-            if (string.IsNullOrWhiteSpace(txtEpost.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Epost";
-            }
-            if (string.IsNullOrWhiteSpace(txtPassord.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Passord";
-            }
-            if (string.IsNullOrWhiteSpace(txtBePassord.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " bekrefte passord";
-            }
 
-            if (altUtfylt)
+            string fornavn = txtFornavn.Text;
+            string etternavn = txtEtternavn.Text;
+            string telefon = txtTelefon.Text;
+            string Epost = txtEpost.Text;
+            string passord = txtPassord.Text;
+            string bePassord = txtBePassord.Text;
+            string utFyllingsmangler = Tekstbehandling.SjekkInntastetDataRegisterings(fornavn,etternavn,telefon,Epost,passord,bePassord);
+
+            if (utFyllingsmangler == string.Empty)
             {
-                bool sjekkInnhold = true;
-                string feil = null;
-                //alle sjekkenede  
-                if (!(txtPassord.Text == txtBePassord.Text))
-                {
-                    sjekkInnhold = false;
-                    feil += "Passord samsvarer ikke";
-                }
+                string feil = Tekstbehandling.SjekkGyldigDataRegistering(Epost, passord, bePassord);
 
-                //En enkel epost adresse sjekk 
-                if (!((txtEpost.Text.Contains(".com") || txtEpost.Text.Contains(".no") || txtEpost.Text.Contains(".net"))
-                    && txtEpost.Text.Contains("@")))
-                {
-                    sjekkInnhold = false;
-                    if (feil == null) feil = "Du har ikke oppgitt en mail adresse";
-                    else feil += ", og du har ikke oppgitt en mail adresse";
-                }
-
-                if (feil != null) MessageBox.Show(feil);
-
-
-                if (sjekkInnhold)
+                if (feil == string.Empty)
                 {
                     //sjekk at ingen har samme epost
                     var SjekkEpost = DatabaseCommunication.ListBrukerInfoFromDb(txtEpost.Text.Trim());
@@ -99,13 +55,14 @@ namespace GMAP_Demo
                         MessageBox.Show("Mailen eksitere allerede i systemet");
                     }
                 }
+                else MessageBox.Show(feil);
             }
             else MessageBox.Show(utFyllingsmangler);
 
             //om bruker er oprrettet 
             if (opprettet)
             {
-                MessageBox.Show("Bruker er nå opprett, og venter for å bli godkjent av en admin. Hvis den blir godkjent " +
+                MessageBox.Show("Bruker er nå opprett, venter på å bli godkjent av en admin. Hvis den blir godkjent " +
                     "vil du motta en mail med en kode.");
 
                 this.Close();

@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GMAP_Demo
 {
     public class Tekstbehandling
     {
-        static public string sjekkTallData(string sikkerhetsKlarering, string lat, string lang)
+        static public string sjekkGyldigTallData(string sikkerhetsKlarering, string lat, string lang)
         {
             string svar = string.Empty;
 
@@ -52,7 +49,58 @@ namespace GMAP_Demo
             return svar;
         }
 
-        static public string SjekkInntastetDataObjekt(string navn,string kategori, string sikkerhetsklarering, string kommentar,string lat, string lang, int ListeAntall)
+        static public string SjekkInntastetDataRegisterings(string Fornavn, string Etternavn, string Telefon, string Epost, string Passord, string BePassord)
+        {
+            string utFyllingsmangler = string.Empty;
+            List<string> Lfeil = new List<string>();
+
+            //kode for sjekk at alle felten er utfylt
+            if (string.IsNullOrWhiteSpace(Fornavn))  Lfeil.Add("Fornavn");
+            if (string.IsNullOrWhiteSpace(Etternavn)) Lfeil.Add(" Etternavn");
+            if (string.IsNullOrWhiteSpace(Telefon)) Lfeil.Add(" Telefonnummer");
+            if (string.IsNullOrWhiteSpace(Epost)) Lfeil.Add(" Epost");
+            if (string.IsNullOrWhiteSpace(Passord)) Lfeil.Add(" Passord");
+            if (string.IsNullOrWhiteSpace(BePassord)) Lfeil.Add(" bekrefte passord");
+
+            if (Lfeil.Count > 0)
+            {
+                utFyllingsmangler = "Du mangler: ";
+                for (int i = 0; i < Lfeil.Count; i++)
+                {
+                    utFyllingsmangler += Lfeil[i];
+                    if (i < Lfeil.Count - 1) utFyllingsmangler += ", ";
+                }
+            }
+            return utFyllingsmangler;
+        }
+
+        static public string SjekkGyldigDataRegistering(string Epost, string passord, string Bepassord)
+        {
+            string utFyllingsmangler = string.Empty;
+            List<string> Lfeil = new List<string>();
+            //alle sjekkenede  
+            if (!(passord == Bepassord)) Lfeil.Add("Passord samsvarer ikke");
+
+
+            //En enkel epost adresse sjekk 
+            if (!((Epost.Contains(".com") || Epost.Contains(".no") || Epost.Contains(".net"))
+                && Epost.Contains("@")))
+            {
+                Lfeil.Add("ikke oppgitt en mail adresse");
+            }
+            if (Lfeil.Count > 0)
+            {
+                utFyllingsmangler = "Feil: ";
+                for (int i = 0; i < Lfeil.Count; i++)
+                {
+                    utFyllingsmangler += Lfeil[i];
+                    if (i < Lfeil.Count - 1) utFyllingsmangler += ", ";
+                }
+            }
+            return utFyllingsmangler;
+        }
+
+        static public string SjekkInntastetDataObjekt(string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int ListeAntall)
         {
             string utFyllingsmangler = string.Empty;
             List<string> Lfeil = new List<string>();
@@ -72,12 +120,13 @@ namespace GMAP_Demo
                 for (int i = 0; i < Lfeil.Count; i++)
                 {
                     utFyllingsmangler += Lfeil[i];
-                    if (i < Lfeil.Count - 1 ) utFyllingsmangler += ", ";
+                    if (i < Lfeil.Count - 1) utFyllingsmangler += ", ";
                 }
             }
             return utFyllingsmangler;
         }
-        public static string SjekkEndringerObjekt(List<Ressurs> rList,string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int ListeAntall)
+
+        public static string SjekkEndringerObjekt(List<Ressurs> rList, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int ListeAntall)
         {
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
