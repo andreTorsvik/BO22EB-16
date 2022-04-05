@@ -42,11 +42,13 @@ namespace GMAP_Demo
 
         public static void Visning_OppdaterListeOgKart()
         {
-            FrmVisning.instance.OppdaterKart();
+            //FrmVisning.instance.OppdaterKart();
+            frmFilter.instance.OppdaterKart();
         }
 
         public static void Redigering_OppdaterListeOgKart()
         {
+            //bruker listene i FrmVisning, så visning_oppdaterkart må kjører først 
             frmRediger.instance.OppdaterKart();
         }
 

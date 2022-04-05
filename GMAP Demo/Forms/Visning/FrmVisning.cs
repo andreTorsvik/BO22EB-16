@@ -285,12 +285,12 @@ namespace GMAP_Demo
             frmHjelp.Show();
         }
 
-        public void OppdaterKart()
-        {
-            instance.map.Overlays.Clear();
-            frmFilter.instance.OppdaterRessursListe();
-            frmFilter.instance.OppdaterOmrådeListe();
-            reff();
-        }
+        //public void OppdaterKart()
+        //{
+        //    instance.map.Overlays.Clear();
+        //    frmFilter.instance.OppdaterRessursListe();
+        //    frmFilter.instance.OppdaterOmrådeListe();
+        //    reff();
+        //}
     }
 }

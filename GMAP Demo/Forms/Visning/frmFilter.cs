@@ -45,6 +45,7 @@ namespace GMAP_Demo
         public void OppdaterRessursListe()
         {
             if (FrmVisning.instance.LRessurs.Count > 0) FrmVisning.instance.LRessurs.Clear();
+            //må endres 
             var RessursList = DatabaseCommunication.ListAllRessursFromDb();
 
             foreach (var item in RessursList)
@@ -253,7 +254,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void OppdaterKart()
+        public void OppdaterKart()
         {
             FrmVisning.instance.map.Overlays.Clear();
             if (FrmVisning.instance.LRessurs.Count > 0) FrmVisning.instance.LRessurs.Clear();
