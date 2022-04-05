@@ -7,7 +7,6 @@ using System.Configuration;
 using Dapper;
 using System.Data;
 using System.Data.SqlClient;
-using GMAP_Demo.Database.DataTypes;
 using GMap.NET;
 using System.IO;
 
@@ -41,7 +40,7 @@ namespace GMAP_Demo
         }
         //
 
-        public List<Bruker> CheckLoginAgainstDb(string Username, string Password)
+        public static List<Bruker> CheckLoginAgainstDb(string Username, string Password)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -50,7 +49,7 @@ namespace GMAP_Demo
             }
         }
 
-        public List<Bruker> ListAllBrukerFromDb()
+        public static List<Bruker> ListAllBrukerFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -58,7 +57,7 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public List<Kategorier_Bilde> ListAllKategorier_BildeFromDb()
+        public static List<Kategorier_Bilde> ListAllKategorier_BildeFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -66,7 +65,7 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public List<Måling> ListAllMålingFromDb()
+        public static List<Måling> ListAllMålingFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -74,7 +73,7 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public List<Område> ListAllOmrådeFromDb()
+        public static List<Område> ListAllOmrådeFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -82,7 +81,7 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public List<Overlay_Område> ListAllOverlay_OmrådeFromDb()
+        public static List<Overlay_Område> ListAllOverlay_OmrådeFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -90,7 +89,7 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public List<Overlay_Ressurs> ListAllOverlay_RessursFromDb()
+        public static List<Overlay_Ressurs> ListAllOverlay_RessursFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -98,7 +97,7 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public List<Punkter_område> ListAllPunkter_områdeFromDb()
+        public static List<Punkter_område> ListAllPunkter_områdeFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -106,7 +105,7 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public List<Ressurs> ListAllRessursFromDb()
+        public static List<Ressurs> ListAllRessursFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -115,7 +114,7 @@ namespace GMAP_Demo
             }
         }
 
-        public List<Ressurs> ListRessursFromDb(int løpenummer)
+        public static List<Ressurs> ListRessursFromDb(int løpenummer)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -124,7 +123,7 @@ namespace GMAP_Demo
             }
         }
 
-        public List<Bruker> ListBrukerInfoFromDb(string username)
+        public static List<Bruker> ListBrukerInfoFromDb(string username)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -133,7 +132,7 @@ namespace GMAP_Demo
             }
         }
 
-        public void DeleteUser(string username)
+        public static void DeleteUser(string username)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -146,7 +145,7 @@ namespace GMAP_Demo
             }
         }
 
-        public void InsertRessursToDb(string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
+        public static void InsertRessursToDb(string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -166,7 +165,7 @@ namespace GMAP_Demo
             }
         }
 
-        public void InsertOmrådeToDb(string navn, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> punkter)
+        public static void InsertOmrådeToDb(string navn, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> punkter)
         {
             //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             //{
@@ -205,7 +204,7 @@ namespace GMAP_Demo
             //}   
         }
 
-        public void InsertBrukerToDb(string fornavn, string etternavn, int telefonnummer, string epost, string passord, int tallkode)
+        public static void InsertBrukerToDb(string fornavn, string etternavn, int telefonnummer, string epost, string passord, int tallkode)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -226,7 +225,7 @@ namespace GMAP_Demo
             }
         }
 
-        public void InsertKategorier_BildeToDb(string kategorinavn)
+        public static void InsertKategorier_BildeToDb(string kategorinavn)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -240,7 +239,7 @@ namespace GMAP_Demo
             }
         }
 
-        public void InsertBildeToChosenKategorier_BildeToDb(string kategorinavn, byte[] imageData)
+        public static void InsertBildeToChosenKategorier_BildeToDb(string kategorinavn, byte[] imageData)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -253,7 +252,7 @@ namespace GMAP_Demo
                 connection.Execute("[dbo].[PROCEDUREinsertBildeIntoKategorier_Bilde] @Kategorinavn, @Bilde", (kategorier_BildeBildeToAdd));
             }
         }
-        public void UpdateBruker_Godkjent(string epost, bool godkjent)
+        public static void UpdateBruker_Godkjent(string epost, bool godkjent)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -266,7 +265,7 @@ namespace GMAP_Demo
                 connection.Execute("[dbo].[PROCEDUREUpdateBruker_godkjent] @Epost, @Godkjent", (UpdateGodkjent));
             }
         }
-        public void UpdateBruker_Verifisert(string epost, bool godkjent)
+        public static void UpdateBruker_Verifisert(string epost, bool godkjent)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -279,7 +278,7 @@ namespace GMAP_Demo
                 connection.Execute("[dbo].[PROCEDUREUpdateBruker_Verifisert] @Epost, @Verifisert", (UpdateVerifisert));
             }
         }
-        public void UpdateBruker_Sikkerhetsklarering(string epost, int klarering)
+        public static void UpdateBruker_Sikkerhetsklarering(string epost, int klarering)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -293,7 +292,7 @@ namespace GMAP_Demo
             }
         }
 
-        public void UpdateRessurs(int Løpenummer, string navn, string kategori, int sikkerhetsklarering, string kommentar, float lat, float lang)
+        public static void UpdateRessurs(int Løpenummer, string navn, string kategori, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {

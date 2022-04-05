@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GMap.NET;
 
-namespace GMAP_Demo.Database.DataTypes
+namespace GMAP_Demo
 {
     public class Område
     {
@@ -30,8 +30,7 @@ namespace GMAP_Demo.Database.DataTypes
         public List<PointLatLng> HentPunkter()
         {
             List<PointLatLng> Lsvar = new List<PointLatLng>();
-            DatabaseCommunication db = new DatabaseCommunication();
-            var punktListe = db.ListAllPunkter_områdeFromDb();
+            var punktListe = DatabaseCommunication.ListAllPunkter_områdeFromDb();
 
             // https://stackoverflow.com/questions/289010/c-sharp-list-sort-by-x-then-y
             punktListe = punktListe.OrderBy(x => x.Løpenummer_til_område).ThenBy(x => x.Rekkefølge_punkter).ToList();

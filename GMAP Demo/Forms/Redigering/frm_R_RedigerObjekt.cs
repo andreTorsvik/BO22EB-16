@@ -1,5 +1,4 @@
-﻿using GMAP_Demo.Database.DataTypes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -33,8 +32,7 @@ namespace GMAP_Demo
         private void LastInnKategorier()
         {
             Form1.instance.LKategori.Clear();
-            DatabaseCommunication db = new DatabaseCommunication();
-            var KategoriListe = db.ListAllKategorier_BildeFromDb();
+            var KategoriListe = DatabaseCommunication.ListAllKategorier_BildeFromDb();
 
             foreach (var item in KategoriListe)
             {
@@ -54,9 +52,7 @@ namespace GMAP_Demo
 
             if (!string.IsNullOrEmpty(nyKategori))
             {
-                DatabaseCommunication db = new DatabaseCommunication();
-
-                db.InsertKategorier_BildeToDb(nyKategori);
+                DatabaseCommunication.InsertKategorier_BildeToDb(nyKategori);
 
                 lbTilgjengligKategori.Items.Add(nyKategori);
                 lbTilgjengligKategori.Sorted = true;
@@ -68,15 +64,14 @@ namespace GMAP_Demo
         {
             HashSet<string> AlleOverlay = new HashSet<string>();
 
-            DatabaseCommunication db = new DatabaseCommunication();
-            var OverlayOListe = db.ListAllOverlay_OmrådeFromDb();
+            var OverlayOListe = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
 
             foreach (var item in OverlayOListe)
             {
                 AlleOverlay.Add(item.Kategori.ToString());
             }
 
-            var OverlayRListe = db.ListAllOverlay_RessursFromDb();
+            var OverlayRListe = DatabaseCommunication.ListAllOverlay_RessursFromDb();
 
             foreach (var item in OverlayRListe)
             {
@@ -169,8 +164,7 @@ namespace GMAP_Demo
 
             if (altUtfylt)
             {
-                DatabaseCommunication db = new DatabaseCommunication();
-                var d = db.ListRessursFromDb(Løpenummer_til_redigering);
+                var d = DatabaseCommunication.ListRessursFromDb(Løpenummer_til_redigering);
                 string FeilTallSjekk = sjekkTallData(txtSikkerhetsklarering.Text, txtLat.Text, txtLong.Text);
                 if (FeilTallSjekk == string.Empty)
                 {
@@ -179,7 +173,7 @@ namespace GMAP_Demo
                     if (sjekk)
                     {
                         //LAGGRE EMDRING RESSURS
-                        db.UpdateRessurs(Løpenummer_til_redigering, txtNavn.Text, txtKategori.Text, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text, Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
+                        DatabaseCommunication.UpdateRessurs(Løpenummer_til_redigering, txtNavn.Text, txtKategori.Text, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text, Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
                         //SLETTE ALLE OVERLAY KNYTTET TIL RESSURS 
 
                         //LEGGE TIL NYE

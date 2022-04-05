@@ -54,8 +54,7 @@ namespace GMAP_Demo
 
         private void frm_S_LeggTilBilde_Load(object sender, EventArgs e)
         {
-            DatabaseCommunication db = new DatabaseCommunication();
-            var KategoriListe = db.ListAllKategorier_BildeFromDb();
+            var KategoriListe = DatabaseCommunication.ListAllKategorier_BildeFromDb();
 
             foreach (var item in KategoriListe)
             {
@@ -69,9 +68,7 @@ namespace GMAP_Demo
 
         private void btnLeggTilIDb_Click(object sender, EventArgs e)
         {
-            DatabaseCommunication db = new DatabaseCommunication();
-
-            db.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
+            DatabaseCommunication.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
         }
 
 

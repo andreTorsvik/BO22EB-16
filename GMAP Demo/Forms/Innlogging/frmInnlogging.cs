@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GMAP_Demo.Database.DataTypes;
 using System.Net.Mail;
 using System.Net;
 
@@ -31,10 +30,9 @@ namespace GMAP_Demo
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            DatabaseCommunication db = new DatabaseCommunication();
             listBruker = new List<Bruker>();
 
-            listBruker = db.CheckLoginAgainstDb(tbUserName.Text, tbPassword.Text).ToList();
+            listBruker = DatabaseCommunication.CheckLoginAgainstDb(tbUserName.Text, tbPassword.Text).ToList();
 
             // if success
             if (listBruker.Count > 0)

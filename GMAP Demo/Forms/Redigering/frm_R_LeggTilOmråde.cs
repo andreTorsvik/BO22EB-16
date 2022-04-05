@@ -48,15 +48,14 @@ namespace GMAP_Demo
         {
             HashSet<string> AlleOverlay = new HashSet<string>();
 
-            DatabaseCommunication db = new DatabaseCommunication();
 
-            var OverlayOListe = db.ListAllOverlay_OmrådeFromDb();
+            var OverlayOListe = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
             foreach (var item in OverlayOListe)
             {
                 AlleOverlay.Add(item.Kategori.ToString());
             }
 
-            var OverlayRListe = db.ListAllOverlay_RessursFromDb();
+            var OverlayRListe = DatabaseCommunication.ListAllOverlay_RessursFromDb();
             foreach (var item in OverlayRListe)
             {
                 AlleOverlay.Add(item.Kategori.ToString());
@@ -163,14 +162,14 @@ namespace GMAP_Demo
 
             if (altUtfylt)
             {
-                DatabaseCommunication db = new DatabaseCommunication();
+
 
                 // må tilpasses område
 
                 // må opprette metode for område
 
 
-                db.InsertRessursToDb(txtNavn.Text.ToString(), txtfarge.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
+                DatabaseCommunication.InsertRessursToDb(txtNavn.Text.ToString(), txtfarge.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
 
                 txtNavn.Text = "";
                 txtSikkerhetsklarering.Text = "";

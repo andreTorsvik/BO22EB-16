@@ -35,15 +35,14 @@ namespace GMAP_Demo
         {
             HashSet<string> AlleOverlay = new HashSet<string>();
 
-            DatabaseCommunication db = new DatabaseCommunication();
-            var OverlayOListe = db.ListAllOverlay_OmrådeFromDb();
+            var OverlayOListe = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
 
             foreach (var item in OverlayOListe)
             {
                 AlleOverlay.Add(item.Kategori.ToString());
             }
 
-            var OverlayRListe = db.ListAllOverlay_RessursFromDb();
+            var OverlayRListe = DatabaseCommunication.ListAllOverlay_RessursFromDb();
 
             foreach (var item in OverlayRListe)
             {

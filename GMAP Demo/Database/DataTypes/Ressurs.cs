@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GMap.NET;
 
-namespace GMAP_Demo.Database.DataTypes
+namespace GMAP_Demo
 {
     public class Ressurs
     {

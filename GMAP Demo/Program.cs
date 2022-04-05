@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GMAP_Demo.Database.DataTypes;
 
 namespace GMAP_Demo
 {
@@ -21,8 +20,7 @@ namespace GMAP_Demo
             try
             {
                 List<Ressurs> ressursList = new List<Ressurs>();
-                DatabaseCommunication db = new DatabaseCommunication();
-                ressursList = db.ListAllRessursFromDb();
+                ressursList = DatabaseCommunication.ListAllRessursFromDb();
 
             }
             catch (Exception e)

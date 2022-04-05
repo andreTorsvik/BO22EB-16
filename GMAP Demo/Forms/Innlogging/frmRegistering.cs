@@ -80,8 +80,7 @@ namespace GMAP_Demo
                 if (sjekkInnhold)
                 {
                     //sjekk at ingen har samme epost
-                    DatabaseCommunication db = new DatabaseCommunication();
-                    var SjekkEpost = db.ListBrukerInfoFromDb(txtEpost.Text.Trim());
+                    var SjekkEpost = DatabaseCommunication.ListBrukerInfoFromDb(txtEpost.Text.Trim());
                     if (SjekkEpost.Count == 0)
                     {
                         try
@@ -89,8 +88,7 @@ namespace GMAP_Demo
                             //Generer tall 
                             int Tallkode = GenereTallKode();
                             //legge til i database
-                            db = new DatabaseCommunication();
-                            db.InsertBrukerToDb(txtFornavn.Text.ToString(), txtEtternavn.Text.ToString(), Convert.ToInt32(txtTelefon.Text), txtEpost.Text.ToString().Trim(), txtPassord.Text.ToString(), Tallkode);
+                            DatabaseCommunication.InsertBrukerToDb(txtFornavn.Text.ToString(), txtEtternavn.Text.ToString(), Convert.ToInt32(txtTelefon.Text), txtEpost.Text.ToString().Trim(), txtPassord.Text.ToString(), Tallkode);
 
                             opprettet = true;
                         }
