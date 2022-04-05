@@ -1,19 +1,13 @@
-﻿using System;
+﻿using GMAP_Demo.Database.DataTypes;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using GMAP_Demo.Database.DataTypes;
 
 namespace GMAP_Demo
 {
     public partial class frm_R_RedigerObjekt : Form
     {
-        
+
         public static frm_R_RedigerObjekt instance;
         public int Løpenummer_til_redigering;
         public frm_R_RedigerObjekt()
@@ -56,7 +50,7 @@ namespace GMAP_Demo
             string nyKategori = "";
 
             nyKategori = txtNyKategori.Text;
-            
+
 
             if (!string.IsNullOrEmpty(nyKategori))
             {
@@ -67,7 +61,7 @@ namespace GMAP_Demo
                 lbTilgjengligKategori.Items.Add(nyKategori);
                 lbTilgjengligKategori.Sorted = true;
                 txtNyKategori.Text = "";
-            }       
+            }
         }
 
         private void LastInnOverlays()
@@ -132,8 +126,6 @@ namespace GMAP_Demo
             }
         }
 
-        
-
         private void btnLeggTilObjekt_Click(object sender, EventArgs e)
         {
             bool altUtfylt = true;
@@ -179,25 +171,28 @@ namespace GMAP_Demo
             {
                 DatabaseCommunication db = new DatabaseCommunication();
                 var d = db.ListRessursFromDb(Løpenummer_til_redigering);
-
-                bool sjekk = SjekkEndringer(d);
-
-                if(sjekk)
+                string FeilTallSjekk = sjekkTallData(txtSikkerhetsklarering.Text, txtLat.Text, txtLong.Text);
+                if (FeilTallSjekk == string.Empty)
                 {
-                    //LAGGRE EMDRING RESSURS
-                    db.UpdateRessurs(Løpenummer_til_redigering, txtNavn.Text, txtKategori.Text, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text, Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
-                    //SLETTE ALLE OVERLAY KNYTTET TIL RESSURS 
+                    bool sjekk = SjekkEndringer(d);
 
-                    //LEGGE TIL NYE
+                    if (sjekk)
+                    {
+                        //LAGGRE EMDRING RESSURS
+                        db.UpdateRessurs(Løpenummer_til_redigering, txtNavn.Text, txtKategori.Text, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text, Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
+                        //SLETTE ALLE OVERLAY KNYTTET TIL RESSURS 
 
-                    //Oppdatere Liste med ressurser 
+                        //LEGGE TIL NYE
 
+                        //Oppdatere Liste med ressurser 
+
+                    }
+                    else
+                    {
+
+                    }
                 }
-                else
-                {
-
-                }
-                    
+                else MessageBox.Show(FeilTallSjekk);
 
             }
             else MessageBox.Show(utFyllingsmangler);
@@ -215,11 +210,11 @@ namespace GMAP_Demo
             if (rList[0].Navn != txtNavn.Text)
             {
                 Endring = true;
-                Endringer += string.Format("Navn: {0} -> {1}" + newLine ,rList[0].Navn,txtNavn.Text ) ;
+                Endringer += string.Format("Navn: {0} -> {1}" + newLine, rList[0].Navn, txtNavn.Text);
             }
             try
             {
-                if (rList[0].Sikkerhetsklarering != Convert.ToInt16( txtSikkerhetsklarering.Text))
+                if (rList[0].Sikkerhetsklarering != Convert.ToInt16(txtSikkerhetsklarering.Text))
                 {
                     Endring = true;
                     Endringer += string.Format("Sikkerhetsklarering: {0} -> {1}" + newLine, rList[0].Sikkerhetsklarering, txtSikkerhetsklarering.Text);
@@ -238,17 +233,17 @@ namespace GMAP_Demo
             }
             try
             {
-                if (Math.Round(rList[0].Lat,6) != Math.Round(Convert.ToDouble( txtLat.Text),6))
+                if (Math.Round(rList[0].Lat, 6) != Math.Round(Convert.ToDouble(txtLat.Text), 6))
                 {
                     Endring = true;
                     Endringer += string.Format("Lat: {0} -> {1}" + newLine, rList[0].Lat, txtLat.Text);
                 }
             }
-            catch (Exception) {  }
+            catch (Exception) { }
 
             try
             {
-                if (Math.Round( rList[0].Lang,6) != Math.Round(Convert.ToDouble(txtLong.Text),6))
+                if (Math.Round(rList[0].Lang, 6) != Math.Round(Convert.ToDouble(txtLong.Text), 6))
                 {
                     Endring = true;
                     Endringer += string.Format("Long: {0} -> {1}" + newLine, rList[0].Lang, txtLong.Text);
@@ -273,7 +268,53 @@ namespace GMAP_Demo
                 }
             }
             else MessageBox.Show("Ingen endring");
-            
+
+
+            return svar;
+        }
+
+        private string sjekkTallData(string sikkerhetsKlarering, string lat, string lang)
+        {
+            string svar = string.Empty;
+
+            try
+            {
+                int sjekk = Convert.ToInt16(sikkerhetsKlarering);
+                if (sjekk > Form1.instance.MaxSikkerhetsklarering)
+                {
+                    svar = "Sikkerhetsklarering er for høy";
+                }
+                else if (sjekk < 1)
+                {
+                    svar = "Sikkerhetsklarering kan ikke være lavere enn 1 ";
+                }
+            }
+            catch (Exception)
+            {
+                if (svar != string.Empty) svar += ", ";
+                svar += "Feil inntasting med Sikkerhetsklarering";
+            }
+
+            try
+            {
+                float sjekk = Convert.ToSingle(lat);
+
+            }
+            catch (Exception)
+            {
+                if (svar != string.Empty) svar += ", ";
+                svar += "Feil inntasting med Lat";
+            }
+
+            try
+            {
+                float sjekk = Convert.ToSingle(lang);
+            }
+            catch (Exception)
+            {
+                if (svar != string.Empty) svar += ", ";
+                svar += " Feil inntasting med Long";
+            }
 
             return svar;
         }
