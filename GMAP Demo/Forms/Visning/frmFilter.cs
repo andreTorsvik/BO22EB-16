@@ -118,7 +118,6 @@ namespace GMAP_Demo
 
         private void btnLeggTilOmrådet_Click(object sender, EventArgs e)
         {
-
             LeggTilOmråde(Form1.instance.LOmråde);
             Form1.reff();
         }
@@ -246,7 +245,7 @@ namespace GMAP_Demo
         {
             InitializekategoriListeVises();
             InitializekategoriListeSkjult();
-
+            
             lbKategorierVises.DataSource = kategoriListeVises;
             lbKategorierVises.DisplayMember = "Kategorinavn";
             lbKategorierSkjult.DataSource = kategoriListeSkjult;
@@ -296,6 +295,9 @@ namespace GMAP_Demo
             Form1.reff();
         }
 
+        private void lbKategorierVises_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

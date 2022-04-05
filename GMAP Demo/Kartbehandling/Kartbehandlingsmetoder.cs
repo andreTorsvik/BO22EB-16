@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace GMAP_Demo
 {
-    internal class Kartbehandlingsmetoder
+    public class Kartbehandling
     {
+
+
+
     }
 }

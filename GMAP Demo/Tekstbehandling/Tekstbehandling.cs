@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace GMAP_Demo
 {
-    internal class Tekstbehandling
+    public class Tekstbehandling
     {
+
+
     }
 }
