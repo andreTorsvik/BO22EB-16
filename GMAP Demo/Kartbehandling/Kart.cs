@@ -68,7 +68,7 @@ namespace GMAP_Demo
                 }
             }
 
-            LeggTilRessurs(FrmVisning.instance.LRessurs);
+            LeggTilRessurs(FrmVisning.instance.LRessurs,0);
             FrmVisning.reff();
         }
 
@@ -78,8 +78,12 @@ namespace GMAP_Demo
             frmRediger.instance.OppdaterKart();
         }
 
-        public static  void LeggTilRessurs(List<Ressurs> Rlist)
+        public static  void LeggTilRessurs(List<Ressurs> Rlist,int hvilketKart)
         {
+            // HvilketKart 0 = Visning.map
+            // HvilketKart 1 = Redigerings.map
+            // Hvilketkart 2 = Begge 
+            // Alt annet: ingen ting
             Bildebehandling bildebehandling = new Bildebehandling();
             int tag = 0;
             GMapMarker marker;
@@ -106,12 +110,23 @@ namespace GMAP_Demo
 
                 GMapOverlay markers = new GMapOverlay("test1");
                 markers.Markers.Add(marker);
-                FrmVisning.instance.map.Overlays.Add(markers);
+                if(hvilketKart == 0) FrmVisning.instance.map.Overlays.Add(markers);
+                if(hvilketKart == 1) frmRediger.instance.map.Overlays.Add(markers);
+                if(hvilketKart == 2)
+                {
+                    FrmVisning.instance.map.Overlays.Add(markers);
+                    frmRediger.instance.map.Overlays.Add(markers);
+                }
+
             }
         }
 
-        public static void LeggTilOmråde(List<Område> Olist)
+        public static void LeggTilOmråde(List<Område> Olist,int hvilketKart)
         {
+            // HvilketKart 0 = Visning.map
+            // HvilketKart 1 = Redigerings.map
+            // Hvilketkart 2 = Begge 
+            // Alt annet: ingen ting
             int Tag = 0;
             foreach (var item in Olist)
             {
@@ -125,6 +140,14 @@ namespace GMAP_Demo
                 GMapOverlay polygons = new GMapOverlay("Polygons");
                 polygons.Polygons.Add(polygon);
                 FrmVisning.instance.map.Overlays.Add(polygons);
+
+                if (hvilketKart == 0) FrmVisning.instance.map.Overlays.Add(polygons);
+                if (hvilketKart == 1) frmRediger.instance.map.Overlays.Add(polygons);
+                if (hvilketKart == 2)
+                {
+                    FrmVisning.instance.map.Overlays.Add(polygons);
+                    frmRediger.instance.map.Overlays.Add(polygons);
+                }
             }
 
         }
