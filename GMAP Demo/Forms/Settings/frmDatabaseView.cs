@@ -1,5 +1,4 @@
-﻿using GMAP_Demo.Database.DataTypes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -82,8 +81,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbBrukerView.Height, btnDbBrukerView.Top);
             
-            DatabaseCommunication db = new DatabaseCommunication();
-            brukerList = db.ListAllBrukerFromDb();
+            brukerList = DatabaseCommunication.ListAllBrukerFromDb();
             listBoxDatabaseView.DataSource = brukerList;
             listBoxDatabaseView.DisplayMember = "brukerDataTypeToString";
         }
@@ -95,8 +93,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbKategorier_BildeView.Height, btnDbKategorier_BildeView.Top);
 
-            DatabaseCommunication db = new DatabaseCommunication();
-            kategorier_BildeList = db.ListAllKategorier_BildeFromDb();
+            kategorier_BildeList = DatabaseCommunication.ListAllKategorier_BildeFromDb();
             listBoxDatabaseView.DataSource = kategorier_BildeList;
             listBoxDatabaseView.DisplayMember = "kategorier_BildeDataTypeToString";
         }
@@ -108,8 +105,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbMålingView.Height, btnDbMålingView.Top);
 
-            DatabaseCommunication db = new DatabaseCommunication();
-            målingList = db.ListAllMålingFromDb();
+            målingList = DatabaseCommunication.ListAllMålingFromDb();
             listBoxDatabaseView.DataSource = målingList;
             listBoxDatabaseView.DisplayMember = "målingDataTypeToString";
         }
@@ -121,8 +117,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbOverlay_OmrådeView.Height, btnDbOverlay_OmrådeView.Top);
             
-            DatabaseCommunication db = new DatabaseCommunication();
-            overlay_OmrådeList = db.ListAllOverlay_OmrådeFromDb();
+            overlay_OmrådeList = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
             listBoxDatabaseView.DataSource = overlay_OmrådeList;
             listBoxDatabaseView.DisplayMember = "overlay_OmrådeDataTypeToString";
         }
@@ -134,8 +129,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbOverlay_RessursView.Height, btnDbOverlay_RessursView.Top);
 
-            DatabaseCommunication db = new DatabaseCommunication();
-            overlay_RessursList = db.ListAllOverlay_RessursFromDb();
+            overlay_RessursList = DatabaseCommunication.ListAllOverlay_RessursFromDb();
             listBoxDatabaseView.DataSource = overlay_RessursList;
             listBoxDatabaseView.DisplayMember = "overlay_RessursDataTypeToString";
         }
@@ -147,8 +141,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbPunkter_områdeView.Height, btnDbPunkter_områdeView.Top);
 
-            DatabaseCommunication db = new DatabaseCommunication();
-            punkter_områdeList = db.ListAllPunkter_områdeFromDb();
+            punkter_områdeList = DatabaseCommunication.ListAllPunkter_områdeFromDb();
             listBoxDatabaseView.DataSource = punkter_områdeList;
             listBoxDatabaseView.DisplayMember = "punkter_områdeDataTypeToString";
         }
@@ -160,8 +153,7 @@ namespace GMAP_Demo
             
             FlyttNavigasjonsPanel(btnDbRessursView.Height, btnDbRessursView.Top);
 
-            DatabaseCommunication db = new DatabaseCommunication();
-            ressursList = db.ListAllRessursFromDb();
+            ressursList = DatabaseCommunication.ListAllRessursFromDb();
             listBoxDatabaseView.DataSource = ressursList;
             listBoxDatabaseView.DisplayMember = "ressursDataTypeToString";
         }
@@ -182,8 +174,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbOmrådeView.Height, btnDbOmrådeView.Top);
 
-            DatabaseCommunication db = new DatabaseCommunication();
-            områdeList = db.ListAllOmrådeFromDb();
+            områdeList = DatabaseCommunication.ListAllOmrådeFromDb();
             listBoxDatabaseView.DataSource = områdeList;
             listBoxDatabaseView.DisplayMember = "områdeDataTypeToString";
         }

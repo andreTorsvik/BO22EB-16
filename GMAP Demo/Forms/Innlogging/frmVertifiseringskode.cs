@@ -27,7 +27,7 @@ namespace GMAP_Demo
                 DatabaseCommunication db = new DatabaseCommunication();
 
                 //endre til updateBruker_vertifisert:
-                db.UpdateBruker_Verifisert(frmInnlogging.instance.listBruker[0].Epost, true);
+                DatabaseCommunication.UpdateBruker_Verifisert(frmInnlogging.instance.listBruker[0].Epost, true);
 
                 //logg inn
                 InnloggetBruker.BrukernavnInnlogget = frmInnlogging.instance.listBruker[0].Epost;

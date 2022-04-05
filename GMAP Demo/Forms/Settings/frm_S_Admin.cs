@@ -23,8 +23,7 @@ namespace GMAP_Demo
 
         private void FyllListeneBoksene()
         {
-            DatabaseCommunication db = new DatabaseCommunication();
-            var BrukerListe = db.ListAllBrukerFromDb();
+            var BrukerListe = DatabaseCommunication.ListAllBrukerFromDb();
 
             //liste over brukere 
             foreach (var item in BrukerListe)
@@ -50,8 +49,7 @@ namespace GMAP_Demo
         {
             lbListeOverbrukere.Items.Clear();
 
-            DatabaseCommunication db = new DatabaseCommunication();
-            var BrukerListe = db.ListAllBrukerFromDb();
+            var BrukerListe = DatabaseCommunication.ListAllBrukerFromDb();
 
             //liste over brukere 
             foreach (var item in BrukerListe)
@@ -67,9 +65,8 @@ namespace GMAP_Demo
 
             string TilEpost = HentEpostFraInfo(BrukerInfo);
 
-            DatabaseCommunication db = new DatabaseCommunication();
-            var BrukerListe = db.ListBrukerInfoFromDb(TilEpost);
-            db.UpdateBruker_Godkjent(BrukerListe[0].Epost, true);
+            var BrukerListe = DatabaseCommunication.ListBrukerInfoFromDb(TilEpost);
+            DatabaseCommunication.UpdateBruker_Godkjent(BrukerListe[0].Epost, true);
 
             int tallkode = BrukerListe[0].Tallkode; ;
             try
@@ -132,8 +129,7 @@ namespace GMAP_Demo
             //fjern fra databasen 
             try
             {
-                DatabaseCommunication db = new DatabaseCommunication();
-                db.DeleteUser(epost);
+                DatabaseCommunication.DeleteUser(epost);
                 lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
             }
             catch (Exception)
@@ -171,8 +167,7 @@ namespace GMAP_Demo
 
             if (epost != null)
             {
-                DatabaseCommunication db = new DatabaseCommunication();
-                var brukerListe = db.ListBrukerInfoFromDb(epost);
+                var brukerListe = DatabaseCommunication.ListBrukerInfoFromDb(epost);
 
                 int klarering = brukerListe[0].Sikkerhetsklarering;
 
@@ -185,7 +180,7 @@ namespace GMAP_Demo
                     MessageBox.Show("Kan ikke oppgradere fordi bruker allerede har høyeste");
                 }
 
-                db.UpdateBruker_Sikkerhetsklarering(epost, klarering);
+                DatabaseCommunication.UpdateBruker_Sikkerhetsklarering(epost, klarering);
 
                 OppdaterListenOverBrukere(selectetItem);
             }
@@ -198,8 +193,7 @@ namespace GMAP_Demo
             string BrukerInfo = lbListeOverbrukere.SelectedItem.ToString();
             string epost = HentEpostFraInfo(BrukerInfo);
 
-            DatabaseCommunication db = new DatabaseCommunication();
-            var brukerListe = db.ListBrukerInfoFromDb(epost);
+            var brukerListe = DatabaseCommunication.ListBrukerInfoFromDb(epost);
 
             int klarering = brukerListe[0].Sikkerhetsklarering;
 
@@ -212,7 +206,7 @@ namespace GMAP_Demo
                 MessageBox.Show("Kan ikke nedgradere fordi bruker allerede har laveste");
             }
 
-            db.UpdateBruker_Sikkerhetsklarering(epost, klarering);
+            DatabaseCommunication.UpdateBruker_Sikkerhetsklarering(epost, klarering);
 
             OppdaterListenOverBrukere(selectetItem);
         }
