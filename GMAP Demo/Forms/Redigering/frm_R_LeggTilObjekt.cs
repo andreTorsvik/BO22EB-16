@@ -43,10 +43,10 @@ namespace GMAP_Demo
             string lang = txtLong.Text;
             int antall = lbValgtOverlays.Items.Count;
 
-            bool altUtfylt = true;
+            
             string utFyllingsmangler = Tekstbehandling.SjekkInntastetDataObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
             
-            if (utFyllingsmangler == "Du mangler:")
+            if (utFyllingsmangler == string.Empty)
             {
                 string feilMelding = Tekstbehandling.sjekkTallData(txtSikkerhetsklarering.Text,txtLat.Text,txtLong.Text);
                 if (feilMelding == string.Empty)

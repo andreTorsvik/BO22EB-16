@@ -29,7 +29,6 @@ namespace GMAP_Demo
                 if (svar != string.Empty) svar += ", ";
                 svar += "Feil inntasting med Sikkerhetsklarering";
             }
-
             try
             {
                 float sjekk = Convert.ToSingle(lat);
@@ -40,7 +39,6 @@ namespace GMAP_Demo
                 if (svar != string.Empty) svar += ", ";
                 svar += "Feil inntasting med Lat";
             }
-
             try
             {
                 float sjekk = Convert.ToSingle(lang);
@@ -56,41 +54,27 @@ namespace GMAP_Demo
 
         static public string SjekkInntastetDataObjekt(string navn,string kategori, string sikkerhetsklarering, string kommentar,string lat, string lang, int ListeAntall)
         {
-            string utFyllingsmangler = "Du mangler:";
-                //"Du mangler:";
+            string utFyllingsmangler = string.Empty;
+            List<string> Lfeil = new List<string>();
+
             //kode for sjekk at alle felten er utfylt
-            if (string.IsNullOrWhiteSpace(navn))
-            {
+            if (string.IsNullOrWhiteSpace(navn)) Lfeil.Add("Navn");
+            if (string.IsNullOrWhiteSpace(kategori)) Lfeil.Add("Kategori");
+            if (string.IsNullOrWhiteSpace(sikkerhetsklarering)) Lfeil.Add("Sikkerhetsklarering");
+            if (string.IsNullOrWhiteSpace(kommentar)) Lfeil.Add("Kommentar");
+            if (string.IsNullOrWhiteSpace(lat)) Lfeil.Add("Lat");
+            if (string.IsNullOrWhiteSpace(lang)) Lfeil.Add("Long");
+            if (ListeAntall <= 0) Lfeil.Add("Overlay");
 
-                utFyllingsmangler += " Navn";
-            }
-            if (string.IsNullOrWhiteSpace(kategori))
+            if (Lfeil.Count > 0)
             {
-
-                utFyllingsmangler += " Kategori";
+                utFyllingsmangler = "Du mangler: ";
+                for (int i = 0; i < Lfeil.Count; i++)
+                {
+                    utFyllingsmangler += Lfeil[i];
+                    if (i < Lfeil.Count - 1 ) utFyllingsmangler += ", ";
+                }
             }
-            if (string.IsNullOrWhiteSpace(sikkerhetsklarering))
-            {
-
-                utFyllingsmangler += " Sikkerhetsklarering";
-            }
-            if (string.IsNullOrWhiteSpace(kommentar))
-            {
-                utFyllingsmangler += " Kommentar";
-            }
-            if (string.IsNullOrWhiteSpace(lat))
-            {
-                utFyllingsmangler += " lat";
-            }
-            if (string.IsNullOrWhiteSpace(lang))
-            {
-                utFyllingsmangler += " long";
-            }
-            if (ListeAntall <= 0)
-            {
-                utFyllingsmangler += " Overlay";
-            }
-
             return utFyllingsmangler;
         }
     }
