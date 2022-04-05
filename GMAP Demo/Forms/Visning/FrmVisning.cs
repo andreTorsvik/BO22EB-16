@@ -126,8 +126,8 @@ namespace GMAP_Demo
                 //fylle listene 
 
 
-                frmFilter.instance.LeggTilRessurs(FrmVisning.instance.LRessurs);
-                frmFilter.instance.LeggTilOmråde(FrmVisning.instance.LOmråde);
+                Kart.LeggTilRessurs(FrmVisning.instance.LRessurs);
+                Kart.LeggTilOmråde(FrmVisning.instance.LOmråde);
 
                 reff();
             }

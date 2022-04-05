@@ -330,7 +330,6 @@
             this.lbKategorierVises.Name = "lbKategorierVises";
             this.lbKategorierVises.Size = new System.Drawing.Size(112, 148);
             this.lbKategorierVises.TabIndex = 27;
-            this.lbKategorierVises.SelectedIndexChanged += new System.EventHandler(this.lbKategorierVises_SelectedIndexChanged);
             this.lbKategorierVises.DoubleClick += new System.EventHandler(this.lbKategorierVises_DoubleClick);
             // 
             // frmFilter

@@ -260,7 +260,7 @@ namespace GMAP_Demo
                 {
                     List<PointLatLng> Lpunkter = item.HentPunkter();
 
-                    GMapPolygon polygon = frmFilter.instance.BestemFarge(Lpunkter, item.Farge);
+                    GMapPolygon polygon = Kart.BestemFarge(Lpunkter, item.Farge);
 
                     polygon.Tag = Tag;
                     Tag++;
