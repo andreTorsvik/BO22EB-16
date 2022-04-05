@@ -105,11 +105,11 @@
     <Compile Include="Forms\Innlogging\frmInnlogging.Designer.cs">
       <DependentUpon>frmInnlogging.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Visning\Form1.cs">
+    <Compile Include="Forms\Visning\FrmVisning.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Visning\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Visning\FrmVisning.Designer.cs">
+      <DependentUpon>FrmVisning.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Visning\frmFilter.cs">
       <SubType>Form</SubType>
@@ -234,8 +234,8 @@
     <EmbeddedResource Include="Forms\Innlogging\frmVertifiseringskode.resx">
       <DependentUpon>frmVertifiseringskode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Visning\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Visning\FrmVisning.resx">
+      <DependentUpon>FrmVisning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Visning\frmFilter.resx">
       <DependentUpon>frmFilter.cs</DependentUpon>

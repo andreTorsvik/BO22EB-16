@@ -29,29 +29,29 @@ namespace GMAP_Demo
         private void btnLeggTil_Click(object sender, EventArgs e)
         {
             
-            if(Form1.instance.LRessurs.Count >0) Form1.instance.LRessurs.Clear();
+            if(FrmVisning.instance.LRessurs.Count >0) FrmVisning.instance.LRessurs.Clear();
 
 
             var RessursList = DatabaseCommunication.ListAllRessursFromDb();
 
             foreach (var item in RessursList)
             {
-                Form1.instance.LRessurs.Add(item);
+                FrmVisning.instance.LRessurs.Add(item);
             }
 
-            txtAntall.Text = Form1.instance.LRessurs.Count.ToString();
+            txtAntall.Text = FrmVisning.instance.LRessurs.Count.ToString();
         }
 
         private void btnRessurs_Click(object sender, EventArgs e)
         {
-            LeggTilRessurs(Form1.instance.LRessurs);
-            Form1.reff();
+            LeggTilRessurs(FrmVisning.instance.LRessurs);
+            FrmVisning.reff();
         }
 
         private void btnFjern_Click(object sender, EventArgs e)
         {
-                Form1.instance.map.Overlays.Clear();
-                Form1.reff();
+                FrmVisning.instance.map.Overlays.Clear();
+                FrmVisning.reff();
                 txtNavn.Text = "";
                 txtKategori.Text = "";
                 txtDato_opprettet.Text = "";
@@ -62,22 +62,22 @@ namespace GMAP_Demo
 
         private void btnHentOmråde_Click(object sender, EventArgs e)
         {
-            Form1.instance.LOmråde.Clear();
+            FrmVisning.instance.LOmråde.Clear();
 
             var OmrådeListe = DatabaseCommunication.ListAllOmrådeFromDb();
 
             foreach (var item in OmrådeListe)
             {
-                Form1.instance.LOmråde.Add(item);
+                FrmVisning.instance.LOmråde.Add(item);
             }
 
-            txtAntallOmråder.Text = Form1.instance.LOmråde.Count.ToString();
+            txtAntallOmråder.Text = FrmVisning.instance.LOmråde.Count.ToString();
         }
 
         private void btnLeggTilOmrådet_Click(object sender, EventArgs e)
         {
-            LeggTilOmråde(Form1.instance.LOmråde);
-            Form1.reff();
+            LeggTilOmråde(FrmVisning.instance.LOmråde);
+            FrmVisning.reff();
         }
         //burde ta listen som agrument 
         public void LeggTilRessurs(List<Ressurs> Rlist)
@@ -108,7 +108,7 @@ namespace GMAP_Demo
 
                 GMapOverlay markers = new GMapOverlay("test1");
                 markers.Markers.Add(marker);
-                Form1.instance.map.Overlays.Add(markers);
+                FrmVisning.instance.map.Overlays.Add(markers);
             }
         }
 
@@ -127,7 +127,7 @@ namespace GMAP_Demo
                 polygon.IsHitTestVisible = true; // nødvendig for å kunne trykke på Polygonet
                 GMapOverlay polygons = new GMapOverlay("Polygons");
                 polygons.Polygons.Add(polygon);
-                Form1.instance.map.Overlays.Add(polygons);
+                FrmVisning.instance.map.Overlays.Add(polygons);
             }
 
         }
@@ -231,8 +231,8 @@ namespace GMAP_Demo
 
         private void OppdaterKart()
         {
-            Form1.instance.map.Overlays.Clear();
-            if (Form1.instance.LRessurs.Count > 0) Form1.instance.LRessurs.Clear();
+            FrmVisning.instance.map.Overlays.Clear();
+            if (FrmVisning.instance.LRessurs.Count > 0) FrmVisning.instance.LRessurs.Clear();
 
             var RessursList = DatabaseCommunication.ListAllRessursFromDb();
 
@@ -243,14 +243,14 @@ namespace GMAP_Demo
                 {
                     if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
                     {
-                        Form1.instance.LRessurs.Add(item);
+                        FrmVisning.instance.LRessurs.Add(item);
                         break;
                     }
                 }
             }
 
-            LeggTilRessurs(Form1.instance.LRessurs);
-            Form1.reff();
+            LeggTilRessurs(FrmVisning.instance.LRessurs);
+            FrmVisning.reff();
         }
 
         private void lbKategorierVises_SelectedIndexChanged(object sender, EventArgs e)

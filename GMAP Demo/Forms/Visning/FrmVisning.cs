@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class Form1 : Form
+    public partial class FrmVisning : Form
     {
         public PointLatLng Punkt_fra_forrige_kart;
         private Color knapp_trykket;
@@ -17,11 +17,11 @@ namespace GMAP_Demo
         public List<Område> LOmråde;
         public List<Kategorier_Bilde> LKategori;
         public PointLatLng DoubleClick_punkt;
-        public static Form1 instance;
+        public static FrmVisning instance;
 
         public int MaxSikkerhetsklarering = 3;
 
-        public Form1()
+        public FrmVisning()
         {
             GMapProviders.GoogleMap.ApiKey = "AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM";
             OpprettingAvGlobaleVariabler();
@@ -122,8 +122,8 @@ namespace GMAP_Demo
                 //må tøme liste med ressurser og fylle igjen 
 
 
-                frmFilter.instance.LeggTilRessurs(Form1.instance.LRessurs);
-                frmFilter.instance.LeggTilOmråde(Form1.instance.LOmråde);
+                frmFilter.instance.LeggTilRessurs(FrmVisning.instance.LRessurs);
+                frmFilter.instance.LeggTilOmråde(FrmVisning.instance.LOmråde);
 
                 reff();
             }

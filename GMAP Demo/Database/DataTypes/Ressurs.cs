@@ -33,6 +33,11 @@ namespace GMAP_Demo
             return point;
         }
 
+        public override string ToString()
+        {
+            return $"({Løpenummer_ressurs} - {Navn} - {Kategori} - {Dato_opprettet} - {Opprettet_av_bruker} - {Sikkerhetsklarering} - {Kommentar} - {Lat} - {Lang})";
+        }
+
 
 
 

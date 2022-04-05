@@ -28,7 +28,7 @@ namespace GMAP_Demo
         {
             LastInnOverlays();
             LastInnFargerMulighet();
-            LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", Form1.instance.MaxSikkerhetsklarering);
+            LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", FrmVisning.instance.MaxSikkerhetsklarering);
         }
 
         private void LastInnOverlays()

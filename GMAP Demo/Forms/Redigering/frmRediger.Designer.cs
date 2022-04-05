@@ -77,7 +77,7 @@
             this.map.TabIndex = 5;
             this.map.Zoom = 0D;
             this.map.OnMapDoubleClick += new GMap.NET.WindowsForms.MapDoubleClick(this.map_MouseDoubleClick);
-            this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(map_OnMarkerClick);
+            this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.map_OnMarkerClick);
             this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
             // 
             // PnlFormLoader
@@ -145,7 +145,7 @@
             this.btnFjern_obj_områ.Name = "btnFjern_obj_områ";
             this.btnFjern_obj_områ.Size = new System.Drawing.Size(316, 84);
             this.btnFjern_obj_områ.TabIndex = 1;
-            this.btnFjern_obj_områ.Text = "Fjern obj/område [WIP]";
+            this.btnFjern_obj_områ.Text = "Fjern obj/område";
             this.btnFjern_obj_områ.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFjern_obj_områ.UseVisualStyleBackColor = true;
             this.btnFjern_obj_områ.Click += new System.EventHandler(this.btnFjern_obj_områ_Click);
@@ -179,7 +179,7 @@
             this.btnRediger_objekt.Name = "btnRediger_objekt";
             this.btnRediger_objekt.Size = new System.Drawing.Size(316, 84);
             this.btnRediger_objekt.TabIndex = 1;
-            this.btnRediger_objekt.Text = "Rediger objekt [WIP]";
+            this.btnRediger_objekt.Text = "Rediger objekt";
             this.btnRediger_objekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnRediger_objekt.UseVisualStyleBackColor = true;
             this.btnRediger_objekt.Click += new System.EventHandler(this.btnRediger_obj_områ_Click);
@@ -259,7 +259,7 @@
             this.btnZoomMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnZoomMinus.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnZoomMinus.Location = new System.Drawing.Point(1653, 814);
-            this.btnZoomMinus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZoomMinus.Margin = new System.Windows.Forms.Padding(4);
             this.btnZoomMinus.Name = "btnZoomMinus";
             this.btnZoomMinus.Size = new System.Drawing.Size(27, 25);
             this.btnZoomMinus.TabIndex = 7;
@@ -275,7 +275,7 @@
             this.btnZoomPluss.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnZoomPluss.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnZoomPluss.Location = new System.Drawing.Point(1653, 782);
-            this.btnZoomPluss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZoomPluss.Margin = new System.Windows.Forms.Padding(4);
             this.btnZoomPluss.Name = "btnZoomPluss";
             this.btnZoomPluss.Size = new System.Drawing.Size(27, 25);
             this.btnZoomPluss.TabIndex = 6;

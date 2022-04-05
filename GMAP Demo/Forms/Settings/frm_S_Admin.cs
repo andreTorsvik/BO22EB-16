@@ -129,7 +129,7 @@ namespace GMAP_Demo
             //fjern fra databasen 
             try
             {
-                DatabaseCommunication.DeleteUser(epost);
+                DatabaseCommunication.DeleteBruker(epost);
                 lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
             }
             catch (Exception)
@@ -171,7 +171,7 @@ namespace GMAP_Demo
 
                 int klarering = brukerListe[0].Sikkerhetsklarering;
 
-                if (brukerListe[0].Sikkerhetsklarering < Form1.instance.MaxSikkerhetsklarering)
+                if (brukerListe[0].Sikkerhetsklarering < FrmVisning.instance.MaxSikkerhetsklarering)
                 {
                     klarering++;
                 }

@@ -132,7 +132,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void DeleteUser(string username)
+        public static void DeleteBruker(string username)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -142,6 +142,32 @@ namespace GMAP_Demo
                 };
 
                 connection.Execute("[dbo].[PROCEDURERemoveBruker] @Epost", (DeleteUser));
+            }
+        }
+
+        public static void DeleteRessurs(int løpeNummer)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Ressurs DeleteRessurs = new Ressurs
+                {
+                    Løpenummer_ressurs = løpeNummer
+                };
+
+                connection.Execute("[dbo].[PROCEDURERemoveRessurs] @Løpenummer_ressurs", (DeleteRessurs));
+            }
+        }
+
+        public static void DeleteOmråde(int løpeNummer)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Område DeleteOmråde = new Område
+                {
+                    Løpenummer_område = løpeNummer
+                };
+
+                connection.Execute("[dbo].[PROCEDURERemoveOmråde] @Løpenummer_område", (DeleteOmråde));
             }
         }
 

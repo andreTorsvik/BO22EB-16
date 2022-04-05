@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class Form1
+    partial class FrmVisning
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVisning));
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnHelp = new System.Windows.Forms.Button();
             this.lblUserName = new System.Windows.Forms.Label();

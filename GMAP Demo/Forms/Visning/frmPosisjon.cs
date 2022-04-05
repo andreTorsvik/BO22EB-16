@@ -25,14 +25,14 @@ namespace GMAP_Demo
             svar += txtByKommune.Text + ",";
             svar += txtLand.Text;
             svar = svar.Trim();
-            Form1.AdresseTilKart(svar);
+            FrmVisning.AdresseTilKart(svar);
 
             //tror det finnes bedre metoder for dette
             if (txtLand.Text != "") ZoomLevel = 5;
             if (txtByKommune.Text != "") ZoomLevel = 11;
             if (txtAdresse.Text != "") ZoomLevel = 18;
 
-            Form1.instance.map.Zoom = ZoomLevel;
+            FrmVisning.instance.map.Zoom = ZoomLevel;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace GMAP_Demo
             {
                 try
                 {
-                    Form1.LeggTilRute(Fra, Til);
+                    FrmVisning.LeggTilRute(Fra, Til);
                     
                     
                 }
@@ -95,12 +95,12 @@ namespace GMAP_Demo
 
         private void btnFjernRute_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < Form1.instance.map.Overlays.Count; i++)
+            for (int i = 0; i < FrmVisning.instance.map.Overlays.Count; i++)
             {
-                if (Form1.instance.map.Overlays[i].Id == "routes")
+                if (FrmVisning.instance.map.Overlays[i].Id == "routes")
                 {  
-                    Form1.instance.map.Overlays.RemoveAt(i);
-                    Form1.reff();
+                    FrmVisning.instance.map.Overlays.RemoveAt(i);
+                    FrmVisning.reff();
                     LbDistanse.Text = "[Distanse i Km]";
                     break;
                 }

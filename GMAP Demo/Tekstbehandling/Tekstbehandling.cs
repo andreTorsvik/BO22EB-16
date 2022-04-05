@@ -15,7 +15,7 @@ namespace GMAP_Demo
             try
             {
                 int sjekk = Convert.ToInt16(sikkerhetsKlarering);
-                if (sjekk > Form1.instance.MaxSikkerhetsklarering)
+                if (sjekk > FrmVisning.instance.MaxSikkerhetsklarering)
                 {
                     svar = "Sikkerhetsklarering er for høy";
                 }

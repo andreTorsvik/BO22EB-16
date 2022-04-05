@@ -19,7 +19,7 @@ namespace GMAP_Demo
         {
             LastInnKategorier();
             LastInnOverlays();
-            LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", Form1.instance.MaxSikkerhetsklarering);
+            LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", FrmVisning.instance.MaxSikkerhetsklarering);
         }
 
         private void btnLeggTilOverlay_Click(object sender, EventArgs e)
@@ -98,12 +98,12 @@ namespace GMAP_Demo
         }
         private void LastInnKategorier()
         {
-            Form1.instance.LKategori.Clear();
+            FrmVisning.instance.LKategori.Clear();
             var KategoriListe = DatabaseCommunication.ListAllKategorier_BildeFromDb();
 
             foreach (var item in KategoriListe)
             {
-                Form1.instance.LKategori.Add(item);
+                FrmVisning.instance.LKategori.Add(item);
                 lbTilgjengligKategori.Items.Add(item.Kategorinavn);
             }
 

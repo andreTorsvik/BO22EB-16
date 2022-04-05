@@ -40,7 +40,7 @@ namespace GMAP_Demo
         {
             PnlFormLoader.Controls.Clear();
 
-            Form1.instance.Show();
+            FrmVisning.instance.Show();
         }
 
         void AlleKnapperTilStandarfarge()

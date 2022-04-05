@@ -47,7 +47,7 @@ namespace GMAP_Demo
         {
             //start posisjon kart
             map.MapProvider = GMapProviders.OpenStreetMap;
-            PointLatLng point = Form1.instance.Punkt_fra_forrige_kart;
+            PointLatLng point = FrmVisning.instance.Punkt_fra_forrige_kart;
             map.Position = point;
 
             //settings for kart
@@ -59,7 +59,7 @@ namespace GMAP_Demo
         }
         private void btnTilbake_Click(object sender, EventArgs e)
         {
-            Form1.instance.Punkt_fra_forrige_kart = map.Position;
+            FrmVisning.instance.Punkt_fra_forrige_kart = map.Position;
 
             this.Close();
         }
@@ -179,7 +179,7 @@ namespace GMAP_Demo
         private void frmRediger_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.PnlFormLoader.Controls.Clear();
-            Form1.instance.Show();
+            FrmVisning.instance.Show();
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
@@ -228,11 +228,11 @@ namespace GMAP_Demo
 
         private void VisRessurser()
         {
-            if (Form1.instance.LRessurs.Count > 0)
+            if (FrmVisning.instance.LRessurs.Count > 0)
             {
                 int tag = 0;
                 GMapMarker marker;
-                foreach (var item in Form1.instance.LRessurs)
+                foreach (var item in FrmVisning.instance.LRessurs)
                 {
                     PointLatLng punkt = item.GiPunktet();
 
@@ -256,10 +256,10 @@ namespace GMAP_Demo
 
         private void VisOmråder()
         {
-            if (Form1.instance.LOmråde.Count > 0)
+            if (FrmVisning.instance.LOmråde.Count > 0)
             {
                 int Tag = 0;
-                foreach (var item in Form1.instance.LOmråde)
+                foreach (var item in FrmVisning.instance.LOmråde)
                 {
                     List<PointLatLng> Lpunkter = item.HentPunkter();
 
@@ -282,18 +282,26 @@ namespace GMAP_Demo
             instance.map.Zoom--;
         }
 
-        public static void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
+        public void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
 
             if (frm_R_RedigerObjekt.instance != null)
             {
-                frm_R_RedigerObjekt.instance.txtNavn.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
-                frm_R_RedigerObjekt.instance.txtKategori.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
-                frm_R_RedigerObjekt.instance.txtSikkerhetsklarering.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-                frm_R_RedigerObjekt.instance.txtKommentar.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
-                frm_R_RedigerObjekt.instance.txtLat.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Lat.ToString();
-                frm_R_RedigerObjekt.instance.txtLong.Text = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
-                frm_R_RedigerObjekt.instance.Løpenummer_til_redigering = Form1.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
+                frm_R_RedigerObjekt.instance.txtNavn.Text = FrmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
+                frm_R_RedigerObjekt.instance.txtKategori.Text = FrmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
+                frm_R_RedigerObjekt.instance.txtSikkerhetsklarering.Text = FrmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frm_R_RedigerObjekt.instance.txtKommentar.Text = FrmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
+                frm_R_RedigerObjekt.instance.txtLat.Text = FrmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Lat.ToString();
+                frm_R_RedigerObjekt.instance.txtLong.Text = FrmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
+                frm_R_RedigerObjekt.instance.Løpenummer_til_redigering = FrmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
+            }
+            if(frm_R_FjernObjektOmråde.instance != null)
+            {
+                frm_R_FjernObjektOmråde.instance.Løpenummer_til_objekt = FrmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
+                if (frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område >= 0 ) frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område = -1;
+                frm_R_FjernObjektOmråde.instance.txtInfo.Text = FrmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].ToString();
+                frm_R_FjernObjektOmråde.instance.txtLøpenumemr.Text = FrmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs.ToString();
+                frm_R_FjernObjektOmråde.instance.txtNavn.Text = FrmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
             }
 
         }
@@ -302,10 +310,10 @@ namespace GMAP_Demo
         {
             if (frm_R_RedigerOmråde.instance != null)
             {
-                frm_R_RedigerOmråde.instance.txtNavn.Text = Form1.instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
-                frm_R_RedigerOmråde.instance.txtSikkerhetsklarering.Text = Form1.instance.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-                frm_R_RedigerOmråde.instance.txtKommentar.Text = Form1.instance.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
-                frm_R_RedigerOmråde.instance.txtfarge.Text = Form1.instance.LOmråde[Convert.ToInt32(item.Tag)].Farge;
+                frm_R_RedigerOmråde.instance.txtNavn.Text = FrmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
+                frm_R_RedigerOmråde.instance.txtSikkerhetsklarering.Text = FrmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frm_R_RedigerOmråde.instance.txtKommentar.Text = FrmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
+                frm_R_RedigerOmråde.instance.txtfarge.Text = FrmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Farge;
 
             }
 
