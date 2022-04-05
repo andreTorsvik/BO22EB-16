@@ -3,16 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Configuration;
 using Dapper;
 using System.Data;
 using System.Data.SqlClient;
 using GMAP_Demo.Database.DataTypes;
+using GMap.NET;
 using System.IO;
 
 namespace GMAP_Demo
 {
+    struct områdeToAdd
+    {
+        internal string Navn;
+        internal string Opprettet_av_bruker;
+        internal string Kommentar;
+        internal int Sikkerhetsklarering;
+        internal string Farge;
+        internal List<float> Lats;
+        internal List<float> Langs;
+    }
     internal class DatabaseCommunication
     {
         // SQLdatabase connection settings
@@ -154,6 +164,45 @@ namespace GMAP_Demo
 
                 connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", ressursToAdd);
             }
+        }
+
+        public void InsertOmrådeToDb(string navn, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> punkter)
+        {
+            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            //{
+            //    var dtLat = new DataTable();
+            //    dtLat.Columns.Add("Lat", typeof(float));
+
+            //    var dtLang = new DataTable();
+            //    dtLang.Columns.Add("Lang", typeof(float));
+
+            //    foreach (var item in punkter)
+            //    {
+            //        dtLat.Rows.Add(Convert.ToSingle(item.Lat));
+            //        dtLang.Rows.Add(Convert.ToSingle(item.Lng));
+            //    }
+
+            //    områdeToAdd områdeToAdd = new områdeToAdd
+            //    {
+            //    Navn = navn,
+            //    Opprettet_av_bruker = opprettet_av_bruker,
+            //    Kommentar = kommentar,
+            //    Sikkerhetsklarering = sikkerhetsklarering,
+            //    Farge = farge,
+            //    Lats = dtLat,
+            //    Langs = dtLang
+            //    };
+
+            //    connection.Execute("[dbo].[PROCEDUREinsertIntoOmråde] @Navn, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Farge", områdeToAdd);
+
+            //    //List<PointLatLng> pointsLatLngToAdd = new List<PointLatLng>(punkter);
+            //    //for (int i = 0; i < punkter.Count; i++)
+            //    //{
+            //    //    Lat = punkter[i].Lat;
+            //    //    Lang = punkter[i].Lang;
+            //    //}
+            //    //connection.Execute("[dbo].[PROCEDUREinsertIntoPunkter_område] @Rekkefølge_punkter, @Lat, @Lang", områdeToAdd);
+            //}   
         }
 
         public void InsertBrukerToDb(string fornavn, string etternavn, int telefonnummer, string epost, string passord, int tallkode)
