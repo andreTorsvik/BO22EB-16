@@ -19,8 +19,7 @@ namespace GMAP_Demo
         internal string Kommentar;
         internal int Sikkerhetsklarering;
         internal string Farge;
-        internal List<float> Lats;
-        internal List<float> Langs;
+        internal DataTable TVP_Punkter_område;
     }
     internal class DatabaseCommunication
     {
@@ -167,41 +166,48 @@ namespace GMAP_Demo
 
         public static void InsertOmrådeToDb(string navn, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> punkter)
         {
-            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
-            //{
-            //    var dtLat = new DataTable();
-            //    dtLat.Columns.Add("Lat", typeof(float));
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                DataTable dt_Punkter_område = new DataTable();
+                dt_Punkter_område.Columns.Add(nameof(Punkter_område.Løpenummer_til_område), typeof(int));
+                dt_Punkter_område.Columns.Add(nameof(Punkter_område.Rekkefølge_punkter), typeof(int));
+                dt_Punkter_område.Columns.Add(nameof(Punkter_område.Lat), typeof(float));
+                dt_Punkter_område.Columns.Add(nameof(Punkter_område.Lang), typeof(float));
 
-            //    var dtLang = new DataTable();
-            //    dtLang.Columns.Add("Lang", typeof(float));
+                int i = 0;
+                foreach (var item in punkter)
+                {
+                    var row = dt_Punkter_område.NewRow();
+                    // row[nameof(Punkter_område.Løpenummer_til_område)] = "Håndteres av procedure+sequence";
+                    row[nameof(Punkter_område.Rekkefølge_punkter)] = i;
+                    i++;
+                    row[nameof(Punkter_område.Lat)] = item.Lat;
+                    row[nameof(Punkter_område.Lang)] = item.Lng;
+                    dt_Punkter_område.Rows.Add(row);
+                }
 
-            //    foreach (var item in punkter)
-            //    {
-            //        dtLat.Rows.Add(Convert.ToSingle(item.Lat));
-            //        dtLang.Rows.Add(Convert.ToSingle(item.Lng));
-            //    }
+                områdeToAdd områdeToAdd = new områdeToAdd
+                {
+                    Navn = navn,
+                    Opprettet_av_bruker = opprettet_av_bruker,
+                    Kommentar = kommentar,
+                    Sikkerhetsklarering = sikkerhetsklarering,
+                    Farge = farge,
+                    TVP_Punkter_område = dt_Punkter_område
+                };
+                //connection.Execute("[dbo].[PROCEDUREinsertIntoOmråde] @Navn, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Farge", områdeToAdd);
+                connection.Execute("[dbo].[PROCEDUREinsertIntoOmrådeANDPunkter_område]", områdeToAdd);
 
-            //    områdeToAdd områdeToAdd = new områdeToAdd
-            //    {
-            //    Navn = navn,
-            //    Opprettet_av_bruker = opprettet_av_bruker,
-            //    Kommentar = kommentar,
-            //    Sikkerhetsklarering = sikkerhetsklarering,
-            //    Farge = farge,
-            //    Lats = dtLat,
-            //    Langs = dtLang
-            //    };
 
-            //    connection.Execute("[dbo].[PROCEDUREinsertIntoOmråde] @Navn, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Farge", områdeToAdd);
 
-            //    //List<PointLatLng> pointsLatLngToAdd = new List<PointLatLng>(punkter);
-            //    //for (int i = 0; i < punkter.Count; i++)
-            //    //{
-            //    //    Lat = punkter[i].Lat;
-            //    //    Lang = punkter[i].Lang;
-            //    //}
-            //    //connection.Execute("[dbo].[PROCEDUREinsertIntoPunkter_område] @Rekkefølge_punkter, @Lat, @Lang", områdeToAdd);
-            //}   
+                //List<PointLatLng> pointsLatLngToAdd = new List<PointLatLng>(punkter);
+                //for (int i = 0; i < punkter.Count; i++)
+                //{
+                //    Lat = punkter[i].Lat;
+                //    Lang = punkter[i].Lang;
+                //}
+                //connection.Execute("[dbo].[PROCEDUREinsertIntoPunkter_område] @Rekkefølge_punkter, @Lat, @Lang", områdeToAdd);
+            }
         }
 
         public static void InsertBrukerToDb(string fornavn, string etternavn, int telefonnummer, string epost, string passord, int tallkode)
