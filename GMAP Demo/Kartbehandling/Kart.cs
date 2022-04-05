@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GMAP_Demo
+namespace GMAP_Demo.Kartbehandling
 {
-    internal class Kartbehandling
+    internal class Kart
     {
     }
 }

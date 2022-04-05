@@ -220,7 +220,8 @@
       <DependentUpon>frmVertifiseringskode.cs</DependentUpon>
     </Compile>
     <Compile Include="InnloggetBruker.cs" />
-    <Compile Include="Kartbehandling\Kartbehandling.cs" />
+    <Compile Include="Kartbehandling\Kart.cs" />
+    <Compile Include="Kartbehandling\Kartbehandlingsmetoder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tekstbehandling\Tekstbehandling.cs" />
