@@ -286,6 +286,7 @@ namespace GMAP_Demo
                     if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
                     {
                         Form1.instance.LRessurs.Add(item);
+                        break;
                     }
                 }
             }
