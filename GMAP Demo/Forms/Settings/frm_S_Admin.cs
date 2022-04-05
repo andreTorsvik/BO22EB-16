@@ -126,21 +126,24 @@ namespace GMAP_Demo
 
         private void btnAvslå_Click(object sender, EventArgs e)
         {
-            //finn mailen
-            string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
-            string epost = HentEpostFraInfo(BrukerInfo);
-
-            //fjern fra databasen 
-            try
+            if (InnloggetBruker.Sikkerhetsklarering == FrmVisning.instance.MaxSikkerhetsklarering)
             {
-                DatabaseCommunication.DeleteBruker(epost);
-                lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
-            }
-            catch (Exception)
-            {
+                //finn mailen
+                string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
+                string epost = HentEpostFraInfo(BrukerInfo);
 
+                //fjern fra databasen 
+                try
+                {
+                    DatabaseCommunication.DeleteBruker(epost);
+                    lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
+                }
+                catch (Exception)
+                {
+
+                }
+                listesjekk();
             }
-            listesjekk();
         }
 
         private string HentEpostFraInfo(string info)
@@ -238,13 +241,23 @@ namespace GMAP_Demo
         {
             bool sjekk = false;
 
-            var InnloggetBruker = DatabaseCommunication.ListBrukerInfoFromDb(Innlogget);
-            var AktuellBruker = DatabaseCommunication.ListBrukerInfoFromDb(Aktuell);
-
-            if(InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
+            try
             {
-                sjekk = true;
+                var InnloggetBruker = DatabaseCommunication.ListBrukerInfoFromDb(Innlogget);
+                var AktuellBruker = DatabaseCommunication.ListBrukerInfoFromDb(Aktuell);
+
+                if (InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
+                {
+                    sjekk = true;
+                }
             }
+            catch (Exception)
+            {
+
+            }
+           
+
+           
             return sjekk;
         }
 
@@ -252,17 +265,25 @@ namespace GMAP_Demo
         {
             bool sjekk = false;
 
-            var InnloggetBruker = DatabaseCommunication.ListBrukerInfoFromDb(Innlogget);
-            var AktuellBruker = DatabaseCommunication.ListBrukerInfoFromDb(Aktuell);
+            try
+            {
+                var InnloggetBruker = DatabaseCommunication.ListBrukerInfoFromDb(Innlogget);
+                var AktuellBruker = DatabaseCommunication.ListBrukerInfoFromDb(Aktuell);
 
-            if (InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
-            {
-                sjekk = true;
+                if (InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
+                {
+                    sjekk = true;
+                }
+                if (InnloggetBruker[0].Epost == AktuellBruker[0].Epost)
+                {
+                    sjekk = true;
+                }
             }
-            if(InnloggetBruker[0].Epost == AktuellBruker[0].Epost)
+            catch (Exception)
             {
-                sjekk = true;
+
             }
+           
             return sjekk;
         }
     }
