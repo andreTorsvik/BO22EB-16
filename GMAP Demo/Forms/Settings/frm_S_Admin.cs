@@ -61,23 +61,27 @@ namespace GMAP_Demo
 
         private void btnGodta_Click(object sender, EventArgs e)
         {
-            string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
-
-            string TilEpost = HentEpostFraInfo(BrukerInfo);
-
-            var BrukerListe = DatabaseCommunication.ListBrukerInfoFromDb(TilEpost);
-            DatabaseCommunication.UpdateBruker_Godkjent(BrukerListe[0].Epost, true);
-
-            int tallkode = BrukerListe[0].Tallkode; ;
-            try
+            if (InnloggetBruker.Sikkerhetsklarering == FrmVisning.instance.MaxSikkerhetsklarering)
             {
-                SendEpost(TilEpost, tallkode);                
-                lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
+                string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
+
+                string TilEpost = HentEpostFraInfo(BrukerInfo);
+
+
+                var BrukerListe = DatabaseCommunication.ListBrukerInfoFromDb(TilEpost);
+                DatabaseCommunication.UpdateBruker_Godkjent(BrukerListe[0].Epost, true);
+
+                int tallkode = BrukerListe[0].Tallkode; ;
+                try
+                {
+                    SendEpost(TilEpost, tallkode);
+                    lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
+                }
+                catch (Exception)
+                {
+                }
+                listesjekk();
             }
-            catch (Exception)
-            {
-            }
-            listesjekk();
         }
 
         private void SendEpost(string TilEpost, int tallkode)
@@ -167,22 +171,26 @@ namespace GMAP_Demo
 
             if (epost != null)
             {
-                var brukerListe = DatabaseCommunication.ListBrukerInfoFromDb(epost);
-
-                int klarering = brukerListe[0].Sikkerhetsklarering;
-
-                if (brukerListe[0].Sikkerhetsklarering < FrmVisning.instance.MaxSikkerhetsklarering)
+                bool tillatelse = KanOppgradere(InnloggetBruker.BrukernavnInnlogget,epost);
+                if (tillatelse)
                 {
-                    klarering++;
-                }
-                else
-                {
-                    MessageBox.Show("Kan ikke oppgradere fordi bruker allerede har høyeste");
-                }
+                    var brukerListe = DatabaseCommunication.ListBrukerInfoFromDb(epost);
 
-                DatabaseCommunication.UpdateBruker_Sikkerhetsklarering(epost, klarering);
+                    int klarering = brukerListe[0].Sikkerhetsklarering;
 
-                OppdaterListenOverBrukere(selectetItem);
+                    if (brukerListe[0].Sikkerhetsklarering < FrmVisning.instance.MaxSikkerhetsklarering)
+                    {
+                        klarering++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kan ikke oppgradere fordi bruker allerede har høyeste");
+                    }
+
+                    DatabaseCommunication.UpdateBruker_Sikkerhetsklarering(epost, klarering);
+
+                    OppdaterListenOverBrukere(selectetItem);
+                }
             }
 
         }
@@ -190,36 +198,72 @@ namespace GMAP_Demo
         private void BtnNedgrader_Click(object sender, EventArgs e)
         {
             int selectetItem = lbListeOverbrukere.SelectedIndex;
-            string BrukerInfo = lbListeOverbrukere.SelectedItem.ToString();
-            string epost = HentEpostFraInfo(BrukerInfo);
+            string BrukerInfo;
+            string epost;
 
-            var brukerListe = DatabaseCommunication.ListBrukerInfoFromDb(epost);
-
-            int klarering = brukerListe[0].Sikkerhetsklarering;
-
-            if (brukerListe[0].Sikkerhetsklarering >= 2)
+            try
             {
-                klarering--;
+                BrukerInfo = lbListeOverbrukere.SelectedItem.ToString();
+                epost = HentEpostFraInfo(BrukerInfo);
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Kan ikke nedgradere fordi bruker allerede har laveste");
+                epost = null;
             }
 
-            DatabaseCommunication.UpdateBruker_Sikkerhetsklarering(epost, klarering);
+            if (epost != null)
+            {
+                bool tillatelse = KanNedgradere(InnloggetBruker.BrukernavnInnlogget, epost);
+                if (tillatelse)
+                {
+                    var brukerListe = DatabaseCommunication.ListBrukerInfoFromDb(epost);
 
-            OppdaterListenOverBrukere(selectetItem);
+                    int klarering = brukerListe[0].Sikkerhetsklarering;
+
+                    if (brukerListe[0].Sikkerhetsklarering >= 2)
+                    {
+                        klarering--;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kan ikke nedgradere fordi bruker allerede har laveste");
+                    }
+                    DatabaseCommunication.UpdateBruker_Sikkerhetsklarering(epost, klarering);
+
+                    OppdaterListenOverBrukere(selectetItem);
+                }
+            }           
         }
-        private bool KanOppgradere(int InnloggetBruker, int Aktuellbruker)
+        private bool KanOppgradere(string Innlogget, string Aktuell)
         {
             bool sjekk = false;
 
+            var InnloggetBruker = DatabaseCommunication.ListBrukerInfoFromDb(Innlogget);
+            var AktuellBruker = DatabaseCommunication.ListBrukerInfoFromDb(Aktuell);
 
-
-
-
+            if(InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
+            {
+                sjekk = true;
+            }
             return sjekk;
         }
 
+        private bool KanNedgradere(string Innlogget, string Aktuell)
+        {
+            bool sjekk = false;
+
+            var InnloggetBruker = DatabaseCommunication.ListBrukerInfoFromDb(Innlogget);
+            var AktuellBruker = DatabaseCommunication.ListBrukerInfoFromDb(Aktuell);
+
+            if (InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
+            {
+                sjekk = true;
+            }
+            if(InnloggetBruker[0].Epost == AktuellBruker[0].Epost)
+            {
+                sjekk = true;
+            }
+            return sjekk;
+        }
     }
 }

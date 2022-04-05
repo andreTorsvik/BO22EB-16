@@ -19,15 +19,27 @@ namespace GMAP_Demo
 
         private void btnOpprettbruker_Click(object sender, EventArgs e)
         {
-            bool opprettet = false;
+            bool opprettet = OpprettBruker();
 
+            if (opprettet)
+            {
+                MessageBox.Show("Bruker er nå opprett, venter på å bli godkjent av en admin. Hvis den blir godkjent " +
+                    "vil du motta en mail med en kode.");
+
+                this.Close();
+            }
+        }
+
+        private bool OpprettBruker()
+        {
+            bool svar = false;
             string fornavn = txtFornavn.Text;
             string etternavn = txtEtternavn.Text;
             string telefon = txtTelefon.Text;
             string Epost = txtEpost.Text;
             string passord = txtPassord.Text;
             string bePassord = txtBePassord.Text;
-            string utFyllingsmangler = Tekstbehandling.SjekkInntastetDataRegisterings(fornavn,etternavn,telefon,Epost,passord,bePassord);
+            string utFyllingsmangler = Tekstbehandling.SjekkInntastetDataRegisterings(fornavn, etternavn, telefon, Epost, passord, bePassord);
 
             if (utFyllingsmangler == string.Empty)
             {
@@ -46,7 +58,7 @@ namespace GMAP_Demo
                             //legge til i database
                             DatabaseCommunication.InsertBrukerToDb(txtFornavn.Text.ToString(), txtEtternavn.Text.ToString(), Convert.ToInt32(txtTelefon.Text), txtEpost.Text.ToString().Trim(), txtPassord.Text.ToString(), Tallkode);
 
-                            opprettet = true;
+                            svar = true;
                         }
                         catch (Exception) { }
                     }
@@ -59,14 +71,7 @@ namespace GMAP_Demo
             }
             else MessageBox.Show(utFyllingsmangler);
 
-            //om bruker er oprrettet 
-            if (opprettet)
-            {
-                MessageBox.Show("Bruker er nå opprett, venter på å bli godkjent av en admin. Hvis den blir godkjent " +
-                    "vil du motta en mail med en kode.");
-
-                this.Close();
-            }
+            return svar;
         }
 
         private int GenereTallKode()
