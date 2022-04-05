@@ -35,49 +35,20 @@ namespace GMAP_Demo
 
         private void btnLeggTilObjekt_Click(object sender, EventArgs e)
         {
-            bool altUtfylt = true;
-            string utFyllingsmangler = "Du mangler:";
-            //kode for sjekk at alle felten er utfylt
-            if (string.IsNullOrWhiteSpace(txtNavn.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Navn";
-            }
-            if (string.IsNullOrWhiteSpace(txtKategori.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Kategori";
-            }
-            if (string.IsNullOrWhiteSpace(txtSikkerhetsklarering.Text))
-            {
-                
-                altUtfylt = false;
-                utFyllingsmangler += " Sikkerhetsklarering";
-            }
-            if (string.IsNullOrWhiteSpace(txtKommentar.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Kommentar";
-            }
-            if (string.IsNullOrWhiteSpace(txtLat.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " lat";
-            }
-            if (string.IsNullOrWhiteSpace(txtLong.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " long";
-            }
-            if (lbValgtOverlays.Items.Count <= 0)
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Overlay";
-            }
+            string navn = txtNavn.Text;
+            string kategori = txtKategori.Text;
+            string sikkerhetsklarering = txtSikkerhetsklarering.Text;
+            string Kommentar = txtKommentar.Text;
+            string lat = txtLat.Text;
+            string lang = txtLong.Text;
+            int antall = lbValgtOverlays.Items.Count;
 
-            if (altUtfylt)
+            bool altUtfylt = true;
+            string utFyllingsmangler = Tekstbehandling.SjekkInntastetDataObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
+            
+            if (utFyllingsmangler == "Du mangler:")
             {
-                string feilMelding =  sjekkTallData(txtSikkerhetsklarering.Text,txtLat.Text,txtLong.Text);
+                string feilMelding = Tekstbehandling.sjekkTallData(txtSikkerhetsklarering.Text,txtLat.Text,txtLong.Text);
                 if (feilMelding == string.Empty)
                 {
                     DatabaseCommunication.InsertRessursToDb(txtNavn.Text.ToString(), txtKategori.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
@@ -91,7 +62,6 @@ namespace GMAP_Demo
                     txtLong.Text = "";
                     lbValgtOverlays.Items.Clear();
                     LastInnOverlays();
-                    
                 }
                 else
                 {
@@ -194,54 +164,5 @@ namespace GMAP_Demo
                 e.Handled = true;
             }     
         }
-
-
-        private string sjekkTallData(string sikkerhetsKlarering,string lat,string lang)
-        {
-            string svar = string.Empty;
-
-            try
-            {
-                int sjekk = Convert.ToInt16(sikkerhetsKlarering); 
-                if (sjekk > Form1.instance.MaxSikkerhetsklarering)
-                {
-                    svar = "Sikkerhetsklarering er for høy";
-                }
-                else if(sjekk < 1)
-                {
-                    svar = "Sikkerhetsklarering kan ikke være lavere enn 1 ";
-                }
-            }
-            catch (Exception)
-            {
-                if (svar != string.Empty) svar += ", ";
-                svar += "Feil inntasting med Sikkerhetsklarering";
-            }
-
-            try
-            {
-                float sjekk = Convert.ToSingle(lat);
-                
-            }
-            catch (Exception)
-            {
-                if (svar != string.Empty) svar += ", ";
-                svar += "Feil inntasting med Lat";
-            }
-
-            try
-            {
-                float sjekk = Convert.ToSingle(lang);
-            }
-            catch (Exception)
-            {
-                if (svar != string.Empty) svar += ", ";
-                svar += " Feil inntasting med Long";
-            }
-
-            return svar;
-        }
-
-
     }
 }
