@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GMAP_Demo.Kartbehandling
+namespace GMAP_Demo
 {
     internal class Kart
     {
