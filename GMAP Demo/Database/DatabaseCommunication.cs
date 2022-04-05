@@ -115,6 +115,15 @@ namespace GMAP_Demo
             }
         }
 
+        public List<Ressurs> ListRessursFromDb(int løpenummer)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}')").ToList();
+                return output;
+            }
+        }
+
         public List<Bruker> ListBrukerInfoFromDb(string username)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
@@ -281,6 +290,28 @@ namespace GMAP_Demo
                 };
 
                 connection.Execute("[dbo].[PROCEDUREUpgradeBruker_Sikkerhetsklarering] @Epost, @Sikkerhetsklarering", (UpdateSikkerhetsklarering));
+            }
+        }
+
+        public void UpdateRessurs(int Løpenummer, string navn, string kategori, int sikkerhetsklarering, string kommentar, float lat, float lang)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Ressurs UpdateRessurs = new Ressurs
+                {
+                    Løpenummer_ressurs = Løpenummer,
+                    Navn = navn,
+                    Kategori = kategori,
+                    //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
+                    //Opprettet_av_bruker = opprettet_av_bruker,
+                    Sikkerhetsklarering = sikkerhetsklarering,
+                    Kommentar = kommentar,
+                    Lat = lat,
+                    Lang = lang
+                };
+
+                connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", UpdateRessurs);
+
             }
         }
 

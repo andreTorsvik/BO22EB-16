@@ -13,7 +13,6 @@ namespace GMAP_Demo
     public partial class Form1 : Form
     {
         public PointLatLng Punkt_fra_forrige_kart;
-        private bool KjørEnGang = true;
         private Color knapp_trykket;
         public List<Ressurs> LRessurs;
         public List<Område> LOmråde;
@@ -21,11 +20,12 @@ namespace GMAP_Demo
         public PointLatLng DoubleClick_punkt;
         public static Form1 instance;
 
+        public int MaxSikkerhetsklarering = 3;
 
         public Form1()
         {
             GMapProviders.GoogleMap.ApiKey = "AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM";
-            if (KjørEnGang) OpprettingAvGlobaleVariabler();
+            OpprettingAvGlobaleVariabler();
             InitializeComponent();
             instance = this;
 
@@ -55,7 +55,6 @@ namespace GMAP_Demo
             // må legge inn start posisjon
             Punkt_fra_forrige_kart = new PointLatLng(60.36893643470203, 5.350878781967968);
             knapp_trykket = Color.FromArgb(46, 51, 73);
-            KjørEnGang = false;
             LRessurs = new List<Ressurs>();
             LKategori = new List<Kategorier_Bilde>();
             LOmråde = new List<Område>();
@@ -117,12 +116,19 @@ namespace GMAP_Demo
 
         private void btnOppdater_Click(object sender, EventArgs e)
         {
-            instance.map.Overlays.Clear();
-            //reff();
-            frmFilter.instance.LeggTilRessurs(Form1.instance.LRessurs);
-            frmFilter.instance.LeggTilOmråde(Form1.instance.LOmråde);
+            if (instance.map.Overlays.Count > 0)
+            {
+                instance.map.Overlays.Clear();
+                
+                //må tøme liste med ressurser og fylle igjen 
 
-            reff();
+
+                frmFilter.instance.LeggTilRessurs(Form1.instance.LRessurs);
+                frmFilter.instance.LeggTilOmråde(Form1.instance.LOmråde);
+
+                reff();
+            }
+
         }
 
         private void btnRediger_Click(object sender, EventArgs e)

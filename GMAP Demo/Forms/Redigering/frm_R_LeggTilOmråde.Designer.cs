@@ -226,7 +226,7 @@
             this.btnLeggTilOmrådetIDb.UseVisualStyleBackColor = true;
             this.btnLeggTilOmrådetIDb.Click += new System.EventHandler(this.btnLeggTilOmrådeIDb_Click);
             // 
-            // label4
+            // LabelSikkerhetsklarering
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

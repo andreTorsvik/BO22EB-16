@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using GMAP_Demo.Database.DataTypes;
 
 namespace GMAP_Demo
 {
@@ -18,6 +19,7 @@ namespace GMAP_Demo
         {
             LastInnKategorier();
             LastInnOverlays();
+            LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", Form1.instance.MaxSikkerhetsklarering);
         }
 
         private void btnLeggTilOverlay_Click(object sender, EventArgs e)
@@ -48,6 +50,7 @@ namespace GMAP_Demo
             }
             if (string.IsNullOrWhiteSpace(txtSikkerhetsklarering.Text))
             {
+                
                 altUtfylt = false;
                 utFyllingsmangler += " Sikkerhetsklarering";
             }
@@ -66,7 +69,7 @@ namespace GMAP_Demo
                 altUtfylt = false;
                 utFyllingsmangler += " long";
             }
-            if (lbValgtOverlays.Items.Count > 0)
+            if (lbValgtOverlays.Items.Count <= 0)
             {
                 altUtfylt = false;
                 utFyllingsmangler += " Overlay";
@@ -74,15 +77,27 @@ namespace GMAP_Demo
 
             if (altUtfylt)
             {
-                DatabaseCommunication db = new DatabaseCommunication();
-                db.InsertRessursToDb(txtNavn.Text.ToString(), txtKategori.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
+                string feilMelding =  sjekkTallData(txtSikkerhetsklarering.Text,txtLat.Text,txtLong.Text);
+                if (feilMelding == string.Empty)
+                {
+                    DatabaseCommunication db = new DatabaseCommunication();
+                    db.InsertRessursToDb(txtNavn.Text.ToString(), txtKategori.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
+                    //fylle in overlays 
 
-                txtNavn.Text = "";
-                txtKategori.Text = "";
-                txtKommentar.Text = "";
-                txtSikkerhetsklarering.Text = "";
-                txtLat.Text = "";
-                txtLong.Text = "";
+                    txtNavn.Text = "";
+                    txtKategori.Text = "";
+                    txtKommentar.Text = "";
+                    txtSikkerhetsklarering.Text = "";
+                    txtLat.Text = "";
+                    txtLong.Text = "";
+                    lbValgtOverlays.Items.Clear();
+                    LastInnOverlays();
+                    
+                }
+                else
+                {
+                    MessageBox.Show(feilMelding);
+                }
             }
             else MessageBox.Show(utFyllingsmangler);
 
@@ -129,18 +144,20 @@ namespace GMAP_Demo
 
         private void LastInnOverlays()
         {
+            lbTilgjengeligeOverlays.Items.Clear();
+            
             HashSet<string> AlleOverlay = new HashSet<string>();
 
             DatabaseCommunication db = new DatabaseCommunication();
+            //alle overlays fra Området
             var OverlayOListe = db.ListAllOverlay_OmrådeFromDb();
-
             foreach (var item in OverlayOListe)
             {
                 AlleOverlay.Add(item.Kategori.ToString());
             }
 
+            //alle overlays fra Resusrs 
             var OverlayRListe = db.ListAllOverlay_RessursFromDb();
-
             foreach (var item in OverlayRListe)
             {
                 AlleOverlay.Add(item.Kategori.ToString());
@@ -180,6 +197,54 @@ namespace GMAP_Demo
                 e.Handled = true;
             }     
         }
+
+
+        private string sjekkTallData(string sikkerhetsKlarering,string lat,string lang)
+        {
+            string svar = string.Empty;
+
+            try
+            {
+                int sjekk = Convert.ToInt16(sikkerhetsKlarering); 
+                if (sjekk > Form1.instance.MaxSikkerhetsklarering)
+                {
+                    svar = "Sikkerhetsklarering er for høy";
+                }
+                else if(sjekk < 1)
+                {
+                    svar = "Sikkerhetsklarering kan ikke være lavere enn 1 ";
+                }
+            }
+            catch (Exception)
+            {
+                if (svar != string.Empty) svar += ", ";
+                svar += "Feil inntasting med Sikkerhetsklarering";
+            }
+
+            try
+            {
+                float sjekk = Convert.ToSingle(lat);
+                
+            }
+            catch (Exception)
+            {
+                if (svar != string.Empty) svar += ", ";
+                svar += "Feil inntasting med Lat";
+            }
+
+            try
+            {
+                float sjekk = Convert.ToSingle(lang);
+            }
+            catch (Exception)
+            {
+                if (svar != string.Empty) svar += ", ";
+                svar += " Feil inntasting med Long";
+            }
+
+            return svar;
+        }
+
 
     }
 }

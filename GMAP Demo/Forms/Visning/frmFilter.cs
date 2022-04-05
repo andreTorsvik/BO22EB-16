@@ -89,11 +89,6 @@ namespace GMAP_Demo
             Form1.reff();
         }
 
-        private void txtAntall_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnFjern_Click(object sender, EventArgs e)
         {
                 Form1.instance.map.Overlays.Clear();
