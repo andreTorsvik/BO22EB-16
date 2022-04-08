@@ -68,7 +68,7 @@ namespace GMAP_Demo
                 }
             }
 
-            LeggTilRessurs(FrmVisning.instance.LRessurs,0);
+            LeggTilRessurs(FrmVisning.instance.LRessurs, "Visning");
             FrmVisning.reff();
         }
 
@@ -78,11 +78,11 @@ namespace GMAP_Demo
             frmRediger.instance.OppdaterKart();
         }
 
-        public static  void LeggTilRessurs(List<Ressurs> Rlist,int hvilketKart)
+        public static  void LeggTilRessurs(List<Ressurs> Rlist,string hvilketKart)
         {
-            // HvilketKart 0 = Visning.map
-            // HvilketKart 1 = Redigerings.map
-            // Hvilketkart 2 = Begge 
+            // HvilketKart Visning = Visning.map
+            // HvilketKart Redigering = Redigerings.map
+            // Hvilketkart Begge = Begge 
             // Alt annet: ingen ting
             Bildebehandling bildebehandling = new Bildebehandling();
             int tag = 0;
@@ -110,9 +110,9 @@ namespace GMAP_Demo
 
                 GMapOverlay markers = new GMapOverlay("test1");
                 markers.Markers.Add(marker);
-                if(hvilketKart == 0) FrmVisning.instance.map.Overlays.Add(markers);
-                if(hvilketKart == 1) frmRediger.instance.map.Overlays.Add(markers);
-                if(hvilketKart == 2)
+                if(hvilketKart == "Visning") FrmVisning.instance.map.Overlays.Add(markers);
+                if(hvilketKart == "Redigering") frmRediger.instance.map.Overlays.Add(markers);
+                if(hvilketKart == "Begge")
                 {
                     FrmVisning.instance.map.Overlays.Add(markers);
                     frmRediger.instance.map.Overlays.Add(markers);
@@ -121,11 +121,11 @@ namespace GMAP_Demo
             }
         }
 
-        public static void LeggTilOmråde(List<Område> Olist,int hvilketKart)
+        public static void LeggTilOmråde(List<Område> Olist,string hvilketKart)
         {
-            // HvilketKart 0 = Visning.map
-            // HvilketKart 1 = Redigerings.map
-            // Hvilketkart 2 = Begge 
+            // HvilketKart Visning = Visning.map
+            // HvilketKart Redigering = Redigerings.map
+            // Hvilketkart begge = Begge 
             // Alt annet: ingen ting
             int Tag = 0;
             foreach (var item in Olist)
@@ -141,9 +141,9 @@ namespace GMAP_Demo
                 polygons.Polygons.Add(polygon);
                 FrmVisning.instance.map.Overlays.Add(polygons);
 
-                if (hvilketKart == 0) FrmVisning.instance.map.Overlays.Add(polygons);
-                if (hvilketKart == 1) frmRediger.instance.map.Overlays.Add(polygons);
-                if (hvilketKart == 2)
+                if (hvilketKart == "Visning") FrmVisning.instance.map.Overlays.Add(polygons);
+                if (hvilketKart == "Redigering") frmRediger.instance.map.Overlays.Add(polygons);
+                if (hvilketKart == "Begge")
                 {
                     FrmVisning.instance.map.Overlays.Add(polygons);
                     frmRediger.instance.map.Overlays.Add(polygons);

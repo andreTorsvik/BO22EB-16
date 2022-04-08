@@ -52,7 +52,7 @@ namespace GMAP_Demo
             {
                 FrmVisning.instance.LRessurs.Add(item);
             }
-            Kart.LeggTilRessurs(FrmVisning.instance.LRessurs,0);
+            Kart.LeggTilRessurs(FrmVisning.instance.LRessurs, "Visning");
         }
         public void OppdaterOmrådeListe()
         {
@@ -64,13 +64,13 @@ namespace GMAP_Demo
             {
                 FrmVisning.instance.LOmråde.Add(item);
             }
-            Kart.LeggTilOmråde(FrmVisning.instance.LOmråde,0);
+            Kart.LeggTilOmråde(FrmVisning.instance.LOmråde, "Visning");
            
         }
 
             private void btnRessurs_Click(object sender, EventArgs e)
         {
-            Kart.LeggTilRessurs(FrmVisning.instance.LRessurs,0);
+            Kart.LeggTilRessurs(FrmVisning.instance.LRessurs, "Visning");
             FrmVisning.reff();
         }
 
@@ -102,7 +102,7 @@ namespace GMAP_Demo
 
         private void btnLeggTilOmrådet_Click(object sender, EventArgs e)
         {
-            Kart.LeggTilOmråde(FrmVisning.instance.LOmråde,0);
+            Kart.LeggTilOmråde(FrmVisning.instance.LOmråde, "Visning");
             FrmVisning.reff();
         }
 
