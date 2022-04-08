@@ -12,7 +12,7 @@ namespace GMAP_Demo
             try
             {
                 int sjekk = Convert.ToInt16(sikkerhetsKlarering);
-                if (sjekk > FrmVisning.instance.MaxSikkerhetsklarering)
+                if (sjekk > frmVisning.instance.MaxSikkerhetsklarering)
                 {
                     svar = "Sikkerhetsklarering er for høy";
                 }
@@ -131,7 +131,8 @@ namespace GMAP_Demo
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
 
-            if (rList[0].Navn != navn) Endringer += string.Format("Navn: {0} -> {1}" + newLine, rList[0].Navn, navn);
+            if (rList[0].Navn != navn) 
+                Endringer += string.Format("Navn: {0} -> {1}" + newLine, rList[0].Navn, navn);
             try
             {
                 if (rList[0].Sikkerhetsklarering != Convert.ToInt16(sikkerhetsklarering))
@@ -140,8 +141,10 @@ namespace GMAP_Demo
                 }
             }
             catch (Exception) { }
-            if (rList[0].Kategori != kategori) Endringer += string.Format("Kategori: {0} -> {1}" + newLine, rList[0].Kategori, kategori);
-            if (rList[0].Kommentar != kommentar) Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, rList[0].Kommentar, kommentar);
+            if (rList[0].Kategori != kategori) 
+                Endringer += string.Format("Kategori: {0} -> {1}" + newLine, rList[0].Kategori, kategori);
+            if (rList[0].Kommentar != kommentar) 
+                Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, rList[0].Kommentar, kommentar);
             try
             {
                 if (Math.Round(rList[0].Lat, 5) != Math.Round(Convert.ToDouble(lat), 5))

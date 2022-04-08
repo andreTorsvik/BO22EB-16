@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class FrmVisning
+    partial class frmVisning
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVisning));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVisning));
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnHelp = new System.Windows.Forms.Button();
             this.lblUserName = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnHelp.Location = new System.Drawing.Point(4, 4);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(4);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(33, 31);
             this.btnHelp.TabIndex = 1;
@@ -258,7 +258,7 @@
             this.btnZoomPluss.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnZoomPluss.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnZoomPluss.Location = new System.Drawing.Point(732, 753);
-            this.btnZoomPluss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZoomPluss.Margin = new System.Windows.Forms.Padding(4);
             this.btnZoomPluss.Name = "btnZoomPluss";
             this.btnZoomPluss.Size = new System.Drawing.Size(33, 31);
             this.btnZoomPluss.TabIndex = 0;
@@ -274,7 +274,7 @@
             this.btnZoomMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnZoomMinus.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnZoomMinus.Location = new System.Drawing.Point(732, 791);
-            this.btnZoomMinus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZoomMinus.Margin = new System.Windows.Forms.Padding(4);
             this.btnZoomMinus.Name = "btnZoomMinus";
             this.btnZoomMinus.Size = new System.Drawing.Size(33, 31);
             this.btnZoomMinus.TabIndex = 3;
@@ -282,7 +282,7 @@
             this.btnZoomMinus.UseVisualStyleBackColor = false;
             this.btnZoomMinus.Click += new System.EventHandler(this.btnZoomMinus_Click);
             // 
-            // Form1
+            // FrmVisning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -296,7 +296,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(1285, 793);
-            this.Name = "Form1";
+            this.Name = "FrmVisning";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Gmap Demo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

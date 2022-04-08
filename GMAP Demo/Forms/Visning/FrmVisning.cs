@@ -9,19 +9,18 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class FrmVisning : Form
+    public partial class frmVisning : Form
     {
-        public PointLatLng Punkt_fra_forrige_kart;
         private Color knapp_trykket;
         public List<Ressurs> LRessurs;
         public List<Område> LOmråde;
         public List<Kategorier_Bilde> LKategori;
         public PointLatLng DoubleClick_punkt;
-        public static FrmVisning instance;
+        public static frmVisning instance;
 
         public int MaxSikkerhetsklarering = 3;
 
-        public FrmVisning()
+        public frmVisning()
         {
             GMapProviders.GoogleMap.ApiKey = "AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM";
             OpprettingAvGlobaleVariabler();
@@ -51,8 +50,6 @@ namespace GMAP_Demo
 
         private void OpprettingAvGlobaleVariabler()
         {
-            // må legge inn start posisjon
-            Punkt_fra_forrige_kart = new PointLatLng(60.36893643470203, 5.350878781967968);
             knapp_trykket = Color.FromArgb(46, 51, 73);
             LRessurs = new List<Ressurs>();
             LKategori = new List<Kategorier_Bilde>();
@@ -62,21 +59,7 @@ namespace GMAP_Demo
         private void Form1_Load(object sender, EventArgs e)
         {
             lblUserName.TextAlign = ContentAlignment.MiddleCenter;
-            Setupkart();
-        }
-
-        private void Setupkart()
-        {
-            //start posisjon kart
-            map.MapProvider = GMapProviders.OpenStreetMap;
-
-            map.Position = Punkt_fra_forrige_kart; //PointLatLng(60.36893643470203, 5.350878781967968);
-
-            //settings for kart
-            map.MinZoom = 0; // min zoom level
-            map.MaxZoom = 27; // maximum
-            map.Zoom = 17; // Behagelig Zoom level 
-            map.DragButton = MouseButtons.Left;
+            Kart.Setup(Kart.MuligKart.Visning, Kart.PunktFraForrige);
         }
 
         private void btnPoisjon_Click(object sender, EventArgs e)
@@ -126,10 +109,11 @@ namespace GMAP_Demo
                 //fylle listene 
 
 
-                Kart.LeggTilRessurs(FrmVisning.instance.LRessurs, "Visning");
-                Kart.LeggTilOmråde(FrmVisning.instance.LOmråde, "Visning");
+                //legge til på kartet
+                Kart.LeggTilRessurs(frmVisning.instance.LRessurs, Kart.MuligKart.Visning);
+                Kart.LeggTilOmråde(frmVisning.instance.LOmråde, Kart.MuligKart.Visning);
 
-                reff();
+                Kart.reff(Kart.MuligKart.Visning);
             }
 
         }
@@ -137,8 +121,7 @@ namespace GMAP_Demo
         private void btnRediger_Click(object sender, EventArgs e)
         {
             //for å sende posisjonen til neste kart
-            Punkt_fra_forrige_kart = map.Position;
-
+            Kart.PunktFraForrige = map.Position;
 
             this.Hide();
             frmRediger frmRediger = new frmRediger(); // instance 
@@ -156,7 +139,16 @@ namespace GMAP_Demo
             frmSettings.Show();
         }
 
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            frmHjelp frmHjelp = new frmHjelp();
 
+            frmHjelp.Location = this.Location;
+            frmHjelp.Size = this.Size;
+            frmHjelp.TopMost = true;
+            frmHjelp.Show();
+
+        }
 
         void AlleKnapperTilStandarfarge()
         {
@@ -167,10 +159,7 @@ namespace GMAP_Demo
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //uten denne funskjone vil programmet forsatt være i debugging 
-            //når man trykker "X"
             Application.Exit();
-
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
@@ -182,11 +171,7 @@ namespace GMAP_Demo
             pnlNav.Left = btnPosisjon.Left;
         }
 
-        public static void reff()
-        {
-            instance.map.Zoom++;
-            instance.map.Zoom--;
-        }
+
 
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
@@ -236,22 +221,7 @@ namespace GMAP_Demo
 
         }
 
-        public static void LeggTilRute(PointLatLng fra, PointLatLng til)
-        {
-            //bruker google API 
-            var route = GoogleMapProvider.Instance.GetRoute(fra, til, false, false, 14);
-
-            var r = new GMapRoute(route.Points, "My rute")
-            {
-                Stroke = new Pen(Color.Red, 5)
-            };
-            var routes = new GMapOverlay("routes");
-            routes.Routes.Add(r);
-            instance.map.Overlays.Add(routes);
-            instance.map.Position = fra;
-
-            frmPosisjon.instance.LbDistanse.Text = route.Distance.ToString() + " Km";
-        }
+        
 
         private void btnZoomPluss_Click(object sender, EventArgs e)
         {
@@ -263,26 +233,7 @@ namespace GMAP_Demo
             instance.map.Zoom--;
         }
 
-        private void btnHelp_Click(object sender, EventArgs e)
-        {
-            frmHjelp frmHjelp = new frmHjelp();
-
-            frmHjelp.Location = this.Location;
-            frmHjelp.Size = this.Size;
-            frmHjelp.TopMost = true;
-            frmHjelp.Show();
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmHjelp frmHjelp = new frmHjelp();
-
-            frmHjelp.Location = this.Location;
-            frmHjelp.Size = this.Size;
-            frmHjelp.TopMost = true;
-            frmHjelp.Show();
-        }
+        
 
         //public void OppdaterKart()
         //{

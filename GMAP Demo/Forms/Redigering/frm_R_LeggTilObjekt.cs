@@ -19,7 +19,7 @@ namespace GMAP_Demo
         {
             LastInnKategorier();
             LastInnOverlays();
-            LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", FrmVisning.instance.MaxSikkerhetsklarering);
+            LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", frmVisning.instance.MaxSikkerhetsklarering);
         }
 
         private void btnLeggTilOverlay_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace GMAP_Demo
                     lbValgtOverlays.Items.Clear();
                     LastInnOverlays();
                     Kart.Visning_OppdaterListeOgKart();
-                    Kart.Redigering_OppdaterListeOgKart();
+                    Kart.Redigering_OppdaterKart();
                 }
                 else
                 {
@@ -100,12 +100,12 @@ namespace GMAP_Demo
         }
         private void LastInnKategorier()
         {
-            FrmVisning.instance.LKategori.Clear();
+            frmVisning.instance.LKategori.Clear();
             var KategoriListe = DatabaseCommunication.ListAllKategorier_BildeFromDb();
 
             foreach (var item in KategoriListe)
             {
-                FrmVisning.instance.LKategori.Add(item);
+                frmVisning.instance.LKategori.Add(item);
                 lbTilgjengligKategori.Items.Add(item.Kategorinavn);
             }
 

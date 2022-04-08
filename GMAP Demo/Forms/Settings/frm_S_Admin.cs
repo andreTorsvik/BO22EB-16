@@ -61,7 +61,7 @@ namespace GMAP_Demo
 
         private void btnGodta_Click(object sender, EventArgs e)
         {
-            if (InnloggetBruker.Sikkerhetsklarering == FrmVisning.instance.MaxSikkerhetsklarering)
+            if (InnloggetBruker.Sikkerhetsklarering == frmVisning.instance.MaxSikkerhetsklarering)
             {
                 string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
 
@@ -126,7 +126,7 @@ namespace GMAP_Demo
 
         private void btnAvslå_Click(object sender, EventArgs e)
         {
-            if (InnloggetBruker.Sikkerhetsklarering == FrmVisning.instance.MaxSikkerhetsklarering)
+            if (InnloggetBruker.Sikkerhetsklarering == frmVisning.instance.MaxSikkerhetsklarering)
             {
                 //finn mailen
                 string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
@@ -181,7 +181,7 @@ namespace GMAP_Demo
 
                     int klarering = brukerListe[0].Sikkerhetsklarering;
 
-                    if (brukerListe[0].Sikkerhetsklarering < FrmVisning.instance.MaxSikkerhetsklarering)
+                    if (brukerListe[0].Sikkerhetsklarering < frmVisning.instance.MaxSikkerhetsklarering)
                     {
                         klarering++;
                     }

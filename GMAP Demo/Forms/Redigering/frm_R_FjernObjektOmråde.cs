@@ -49,7 +49,7 @@ namespace GMAP_Demo
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart
                         Kart.Visning_OppdaterListeOgKart();
-                        Kart.Redigering_OppdaterListeOgKart();
+                        Kart.Redigering_OppdaterKart();
 
                     }
 
@@ -78,7 +78,7 @@ namespace GMAP_Demo
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart 
                         Kart.Visning_OppdaterListeOgKart();
-                        Kart.Redigering_OppdaterListeOgKart();
+                        Kart.Redigering_OppdaterKart();
                     }
                 }
                 catch (Exception feil)

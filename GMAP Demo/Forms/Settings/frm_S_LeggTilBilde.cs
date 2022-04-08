@@ -58,7 +58,7 @@ namespace GMAP_Demo
 
             foreach (var item in KategoriListe)
             {
-                FrmVisning.instance.LKategori.Add(item);
+                frmVisning.instance.LKategori.Add(item);
                 lbTilgjengligKategorier.Items.Add(item.Kategorinavn);
             }
 

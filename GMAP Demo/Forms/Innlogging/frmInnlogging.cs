@@ -45,7 +45,7 @@ namespace GMAP_Demo
                         InnloggetBruker.BrukernavnInnlogget = listBruker[0].Epost;
                         InnloggetBruker.Sikkerhetsklarering = listBruker[0].Sikkerhetsklarering;
                         this.Hide();
-                        FrmVisning form1 = new FrmVisning(); // instance
+                        frmVisning form1 = new frmVisning(); // instance
                         form1.Size = this.Size;
 
                         form1.Show();

@@ -25,14 +25,14 @@ namespace GMAP_Demo
             svar += txtByKommune.Text + ",";
             svar += txtLand.Text;
             svar = svar.Trim();
-            FrmVisning.AdresseTilKart(svar);
+            frmVisning.AdresseTilKart(svar);
 
             
             if (txtLand.Text != "") ZoomLevel = 5;
             if (txtByKommune.Text != "") ZoomLevel = 11;
             if (txtAdresse.Text != "") ZoomLevel = 18;
 
-            FrmVisning.instance.map.Zoom = ZoomLevel;
+            frmVisning.instance.map.Zoom = ZoomLevel;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -81,33 +81,28 @@ namespace GMAP_Demo
             {
                 try
                 {
-                    FrmVisning.LeggTilRute(Fra, Til);
-                    
-                    
+                    Kart.LeggTilRute(Fra, Til);    
                 }
                 catch (Exception)
                 {
-
-                    
+ 
                 }
             }
         }
 
         private void btnFjernRute_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < FrmVisning.instance.map.Overlays.Count; i++)
+            for (int i = 0; i < frmVisning.instance.map.Overlays.Count; i++)
             {
-                if (FrmVisning.instance.map.Overlays[i].Id == "routes")
+                if (frmVisning.instance.map.Overlays[i].Id == "routes")
                 {  
-                    FrmVisning.instance.map.Overlays.RemoveAt(i);
-                    FrmVisning.reff();
+                    frmVisning.instance.map.Overlays.RemoveAt(i);
+                    Kart.reff(Kart.MuligKart.Visning);
                     LbDistanse.Text = "[Distanse i Km]";
                     break;
                 }
             }
-
         }
-
         private List<string> GetAddress(PointLatLng point)
         {
             //må bruke google API  for denne delen av koden

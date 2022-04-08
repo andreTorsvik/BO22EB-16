@@ -8,11 +8,15 @@ using System.Threading.Tasks;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
+using GMap.NET.MapProviders;
 
 namespace GMAP_Demo
 {
     internal class Kart
     {
+        public enum MuligKart { Visning, Redigering, Begge };
+        public static PointLatLng PunktFraForrige =  new PointLatLng(60.36893643470203, 5.350878781967968); // skal hente Posisjon fra fil 
+
         // Lister for filtrering på kategorier:
         // BindingList for lbKategorierVises REF: https://stackoverflow.com/questions/17615069/how-to-refresh-datasource-of-a-listbox, https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindinglist-1?view=net-6.0
         public static BindingList<Kategorier_Bilde> kategoriListeVises = new BindingList<Kategorier_Bilde>();
@@ -44,14 +48,52 @@ namespace GMAP_Demo
             kategoriListeSkjult.RaiseListChangedEvents = true;
         }
 
+        public static void Setup(MuligKart kart ,PointLatLng p)
+        {
+            switch (kart)
+            {
+                case MuligKart.Visning:
+                    frmVisning.instance.map.MapProvider = GMapProviders.OpenStreetMap;
+
+                    frmVisning.instance.map.Position = p; //PointLatLng(60.36893643470203, 5.350878781967968);
+
+                    //settings for kart
+                    frmVisning.instance.map.MinZoom = 0; // min zoom level
+                    frmVisning.instance.map.MaxZoom = 27; // maximum
+                    frmVisning.instance.map.Zoom = 17; // Behagelig Zoom level 
+                    frmVisning.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
+                    break;
+                case MuligKart.Redigering:
+
+                    //start posisjon kart
+                    frmRediger.instance.map.MapProvider = GMapProviders.OpenStreetMap;
+
+                    frmRediger.instance.map.Position = p;
+
+                    //settings for kart
+                    frmRediger.instance.map.MinZoom = 0; // min zoom level
+                    frmRediger.instance.map.MaxZoom = 27; // maximum
+                    frmRediger.instance.map.Zoom = 17;
+                    frmRediger.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
+
+                    break;
+                case MuligKart.Begge:
+                    break;
+                default:
+                    break;
+            }
+            //start posisjon kart
+            
+        }
+
         public static void Visning_OppdaterListeOgKart()
         {
             //FrmVisning.instance.OppdaterKart();
             //
             //frmFilter.instance.OppdaterKart()
 
-            FrmVisning.instance.map.Overlays.Clear();
-            if (FrmVisning.instance.LRessurs.Count > 0) FrmVisning.instance.LRessurs.Clear();
+            frmVisning.instance.map.Overlays.Clear();
+            if (frmVisning.instance.LRessurs.Count > 0) frmVisning.instance.LRessurs.Clear();
 
             var RessursList = DatabaseCommunication.ListAllRessursFromDb();
 
@@ -62,23 +104,27 @@ namespace GMAP_Demo
                 {
                     if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
                     {
-                        FrmVisning.instance.LRessurs.Add(item);
+                        frmVisning.instance.LRessurs.Add(item);
                         break;
                     }
                 }
             }
 
-            LeggTilRessurs(FrmVisning.instance.LRessurs, "Visning");
-            FrmVisning.reff();
+            LeggTilRessurs(frmVisning.instance.LRessurs, MuligKart.Visning);
+            reff(MuligKart.Visning);
         }
 
-        public static void Redigering_OppdaterListeOgKart()
+        public static void Redigering_OppdaterKart()
         {
             //bruker listene i FrmVisning, så visning_oppdaterkart må kjører først 
-            frmRediger.instance.OppdaterKart();
+         
+            frmRediger.instance.map.Overlays.Clear();
+            LeggTilRessurs(frmVisning.instance.LRessurs, MuligKart.Redigering);
+            LeggTilOmråde(frmVisning.instance.LOmråde, MuligKart.Redigering);
+            Setup(MuligKart.Redigering,PunktFraForrige);
         }
 
-        public static  void LeggTilRessurs(List<Ressurs> Rlist,string hvilketKart)
+        public static  void LeggTilRessurs(List<Ressurs> Rlist,MuligKart kart)
         {
             // HvilketKart Visning = Visning.map
             // HvilketKart Redigering = Redigerings.map
@@ -110,18 +156,18 @@ namespace GMAP_Demo
 
                 GMapOverlay markers = new GMapOverlay("test1");
                 markers.Markers.Add(marker);
-                if(hvilketKart == "Visning") FrmVisning.instance.map.Overlays.Add(markers);
-                if(hvilketKart == "Redigering") frmRediger.instance.map.Overlays.Add(markers);
-                if(hvilketKart == "Begge")
+                if(MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
+                if(MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
+                if(MuligKart.Begge == kart)
                 {
-                    FrmVisning.instance.map.Overlays.Add(markers);
+                    frmVisning.instance.map.Overlays.Add(markers);
                     frmRediger.instance.map.Overlays.Add(markers);
                 }
 
             }
         }
 
-        public static void LeggTilOmråde(List<Område> Olist,string hvilketKart)
+        public static void LeggTilOmråde(List<Område> Olist, MuligKart kart)
         {
             // HvilketKart Visning = Visning.map
             // HvilketKart Redigering = Redigerings.map
@@ -139,13 +185,13 @@ namespace GMAP_Demo
                 polygon.IsHitTestVisible = true; // nødvendig for å kunne trykke på Polygonet
                 GMapOverlay polygons = new GMapOverlay("Polygons");
                 polygons.Polygons.Add(polygon);
-                FrmVisning.instance.map.Overlays.Add(polygons);
+                frmVisning.instance.map.Overlays.Add(polygons);
 
-                if (hvilketKart == "Visning") FrmVisning.instance.map.Overlays.Add(polygons);
-                if (hvilketKart == "Redigering") frmRediger.instance.map.Overlays.Add(polygons);
-                if (hvilketKart == "Begge")
+                if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(polygons);
+                if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(polygons);
+                if (MuligKart.Begge == kart)
                 {
-                    FrmVisning.instance.map.Overlays.Add(polygons);
+                    frmVisning.instance.map.Overlays.Add(polygons);
                     frmRediger.instance.map.Overlays.Add(polygons);
                 }
             }
@@ -219,5 +265,44 @@ namespace GMAP_Demo
             return polygon;
         }
 
+        public static void LeggTilRute(PointLatLng fra, PointLatLng til)
+        {
+            //bruker google API
+            //Denne metoden er kun for visning
+            var route = GoogleMapProvider.Instance.GetRoute(fra, til, false, false, 14);
+
+            var r = new GMapRoute(route.Points, "My rute")
+            {
+                Stroke = new Pen(Color.Red, 5)
+            };
+            var routes = new GMapOverlay("routes");
+            routes.Routes.Add(r);
+            frmVisning.instance.map.Overlays.Add(routes);
+            frmVisning.instance.map.Position = fra;
+
+            frmPosisjon.instance.LbDistanse.Text = route.Distance.ToString() + " Km";
+        }
+
+        public static void reff(MuligKart kart)
+        {
+            switch (kart)
+            {
+                case MuligKart.Visning:
+                    frmVisning.instance.map.Zoom++;
+                    frmVisning.instance.map.Zoom--;
+                    break;
+                case MuligKart.Redigering:
+                    frmRediger.instance.map.Zoom++;
+                    frmRediger.instance.map.Zoom--;
+                    break;
+                case MuligKart.Begge:
+                    frmVisning.instance.map.Zoom++;
+                    frmVisning.instance.map.Zoom--;
+
+                    frmRediger.instance.map.Zoom++;
+                    frmRediger.instance.map.Zoom--;
+                    break;
+            }
+        }
     }
 }
