@@ -27,7 +27,7 @@ namespace GMAP_Demo
             svar = svar.Trim();
             FrmVisning.AdresseTilKart(svar);
 
-            //tror det finnes bedre metoder for dette
+            
             if (txtLand.Text != "") ZoomLevel = 5;
             if (txtByKommune.Text != "") ZoomLevel = 11;
             if (txtAdresse.Text != "") ZoomLevel = 18;

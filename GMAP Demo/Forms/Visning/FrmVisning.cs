@@ -239,7 +239,6 @@ namespace GMAP_Demo
         public static void LeggTilRute(PointLatLng fra, PointLatLng til)
         {
             //bruker google API 
-            //false false
             var route = GoogleMapProvider.Instance.GetRoute(fra, til, false, false, 14);
 
             var r = new GMapRoute(route.Points, "My rute")

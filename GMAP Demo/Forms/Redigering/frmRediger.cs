@@ -39,8 +39,9 @@ namespace GMAP_Demo
         private void frmRediger_Load(object sender, EventArgs e)
         {
             SetupKart();
-            VisRessurser();
-            VisOmråder();
+            Kart.LeggTilRessurs(FrmVisning.instance.LRessurs, "Redigering");
+            Kart.LeggTilOmråde(FrmVisning.instance.LOmråde, "Redigering");
+
             reff();
         }
 
@@ -223,55 +224,6 @@ namespace GMAP_Demo
                 }
             }
         }
-
-        private void VisRessurser()
-        {
-            if (FrmVisning.instance.LRessurs.Count > 0)
-            {
-                int tag = 0;
-                GMapMarker marker;
-                foreach (var item in FrmVisning.instance.LRessurs)
-                {
-                    PointLatLng punkt = item.GiPunktet();
-
-                    marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
-
-                    marker.ToolTipText = String.Format("{0}", item.Navn);
-                    marker.ToolTip.Fill = Brushes.Black;
-                    marker.ToolTip.Foreground = Brushes.White;
-                    marker.ToolTip.Stroke = Pens.Black;
-                    marker.ToolTip.TextPadding = new Size(20, 20);
-                    marker.Tag = tag;
-                    tag++;
-
-                    GMapOverlay markers = new GMapOverlay("test1");
-                    markers.Markers.Add(marker);
-                    instance.map.Overlays.Add(markers);
-                }
-            }
-        }
-
-        private void VisOmråder()
-        {
-            if (FrmVisning.instance.LOmråde.Count > 0)
-            {
-                int Tag = 0;
-                foreach (var item in FrmVisning.instance.LOmråde)
-                {
-                    List<PointLatLng> Lpunkter = item.HentPunkter();
-
-                    GMapPolygon polygon = Kart.BestemFarge(Lpunkter, item.Farge);
-
-                    polygon.Tag = Tag;
-                    Tag++;
-                    polygon.IsHitTestVisible = true; // nødvendig for å kunne trykke på Polygonet
-                    GMapOverlay polygons = new GMapOverlay("Polygons");
-                    polygons.Polygons.Add(polygon);
-                    instance.map.Overlays.Add(polygons);
-                }
-            }
-
-        }
         public static void reff()
         {
             instance.map.Zoom++;
@@ -312,6 +264,14 @@ namespace GMAP_Demo
                 frm_R_RedigerOmråde.instance.txtfarge.Text = FrmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Farge;
 
             }
+            if (frm_R_FjernObjektOmråde.instance != null)
+            {
+                frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område = FrmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område;
+                if (frm_R_FjernObjektOmråde.instance.Løpenummer_til_objekt >= 0) frm_R_FjernObjektOmråde.instance.Løpenummer_til_objekt = -1;
+                frm_R_FjernObjektOmråde.instance.txtInfo.Text = FrmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].ToString();
+                frm_R_FjernObjektOmråde.instance.txtLøpenumemr.Text = FrmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område.ToString();
+                frm_R_FjernObjektOmråde.instance.txtNavn.Text = FrmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
+            }
 
         }
 
@@ -328,8 +288,8 @@ namespace GMAP_Demo
         public void OppdaterKart()
         {
             map.Overlays.Clear();
-            VisRessurser();
-            VisOmråder();
+            Kart.LeggTilRessurs(FrmVisning.instance.LRessurs, "Redigering");
+            Kart.LeggTilOmråde(FrmVisning.instance.LOmråde, "Redigering");
             reff();
 
         }
