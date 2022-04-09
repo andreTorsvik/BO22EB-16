@@ -23,6 +23,7 @@ namespace GMAP_Demo
             string ByKommune = txtByKommune.Text;
             string Adresse = txtAdresse.Text;
                 
+            if(!(string.IsNullOrWhiteSpace(Land) && string.IsNullOrWhiteSpace(ByKommune) && string.IsNullOrWhiteSpace(Adresse)))
             Kart.FinnLokasjon(Land,ByKommune,Adresse);
         }
 

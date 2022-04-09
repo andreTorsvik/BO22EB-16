@@ -305,18 +305,20 @@ namespace GMAP_Demo
 
         public static void FinnLokasjon(string Land, string ByKommune, string Adresse)
         {
+            //setter sammen strengene til rett format
             string sammenSlått = Tekstbehandling.SammenSlåingTekstfelt(Land, ByKommune, Adresse);
 
-            PointLatLng PunktFør = frmVisning.instance.map.Position;
+            PointLatLng PosisjonFør = frmVisning.instance.map.Position;
             frmVisning.instance.map.SetPositionByKeywords(sammenSlått);
 
             //finne nåværende punkt 
-            PointLatLng PunktNå = frmVisning.instance.map.Position;
+            PointLatLng PosisjonNå = frmVisning.instance.map.Position;
 
-            if (PunktFør != PunktNå)
+            
+            if (PosisjonFør != PosisjonNå)
             {
-                frmPosisjon.instance.txtLat.Text = PunktNå.Lat.ToString();
-                frmPosisjon.instance.txtLong.Text = PunktNå.Lng.ToString();
+                frmPosisjon.instance.txtLat.Text = PosisjonNå.Lat.ToString();
+                frmPosisjon.instance.txtLong.Text = PosisjonNå.Lng.ToString();
                 int ZoomLevel = 18;
 
                 if (!string.IsNullOrWhiteSpace(Adresse)) ZoomLevel = 18;
