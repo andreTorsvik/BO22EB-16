@@ -29,7 +29,6 @@ namespace GMAP_Demo
             try
             {
                 float sjekk = Convert.ToSingle(lat);
-
             }
             catch (Exception)
             {
@@ -76,7 +75,7 @@ namespace GMAP_Demo
 
         static public string SjekkGyldigDataRegistering(string Epost, string passord, string Bepassord)
         {
-            string utFyllingsmangler = string.Empty;
+            string svar = string.Empty;
             List<string> Lfeil = new List<string>();
             //alle sjekkenede  
             if (!(passord == Bepassord)) Lfeil.Add("Passord samsvarer ikke");
@@ -88,16 +87,17 @@ namespace GMAP_Demo
             {
                 Lfeil.Add("ikke oppgitt en mail adresse");
             }
+
             if (Lfeil.Count > 0)
             {
-                utFyllingsmangler = "Feil: ";
+                svar = "Feil: ";
                 for (int i = 0; i < Lfeil.Count; i++)
                 {
-                    utFyllingsmangler += Lfeil[i];
-                    if (i < Lfeil.Count - 1) utFyllingsmangler += ", ";
+                    svar += Lfeil[i];
+                    if (i < Lfeil.Count - 1) svar += ", ";
                 }
             }
-            return utFyllingsmangler;
+            return svar;
         }
 
         static public string SjekkInntastetDataObjekt(string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int ListeAntall)
@@ -140,7 +140,10 @@ namespace GMAP_Demo
                     Endringer += string.Format("Sikkerhetsklarering: {0} -> {1}" + newLine, rList[0].Sikkerhetsklarering, sikkerhetsklarering);
                 }
             }
-            catch (Exception) { }
+            catch (Exception feilmelding) 
+            {
+                DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+            }
             if (rList[0].Kategori != kategori) 
                 Endringer += string.Format("Kategori: {0} -> {1}" + newLine, rList[0].Kategori, kategori);
             if (rList[0].Kommentar != kommentar) 
@@ -150,18 +153,46 @@ namespace GMAP_Demo
                 if (Math.Round(rList[0].Lat, 5) != Math.Round(Convert.ToDouble(lat), 5))
                     Endringer += string.Format("Lat: {0} -> {1}" + newLine, rList[0].Lat, lat);
             }
-            catch (Exception) { }
+            catch (Exception feilmelding) 
+            {
+                DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+            }
 
             try
             {
                 if (Math.Round(rList[0].Lang, 5) != Math.Round(Convert.ToDouble(lang), 5))
                     Endringer += string.Format("Long: {0} -> {1}" + newLine, rList[0].Lang, lang);
             }
-            catch (Exception) { }
+            catch (Exception feilmelding) 
+            {
+                DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+            }
 
             //må sjekke om hver overlay er likt 
 
             return Endringer;
+        }
+
+        public static string SammenSlåingTekstfelt(string land,string ByKommune,string adresse)
+        {
+
+            string svar = string.Empty;
+            List<string> LSammenSlåing = new List<string>();
+
+            if (!string.IsNullOrWhiteSpace(land)) LSammenSlåing.Add(land.Trim());
+            if (!string.IsNullOrWhiteSpace(ByKommune)) LSammenSlåing.Add(ByKommune.Trim());
+            if (!string.IsNullOrWhiteSpace(adresse)) LSammenSlåing.Add(adresse.Trim());
+
+            if (LSammenSlåing.Count > 0)
+            {
+                for (int i = 0; i < LSammenSlåing.Count; i++)
+                {
+                    svar += LSammenSlåing[i];
+                    if (i < LSammenSlåing.Count - 1) svar += ", ";
+                }
+            }
+
+            return svar;
         }
     }
 }

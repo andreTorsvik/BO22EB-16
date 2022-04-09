@@ -11,6 +11,10 @@ namespace GMAP_Demo
 {
     public partial class frmVisning : Form
     {
+        //log
+        //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
+        //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "Test: Denne funkere ikke enda"); 
+        
         private Color knapp_trykket;
         public List<Ressurs> LRessurs;
         public List<Område> LOmråde;
@@ -107,7 +111,7 @@ namespace GMAP_Demo
                 LOmråde.Clear();
 
                 //fylle listene 
-
+                
 
                 //legge til på kartet
                 Kart.LeggTilRessurs(frmVisning.instance.LRessurs, Kart.MuligKart.Visning);
@@ -204,16 +208,6 @@ namespace GMAP_Demo
                 frmPosisjon.instance.txtLat.Text = lat.ToString();
                 frmPosisjon.instance.txtLong.Text = lng.ToString();
             }
-        }
-
-        public static void AdresseTilKart(string Adresse)
-        {
-            instance.map.SetPositionByKeywords(Adresse);
-            //Form1.instance.map.Zoom = 17;
-            PointLatLng punkt = instance.map.Position;
-
-            frmPosisjon.instance.txtLat.Text = punkt.Lat.ToString();
-            frmPosisjon.instance.txtLong.Text = punkt.Lng.ToString();
         }
 
         private void map_OnMapZoomChanged()

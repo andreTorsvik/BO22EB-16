@@ -19,20 +19,11 @@ namespace GMAP_Demo
 
         private void btnSøk_Click(object sender, EventArgs e)
         {
-            string svar = " ";
-            int ZoomLevel = 0;
-            svar += txtAdresse.Text + ",";
-            svar += txtByKommune.Text + ",";
-            svar += txtLand.Text;
-            svar = svar.Trim();
-            frmVisning.AdresseTilKart(svar);
-
-            
-            if (txtLand.Text != "") ZoomLevel = 5;
-            if (txtByKommune.Text != "") ZoomLevel = 11;
-            if (txtAdresse.Text != "") ZoomLevel = 18;
-
-            frmVisning.instance.map.Zoom = ZoomLevel;
+            string Land = txtLand.Text;
+            string ByKommune = txtByKommune.Text;
+            string Adresse = txtAdresse.Text;
+                
+            Kart.FinnLokasjon(Land,ByKommune,Adresse);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -41,12 +32,12 @@ namespace GMAP_Demo
             try
             {
                 PointLatLng point = new PointLatLng(Convert.ToDouble(txtLat.Text), Convert.ToDouble(txtLong.Text));
-                LAdresse = GetAddress(point);
+                LAdresse = Kart.FåAddress(point);
                 Fra = point;
             }
-            catch (Exception)
+            catch (Exception feilmelding)
             {
-
+                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
             if (LAdresse != null)
@@ -61,12 +52,12 @@ namespace GMAP_Demo
             try
             {
                 PointLatLng point = new PointLatLng(Convert.ToDouble(txtLat.Text), Convert.ToDouble(txtLong.Text));
-                LAdresse = GetAddress(point);
+                LAdresse = Kart.FåAddress(point);
                 Til = point;
             }
-            catch (Exception)
+            catch (Exception feilmelding)
             {
-
+                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
             if (LAdresse != null)
@@ -83,48 +74,18 @@ namespace GMAP_Demo
                 {
                     Kart.LeggTilRute(Fra, Til);    
                 }
-                catch (Exception)
+                catch (Exception feilmelding)
                 {
- 
+                    DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
             }
         }
 
         private void btnFjernRute_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < frmVisning.instance.map.Overlays.Count; i++)
-            {
-                if (frmVisning.instance.map.Overlays[i].Id == "routes")
-                {  
-                    frmVisning.instance.map.Overlays.RemoveAt(i);
-                    Kart.reff(Kart.MuligKart.Visning);
-                    LbDistanse.Text = "[Distanse i Km]";
-                    break;
-                }
-            }
+            Kart.FjernRute();
         }
-        private List<string> GetAddress(PointLatLng point)
-        {
-            //må bruke google API  for denne delen av koden
-            //hvis man ikke har google API vil denne delen ikke virke
-            try
-            {
-                List<Placemark> Info = null;
-                var statusCode = GMapProviders.GoogleMap.GetPlacemarks(point, out Info);
-                //var statusCode = GMapProviders.OpenStreetMap.GetPlacemarks(point,out Info);
-                if (statusCode == GeoCoderStatusCode.OK && Info != null)
-                {
-                    List<string> addresse = new List<string>();
-                    addresse.Add(Info[0].Address);
-                    return addresse;
-                }
-            }
-            catch (Exception)
-            {
-    
-            }
-            return null;
-        }
+        
 
         private void frmPosisjon_Load(object sender, EventArgs e)
         {

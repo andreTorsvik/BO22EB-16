@@ -60,15 +60,13 @@ namespace GMAP_Demo
                     txtSikkerhetsklarering.Text = "";
                     txtLat.Text = "";
                     txtLong.Text = "";
+
                     lbValgtOverlays.Items.Clear();
                     LastInnOverlays();
                     Kart.Visning_OppdaterListeOgKart();
                     Kart.Redigering_OppdaterKart();
                 }
-                else
-                {
-                    MessageBox.Show(feilMelding);
-                }
+                else MessageBox.Show(feilMelding);
             }
             else MessageBox.Show(utFyllingsmangler);
 

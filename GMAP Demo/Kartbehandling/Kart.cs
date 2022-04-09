@@ -1,27 +1,24 @@
-﻿using System;
+﻿using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GMap.NET;
-using GMap.NET.WindowsForms;
-using GMap.NET.WindowsForms.Markers;
-using GMap.NET.MapProviders;
 
 namespace GMAP_Demo
 {
     internal class Kart
     {
         public enum MuligKart { Visning, Redigering, Begge };
-        public static PointLatLng PunktFraForrige =  new PointLatLng(60.36893643470203, 5.350878781967968); // skal hente Posisjon fra fil 
+        public static PointLatLng PunktFraForrige = new PointLatLng(60.36893643470203, 5.350878781967968); // skal hente Posisjon fra fil 
 
         // Lister for filtrering på kategorier:
         // BindingList for lbKategorierVises REF: https://stackoverflow.com/questions/17615069/how-to-refresh-datasource-of-a-listbox, https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindinglist-1?view=net-6.0
         public static BindingList<Kategorier_Bilde> kategoriListeVises = new BindingList<Kategorier_Bilde>();
         internal static void InitializekategoriListeVises()
-        {      
+        {
             kategoriListeVises.AllowNew = true;
             kategoriListeVises.AllowRemove = true;
             kategoriListeVises.RaiseListChangedEvents = true;
@@ -42,13 +39,13 @@ namespace GMAP_Demo
         // BindingList for lbKategorierSkjult
         public static BindingList<Kategorier_Bilde> kategoriListeSkjult = new BindingList<Kategorier_Bilde>();
         internal static void InitializekategoriListeSkjult()
-        {        
+        {
             kategoriListeSkjult.AllowNew = true;
             kategoriListeSkjult.AllowRemove = true;
             kategoriListeSkjult.RaiseListChangedEvents = true;
         }
 
-        public static void Setup(MuligKart kart ,PointLatLng p)
+        public static void Setup(MuligKart kart, PointLatLng p)
         {
             switch (kart)
             {
@@ -83,7 +80,7 @@ namespace GMAP_Demo
                     break;
             }
             //start posisjon kart
-            
+
         }
 
         public static void Visning_OppdaterListeOgKart()
@@ -117,14 +114,14 @@ namespace GMAP_Demo
         public static void Redigering_OppdaterKart()
         {
             //bruker listene i FrmVisning, så visning_oppdaterkart må kjører først 
-         
+
             frmRediger.instance.map.Overlays.Clear();
             LeggTilRessurs(frmVisning.instance.LRessurs, MuligKart.Redigering);
             LeggTilOmråde(frmVisning.instance.LOmråde, MuligKart.Redigering);
-            Setup(MuligKart.Redigering,PunktFraForrige);
+            Setup(MuligKart.Redigering, PunktFraForrige);
         }
 
-        public static  void LeggTilRessurs(List<Ressurs> Rlist,MuligKart kart)
+        public static void LeggTilRessurs(List<Ressurs> Rlist, MuligKart kart)
         {
             // HvilketKart Visning = Visning.map
             // HvilketKart Redigering = Redigerings.map
@@ -156,9 +153,10 @@ namespace GMAP_Demo
 
                 GMapOverlay markers = new GMapOverlay("test1");
                 markers.Markers.Add(marker);
-                if(MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
-                if(MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
-                if(MuligKart.Begge == kart)
+
+                if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
+                if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
+                if (MuligKart.Begge == kart)
                 {
                     frmVisning.instance.map.Overlays.Add(markers);
                     frmRediger.instance.map.Overlays.Add(markers);
@@ -302,6 +300,67 @@ namespace GMAP_Demo
                     frmRediger.instance.map.Zoom++;
                     frmRediger.instance.map.Zoom--;
                     break;
+            }
+        }
+
+        public static void FinnLokasjon(string Land, string ByKommune, string Adresse)
+        {
+            string sammenSlått = Tekstbehandling.SammenSlåingTekstfelt(Land, ByKommune, Adresse);
+
+            PointLatLng PunktFør = frmVisning.instance.map.Position;
+            frmVisning.instance.map.SetPositionByKeywords(sammenSlått);
+
+            //finne nåværende punkt 
+            PointLatLng PunktNå = frmVisning.instance.map.Position;
+
+            if (PunktFør != PunktNå)
+            {
+                frmPosisjon.instance.txtLat.Text = PunktNå.Lat.ToString();
+                frmPosisjon.instance.txtLong.Text = PunktNå.Lng.ToString();
+                int ZoomLevel = 18;
+
+                if (!string.IsNullOrWhiteSpace(Adresse)) ZoomLevel = 18;
+                else if (!string.IsNullOrWhiteSpace(ByKommune)) ZoomLevel = 11;
+                else if (!string.IsNullOrWhiteSpace(Land)) ZoomLevel = 5;
+
+                frmVisning.instance.map.Zoom = ZoomLevel;
+            }
+        }
+
+        public static List<string> FåAddress(PointLatLng point)
+        {
+            //må bruke google API  for denne delen av koden
+            //hvis man ikke har google API vil denne delen ikke virke
+            try
+            {
+                List<Placemark> Info = null;
+                var statusCode = GMapProviders.GoogleMap.GetPlacemarks(point, out Info);
+                //var statusCode = GMapProviders.OpenStreetMap.GetPlacemarks(point,out Info);
+                if (statusCode == GeoCoderStatusCode.OK && Info != null)
+                {
+                    List<string> addresse = new List<string>();
+                    addresse.Add(Info[0].Address);
+                    return addresse;
+                }
+            }
+            catch (Exception feilmelding)
+            {
+                DatabaseCommunication.LogFeil(typeof(Kart).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+            }
+            return null;
+        }
+
+        public static void FjernRute()
+        {
+            for (int i = 0; i < frmVisning.instance.map.Overlays.Count; i++)
+            {
+                if (frmVisning.instance.map.Overlays[i].Id == "routes")
+                {
+                    frmVisning.instance.map.Overlays.RemoveAt(i);
+                    reff(MuligKart.Visning);
+                    frmPosisjon.instance.LbDistanse.Text = "[Distanse i Km]";
+                    break;
+                }
             }
         }
     }
