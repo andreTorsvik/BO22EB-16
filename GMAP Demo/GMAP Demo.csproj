@@ -223,6 +223,7 @@
     <Compile Include="Kartbehandling\Kart.cs" />
     <Compile Include="Kartbehandling\Kartbehandlingsmetoder.cs" />
     <Compile Include="Database\DataTypes\log_feil.cs" />
+    <Compile Include="Markør.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tekstbehandling\Tekstbehandling.cs" />

@@ -156,8 +156,9 @@ namespace GMAP_Demo
                             //LEGGE TIL NYE
 
                             //Oppdatere Liste med ressurser 
-                            Kart.Visning_OppdaterListeOgKart();
-                            Kart.Redigering_OppdaterKart();
+                            Kart.OppdaterListe();
+                            Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
+
                         }
                     }
                     else MessageBox.Show("Ingen Endring");

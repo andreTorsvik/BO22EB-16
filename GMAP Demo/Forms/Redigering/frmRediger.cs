@@ -37,8 +37,7 @@ namespace GMAP_Demo
         }
 
         private void frmRediger_Load(object sender, EventArgs e)
-        {
-       
+        {   
             Kart.Setup(Kart.MuligKart.Redigering, Kart.PunktFraForrige);
         
             Kart.LeggTilRessurs(frmVisning.instance.LRessurs, Kart.MuligKart.Redigering);
@@ -74,6 +73,18 @@ namespace GMAP_Demo
 
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnObjekt.Height, btnObjekt.Top);
+
+                //fjerne eventuell markør fra området sjekk
+                //brude legge til en sjekk 
+                foreach (var item in instance.map.Overlays)
+                {
+                    if (item.Id == "MarkørForOmråde")
+                    {
+                        Kart.FjernAlleMarkører_redigier();
+                        frm_R_LeggTilOmråde.instance.lMakør.Clear();
+                        break;
+                    }
+                }
 
                 //legge inn rett forms i panelet
                 this.PnlFormLoader.Controls.Clear();
@@ -185,6 +196,8 @@ namespace GMAP_Demo
             if (e.Button == MouseButtons.Left)
             {
                 DoubleClick_punkt = map.FromLocalToLatLng(e.X, e.Y);
+                //List<PointLatLng> Lpunkt = new List<PointLatLng>();
+                //Lpunkt.Add(DoubleClick_punkt);
 
                 double lat = DoubleClick_punkt.Lat;
                 double lng = DoubleClick_punkt.Lng;
@@ -215,7 +228,10 @@ namespace GMAP_Demo
 
         public void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-
+            if(frm_R_LeggTilOmråde.instance != null)
+            {
+                
+            }
             if (frm_R_RedigerObjekt.instance != null)
             {
                 frm_R_RedigerObjekt.instance.txtNavn.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
@@ -267,6 +283,5 @@ namespace GMAP_Demo
         {
             instance.map.Zoom--;
         }
-
     }
 }

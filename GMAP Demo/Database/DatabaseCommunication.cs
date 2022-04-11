@@ -190,6 +190,49 @@ namespace GMAP_Demo
             }
         }
 
+        public static void InsertOmrådeToDb(int løpenummer,string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, string farge)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Område OmrådeToAdd = new Område
+                {
+                    Løpenummer_område = løpenummer,
+                    Navn = navn,
+                    //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
+                    Opprettet_av_bruker = opprettet_av_bruker,
+                    Sikkerhetsklarering = sikkerhetsklarering,
+                    Kommentar = kommentar,
+                    Farge = farge
+                };
+
+                connection.Execute("[dbo].[PROCEDUREinsertIntoOmråde] @Løpenummer_område, @Navn, @Opprettet_av_bruker,  @Kommentar, @Sikkerhetsklarering, @Farge", OmrådeToAdd);
+            }
+        }
+
+        public static void InsertPunkter_områdetToDb(int løpenummer, float lat, float lang, int rekkefølge)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Punkter_område punktToAdd = new Punkter_område
+                {
+                    Løpenummer_til_område = løpenummer,
+                    Rekkefølge_punkter = rekkefølge,
+                    Lat = lat,
+                    Lang = lang
+                };
+
+                connection.Execute("[dbo].[PROCEDUREinsertIntoPunkter_område] @Løpenummer_til_område, @Rekkefølge_punkter, @Lat, @Lang", punktToAdd);
+            }
+        }
+        public static List<int> GetLøpenummer_område()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                var output = connection.Query<int>($"select (NEXT VALUE FOR [dbo].[SEQUENCEOmrådeId]) as int").ToList();
+                return output;
+            }
+        }
+
         public static void LogFeil(string klasse,string Metode, string feilmelding)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
@@ -206,51 +249,51 @@ namespace GMAP_Demo
             }
         }
 
-        public static void InsertOmrådeToDb(string navn, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> punkter)
-        {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
-            {
-                DataTable dt_Punkter_område = new DataTable();
-                dt_Punkter_område.Columns.Add(nameof(Punkter_område.Løpenummer_til_område), typeof(int));
-                dt_Punkter_område.Columns.Add(nameof(Punkter_område.Rekkefølge_punkter), typeof(int));
-                dt_Punkter_område.Columns.Add(nameof(Punkter_område.Lat), typeof(float));
-                dt_Punkter_område.Columns.Add(nameof(Punkter_område.Lang), typeof(float));
+        //public static void InsertOmrådeToDb(string navn, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> punkter)
+        //{
+        //    using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+        //    {
+        //        DataTable dt_Punkter_område = new DataTable();
+        //        dt_Punkter_område.Columns.Add(nameof(Punkter_område.Løpenummer_til_område), typeof(int));
+        //        dt_Punkter_område.Columns.Add(nameof(Punkter_område.Rekkefølge_punkter), typeof(int));
+        //        dt_Punkter_område.Columns.Add(nameof(Punkter_område.Lat), typeof(float));
+        //        dt_Punkter_område.Columns.Add(nameof(Punkter_område.Lang), typeof(float));
 
-                int i = 0;
-                foreach (var item in punkter)
-                {
-                    var row = dt_Punkter_område.NewRow();
-                    // row[nameof(Punkter_område.Løpenummer_til_område)] = "Håndteres av procedure+sequence";
-                    row[nameof(Punkter_område.Rekkefølge_punkter)] = i;
-                    i++;
-                    row[nameof(Punkter_område.Lat)] = item.Lat;
-                    row[nameof(Punkter_område.Lang)] = item.Lng;
-                    dt_Punkter_område.Rows.Add(row);
-                }
+        //        int i = 0;
+        //        foreach (var item in punkter)
+        //        {
+        //            var row = dt_Punkter_område.NewRow();
+        //            // row[nameof(Punkter_område.Løpenummer_til_område)] = "Håndteres av procedure+sequence";
+        //            row[nameof(Punkter_område.Rekkefølge_punkter)] = i;
+        //            i++;
+        //            row[nameof(Punkter_område.Lat)] = item.Lat;
+        //            row[nameof(Punkter_område.Lang)] = item.Lng;
+        //            dt_Punkter_område.Rows.Add(row);
+        //        }
 
-                områdeToAdd områdeToAdd = new områdeToAdd
-                {
-                    Navn = navn,
-                    Opprettet_av_bruker = opprettet_av_bruker,
-                    Kommentar = kommentar,
-                    Sikkerhetsklarering = sikkerhetsklarering,
-                    Farge = farge,
-                    TVP_Punkter_område = dt_Punkter_område
-                };
-                //connection.Execute("[dbo].[PROCEDUREinsertIntoOmråde] @Navn, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Farge", områdeToAdd);
-                connection.Execute("[dbo].[PROCEDUREinsertIntoOmrådeANDPunkter_område]", områdeToAdd);
+        //        områdeToAdd områdeToAdd = new områdeToAdd
+        //        {
+        //            Navn = navn,
+        //            Opprettet_av_bruker = opprettet_av_bruker,
+        //            Kommentar = kommentar,
+        //            Sikkerhetsklarering = sikkerhetsklarering,
+        //            Farge = farge,
+        //            TVP_Punkter_område = dt_Punkter_område
+        //        };
+        //        //connection.Execute("[dbo].[PROCEDUREinsertIntoOmråde] @Navn, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Farge", områdeToAdd);
+        //        connection.Execute("[dbo].[PROCEDUREinsertIntoOmrådeANDPunkter_område]", områdeToAdd);
 
 
 
-                //List<PointLatLng> pointsLatLngToAdd = new List<PointLatLng>(punkter);
-                //for (int i = 0; i < punkter.Count; i++)
-                //{
-                //    Lat = punkter[i].Lat;
-                //    Lang = punkter[i].Lang;
-                //}
-                //connection.Execute("[dbo].[PROCEDUREinsertIntoPunkter_område] @Rekkefølge_punkter, @Lat, @Lang", områdeToAdd);
-            }
-        }
+        //        //List<PointLatLng> pointsLatLngToAdd = new List<PointLatLng>(punkter);
+        //        //for (int i = 0; i < punkter.Count; i++)
+        //        //{
+        //        //    Lat = punkter[i].Lat;
+        //        //    Lang = punkter[i].Lang;
+        //        //}
+        //        //connection.Execute("[dbo].[PROCEDUREinsertIntoPunkter_område] @Rekkefølge_punkter, @Lat, @Lang", områdeToAdd);
+        //    }
+        //}
 
         public static void InsertBrukerToDb(string fornavn, string etternavn, int telefonnummer, string epost, string passord, int tallkode)
         {

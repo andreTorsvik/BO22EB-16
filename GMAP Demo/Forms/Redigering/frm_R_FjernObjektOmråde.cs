@@ -48,9 +48,8 @@ namespace GMAP_Demo
                         Løpenummer_til_objekt = -1;
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart
-                        Kart.Visning_OppdaterListeOgKart();
-                        Kart.Redigering_OppdaterKart();
-
+                        Kart.OppdaterListe();
+                        Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs,frmVisning.instance.LOmråde);
                     }
 
                 }
@@ -77,8 +76,8 @@ namespace GMAP_Demo
                         Løpenummer_til_Område = -1;
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart 
-                        Kart.Visning_OppdaterListeOgKart();
-                        Kart.Redigering_OppdaterKart();
+                        Kart.OppdaterListe();
+                        Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
                     }
                 }
                 catch (Exception feil)

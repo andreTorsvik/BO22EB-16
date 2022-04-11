@@ -111,7 +111,8 @@ namespace GMAP_Demo
             {
                 Kart.kategoriListeSkjult.Add((Kategorier_Bilde)lbKategorierVises.SelectedItem);
                 Kart.kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.SelectedItem);
-                Kart.Visning_OppdaterListeOgKart();
+                Kart.OppdaterListe();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
 
             }
         }
@@ -121,7 +122,8 @@ namespace GMAP_Demo
             {
                 Kart.kategoriListeVises.Add((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
                 Kart.kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
-                Kart.Visning_OppdaterListeOgKart();
+                Kart.OppdaterListe();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
             }
         }
     }

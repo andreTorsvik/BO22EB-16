@@ -27,6 +27,10 @@ namespace GMAP_Demo
             }
         }
 
+        public override string ToString()
+        {
+            return $"({Løpenummer_område} - {Navn} - {Dato_opprettet} - {Opprettet_av_bruker} - {Kommentar} - {Sikkerhetsklarering} - {Farge})";
+        }
         public List<PointLatLng> HentPunkter()
         {
             List<PointLatLng> Lsvar = new List<PointLatLng>();

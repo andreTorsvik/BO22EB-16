@@ -75,21 +75,19 @@ namespace GMAP_Demo
 
                     break;
                 case MuligKart.Begge:
+
+
+
                     break;
-                default:
-                    break;
+
             }
             //start posisjon kart
 
         }
 
-        public static void Visning_OppdaterListeOgKart()
+        public static void OppdaterListe()
         {
-            //FrmVisning.instance.OppdaterKart();
-            //
-            //frmFilter.instance.OppdaterKart()
-
-            frmVisning.instance.map.Overlays.Clear();
+            //Må oppdatere område liste også 
             if (frmVisning.instance.LRessurs.Count > 0) frmVisning.instance.LRessurs.Clear();
 
             var RessursList = DatabaseCommunication.ListAllRessursFromDb();
@@ -106,20 +104,31 @@ namespace GMAP_Demo
                     }
                 }
             }
-
-            LeggTilRessurs(frmVisning.instance.LRessurs, MuligKart.Visning);
-            reff(MuligKart.Visning);
         }
-
-        public static void Redigering_OppdaterKart()
+        public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
         {
-            //bruker listene i FrmVisning, så visning_oppdaterkart må kjører først 
+            switch (kart)
+            {
+                case MuligKart.Visning:
+                    frmVisning.instance.map.Overlays.Clear();
+                    break;
+                case MuligKart.Redigering:
+                    frmRediger.instance.map.Overlays.Clear();
+                    break;
+                case MuligKart.Begge:
+                    OppdaterKart(MuligKart.Visning, Lressurs, Lområde);
+                    OppdaterKart(MuligKart.Redigering, Lressurs, Lområde);
+                    return;
+                    //break;
+            }
 
-            frmRediger.instance.map.Overlays.Clear();
-            LeggTilRessurs(frmVisning.instance.LRessurs, MuligKart.Redigering);
-            LeggTilOmråde(frmVisning.instance.LOmråde, MuligKart.Redigering);
-            Setup(MuligKart.Redigering, PunktFraForrige);
+            LeggTilRessurs(Lressurs, kart);
+            LeggTilOmråde(Lområde, kart);
+            reff(kart);
+
         }
+
+
 
         public static void LeggTilRessurs(List<Ressurs> Rlist, MuligKart kart)
         {
@@ -130,6 +139,7 @@ namespace GMAP_Demo
             Bildebehandling bildebehandling = new Bildebehandling();
             int tag = 0;
             GMapMarker marker;
+            GMapOverlay markers = new GMapOverlay("Objekter");
             foreach (var item in Rlist)
             {
                 PointLatLng punkt = item.GiPunktet();
@@ -151,20 +161,54 @@ namespace GMAP_Demo
                 marker.Tag = tag;
                 tag++;
 
-                GMapOverlay markers = new GMapOverlay("test1");
+                //GMapOverlay markers = new GMapOverlay("Objekter");
                 markers.Markers.Add(marker);
+                //tidligere var if-setningen inni 
+            }
+            if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
+            else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
+            else if (MuligKart.Begge == kart) // begge funkere ikke 
+            {
+                frmVisning.instance.map.Overlays.Add(markers);
+                frmRediger.instance.map.Overlays.Add(markers);
+            }
+        }
+        public static void LeggtilMarkør(List<Markør> Lm, MuligKart kart)
+        {
+            // HvilketKart Visning = Visning.map
+            // HvilketKart Redigering = Redigerings.map
+            // Hvilketkart Begge = Begge 
+            // Alt annet: ingen ting
+            foreach (var item in Lm)
+            {
+                GMapMarker marker;
+                GMapOverlay markers = new GMapOverlay("MarkørForOmråde");
 
+                marker = new GMarkerGoogle(item.giPunkt(), GMarkerGoogleType.green);
+
+                marker.ToolTipText = String.Format("{0}", item.Rekkefølge);
+                marker.ToolTip.Fill = Brushes.Black;
+                marker.ToolTip.Foreground = Brushes.White;
+                marker.ToolTip.Stroke = Pens.Black;
+                marker.ToolTip.TextPadding = new Size(20, 20);
+                marker.Tag = item.Rekkefølge;
+
+
+                //GMapOverlay markers = new GMapOverlay("Objekter");
+                markers.Markers.Add(marker);
+                //tidligere var if-setningen inni 
                 if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
-                if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
-                if (MuligKart.Begge == kart)
+                else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
+                else if (MuligKart.Begge == kart) // begge funkere ikke 
                 {
                     frmVisning.instance.map.Overlays.Add(markers);
                     frmRediger.instance.map.Overlays.Add(markers);
                 }
-
-            }
+            
         }
 
+        }
+            
         public static void LeggTilOmråde(List<Område> Olist, MuligKart kart)
         {
             // HvilketKart Visning = Visning.map
@@ -183,18 +227,18 @@ namespace GMAP_Demo
                 polygon.IsHitTestVisible = true; // nødvendig for å kunne trykke på Polygonet
                 GMapOverlay polygons = new GMapOverlay("Polygons");
                 polygons.Polygons.Add(polygon);
-                frmVisning.instance.map.Overlays.Add(polygons);
+                //frmVisning.instance.map.Overlays.Add(polygons);
 
                 if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(polygons);
-                if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(polygons);
-                if (MuligKart.Begge == kart)
+                else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(polygons);
+                else if (MuligKart.Begge == kart)
                 {
                     frmVisning.instance.map.Overlays.Add(polygons);
                     frmRediger.instance.map.Overlays.Add(polygons);
                 }
             }
-
         }
+
 
         public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla };
         public static GMapPolygon BestemFarge(List<PointLatLng> Lpunkter, string Farge)
@@ -314,7 +358,7 @@ namespace GMAP_Demo
             //finne nåværende punkt 
             PointLatLng PosisjonNå = frmVisning.instance.map.Position;
 
-            
+
             if (PosisjonFør != PosisjonNå)
             {
                 frmPosisjon.instance.txtLat.Text = PosisjonNå.Lat.ToString();
@@ -364,6 +408,35 @@ namespace GMAP_Demo
                     break;
                 }
             }
+        }
+
+        public static void FjernAlleMarkører_redigier()
+        {
+            for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
+            {
+                if (frmRediger.instance.map.Overlays[i].Id == "MarkørForOmråde")
+                {
+                    frmRediger.instance.map.Overlays.RemoveAt(i);
+                    i--;
+                                      
+                }
+            }
+            
+            reff(MuligKart.Redigering);
+        }
+        public static void FjernMarkør_redigier(int FjernTag)
+        {
+            for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
+            {
+                if (frmRediger.instance.map.Overlays[i].Id == "MarkørForOmråde")
+                {
+                    //if(frmRediger.instance.map.Overlays[i]. == FjernTag)
+                    frmRediger.instance.map.Overlays.RemoveAt(i);
+                    i--;
+
+                }
+            }
+            reff(MuligKart.Redigering);
         }
     }
 }
