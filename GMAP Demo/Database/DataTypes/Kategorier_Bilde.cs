@@ -12,7 +12,6 @@ namespace GMAP_Demo
         public byte[] Bilde { get; set; }
 
 
-
         public string kategorier_BildeDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
         {
             get
@@ -20,8 +19,5 @@ namespace GMAP_Demo
                 return $"({Kategorinavn})";
             }
         }
-
-
-
     }
 }

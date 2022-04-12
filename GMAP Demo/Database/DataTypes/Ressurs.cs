@@ -37,10 +37,5 @@ namespace GMAP_Demo
         {
             return $"({Løpenummer_ressurs} - {Navn} - {Kategori} - {Dato_opprettet} - {Opprettet_av_bruker} - {Sikkerhetsklarering} - {Kommentar} - {Lat} - {Lang})";
         }
-
-
-
-
-
     }
 }

@@ -16,8 +16,6 @@ namespace GMAP_Demo
         public string Enhet { get; set; }
 
 
-
-
         public string målingDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
         {
             get
@@ -25,8 +23,5 @@ namespace GMAP_Demo
                 return $"({Navn_på_sensor} - {Verdi} - {Løpenummer_til_ressurs} - {Måling_id} - {Dato} - {Enhet})";
             }
         }
-
-
-
     }
 }

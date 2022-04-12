@@ -19,9 +19,6 @@ namespace GMAP_Demo
         public bool Verifisert { get; set; }
 
 
-
-
-
         public string brukerDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
         {
             get
@@ -37,8 +34,6 @@ namespace GMAP_Demo
                 return $"{Epost} - {Fornavn} - {Etternavn} - {Sikkerhetsklarering}";
             }
         }
-
-
 
     }
 }

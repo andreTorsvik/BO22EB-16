@@ -18,7 +18,6 @@ namespace GMAP_Demo
         public string Farge { get; set; }
 
 
-
         public string områdeDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
         {
             get
@@ -59,6 +58,5 @@ namespace GMAP_Demo
 
             return Lsvar;
         }
-
     }
 }

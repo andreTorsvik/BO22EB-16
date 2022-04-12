@@ -21,13 +21,11 @@ namespace GMAP_Demo
             {
                 List<Ressurs> ressursList = new List<Ressurs>();
                 ressursList = DatabaseCommunication.ListAllRessursFromDb();
-
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
                 System.Environment.Exit(1);
-
             }
             Application.Run(new frmInnlogging());
         }

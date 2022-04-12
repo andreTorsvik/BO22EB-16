@@ -13,9 +13,6 @@ namespace GMAP_Demo
         public float Lat { get; set; }
         public float Lang { get; set; }
 
-
-
-
         public string punkter_områdeDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
         {
             get
@@ -23,8 +20,5 @@ namespace GMAP_Demo
                 return $"({Løpenummer_til_område} - {Rekkefølge_punkter} - {Lat} - {Lang})";
             }
         }
-
-
-
     }
 }

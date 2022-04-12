@@ -135,8 +135,6 @@ namespace GMAP_Demo
             reff(kart);
         }
 
-
-
         public static void LeggTilRessurs(List<Ressurs> Rlist, MuligKart kart)
         {
             // HvilketKart Visning = Visning.map
@@ -267,7 +265,6 @@ namespace GMAP_Demo
                 }
             }
         }
-
 
         public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla };
         public static GMapPolygon BestemFarge(List<PointLatLng> Lpunkter, string Farge)
@@ -453,19 +450,20 @@ namespace GMAP_Demo
 
             reff(MuligKart.Redigering);
         }
-        public static void FjernMarkør_redigier(int FjernTag)
-        {
-            for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
-            {
-                if (frmRediger.instance.map.Overlays[i].Id == "MarkørForOmråde")
-                {
-                    //if(frmRediger.instance.map.Overlays[i]. == FjernTag)
-                    frmRediger.instance.map.Overlays.RemoveAt(i);
-                    i--;
 
-                }
-            }
-            reff(MuligKart.Redigering);
-        }
+        //public static void FjernMarkør_redigier(int FjernTag)
+        //{
+        //    for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
+        //    {
+        //        if (frmRediger.instance.map.Overlays[i].Id == "MarkørForOmråde")
+        //        {
+        //            //if(frmRediger.instance.map.Overlays[i]. == FjernTag)
+        //            frmRediger.instance.map.Overlays.RemoveAt(i);
+        //            i--;
+
+        //        }
+        //    }
+        //    reff(MuligKart.Redigering);
+        //}
     }
 }
