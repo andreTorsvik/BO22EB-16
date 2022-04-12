@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
-using GMap.NET;
 
 namespace GMAP_Demo
 {
@@ -59,6 +57,8 @@ namespace GMAP_Demo
                 lbTilgjengligKategori.Sorted = true;
                 txtNyKategori.Text = "";
             }
+
+            Kart.OppdaterKategoriListe();
         }
 
         private void LastInnOverlays()
@@ -137,7 +137,7 @@ namespace GMAP_Demo
             if (utFyllingsmangler == string.Empty)
             {
                 var d = DatabaseCommunication.ListRessursFromDb(Løpenummer_til_redigering);
-                string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData(txtSikkerhetsklarering.Text, txtLat.Text, txtLong.Text);
+                string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData(sikkerhetsklarering, lat, lang);
                 if (FeilTallSjekk == string.Empty)
                 {
                     string sjekk = Tekstbehandling.SjekkEndringerObjekt(d, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
@@ -163,63 +163,10 @@ namespace GMAP_Demo
                         }
                     }
                     else MessageBox.Show("Ingen Endring");
-
-                  
                 }
                 else MessageBox.Show(FeilTallSjekk);
-
             }
             else MessageBox.Show(utFyllingsmangler);
-
-
-        }
-
-        
-
-        private string sjekkTallData(string sikkerhetsKlarering, string lat, string lang)
-        {
-            string svar = string.Empty;
-
-            try
-            {
-                int sjekk = Convert.ToInt16(sikkerhetsKlarering);
-                if (sjekk > frmVisning.instance.MaxSikkerhetsklarering)
-                {
-                    svar = "Sikkerhetsklarering er for høy";
-                }
-                else if (sjekk < 1)
-                {
-                    svar = "Sikkerhetsklarering kan ikke være lavere enn 1 ";
-                }
-            }
-            catch (Exception)
-            {
-                if (svar != string.Empty) svar += ", ";
-                svar += "Feil inntasting med Sikkerhetsklarering";
-            }
-
-            try
-            {
-                float sjekk = Convert.ToSingle(lat);
-
-            }
-            catch (Exception)
-            {
-                if (svar != string.Empty) svar += ", ";
-                svar += "Feil inntasting med Lat";
-            }
-
-            try
-            {
-                float sjekk = Convert.ToSingle(lang);
-            }
-            catch (Exception)
-            {
-                if (svar != string.Empty) svar += ", ";
-                svar += " Feil inntasting med Long";
-            }
-
-            return svar;
         }
     }
 }

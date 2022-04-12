@@ -95,6 +95,7 @@ namespace GMAP_Demo
                 lbTilgjengligKategori.Sorted = true;
                 txtNyKategori.Text = "";
             }
+            Kart.OppdaterKategoriListe();
         }
         private void LastInnKategorier()
         {

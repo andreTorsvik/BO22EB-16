@@ -26,14 +26,22 @@ namespace GMAP_Demo
             // Add items to the empty list.
             if ((kategoriListeVises.Count == 0) && (kategoriListeSkjult.Count == 0))
             {
-                List<Kategorier_Bilde> kategoriListeAlle = new List<Kategorier_Bilde>();
-                kategoriListeAlle = DatabaseCommunication.ListAllKategorier_BildeFromDb();
-                foreach (var item in kategoriListeAlle)
-                {
-                    kategoriListeVises.Add(item);
-                }
+                OppdaterKategoriListe();
                 // OppdatertKart();
             }
+        }
+
+        public static void OppdaterKategoriListe()
+        {
+            kategoriListeVises.Clear();
+
+            List<Kategorier_Bilde> kategoriListeAlle = new List<Kategorier_Bilde>();
+            kategoriListeAlle = DatabaseCommunication.ListAllKategorier_BildeFromDb();
+            foreach (var item in kategoriListeAlle)
+            {
+                kategoriListeVises.Add(item);
+            }
+            // OppdatertKart();
         }
         // BindingList for lbKategorierSkjult
         public static BindingList<Kategorier_Bilde> kategoriListeSkjult = new BindingList<Kategorier_Bilde>();
@@ -81,6 +89,10 @@ namespace GMAP_Demo
                     break;
             }
         }
+
+        
+
+
 
         public static void OppdaterListe_området()
         {

@@ -107,8 +107,22 @@ namespace GMAP_Demo
                 instance.map.Overlays.Clear();
 
                 //Oppdater listene 
-                Kart.OppdaterListe_området();
-                Kart.OppdaterListe_ressurs();
+
+                //kun for å hindre at områdene kommer fram hvis de ikke allreder er der 
+                foreach (var item in map.Overlays)
+                {
+                    if(item.Id == "Polygons")
+                    {
+                        Kart.OppdaterListe_området();
+                    }
+                    else if (item.Id == "Objekter")
+                    {
+                        Kart.OppdaterListe_ressurs();
+                    }
+                }
+
+                //Kart.OppdaterListe_området();
+                //Kart.OppdaterListe_ressurs();
 
                 //Oppdatere kart basert på listene 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, LRessurs, LOmråde);
