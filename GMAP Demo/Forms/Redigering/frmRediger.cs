@@ -1,9 +1,6 @@
 ﻿using GMap.NET;
-using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
-using GMap.NET.WindowsForms.Markers;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -37,9 +34,9 @@ namespace GMAP_Demo
         }
 
         private void frmRediger_Load(object sender, EventArgs e)
-        {   
+        {
             Kart.Setup(Kart.MuligKart.Redigering, Kart.PunktFraForrige);
-        
+
             Kart.LeggTilRessurs(frmVisning.instance.LRessurs, Kart.MuligKart.Redigering);
             Kart.LeggTilOmråde(frmVisning.instance.LOmråde, Kart.MuligKart.Redigering);
 
@@ -49,6 +46,7 @@ namespace GMAP_Demo
         private void btnTilbake_Click(object sender, EventArgs e)
         {
             frmVisning.instance.map.Position = map.Position;
+            frmVisning.instance.map.Zoom = map.Zoom;
 
             this.Close();
         }
@@ -74,17 +72,7 @@ namespace GMAP_Demo
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnObjekt.Height, btnObjekt.Top);
 
-                //fjerne eventuell markør fra området sjekk
-                //brude legge til en sjekk 
-                foreach (var item in instance.map.Overlays)
-                {
-                    if (item.Id == "MarkørForOmråde")
-                    {
-                        Kart.FjernAlleMarkører_redigier();
-                        frm_R_LeggTilOmråde.instance.lMakør.Clear();
-                        break;
-                    }
-                }
+                SlettHjelpeMarkører();
 
                 //legge inn rett forms i panelet
                 this.PnlFormLoader.Controls.Clear();
@@ -107,6 +95,8 @@ namespace GMAP_Demo
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnOmråde.Height, btnOmråde.Top);
 
+                SlettHjelpeMarkører();
+
                 //legge inn rett form i panelet
                 this.PnlFormLoader.Controls.Clear();
                 frm_R_LeggTilOmråde frm_R_LeggTilOmråde_vrb = new frm_R_LeggTilOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -127,6 +117,8 @@ namespace GMAP_Demo
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnRediger_objekt.Height, btnRediger_objekt.Top);
 
+                SlettHjelpeMarkører();
+
                 //legge inn rett form i panelet
                 this.PnlFormLoader.Controls.Clear();
                 frm_R_RedigerObjekt frm_R_RedigerObjektOmråde_vrb = new frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -146,6 +138,8 @@ namespace GMAP_Demo
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnRedigerOmråde.Height, btnRedigerOmråde.Top);
 
+                SlettHjelpeMarkører();
+
                 //legge inn rett form i panelet
                 this.PnlFormLoader.Controls.Clear();
                 frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -161,21 +155,23 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnFjern_obj_områ.Top)
             {
                 AlleKnapperTilStandarfarge();
-            btnFjern_obj_områ.BackColor = knapp_trykket;
+                btnFjern_obj_områ.BackColor = knapp_trykket;
 
-            //Flytte oransjePanelet til rett plass
-            FlyttNavigasjonsPanel(btnFjern_obj_områ.Height, btnFjern_obj_områ.Top);
+                //Flytte oransjePanelet til rett plass
+                FlyttNavigasjonsPanel(btnFjern_obj_områ.Height, btnFjern_obj_områ.Top);
 
-            //legge inn rett form i panelet
-            this.PnlFormLoader.Controls.Clear();
-            frm_R_FjernObjektOmråde frm_R_FjernObjektOmråde_vrb = new frm_R_FjernObjektOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frm_R_FjernObjektOmråde_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(frm_R_FjernObjektOmråde_vrb);
-            frm_R_FjernObjektOmråde_vrb.Show(); 
+                SlettHjelpeMarkører();
+
+                //legge inn rett form i panelet
+                this.PnlFormLoader.Controls.Clear();
+                frm_R_FjernObjektOmråde frm_R_FjernObjektOmråde_vrb = new frm_R_FjernObjektOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frm_R_FjernObjektOmråde_vrb.FormBorderStyle = FormBorderStyle.None;
+                this.PnlFormLoader.Controls.Add(frm_R_FjernObjektOmråde_vrb);
+                frm_R_FjernObjektOmråde_vrb.Show();
             }
-          
+
         }
-      
+
         private void frmRediger_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.PnlFormLoader.Controls.Clear();
@@ -216,7 +212,7 @@ namespace GMAP_Demo
                 {
                     frm_R_RedigerObjekt.instance.txtLat.Text = lat.ToString();
                     frm_R_RedigerObjekt.instance.txtLong.Text = lng.ToString();
-                    
+
                 }
                 if (frm_R_RedigerOmråde.instance != null)
                 {
@@ -228,9 +224,9 @@ namespace GMAP_Demo
 
         public void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            if(frm_R_LeggTilOmråde.instance != null)
+            if (frm_R_LeggTilOmråde.instance != null)
             {
-                
+
             }
             if (frm_R_RedigerObjekt.instance != null)
             {
@@ -242,10 +238,10 @@ namespace GMAP_Demo
                 frm_R_RedigerObjekt.instance.txtLong.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
                 frm_R_RedigerObjekt.instance.Løpenummer_til_redigering = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
             }
-            if(frm_R_FjernObjektOmråde.instance != null)
+            if (frm_R_FjernObjektOmråde.instance != null)
             {
                 frm_R_FjernObjektOmråde.instance.Løpenummer_til_objekt = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
-                if (frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område >= 0 ) frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område = -1;
+                if (frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område >= 0) frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område = -1;
                 frm_R_FjernObjektOmråde.instance.txtInfo.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].ToString();
                 frm_R_FjernObjektOmråde.instance.txtLøpenumemr.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs.ToString();
                 frm_R_FjernObjektOmråde.instance.txtNavn.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
@@ -282,6 +278,18 @@ namespace GMAP_Demo
         private void btnZoomMinus_Click(object sender, EventArgs e)
         {
             instance.map.Zoom--;
+        }
+
+        public void SlettHjelpeMarkører()
+        {
+            foreach (var item in instance.map.Overlays)
+            {
+                if (item.Id == "MarkørForOmråde")
+                {
+                    Kart.FjernAlleMarkører_redigier();
+                    break;
+                }
+            }
         }
     }
 }

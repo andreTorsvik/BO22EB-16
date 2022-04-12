@@ -1,20 +1,15 @@
-﻿using System;
+﻿using GMap.NET;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using GMap.NET;
 
 namespace GMAP_Demo
 {
     public partial class frm_R_LeggTilOmråde : Form
     {
         public int FjernMakør;
-        public List<Markør> lMakør = new List<Markør>();
+        //public List<Markør> lMakør = new List<Markør>();
         public static frm_R_LeggTilOmråde instance;
         public frm_R_LeggTilOmråde()
         {
@@ -126,61 +121,50 @@ namespace GMAP_Demo
 
         private void btnLeggTilOmrådeIDb_Click(object sender, EventArgs e)
         {
-            bool altUtfylt = true;
-            string utFyllingsmangler = "Du mangler:";
-            //kode for sjekk at alle felten er utfylt
-            if (string.IsNullOrWhiteSpace(txtNavn.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Navn";
-            }
-            if (string.IsNullOrWhiteSpace(txtSikkerhetsklarering.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Sikkerhetsklarering";
-            }
-            if (string.IsNullOrWhiteSpace(txtKommentar.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Kommentar";
-            }
-            if (string.IsNullOrWhiteSpace(txtfarge.Text))
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Farge";
-            }
-            if (pointLatLngs.Count < 2)
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Tilstrekkelige punkter (>2) til å tegne et område";
-            }
-            if (lbValgtOverlays.Items.Count <= 0)
-            {
-                altUtfylt = false;
-                utFyllingsmangler += " Overlay";
-            }
+            string navn = txtNavn.Text;
+            string sikkerhetsklarering = txtSikkerhetsklarering.Text;
+            string Kommentar = txtKommentar.Text;
+            string Farge = txtfarge.Text;
+            int antallPunkter = pointLatLngs.Count;
+            int antallOverlays = lbValgtOverlays.Items.Count;
 
-            if (altUtfylt)
+            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Område(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallOverlays);
+
+            if (utFyllingsmangler == string.Empty)
             {
                 //hentløpenummer
                 var løpenummer = DatabaseCommunication.GetLøpenummer_område();
                 int Løpenummer_område = Convert.ToInt32(løpenummer[0]);
-                // må tilpasses område
 
-                // må opprette metode for område
-                DatabaseCommunication.InsertOmrådeToDb(Løpenummer_område, txtNavn.Text.ToString(), txtfarge.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), txtfarge.Text);
-
-                //legge til hvert punkt
-                int rekkefølge = 0;
-                foreach (var item in pointLatLngs)
-                {  
-                    float lat = Convert.ToSingle(item.Lat);
-                    float lang = Convert.ToSingle( item.Lng);
-                    DatabaseCommunication.InsertPunkter_områdetToDb(Løpenummer_område, lat, lang, rekkefølge);
-                    rekkefølge++;
+                //laste opp området til database
+                try
+                {
+                    DatabaseCommunication.InsertOmrådeToDb(Løpenummer_område, txtNavn.Text.ToString(), txtfarge.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), txtfarge.Text);
                 }
-                
-                //Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text);
+                catch (Exception)
+                {
+
+                }
+
+                //Legge til hvert punkt
+                try
+                {
+                    int rekkefølge = 0;
+                    foreach (var item in pointLatLngs)
+                    {
+                        float lat = Convert.ToSingle(item.Lat);
+                        float lang = Convert.ToSingle(item.Lng);
+                        DatabaseCommunication.InsertPunkter_områdetToDb(Løpenummer_område, lat, lang, rekkefølge);
+                        rekkefølge++;
+                    }
+                }
+                catch (Exception)
+                {
+
+
+                }
+
+                //Slete innhold
                 txtNavn.Text = "";
                 txtSikkerhetsklarering.Text = "";
                 txtKommentar.Text = "";
@@ -189,25 +173,16 @@ namespace GMAP_Demo
                 txtLong.Text = "";
                 lbValgtOverlays.Items.Clear();
                 lbTilgjengeligeOverlays.Items.Clear();
-
                 LastInnOverlays();
-                //lbPunkter.Items.Clear();
                 pointLatLngs.Clear();
                 txtNrPunkt.Text = "0";
 
-                foreach (var item in frmRediger.instance.map.Overlays)
-                {
-                    if (item.Id == "MarkørForOmråde")
-                    {
-                        Kart.FjernAlleMarkører_redigier();
-                        instance.lMakør.Clear();
-                        break;
-                    }
-                }
-                Kart.OppdaterListe();
+                //fjerne "hjelpe" markører 
+                Kart.FjernAlleMarkører_redigier();
+              
+                //legge til de nye området på kartet 
+                Kart.OppdaterListe_området();
                 Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
-
-
             }
             else MessageBox.Show(utFyllingsmangler);
         }
@@ -216,33 +191,25 @@ namespace GMAP_Demo
         {
             if ((txtLat.Text != null) && (txtLong.Text != null))
             {
-                
-                PointLatLng punkt;
                 try
                 {
                     Markør m = new Markør();
                     m.lat = Convert.ToDouble(txtLat.Text);
                     m.lang = Convert.ToDouble(txtLong.Text);
+                    m.Rekkefølge = pointLatLngs.Count;
                     pointLatLngs.Add(m.giPunkt());
-                    m.Rekkefølge = pointLatLngs.Count -1 ;
-                    //m.Rekkefølge = Convert.ToInt32(txtNrPunkt.Text);
-                    lMakør.Add(m);
 
-                    Kart.FjernAlleMarkører_redigier();
-
-                    //tegne på nytt
-                    Kart.LeggtilMarkør(lMakør,Kart.MuligKart.Redigering);
+                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, m.giPunkt(), m.Rekkefølge);
                     Kart.reff(Kart.MuligKart.Redigering);
+
                     txtLat.Text = "Klikk på kartet";
                     txtLong.Text = "Klikk på kartet";
-                    txtNrPunkt.Text = (m.Rekkefølge + 1).ToString();
+                    txtNrPunkt.Text = (pointLatLngs.Count).ToString();
                 }
-                catch (Exception)
+                catch (Exception feilmelding)
                 {
+                    DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
-
-                //pointLatLngs.Add(new PointLatLng(Convert.ToDouble(txtLat.Text), Convert.ToDouble(txtLong.Text)));
-                
 
                 if (pointLatLngs.Count > 2)
                 {
@@ -254,18 +221,22 @@ namespace GMAP_Demo
 
         private void btnFjernPunktIListe_Click(object sender, EventArgs e)
         {
-            int fjernNr = lbPunkter.SelectedIndex;
-            pointLatLngs.Remove((PointLatLng)lbPunkter.SelectedItem);
-            lMakør.RemoveAt(fjernNr);
             Kart.FjernAlleMarkører_redigier();
+            pointLatLngs.Clear();
 
-            foreach (var item in lMakør)
-            {
-                if (item.Rekkefølge > fjernNr) item.Rekkefølge--;
-            }
+            //frm_R_LeggTilOmråde.instance.lMakør.Clear();
+            //int fjernNr = lbPunkter.SelectedIndex;
+            //pointLatLngs.Remove((PointLatLng)lbPunkter.SelectedItem);
+            //lMakør.RemoveAt(fjernNr);
+            //Kart.FjernAlleMarkører_redigier();
 
-            Kart.LeggtilMarkør(lMakør, Kart.MuligKart.Redigering);
-            Kart.reff(Kart.MuligKart.Redigering);
+            //foreach (var item in lMakør)
+            //{
+            //    if (item.Rekkefølge > fjernNr) item.Rekkefølge--;
+            //}
+
+            //Kart.LeggtilMarkør(lMakør, Kart.MuligKart.Redigering);
+            //Kart.reff(Kart.MuligKart.Redigering);
 
         }
     }

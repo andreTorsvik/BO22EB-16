@@ -106,18 +106,12 @@ namespace GMAP_Demo
             {
                 instance.map.Overlays.Clear();
 
-                //må tøme liste med ressurser 
-                LRessurs.Clear();
-                LOmråde.Clear();
+                //Oppdater listene 
+                Kart.OppdaterListe_området();
+                Kart.OppdaterListe_ressurs();
 
-                //fylle listene 
-                
-
-                //legge til på kartet
-                Kart.LeggTilRessurs(frmVisning.instance.LRessurs, Kart.MuligKart.Visning);
-                Kart.LeggTilOmråde(frmVisning.instance.LOmråde, Kart.MuligKart.Visning);
-
-                Kart.reff(Kart.MuligKart.Visning);
+                //Oppdatere kart basert på listene 
+                Kart.OppdaterKart(Kart.MuligKart.Visning, LRessurs, LOmråde);
             }
 
         }

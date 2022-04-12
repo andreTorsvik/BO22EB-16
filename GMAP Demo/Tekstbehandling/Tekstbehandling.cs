@@ -100,7 +100,7 @@ namespace GMAP_Demo
             return svar;
         }
 
-        static public string SjekkInntastetDataObjekt(string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int ListeAntall)
+        static public string SjekkInntastetData_Objekt(string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int ListeAntall)
         {
             string utFyllingsmangler = string.Empty;
             List<string> Lfeil = new List<string>();
@@ -113,6 +113,31 @@ namespace GMAP_Demo
             if (string.IsNullOrWhiteSpace(lat)) Lfeil.Add("Lat");
             if (string.IsNullOrWhiteSpace(lang)) Lfeil.Add("Long");
             if (ListeAntall <= 0) Lfeil.Add("Overlay");
+
+            if (Lfeil.Count > 0)
+            {
+                utFyllingsmangler = "Du mangler: ";
+                for (int i = 0; i < Lfeil.Count; i++)
+                {
+                    utFyllingsmangler += Lfeil[i];
+                    if (i < Lfeil.Count - 1) utFyllingsmangler += ", ";
+                }
+            }
+            return utFyllingsmangler;
+        }
+
+        public static string SjekkInntastetData_Område(string navn, string sikkerhetsklarering, string kommentar, string farge, int AntallPunkter, int AntallOverlays)
+        {
+            string utFyllingsmangler = string.Empty;
+            List<string> Lfeil = new List<string>();
+
+            //kode for sjekk at alle felten er utfylt
+            if (string.IsNullOrWhiteSpace(navn)) Lfeil.Add("Navn");
+            if (string.IsNullOrWhiteSpace(sikkerhetsklarering)) Lfeil.Add("Sikkerhetsklarering");
+            if (string.IsNullOrWhiteSpace(kommentar)) Lfeil.Add("Kommentar");
+            if (string.IsNullOrWhiteSpace(farge)) Lfeil.Add("Farge");
+            if (AntallPunkter < 2) Lfeil.Add("Tilstrekkelige punkter (>2) til å tegne et område");
+            if (AntallOverlays <= 0) Lfeil.Add("Overlay");
 
             if (Lfeil.Count > 0)
             {

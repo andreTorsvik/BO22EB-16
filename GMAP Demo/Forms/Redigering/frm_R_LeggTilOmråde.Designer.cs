@@ -316,11 +316,11 @@
             // 
             // btnFjernPunktIListe
             // 
-            this.btnFjernPunktIListe.Location = new System.Drawing.Point(197, 362);
+            this.btnFjernPunktIListe.Location = new System.Drawing.Point(182, 362);
             this.btnFjernPunktIListe.Name = "btnFjernPunktIListe";
-            this.btnFjernPunktIListe.Size = new System.Drawing.Size(104, 28);
+            this.btnFjernPunktIListe.Size = new System.Drawing.Size(119, 28);
             this.btnFjernPunktIListe.TabIndex = 82;
-            this.btnFjernPunktIListe.Text = "Fjern punkt";
+            this.btnFjernPunktIListe.Text = "Fjern Punktene";
             this.btnFjernPunktIListe.UseVisualStyleBackColor = true;
             this.btnFjernPunktIListe.Click += new System.EventHandler(this.btnFjernPunktIListe_Click);
             // 

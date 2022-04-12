@@ -47,45 +47,58 @@ namespace GMAP_Demo
 
         public static void Setup(MuligKart kart, PointLatLng p)
         {
+            int minZoom = 0;
+            int maksZoom = 27;
+            int Zoom = 17;
+            GMapProvider Valgtkart = GMapProviders.OpenStreetMap;
+
             switch (kart)
             {
                 case MuligKart.Visning:
-                    frmVisning.instance.map.MapProvider = GMapProviders.OpenStreetMap;
+                    frmVisning.instance.map.MapProvider = Valgtkart;
 
+                    //start posisjon kart
                     frmVisning.instance.map.Position = p; //PointLatLng(60.36893643470203, 5.350878781967968);
 
                     //settings for kart
-                    frmVisning.instance.map.MinZoom = 0; // min zoom level
-                    frmVisning.instance.map.MaxZoom = 27; // maximum
-                    frmVisning.instance.map.Zoom = 17; // Behagelig Zoom level 
+                    frmVisning.instance.map.MinZoom = minZoom; // min zoom level
+                    frmVisning.instance.map.MaxZoom = maksZoom; // maximum
+                    frmVisning.instance.map.Zoom = Zoom; // Behagelig Zoom level 
                     frmVisning.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
                     break;
                 case MuligKart.Redigering:
 
-                    //start posisjon kart
-                    frmRediger.instance.map.MapProvider = GMapProviders.OpenStreetMap;
+                   
+                    frmRediger.instance.map.MapProvider = Valgtkart;
 
-                    frmRediger.instance.map.Position = p;
+                    frmRediger.instance.map.Position = p;  //start posisjon kart
 
                     //settings for kart
-                    frmRediger.instance.map.MinZoom = 0; // min zoom level
-                    frmRediger.instance.map.MaxZoom = 27; // maximum
-                    frmRediger.instance.map.Zoom = 17;
+                    frmRediger.instance.map.MinZoom = minZoom;
+                    frmRediger.instance.map.MaxZoom = maksZoom;
+                    frmRediger.instance.map.Zoom = Zoom; 
                     frmRediger.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
 
                     break;
                 case MuligKart.Begge:
-
-
-
+                    //Denne vil aldri bli brukt  
                     break;
-
             }
-            //start posisjon kart
-
         }
 
-        public static void OppdaterListe()
+        public static void OppdaterListe_området()
+        {
+            frmVisning.instance.LOmråde.Clear();
+
+            var OmrådeListe = DatabaseCommunication.ListAllOmrådeFromDb();
+
+            foreach (var item in OmrådeListe)
+            {
+                frmVisning.instance.LOmråde.Add(item);
+            }
+        }
+
+        public static void OppdaterListe_ressurs()
         {
             //Må oppdatere område liste også 
             if (frmVisning.instance.LRessurs.Count > 0) frmVisning.instance.LRessurs.Clear();
@@ -121,11 +134,9 @@ namespace GMAP_Demo
                     return;
                     //break;
             }
-
             LeggTilRessurs(Lressurs, kart);
             LeggTilOmråde(Lområde, kart);
             reff(kart);
-
         }
 
 
@@ -173,42 +184,64 @@ namespace GMAP_Demo
                 frmRediger.instance.map.Overlays.Add(markers);
             }
         }
-        public static void LeggtilMarkør(List<Markør> Lm, MuligKart kart)
+        //public static void LeggtilMarkør(List<Markør> Lm, MuligKart kart)
+        //{
+        //    // HvilketKart Visning = Visning.map
+        //    // HvilketKart Redigering = Redigerings.map
+        //    // Hvilketkart Begge = Begge 
+        //    // Alt annet: ingen ting
+        //    foreach (var item in Lm)
+        //    {
+        //        GMapMarker marker;
+        //        GMapOverlay markers = new GMapOverlay("MarkørForOmråde");
+
+        //        marker = new GMarkerGoogle(item.giPunkt(), GMarkerGoogleType.green);
+
+        //        marker.ToolTipText = String.Format("{0}", item.Rekkefølge);
+        //        marker.ToolTip.Fill = Brushes.Black;
+        //        marker.ToolTip.Foreground = Brushes.White;
+        //        marker.ToolTip.Stroke = Pens.Black;
+        //        marker.ToolTip.TextPadding = new Size(20, 20);
+        //        marker.Tag = item.Rekkefølge;
+
+
+        //        //GMapOverlay markers = new GMapOverlay("Objekter");
+        //        markers.Markers.Add(marker);
+        //        //tidligere var if-setningen inni 
+        //        if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
+        //        else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
+        //        else if (MuligKart.Begge == kart) // begge funkere ikke 
+        //        {
+        //            frmVisning.instance.map.Overlays.Add(markers);
+        //            frmRediger.instance.map.Overlays.Add(markers);
+        //        }
+
+        //    }
+
+        //}
+
+        public static void LeggtilMarkør(MuligKart kart,PointLatLng point,int Rekkefølge )
         {
             // HvilketKart Visning = Visning.map
             // HvilketKart Redigering = Redigerings.map
-            // Hvilketkart Begge = Begge 
-            // Alt annet: ingen ting
-            foreach (var item in Lm)
-            {
+          
                 GMapMarker marker;
                 GMapOverlay markers = new GMapOverlay("MarkørForOmråde");
 
-                marker = new GMarkerGoogle(item.giPunkt(), GMarkerGoogleType.green);
+                marker = new GMarkerGoogle(point, GMarkerGoogleType.blue);
 
-                marker.ToolTipText = String.Format("{0}", item.Rekkefølge);
+                marker.ToolTipText = String.Format("{0}", Rekkefølge);
                 marker.ToolTip.Fill = Brushes.Black;
                 marker.ToolTip.Foreground = Brushes.White;
                 marker.ToolTip.Stroke = Pens.Black;
                 marker.ToolTip.TextPadding = new Size(20, 20);
-                marker.Tag = item.Rekkefølge;
+                marker.Tag = Rekkefølge;
 
-
-                //GMapOverlay markers = new GMapOverlay("Objekter");
                 markers.Markers.Add(marker);
-                //tidligere var if-setningen inni 
+
                 if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
                 else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
-                else if (MuligKart.Begge == kart) // begge funkere ikke 
-                {
-                    frmVisning.instance.map.Overlays.Add(markers);
-                    frmRediger.instance.map.Overlays.Add(markers);
-                }
-            
         }
-
-        }
-            
         public static void LeggTilOmråde(List<Område> Olist, MuligKart kart)
         {
             // HvilketKart Visning = Visning.map
@@ -418,10 +451,10 @@ namespace GMAP_Demo
                 {
                     frmRediger.instance.map.Overlays.RemoveAt(i);
                     i--;
-                                      
+
                 }
             }
-            
+
             reff(MuligKart.Redigering);
         }
         public static void FjernMarkør_redigier(int FjernTag)

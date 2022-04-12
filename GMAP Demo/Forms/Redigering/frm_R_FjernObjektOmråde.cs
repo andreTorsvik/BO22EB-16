@@ -48,7 +48,7 @@ namespace GMAP_Demo
                         Løpenummer_til_objekt = -1;
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart
-                        Kart.OppdaterListe();
+                        Kart.OppdaterListe_ressurs();
                         Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs,frmVisning.instance.LOmråde);
                     }
 
@@ -76,7 +76,7 @@ namespace GMAP_Demo
                         Løpenummer_til_Område = -1;
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart 
-                        Kart.OppdaterListe();
+                        Kart.OppdaterListe_ressurs();
                         Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
                     }
                 }

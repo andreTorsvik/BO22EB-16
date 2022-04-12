@@ -131,7 +131,7 @@ namespace GMAP_Demo
             string lang = txtLong.Text;
             int antall = lbValgtOverlays.Items.Count;
 
-            string utFyllingsmangler = Tekstbehandling.SjekkInntastetDataObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
+            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
 
             if (utFyllingsmangler == string.Empty)
             {
@@ -156,7 +156,7 @@ namespace GMAP_Demo
                             //LEGGE TIL NYE
 
                             //Oppdatere Liste med ressurser 
-                            Kart.OppdaterListe();
+                            Kart.OppdaterListe_ressurs();
                             Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
 
                         }
