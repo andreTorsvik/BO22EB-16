@@ -189,7 +189,7 @@ namespace GMAP_Demo
 
         private void btnLeggTilPunktIListe_Click(object sender, EventArgs e)
         {
-            if ((txtLat.Text != null) && (txtLong.Text != null))
+            if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != "Klikk på kartet"))
             {
                 try
                 {
@@ -211,11 +211,11 @@ namespace GMAP_Demo
                     DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
 
-                if (pointLatLngs.Count > 2)
-                {
-                    // tegn område
+                //if (pointLatLngs.Count > 2)
+                //{
+                //    // tegn område
 
-                }
+                //}
             }
         }
 
@@ -226,8 +226,6 @@ namespace GMAP_Demo
                 Kart.FjernAlleMarkører_redigier();
                 pointLatLngs.Clear();
             }
-
-
             //frm_R_LeggTilOmråde.instance.lMakør.Clear();
             //int fjernNr = lbPunkter.SelectedIndex;
             //pointLatLngs.Remove((PointLatLng)lbPunkter.SelectedItem);
