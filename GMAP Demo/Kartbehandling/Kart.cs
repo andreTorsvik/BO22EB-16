@@ -34,7 +34,6 @@ namespace GMAP_Demo
                 }
                 // OppdatertKart();
             }
-
         }
         // BindingList for lbKategorierSkjult
         public static BindingList<Kategorier_Bilde> kategoriListeSkjult = new BindingList<Kategorier_Bilde>();
@@ -66,9 +65,7 @@ namespace GMAP_Demo
                     frmVisning.instance.map.Zoom = Zoom; // Behagelig Zoom level 
                     frmVisning.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
                     break;
-                case MuligKart.Redigering:
-
-                   
+                case MuligKart.Redigering: 
                     frmRediger.instance.map.MapProvider = Valgtkart;
 
                     frmRediger.instance.map.Position = p;  //start posisjon kart
@@ -78,7 +75,6 @@ namespace GMAP_Demo
                     frmRediger.instance.map.MaxZoom = maksZoom;
                     frmRediger.instance.map.Zoom = Zoom; 
                     frmRediger.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
-
                     break;
                 case MuligKart.Begge:
                     //Denne vil aldri bli brukt  

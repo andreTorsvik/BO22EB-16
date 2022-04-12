@@ -136,7 +136,7 @@ namespace GMAP_Demo
             if (string.IsNullOrWhiteSpace(sikkerhetsklarering)) Lfeil.Add("Sikkerhetsklarering");
             if (string.IsNullOrWhiteSpace(kommentar)) Lfeil.Add("Kommentar");
             if (string.IsNullOrWhiteSpace(farge)) Lfeil.Add("Farge");
-            if (AntallPunkter < 2) Lfeil.Add("Tilstrekkelige punkter (>2) til å tegne et område");
+            if (AntallPunkter < 3) Lfeil.Add("Må minst ha 3 punkter");
             if (AntallOverlays <= 0) Lfeil.Add("Overlay");
 
             if (Lfeil.Count > 0)

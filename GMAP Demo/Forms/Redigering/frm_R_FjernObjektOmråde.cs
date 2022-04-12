@@ -71,6 +71,7 @@ namespace GMAP_Demo
                     result = MessageBox.Show(tekst, caption, buttons);
                     if (result == DialogResult.Yes)
                     {
+                        DatabaseCommunication.DeletePunkter_området(Løpenummer_til_Område);
                         DatabaseCommunication.DeleteOmråde(Løpenummer_til_Område);
                         lableSlettet.Text = String.Format("Område nr: {0} er slettet", Løpenummer_til_Område);
                         Løpenummer_til_Område = -1;

@@ -32,7 +32,7 @@
             this.lbTilgjengligFarge = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtfarge = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAntallPunkter = new System.Windows.Forms.TextBox();
             this.lbPunkter = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -98,13 +98,13 @@
             this.txtfarge.Size = new System.Drawing.Size(138, 22);
             this.txtfarge.TabIndex = 78;
             // 
-            // textBox1
+            // txtAntallPunkter
             // 
-            this.textBox1.Location = new System.Drawing.Point(126, 363);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(28, 22);
-            this.textBox1.TabIndex = 77;
-            this.textBox1.Text = "0";
+            this.txtAntallPunkter.Location = new System.Drawing.Point(126, 363);
+            this.txtAntallPunkter.Name = "txtAntallPunkter";
+            this.txtAntallPunkter.Size = new System.Drawing.Size(28, 22);
+            this.txtAntallPunkter.TabIndex = 77;
+            this.txtAntallPunkter.Text = "0";
             // 
             // lbPunkter
             // 
@@ -123,6 +123,7 @@
             this.button1.TabIndex = 75;
             this.button1.Text = "Legg til punkt";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label11
             // 
@@ -330,7 +331,7 @@
             this.Controls.Add(this.lbTilgjengligFarge);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtfarge);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAntallPunkter);
             this.Controls.Add(this.lbPunkter);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label11);
@@ -367,8 +368,8 @@
         private System.Windows.Forms.ListBox lbTilgjengligFarge;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtfarge;
-        public System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox lbPunkter;
+        public System.Windows.Forms.TextBox txtAntallPunkter;
+        public System.Windows.Forms.ListBox lbPunkter;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;

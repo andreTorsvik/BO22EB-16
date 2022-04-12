@@ -7,18 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GMap.NET;
 
 namespace GMAP_Demo
 {
     public partial class frm_R_RedigerOmråde : Form
     {
         public static frm_R_RedigerOmråde instance;
+        public int Løpenummer_til_redigering;
         public frm_R_RedigerOmråde()
         {
             InitializeComponent();
             instance = this;
         }
+        public BindingList<PointLatLng> pointLatLngs;
+        private void InitializepointLatLngs()
+        {
+            // Create the new BindingList of Part type.
+            pointLatLngs = new BindingList<PointLatLng>();
 
+            // Allow new parts to be added, but not removed once committed.        
+            pointLatLngs.AllowNew = true;
+            pointLatLngs.AllowRemove = true;
+
+            // Raise ListChanged events when new parts are added.
+            pointLatLngs.RaiseListChangedEvents = true;
+        }
         private void btnLeggTilObjekt_Click(object sender, EventArgs e)
         {
 
@@ -28,6 +42,9 @@ namespace GMAP_Demo
         {
             LastInnOverlays();
             LastInnFargerMulighet();
+            InitializepointLatLngs();
+            lbPunkter.DataSource = pointLatLngs;
+
             LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", frmVisning.instance.MaxSikkerhetsklarering);
         }
 
@@ -100,6 +117,11 @@ namespace GMAP_Demo
             {
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

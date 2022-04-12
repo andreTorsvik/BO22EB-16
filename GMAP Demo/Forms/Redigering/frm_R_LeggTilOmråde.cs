@@ -179,7 +179,7 @@ namespace GMAP_Demo
 
                 //fjerne "hjelpe" markører 
                 Kart.FjernAlleMarkører_redigier();
-              
+
                 //legge til de nye området på kartet 
                 Kart.OppdaterListe_området();
                 Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
@@ -221,8 +221,12 @@ namespace GMAP_Demo
 
         private void btnFjernPunktIListe_Click(object sender, EventArgs e)
         {
-            Kart.FjernAlleMarkører_redigier();
-            pointLatLngs.Clear();
+            if (pointLatLngs.Count > 0)
+            {
+                Kart.FjernAlleMarkører_redigier();
+                pointLatLngs.Clear();
+            }
+
 
             //frm_R_LeggTilOmråde.instance.lMakør.Clear();
             //int fjernNr = lbPunkter.SelectedIndex;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label3 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             this.txtfarge = new System.Windows.Forms.TextBox();
             this.lbTilgjengligFarge = new System.Windows.Forms.ListBox();
             this.btnFjernPunktIListe = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label3
@@ -263,6 +265,7 @@
             this.btnLeggTilPunktIListe.Size = new System.Drawing.Size(104, 28);
             this.btnLeggTilPunktIListe.TabIndex = 51;
             this.btnLeggTilPunktIListe.Text = "Legg til punkt";
+            this.toolTip1.SetToolTip(this.btnLeggTilPunktIListe, "Test1");
             this.btnLeggTilPunktIListe.UseVisualStyleBackColor = true;
             this.btnLeggTilPunktIListe.Click += new System.EventHandler(this.btnLeggTilPunktIListe_Click);
             // 
@@ -279,9 +282,11 @@
             // 
             this.txtNrPunkt.Location = new System.Drawing.Point(129, 365);
             this.txtNrPunkt.Name = "txtNrPunkt";
+            this.txtNrPunkt.ReadOnly = true;
             this.txtNrPunkt.Size = new System.Drawing.Size(28, 22);
             this.txtNrPunkt.TabIndex = 53;
             this.txtNrPunkt.Text = "0";
+            this.toolTip1.SetToolTip(this.txtNrPunkt, "Antall punkter i listen");
             // 
             // label2
             // 
@@ -395,5 +400,6 @@
         private System.Windows.Forms.TextBox txtfarge;
         private System.Windows.Forms.ListBox lbTilgjengligFarge;
         private System.Windows.Forms.Button btnFjernPunktIListe;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

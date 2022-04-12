@@ -122,6 +122,17 @@ namespace GMAP_Demo
             }
         }
 
+        public static List<Punkter_område> GetPunkter_området(int løpenummer)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                var output = connection.Query<Punkter_område>($"select* FROM [dbo].[Punkter_område] WHERE(Løpenummer_til_område = '{løpenummer}')").ToList();
+                return output;
+            }
+        }
+
+
+
         public static List<Bruker> ListBrukerInfoFromDb(string username)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
@@ -156,7 +167,15 @@ namespace GMAP_Demo
                 connection.Execute("[dbo].[PROCEDURERemoveRessurs] @Løpenummer_ressurs", (DeleteRessurs));
             }
         }
-
+        public static void DeletePunkter_området(int løpenummer)
+        {
+            //delete FROM [dbo].[Punkter_område]
+            //WHERE Løpenummer_til_område = 38
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                connection.Query<Ressurs>($"delete FROM [dbo].[Punkter_område] WHERE(Løpenummer_til_område = '{løpenummer}')");
+            }
+        }
         public static void DeleteOmråde(int løpeNummer)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))

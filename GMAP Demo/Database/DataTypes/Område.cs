@@ -33,20 +33,30 @@ namespace GMAP_Demo
         }
         public List<PointLatLng> HentPunkter()
         {
+            //List<PointLatLng> Lsvar = new List<PointLatLng>();
+            //var punktListe = DatabaseCommunication.ListAllPunkter_områdeFromDb();
+            
+            //// https://stackoverflow.com/questions/289010/c-sharp-list-sort-by-x-then-y
+            //punktListe = punktListe.OrderBy(x => x.Løpenummer_til_område).ThenBy(x => x.Rekkefølge_punkter).ToList();
+
+            //foreach (var item in punktListe)
+            //{      
+            //    if(item.Løpenummer_til_område == Løpenummer_område)
+            //    {
+            //        PointLatLng punkt = new PointLatLng(Convert.ToDouble(item.Lat), Convert.ToDouble(item.Lang));
+            //        Lsvar.Add(punkt);
+            //    }
+            //}
+
             List<PointLatLng> Lsvar = new List<PointLatLng>();
-            var punktListe = DatabaseCommunication.ListAllPunkter_områdeFromDb();
-
-            // https://stackoverflow.com/questions/289010/c-sharp-list-sort-by-x-then-y
-            punktListe = punktListe.OrderBy(x => x.Løpenummer_til_område).ThenBy(x => x.Rekkefølge_punkter).ToList();
-
-            foreach (var item in punktListe)
-            {      
-                if(item.Løpenummer_til_område == Løpenummer_område)
-                {
+            var PunktListe = DatabaseCommunication.GetPunkter_området(Løpenummer_område);
+            PunktListe = PunktListe.OrderBy(x => x.Rekkefølge_punkter).ToList();
+            foreach (var item in PunktListe)
+            {        
                     PointLatLng punkt = new PointLatLng(Convert.ToDouble(item.Lat), Convert.ToDouble(item.Lang));
                     Lsvar.Add(punkt);
-                }
             }
+
             return Lsvar;
         }
 

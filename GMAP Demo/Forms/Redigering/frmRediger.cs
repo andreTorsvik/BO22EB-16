@@ -2,6 +2,7 @@
 using GMap.NET.WindowsForms;
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -253,11 +254,21 @@ namespace GMAP_Demo
         {
             if (frm_R_RedigerOmråde.instance != null)
             {
+                frm_R_RedigerOmråde.instance.Løpenummer_til_redigering = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område;
                 frm_R_RedigerOmråde.instance.txtNavn.Text = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
                 frm_R_RedigerOmråde.instance.txtSikkerhetsklarering.Text = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
                 frm_R_RedigerOmråde.instance.txtKommentar.Text = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
                 frm_R_RedigerOmråde.instance.txtfarge.Text = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Farge;
 
+                if (frm_R_RedigerOmråde.instance.lbPunkter.Items.Count > 0) frm_R_RedigerOmråde.instance.pointLatLngs.Clear();
+                var Punktliste = DatabaseCommunication.GetPunkter_området(frm_R_RedigerOmråde.instance.Løpenummer_til_redigering);
+                Punktliste = Punktliste.OrderBy(x => x.Rekkefølge_punkter).ToList();
+                foreach (var item1 in Punktliste)
+                {
+                    PointLatLng point = new PointLatLng(item1.Lat, item1.Lang);
+                    frm_R_RedigerOmråde.instance.pointLatLngs.Add(point);
+                }
+                frm_R_RedigerOmråde.instance.txtAntallPunkter.Text = Punktliste.Count.ToString();
             }
             if (frm_R_FjernObjektOmråde.instance != null)
             {

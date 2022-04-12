@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
+using GMap.NET;
 
 namespace GMAP_Demo
 {
@@ -14,7 +16,6 @@ namespace GMAP_Demo
             InitializeComponent();
             instance = this;
         }
-
         private void frm_R_RedigerObjekt_Load(object sender, EventArgs e)
         {
             LastInnKategorier();
