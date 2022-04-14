@@ -165,7 +165,7 @@ namespace GMAP_Demo
 
                 //legge inn rett form i panelet
                 this.PnlFormLoader.Controls.Clear();
-                frm_R_LeggTilBilde frm_R_LeggTilBilde_vrb = new frm_R_LeggTilBilde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frm_R_EndreObjektsymbol frm_R_LeggTilBilde_vrb = new frm_R_EndreObjektsymbol() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_R_LeggTilBilde_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frm_R_LeggTilBilde_vrb);
                 frm_R_LeggTilBilde_vrb.Show();
@@ -174,7 +174,7 @@ namespace GMAP_Demo
 
         private void btnFjern_Click(object sender, EventArgs e)
         {
-            if (pnlNav.Top != btnLeggTilBilde.Top)
+            if (pnlNav.Top != btnFjern.Top)
             {
                 AlleKnapperTilStandarfarge();
                 btnFjern.BackColor = knapp_trykket;

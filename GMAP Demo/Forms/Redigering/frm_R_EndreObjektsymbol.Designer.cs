@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_R_LeggTilBilde
+    partial class frm_R_EndreObjektsymbol
     {
         /// <summary>
         /// Required designer variable.

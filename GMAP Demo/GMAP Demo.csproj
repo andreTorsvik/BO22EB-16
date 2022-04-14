@@ -183,11 +183,11 @@
     <Compile Include="Forms\Settings\frm_S_Admin.Designer.cs">
       <DependentUpon>frm_S_Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Redigering\frm_R_LeggTilBilde.cs">
+    <Compile Include="Forms\Redigering\frm_R_EndreObjektsymbol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Redigering\frm_R_LeggTilBilde.Designer.cs">
-      <DependentUpon>frm_R_LeggTilBilde.cs</DependentUpon>
+    <Compile Include="Forms\Redigering\frm_R_EndreObjektsymbol.Designer.cs">
+      <DependentUpon>frm_R_EndreObjektsymbol.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\frm_S_LoggUt.cs">
       <SubType>Form</SubType>
@@ -278,8 +278,8 @@
     <EmbeddedResource Include="Forms\Settings\frm_S_Admin.resx">
       <DependentUpon>frm_S_Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Redigering\frm_R_LeggTilBilde.resx">
-      <DependentUpon>frm_R_LeggTilBilde.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Redigering\frm_R_EndreObjektsymbol.resx">
+      <DependentUpon>frm_R_EndreObjektsymbol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frm_S_LoggUt.resx">
       <DependentUpon>frm_S_LoggUt.cs</DependentUpon>
