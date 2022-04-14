@@ -58,8 +58,8 @@ namespace GMAP_Demo
                     txtKategori.Text = "";
                     txtKommentar.Text = "";
                     txtSikkerhetsklarering.Text = "";
-                    txtLat.Text = "";
-                    txtLong.Text = "";
+                    txtLat.Text = "Dobbelklikk på kart";
+                    txtLong.Text = "Dobbelklikk på kart";
 
                     lbValgtOverlays.Items.Clear();
                     LastInnOverlays();

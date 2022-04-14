@@ -195,7 +195,7 @@
             this.txtLong.Name = "txtLong";
             this.txtLong.Size = new System.Drawing.Size(285, 22);
             this.txtLong.TabIndex = 68;
-            this.txtLong.Text = "klikk på kartet ";
+            this.txtLong.Text = "Dobbelklikk på kartet + \"legg til";
             // 
             // label8
             // 
@@ -215,7 +215,7 @@
             this.txtLat.Name = "txtLat";
             this.txtLat.Size = new System.Drawing.Size(287, 22);
             this.txtLat.TabIndex = 66;
-            this.txtLat.Text = "klikk på kartet";
+            this.txtLat.Text = "Dobbelklikk på kartet + \"legg til";
             // 
             // label5
             // 
@@ -303,11 +303,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(197, 360);
+            this.button2.Location = new System.Drawing.Point(184, 360);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 28);
+            this.button2.Size = new System.Drawing.Size(117, 28);
             this.button2.TabIndex = 81;
-            this.button2.Text = "Fjern punkt";
+            this.button2.Text = "Fjern punktene";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // btnLeggTilObjekt

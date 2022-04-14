@@ -215,7 +215,7 @@
             this.txtLong.ReadOnly = true;
             this.txtLong.Size = new System.Drawing.Size(261, 22);
             this.txtLong.TabIndex = 19;
-            this.txtLong.Text = "Klikk på kartet ";
+            this.txtLong.Text = "Dobbelklikk på kart";
             // 
             // label8
             // 
@@ -236,7 +236,7 @@
             this.txtLat.ReadOnly = true;
             this.txtLat.Size = new System.Drawing.Size(261, 22);
             this.txtLat.TabIndex = 17;
-            this.txtLat.Text = "Klikk på kartet";
+            this.txtLat.Text = "Dobbelklikk på kart";
             // 
             // btnFjernRute
             // 

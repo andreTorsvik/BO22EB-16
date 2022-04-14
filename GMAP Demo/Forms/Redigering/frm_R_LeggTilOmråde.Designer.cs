@@ -138,7 +138,7 @@
             this.txtLong.Name = "txtLong";
             this.txtLong.Size = new System.Drawing.Size(285, 22);
             this.txtLong.TabIndex = 38;
-            this.txtLong.Text = "Klikk på kartet ";
+            this.txtLong.Text = "Dobbelklikk på kartet + \"legg til\"";
             // 
             // label8
             // 
@@ -158,7 +158,7 @@
             this.txtLat.Name = "txtLat";
             this.txtLat.Size = new System.Drawing.Size(287, 22);
             this.txtLat.TabIndex = 37;
-            this.txtLat.Text = "Klikk på kartet";
+            this.txtLat.Text = "Dobbelklikk på kartet + \"legg til\"";
             // 
             // label5
             // 

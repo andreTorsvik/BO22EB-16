@@ -159,8 +159,8 @@ namespace GMAP_Demo
                 txtSikkerhetsklarering.Text = "";
                 txtKommentar.Text = "";
                 txtfarge.Text = "";
-                txtLat.Text = "";
-                txtLong.Text = "";
+                txtLat.Text = "Dobbelklikk på kartet + \"legg til\"";
+                txtLong.Text = "Dobbelklikk på kartet + \"legg til\"";
                 lbValgtOverlays.Items.Clear();
                 lbTilgjengeligeOverlays.Items.Clear();
                 LastInnOverlays();
@@ -179,7 +179,7 @@ namespace GMAP_Demo
 
         private void btnLeggTilPunktIListe_Click(object sender, EventArgs e)
         {
-            if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != "Klikk på kartet"))
+            if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != "Dobbelklikk på kartet + \"legg til\""))
             {
                 try
                 {
@@ -192,8 +192,8 @@ namespace GMAP_Demo
                     Kart.LeggtilMarkør(Kart.MuligKart.Redigering, m.giPunkt(), m.Rekkefølge);
                     Kart.reff(Kart.MuligKart.Redigering);
 
-                    txtLat.Text = "Klikk på kartet";
-                    txtLong.Text = "Klikk på kartet";
+                    txtLat.Text = "Dobbelklikk på kartet + \"legg til\"";
+                    txtLong.Text = "Dobbelklikk på kartet + \"legg til\"";
                     txtNrPunkt.Text = (pointLatLngs.Count).ToString();
                 }
                 catch (Exception feilmelding)

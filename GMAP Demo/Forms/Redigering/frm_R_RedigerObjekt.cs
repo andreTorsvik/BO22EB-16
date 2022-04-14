@@ -157,6 +157,14 @@ namespace GMAP_Demo
                             //LEGGE TIL NYE
 
                             //Oppdatere Liste med ressurser 
+                            Løpenummer_til_redigering = -1;
+                            txtNavn.Text = "";
+                            txtKategori.Text = "";
+                            txtKommentar.Text = "";
+                            txtSikkerhetsklarering.Text = "";
+                            txtLat.Text = "Dobbelklikk på kartet";
+                            txtLong.Text = "Dobbelklikk på kartet";
+
                             Kart.OppdaterListe_ressurs();
                             Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
 
