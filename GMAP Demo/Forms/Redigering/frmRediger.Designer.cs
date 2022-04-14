@@ -34,7 +34,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnTilbake = new System.Windows.Forms.Button();
-            this.btnFjern_obj_områ = new System.Windows.Forms.Button();
+            this.btnFjern = new System.Windows.Forms.Button();
+            this.btnLeggTilBilde = new System.Windows.Forms.Button();
             this.btnRedigerOmråde = new System.Windows.Forms.Button();
             this.btnRediger_objekt = new System.Windows.Forms.Button();
             this.btnOmråde = new System.Windows.Forms.Button();
@@ -94,7 +95,8 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel1.Controls.Add(this.pnlNav);
             this.panel1.Controls.Add(this.btnTilbake);
-            this.panel1.Controls.Add(this.btnFjern_obj_områ);
+            this.panel1.Controls.Add(this.btnFjern);
+            this.panel1.Controls.Add(this.btnLeggTilBilde);
             this.panel1.Controls.Add(this.btnRedigerOmråde);
             this.panel1.Controls.Add(this.btnRediger_objekt);
             this.panel1.Controls.Add(this.btnOmråde);
@@ -123,32 +125,49 @@
             this.btnTilbake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTilbake.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTilbake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnTilbake.Location = new System.Drawing.Point(0, 769);
+            this.btnTilbake.Location = new System.Drawing.Point(0, 777);
             this.btnTilbake.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTilbake.Name = "btnTilbake";
-            this.btnTilbake.Size = new System.Drawing.Size(316, 84);
+            this.btnTilbake.Size = new System.Drawing.Size(316, 76);
             this.btnTilbake.TabIndex = 1;
             this.btnTilbake.Text = "Tilbake";
             this.btnTilbake.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnTilbake.UseVisualStyleBackColor = true;
             this.btnTilbake.Click += new System.EventHandler(this.btnTilbake_Click);
             // 
-            // btnFjern_obj_områ
+            // btnFjern
             // 
-            this.btnFjern_obj_områ.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFjern_obj_områ.FlatAppearance.BorderSize = 0;
-            this.btnFjern_obj_områ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFjern_obj_områ.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFjern_obj_områ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnFjern_obj_områ.Location = new System.Drawing.Point(0, 585);
-            this.btnFjern_obj_områ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFjern_obj_områ.Name = "btnFjern_obj_områ";
-            this.btnFjern_obj_områ.Size = new System.Drawing.Size(316, 84);
-            this.btnFjern_obj_områ.TabIndex = 1;
-            this.btnFjern_obj_områ.Text = "Fjern obj/område";
-            this.btnFjern_obj_områ.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnFjern_obj_områ.UseVisualStyleBackColor = true;
-            this.btnFjern_obj_områ.Click += new System.EventHandler(this.btnFjern_obj_områ_Click);
+            this.btnFjern.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFjern.FlatAppearance.BorderSize = 0;
+            this.btnFjern.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFjern.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFjern.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnFjern.Location = new System.Drawing.Point(0, 629);
+            this.btnFjern.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFjern.Name = "btnFjern";
+            this.btnFjern.Size = new System.Drawing.Size(316, 76);
+            this.btnFjern.TabIndex = 1;
+            this.btnFjern.Text = "Fjern obj/område";
+            this.btnFjern.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnFjern.UseVisualStyleBackColor = true;
+            this.btnFjern.Click += new System.EventHandler(this.btnFjern_Click);
+            // 
+            // btnLeggTilBilde
+            // 
+            this.btnLeggTilBilde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLeggTilBilde.FlatAppearance.BorderSize = 0;
+            this.btnLeggTilBilde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeggTilBilde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeggTilBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnLeggTilBilde.Location = new System.Drawing.Point(0, 553);
+            this.btnLeggTilBilde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLeggTilBilde.Name = "btnLeggTilBilde";
+            this.btnLeggTilBilde.Size = new System.Drawing.Size(316, 76);
+            this.btnLeggTilBilde.TabIndex = 1;
+            this.btnLeggTilBilde.Text = "Endre objektsymbol";
+            this.btnLeggTilBilde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLeggTilBilde.UseVisualStyleBackColor = true;
+            this.btnLeggTilBilde.Click += new System.EventHandler(this.btnLeggTilBilde_Click);
             // 
             // btnRedigerOmråde
             // 
@@ -157,10 +176,10 @@
             this.btnRedigerOmråde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRedigerOmråde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRedigerOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnRedigerOmråde.Location = new System.Drawing.Point(0, 501);
+            this.btnRedigerOmråde.Location = new System.Drawing.Point(0, 477);
             this.btnRedigerOmråde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRedigerOmråde.Name = "btnRedigerOmråde";
-            this.btnRedigerOmråde.Size = new System.Drawing.Size(316, 84);
+            this.btnRedigerOmråde.Size = new System.Drawing.Size(316, 76);
             this.btnRedigerOmråde.TabIndex = 1;
             this.btnRedigerOmråde.Text = "Rediger område [WIP]";
             this.btnRedigerOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -174,10 +193,10 @@
             this.btnRediger_objekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRediger_objekt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRediger_objekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnRediger_objekt.Location = new System.Drawing.Point(0, 417);
+            this.btnRediger_objekt.Location = new System.Drawing.Point(0, 401);
             this.btnRediger_objekt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRediger_objekt.Name = "btnRediger_objekt";
-            this.btnRediger_objekt.Size = new System.Drawing.Size(316, 84);
+            this.btnRediger_objekt.Size = new System.Drawing.Size(316, 76);
             this.btnRediger_objekt.TabIndex = 1;
             this.btnRediger_objekt.Text = "Rediger objekt";
             this.btnRediger_objekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -191,10 +210,10 @@
             this.btnOmråde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOmråde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnOmråde.Location = new System.Drawing.Point(0, 333);
+            this.btnOmråde.Location = new System.Drawing.Point(0, 325);
             this.btnOmråde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOmråde.Name = "btnOmråde";
-            this.btnOmråde.Size = new System.Drawing.Size(316, 84);
+            this.btnOmråde.Size = new System.Drawing.Size(316, 76);
             this.btnOmråde.TabIndex = 1;
             this.btnOmråde.Text = "Legg til område [WIP]";
             this.btnOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -211,7 +230,7 @@
             this.btnObjekt.Location = new System.Drawing.Point(0, 249);
             this.btnObjekt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnObjekt.Name = "btnObjekt";
-            this.btnObjekt.Size = new System.Drawing.Size(316, 84);
+            this.btnObjekt.Size = new System.Drawing.Size(316, 76);
             this.btnObjekt.TabIndex = 1;
             this.btnObjekt.Text = "Legg til objekt";
             this.btnObjekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -322,9 +341,10 @@
         private System.Windows.Forms.Button btnObjekt;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnFjern_obj_områ;
+        private System.Windows.Forms.Button btnLeggTilBilde;
         private System.Windows.Forms.Button btnZoomMinus;
         private System.Windows.Forms.Button btnZoomPluss;
         private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Button btnFjern;
     }
 }

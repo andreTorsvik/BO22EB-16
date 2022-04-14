@@ -161,7 +161,7 @@
             this.btnRediger.Name = "btnRediger";
             this.btnRediger.Size = new System.Drawing.Size(316, 84);
             this.btnRediger.TabIndex = 1;
-            this.btnRediger.Text = "Fjern/rediger";
+            this.btnRediger.Text = "Rediger";
             this.btnRediger.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnRediger.UseVisualStyleBackColor = true;
             this.btnRediger.Click += new System.EventHandler(this.btnRediger_Click);
@@ -282,7 +282,7 @@
             this.btnZoomMinus.UseVisualStyleBackColor = false;
             this.btnZoomMinus.Click += new System.EventHandler(this.btnZoomMinus_Click);
             // 
-            // FrmVisning
+            // frmVisning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -296,7 +296,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(1285, 793);
-            this.Name = "FrmVisning";
+            this.Name = "frmVisning";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Gmap Demo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

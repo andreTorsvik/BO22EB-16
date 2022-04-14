@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_S_LeggTilBilde : Form
+    public partial class frm_R_LeggTilBilde : Form
     {
         public Image image = null;
         public byte[] imageData;
         public string valgtKategori;
 
-        public frm_S_LeggTilBilde()
+        public frm_R_LeggTilBilde()
         {
             InitializeComponent();
         }

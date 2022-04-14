@@ -98,11 +98,6 @@ namespace GMAP_Demo
             txtfarge.Text = selectedItemtext;
         }
 
-        private void lbTilgjengligFarge_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLeggTilOverlay_Click(object sender, EventArgs e)
         {
             string NyOverlay = "";
@@ -112,11 +107,6 @@ namespace GMAP_Demo
             {
 
             }
-        }
-
-        private void txtSikkerhetsklarering_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnLeggTilOmrådeIDb_Click(object sender, EventArgs e)

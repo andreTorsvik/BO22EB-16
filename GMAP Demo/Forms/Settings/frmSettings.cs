@@ -102,7 +102,7 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnLeggTilBilde.Height, btnLeggTilBilde.Top);
 
                 this.PnlFormLoader.Controls.Clear();
-                frm_S_LeggTilBilde frm_S_LeggTilBilde_vrb = new frm_S_LeggTilBilde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frm_R_LeggTilBilde frm_S_LeggTilBilde_vrb = new frm_R_LeggTilBilde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_LeggTilBilde_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frm_S_LeggTilBilde_vrb);
                 frm_S_LeggTilBilde_vrb.Show();
