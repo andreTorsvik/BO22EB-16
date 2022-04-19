@@ -226,6 +226,11 @@
     <Compile Include="Database\DataTypes\log_feil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tekstbehandling\Tekstbehandling.cs" />
     <EmbeddedResource Include="Forms\Innlogging\frmInnlogging.resx">
       <DependentUpon>frmInnlogging.cs</DependentUpon>
@@ -289,14 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -316,6 +316,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\HVL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map_editing_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\location_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_40px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -63,6 +63,16 @@ namespace GMAP_Demo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap filter_40px {
+            get {
+                object obj = ResourceManager.GetObject("filter_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HVL {
             get {
                 object obj = ResourceManager.GetObject("HVL", resourceCulture);
@@ -76,6 +86,46 @@ namespace GMAP_Demo.Properties {
         internal static System.Drawing.Bitmap icons8_person_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-person-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap location_40px {
+            get {
+                object obj = ResourceManager.GetObject("location_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap map_editing_40px {
+            get {
+                object obj = ResourceManager.GetObject("map_editing_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_40px {
+            get {
+                object obj = ResourceManager.GetObject("refresh_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_40px {
+            get {
+                object obj = ResourceManager.GetObject("settings_40px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
