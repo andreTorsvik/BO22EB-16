@@ -24,7 +24,6 @@ namespace GMAP_Demo
             if(Convert.ToInt32(txtKode.Text) == frmInnlogging.instance.listBruker[0].Tallkode)
             {
                 //Endre database attributt bruker.godkjent = true
-                DatabaseCommunication db = new DatabaseCommunication();
 
                 //endre til updateBruker_vertifisert:
                 DatabaseCommunication.UpdateBruker_Verifisert(frmInnlogging.instance.listBruker[0].Epost, true);

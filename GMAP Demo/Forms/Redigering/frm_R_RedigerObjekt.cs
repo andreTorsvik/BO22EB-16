@@ -137,18 +137,18 @@ namespace GMAP_Demo
             if (utFyllingsmangler == string.Empty)
             {
                 var d = DatabaseCommunication.ListRessursFromDb(Løpenummer_til_redigering);
-                string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData(sikkerhetsklarering, lat, lang);
+                string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
                 if (FeilTallSjekk == string.Empty)
                 {
-                    string sjekk = Tekstbehandling.SjekkEndringerObjekt(d, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
-                    if (sjekk != string.Empty)
+                    string Endring = Tekstbehandling.SjekkEndringerObjekt(d, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
+                    if (Endring != string.Empty)
                     {
                         string caption = "Vil du lagre disse endringene ";
                         MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                         DialogResult result;
 
                         // Displays the MessageBox.
-                        result = MessageBox.Show(sjekk, caption, buttons);
+                        result = MessageBox.Show(Endring, caption, buttons);
                         if (result == DialogResult.Yes)
                         {
                             DatabaseCommunication.UpdateRessurs(Løpenummer_til_redigering, txtNavn.Text, txtKategori.Text, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text, Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));

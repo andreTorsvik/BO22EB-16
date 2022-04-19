@@ -1,51 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using GMap.NET;
 
 namespace GMAP_Demo
 {
     public class Tekstbehandling
     {
-        static public string sjekkGyldigTallData(string sikkerhetsKlarering, string lat, string lang)
+        static public string sjekkGyldigTallData_objekt(string sikkerhetsKlarering, string lat, string lang)
         {
-            string svar = string.Empty;
+            string feil = string.Empty;
+            List<string> Lfeil = new List<string>();
 
-            try
+            Lfeil.Add(sjekkSikkerhetsKlarering(sikkerhetsKlarering));
+            Lfeil.Add(sjekkLat(lat));
+            Lfeil.Add(sjekkLong(lang));
+
+            if (Lfeil.Count > 0)
             {
-                int sjekk = Convert.ToInt16(sikkerhetsKlarering);
-                if (sjekk > frmVisning.instance.MaxSikkerhetsklarering)
+                feil = "Du mangler: ";
+                for (int i = 0; i < Lfeil.Count; i++)
                 {
-                    svar = "Sikkerhetsklarering er for høy";
+                    feil += Lfeil[i];
+                    if (i < Lfeil.Count - 1) feil += ", ";
                 }
-                else if (sjekk < 1)
-                {
-                    svar = "Sikkerhetsklarering kan ikke være lavere enn 1 ";
-                }
-            }
-            catch (Exception)
-            {
-                if (svar != string.Empty) svar += ", ";
-                svar += "Feil inntasting med Sikkerhetsklarering";
-            }
-            try
-            {
-                float sjekk = Convert.ToSingle(lat);
-            }
-            catch (Exception)
-            {
-                if (svar != string.Empty) svar += ", ";
-                svar += "Feil inntasting med Lat";
-            }
-            try
-            {
-                float sjekk = Convert.ToSingle(lang);
-            }
-            catch (Exception)
-            {
-                if (svar != string.Empty) svar += ", ";
-                svar += " Feil inntasting med Long";
             }
 
-            return svar;
+            return feil;
         }
 
         static public string SjekkInntastetDataRegisterings(string Fornavn, string Etternavn, string Telefon, string Epost, string Passord, string BePassord)
@@ -218,6 +198,126 @@ namespace GMAP_Demo
             }
 
             return svar;
+        }
+
+        public static string sjekkSikkerhetsKlarering(string sikkerhetsKlarering)
+        {
+            string svar = string.Empty;
+
+            try
+            {
+                int sjekk = Convert.ToInt16(sikkerhetsKlarering);
+                if (sjekk > frmVisning.instance.MaxSikkerhetsklarering)
+                {
+                    svar = "Sikkerhetsklarering er for høy";
+                }
+                else if (sjekk < 1)
+                {
+                    svar = "Sikkerhetsklarering kan ikke være lavere enn 1 ";
+                }
+            }
+            catch (Exception)
+            {
+                svar = "Feil inntasting med Sikkerhetsklarering";
+            }
+
+            return svar;
+        }
+
+        public static string sjekkLat(string lat)
+        {
+            string svar = string.Empty;
+
+            try
+            {
+                float sjekk = Convert.ToSingle(lat);
+            }
+            catch (Exception)
+            {
+                svar = "Feil inntasting med Lat";
+            }
+
+            return svar;
+        }
+
+        public static string sjekkLong(string lang)
+        {
+            string svar = string.Empty;
+
+            try
+            {
+                float sjekk = Convert.ToSingle(lang);
+            }
+            catch (Exception)
+            {
+                svar = "Feil inntasting med Long";
+            }
+
+            return svar;
+        }
+
+        public static string SjekkEndringerOmråde(List<Område> oList,string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, int AntallOverlays)
+        {
+            string Endringer = string.Empty;
+            string newLine = Environment.NewLine;
+
+            if (oList[0].Navn != navn)
+                Endringer += string.Format("Navn: {0} -> {1}" + newLine, oList[0].Navn, navn);
+            try
+            {
+                if (oList[0].Sikkerhetsklarering != Convert.ToInt16(sikkerhetsklarering))
+                {
+                    Endringer += string.Format("Sikkerhetsklarering: {0} -> {1}" + newLine, oList[0].Sikkerhetsklarering, sikkerhetsklarering);
+                }
+            }
+            catch (Exception feilmelding)
+            {
+                DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+            }
+            //if (rList[0].Kategori != kategori)
+            //    Endringer += string.Format("Kategori: {0} -> {1}" + newLine, rList[0].Kategori, kategori);
+            if (oList[0].Kommentar != kommentar)
+                Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, oList[0].Kommentar, kommentar);
+            if (oList[0].Farge != farge)
+                Endringer += string.Format("Farge: {0} -> {1}" + newLine, oList[0].Farge, farge);
+
+            Endringer += sammenlignPunkter(oList, pList);
+           
+            return Endringer;
+        }
+
+        public static string sammenlignPunkter(List<Område> oList,List<PointLatLng> pList)
+        {
+            string Endringer = string.Empty;
+            string newLine = Environment.NewLine;
+            //sjekk punkter 
+            List<PointLatLng> Orginalepunkter = oList[0].HentPunkter();
+
+            if (Orginalepunkter.Count == pList.Count)
+            {
+                for (int i = 0; i < oList.Count; i++)
+                {
+                    if (Math.Round(Orginalepunkter[i].Lat, 5) != Math.Round(pList[i].Lat, 5))
+                    {
+                        Endringer += string.Format("Ny punkter" + newLine);
+                        break;
+                    }
+                    else if (Math.Round(Orginalepunkter[i].Lng, 5) != Math.Round(pList[i].Lng, 5))
+                    {
+                        Endringer += string.Format("Ny punkter" + newLine);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                if (Orginalepunkter.Count > pList.Count)
+                    Endringer += string.Format("færre punkter enn før" + newLine);
+                else if (Orginalepunkter.Count < pList.Count)
+                    Endringer += string.Format("flere punkter enn før" + newLine);
+            }
+
+            return Endringer;
         }
     }
 }
