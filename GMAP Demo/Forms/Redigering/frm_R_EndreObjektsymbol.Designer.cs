@@ -76,7 +76,7 @@
             // 
             this.lbTilgjengligKategorier.FormattingEnabled = true;
             this.lbTilgjengligKategorier.ItemHeight = 20;
-            this.lbTilgjengligKategorier.Location = new System.Drawing.Point(5, 63);
+            this.lbTilgjengligKategorier.Location = new System.Drawing.Point(8, 49);
             this.lbTilgjengligKategorier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTilgjengligKategorier.Name = "lbTilgjengligKategorier";
             this.lbTilgjengligKategorier.Size = new System.Drawing.Size(247, 204);
@@ -87,7 +87,7 @@
             // txtValgtKategori
             // 
             this.txtValgtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtValgtKategori.Location = new System.Drawing.Point(268, 52);
+            this.txtValgtKategori.Location = new System.Drawing.Point(265, 49);
             this.txtValgtKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtValgtKategori.Name = "txtValgtKategori";
             this.txtValgtKategori.ReadOnly = true;
@@ -97,44 +97,44 @@
             // lblTilgjengeligeKategorier
             // 
             this.lblTilgjengeligeKategorier.AutoSize = true;
-            this.lblTilgjengeligeKategorier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTilgjengeligeKategorier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTilgjengeligeKategorier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblTilgjengeligeKategorier.Location = new System.Drawing.Point(5, 22);
+            this.lblTilgjengeligeKategorier.Location = new System.Drawing.Point(8, 22);
             this.lblTilgjengeligeKategorier.Name = "lblTilgjengeligeKategorier";
-            this.lblTilgjengeligeKategorier.Size = new System.Drawing.Size(263, 25);
+            this.lblTilgjengeligeKategorier.Size = new System.Drawing.Size(224, 22);
             this.lblTilgjengeligeKategorier.TabIndex = 66;
             this.lblTilgjengeligeKategorier.Text = "Tilgjengelige Kategorier";
             // 
             // lblValgtKategori
             // 
             this.lblValgtKategori.AutoSize = true;
-            this.lblValgtKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValgtKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValgtKategori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblValgtKategori.Location = new System.Drawing.Point(264, 23);
+            this.lblValgtKategori.Location = new System.Drawing.Point(261, 22);
             this.lblValgtKategori.Name = "lblValgtKategori";
-            this.lblValgtKategori.Size = new System.Drawing.Size(161, 25);
+            this.lblValgtKategori.Size = new System.Drawing.Size(137, 22);
             this.lblValgtKategori.TabIndex = 67;
             this.lblValgtKategori.Text = "Valgt Kategori";
             // 
             // lblValgtBilde
             // 
             this.lblValgtBilde.AutoSize = true;
-            this.lblValgtBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValgtBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValgtBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblValgtBilde.Location = new System.Drawing.Point(263, 22);
+            this.lblValgtBilde.Location = new System.Drawing.Point(261, 22);
             this.lblValgtBilde.Name = "lblValgtBilde";
-            this.lblValgtBilde.Size = new System.Drawing.Size(126, 25);
+            this.lblValgtBilde.Size = new System.Drawing.Size(107, 22);
             this.lblValgtBilde.TabIndex = 70;
             this.lblValgtBilde.Text = "Valgt Bilde";
             // 
             // lblVelgBilde
             // 
             this.lblVelgBilde.AutoSize = true;
-            this.lblVelgBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVelgBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVelgBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblVelgBilde.Location = new System.Drawing.Point(6, 22);
+            this.lblVelgBilde.Location = new System.Drawing.Point(8, 22);
             this.lblVelgBilde.Name = "lblVelgBilde";
-            this.lblVelgBilde.Size = new System.Drawing.Size(119, 25);
+            this.lblVelgBilde.Size = new System.Drawing.Size(101, 22);
             this.lblVelgBilde.TabIndex = 69;
             this.lblVelgBilde.Text = "Velg Bilde";
             // 
@@ -161,7 +161,7 @@
             // 
             // pbValgtKategori
             // 
-            this.pbValgtKategori.Location = new System.Drawing.Point(268, 85);
+            this.pbValgtKategori.Location = new System.Drawing.Point(265, 82);
             this.pbValgtKategori.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbValgtKategori.Name = "pbValgtKategori";
             this.pbValgtKategori.Size = new System.Drawing.Size(145, 170);
@@ -171,7 +171,7 @@
             // 
             // pbValgtBilde
             // 
-            this.pbValgtBilde.Location = new System.Drawing.Point(268, 49);
+            this.pbValgtBilde.Location = new System.Drawing.Point(265, 49);
             this.pbValgtBilde.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbValgtBilde.Name = "pbValgtBilde";
             this.pbValgtBilde.Size = new System.Drawing.Size(145, 170);
