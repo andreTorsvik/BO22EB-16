@@ -168,7 +168,7 @@ namespace GMAP_Demo
                 txtNrPunkt.Text = "0";
 
                 //fjerne "hjelpe" markører 
-                Kart.FjernAlleMarkører_redigier();
+                Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
 
                 //legge til de nye området på kartet 
                 Kart.OppdaterListe_området();
@@ -189,7 +189,8 @@ namespace GMAP_Demo
                     m.Rekkefølge = pointLatLngs.Count;
                     pointLatLngs.Add(m.giPunkt());
 
-                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, m.giPunkt(), m.Rekkefølge);
+                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, m.giPunkt(), m.Rekkefølge, "MarkørForOmråde");
+                    Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
                     Kart.reff(Kart.MuligKart.Redigering);
 
                     txtLat.Text = "Dobbelklikk på kartet + \"legg til\"";
@@ -213,7 +214,7 @@ namespace GMAP_Demo
         {
             if (pointLatLngs.Count > 0)
             {
-                Kart.FjernAlleMarkører_redigier();
+                Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
                 pointLatLngs.Clear();
             }
             //frm_R_LeggTilOmråde.instance.lMakør.Clear();

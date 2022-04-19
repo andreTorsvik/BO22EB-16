@@ -73,7 +73,7 @@ namespace GMAP_Demo
                     frmVisning.instance.map.Zoom = Zoom; // Behagelig Zoom level 
                     frmVisning.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
                     break;
-                case MuligKart.Redigering: 
+                case MuligKart.Redigering:
                     frmRediger.instance.map.MapProvider = Valgtkart;
 
                     frmRediger.instance.map.Position = p;  //start posisjon kart
@@ -81,7 +81,7 @@ namespace GMAP_Demo
                     //settings for kart
                     frmRediger.instance.map.MinZoom = minZoom;
                     frmRediger.instance.map.MaxZoom = maksZoom;
-                    frmRediger.instance.map.Zoom = Zoom; 
+                    frmRediger.instance.map.Zoom = Zoom;
                     frmRediger.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
                     break;
                 case MuligKart.Begge:
@@ -89,9 +89,6 @@ namespace GMAP_Demo
                     break;
             }
         }
-
-        
-
 
 
         public static void OppdaterListe_området()
@@ -226,27 +223,28 @@ namespace GMAP_Demo
 
         //}
 
-        public static void LeggtilMarkør(MuligKart kart,PointLatLng point,int Rekkefølge )
+        public static void LeggtilMarkør(MuligKart kart, PointLatLng point, int Rekkefølge, string områdeId)
         {
             // HvilketKart Visning = Visning.map
             // HvilketKart Redigering = Redigerings.map
-          
-                GMapMarker marker;
-                GMapOverlay markers = new GMapOverlay("MarkørForOmråde");
+            //-1 da vil man ikke få tooltip tekst 
+            GMapMarker marker;
+            GMapOverlay markers = new GMapOverlay(områdeId);
 
-                marker = new GMarkerGoogle(point, GMarkerGoogleType.blue);
-
+            marker = new GMarkerGoogle(point, GMarkerGoogleType.blue);
+            if (Rekkefølge != -1)
+            {
                 marker.ToolTipText = String.Format("{0}", Rekkefølge);
                 marker.ToolTip.Fill = Brushes.Black;
                 marker.ToolTip.Foreground = Brushes.White;
                 marker.ToolTip.Stroke = Pens.Black;
                 marker.ToolTip.TextPadding = new Size(20, 20);
                 marker.Tag = Rekkefølge;
+            }
+            markers.Markers.Add(marker);
 
-                markers.Markers.Add(marker);
-
-                if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
-                else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
+            if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
+            else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
         }
         public static void LeggTilOmråde(List<Område> Olist, MuligKart kart)
         {
@@ -448,11 +446,11 @@ namespace GMAP_Demo
             }
         }
 
-        public static void FjernAlleMarkører_redigier()
+        public static void FjernAlleMarkører_redigier(string områdeId)
         {
             for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
             {
-                if (frmRediger.instance.map.Overlays[i].Id == "MarkørForOmråde")
+                if (frmRediger.instance.map.Overlays[i].Id == områdeId)
                 {
                     frmRediger.instance.map.Overlays.RemoveAt(i);
                     i--;

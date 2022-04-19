@@ -88,5 +88,10 @@ namespace GMAP_Demo
         {
             DatabaseCommunication.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
         }
+
+        private void lbTilgjengligKategorier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
