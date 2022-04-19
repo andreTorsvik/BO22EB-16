@@ -34,14 +34,14 @@
             this.txtValgtKategori = new System.Windows.Forms.TextBox();
             this.lblTilgjengeligeKategorier = new System.Windows.Forms.Label();
             this.lblValgtKategori = new System.Windows.Forms.Label();
-            this.pbValgtBilde = new System.Windows.Forms.PictureBox();
             this.lblValgtBilde = new System.Windows.Forms.Label();
             this.lblVelgBilde = new System.Windows.Forms.Label();
             this.btnLeggTilIDb = new System.Windows.Forms.Button();
             this.lblLastOppTilDB = new System.Windows.Forms.Label();
             this.pbValgtKategori = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValgtBilde)).BeginInit();
+            this.pbValgtBilde = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbValgtKategori)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValgtBilde)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -110,21 +110,12 @@
             this.lblValgtKategori.TabIndex = 67;
             this.lblValgtKategori.Text = "Valgt Kategori";
             // 
-            // pbValgtBilde
-            // 
-            this.pbValgtBilde.Location = new System.Drawing.Point(23, 496);
-            this.pbValgtBilde.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pbValgtBilde.Name = "pbValgtBilde";
-            this.pbValgtBilde.Size = new System.Drawing.Size(145, 170);
-            this.pbValgtBilde.TabIndex = 68;
-            this.pbValgtBilde.TabStop = false;
-            // 
             // lblValgtBilde
             // 
             this.lblValgtBilde.AutoSize = true;
             this.lblValgtBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValgtBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblValgtBilde.Location = new System.Drawing.Point(29, 466);
+            this.lblValgtBilde.Location = new System.Drawing.Point(287, 354);
             this.lblValgtBilde.Name = "lblValgtBilde";
             this.lblValgtBilde.Size = new System.Drawing.Size(126, 25);
             this.lblValgtBilde.TabIndex = 70;
@@ -143,7 +134,7 @@
             // 
             // btnLeggTilIDb
             // 
-            this.btnLeggTilIDb.Location = new System.Drawing.Point(22, 751);
+            this.btnLeggTilIDb.Location = new System.Drawing.Point(21, 602);
             this.btnLeggTilIDb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLeggTilIDb.Name = "btnLeggTilIDb";
             this.btnLeggTilIDb.Size = new System.Drawing.Size(249, 68);
@@ -157,7 +148,7 @@
             this.lblLastOppTilDB.AutoSize = true;
             this.lblLastOppTilDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastOppTilDB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblLastOppTilDB.Location = new System.Drawing.Point(18, 721);
+            this.lblLastOppTilDB.Location = new System.Drawing.Point(17, 572);
             this.lblLastOppTilDB.Name = "lblLastOppTilDB";
             this.lblLastOppTilDB.Size = new System.Drawing.Size(395, 25);
             this.lblLastOppTilDB.TabIndex = 72;
@@ -172,6 +163,15 @@
             this.pbValgtKategori.TabIndex = 68;
             this.pbValgtKategori.TabStop = false;
             this.pbValgtKategori.Visible = false;
+            // 
+            // pbValgtBilde
+            // 
+            this.pbValgtBilde.Location = new System.Drawing.Point(281, 384);
+            this.pbValgtBilde.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbValgtBilde.Name = "pbValgtBilde";
+            this.pbValgtBilde.Size = new System.Drawing.Size(145, 170);
+            this.pbValgtBilde.TabIndex = 68;
+            this.pbValgtBilde.TabStop = false;
             // 
             // frm_R_EndreObjektsymbol
             // 
@@ -196,8 +196,8 @@
             this.Name = "frm_R_EndreObjektsymbol";
             this.Text = "frm_S_LeggTilBilde";
             this.Load += new System.EventHandler(this.frm_S_LeggTilBilde_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbValgtBilde)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbValgtKategori)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValgtBilde)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
