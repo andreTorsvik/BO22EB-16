@@ -313,6 +313,9 @@
   <ItemGroup>
     <None Include="Resources\icons8-person-64.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HVL.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
