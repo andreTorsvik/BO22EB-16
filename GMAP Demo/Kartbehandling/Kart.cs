@@ -90,9 +90,6 @@ namespace GMAP_Demo
             }
         }
 
-        
-
-
 
         public static void OppdaterListe_området()
         {

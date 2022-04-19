@@ -73,6 +73,7 @@
             this.lbTilgjengligKategorier.Name = "lbTilgjengligKategorier";
             this.lbTilgjengligKategorier.Size = new System.Drawing.Size(220, 164);
             this.lbTilgjengligKategorier.TabIndex = 64;
+            this.lbTilgjengligKategorier.SelectedIndexChanged += new System.EventHandler(this.lbTilgjengligKategorier_SelectedIndexChanged);
             this.lbTilgjengligKategorier.DoubleClick += new System.EventHandler(this.lbTilgjengligKategorier_DoubleClick);
             // 
             // txtValgtKategori
@@ -145,7 +146,7 @@
             this.btnLeggTilIDb.Name = "btnLeggTilIDb";
             this.btnLeggTilIDb.Size = new System.Drawing.Size(221, 54);
             this.btnLeggTilIDb.TabIndex = 71;
-            this.btnLeggTilIDb.Text = "Legg til Bilde i Database";
+            this.btnLeggTilIDb.Text = "Lagre bilde";
             this.btnLeggTilIDb.UseVisualStyleBackColor = true;
             this.btnLeggTilIDb.Click += new System.EventHandler(this.btnLeggTilIDb_Click);
             // 
