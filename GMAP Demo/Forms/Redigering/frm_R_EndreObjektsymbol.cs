@@ -24,10 +24,28 @@ namespace GMAP_Demo
 
         private void lbTilgjengligKategorier_DoubleClick(object sender, EventArgs e)
         {
-            string selectedItemtext = lbTilgjengligKategorier.SelectedItem.ToString();
+            if (lbTilgjengligKategorier.SelectedIndex.ToString() != null)
+            {
+                Bildebehandling bildebehandling = new Bildebehandling();
 
-            txtValgtKategori.Text = selectedItemtext;
-            valgtKategori = txtValgtKategori.Text.ToString();
+                string selectedItemtext = lbTilgjengligKategorier.SelectedItem.ToString();
+
+                txtValgtKategori.Text = selectedItemtext;
+                valgtKategori = txtValgtKategori.Text.ToString();
+
+                // vis bilde hvis tilgjengelig
+                List<Kategorier_Bilde> kategori = DatabaseCommunication.GetBildeForKategoriFromDbKategorier_Bilde(selectedItemtext.ToString());
+                if (kategori[0].Bilde != null) // Sjekk om kategori har bilde
+                {
+                    image = bildebehandling.byteArrayToImage(kategori[0].Bilde);
+
+                    pbValgtKategori.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pbValgtKategori.Image = image;
+                    
+                }
+                
+                
+            }
         }
 
         private void btnLeggTilBilde_Click(object sender, EventArgs e)
