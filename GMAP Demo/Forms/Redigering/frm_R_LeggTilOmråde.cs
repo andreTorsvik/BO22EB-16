@@ -183,13 +183,14 @@ namespace GMAP_Demo
             {
                 try
                 {
-                    Markør m = new Markør();
-                    m.lat = Convert.ToDouble(txtLat.Text);
-                    m.lang = Convert.ToDouble(txtLong.Text);
-                    m.Rekkefølge = pointLatLngs.Count;
-                    pointLatLngs.Add(m.giPunkt());
+                    double lat = Convert.ToDouble(txtLat.Text);
+                    double lng = Convert.ToDouble(txtLong.Text);
+                    int rekkefølge = pointLatLngs.Count;
+                    PointLatLng point = new PointLatLng(lat, lng);
 
-                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, m.giPunkt(), m.Rekkefølge, "MarkørForOmråde");
+                    pointLatLngs.Add(point);
+
+                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, point, rekkefølge, "MarkørForOmråde");
                     Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
                     Kart.reff(Kart.MuligKart.Redigering);
 
@@ -201,12 +202,6 @@ namespace GMAP_Demo
                 {
                     DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
-
-                //if (pointLatLngs.Count > 2)
-                //{
-                //    // tegn område
-
-                //}
             }
         }
 
@@ -216,21 +211,8 @@ namespace GMAP_Demo
             {
                 Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
                 pointLatLngs.Clear();
+                txtNrPunkt.Text = "0";
             }
-            //frm_R_LeggTilOmråde.instance.lMakør.Clear();
-            //int fjernNr = lbPunkter.SelectedIndex;
-            //pointLatLngs.Remove((PointLatLng)lbPunkter.SelectedItem);
-            //lMakør.RemoveAt(fjernNr);
-            //Kart.FjernAlleMarkører_redigier();
-
-            //foreach (var item in lMakør)
-            //{
-            //    if (item.Rekkefølge > fjernNr) item.Rekkefølge--;
-            //}
-
-            //Kart.LeggtilMarkør(lMakør, Kart.MuligKart.Redigering);
-            //Kart.reff(Kart.MuligKart.Redigering);
-
         }
     }
 }

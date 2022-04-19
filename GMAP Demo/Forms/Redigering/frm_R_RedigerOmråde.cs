@@ -119,9 +119,5 @@ namespace GMAP_Demo
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
