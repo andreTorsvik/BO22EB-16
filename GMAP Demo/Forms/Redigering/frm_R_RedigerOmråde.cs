@@ -140,15 +140,15 @@ namespace GMAP_Demo
                         pList.Add(item);
                     }
 
-                    string sjekk = Tekstbehandling.SjekkEndringerOmråde(Lområde, navn, sikkerhetsklarering, Kommentar, Farge,pList,antallOverlays);
+                    string Endring = Tekstbehandling.SjekkEndringerOmråde(Lområde, navn, sikkerhetsklarering, Kommentar, Farge,pList,antallOverlays);
                     string enderingIPunkter = Tekstbehandling.sammenlignPunkter(Lområde, pList);
-                    if (sjekk != string.Empty)
+                    if (Endring != string.Empty)
                     {
                         string caption = "Vil du lagre disse endringene ";
                         MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                         DialogResult result;
 
-                        result = MessageBox.Show(sjekk, caption, buttons);
+                        result = MessageBox.Show(Endring, caption, buttons);
                         if (result == DialogResult.Yes)
                         {
                             //Oppdtaer info 
