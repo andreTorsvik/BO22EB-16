@@ -99,13 +99,13 @@ namespace GMAP_Demo
             }
             else if ((valgtKategori == null) && (imageData != null))
             {
-                MessageBox.Show("Vennligst velg en kategori, fra listen, som dette bilde skal knyttes til.");
+                MessageBox.Show("Vennligst velg en kategori, fra listen, som dette bilde skal knyttes til.", "Kunne ikke utføre oppgaven!");
             }
             else if ((valgtKategori != null) && (imageData == null))
             {
-                MessageBox.Show("Vennligst velg et bilde som skal knyttes til den valgte kategorien.");
+                MessageBox.Show("Vennligst velg et bilde som skal knyttes til den valgte kategorien.", "Kunne ikke utføre oppgaven!");
             }
-            else MessageBox.Show("Du har ikke valgt en kategori, og har heller ikke valgt et bilde.");
+            else MessageBox.Show("Du har ikke valgt en kategori, og har heller ikke valgt et bilde.", "Kunne ikke utføre oppgaven!");
         }
 
         private void lbTilgjengligKategorier_SelectedIndexChanged(object sender, EventArgs e)
