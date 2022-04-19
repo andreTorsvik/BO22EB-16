@@ -99,6 +99,7 @@
     <Compile Include="Database\DataTypes\Overlay_Ressurs.cs" />
     <Compile Include="Database\DataTypes\Punkter_område.cs" />
     <Compile Include="Database\DataTypes\Ressurs.cs" />
+    <Compile Include="FilBehandeling.cs" />
     <Compile Include="Forms\Innlogging\frmInnlogging.cs">
       <SubType>Form</SubType>
     </Compile>

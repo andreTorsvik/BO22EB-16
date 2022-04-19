@@ -319,5 +319,42 @@ namespace GMAP_Demo
 
             return Endringer;
         }
+        public static double HentLat(string text)
+        {
+            double lat = 0;
+
+            try
+            {
+                int startIndex = text.IndexOf(" ");
+                string sjekk = text.Substring(startIndex);
+                lat = Convert.ToDouble(sjekk);
+            }
+            catch (Exception)
+            {
+
+
+            }
+
+            return lat;
+        }
+        public static  double hentLong(string text)
+        {
+            double lang = 0;
+
+            try
+            {
+                int startIndex = text.IndexOf(" ");
+                string sjekk = text.Substring(startIndex);
+                lang = Convert.ToDouble(sjekk);
+            }
+            catch (Exception)
+            {
+
+
+            }
+
+
+            return lang;
+        }
     }
 }

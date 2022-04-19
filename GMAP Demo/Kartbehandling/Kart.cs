@@ -12,7 +12,7 @@ namespace GMAP_Demo
     internal class Kart
     {
         public enum MuligKart { Visning, Redigering, Begge };
-        public static PointLatLng PunktFraForrige = new PointLatLng(60.36893643470203, 5.350878781967968); // skal hente Posisjon fra fil 
+        public static PointLatLng PunktFraForrige = new PointLatLng(); 
 
         // Lister for filtrering på kategorier:
         // BindingList for lbKategorierVises REF: https://stackoverflow.com/questions/17615069/how-to-refresh-datasource-of-a-listbox, https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindinglist-1?view=net-6.0

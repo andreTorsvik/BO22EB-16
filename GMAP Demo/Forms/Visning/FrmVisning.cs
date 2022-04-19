@@ -63,6 +63,7 @@ namespace GMAP_Demo
         private void Form1_Load(object sender, EventArgs e)
         {
             lblUserName.TextAlign = ContentAlignment.MiddleCenter;
+            Kart.PunktFraForrige = FilBehandeling.GiStartPosisjon("StartPosisjon.txt");
             Kart.Setup(Kart.MuligKart.Visning, Kart.PunktFraForrige);
         }
 
@@ -144,10 +145,15 @@ namespace GMAP_Demo
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
+
             this.Hide();
             frmSettings frmSettings = new frmSettings(); // instance 
             frmSettings.Size = this.Size;
             frmSettings.Location = this.Location;
+
+            frmSettings.instance.lat = map.Position.Lat;
+            frmSettings.instance.lng = map.Position.Lng;
+
             frmSettings.Show();
         }
 

@@ -8,6 +8,8 @@ namespace GMAP_Demo
     {
         public static frmSettings instance;
         private Color knapp_trykket;
+        public double lng;
+        public double lat;
         public frmSettings()
         {
             InitializeComponent();
@@ -25,7 +27,6 @@ namespace GMAP_Demo
             frm_S_LoggInn_vrb.Show();
 
         }
-
         private void frmSettings_Load(object sender, EventArgs e)
         {
 
@@ -49,7 +50,6 @@ namespace GMAP_Demo
 
             btnLoggUt.BackColor = StandarFarge;
             btnStartPosisjon.BackColor = StandarFarge;
-            btnLeggTilBilde.BackColor = StandarFarge;
             btnAdmin.BackColor = StandarFarge;
             btnBrukerInfo.BackColor = StandarFarge;
             btnDatabaseView.BackColor = StandarFarge;
@@ -71,7 +71,6 @@ namespace GMAP_Demo
                 this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
                 frm_S_LoggInn_vrb.Show();
             }
-
         }
 
         private void btnStartPosisjon_Click(object sender, EventArgs e)
@@ -89,27 +88,8 @@ namespace GMAP_Demo
                 this.PnlFormLoader.Controls.Add(frm_S_StartPosisjon_vrb);
                 frm_S_StartPosisjon_vrb.Show();
             }
-
         }
 
-        private void btnLeggTilBilde_Click(object sender, EventArgs e)
-        {
-            if (pnlNav.Top != btnLeggTilBilde.Top)
-            {
-                AlleKnapperTilStandarfarge();
-                btnLeggTilBilde.BackColor = knapp_trykket;
-
-                FlyttNavigasjonsPanel(btnLeggTilBilde.Height, btnLeggTilBilde.Top);
-
-                this.PnlFormLoader.Controls.Clear();
-                frm_R_EndreObjektsymbol frm_S_LeggTilBilde_vrb = new frm_R_EndreObjektsymbol() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frm_S_LeggTilBilde_vrb.FormBorderStyle = FormBorderStyle.None;
-                this.PnlFormLoader.Controls.Add(frm_S_LeggTilBilde_vrb);
-                frm_S_LeggTilBilde_vrb.Show();
-            }
-
-
-        }
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             if (pnlNav.Top != btnAdmin.Top)
@@ -125,12 +105,10 @@ namespace GMAP_Demo
                 this.PnlFormLoader.Controls.Add(frm_S_Admin_vrb);
                 frm_S_Admin_vrb.Show();
             }
-
         }
 
         private void btnBrukerInfo_Click(object sender, EventArgs e)
         {
-
             if (pnlNav.Top != btnBrukerInfo.Top)
             {
                 AlleKnapperTilStandarfarge();
@@ -144,7 +122,6 @@ namespace GMAP_Demo
                 this.PnlFormLoader.Controls.Add(frm_S_BrukerInfo_vrb);
                 frm_S_BrukerInfo_vrb.Show();
             }
-
         }
 
         private void btnEkstra_Click(object sender, EventArgs e)
@@ -157,10 +134,7 @@ namespace GMAP_Demo
                 //pnlNav.Left = btnEkstra.Left;
                 FlyttNavigasjonsPanel(btnEkstra.Height, btnEkstra.Top);
             }
-
         }
-
-
 
         private void btnDatabaseView_Click(object sender, EventArgs e)
         {
@@ -180,7 +154,6 @@ namespace GMAP_Demo
             //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
             pnlNav.Left = btnLoggUt.Left;
         }
-
-       
+  
     }
 }

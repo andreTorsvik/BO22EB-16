@@ -37,7 +37,6 @@
             this.btnEkstra = new System.Windows.Forms.Button();
             this.btnBrukerInfo = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
-            this.btnLeggTilBilde = new System.Windows.Forms.Button();
             this.btnStartPosisjon = new System.Windows.Forms.Button();
             this.btnLoggUt = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -63,7 +62,6 @@
             this.panel1.Controls.Add(this.btnEkstra);
             this.panel1.Controls.Add(this.btnBrukerInfo);
             this.panel1.Controls.Add(this.btnAdmin);
-            this.panel1.Controls.Add(this.btnLeggTilBilde);
             this.panel1.Controls.Add(this.btnStartPosisjon);
             this.panel1.Controls.Add(this.btnLoggUt);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -106,7 +104,7 @@
             this.btnDatabaseView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDatabaseView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDatabaseView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDatabaseView.Location = new System.Drawing.Point(0, 504);
+            this.btnDatabaseView.Location = new System.Drawing.Point(0, 420);
             this.btnDatabaseView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDatabaseView.Name = "btnDatabaseView";
             this.btnDatabaseView.Size = new System.Drawing.Size(316, 84);
@@ -123,7 +121,7 @@
             this.btnEkstra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEkstra.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEkstra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnEkstra.Location = new System.Drawing.Point(0, 420);
+            this.btnEkstra.Location = new System.Drawing.Point(0, 336);
             this.btnEkstra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEkstra.Name = "btnEkstra";
             this.btnEkstra.Size = new System.Drawing.Size(316, 84);
@@ -140,7 +138,7 @@
             this.btnBrukerInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBrukerInfo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrukerInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnBrukerInfo.Location = new System.Drawing.Point(0, 336);
+            this.btnBrukerInfo.Location = new System.Drawing.Point(0, 252);
             this.btnBrukerInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBrukerInfo.Name = "btnBrukerInfo";
             this.btnBrukerInfo.Size = new System.Drawing.Size(316, 84);
@@ -157,7 +155,7 @@
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdmin.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnAdmin.Location = new System.Drawing.Point(0, 252);
+            this.btnAdmin.Location = new System.Drawing.Point(0, 168);
             this.btnAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(316, 84);
@@ -166,23 +164,6 @@
             this.btnAdmin.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAdmin.UseVisualStyleBackColor = true;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
-            // 
-            // btnLeggTilBilde
-            // 
-            this.btnLeggTilBilde.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLeggTilBilde.FlatAppearance.BorderSize = 0;
-            this.btnLeggTilBilde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeggTilBilde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLeggTilBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnLeggTilBilde.Location = new System.Drawing.Point(0, 168);
-            this.btnLeggTilBilde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLeggTilBilde.Name = "btnLeggTilBilde";
-            this.btnLeggTilBilde.Size = new System.Drawing.Size(316, 84);
-            this.btnLeggTilBilde.TabIndex = 1;
-            this.btnLeggTilBilde.Text = "Flyttet";
-            this.btnLeggTilBilde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnLeggTilBilde.UseVisualStyleBackColor = true;
-            this.btnLeggTilBilde.Click += new System.EventHandler(this.btnLeggTilBilde_Click);
             // 
             // btnStartPosisjon
             // 
@@ -244,7 +225,6 @@
         private System.Windows.Forms.Panel pnlNav;
         private System.Windows.Forms.Button btnTilbake;
         private System.Windows.Forms.Button btnAdmin;
-        private System.Windows.Forms.Button btnLeggTilBilde;
         private System.Windows.Forms.Button btnStartPosisjon;
         private System.Windows.Forms.Button btnLoggUt;
         private System.Windows.Forms.Button btnDatabaseView;
