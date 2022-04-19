@@ -177,7 +177,7 @@
             this.btnStartPosisjon.Name = "btnStartPosisjon";
             this.btnStartPosisjon.Size = new System.Drawing.Size(316, 84);
             this.btnStartPosisjon.TabIndex = 1;
-            this.btnStartPosisjon.Text = "Start Posisjon [WIP]";
+            this.btnStartPosisjon.Text = "Start Posisjon";
             this.btnStartPosisjon.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnStartPosisjon.UseVisualStyleBackColor = true;
             this.btnStartPosisjon.Click += new System.EventHandler(this.btnStartPosisjon_Click);
