@@ -70,8 +70,5 @@ namespace GMAP_Demo
         {
             DatabaseCommunication.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
         }
-
-
-
     }
 }

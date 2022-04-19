@@ -49,7 +49,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(334, 39);
+            this.label3.Size = new System.Drawing.Size(322, 38);
             this.label3.TabIndex = 4;
             this.label3.Text = "Endre objektsymbol";
             // 
@@ -89,7 +89,7 @@
             // 
             this.lblTilgjengeligeKategorier.AutoSize = true;
             this.lblTilgjengeligeKategorier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTilgjengeligeKategorier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblTilgjengeligeKategorier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblTilgjengeligeKategorier.Location = new System.Drawing.Point(16, 79);
             this.lblTilgjengeligeKategorier.Name = "lblTilgjengeligeKategorier";
             this.lblTilgjengeligeKategorier.Size = new System.Drawing.Size(208, 20);
@@ -100,7 +100,7 @@
             // 
             this.lblValgtKategori.AutoSize = true;
             this.lblValgtKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValgtKategori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblValgtKategori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblValgtKategori.Location = new System.Drawing.Point(246, 80);
             this.lblValgtKategori.Name = "lblValgtKategori";
             this.lblValgtKategori.Size = new System.Drawing.Size(128, 20);
@@ -110,7 +110,7 @@
             // pbValgtBilde
             // 
             this.pbValgtBilde.Location = new System.Drawing.Point(25, 397);
-            this.pbValgtBilde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbValgtBilde.Margin = new System.Windows.Forms.Padding(4);
             this.pbValgtBilde.Name = "pbValgtBilde";
             this.pbValgtBilde.Size = new System.Drawing.Size(139, 156);
             this.pbValgtBilde.TabIndex = 68;
@@ -120,7 +120,7 @@
             // 
             this.lblValgtBilde.AutoSize = true;
             this.lblValgtBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValgtBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblValgtBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblValgtBilde.Location = new System.Drawing.Point(26, 373);
             this.lblValgtBilde.Name = "lblValgtBilde";
             this.lblValgtBilde.Size = new System.Drawing.Size(101, 20);
@@ -131,7 +131,7 @@
             // 
             this.lblVelgBilde.AutoSize = true;
             this.lblVelgBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVelgBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblVelgBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblVelgBilde.Location = new System.Drawing.Point(26, 283);
             this.lblVelgBilde.Name = "lblVelgBilde";
             this.lblVelgBilde.Size = new System.Drawing.Size(95, 20);
@@ -153,14 +153,14 @@
             // 
             this.lblLastOppTilDB.AutoSize = true;
             this.lblLastOppTilDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastOppTilDB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblLastOppTilDB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblLastOppTilDB.Location = new System.Drawing.Point(16, 577);
             this.lblLastOppTilDB.Name = "lblLastOppTilDB";
             this.lblLastOppTilDB.Size = new System.Drawing.Size(315, 20);
             this.lblLastOppTilDB.TabIndex = 72;
             this.lblLastOppTilDB.Text = "Last opp valgt bilde til valgt kategori";
             // 
-            // frm_R_LeggTilBilde
+            // frm_R_EndreObjektsymbol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,7 +179,7 @@
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frm_R_LeggTilBilde";
+            this.Name = "frm_R_EndreObjektsymbol";
             this.Text = "frm_S_LeggTilBilde";
             this.Load += new System.EventHandler(this.frm_S_LeggTilBilde_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbValgtBilde)).EndInit();
