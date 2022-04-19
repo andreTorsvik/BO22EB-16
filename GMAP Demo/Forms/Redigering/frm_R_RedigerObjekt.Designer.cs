@@ -48,7 +48,7 @@
             this.btnLeggTilOverlay = new System.Windows.Forms.Button();
             this.lbValgtOverlays = new System.Windows.Forms.ListBox();
             this.lbTilgjengeligeOverlays = new System.Windows.Forms.ListBox();
-            this.btnLeggTilObjekt = new System.Windows.Forms.Button();
+            this.btnLagreEndring = new System.Windows.Forms.Button();
             this.LabelSikkerhetsklarering = new System.Windows.Forms.Label();
             this.txtSikkerhetsklarering = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -264,16 +264,16 @@
             this.lbTilgjengeligeOverlays.SelectedIndexChanged += new System.EventHandler(this.lbTilgjengeligeOverlays_SelectedIndexChanged);
             this.lbTilgjengeligeOverlays.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengeligeOverlays_MouseDoubleClick);
             // 
-            // btnLeggTilObjekt
+            // btnLagreEndring
             // 
-            this.btnLeggTilObjekt.Location = new System.Drawing.Point(13, 705);
-            this.btnLeggTilObjekt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLeggTilObjekt.Name = "btnLeggTilObjekt";
-            this.btnLeggTilObjekt.Size = new System.Drawing.Size(123, 34);
-            this.btnLeggTilObjekt.TabIndex = 68;
-            this.btnLeggTilObjekt.Text = "Lagre endering";
-            this.btnLeggTilObjekt.UseVisualStyleBackColor = true;
-            this.btnLeggTilObjekt.Click += new System.EventHandler(this.btnLeggTilObjekt_Click);
+            this.btnLagreEndring.Location = new System.Drawing.Point(13, 705);
+            this.btnLagreEndring.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLagreEndring.Name = "btnLagreEndring";
+            this.btnLagreEndring.Size = new System.Drawing.Size(123, 34);
+            this.btnLagreEndring.TabIndex = 68;
+            this.btnLagreEndring.Text = "Lagre endering";
+            this.btnLagreEndring.UseVisualStyleBackColor = true;
+            this.btnLagreEndring.Click += new System.EventHandler(this.btnLeggTilObjekt_Click);
             // 
             // LabelSikkerhetsklarering
             // 
@@ -338,7 +338,7 @@
             this.Controls.Add(this.btnLeggTilOverlay);
             this.Controls.Add(this.lbValgtOverlays);
             this.Controls.Add(this.lbTilgjengeligeOverlays);
-            this.Controls.Add(this.btnLeggTilObjekt);
+            this.Controls.Add(this.btnLagreEndring);
             this.Controls.Add(this.LabelSikkerhetsklarering);
             this.Controls.Add(this.txtSikkerhetsklarering);
             this.Controls.Add(this.label1);
@@ -375,7 +375,7 @@
         private System.Windows.Forms.Button btnLeggTilOverlay;
         private System.Windows.Forms.ListBox lbValgtOverlays;
         private System.Windows.Forms.ListBox lbTilgjengeligeOverlays;
-        private System.Windows.Forms.Button btnLeggTilObjekt;
+        private System.Windows.Forms.Button btnLagreEndring;
         private System.Windows.Forms.Label LabelSikkerhetsklarering;
         public System.Windows.Forms.TextBox txtSikkerhetsklarering;
         private System.Windows.Forms.Label label1;

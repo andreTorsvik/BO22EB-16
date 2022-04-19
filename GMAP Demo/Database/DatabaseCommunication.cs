@@ -121,6 +121,15 @@ namespace GMAP_Demo
                 return output;
             }
         }
+        public static List<Område> ListOmrådeFromDb(int løpenummer)
+        {
+            //ListOmrådeFromDb
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                var output = connection.Query<Område>($"SELECT * FROM[dbo].[Område] WHERE(Løpenummer_område = '{løpenummer}')").ToList();
+                return output;
+            }
+        }
 
         public static List<Punkter_område> GetPunkter_området(int løpenummer)
         {
@@ -420,6 +429,26 @@ namespace GMAP_Demo
                 };
 
                 connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", UpdateRessurs);
+
+            }
+        }
+        public static void UpdateOmråde(int løpenummer, string navn, int sikkerhetsklarering, string kommentar, string farge)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Område UpdateOmråde = new Område
+                {
+                    Løpenummer_område = løpenummer,
+                    Navn = navn,
+                    //Kategori = kategori,
+                    //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
+                    //Opprettet_av_bruker = opprettet_av_bruker,
+                    Sikkerhetsklarering = sikkerhetsklarering,
+                    Kommentar = kommentar,
+                    Farge = farge
+                };
+
+                connection.Execute("[dbo].[PROCEDUREUpdateOmråde] @Løpenummer_område, @Navn, @kommentar, @Sikkerhetsklarering, @farge", UpdateOmråde);
 
             }
         }

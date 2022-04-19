@@ -294,7 +294,7 @@ namespace GMAP_Demo
                     PointLatLng point = new PointLatLng(item1.Lat, item1.Lang);
                     frm_R_RedigerOmråde.instance.pointLatLngs.Add(point);
                 }
-                frm_R_RedigerOmråde.instance.txtAntallPunkter.Text = Punktliste.Count.ToString();
+                frm_R_RedigerOmråde.instance.txtNrPunkt.Text = Punktliste.Count.ToString();
             }
             if (frm_R_FjernObjektOmråde.instance != null)
             {

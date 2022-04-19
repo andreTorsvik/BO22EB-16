@@ -48,7 +48,7 @@ namespace GMAP_Demo
             
             if (utFyllingsmangler == string.Empty)
             {
-                string feilMelding = Tekstbehandling.sjekkGyldigTallData(txtSikkerhetsklarering.Text,txtLat.Text,txtLong.Text);
+                string feilMelding = Tekstbehandling.sjekkGyldigTallData_objekt(txtSikkerhetsklarering.Text,txtLat.Text,txtLong.Text);
                 if (feilMelding == string.Empty)
                 {
                     DatabaseCommunication.InsertRessursToDb(txtNavn.Text.ToString(), txtKategori.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));

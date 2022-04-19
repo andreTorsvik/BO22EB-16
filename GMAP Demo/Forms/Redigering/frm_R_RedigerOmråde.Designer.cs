@@ -32,7 +32,7 @@
             this.lbTilgjengligFarge = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtfarge = new System.Windows.Forms.TextBox();
-            this.txtAntallPunkter = new System.Windows.Forms.TextBox();
+            this.txtNrPunkt = new System.Windows.Forms.TextBox();
             this.lbPunkter = new System.Windows.Forms.ListBox();
             this.btnLeggTilPunkt = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNavn = new System.Windows.Forms.TextBox();
             this.btnFjernPunktIListe = new System.Windows.Forms.Button();
-            this.btnLeggTilObjekt = new System.Windows.Forms.Button();
+            this.btnLagreEndring = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -98,13 +98,13 @@
             this.txtfarge.Size = new System.Drawing.Size(138, 22);
             this.txtfarge.TabIndex = 78;
             // 
-            // txtAntallPunkter
+            // txtNrPunkt
             // 
-            this.txtAntallPunkter.Location = new System.Drawing.Point(126, 363);
-            this.txtAntallPunkter.Name = "txtAntallPunkter";
-            this.txtAntallPunkter.Size = new System.Drawing.Size(28, 22);
-            this.txtAntallPunkter.TabIndex = 77;
-            this.txtAntallPunkter.Text = "0";
+            this.txtNrPunkt.Location = new System.Drawing.Point(126, 363);
+            this.txtNrPunkt.Name = "txtNrPunkt";
+            this.txtNrPunkt.Size = new System.Drawing.Size(28, 22);
+            this.txtNrPunkt.TabIndex = 77;
+            this.txtNrPunkt.Text = "0";
             // 
             // lbPunkter
             // 
@@ -123,6 +123,7 @@
             this.btnLeggTilPunkt.TabIndex = 75;
             this.btnLeggTilPunkt.Text = "Legg til punkt";
             this.btnLeggTilPunkt.UseVisualStyleBackColor = true;
+            this.btnLeggTilPunkt.Click += new System.EventHandler(this.btnLeggTilPunkt_Click);
             // 
             // label11
             // 
@@ -308,16 +309,17 @@
             this.btnFjernPunktIListe.TabIndex = 81;
             this.btnFjernPunktIListe.Text = "Fjern punktene";
             this.btnFjernPunktIListe.UseVisualStyleBackColor = true;
+            this.btnFjernPunktIListe.Click += new System.EventHandler(this.btnFjernPunktIListe_Click);
             // 
-            // btnLeggTilObjekt
+            // btnLagreEndring
             // 
-            this.btnLeggTilObjekt.Location = new System.Drawing.Point(16, 779);
-            this.btnLeggTilObjekt.Name = "btnLeggTilObjekt";
-            this.btnLeggTilObjekt.Size = new System.Drawing.Size(123, 34);
-            this.btnLeggTilObjekt.TabIndex = 82;
-            this.btnLeggTilObjekt.Text = "Lagre endring";
-            this.btnLeggTilObjekt.UseVisualStyleBackColor = true;
-            this.btnLeggTilObjekt.Click += new System.EventHandler(this.btnLeggTilObjekt_Click);
+            this.btnLagreEndring.Location = new System.Drawing.Point(16, 779);
+            this.btnLagreEndring.Name = "btnLagreEndring";
+            this.btnLagreEndring.Size = new System.Drawing.Size(123, 34);
+            this.btnLagreEndring.TabIndex = 82;
+            this.btnLagreEndring.Text = "Lagre endring";
+            this.btnLagreEndring.UseVisualStyleBackColor = true;
+            this.btnLagreEndring.Click += new System.EventHandler(this.btnLagreEndring_Click);
             // 
             // frm_R_RedigerOmråde
             // 
@@ -325,12 +327,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(391, 825);
-            this.Controls.Add(this.btnLeggTilObjekt);
+            this.Controls.Add(this.btnLagreEndring);
             this.Controls.Add(this.btnFjernPunktIListe);
             this.Controls.Add(this.lbTilgjengligFarge);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtfarge);
-            this.Controls.Add(this.txtAntallPunkter);
+            this.Controls.Add(this.txtNrPunkt);
             this.Controls.Add(this.lbPunkter);
             this.Controls.Add(this.btnLeggTilPunkt);
             this.Controls.Add(this.label11);
@@ -367,7 +369,7 @@
         private System.Windows.Forms.ListBox lbTilgjengligFarge;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtfarge;
-        public System.Windows.Forms.TextBox txtAntallPunkter;
+        public System.Windows.Forms.TextBox txtNrPunkt;
         public System.Windows.Forms.ListBox lbPunkter;
         private System.Windows.Forms.Button btnLeggTilPunkt;
         private System.Windows.Forms.Label label11;
@@ -389,6 +391,6 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtNavn;
         private System.Windows.Forms.Button btnFjernPunktIListe;
-        private System.Windows.Forms.Button btnLeggTilObjekt;
+        private System.Windows.Forms.Button btnLagreEndring;
     }
 }
