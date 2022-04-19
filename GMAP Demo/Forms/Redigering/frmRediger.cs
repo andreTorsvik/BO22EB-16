@@ -219,10 +219,15 @@ namespace GMAP_Demo
                 double lat = DoubleClick_punkt.Lat;
                 double lng = DoubleClick_punkt.Lng;
 
+                Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
+                Kart.LeggtilMarkør(Kart.MuligKart.Redigering, new PointLatLng(lat, lng), -1, "HjelpeMarkør");
+                Kart.reff(Kart.MuligKart.Redigering);
+
                 if (frm_R_LeggTilObjekt.instance != null)
                 {
                     frm_R_LeggTilObjekt.instance.txtLat.Text = lat.ToString();
                     frm_R_LeggTilObjekt.instance.txtLong.Text = lng.ToString();
+
                 }
                 if (frm_R_LeggTilOmråde.instance != null)
                 {
@@ -233,6 +238,7 @@ namespace GMAP_Demo
                 {
                     frm_R_RedigerObjekt.instance.txtLat.Text = lat.ToString();
                     frm_R_RedigerObjekt.instance.txtLong.Text = lng.ToString();
+                    
 
                 }
                 if (frm_R_RedigerOmråde.instance != null)
@@ -317,7 +323,15 @@ namespace GMAP_Demo
             {
                 if (item.Id == "MarkørForOmråde")
                 {
-                    Kart.FjernAlleMarkører_redigier();
+                    Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
+                    break;
+                }
+            }
+            foreach (var item in instance.map.Overlays)
+            {
+                if (item.Id == "HjelpeMarkør")
+                {
+                    Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
                     break;
                 }
             }
