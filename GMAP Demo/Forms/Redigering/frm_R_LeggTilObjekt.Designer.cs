@@ -356,6 +356,9 @@
         }
 
         #endregion
+        //Her er et ekempel der vi bruker public textbox
+        public System.Windows.Forms.TextBox txtLat;
+        public System.Windows.Forms.TextBox txtLong;
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLeggTilObjekt;
@@ -369,9 +372,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKommentar;
         private System.Windows.Forms.Label label7;
-        public System.Windows.Forms.TextBox txtLong;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.TextBox txtLat;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox txtNyOverlay;

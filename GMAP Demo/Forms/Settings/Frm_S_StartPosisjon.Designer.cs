@@ -64,7 +64,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label7.Location = new System.Drawing.Point(6, 86);
+            this.label7.Location = new System.Drawing.Point(6, 133);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 20);
             this.label7.TabIndex = 24;
@@ -73,7 +73,7 @@
             // txtNyLong
             // 
             this.txtNyLong.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtNyLong.Location = new System.Drawing.Point(9, 107);
+            this.txtNyLong.Location = new System.Drawing.Point(9, 154);
             this.txtNyLong.Name = "txtNyLong";
             this.txtNyLong.ReadOnly = true;
             this.txtNyLong.Size = new System.Drawing.Size(261, 22);
@@ -85,7 +85,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label8.Location = new System.Drawing.Point(6, 29);
+            this.label8.Location = new System.Drawing.Point(6, 76);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 20);
             this.label8.TabIndex = 22;
@@ -94,7 +94,7 @@
             // txtNyLat
             // 
             this.txtNyLat.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtNyLat.Location = new System.Drawing.Point(9, 50);
+            this.txtNyLat.Location = new System.Drawing.Point(9, 97);
             this.txtNyLat.Name = "txtNyLat";
             this.txtNyLat.ReadOnly = true;
             this.txtNyLat.Size = new System.Drawing.Size(261, 22);
@@ -103,7 +103,8 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(10, 147);
+            this.btnStart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnStart.Location = new System.Drawing.Point(10, 194);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(127, 34);
             this.btnStart.TabIndex = 25;
@@ -115,7 +116,7 @@
             // 
             this.lbInfo.AutoSize = true;
             this.lbInfo.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbInfo.Location = new System.Drawing.Point(22, 74);
+            this.lbInfo.Location = new System.Drawing.Point(11, 29);
             this.lbInfo.Name = "lbInfo";
             this.lbInfo.Size = new System.Drawing.Size(130, 16);
             this.lbInfo.TabIndex = 26;
@@ -183,7 +184,7 @@
             // 
             // txtNyAdresse
             // 
-            this.txtNyAdresse.Location = new System.Drawing.Point(307, 50);
+            this.txtNyAdresse.Location = new System.Drawing.Point(307, 97);
             this.txtNyAdresse.Multiline = true;
             this.txtNyAdresse.Name = "txtNyAdresse";
             this.txtNyAdresse.ReadOnly = true;
@@ -198,7 +199,7 @@
             this.groupBox1.Controls.Add(this.txtNåværendeLong);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox1.Location = new System.Drawing.Point(12, 147);
+            this.groupBox1.Location = new System.Drawing.Point(12, 102);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(468, 160);
             this.groupBox1.TabIndex = 35;
@@ -210,13 +211,14 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtNyLat);
             this.groupBox2.Controls.Add(this.txtNyAdresse);
+            this.groupBox2.Controls.Add(this.lbInfo);
             this.groupBox2.Controls.Add(this.txtNyLong);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.btnStart);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox2.Location = new System.Drawing.Point(12, 334);
+            this.groupBox2.Location = new System.Drawing.Point(12, 289);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(468, 205);
+            this.groupBox2.Size = new System.Drawing.Size(468, 242);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nytt Startpunkt";
@@ -230,7 +232,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_S_StartPosisjon";
