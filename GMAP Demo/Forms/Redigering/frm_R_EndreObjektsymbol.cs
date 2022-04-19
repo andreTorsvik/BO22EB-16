@@ -89,7 +89,7 @@ namespace GMAP_Demo
 
         private void btnLeggTilIDb_Click(object sender, EventArgs e)
         {
-            if ((valgtKategori != null)&&(imageData != null))
+            if ((valgtKategori != null) && (imageData != null))
             {
                 DatabaseCommunication.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
                 pbValgtKategori.Visible = false;
@@ -97,6 +97,15 @@ namespace GMAP_Demo
                 txtValgtKategori.Text = "";
                 lbTilgjengligKategorier.ClearSelected();
             }
+            else if ((valgtKategori == null) && (imageData != null))
+            {
+                MessageBox.Show("Vennligst velg en kategori, fra listen, som dette bilde skal knyttes til.");
+            }
+            else if ((valgtKategori != null) && (imageData == null))
+            {
+                MessageBox.Show("Vennligst velg et bilde som skal knyttes til den valgte kategorien.");
+            }
+            else MessageBox.Show("Du har ikke valgt en kategori, og har heller ikke valgt et bilde.");
         }
 
         private void lbTilgjengligKategorier_SelectedIndexChanged(object sender, EventArgs e)
