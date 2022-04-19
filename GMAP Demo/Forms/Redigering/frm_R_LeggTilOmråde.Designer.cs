@@ -48,7 +48,7 @@
             this.txtSikkerhetsklarering = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNavn = new System.Windows.Forms.TextBox();
-            this.btnLeggTilPunktIListe = new System.Windows.Forms.Button();
+            this.btnLeggTilPunkt = new System.Windows.Forms.Button();
             this.lbPunkter = new System.Windows.Forms.ListBox();
             this.txtNrPunkt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -255,15 +255,15 @@
             this.txtNavn.Size = new System.Drawing.Size(285, 22);
             this.txtNavn.TabIndex = 32;
             // 
-            // btnLeggTilPunktIListe
+            // btnLeggTilPunkt
             // 
-            this.btnLeggTilPunktIListe.Location = new System.Drawing.Point(16, 362);
-            this.btnLeggTilPunktIListe.Name = "btnLeggTilPunktIListe";
-            this.btnLeggTilPunktIListe.Size = new System.Drawing.Size(104, 28);
-            this.btnLeggTilPunktIListe.TabIndex = 51;
-            this.btnLeggTilPunktIListe.Text = "Legg til punkt";
-            this.btnLeggTilPunktIListe.UseVisualStyleBackColor = true;
-            this.btnLeggTilPunktIListe.Click += new System.EventHandler(this.btnLeggTilPunktIListe_Click);
+            this.btnLeggTilPunkt.Location = new System.Drawing.Point(16, 362);
+            this.btnLeggTilPunkt.Name = "btnLeggTilPunkt";
+            this.btnLeggTilPunkt.Size = new System.Drawing.Size(104, 28);
+            this.btnLeggTilPunkt.TabIndex = 51;
+            this.btnLeggTilPunkt.Text = "Legg til punkt";
+            this.btnLeggTilPunkt.UseVisualStyleBackColor = true;
+            this.btnLeggTilPunkt.Click += new System.EventHandler(this.btnLeggTilPunktIListe_Click);
             // 
             // lbPunkter
             // 
@@ -335,7 +335,7 @@
             this.Controls.Add(this.txtfarge);
             this.Controls.Add(this.txtNrPunkt);
             this.Controls.Add(this.lbPunkter);
-            this.Controls.Add(this.btnLeggTilPunktIListe);
+            this.Controls.Add(this.btnLeggTilPunkt);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -387,7 +387,7 @@
         private System.Windows.Forms.TextBox txtSikkerhetsklarering;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNavn;
-        private System.Windows.Forms.Button btnLeggTilPunktIListe;
+        private System.Windows.Forms.Button btnLeggTilPunkt;
         public System.Windows.Forms.ListBox lbPunkter;
         private System.Windows.Forms.TextBox txtNrPunkt;
         private System.Windows.Forms.Label label2;
