@@ -171,6 +171,7 @@
             this.pbValgtKategori.Size = new System.Drawing.Size(145, 170);
             this.pbValgtKategori.TabIndex = 68;
             this.pbValgtKategori.TabStop = false;
+            this.pbValgtKategori.Visible = false;
             // 
             // frm_R_EndreObjektsymbol
             // 

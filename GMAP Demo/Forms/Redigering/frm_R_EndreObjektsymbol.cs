@@ -37,11 +37,17 @@ namespace GMAP_Demo
                 List<Kategorier_Bilde> kategori = DatabaseCommunication.GetBildeForKategoriFromDbKategorier_Bilde(selectedItemtext.ToString());
                 if (kategori[0].Bilde != null) // Sjekk om kategori har bilde
                 {
+                    
                     image = bildebehandling.byteArrayToImage(kategori[0].Bilde);
 
                     pbValgtKategori.SizeMode = PictureBoxSizeMode.StretchImage;
                     pbValgtKategori.Image = image;
-                    
+                    pbValgtKategori.Visible = true;
+
+                }
+                else
+                {
+                    pbValgtKategori.Visible = false;
                 }
                 
                 
