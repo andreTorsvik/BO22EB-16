@@ -26,8 +26,6 @@ namespace GMAP_Demo
         {
             if (lbTilgjengligKategorier.SelectedIndex.ToString() != null)
             {
-                Bildebehandling bildebehandling = new Bildebehandling();
-
                 string selectedItemtext = lbTilgjengligKategorier.SelectedItem.ToString();
 
                 txtValgtKategori.Text = selectedItemtext;
@@ -38,7 +36,7 @@ namespace GMAP_Demo
                 if (kategori[0].Bilde != null) // Sjekk om kategori har bilde
                 {
                     
-                    image = bildebehandling.byteArrayToImage(kategori[0].Bilde);
+                    image = Bildebehandling.byteArrayToImage(kategori[0].Bilde);
 
                     pbValgtKategori.SizeMode = PictureBoxSizeMode.StretchImage;
                     pbValgtKategori.Image = image;
@@ -56,7 +54,6 @@ namespace GMAP_Demo
 
         private void btnLeggTilBilde_Click(object sender, EventArgs e)
         {
-            Bildebehandling bildebehandling = new Bildebehandling();
             OpenFileDialog dialog = new OpenFileDialog();
             string filepath = null;
 
@@ -68,7 +65,7 @@ namespace GMAP_Demo
             if(filepath != null)
             {
                 image = Image.FromFile(filepath);
-                imageData = bildebehandling.ImageToByteArray(image);
+                imageData = Bildebehandling.ImageToByteArray(image);
 
                 pbValgtBilde.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbValgtBilde.Image = image;
@@ -92,7 +89,14 @@ namespace GMAP_Demo
 
         private void btnLeggTilIDb_Click(object sender, EventArgs e)
         {
-            DatabaseCommunication.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
+            if ((valgtKategori != null)&&(imageData != null))
+            {
+                DatabaseCommunication.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
+                pbValgtKategori.Visible = false;
+                pbValgtBilde.Dispose();
+                txtValgtKategori.Text = "";
+                lbTilgjengligKategorier.ClearSelected();
+            }
         }
 
         private void lbTilgjengligKategorier_SelectedIndexChanged(object sender, EventArgs e)

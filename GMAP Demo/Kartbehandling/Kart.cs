@@ -150,7 +150,6 @@ namespace GMAP_Demo
             // HvilketKart Redigering = Redigerings.map
             // Hvilketkart Begge = Begge 
             // Alt annet: ingen ting
-            Bildebehandling bildebehandling = new Bildebehandling();
             int tag = 0;
             GMapMarker marker;
             GMapOverlay markers = new GMapOverlay("Objekter");
@@ -158,9 +157,9 @@ namespace GMAP_Demo
             {
                 PointLatLng punkt = item.GiPunktet();
 
-                if (bildebehandling.sjekkOmKategoriHarBilde(item))
+                if (Bildebehandling.sjekkOmKategoriHarBilde(item))
                 {
-                    marker = new GMarkerGoogle(punkt, bildebehandling.oppdaterBildeForMarkør(item));
+                    marker = new GMarkerGoogle(punkt, Bildebehandling.oppdaterBildeForMarkør(item));
                 }
                 else
                 {

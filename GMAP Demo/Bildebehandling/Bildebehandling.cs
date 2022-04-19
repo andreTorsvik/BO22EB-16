@@ -11,7 +11,7 @@ namespace GMAP_Demo
     internal class Bildebehandling
     {
         // Metode hentet fra: //https://www.codeproject.com/Questions/872267/store-image-in-a-variable-in-csharp-Please-Help-me
-        public Image byteArrayToImage(byte[] byteArrayIn)
+        public static Image byteArrayToImage(byte[] byteArrayIn)
         {
             MemoryStream ms = new MemoryStream(byteArrayIn);
             Image returnImage = Image.FromStream(ms);
@@ -19,7 +19,7 @@ namespace GMAP_Demo
         }
 
         // Metode hentet fra: //https://www.codeproject.com/Questions/872267/store-image-in-a-variable-in-csharp-Please-Help-me
-        public byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        public static byte[] ImageToByteArray(System.Drawing.Image imageIn)
         {
             using (var ms = new MemoryStream())
             {
@@ -28,7 +28,7 @@ namespace GMAP_Demo
             }
         }
 
-        internal bool sjekkOmKategoriHarBilde(Ressurs item) // Mottar en ressurs og ser om ressursens kategori har et tilhørende bilde.
+        internal static bool sjekkOmKategoriHarBilde(Ressurs item) // Mottar en ressurs og ser om ressursens kategori har et tilhørende bilde.
         {
             List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
             kategorier_Bilde = DatabaseCommunication.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
@@ -47,7 +47,7 @@ namespace GMAP_Demo
             }
         }
 
-        internal Bitmap oppdaterBildeForMarkør(Ressurs item)
+        internal static Bitmap oppdaterBildeForMarkør(Ressurs item)
         {
             DatabaseCommunication db = new DatabaseCommunication();
 
@@ -56,11 +56,11 @@ namespace GMAP_Demo
 
             if (kategorier_Bilde[0] != null)
             {
-                Image image = this.byteArrayToImage(kategorier_Bilde[0].Bilde);
+                Image image = byteArrayToImage(kategorier_Bilde[0].Bilde);
 
                 Bitmap bitmap = new Bitmap(image);
 
-                bitmap = this.AutoScaleBitmap(bitmap);
+                bitmap = AutoScaleBitmap(bitmap);
 
                 kategorier_Bilde.Clear();
 
@@ -75,7 +75,7 @@ namespace GMAP_Demo
         }
 
 
-        public Bitmap ResizeBitmap(Bitmap bmp, int width, int height)
+        public static Bitmap ResizeBitmap(Bitmap bmp, int width, int height)
         {
             Bitmap result = new Bitmap(width, height);
             using (Graphics g = Graphics.FromImage(result))
@@ -87,7 +87,7 @@ namespace GMAP_Demo
         }
 
         // Skalerer Bitmap basert på en faktor og tilnærmet beholder "Aspect Ratio". Basert på ResizeBitmap()
-        public Bitmap ScaleBitmap(Bitmap bmp, double scalar)
+        public static Bitmap ScaleBitmap(Bitmap bmp, double scalar)
         {
             double Width = bmp.Width;
             double Height = bmp.Height;
@@ -103,8 +103,8 @@ namespace GMAP_Demo
             return newImage;
         }
 
-        
-        public Bitmap AutoScaleBitmap(Bitmap bmp) // Autoskalerer Bitmap og tilnærmet beholder "Aspect Ratio". Basert på ScaleBitmap()
+
+        public static Bitmap AutoScaleBitmap(Bitmap bmp) // Autoskalerer Bitmap og tilnærmet beholder "Aspect Ratio". Basert på ScaleBitmap()
         {
             double MaxWidth = 40.0; // Max bredde i pixler
             double MaxHeight = 70.0; // Max Høyde i pixler
