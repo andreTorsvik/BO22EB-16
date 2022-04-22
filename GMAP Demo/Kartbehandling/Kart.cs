@@ -93,20 +93,20 @@ namespace GMAP_Demo
 
         public static void OppdaterListe_området()
         {
-            frmVisning.instance.LOmråde.Clear();
+            GlobaleLister.LOmråde.Clear();
 
             var OmrådeListe = DatabaseCommunication.ListAllOmrådeFromDb();
 
             foreach (var item in OmrådeListe)
             {
-                frmVisning.instance.LOmråde.Add(item);
+                GlobaleLister.LOmråde.Add(item);
             }
         }
 
         public static void OppdaterListe_ressurs()
         {
             //Må oppdatere område liste også 
-            if (frmVisning.instance.LRessurs.Count > 0) frmVisning.instance.LRessurs.Clear();
+            if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
 
             var RessursList = DatabaseCommunication.ListAllRessursFromDb();
 
@@ -117,7 +117,7 @@ namespace GMAP_Demo
                 {
                     if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
                     {
-                        frmVisning.instance.LRessurs.Add(item);
+                        GlobaleLister.LRessurs.Add(item);
                         break;
                     }
                 }

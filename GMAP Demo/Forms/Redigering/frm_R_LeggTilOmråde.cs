@@ -172,7 +172,7 @@ namespace GMAP_Demo
 
                 //legge til de nye området på kartet 
                 Kart.OppdaterListe_området();
-                Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
             else MessageBox.Show(utFyllingsmangler);
         }

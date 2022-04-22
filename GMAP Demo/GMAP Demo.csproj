@@ -220,6 +220,7 @@
     <Compile Include="Forms\Innlogging\frmVertifiseringskode.Designer.cs">
       <DependentUpon>frmVertifiseringskode.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobaleLister.cs" />
     <Compile Include="InnloggetBruker.cs" />
     <Compile Include="Kartbehandling\Kart.cs" />
     <Compile Include="Kartbehandling\Kartbehandlingsmetoder.cs" />
