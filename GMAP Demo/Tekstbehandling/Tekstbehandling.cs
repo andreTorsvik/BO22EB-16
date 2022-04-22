@@ -1,6 +1,6 @@
-﻿using System;
+﻿using GMap.NET;
+using System;
 using System.Collections.Generic;
-using GMap.NET;
 
 namespace GMAP_Demo
 {
@@ -10,14 +10,18 @@ namespace GMAP_Demo
         {
             string feil = string.Empty;
             List<string> Lfeil = new List<string>();
+            string SjekkSikkerhetsklarering = sjekkSikkerhetsKlarering(sikkerhetsKlarering);
+            string SjekkLat = sjekkLat(lat);
+            string SjekkLang = sjekkLong(lang);
 
-            Lfeil.Add(sjekkSikkerhetsKlarering(sikkerhetsKlarering));
-            Lfeil.Add(sjekkLat(lat));
-            Lfeil.Add(sjekkLong(lang));
+
+            if (SjekkSikkerhetsklarering != string.Empty) Lfeil.Add(SjekkSikkerhetsklarering);
+            if (SjekkLat != string.Empty) Lfeil.Add(SjekkLat);
+            if (SjekkLang != string.Empty) Lfeil.Add(SjekkLang);
 
             if (Lfeil.Count > 0)
             {
-                feil = "Du mangler: ";
+                feil = "Feil med: ";
                 for (int i = 0; i < Lfeil.Count; i++)
                 {
                     feil += Lfeil[i];
@@ -34,7 +38,7 @@ namespace GMAP_Demo
             List<string> Lfeil = new List<string>();
 
             //kode for sjekk at alle felten er utfylt
-            if (string.IsNullOrWhiteSpace(Fornavn))  Lfeil.Add("Fornavn");
+            if (string.IsNullOrWhiteSpace(Fornavn)) Lfeil.Add("Fornavn");
             if (string.IsNullOrWhiteSpace(Etternavn)) Lfeil.Add(" Etternavn");
             if (string.IsNullOrWhiteSpace(Telefon)) Lfeil.Add(" Telefonnummer");
             if (string.IsNullOrWhiteSpace(Epost)) Lfeil.Add(" Epost");
@@ -136,7 +140,7 @@ namespace GMAP_Demo
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
 
-            if (rList[0].Navn != navn) 
+            if (rList[0].Navn != navn)
                 Endringer += string.Format("Navn: {0} -> {1}" + newLine, rList[0].Navn, navn);
             try
             {
@@ -145,20 +149,20 @@ namespace GMAP_Demo
                     Endringer += string.Format("Sikkerhetsklarering: {0} -> {1}" + newLine, rList[0].Sikkerhetsklarering, sikkerhetsklarering);
                 }
             }
-            catch (Exception feilmelding) 
+            catch (Exception feilmelding)
             {
                 DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
-            if (rList[0].Kategori != kategori) 
+            if (rList[0].Kategori != kategori)
                 Endringer += string.Format("Kategori: {0} -> {1}" + newLine, rList[0].Kategori, kategori);
-            if (rList[0].Kommentar != kommentar) 
+            if (rList[0].Kommentar != kommentar)
                 Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, rList[0].Kommentar, kommentar);
             try
             {
                 if (Math.Round(rList[0].Lat, 5) != Math.Round(Convert.ToDouble(lat), 5))
                     Endringer += string.Format("Lat: {0} -> {1}" + newLine, rList[0].Lat, lat);
             }
-            catch (Exception feilmelding) 
+            catch (Exception feilmelding)
             {
                 DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
@@ -168,7 +172,7 @@ namespace GMAP_Demo
                 if (Math.Round(rList[0].Lang, 5) != Math.Round(Convert.ToDouble(lang), 5))
                     Endringer += string.Format("Long: {0} -> {1}" + newLine, rList[0].Lang, lang);
             }
-            catch (Exception feilmelding) 
+            catch (Exception feilmelding)
             {
                 DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
@@ -178,7 +182,7 @@ namespace GMAP_Demo
             return Endringer;
         }
 
-        public static string SammenSlåingTekstfelt(string land,string ByKommune,string adresse)
+        public static string SammenSlåingTekstfelt(string land, string ByKommune, string adresse)
         {
 
             string svar = string.Empty;
@@ -256,7 +260,7 @@ namespace GMAP_Demo
             return svar;
         }
 
-        public static string SjekkEndringerOmråde(List<Område> oList,string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, int AntallOverlays)
+        public static string SjekkEndringerOmråde(List<Område> oList, string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, int AntallOverlays)
         {
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
@@ -282,11 +286,11 @@ namespace GMAP_Demo
                 Endringer += string.Format("Farge: {0} -> {1}" + newLine, oList[0].Farge, farge);
 
             Endringer += sammenlignPunkter(oList, pList);
-           
+
             return Endringer;
         }
 
-        public static string sammenlignPunkter(List<Område> oList,List<PointLatLng> pList)
+        public static string sammenlignPunkter(List<Område> oList, List<PointLatLng> pList)
         {
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
@@ -337,7 +341,7 @@ namespace GMAP_Demo
 
             return lat;
         }
-        public static  double hentLong(string text)
+        public static double hentLong(string text)
         {
             double lang = 0;
 

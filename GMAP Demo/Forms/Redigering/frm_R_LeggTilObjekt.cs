@@ -52,11 +52,31 @@ namespace GMAP_Demo
 
             if (utFyllingsmangler == string.Empty)
             {
-                string feilMelding = Tekstbehandling.sjekkGyldigTallData_objekt(txtSikkerhetsklarering.Text, txtLat.Text, txtLong.Text);
+                string feilMelding = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
                 if (feilMelding == string.Empty)
                 {
-                    DatabaseCommunication.InsertRessursToDb(txtNavn.Text.ToString(), txtKategori.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
+                    //løpenummer 
+
+
+                    var løpenummer = DatabaseCommunication.GetLøpenummer_område();
+                    int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
+
+
+                    //laste opp ressurs 
+                    try
+                    {
+                        if (Løpenummer_Ressurs > 0)
+                            DatabaseCommunication.InsertRessursToDb(Løpenummer_Ressurs, navn, kategori, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
+
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
+
                     //fylle in overlays 
+
 
                     txtNavn.Text = "";
                     txtKategori.Text = "";

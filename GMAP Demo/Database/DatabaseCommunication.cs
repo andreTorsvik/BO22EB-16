@@ -71,19 +71,19 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public static List<Tag_Område> ListAllOverlay_OmrådeFromDb()
+        public static List<Tag_Område> ListAllTags_OmrådeFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Tag_Område>("[dbo].[PROCEDUREListAllOverlay_OmrådeFromDb]").ToList();
+                var output = connection.Query<Tag_Område>("[dbo].[PROCEDUREListAllTag_OmrådeFromDb]").ToList();
                 return output;
             }
         }
-        public static List<Tag_Ressurs> ListAllOverlay_RessursFromDb()
+        public static List<Tag_Ressurs> ListAllTags_RessursFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Tag_Ressurs>("[dbo].[PROCEDUREListAllOverlay_RessursFromDb]").ToList();
+                var output = connection.Query<Tag_Ressurs>("[dbo].[PROCEDUREListAllTag_RessursFromDb]").ToList();
                 return output;
             }
         }
@@ -189,12 +189,12 @@ namespace GMAP_Demo
             }
         }
 
-        public static void InsertRessursToDb(string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
+        public static void InsertRessursToDb(int Løpenummer_ressurs,string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 Ressurs ressursToAdd = new Ressurs {
-                    //Løpenummer_ressurs = "DEFAULT", ordnes av Procedure
+                    Løpenummer_ressurs = Løpenummer_ressurs,
                     Navn = navn,
                     Kategori = kategori,
                     //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
@@ -205,7 +205,7 @@ namespace GMAP_Demo
                     Lang = lang
                 };
 
-                connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", ressursToAdd);
+                connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", ressursToAdd);
             }
         }
 
@@ -248,6 +248,15 @@ namespace GMAP_Demo
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 var output = connection.Query<int>($"select (NEXT VALUE FOR [dbo].[SEQUENCEOmrådeId]) as int").ToList();
+                return output;
+            }
+        }
+
+        public static List<int> GetLøpenummer_Ressurs()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                var output = connection.Query<int>($"select (NEXT VALUE FOR [dbo].[SEQUENCERessursId]) as int").ToList();
                 return output;
             }
         }

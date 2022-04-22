@@ -14,13 +14,13 @@ namespace GMAP_Demo
 
             try
             {
-                var OverlayOListe = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
+                var OverlayOListe = DatabaseCommunication.ListAllTags_OmrådeFromDb();
                 foreach (var item in OverlayOListe)
                 {
                     AlleOverlay.Add(item.Tag.ToString());
                 }
 
-                var OverlayRListe = DatabaseCommunication.ListAllOverlay_RessursFromDb();
+                var OverlayRListe = DatabaseCommunication.ListAllTags_RessursFromDb();
                 foreach (var item in OverlayRListe)
                 {
                     AlleOverlay.Add(item.Tag.ToString());
@@ -31,7 +31,6 @@ namespace GMAP_Demo
             {
 
             }
-
             return AlleOverlay;
         }
 

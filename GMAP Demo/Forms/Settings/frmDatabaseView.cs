@@ -117,7 +117,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbOverlay_OmrådeView.Height, btnDbOverlay_OmrådeView.Top);
             
-            overlay_OmrådeList = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
+            overlay_OmrådeList = DatabaseCommunication.ListAllTags_OmrådeFromDb();
             listBoxDatabaseView.DataSource = overlay_OmrådeList;
             listBoxDatabaseView.DisplayMember = "overlay_OmrådeDataTypeToString";
         }
@@ -129,7 +129,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbOverlay_RessursView.Height, btnDbOverlay_RessursView.Top);
 
-            overlay_RessursList = DatabaseCommunication.ListAllOverlay_RessursFromDb();
+            overlay_RessursList = DatabaseCommunication.ListAllTags_RessursFromDb();
             listBoxDatabaseView.DataSource = overlay_RessursList;
             listBoxDatabaseView.DisplayMember = "overlay_RessursDataTypeToString";
         }
