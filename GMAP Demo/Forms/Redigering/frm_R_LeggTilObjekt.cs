@@ -125,20 +125,20 @@ namespace GMAP_Demo
         {
             lbTilgjengeligeTags.Items.Clear();
             
-            HashSet<string> AlleTag = new HashSet<string>();
+            HashSet<string> AlleTags = new HashSet<string>();
 
             //alle tags fra Området
             var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
             foreach (var item in TagOListe)
             {
-                AlleTag.Add(item.Tag.ToString());
+                AlleTags.Add(item.Tag.ToString());
             }
 
             //alle tags fra Resusrs 
             var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
             foreach (var item in TagRListe)
             {
-                AlleTag.Add(item.Kategori.ToString());
+                AlleTags.Add(item.Tag.ToString());
             }
 
             foreach (var item in AlleTags)
