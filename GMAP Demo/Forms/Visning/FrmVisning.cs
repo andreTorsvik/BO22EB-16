@@ -206,21 +206,27 @@ namespace GMAP_Demo
 
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            frmFilter.instance.txtNavn.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
-            frmFilter.instance.txtKategori.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
-            frmFilter.instance.txtDato_opprettet.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Dato_opprettet;
-            frmFilter.instance.txtOpprettetAvBruker.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
-            frmFilter.instance.txtSikkerhetsklarering.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-            frmFilter.instance.txtKommentar.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
+            if (frmFilter.instance != null)
+            {
+                frmFilter.instance.txtNavn.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
+                frmFilter.instance.txtKategori.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
+                frmFilter.instance.txtDato_opprettet.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Dato_opprettet;
+                frmFilter.instance.txtOpprettetAvBruker.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
+                frmFilter.instance.txtSikkerhetsklarering.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frmFilter.instance.txtKommentar.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
+            }
         }
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
-            frmFilter.instance.txtNavn.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
-            frmFilter.instance.txtKategori.Text = "";
-            frmFilter.instance.txtDato_opprettet.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Dato_opprettet;
-            frmFilter.instance.txtOpprettetAvBruker.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
-            frmFilter.instance.txtSikkerhetsklarering.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-            frmFilter.instance.txtKommentar.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
+            if (frmFilter.instance != null)
+            {
+                frmFilter.instance.txtNavn.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
+                frmFilter.instance.txtKategori.Text = "";
+                frmFilter.instance.txtDato_opprettet.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Dato_opprettet;
+                frmFilter.instance.txtOpprettetAvBruker.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
+                frmFilter.instance.txtSikkerhetsklarering.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frmFilter.instance.txtKommentar.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
+            }
         }
 
         private void map_MouseDoubleClick(object sender, MouseEventArgs e)
