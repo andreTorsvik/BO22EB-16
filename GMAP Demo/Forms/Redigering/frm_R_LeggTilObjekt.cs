@@ -56,11 +56,8 @@ namespace GMAP_Demo
                 if (feilMelding == string.Empty)
                 {
                     //løpenummer 
-
-
                     var løpenummer = DatabaseCommunication.GetLøpenummer_område();
                     int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
-
 
                     //laste opp ressurs 
                     try
@@ -74,9 +71,19 @@ namespace GMAP_Demo
 
                     }
 
-
                     //fylle in overlays 
+                    try
+                    { 
+                        foreach (var item in lbValgtTags.Items)
+                        {
+                            DatabaseCommunication.InsertTag_RessursToDb(item.ToString(), Løpenummer_Ressurs);
+                        }
 
+                    }
+                    catch (Exception)
+                    {
+
+                    }
 
                     txtNavn.Text = "";
                     txtKategori.Text = "";

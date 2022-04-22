@@ -33,6 +33,19 @@ namespace GMAP_Demo
             return point;
         }
 
+        public List<string> hentTags()
+        {
+            List<string> tags = new List<string>();
+
+            var TagListe = DatabaseCommunication.ListTag_ressursFromDb(Løpenummer_ressurs);
+
+            foreach (var item in TagListe)
+            {
+                tags.Add(item.Tag);
+            }
+
+            return tags;
+        }
         public override string ToString()
         {
             return $"({Løpenummer_ressurs} - {Navn} - {Kategori} - {Dato_opprettet} - {Opprettet_av_bruker} - {Sikkerhetsklarering} - {Kommentar} - {Lat} - {Lang})";

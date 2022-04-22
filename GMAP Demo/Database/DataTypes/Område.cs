@@ -26,6 +26,20 @@ namespace GMAP_Demo
             }
         }
 
+        public List<string> hentTags()
+        {
+            List<string> tags = new List<string>();
+
+            var TagListe = DatabaseCommunication.ListTag_områdeFromDb(Løpenummer_område);
+
+            foreach (var item in TagListe)
+            {
+                tags.Add(item.Tag);
+            }
+
+            return tags;
+        }
+
         public override string ToString()
         {
             return $"({Løpenummer_område} - {Navn} - {Dato_opprettet} - {Opprettet_av_bruker} - {Kommentar} - {Sikkerhetsklarering} - {Farge})";

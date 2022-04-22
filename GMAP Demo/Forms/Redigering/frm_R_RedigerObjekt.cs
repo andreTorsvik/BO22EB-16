@@ -9,6 +9,7 @@ namespace GMAP_Demo
 
         public static frm_R_RedigerObjekt instance;
         public int Løpenummer_til_redigering;
+        public List<string> LagretTags = new List<string>();
         public frm_R_RedigerObjekt()
         {
             InitializeComponent();
