@@ -9,7 +9,6 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    //test
     public partial class frmVisning : Form
     {
         //log
