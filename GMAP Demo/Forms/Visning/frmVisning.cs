@@ -39,10 +39,10 @@ namespace GMAP_Demo
             frmPosisjon_vrb.Show();
 
             //sette Blåpanel til vesntre for Posisjonknapp 
-            FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
+            FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
 
             //endre farge
-            btnPosisjon.BackColor = knapp_trykket;
+            btnFilter.BackColor = knapp_trykket;
 
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
@@ -80,7 +80,7 @@ namespace GMAP_Demo
             Kart.OppdaterKart(Kart.MuligKart.Visning, LRessurs, LOmråde);
         }
 
-        private void btnPoisjon_Click(object sender, EventArgs e)
+        private void btnPosisjon_Click(object sender, EventArgs e)
         {
             if (pnlNav.Top != btnPosisjon.Top)
             {
@@ -184,8 +184,8 @@ namespace GMAP_Demo
         void AlleKnapperTilStandarfarge()
         {
             //setter alle nødvendige knappen til standarfarge
-            btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
             btnFilter.BackColor = Color.FromArgb(24, 30, 54);
+            btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -199,7 +199,7 @@ namespace GMAP_Demo
             pnlNav.Height = høyde;
             pnlNav.Top = top;
             //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
-            pnlNav.Left = btnPosisjon.Left;
+            pnlNav.Left = btnFilter.Left;
         }
 
 
@@ -260,7 +260,9 @@ namespace GMAP_Demo
             instance.map.Zoom--;
         }
 
-        
+
+
+
 
         //public void OppdaterKart()
         //{
