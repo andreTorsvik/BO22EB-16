@@ -111,7 +111,7 @@
             // 
             // pnlNav
             // 
-            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.pnlNav.Location = new System.Drawing.Point(0, 395);
             this.pnlNav.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pnlNav.Name = "pnlNav";
@@ -124,7 +124,7 @@
             this.btnTilbake.FlatAppearance.BorderSize = 0;
             this.btnTilbake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTilbake.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTilbake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnTilbake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.btnTilbake.Location = new System.Drawing.Point(0, 960);
             this.btnTilbake.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnTilbake.Name = "btnTilbake";
@@ -141,7 +141,7 @@
             this.btnFjern.FlatAppearance.BorderSize = 0;
             this.btnFjern.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFjern.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFjern.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnFjern.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.btnFjern.Location = new System.Drawing.Point(0, 786);
             this.btnFjern.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnFjern.Name = "btnFjern";
@@ -158,7 +158,7 @@
             this.btnLeggTilBilde.FlatAppearance.BorderSize = 0;
             this.btnLeggTilBilde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLeggTilBilde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLeggTilBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnLeggTilBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.btnLeggTilBilde.Location = new System.Drawing.Point(0, 691);
             this.btnLeggTilBilde.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnLeggTilBilde.Name = "btnLeggTilBilde";
@@ -175,7 +175,7 @@
             this.btnRedigerOmråde.FlatAppearance.BorderSize = 0;
             this.btnRedigerOmråde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRedigerOmråde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRedigerOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnRedigerOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.btnRedigerOmråde.Location = new System.Drawing.Point(0, 596);
             this.btnRedigerOmråde.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnRedigerOmråde.Name = "btnRedigerOmråde";
@@ -192,7 +192,7 @@
             this.btnRediger_objekt.FlatAppearance.BorderSize = 0;
             this.btnRediger_objekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRediger_objekt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRediger_objekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnRediger_objekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.btnRediger_objekt.Location = new System.Drawing.Point(0, 501);
             this.btnRediger_objekt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnRediger_objekt.Name = "btnRediger_objekt";
@@ -209,7 +209,7 @@
             this.btnOmråde.FlatAppearance.BorderSize = 0;
             this.btnOmråde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOmråde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.btnOmråde.Location = new System.Drawing.Point(0, 406);
             this.btnOmråde.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnOmråde.Name = "btnOmråde";
@@ -226,7 +226,7 @@
             this.btnObjekt.FlatAppearance.BorderSize = 0;
             this.btnObjekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnObjekt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnObjekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnObjekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.btnObjekt.Location = new System.Drawing.Point(0, 311);
             this.btnObjekt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnObjekt.Name = "btnObjekt";
@@ -252,7 +252,7 @@
             // 
             this.lblUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.lblUserName.Location = new System.Drawing.Point(-40, 202);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(429, 31);
