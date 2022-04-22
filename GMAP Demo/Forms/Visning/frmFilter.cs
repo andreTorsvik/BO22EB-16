@@ -96,9 +96,6 @@ namespace GMAP_Demo
 
         private void frmFilter_Load(object sender, EventArgs e)
         {
-            //Kart.InitializekategoriListeVises();
-            //Kart.InitializekategoriListeSkjult();
-
             lbKategorierVises.DataSource = Kart.kategoriListeVises;
             lbKategorierVises.DisplayMember = "Kategorinavn";
             lbKategorierSkjult.DataSource = Kart.kategoriListeSkjult;
@@ -113,9 +110,9 @@ namespace GMAP_Demo
                 Kart.kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.SelectedItem);
                 Kart.OppdaterListe_ressurs();
                 Kart.OppdaterKart(Kart.MuligKart.Visning, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
-
             }
         }
+
         private void lbKategorierSkjult_DoubleClick(object sender, EventArgs e)
         {
             if (lbKategorierSkjult.Items.Count > 0)

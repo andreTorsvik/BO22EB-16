@@ -37,6 +37,7 @@
             this.lbListeOverbrukere = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnFjern = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -130,6 +131,16 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Lister over brukere, og sikkerhetsklarering";
             // 
+            // btnFjern
+            // 
+            this.btnFjern.Location = new System.Drawing.Point(585, 488);
+            this.btnFjern.Name = "btnFjern";
+            this.btnFjern.Size = new System.Drawing.Size(142, 29);
+            this.btnFjern.TabIndex = 10;
+            this.btnFjern.Text = "Fjern";
+            this.btnFjern.UseVisualStyleBackColor = true;
+            this.btnFjern.Click += new System.EventHandler(this.btnFjern_Click);
+            // 
             // frm_S_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -138,6 +149,7 @@
             this.ClientSize = new System.Drawing.Size(1280, 825);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnFjern);
             this.Controls.Add(this.BtnNedgrader);
             this.Controls.Add(this.btnOppgrader);
             this.Controls.Add(this.lbListeOverbrukere);
@@ -165,5 +177,6 @@
         private System.Windows.Forms.ListBox lbListeOverbrukere;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnFjern;
     }
 }

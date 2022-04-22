@@ -32,12 +32,15 @@ namespace GMAP_Demo
         {
             listBruker = new List<Bruker>();
 
-            listBruker = DatabaseCommunication.CheckLoginAgainstDb(tbUserName.Text, tbPassword.Text).ToList();
+            string Epost = tbUserName.Text.ToLower();
+            string passord = tbPassword.Text;
+
+            listBruker = DatabaseCommunication.CheckLoginAgainstDb(Epost, passord).ToList();
 
             // if success
             if (listBruker.Count > 0)
             {
-                if (listBruker[0].Epost == tbUserName.Text)
+                if (listBruker[0].Epost.ToLower() == Epost)
                 {
                     if (listBruker[0].Verifisert == true)
                     {
