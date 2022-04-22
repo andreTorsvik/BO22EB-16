@@ -71,19 +71,19 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public static List<Overlay_Område> ListAllOverlay_OmrådeFromDb()
+        public static List<Tag_Område> ListAllOverlay_OmrådeFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Overlay_Område>("[dbo].[PROCEDUREListAllOverlay_OmrådeFromDb]").ToList();
+                var output = connection.Query<Tag_Område>("[dbo].[PROCEDUREListAllOverlay_OmrådeFromDb]").ToList();
                 return output;
             }
         }
-        public static List<Overlay_Ressurs> ListAllOverlay_RessursFromDb()
+        public static List<Tag_Ressurs> ListAllOverlay_RessursFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Overlay_Ressurs>("[dbo].[PROCEDUREListAllOverlay_RessursFromDb]").ToList();
+                var output = connection.Query<Tag_Ressurs>("[dbo].[PROCEDUREListAllOverlay_RessursFromDb]").ToList();
                 return output;
             }
         }
@@ -346,6 +346,20 @@ namespace GMAP_Demo
                 };
 
                 connection.Execute("[dbo].[PROCEDUREinsertIntoKategorier_Bilde] @Kategorinavn", kategorier_BildeKategoriToAdd);
+            }
+        }
+
+        public static void InsertTag_RessursToDb(string Tag, int løpenummer_Til_ressurs)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Tag_Ressurs Tag_RessursKategoriToAdd = new Tag_Ressurs
+                {
+                    Tag = Tag
+                    //Bilde = NULL, ordnes av Procedure
+                };
+
+                connection.Execute("[dbo].[PROCEDUREinsertIntoKategorier_Bilde] @Kategorinavn", Tag_RessursKategoriToAdd);
             }
         }
 

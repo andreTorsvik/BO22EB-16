@@ -34,8 +34,8 @@
             this.txtSikkerhetsklarering = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNavn = new System.Windows.Forms.TextBox();
-            this.lbTilgjengeligeOverlays = new System.Windows.Forms.ListBox();
-            this.lbValgtOverlays = new System.Windows.Forms.ListBox();
+            this.lbTilgjengeligeTags = new System.Windows.Forms.ListBox();
+            this.lbValgtTags = new System.Windows.Forms.ListBox();
             this.btnLeggTilOverlay = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtKommentar = new System.Windows.Forms.TextBox();
@@ -45,7 +45,7 @@
             this.txtLat = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtNyOverlay = new System.Windows.Forms.TextBox();
+            this.txtNyTag = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lbTilgjengligKategori = new System.Windows.Forms.ListBox();
@@ -121,27 +121,27 @@
             this.txtNavn.Size = new System.Drawing.Size(285, 22);
             this.txtNavn.TabIndex = 10;
             // 
-            // lbTilgjengeligeOverlays
+            // lbTilgjengeligeTags
             // 
-            this.lbTilgjengeligeOverlays.FormattingEnabled = true;
-            this.lbTilgjengeligeOverlays.ItemHeight = 16;
-            this.lbTilgjengeligeOverlays.Location = new System.Drawing.Point(5, 57);
-            this.lbTilgjengeligeOverlays.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbTilgjengeligeOverlays.Name = "lbTilgjengeligeOverlays";
-            this.lbTilgjengeligeOverlays.Size = new System.Drawing.Size(141, 196);
-            this.lbTilgjengeligeOverlays.TabIndex = 17;
-            this.lbTilgjengeligeOverlays.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengelige_MouseDoubleClick);
+            this.lbTilgjengeligeTags.FormattingEnabled = true;
+            this.lbTilgjengeligeTags.ItemHeight = 16;
+            this.lbTilgjengeligeTags.Location = new System.Drawing.Point(5, 57);
+            this.lbTilgjengeligeTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbTilgjengeligeTags.Name = "lbTilgjengeligeTags";
+            this.lbTilgjengeligeTags.Size = new System.Drawing.Size(141, 196);
+            this.lbTilgjengeligeTags.TabIndex = 17;
+            this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengelige_MouseDoubleClick);
             // 
-            // lbValgtOverlays
+            // lbValgtTags
             // 
-            this.lbValgtOverlays.FormattingEnabled = true;
-            this.lbValgtOverlays.ItemHeight = 16;
-            this.lbValgtOverlays.Location = new System.Drawing.Point(152, 57);
-            this.lbValgtOverlays.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbValgtOverlays.Name = "lbValgtOverlays";
-            this.lbValgtOverlays.Size = new System.Drawing.Size(140, 196);
-            this.lbValgtOverlays.TabIndex = 18;
-            this.lbValgtOverlays.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtOverlays_MouseDoubleClick);
+            this.lbValgtTags.FormattingEnabled = true;
+            this.lbValgtTags.ItemHeight = 16;
+            this.lbValgtTags.Location = new System.Drawing.Point(152, 57);
+            this.lbValgtTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbValgtTags.Name = "lbValgtTags";
+            this.lbValgtTags.Size = new System.Drawing.Size(140, 196);
+            this.lbValgtTags.TabIndex = 18;
+            this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtOverlays_MouseDoubleClick);
             // 
             // btnLeggTilOverlay
             // 
@@ -223,9 +223,9 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.label6.Location = new System.Drawing.Point(5, 18);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 20);
+            this.label6.Size = new System.Drawing.Size(151, 20);
             this.label6.TabIndex = 27;
-            this.label6.Text = "Velg Hvilke overlays";
+            this.label6.Text = "Velg Hvilke Tags";
             // 
             // label9
             // 
@@ -234,18 +234,18 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.label9.Location = new System.Drawing.Point(5, 255);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(107, 20);
+            this.label9.Size = new System.Drawing.Size(68, 20);
             this.label9.TabIndex = 29;
-            this.label9.Text = "Ny Overlay ";
+            this.label9.Text = "Ny Tag";
             // 
-            // txtNyOverlay
+            // txtNyTag
             // 
-            this.txtNyOverlay.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNyOverlay.Location = new System.Drawing.Point(4, 278);
-            this.txtNyOverlay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNyOverlay.Name = "txtNyOverlay";
-            this.txtNyOverlay.Size = new System.Drawing.Size(121, 22);
-            this.txtNyOverlay.TabIndex = 28;
+            this.txtNyTag.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNyTag.Location = new System.Drawing.Point(4, 278);
+            this.txtNyTag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNyTag.Name = "txtNyTag";
+            this.txtNyTag.Size = new System.Drawing.Size(121, 22);
+            this.txtNyTag.TabIndex = 28;
             // 
             // label10
             // 
@@ -323,13 +323,13 @@
             // gbOverlay
             // 
             this.gbOverlay.Controls.Add(this.label6);
-            this.gbOverlay.Controls.Add(this.lbTilgjengeligeOverlays);
+            this.gbOverlay.Controls.Add(this.lbTilgjengeligeTags);
             this.gbOverlay.Controls.Add(this.label11);
-            this.gbOverlay.Controls.Add(this.lbValgtOverlays);
+            this.gbOverlay.Controls.Add(this.lbValgtTags);
             this.gbOverlay.Controls.Add(this.label10);
             this.gbOverlay.Controls.Add(this.btnLeggTilOverlay);
             this.gbOverlay.Controls.Add(this.label9);
-            this.gbOverlay.Controls.Add(this.txtNyOverlay);
+            this.gbOverlay.Controls.Add(this.txtNyTag);
             this.gbOverlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.gbOverlay.Location = new System.Drawing.Point(20, 405);
             this.gbOverlay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -338,7 +338,7 @@
             this.gbOverlay.Size = new System.Drawing.Size(303, 310);
             this.gbOverlay.TabIndex = 84;
             this.gbOverlay.TabStop = false;
-            this.gbOverlay.Text = "Overlay";
+            this.gbOverlay.Text = "Tags";
             // 
             // gbObjekt
             // 
@@ -402,8 +402,8 @@
         private System.Windows.Forms.TextBox txtSikkerhetsklarering;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNavn;
-        private System.Windows.Forms.ListBox lbTilgjengeligeOverlays;
-        private System.Windows.Forms.ListBox lbValgtOverlays;
+        private System.Windows.Forms.ListBox lbTilgjengeligeTags;
+        private System.Windows.Forms.ListBox lbValgtTags;
         private System.Windows.Forms.Button btnLeggTilOverlay;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKommentar;
@@ -411,7 +411,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox txtNyOverlay;
+        public System.Windows.Forms.TextBox txtNyTag;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ListBox lbTilgjengligKategori;

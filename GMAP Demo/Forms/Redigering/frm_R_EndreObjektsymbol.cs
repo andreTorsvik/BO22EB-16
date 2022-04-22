@@ -79,7 +79,7 @@ namespace GMAP_Demo
 
             foreach (var item in KategoriListe)
             {
-                frmVisning.instance.LKategori.Add(item);
+                GlobaleLister.LKategori.Add(item);
                 lbTilgjengligKategorier.Items.Add(item.Kategorinavn);
             }
 

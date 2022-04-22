@@ -16,8 +16,8 @@ namespace GMAP_Demo
         List<Kategorier_Bilde> kategorier_BildeList = new List<Kategorier_Bilde>();
         List<Måling> målingList = new List<Måling>();
         List<Område> områdeList = new List<Område>();
-        List<Overlay_Område> overlay_OmrådeList = new List<Overlay_Område>();
-        List<Overlay_Ressurs> overlay_RessursList = new List<Overlay_Ressurs>();
+        List<Tag_Område> overlay_OmrådeList = new List<Tag_Område>();
+        List<Tag_Ressurs> overlay_RessursList = new List<Tag_Ressurs>();
         List<Punkter_område> punkter_områdeList = new List<Punkter_område>();
         List<Ressurs> ressursList = new List<Ressurs>();
         private static Color knapp_trykket;
