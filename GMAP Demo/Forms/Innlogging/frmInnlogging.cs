@@ -95,13 +95,13 @@ namespace GMAP_Demo
             LbNyBruker.Font = new Font(LbNyBruker.Font,FontStyle.Regular);
         }
 
-        private void LbNyBruker_Click(object sender, EventArgs e)
-        {          
+        private void btNyBruker_Click(object sender, EventArgs e)
+        {
             this.Hide();
             frmRegistering frmRegistering = new frmRegistering(); // instance
             frmRegistering.Size = this.Size;
-            frmRegistering.Location =this.Location;
-            frmRegistering.Show();            
+            frmRegistering.Location = this.Location;
+            frmRegistering.Show();
         }
     }
 }
