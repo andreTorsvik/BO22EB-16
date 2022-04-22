@@ -57,12 +57,13 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.label3.Location = new System.Drawing.Point(14, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(390, 46);
+            this.label3.Size = new System.Drawing.Size(270, 31);
             this.label3.TabIndex = 4;
             this.label3.Text = "Endre objektsymbol";
             // 
             // btnLVelgBildeFraFiler
             // 
+            this.btnLVelgBildeFraFiler.ForeColor = System.Drawing.Color.Black;
             this.btnLVelgBildeFraFiler.Location = new System.Drawing.Point(6, 49);
             this.btnLVelgBildeFraFiler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLVelgBildeFraFiler.Name = "btnLVelgBildeFraFiler";
@@ -98,10 +99,10 @@
             // 
             this.lblTilgjengeligeKategorier.AutoSize = true;
             this.lblTilgjengeligeKategorier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTilgjengeligeKategorier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblTilgjengeligeKategorier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.lblTilgjengeligeKategorier.Location = new System.Drawing.Point(8, 22);
             this.lblTilgjengeligeKategorier.Name = "lblTilgjengeligeKategorier";
-            this.lblTilgjengeligeKategorier.Size = new System.Drawing.Size(224, 22);
+            this.lblTilgjengeligeKategorier.Size = new System.Drawing.Size(162, 15);
             this.lblTilgjengeligeKategorier.TabIndex = 66;
             this.lblTilgjengeligeKategorier.Text = "Tilgjengelige Kategorier";
             // 
@@ -109,10 +110,10 @@
             // 
             this.lblValgtKategori.AutoSize = true;
             this.lblValgtKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValgtKategori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblValgtKategori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.lblValgtKategori.Location = new System.Drawing.Point(261, 22);
             this.lblValgtKategori.Name = "lblValgtKategori";
-            this.lblValgtKategori.Size = new System.Drawing.Size(137, 22);
+            this.lblValgtKategori.Size = new System.Drawing.Size(97, 15);
             this.lblValgtKategori.TabIndex = 67;
             this.lblValgtKategori.Text = "Valgt Kategori";
             // 
@@ -120,10 +121,10 @@
             // 
             this.lblValgtBilde.AutoSize = true;
             this.lblValgtBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValgtBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblValgtBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.lblValgtBilde.Location = new System.Drawing.Point(261, 22);
             this.lblValgtBilde.Name = "lblValgtBilde";
-            this.lblValgtBilde.Size = new System.Drawing.Size(107, 22);
+            this.lblValgtBilde.Size = new System.Drawing.Size(76, 15);
             this.lblValgtBilde.TabIndex = 70;
             this.lblValgtBilde.Text = "Valgt Bilde";
             // 
@@ -131,15 +132,16 @@
             // 
             this.lblVelgBilde.AutoSize = true;
             this.lblVelgBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVelgBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblVelgBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.lblVelgBilde.Location = new System.Drawing.Point(8, 22);
             this.lblVelgBilde.Name = "lblVelgBilde";
-            this.lblVelgBilde.Size = new System.Drawing.Size(101, 22);
+            this.lblVelgBilde.Size = new System.Drawing.Size(72, 15);
             this.lblVelgBilde.TabIndex = 69;
             this.lblVelgBilde.Text = "Velg Bilde";
             // 
             // btnLeggTilIDb
             // 
+            this.btnLeggTilIDb.ForeColor = System.Drawing.Color.Black;
             this.btnLeggTilIDb.Location = new System.Drawing.Point(8, 24);
             this.btnLeggTilIDb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLeggTilIDb.Name = "btnLeggTilIDb";
@@ -156,7 +158,7 @@
             this.lblLastOppTilDB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblLastOppTilDB.Location = new System.Drawing.Point(6, 22);
             this.lblLastOppTilDB.Name = "lblLastOppTilDB";
-            this.lblLastOppTilDB.Size = new System.Drawing.Size(0, 25);
+            this.lblLastOppTilDB.Size = new System.Drawing.Size(0, 17);
             this.lblLastOppTilDB.TabIndex = 72;
             // 
             // pbValgtKategori
@@ -182,7 +184,7 @@
             // 
             this.gblLastOppTilDB.Controls.Add(this.lblLastOppTilDB);
             this.gblLastOppTilDB.Controls.Add(this.btnLeggTilIDb);
-            this.gblLastOppTilDB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.gblLastOppTilDB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.gblLastOppTilDB.Location = new System.Drawing.Point(10, 594);
             this.gblLastOppTilDB.Name = "gblLastOppTilDB";
             this.gblLastOppTilDB.Size = new System.Drawing.Size(425, 106);
@@ -196,7 +198,7 @@
             this.gbBilde.Controls.Add(this.btnLVelgBildeFraFiler);
             this.gbBilde.Controls.Add(this.pbValgtBilde);
             this.gbBilde.Controls.Add(this.lblVelgBilde);
-            this.gbBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.gbBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.gbBilde.Location = new System.Drawing.Point(10, 351);
             this.gbBilde.Name = "gbBilde";
             this.gbBilde.Size = new System.Drawing.Size(425, 237);
@@ -211,7 +213,7 @@
             this.gbKategori.Controls.Add(this.txtValgtKategori);
             this.gbKategori.Controls.Add(this.pbValgtKategori);
             this.gbKategori.Controls.Add(this.lblValgtKategori);
-            this.gbKategori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.gbKategori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.gbKategori.Location = new System.Drawing.Point(10, 60);
             this.gbKategori.Name = "gbKategori";
             this.gbKategori.Size = new System.Drawing.Size(425, 285);
