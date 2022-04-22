@@ -33,7 +33,7 @@ namespace GMAP_Demo
 
         private void frm_R_LeggTilOmråde_Load(object sender, EventArgs e)
         {
-            LastInnOverlays();
+            LastInnTags();
             LastInnFargerMuligheter();
 
             InitializepointLatLngs();
@@ -41,26 +41,26 @@ namespace GMAP_Demo
             //lbPunkter.DisplayMember = "Kategorinavn";
         }
 
-        private void LastInnOverlays()
+        private void LastInnTags()
         {
-            if (lbTilgjengeligeOverlays.Items.Count > 0) lbTilgjengeligeOverlays.Items.Clear();
+            if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
 
-            HashSet<string> AlleOverlay = new HashSet<string>();
-            var OverlayOListe = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
-            foreach (var item in OverlayOListe)
+            HashSet<string> AlleTags = new HashSet<string>();
+            var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
+            foreach (var item in TagOListe)
             {
-                AlleOverlay.Add(item.Kategori.ToString());
+                AlleTags.Add(item.Tag.ToString());
             }
-            var OverlayRListe = DatabaseCommunication.ListAllOverlay_RessursFromDb();
-            foreach (var item in OverlayRListe)
+            var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
+            foreach (var item in TagRListe)
             {
-                AlleOverlay.Add(item.Kategori.ToString());
+                AlleTags.Add(item.Tag.ToString());
             }
-            foreach (var item in AlleOverlay)
+            foreach (var item in AlleTags)
             {
-                lbTilgjengeligeOverlays.Items.Add(item);
+                lbTilgjengeligeTags.Items.Add(item);
             }
-            lbTilgjengeligeOverlays.Sorted = true;
+            lbTilgjengeligeTags.Sorted = true;
         }
 
         private void LastInnFargerMuligheter()
@@ -71,24 +71,24 @@ namespace GMAP_Demo
             }
             lbTilgjengligFarge.Sorted = true;
         }
-        private void lbTilgjengeligeOverlays_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void lbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbTilgjengeligeOverlays.SelectedItem.ToString();
+            string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
 
-            lbValgtOverlays.Items.Add(selectedItemtext);
+            lbValgtTags.Items.Add(selectedItemtext);
 
-            lbTilgjengeligeOverlays.Items.Remove(selectedItemtext);
+            lbTilgjengeligeTags.Items.Remove(selectedItemtext);
 
-            lbValgtOverlays.Sorted = true;
+            lbValgtTags.Sorted = true;
         }
 
-        private void lbValgtOverlays_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbValgtOverlays.SelectedItem.ToString();
+            string selectedItemtext = lbValgtTags.SelectedItem.ToString();
 
-            lbTilgjengeligeOverlays.Items.Add(selectedItemtext);
+            lbTilgjengeligeTags.Items.Add(selectedItemtext);
 
-            lbValgtOverlays.Items.Remove(selectedItemtext);
+            lbValgtTags.Items.Remove(selectedItemtext);
         }
 
         private void lbTilgjengligFarge_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -98,12 +98,12 @@ namespace GMAP_Demo
             txtfarge.Text = selectedItemtext;
         }
 
-        private void btnLeggTilOverlay_Click(object sender, EventArgs e)
+        private void btnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string NyOverlay = "";
-            NyOverlay = txtNyOverlay.Text;
+            string NyTag = "";
+            NyTag = txtNyTag.Text;
 
-            if (!string.IsNullOrEmpty(NyOverlay))
+            if (!string.IsNullOrEmpty(NyTag))
             {
 
             }
@@ -116,9 +116,9 @@ namespace GMAP_Demo
             string Kommentar = txtKommentar.Text;
             string Farge = txtfarge.Text;
             int antallPunkter = pointLatLngs.Count;
-            int antallOverlays = lbValgtOverlays.Items.Count;
+            int antallTags = lbValgtTags.Items.Count;
 
-            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Område(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallOverlays);
+            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Område(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags);
 
             if (utFyllingsmangler == string.Empty)
             {
@@ -161,9 +161,9 @@ namespace GMAP_Demo
                 txtfarge.Text = "";
                 txtLat.Text = "Dobbelklikk på kartet + \"legg til\"";
                 txtLong.Text = "Dobbelklikk på kartet + \"legg til\"";
-                lbValgtOverlays.Items.Clear();
-                lbTilgjengeligeOverlays.Items.Clear();
-                LastInnOverlays();
+                lbValgtTags.Items.Clear();
+                lbTilgjengeligeTags.Items.Clear();
+                LastInnTags();
                 pointLatLngs.Clear();
                 txtNrPunkt.Text = "0";
 

@@ -71,19 +71,19 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public static List<Overlay_Område> ListAllOverlay_OmrådeFromDb()
+        public static List<Tag_Område> ListAllTag_OmrådeFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Overlay_Område>("[dbo].[PROCEDUREListAllOverlay_OmrådeFromDb]").ToList();
+                var output = connection.Query<Tag_Område>("[dbo].[PROCEDUREListAllTag_OmrådeFromDb]").ToList();
                 return output;
             }
         }
-        public static List<Overlay_Ressurs> ListAllOverlay_RessursFromDb()
+        public static List<Tag_Ressurs> ListAllTag_RessursFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Overlay_Ressurs>("[dbo].[PROCEDUREListAllOverlay_RessursFromDb]").ToList();
+                var output = connection.Query<Tag_Ressurs>("[dbo].[PROCEDUREListAllTag_RessursFromDb]").ToList();
                 return output;
             }
         }

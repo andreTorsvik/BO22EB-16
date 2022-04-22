@@ -95,8 +95,8 @@
     <Compile Include="Database\DataTypes\Kategorier_Bilde.cs" />
     <Compile Include="Database\DataTypes\Måling.cs" />
     <Compile Include="Database\DataTypes\Område.cs" />
-    <Compile Include="Database\DataTypes\Overlay_Område.cs" />
-    <Compile Include="Database\DataTypes\Overlay_Ressurs.cs" />
+    <Compile Include="Database\DataTypes\Tag_Område.cs" />
+    <Compile Include="Database\DataTypes\Tag_Ressurs.cs" />
     <Compile Include="Database\DataTypes\Punkter_område.cs" />
     <Compile Include="Database\DataTypes\Ressurs.cs" />
     <Compile Include="FilBehandeling.cs" />

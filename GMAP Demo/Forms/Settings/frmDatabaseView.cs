@@ -16,8 +16,8 @@ namespace GMAP_Demo
         List<Kategorier_Bilde> kategorier_BildeList = new List<Kategorier_Bilde>();
         List<Måling> målingList = new List<Måling>();
         List<Område> områdeList = new List<Område>();
-        List<Overlay_Område> overlay_OmrådeList = new List<Overlay_Område>();
-        List<Overlay_Ressurs> overlay_RessursList = new List<Overlay_Ressurs>();
+        List<Tag_Område> tag_OmrådeList = new List<Tag_Område>();
+        List<Tag_Ressurs> tag_RessursList = new List<Tag_Ressurs>();
         List<Punkter_område> punkter_områdeList = new List<Punkter_område>();
         List<Ressurs> ressursList = new List<Ressurs>();
         private static Color knapp_trykket;
@@ -66,8 +66,8 @@ namespace GMAP_Demo
             btnDbKategorier_BildeView.BackColor = StandarFarge;
             btnDbMålingView.BackColor = StandarFarge;
             btnDbOmrådeView.BackColor = StandarFarge;
-            btnDbOverlay_OmrådeView.BackColor = StandarFarge;
-            btnDbOverlay_RessursView.BackColor = StandarFarge;
+            btnDbTag_OmrådeView.BackColor = StandarFarge;
+            btnDbTag_RessursView.BackColor = StandarFarge;
             btnDbPunkter_områdeView.BackColor = StandarFarge;
             btnDbRessursView.BackColor = StandarFarge;
         }
@@ -110,28 +110,28 @@ namespace GMAP_Demo
             listBoxDatabaseView.DisplayMember = "målingDataTypeToString";
         }
 
-        private void btnDbOverlay_OmrådeView_Click(object sender, EventArgs e)
+        private void btnDbTag_OmrådeView_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
-            btnDbOverlay_OmrådeView.BackColor = knapp_trykket;
+            btnDbTag_OmrådeView.BackColor = knapp_trykket;
 
-            FlyttNavigasjonsPanel(btnDbOverlay_OmrådeView.Height, btnDbOverlay_OmrådeView.Top);
+            FlyttNavigasjonsPanel(btnDbTag_OmrådeView.Height, btnDbTag_OmrådeView.Top);
             
-            overlay_OmrådeList = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
-            listBoxDatabaseView.DataSource = overlay_OmrådeList;
-            listBoxDatabaseView.DisplayMember = "overlay_OmrådeDataTypeToString";
+            tag_OmrådeList = DatabaseCommunication.ListAllTag_OmrådeFromDb();
+            listBoxDatabaseView.DataSource = tag_OmrådeList;
+            listBoxDatabaseView.DisplayMember = "tag_OmrådeDataTypeToString";
         }
 
-        private void btnDbOverlay_RessursView_Click(object sender, EventArgs e)
+        private void btnDbTag_RessursView_Click(object sender, EventArgs e)
         {
             AlleKnapperTilStandarfarge();
-            btnDbOverlay_RessursView.BackColor = knapp_trykket;
+            btnDbTag_RessursView.BackColor = knapp_trykket;
 
-            FlyttNavigasjonsPanel(btnDbOverlay_RessursView.Height, btnDbOverlay_RessursView.Top);
+            FlyttNavigasjonsPanel(btnDbTag_RessursView.Height, btnDbTag_RessursView.Top);
 
-            overlay_RessursList = DatabaseCommunication.ListAllOverlay_RessursFromDb();
-            listBoxDatabaseView.DataSource = overlay_RessursList;
-            listBoxDatabaseView.DisplayMember = "overlay_RessursDataTypeToString";
+            tag_RessursList = DatabaseCommunication.ListAllTag_RessursFromDb();
+            listBoxDatabaseView.DataSource = tag_RessursList;
+            listBoxDatabaseView.DisplayMember = "tag_RessursDataTypeToString";
         }
 
         private void btnDbPunkter_områdeView_Click(object sender, EventArgs e)

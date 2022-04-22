@@ -17,7 +17,7 @@ namespace GMAP_Demo
         private void frm_R_RedigerObjekt_Load(object sender, EventArgs e)
         {
             LastInnKategorier();
-            LastInnOverlays();
+            LastInnTags();
             LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", frmVisning.instance.MaxSikkerhetsklarering);
         }
 
@@ -61,62 +61,62 @@ namespace GMAP_Demo
             Kart.OppdaterKategoriListe();
         }
 
-        private void LastInnOverlays()
+        private void LastInnTags()
         {
-            HashSet<string> AlleOverlay = new HashSet<string>();
+            HashSet<string> AlleTag = new HashSet<string>();
 
-            var OverlayOListe = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
+            var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
 
-            foreach (var item in OverlayOListe)
+            foreach (var item in TagOListe)
             {
-                AlleOverlay.Add(item.Kategori.ToString());
+                AlleTag.Add(item.Tag.ToString());
             }
 
-            var OverlayRListe = DatabaseCommunication.ListAllOverlay_RessursFromDb();
+            var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
 
-            foreach (var item in OverlayRListe)
+            foreach (var item in TagRListe)
             {
-                AlleOverlay.Add(item.Kategori.ToString());
+                AlleTag.Add(item.Tag.ToString());
             }
 
-            foreach (var item in AlleOverlay)
+            foreach (var item in AlleTag)
             {
-                lbTilgjengeligeOverlays.Items.Add(item);
+                lbTilgjengeligeTags.Items.Add(item);
             }
-            lbTilgjengeligeOverlays.Sorted = true;
+            lbTilgjengeligeTags.Sorted = true;
         }
 
-        private void lbTilgjengeligeOverlays_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void lbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbTilgjengeligeOverlays.SelectedItem.ToString();
+            string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
 
-            lbValgtOverlays.Items.Add(selectedItemtext);
+            lbValgtTags.Items.Add(selectedItemtext);
 
-            lbTilgjengeligeOverlays.Items.Remove(selectedItemtext);
+            lbTilgjengeligeTags.Items.Remove(selectedItemtext);
 
-            lbValgtOverlays.Sorted = true;
+            lbValgtTags.Sorted = true;
         }
 
-        private void lbValgtOverlays_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbValgtOverlays.SelectedItem.ToString();
+            string selectedItemtext = lbValgtTags.SelectedItem.ToString();
 
-            lbTilgjengeligeOverlays.Items.Add(selectedItemtext);
+            lbTilgjengeligeTags.Items.Add(selectedItemtext);
 
-            lbValgtOverlays.Items.Remove(selectedItemtext);
+            lbValgtTags.Items.Remove(selectedItemtext);
         }
 
-        private void lbTilgjengeligeOverlays_SelectedIndexChanged(object sender, EventArgs e)
+        private void lbTilgjengeligeTags_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btnLeggTilOverlay_Click(object sender, EventArgs e)
+        private void btnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string NyOverlay = "";
-            NyOverlay = txtNyOverlay.Text;
+            string NyTag = "";
+            NyTag = txtNyTag.Text;
 
-            if (!string.IsNullOrEmpty(NyOverlay))
+            if (!string.IsNullOrEmpty(NyTag))
             {
 
             }
@@ -130,7 +130,7 @@ namespace GMAP_Demo
             string Kommentar = txtKommentar.Text;
             string lat = txtLat.Text;
             string lang = txtLong.Text;
-            int antall = lbValgtOverlays.Items.Count;
+            int antall = lbValgtTags.Items.Count;
 
             string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
 
@@ -152,7 +152,7 @@ namespace GMAP_Demo
                         if (result == DialogResult.Yes)
                         {
                             DatabaseCommunication.UpdateRessurs(Løpenummer_til_redigering, txtNavn.Text, txtKategori.Text, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text, Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
-                            //SLETTE ALLE OVERLAY KNYTTET TIL RESSURS 
+                            //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
 
                             //LEGGE TIL NYE
 

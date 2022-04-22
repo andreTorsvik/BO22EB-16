@@ -18,16 +18,16 @@ namespace GMAP_Demo
         private void frm_R_LeggTilObjekt_Load(object sender, EventArgs e)
         {
             LastInnKategorier();
-            LastInnOverlays();
+            LastInnTags();
             LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", frmVisning.instance.MaxSikkerhetsklarering);
         }
 
-        private void btnLeggTilOverlay_Click(object sender, EventArgs e)
+        private void btnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string NyOverlay = "";
-            NyOverlay = txtNyOverlay.Text;
+            string NyTag = "";
+            NyTag = txtNyTag.Text;
 
-            if (!string.IsNullOrEmpty(NyOverlay))
+            if (!string.IsNullOrEmpty(NyTag))
             {
 
             }
@@ -41,7 +41,7 @@ namespace GMAP_Demo
             string Kommentar = txtKommentar.Text;
             string lat = txtLat.Text;
             string lang = txtLong.Text;
-            int antall = lbValgtOverlays.Items.Count;
+            int antall = lbValgtTags.Items.Count;
 
             
             string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
@@ -52,7 +52,7 @@ namespace GMAP_Demo
                 if (feilMelding == string.Empty)
                 {
                     DatabaseCommunication.InsertRessursToDb(txtNavn.Text.ToString(), txtKategori.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
-                    //fylle in overlays 
+                    //fylle in tags 
 
                     txtNavn.Text = "";
                     txtKategori.Text = "";
@@ -61,8 +61,8 @@ namespace GMAP_Demo
                     txtLat.Text = "Dobbelklikk på kart";
                     txtLong.Text = "Dobbelklikk på kart";
 
-                    lbValgtOverlays.Items.Clear();
-                    LastInnOverlays();
+                    lbValgtTags.Items.Clear();
+                    LastInnTags();
                     Kart.OppdaterListe_ressurs();
                     Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
                 }
@@ -111,51 +111,51 @@ namespace GMAP_Demo
             lbTilgjengligKategori.Sorted = true;
         }
 
-        private void LastInnOverlays()
+        private void LastInnTags()
         {
-            lbTilgjengeligeOverlays.Items.Clear();
+            lbTilgjengeligeTags.Items.Clear();
             
-            HashSet<string> AlleOverlay = new HashSet<string>();
+            HashSet<string> AlleTags = new HashSet<string>();
 
-            //alle overlays fra Området
-            var OverlayOListe = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
-            foreach (var item in OverlayOListe)
+            //alle tags fra Området
+            var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
+            foreach (var item in TagOListe)
             {
-                AlleOverlay.Add(item.Kategori.ToString());
+                AlleTags.Add(item.Tag.ToString());
             }
 
-            //alle overlays fra Resusrs 
-            var OverlayRListe = DatabaseCommunication.ListAllOverlay_RessursFromDb();
-            foreach (var item in OverlayRListe)
+            //alle tags fra Resusrs 
+            var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
+            foreach (var item in TagRListe)
             {
-                AlleOverlay.Add(item.Kategori.ToString());
+                AlleTags.Add(item.Tag.ToString());
             }
 
-            foreach (var item in AlleOverlay)
+            foreach (var item in AlleTags)
             {
-                lbTilgjengeligeOverlays.Items.Add(item);
+                lbTilgjengeligeTags.Items.Add(item);
             }
-            lbTilgjengeligeOverlays.Sorted = true;
+            lbTilgjengeligeTags.Sorted = true;
         }
 
         private void lbTilgjengelige_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbTilgjengeligeOverlays.SelectedItem.ToString();
+            string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
 
-            lbValgtOverlays.Items.Add(selectedItemtext);
+            lbValgtTags.Items.Add(selectedItemtext);
 
-            lbTilgjengeligeOverlays.Items.Remove(selectedItemtext);
+            lbTilgjengeligeTags.Items.Remove(selectedItemtext);
 
-            lbValgtOverlays.Sorted = true;
+            lbValgtTags.Sorted = true;
         }
 
-        private void lbValgtOverlays_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbValgtOverlays.SelectedItem.ToString();
+            string selectedItemtext = lbValgtTags.SelectedItem.ToString();
 
-            lbTilgjengeligeOverlays.Items.Add(selectedItemtext);
+            lbTilgjengeligeTags.Items.Add(selectedItemtext);
 
-            lbValgtOverlays.Items.Remove(selectedItemtext);
+            lbValgtTags.Items.Remove(selectedItemtext);
         }
 
         private void txtSikkerhetsklarering_KeyPress(object sender, KeyPressEventArgs e)
