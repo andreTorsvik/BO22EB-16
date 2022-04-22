@@ -33,13 +33,13 @@
             this.lblDatabasePath = new System.Windows.Forms.Label();
             this.listBoxDatabaseView = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDbOmrådeView = new System.Windows.Forms.Button();
             this.pnlNav = new System.Windows.Forms.Panel();
+            this.btnDbOmrådeView = new System.Windows.Forms.Button();
             this.btnDbRessursView = new System.Windows.Forms.Button();
             this.btnTilbake = new System.Windows.Forms.Button();
             this.btnDbPunkter_områdeView = new System.Windows.Forms.Button();
-            this.btnDbOverlay_RessursView = new System.Windows.Forms.Button();
-            this.btnDbOverlay_OmrådeView = new System.Windows.Forms.Button();
+            this.btnDbTag_RessursView = new System.Windows.Forms.Button();
+            this.btnDbTag_OmrådeView = new System.Windows.Forms.Button();
             this.btnDbMålingView = new System.Windows.Forms.Button();
             this.btnDbKategorier_BildeView = new System.Windows.Forms.Button();
             this.btnDbBrukerView = new System.Windows.Forms.Button();
@@ -93,8 +93,8 @@
             this.panel1.Controls.Add(this.btnDbRessursView);
             this.panel1.Controls.Add(this.btnTilbake);
             this.panel1.Controls.Add(this.btnDbPunkter_områdeView);
-            this.panel1.Controls.Add(this.btnDbOverlay_RessursView);
-            this.panel1.Controls.Add(this.btnDbOverlay_OmrådeView);
+            this.panel1.Controls.Add(this.btnDbTag_RessursView);
+            this.panel1.Controls.Add(this.btnDbTag_OmrådeView);
             this.panel1.Controls.Add(this.btnDbMålingView);
             this.panel1.Controls.Add(this.btnDbKategorier_BildeView);
             this.panel1.Controls.Add(this.btnDbBrukerView);
@@ -104,6 +104,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(356, 889);
             this.panel1.TabIndex = 3;
+            // 
+            // pnlNav
+            // 
+            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.pnlNav.Location = new System.Drawing.Point(0, 784);
+            this.pnlNav.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.pnlNav.Name = "pnlNav";
+            this.pnlNav.Size = new System.Drawing.Size(3, 105);
+            this.pnlNav.TabIndex = 1;
             // 
             // btnDbOmrådeView
             // 
@@ -121,15 +130,6 @@
             this.btnDbOmrådeView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnDbOmrådeView.UseVisualStyleBackColor = true;
             this.btnDbOmrådeView.Click += new System.EventHandler(this.btnDbOmrådeView_Click);
-            // 
-            // pnlNav
-            // 
-            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.pnlNav.Location = new System.Drawing.Point(0, 784);
-            this.pnlNav.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(3, 105);
-            this.pnlNav.TabIndex = 1;
             // 
             // btnDbRessursView
             // 
@@ -182,39 +182,39 @@
             this.btnDbPunkter_områdeView.UseVisualStyleBackColor = true;
             this.btnDbPunkter_områdeView.Click += new System.EventHandler(this.btnDbPunkter_områdeView_Click);
             // 
-            // btnDbOverlay_RessursView
+            // btnDbTag_RessursView
             // 
-            this.btnDbOverlay_RessursView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDbOverlay_RessursView.FlatAppearance.BorderSize = 0;
-            this.btnDbOverlay_RessursView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDbOverlay_RessursView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDbOverlay_RessursView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.btnDbOverlay_RessursView.Location = new System.Drawing.Point(0, 420);
-            this.btnDbOverlay_RessursView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btnDbOverlay_RessursView.Name = "btnDbOverlay_RessursView";
-            this.btnDbOverlay_RessursView.Size = new System.Drawing.Size(356, 105);
-            this.btnDbOverlay_RessursView.TabIndex = 1;
-            this.btnDbOverlay_RessursView.Text = "Overlay_Ressurs";
-            this.btnDbOverlay_RessursView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnDbOverlay_RessursView.UseVisualStyleBackColor = true;
-            this.btnDbOverlay_RessursView.Click += new System.EventHandler(this.btnDbOverlay_RessursView_Click);
+            this.btnDbTag_RessursView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDbTag_RessursView.FlatAppearance.BorderSize = 0;
+            this.btnDbTag_RessursView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDbTag_RessursView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDbTag_RessursView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.btnDbTag_RessursView.Location = new System.Drawing.Point(0, 420);
+            this.btnDbTag_RessursView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnDbTag_RessursView.Name = "btnDbTag_RessursView";
+            this.btnDbTag_RessursView.Size = new System.Drawing.Size(356, 105);
+            this.btnDbTag_RessursView.TabIndex = 1;
+            this.btnDbTag_RessursView.Text = "Tag_Ressurs";
+            this.btnDbTag_RessursView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnDbTag_RessursView.UseVisualStyleBackColor = true;
+            this.btnDbTag_RessursView.Click += new System.EventHandler(this.btnDbTag_RessursView_Click);
             // 
-            // btnDbOverlay_OmrådeView
+            // btnDbTag_OmrådeView
             // 
-            this.btnDbOverlay_OmrådeView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDbOverlay_OmrådeView.FlatAppearance.BorderSize = 0;
-            this.btnDbOverlay_OmrådeView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDbOverlay_OmrådeView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDbOverlay_OmrådeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.btnDbOverlay_OmrådeView.Location = new System.Drawing.Point(0, 315);
-            this.btnDbOverlay_OmrådeView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btnDbOverlay_OmrådeView.Name = "btnDbOverlay_OmrådeView";
-            this.btnDbOverlay_OmrådeView.Size = new System.Drawing.Size(356, 105);
-            this.btnDbOverlay_OmrådeView.TabIndex = 1;
-            this.btnDbOverlay_OmrådeView.Text = "Overlay_Område";
-            this.btnDbOverlay_OmrådeView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnDbOverlay_OmrådeView.UseVisualStyleBackColor = true;
-            this.btnDbOverlay_OmrådeView.Click += new System.EventHandler(this.btnDbOverlay_OmrådeView_Click);
+            this.btnDbTag_OmrådeView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDbTag_OmrådeView.FlatAppearance.BorderSize = 0;
+            this.btnDbTag_OmrådeView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDbTag_OmrådeView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDbTag_OmrådeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.btnDbTag_OmrådeView.Location = new System.Drawing.Point(0, 315);
+            this.btnDbTag_OmrådeView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnDbTag_OmrådeView.Name = "btnDbTag_OmrådeView";
+            this.btnDbTag_OmrådeView.Size = new System.Drawing.Size(356, 105);
+            this.btnDbTag_OmrådeView.TabIndex = 1;
+            this.btnDbTag_OmrådeView.Text = "Tag_Område";
+            this.btnDbTag_OmrådeView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnDbTag_OmrådeView.UseVisualStyleBackColor = true;
+            this.btnDbTag_OmrådeView.Click += new System.EventHandler(this.btnDbTag_OmrådeView_Click);
             // 
             // btnDbMålingView
             // 
@@ -294,12 +294,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlNav;
         private System.Windows.Forms.Button btnTilbake;
-        private System.Windows.Forms.Button btnDbOverlay_OmrådeView;
+        private System.Windows.Forms.Button btnDbTag_OmrådeView;
         private System.Windows.Forms.Button btnDbMålingView;
         private System.Windows.Forms.Button btnDbKategorier_BildeView;
         private System.Windows.Forms.Button btnDbBrukerView;
         private System.Windows.Forms.Button btnDbPunkter_områdeView;
-        private System.Windows.Forms.Button btnDbOverlay_RessursView;
+        private System.Windows.Forms.Button btnDbTag_RessursView;
         private System.Windows.Forms.Button btnDbRessursView;
         private System.Windows.Forms.ListBox listBoxDatabaseView;
         private System.Windows.Forms.Label lblDatabasePath;

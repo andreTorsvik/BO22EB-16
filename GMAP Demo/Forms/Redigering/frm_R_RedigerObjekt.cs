@@ -17,7 +17,7 @@ namespace GMAP_Demo
         private void frm_R_RedigerObjekt_Load(object sender, EventArgs e)
         {
             LastInnKategorier();
-            LastInnOverlays();
+            LastInnTags();
             LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", frmVisning.instance.MaxSikkerhetsklarering);
         }
 
@@ -61,20 +61,32 @@ namespace GMAP_Demo
             Kart.OppdaterKategoriListe();
         }
 
-        private void LastInnOverlays()
+        private void LastInnTags()
         {
-            if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
+            HashSet<string> AlleTag = new HashSet<string>();
 
-            HashSet<string> AlleOverlay = FellesMetoder.FåAlleTags();
+            var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
 
-            foreach (var item in AlleOverlay)
+            foreach (var item in TagOListe)
+            {
+                AlleTag.Add(item.Tag.ToString());
+            }
+
+            var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
+
+            foreach (var item in TagRListe)
+            {
+                AlleTag.Add(item.Tag.ToString());
+            }
+
+            foreach (var item in AlleTag)
             {
                 lbTilgjengeligeTags.Items.Add(item);
             }
             lbTilgjengeligeTags.Sorted = true;
         }
 
-        private void lbTilgjengeligeOverlays_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void lbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
 
@@ -85,7 +97,7 @@ namespace GMAP_Demo
             lbValgtTags.Sorted = true;
         }
 
-        private void lbValgtOverlays_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string selectedItemtext = lbValgtTags.SelectedItem.ToString();
 
@@ -94,17 +106,17 @@ namespace GMAP_Demo
             lbValgtTags.Items.Remove(selectedItemtext);
         }
 
-        private void lbTilgjengeligeOverlays_SelectedIndexChanged(object sender, EventArgs e)
+        private void lbTilgjengeligeTags_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btnLeggTilOverlay_Click(object sender, EventArgs e)
+        private void btnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string NyOverlay = "";
-            NyOverlay = txtNyTags.Text;
+            string NyTag = "";
+            NyTag = txtNyTag.Text;
 
-            if (!string.IsNullOrEmpty(NyOverlay))
+            if (!string.IsNullOrEmpty(NyTag))
             {
 
             }
@@ -140,7 +152,7 @@ namespace GMAP_Demo
                         if (result == DialogResult.Yes)
                         {
                             DatabaseCommunication.UpdateRessurs(Løpenummer_til_redigering, txtNavn.Text, txtKategori.Text, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text, Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
-                            //SLETTE ALLE OVERLAY KNYTTET TIL RESSURS 
+                            //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
 
                             //LEGGE TIL NYE
 

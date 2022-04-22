@@ -96,7 +96,7 @@ namespace GMAP_Demo
             if (string.IsNullOrWhiteSpace(kommentar)) Lfeil.Add("Kommentar");
             if (string.IsNullOrWhiteSpace(lat)) Lfeil.Add("Lat");
             if (string.IsNullOrWhiteSpace(lang)) Lfeil.Add("Long");
-            if (ListeAntall <= 0) Lfeil.Add("Overlay");
+            if (ListeAntall <= 0) Lfeil.Add("Tag");
 
             if (Lfeil.Count > 0)
             {
@@ -110,7 +110,7 @@ namespace GMAP_Demo
             return utFyllingsmangler;
         }
 
-        public static string SjekkInntastetData_Område(string navn, string sikkerhetsklarering, string kommentar, string farge, int AntallPunkter, int AntallOverlays)
+        public static string SjekkInntastetData_Område(string navn, string sikkerhetsklarering, string kommentar, string farge, int AntallPunkter, int AntallTags)
         {
             string utFyllingsmangler = string.Empty;
             List<string> Lfeil = new List<string>();
@@ -121,7 +121,7 @@ namespace GMAP_Demo
             if (string.IsNullOrWhiteSpace(kommentar)) Lfeil.Add("Kommentar");
             if (string.IsNullOrWhiteSpace(farge)) Lfeil.Add("Farge");
             if (AntallPunkter < 3) Lfeil.Add("Må minst ha 3 punkter");
-            if (AntallOverlays <= 0) Lfeil.Add("Overlay");
+            if (AntallTags <= 0) Lfeil.Add("Tag");
 
             if (Lfeil.Count > 0)
             {
@@ -177,7 +177,7 @@ namespace GMAP_Demo
                 DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
-            //må sjekke om hver overlay er likt 
+            //må sjekke om hver tag er likt 
 
             return Endringer;
         }
@@ -260,7 +260,7 @@ namespace GMAP_Demo
             return svar;
         }
 
-        public static string SjekkEndringerOmråde(List<Område> oList, string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, int AntallOverlays)
+        public static string SjekkEndringerOmråde(List<Område> oList,string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, int AntallTags)
         {
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;

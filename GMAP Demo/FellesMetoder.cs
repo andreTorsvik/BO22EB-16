@@ -10,20 +10,20 @@ namespace GMAP_Demo
     {
         public static HashSet<string> FåAlleTags()
         {
-            HashSet<string> AlleOverlay = new HashSet<string>();
+            HashSet<string> AlleTag = new HashSet<string>();
 
             try
             {
-                var OverlayOListe = DatabaseCommunication.ListAllTags_OmrådeFromDb();
-                foreach (var item in OverlayOListe)
+                var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
+                foreach (var item in TagOListe)
                 {
-                    AlleOverlay.Add(item.Tag.ToString());
+                    AlleTag.Add(item.Tag.ToString());
                 }
 
-                var OverlayRListe = DatabaseCommunication.ListAllTags_RessursFromDb();
-                foreach (var item in OverlayRListe)
+                var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
+                foreach (var item in TagRListe)
                 {
-                    AlleOverlay.Add(item.Tag.ToString());
+                    AlleTag.Add(item.Tag.ToString());
                 }
 
             }
@@ -31,7 +31,8 @@ namespace GMAP_Demo
             {
 
             }
-            return AlleOverlay;
+
+            return AlleTag;
         }
 
 

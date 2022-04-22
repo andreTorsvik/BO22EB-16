@@ -18,11 +18,11 @@ namespace GMAP_Demo
         private void frm_R_LeggTilObjekt_Load(object sender, EventArgs e)
         {
             LastInnKategorier();
-            LastInnOverlays();
+            LastInnTags();
             LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", frmVisning.instance.MaxSikkerhetsklarering);
         }
 
-        private void btnLeggTilOverlay_Click(object sender, EventArgs e)
+        private void btnLeggTilTag_Click(object sender, EventArgs e)
         {
             string NyTag = "";
             NyTag = txtNyTag.Text;
@@ -86,7 +86,7 @@ namespace GMAP_Demo
                     txtLong.Text = "Dobbelklikk på kart";
 
                     lbValgtTags.Items.Clear();
-                    LastInnOverlays();
+                    LastInnTags();
                     Kart.OppdaterListe_ressurs();
                     Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
                 }
@@ -141,17 +141,30 @@ namespace GMAP_Demo
             lbTilgjengligKategori.Sorted = true;
         }
 
-        private void LastInnOverlays()
+        private void LastInnTags()
         {
             lbTilgjengeligeTags.Items.Clear();
+            
+            HashSet<string> AlleTags = new HashSet<string>();
 
-            HashSet<string> AlleOverlay = FellesMetoder.FåAlleTags();
+            //alle tags fra Området
+            var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
+            foreach (var item in TagOListe)
+            {
+                AlleTags.Add(item.Tag.ToString());
+            }
 
-            foreach (var item in AlleOverlay)
+            //alle tags fra Resusrs 
+            var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
+            foreach (var item in TagRListe)
+            {
+                AlleTags.Add(item.Tag.ToString());
+            }
+
+            foreach (var item in AlleTags)
             {
                 lbTilgjengeligeTags.Items.Add(item);
             }
-
             lbTilgjengeligeTags.Sorted = true;
         }
 
@@ -166,7 +179,7 @@ namespace GMAP_Demo
             lbValgtTags.Sorted = true;
         }
 
-        private void lbValgtOverlays_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string selectedItemtext = lbValgtTags.SelectedItem.ToString();
 

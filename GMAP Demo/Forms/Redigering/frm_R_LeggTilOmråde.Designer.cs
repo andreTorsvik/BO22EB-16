@@ -56,9 +56,9 @@
             this.lbTilgjengligFarge = new System.Windows.Forms.ListBox();
             this.btnFjernPunktIListe = new System.Windows.Forms.Button();
             this.gbOmråde = new System.Windows.Forms.GroupBox();
-            this.gbOverlay = new System.Windows.Forms.GroupBox();
+            this.gbTag = new System.Windows.Forms.GroupBox();
             this.gbOmråde.SuspendLayout();
-            this.gbOverlay.SuspendLayout();
+            this.gbTag.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -103,7 +103,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 20);
             this.label9.TabIndex = 48;
-            this.label9.Text = "Ny Tag";
+            this.label9.Text = "Ny Tag ";
             // 
             // txtNyTag
             // 
@@ -122,7 +122,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 20);
             this.label6.TabIndex = 46;
-            this.label6.Text = "Tags";
+            this.label6.Text = "Velg Hvilke tags";
             // 
             // label7
             // 
@@ -191,7 +191,7 @@
             this.btnLeggTilTag.TabIndex = 39;
             this.btnLeggTilTag.Text = "Legg til";
             this.btnLeggTilTag.UseVisualStyleBackColor = true;
-            this.btnLeggTilTag.Click += new System.EventHandler(this.btnLeggTilOverlay_Click);
+            this.btnLeggTilTag.Click += new System.EventHandler(this.btnLeggTilTag_Click);
             // 
             // lbValgtTags
             // 
@@ -201,7 +201,7 @@
             this.lbValgtTags.Name = "lbValgtTags";
             this.lbValgtTags.Size = new System.Drawing.Size(140, 196);
             this.lbValgtTags.TabIndex = 38;
-            this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtOverlays_MouseDoubleClick);
+            this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtTags_MouseDoubleClick);
             // 
             // lbTilgjengeligeTags
             // 
@@ -211,7 +211,7 @@
             this.lbTilgjengeligeTags.Name = "lbTilgjengeligeTags";
             this.lbTilgjengeligeTags.Size = new System.Drawing.Size(141, 196);
             this.lbTilgjengeligeTags.TabIndex = 39;
-            this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengeligeOverlays_MouseDoubleClick);
+            this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengeligeTags_MouseDoubleClick);
             // 
             // btnLeggTilOmrådetIDb
             // 
@@ -359,25 +359,25 @@
             this.gbOmråde.TabStop = false;
             this.gbOmråde.Text = "Område";
             // 
-            // gbOverlay
+            // gbTag
             // 
-            this.gbOverlay.Controls.Add(this.label6);
-            this.gbOverlay.Controls.Add(this.lbTilgjengeligeTags);
-            this.gbOverlay.Controls.Add(this.label11);
-            this.gbOverlay.Controls.Add(this.lbValgtTags);
-            this.gbOverlay.Controls.Add(this.label10);
-            this.gbOverlay.Controls.Add(this.btnLeggTilTag);
-            this.gbOverlay.Controls.Add(this.label9);
-            this.gbOverlay.Controls.Add(this.txtNyTag);
-            this.gbOverlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.gbOverlay.Location = new System.Drawing.Point(20, 483);
-            this.gbOverlay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbOverlay.Name = "gbOverlay";
-            this.gbOverlay.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbOverlay.Size = new System.Drawing.Size(300, 310);
-            this.gbOverlay.TabIndex = 83;
-            this.gbOverlay.TabStop = false;
-            this.gbOverlay.Text = "Tags";
+            this.gbTag.Controls.Add(this.label6);
+            this.gbTag.Controls.Add(this.lbTilgjengeligeTags);
+            this.gbTag.Controls.Add(this.label11);
+            this.gbTag.Controls.Add(this.lbValgtTags);
+            this.gbTag.Controls.Add(this.label10);
+            this.gbTag.Controls.Add(this.btnLeggTilTag);
+            this.gbTag.Controls.Add(this.label9);
+            this.gbTag.Controls.Add(this.txtNyTag);
+            this.gbTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.gbTag.Location = new System.Drawing.Point(20, 483);
+            this.gbTag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbTag.Name = "gbTag";
+            this.gbTag.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbTag.Size = new System.Drawing.Size(300, 310);
+            this.gbTag.TabIndex = 83;
+            this.gbTag.TabStop = false;
+            this.gbTag.Text = "Tag";
             // 
             // frm_R_LeggTilOmråde
             // 
@@ -385,7 +385,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(391, 825);
-            this.Controls.Add(this.gbOverlay);
+            this.Controls.Add(this.gbTag);
             this.Controls.Add(this.gbOmråde);
             this.Controls.Add(this.btnLeggTilOmrådetIDb);
             this.Controls.Add(this.label3);
@@ -395,8 +395,8 @@
             this.Load += new System.EventHandler(this.frm_R_LeggTilOmråde_Load);
             this.gbOmråde.ResumeLayout(false);
             this.gbOmråde.PerformLayout();
-            this.gbOverlay.ResumeLayout(false);
-            this.gbOverlay.PerformLayout();
+            this.gbTag.ResumeLayout(false);
+            this.gbTag.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,6 +432,6 @@
         private System.Windows.Forms.ListBox lbTilgjengligFarge;
         private System.Windows.Forms.Button btnFjernPunktIListe;
         private System.Windows.Forms.GroupBox gbOmråde;
-        private System.Windows.Forms.GroupBox gbOverlay;
+        private System.Windows.Forms.GroupBox gbTag;
     }
 }

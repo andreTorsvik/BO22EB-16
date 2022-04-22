@@ -71,7 +71,7 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public static List<Tag_Område> ListAllTags_OmrådeFromDb()
+        public static List<Tag_Område> ListAllTag_OmrådeFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -79,7 +79,7 @@ namespace GMAP_Demo
                 return output;
             }
         }
-        public static List<Tag_Ressurs> ListAllTags_RessursFromDb()
+        public static List<Tag_Ressurs> ListAllTag_RessursFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
