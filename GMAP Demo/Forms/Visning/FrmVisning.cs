@@ -15,10 +15,8 @@ namespace GMAP_Demo
         //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
 
-        private Color knapp_trykket;
-        //public List<Ressurs> LRessurs;
-        //public List<Område> LOmråde;
-        public List<Kategorier_Bilde> LKategori;
+        private Color knapp_trykket = Color.FromArgb(46, 51, 73);
+        
         public PointLatLng DoubleClick_punkt;
         public static frmVisning instance;
 
@@ -27,7 +25,6 @@ namespace GMAP_Demo
         public frmVisning()
         {
             GMapProviders.GoogleMap.ApiKey = "AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM";
-            OpprettingAvGlobaleVariabler();
             InitializeComponent();
             instance = this;
 
@@ -50,14 +47,6 @@ namespace GMAP_Demo
             // Første gang programmet starter etter innlogging så vises vinduet i midten av skjermen.
             this.CenterToScreen();
 
-        }
-
-        private void OpprettingAvGlobaleVariabler()
-        {
-            knapp_trykket = Color.FromArgb(46, 51, 73);
-            //LRessurs = new List<Ressurs>();
-            LKategori = new List<Kategorier_Bilde>();
-            //LOmråde = new List<Område>();
         }
 
         private void Form1_Load(object sender, EventArgs e)
