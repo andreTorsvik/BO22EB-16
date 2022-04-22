@@ -4,7 +4,6 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Windows.Forms;
-using System.Configuration;
 
 namespace GMAP_Demo
 {
@@ -18,7 +17,7 @@ namespace GMAP_Demo
         private void frm_S_Admin_Load(object sender, EventArgs e)
         {
             FyllListeneBoksene();
-            listesjekk();
+            GodkjentListeSjekk();
         }
 
         private void FyllListeneBoksene()
@@ -36,9 +35,9 @@ namespace GMAP_Demo
             lbVenterPåGodkjenning.Sorted = true;
         }
 
-        private void listesjekk()
+        private void GodkjentListeSjekk()
         {
-            if(lbVenterPåGodkjenning.Items.Count <= 0)
+            if (lbVenterPåGodkjenning.Items.Count <= 0)
             {
                 btnGodta.Enabled = false;
                 btnAvslå.Enabled = false;
@@ -56,7 +55,11 @@ namespace GMAP_Demo
             {
                 if (item.Godkjent == true) lbListeOverbrukere.Items.Add(item.BrukerDataTilAdmin);
             }
-            lbListeOverbrukere.SelectedIndex = index;
+            if(index < lbListeOverbrukere.Items.Count)
+                lbListeOverbrukere.SelectedIndex = index;
+            else
+                lbListeOverbrukere.SelectedIndex = index-1;
+
         }
 
         private void btnGodta_Click(object sender, EventArgs e)
@@ -64,9 +67,7 @@ namespace GMAP_Demo
             if (InnloggetBruker.Sikkerhetsklarering == frmVisning.instance.MaxSikkerhetsklarering)
             {
                 string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
-
                 string TilEpost = HentEpostFraInfo(BrukerInfo);
-
 
                 var BrukerListe = DatabaseCommunication.ListBrukerInfoFromDb(TilEpost);
                 DatabaseCommunication.UpdateBruker_Godkjent(BrukerListe[0].Epost, true);
@@ -77,15 +78,16 @@ namespace GMAP_Demo
                     SendEpost(TilEpost, tallkode);
                     lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
                 }
-                catch (Exception)
+                catch (Exception feilmelding)
                 {
+                    DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
-                listesjekk();
+                GodkjentListeSjekk();
             }
         }
 
         private void SendEpost(string TilEpost, int tallkode)
-        {  
+        {
             try
             {
                 NetworkCredential login = new NetworkCredential("GmapDemo01@gmail.com", GMAP_Demo.Properties.Settings.Default.Passord); // brukernavn og passord må gjømes en plass
@@ -106,7 +108,7 @@ namespace GMAP_Demo
                 string userstae = "sending...";
                 client.SendAsync(msg, userstae);
             }
-            catch (Exception) {  }
+            catch (Exception) { }
         }
 
         private void SendCompletedCallBack(object sender, AsyncCompletedEventArgs e)
@@ -131,18 +133,27 @@ namespace GMAP_Demo
                 //finn mailen
                 string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
                 string epost = HentEpostFraInfo(BrukerInfo);
+                FjernBruker(epost, BrukerInfo,-1);
+            }
+        }
 
-                //fjern fra databasen 
-                try
-                {
-                    DatabaseCommunication.DeleteBruker(epost);
-                    lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
-                }
-                catch (Exception)
-                {
+        private void FjernBruker(string epost, string BrukerInfo, int index)
+        {
+            //fjern fra databasen 
+            try
+            {
+                DatabaseCommunication.DeleteBruker(epost);
+                lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
+            }
+            catch (Exception feilmelding)
+            {
+                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+            }
+            GodkjentListeSjekk();
 
-                }
-                listesjekk();
+            if (index != -1)
+            {
+                OppdaterListenOverBrukere(index);
             }
         }
 
@@ -174,7 +185,7 @@ namespace GMAP_Demo
 
             if (epost != null)
             {
-                bool tillatelse = KanOppgradere(InnloggetBruker.BrukernavnInnlogget,epost);
+                bool tillatelse = KanOppgradere(InnloggetBruker.BrukernavnInnlogget, epost);
                 if (tillatelse)
                 {
                     var brukerListe = DatabaseCommunication.ListBrukerInfoFromDb(epost);
@@ -194,6 +205,12 @@ namespace GMAP_Demo
 
                     OppdaterListenOverBrukere(selectetItem);
                 }
+                else
+                {
+                    string newLine = Environment.NewLine;
+                    MessageBox.Show(string.Format("Du kan ikke oppgradere denne brukeren." + newLine
+                        + "Du må ha høyre sikkerhetsklarering enn brukeren" + newLine +"Du har: {0}", InnloggetBruker.Sikkerhetsklarering));
+                }
             }
 
         }
@@ -209,9 +226,10 @@ namespace GMAP_Demo
                 BrukerInfo = lbListeOverbrukere.SelectedItem.ToString();
                 epost = HentEpostFraInfo(BrukerInfo);
             }
-            catch (Exception)
+            catch (Exception feilmelding)
             {
                 epost = null;
+                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
             if (epost != null)
@@ -235,7 +253,7 @@ namespace GMAP_Demo
 
                     OppdaterListenOverBrukere(selectetItem);
                 }
-            }           
+            }
         }
         private bool KanOppgradere(string Innlogget, string Aktuell)
         {
@@ -251,13 +269,13 @@ namespace GMAP_Demo
                     sjekk = true;
                 }
             }
-            catch (Exception)
+            catch (Exception feilmelding)
             {
-
+                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
-           
 
-           
+
+
             return sjekk;
         }
 
@@ -279,12 +297,44 @@ namespace GMAP_Demo
                     sjekk = true;
                 }
             }
-            catch (Exception)
+            catch (Exception feilmelding)
             {
-
+                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
-           
+
             return sjekk;
+        }
+
+        private void btnFjern_Click(object sender, EventArgs e)
+        {
+            //forløpi kun de med sikkerhetsklaering 3 som kan fjerne 
+            if (InnloggetBruker.Sikkerhetsklarering == frmVisning.instance.MaxSikkerhetsklarering)
+            {
+                //finn mailen
+                int selectetItem = lbListeOverbrukere.SelectedIndex;
+                string BrukerInfo = lbListeOverbrukere.SelectedItem.ToString();
+                string epost = HentEpostFraInfo(BrukerInfo);
+
+                string caption = "Vil du Virkelig slette denne brukeren: ";
+                string Endring = string.Format("{0}",epost) ;
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                // Displays the MessageBox.
+                result = MessageBox.Show(Endring, caption, buttons);
+                if (result == DialogResult.Yes)
+                { 
+                    FjernBruker(epost, BrukerInfo, selectetItem);
+                }
+            }
+            else
+            {
+                string newLine = Environment.NewLine;
+                MessageBox.Show(string.Format("Du Må ha høyeste sikkerhetsklarering: {0}."+ newLine + "Du har: {1}",
+                    frmVisning.instance.MaxSikkerhetsklarering.ToString(),InnloggetBruker.Sikkerhetsklarering.ToString()));
+            }
+
+
         }
     }
 }

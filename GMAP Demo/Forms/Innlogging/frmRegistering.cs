@@ -24,7 +24,7 @@ namespace GMAP_Demo
             if (opprettet)
             {
                 MessageBox.Show("Bruker er nå opprett, venter på å bli godkjent av en admin. Hvis den blir godkjent " +
-                    "vil du motta en mail med en kode.");
+                    "mottar du en mail med en tallkode.");
 
                 this.Close();
             }
@@ -39,6 +39,7 @@ namespace GMAP_Demo
             string Epost = txtEpost.Text;
             string passord = txtPassord.Text;
             string bePassord = txtBePassord.Text;
+
             string utFyllingsmangler = Tekstbehandling.SjekkInntastetDataRegisterings(fornavn, etternavn, telefon, Epost, passord, bePassord);
 
             if (utFyllingsmangler == string.Empty)
@@ -48,7 +49,8 @@ namespace GMAP_Demo
                 if (feil == string.Empty)
                 {
                     //sjekk at ingen har samme epost
-                    var SjekkEpost = DatabaseCommunication.ListBrukerInfoFromDb(txtEpost.Text.Trim());
+                    Epost = Epost.ToLower();
+                    var SjekkEpost = DatabaseCommunication.ListBrukerInfoFromDb(Epost.Trim());
                     if (SjekkEpost.Count == 0)
                     {
                         try
@@ -56,7 +58,7 @@ namespace GMAP_Demo
                             //Generer tall 
                             int Tallkode = GenereTallKode();
                             //legge til i database
-                            DatabaseCommunication.InsertBrukerToDb(txtFornavn.Text.ToString(), txtEtternavn.Text.ToString(), Convert.ToInt32(txtTelefon.Text), txtEpost.Text.ToString().Trim(), txtPassord.Text.ToString(), Tallkode);
+                            DatabaseCommunication.InsertBrukerToDb(fornavn, etternavn, Convert.ToInt32(telefon), Epost.Trim(), passord, Tallkode);
 
                             svar = true;
                         }

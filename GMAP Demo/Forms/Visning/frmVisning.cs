@@ -13,8 +13,8 @@ namespace GMAP_Demo
     {
         //log
         //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
-        //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "Test: Denne funkere ikke enda"); 
-        
+        //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
+
         private Color knapp_trykket;
         public List<Ressurs> LRessurs;
         public List<Område> LOmråde;
