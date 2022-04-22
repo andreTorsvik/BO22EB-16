@@ -166,7 +166,7 @@ namespace GMAP_Demo
                             txtLong.Text = "Dobbelklikk på kartet";
 
                             Kart.OppdaterListe_ressurs();
-                            Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
+                            Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
 
                         }
                     }

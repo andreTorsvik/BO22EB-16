@@ -181,7 +181,7 @@ namespace GMAP_Demo
                             txtLong.Text = "Dobbelklikk på kartet";
                             txtNrPunkt.Text = "0";
                             Kart.OppdaterListe_området();
-                            Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
+                            Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
 
                         }
                     }

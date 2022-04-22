@@ -64,7 +64,7 @@ namespace GMAP_Demo
                     lbValgtOverlays.Items.Clear();
                     LastInnOverlays();
                     Kart.OppdaterListe_ressurs();
-                    Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
+                    Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
                 }
                 else MessageBox.Show(feilMelding);
             }

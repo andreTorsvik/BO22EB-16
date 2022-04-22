@@ -49,7 +49,7 @@ namespace GMAP_Demo
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart
                         Kart.OppdaterListe_ressurs();
-                        Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs,frmVisning.instance.LOmråde);
+                        Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
                     }
 
                 }
@@ -78,7 +78,7 @@ namespace GMAP_Demo
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart 
                         Kart.OppdaterListe_ressurs();
-                        Kart.OppdaterKart(Kart.MuligKart.Begge, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
+                        Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
                     }
                 }
                 catch (Exception feil)

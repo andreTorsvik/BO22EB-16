@@ -16,49 +16,49 @@ namespace GMAP_Demo
         private void btnLeggTil_Click(object sender, EventArgs e)
         {
 
-            if (frmVisning.instance.LRessurs.Count > 0) frmVisning.instance.LRessurs.Clear();
+            if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
 
 
             var RessursList = DatabaseCommunication.ListAllRessursFromDb();
 
             foreach (var item in RessursList)
             {
-                frmVisning.instance.LRessurs.Add(item);
+                GlobaleLister.LRessurs.Add(item);
             }
 
-            txtAntall.Text = frmVisning.instance.LRessurs.Count.ToString();
+            txtAntall.Text = GlobaleLister.LRessurs.Count.ToString();
         }
 
         public void OppdaterRessursListe()
         {
-            if (frmVisning.instance.LRessurs.Count > 0) frmVisning.instance.LRessurs.Clear();
+            if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
             //må endres 
             var RessursList = DatabaseCommunication.ListAllRessursFromDb();
 
             foreach (var item in RessursList)
             {
-                frmVisning.instance.LRessurs.Add(item);
+                GlobaleLister.LRessurs.Add(item);
             }
-            Kart.LeggTilRessurs(frmVisning.instance.LRessurs, Kart.MuligKart.Visning);
+            Kart.LeggTilRessurs(GlobaleLister.LRessurs, Kart.MuligKart.Visning);
         }
 
         public void OppdaterOmrådeListe()
         {
-            frmVisning.instance.LOmråde.Clear();
+            GlobaleLister.LOmråde.Clear();
 
             var OmrådeListe = DatabaseCommunication.ListAllOmrådeFromDb();
 
             foreach (var item in OmrådeListe)
             {
-                frmVisning.instance.LOmråde.Add(item);
+                GlobaleLister.LOmråde.Add(item);
             }
-            Kart.LeggTilOmråde(frmVisning.instance.LOmråde, Kart.MuligKart.Visning);
+            Kart.LeggTilOmråde(GlobaleLister.LOmråde, Kart.MuligKart.Visning);
 
         }
 
         private void btnRessurs_Click(object sender, EventArgs e)
         {
-            Kart.LeggTilRessurs(frmVisning.instance.LRessurs, Kart.MuligKart.Visning);
+            Kart.LeggTilRessurs(GlobaleLister.LRessurs, Kart.MuligKart.Visning);
             Kart.reff(Kart.MuligKart.Visning);
         }
 
@@ -76,21 +76,21 @@ namespace GMAP_Demo
 
         private void btnHentOmråde_Click(object sender, EventArgs e)
         {
-            frmVisning.instance.LOmråde.Clear();
+            GlobaleLister.LOmråde.Clear();
 
             var OmrådeListe = DatabaseCommunication.ListAllOmrådeFromDb();
 
             foreach (var item in OmrådeListe)
             {
-                frmVisning.instance.LOmråde.Add(item);
+                GlobaleLister.LOmråde.Add(item);
             }
 
-            txtAntallOmråder.Text = frmVisning.instance.LOmråde.Count.ToString();
+            txtAntallOmråder.Text = GlobaleLister.LOmråde.Count.ToString();
         }
 
         private void btnLeggTilOmrådet_Click(object sender, EventArgs e)
         {
-            Kart.LeggTilOmråde(frmVisning.instance.LOmråde, Kart.MuligKart.Visning);
+            Kart.LeggTilOmråde(GlobaleLister.LOmråde, Kart.MuligKart.Visning);
             Kart.reff(Kart.MuligKart.Visning);
         }
 
@@ -109,7 +109,7 @@ namespace GMAP_Demo
                 Kart.kategoriListeSkjult.Add((Kategorier_Bilde)lbKategorierVises.SelectedItem);
                 Kart.kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.SelectedItem);
                 Kart.OppdaterListe_ressurs();
-                Kart.OppdaterKart(Kart.MuligKart.Visning, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
         }
 
@@ -120,7 +120,7 @@ namespace GMAP_Demo
                 Kart.kategoriListeVises.Add((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
                 Kart.kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
                 Kart.OppdaterListe_ressurs();
-                Kart.OppdaterKart(Kart.MuligKart.Visning, frmVisning.instance.LRessurs, frmVisning.instance.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
         }
     }

@@ -38,8 +38,8 @@ namespace GMAP_Demo
         {
             Kart.Setup(Kart.MuligKart.Redigering, Kart.PunktFraForrige);
 
-            Kart.LeggTilRessurs(frmVisning.instance.LRessurs, Kart.MuligKart.Redigering);
-            Kart.LeggTilOmråde(frmVisning.instance.LOmråde, Kart.MuligKart.Redigering);
+            Kart.LeggTilRessurs(GlobaleLister.LRessurs, Kart.MuligKart.Redigering);
+            Kart.LeggTilOmråde(GlobaleLister.LOmråde, Kart.MuligKart.Redigering);
 
             Kart.reff(Kart.MuligKart.Redigering);
         }
@@ -257,21 +257,21 @@ namespace GMAP_Demo
             }
             if (frm_R_RedigerObjekt.instance != null)
             {
-                frm_R_RedigerObjekt.instance.txtNavn.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
-                frm_R_RedigerObjekt.instance.txtKategori.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
-                frm_R_RedigerObjekt.instance.txtSikkerhetsklarering.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-                frm_R_RedigerObjekt.instance.txtKommentar.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
-                frm_R_RedigerObjekt.instance.txtLat.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Lat.ToString();
-                frm_R_RedigerObjekt.instance.txtLong.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
-                frm_R_RedigerObjekt.instance.Løpenummer_til_redigering = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
+                frm_R_RedigerObjekt.instance.txtNavn.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Navn;
+                frm_R_RedigerObjekt.instance.txtKategori.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
+                frm_R_RedigerObjekt.instance.txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frm_R_RedigerObjekt.instance.txtKommentar.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
+                frm_R_RedigerObjekt.instance.txtLat.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Lat.ToString();
+                frm_R_RedigerObjekt.instance.txtLong.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
+                frm_R_RedigerObjekt.instance.Løpenummer_til_redigering = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
             }
             if (frm_R_FjernObjektOmråde.instance != null)
             {
-                frm_R_FjernObjektOmråde.instance.Løpenummer_til_objekt = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
+                frm_R_FjernObjektOmråde.instance.Løpenummer_til_objekt = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
                 if (frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område >= 0) frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område = -1;
-                frm_R_FjernObjektOmråde.instance.txtInfo.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].ToString();
-                frm_R_FjernObjektOmråde.instance.txtLøpenumemr.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs.ToString();
-                frm_R_FjernObjektOmråde.instance.txtNavn.Text = frmVisning.instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
+                frm_R_FjernObjektOmråde.instance.txtInfo.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].ToString();
+                frm_R_FjernObjektOmråde.instance.txtLøpenumemr.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs.ToString();
+                frm_R_FjernObjektOmråde.instance.txtNavn.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Navn;
             }
 
         }
@@ -280,11 +280,11 @@ namespace GMAP_Demo
         {
             if (frm_R_RedigerOmråde.instance != null)
             {
-                frm_R_RedigerOmråde.instance.Løpenummer_til_redigering = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område;
-                frm_R_RedigerOmråde.instance.txtNavn.Text = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
-                frm_R_RedigerOmråde.instance.txtSikkerhetsklarering.Text = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-                frm_R_RedigerOmråde.instance.txtKommentar.Text = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
-                frm_R_RedigerOmråde.instance.txtfarge.Text = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Farge;
+                frm_R_RedigerOmråde.instance.Løpenummer_til_redigering = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område;
+                frm_R_RedigerOmråde.instance.txtNavn.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Navn;
+                frm_R_RedigerOmråde.instance.txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frm_R_RedigerOmråde.instance.txtKommentar.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
+                frm_R_RedigerOmråde.instance.txtfarge.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Farge;
 
                 if (frm_R_RedigerOmråde.instance.lbPunkter.Items.Count > 0) frm_R_RedigerOmråde.instance.pointLatLngs.Clear();
                 var Punktliste = DatabaseCommunication.GetPunkter_området(frm_R_RedigerOmråde.instance.Løpenummer_til_redigering);
@@ -298,11 +298,11 @@ namespace GMAP_Demo
             }
             if (frm_R_FjernObjektOmråde.instance != null)
             {
-                frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område;
+                frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område;
                 if (frm_R_FjernObjektOmråde.instance.Løpenummer_til_objekt >= 0) frm_R_FjernObjektOmråde.instance.Løpenummer_til_objekt = -1;
-                frm_R_FjernObjektOmråde.instance.txtInfo.Text = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].ToString();
-                frm_R_FjernObjektOmråde.instance.txtLøpenumemr.Text = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område.ToString();
-                frm_R_FjernObjektOmråde.instance.txtNavn.Text = frmVisning.instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
+                frm_R_FjernObjektOmråde.instance.txtInfo.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].ToString();
+                frm_R_FjernObjektOmråde.instance.txtLøpenumemr.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område.ToString();
+                frm_R_FjernObjektOmråde.instance.txtNavn.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Navn;
             }
 
         }
