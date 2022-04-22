@@ -123,29 +123,29 @@ namespace GMAP_Demo
 
         private void LastInnTags()
         {
-            lbTilgjengeligeOverlays.Items.Clear();
+            lbTilgjengeligeTags.Items.Clear();
             
-            HashSet<string> AlleOverlay = new HashSet<string>();
+            HashSet<string> AlleTag = new HashSet<string>();
 
-            //alle overlays fra Området
-            var OverlayOListe = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
-            foreach (var item in OverlayOListe)
+            //alle tags fra Området
+            var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
+            foreach (var item in TagOListe)
             {
-                AlleOverlay.Add(item.Kategori.ToString());
+                AlleTag.Add(item.Tag.ToString());
             }
 
-            //alle overlays fra Resusrs 
-            var OverlayRListe = DatabaseCommunication.ListAllOverlay_RessursFromDb();
-            foreach (var item in OverlayRListe)
+            //alle tags fra Resusrs 
+            var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
+            foreach (var item in TagRListe)
             {
-                AlleOverlay.Add(item.Kategori.ToString());
+                AlleTag.Add(item.Kategori.ToString());
             }
 
             foreach (var item in AlleTags)
             {
                 lbTilgjengeligeTags.Items.Add(item);
             }
-            lbTilgjengeligeOverlays.Sorted = true;
+            lbTilgjengeligeTags.Sorted = true;
         }
 
         private void lbTilgjengelige_MouseDoubleClick(object sender, MouseEventArgs e)
