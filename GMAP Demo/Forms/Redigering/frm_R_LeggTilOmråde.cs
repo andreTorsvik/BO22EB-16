@@ -45,22 +45,13 @@ namespace GMAP_Demo
         {
             if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
 
-            HashSet<string> AlleOverlay = new HashSet<string>();
-            var OverlayOListe = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
+            HashSet<string> AlleOverlay = FellesMetoder.FåAlleTags();
 
-            foreach (var item in OverlayOListe)
-            {
-                AlleOverlay.Add(item.Tag.ToString());
-            }
-            var OverlayRListe = DatabaseCommunication.ListAllOverlay_RessursFromDb();
-            foreach (var item in OverlayRListe)
-            {
-                AlleOverlay.Add(item.Tag.ToString());
-            }
             foreach (var item in AlleOverlay)
             {
                 lbTilgjengeligeTags.Items.Add(item);
             }
+
             lbTilgjengeligeTags.Sorted = true;
         }
 

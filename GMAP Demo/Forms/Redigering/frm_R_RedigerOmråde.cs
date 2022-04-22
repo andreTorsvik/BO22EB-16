@@ -46,21 +46,9 @@ namespace GMAP_Demo
 
         private void LastInnOverlays()
         {
-            HashSet<string> AlleOverlay = new HashSet<string>();
+            if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
 
-            var OverlayOListe = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
-
-            foreach (var item in OverlayOListe)
-            {
-                AlleOverlay.Add(item.Tag.ToString());
-            }
-
-            var OverlayRListe = DatabaseCommunication.ListAllOverlay_RessursFromDb();
-
-            foreach (var item in OverlayRListe)
-            {
-                AlleOverlay.Add(item.Tag.ToString());
-            }
+            HashSet<string> AlleOverlay = FellesMetoder.FåAlleTags();
 
             foreach (var item in AlleOverlay)
             {

@@ -125,26 +125,13 @@ namespace GMAP_Demo
         {
             lbTilgjengeligeTags.Items.Clear();
 
-            HashSet<string> AlleOverlay = new HashSet<string>();
-
-            //alle overlays fra Området
-            var OverlayOListe = DatabaseCommunication.ListAllOverlay_OmrådeFromDb();
-            foreach (var item in OverlayOListe)
-            {
-                AlleOverlay.Add(item.Tag.ToString());
-            }
-
-            //alle overlays fra Resusrs 
-            var OverlayRListe = DatabaseCommunication.ListAllOverlay_RessursFromDb();
-            foreach (var item in OverlayRListe)
-            {
-                AlleOverlay.Add(item.Tag.ToString());
-            }
+            HashSet<string> AlleOverlay = FellesMetoder.FåAlleTags();
 
             foreach (var item in AlleOverlay)
             {
                 lbTilgjengeligeTags.Items.Add(item);
             }
+
             lbTilgjengeligeTags.Sorted = true;
         }
 
