@@ -33,10 +33,10 @@ namespace GMAP_Demo
 
             //start form Posisjon
             this.PnlFormLoader.Controls.Clear();
-            frmPosisjon frmPosisjon_vrb = new frmPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
-            frmPosisjon_vrb.Show();
+            frmFilter frmFilter_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmFilter_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frmFilter_vrb);
+            frmFilter_vrb.Show();
 
             //sette Blåpanel til vesntre for Posisjonknapp 
             FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
