@@ -40,6 +40,7 @@
             this.lblTitle2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LbNyBruker = new System.Windows.Forms.Label();
+            this.btNyBruker = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,11 +103,12 @@
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(274, 302);
+            this.btnLogin.Location = new System.Drawing.Point(272, 282);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(112, 35);
+            this.btnLogin.Size = new System.Drawing.Size(125, 40);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Logg inn";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -116,11 +118,12 @@
             // 
             this.btnTestUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
             this.btnTestUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTestUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestUser.ForeColor = System.Drawing.Color.White;
-            this.btnTestUser.Location = new System.Drawing.Point(274, 475);
+            this.btnTestUser.Location = new System.Drawing.Point(272, 475);
             this.btnTestUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnTestUser.Name = "btnTestUser";
-            this.btnTestUser.Size = new System.Drawing.Size(112, 35);
+            this.btnTestUser.Size = new System.Drawing.Size(125, 40);
             this.btnTestUser.TabIndex = 6;
             this.btnTestUser.Text = "Testbruker";
             this.btnTestUser.UseVisualStyleBackColor = false;
@@ -131,7 +134,7 @@
             this.lblTest.AutoSize = true;
             this.lblTest.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblTest.Location = new System.Drawing.Point(80, 483);
+            this.lblTest.Location = new System.Drawing.Point(80, 490);
             this.lblTest.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTest.Name = "lblTest";
             this.lblTest.Size = new System.Drawing.Size(115, 14);
@@ -164,17 +167,31 @@
             // LbNyBruker
             // 
             this.LbNyBruker.AutoSize = true;
-            this.LbNyBruker.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbNyBruker.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbNyBruker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.LbNyBruker.Location = new System.Drawing.Point(285, 359);
+            this.LbNyBruker.Location = new System.Drawing.Point(80, 445);
             this.LbNyBruker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbNyBruker.Name = "LbNyBruker";
             this.LbNyBruker.Size = new System.Drawing.Size(87, 14);
             this.LbNyBruker.TabIndex = 11;
             this.LbNyBruker.Text = "Opprett bruker";
-            this.LbNyBruker.Click += new System.EventHandler(this.LbNyBruker_Click);
             this.LbNyBruker.MouseEnter += new System.EventHandler(this.LbNyBruker_MouseEnter);
             this.LbNyBruker.MouseLeave += new System.EventHandler(this.LbNyBruker_MouseLeave);
+            // 
+            // btNyBruker
+            // 
+            this.btNyBruker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
+            this.btNyBruker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btNyBruker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btNyBruker.ForeColor = System.Drawing.Color.White;
+            this.btNyBruker.Location = new System.Drawing.Point(272, 430);
+            this.btNyBruker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btNyBruker.Name = "btNyBruker";
+            this.btNyBruker.Size = new System.Drawing.Size(125, 40);
+            this.btNyBruker.TabIndex = 6;
+            this.btNyBruker.Text = "Opprett bruker";
+            this.btNyBruker.UseVisualStyleBackColor = false;
+            this.btNyBruker.Click += new System.EventHandler(this.btNyBruker_Click);
             // 
             // frmInnlogging
             // 
@@ -186,6 +203,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTitle2);
             this.Controls.Add(this.lblTest);
+            this.Controls.Add(this.btNyBruker);
             this.Controls.Add(this.btnTestUser);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
@@ -221,5 +239,6 @@
         private System.Windows.Forms.Label lblTitle2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label LbNyBruker;
+        private System.Windows.Forms.Button btNyBruker;
     }
 }

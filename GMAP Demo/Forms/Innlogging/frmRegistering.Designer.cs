@@ -217,11 +217,12 @@
             // 
             this.btnOpprettbruker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
             this.btnOpprettbruker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpprettbruker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpprettbruker.ForeColor = System.Drawing.Color.White;
-            this.btnOpprettbruker.Location = new System.Drawing.Point(217, 396);
+            this.btnOpprettbruker.Location = new System.Drawing.Point(256, 392);
             this.btnOpprettbruker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOpprettbruker.Name = "btnOpprettbruker";
-            this.btnOpprettbruker.Size = new System.Drawing.Size(137, 35);
+            this.btnOpprettbruker.Size = new System.Drawing.Size(125, 40);
             this.btnOpprettbruker.TabIndex = 25;
             this.btnOpprettbruker.Text = "Opprett Bruker";
             this.btnOpprettbruker.UseVisualStyleBackColor = false;
@@ -231,11 +232,12 @@
             // 
             this.btnAvbryt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
             this.btnAvbryt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAvbryt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAvbryt.ForeColor = System.Drawing.Color.White;
-            this.btnAvbryt.Location = new System.Drawing.Point(217, 436);
+            this.btnAvbryt.Location = new System.Drawing.Point(256, 440);
             this.btnAvbryt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAvbryt.Name = "btnAvbryt";
-            this.btnAvbryt.Size = new System.Drawing.Size(137, 35);
+            this.btnAvbryt.Size = new System.Drawing.Size(125, 40);
             this.btnAvbryt.TabIndex = 26;
             this.btnAvbryt.Text = "Avbryt";
             this.btnAvbryt.UseVisualStyleBackColor = false;
