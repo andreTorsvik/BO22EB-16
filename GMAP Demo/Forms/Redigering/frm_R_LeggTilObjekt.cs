@@ -29,8 +29,8 @@ namespace GMAP_Demo
 
             if (!string.IsNullOrEmpty(NyTag))
             {
-                lbTilgjengligKategori.Items.Add(NyTag);
-                lbTilgjengligKategori.Sorted = true;
+                lbTilgjengeligeTags.Items.Add(NyTag);
+                lbTilgjengeligeTags.Sorted = true;
                 txtNyTag.Text = "";
 
                 //Kart.OppdaterKategoriListe();
@@ -71,7 +71,7 @@ namespace GMAP_Demo
 
                     }
 
-                    //fylle in overlays 
+                    //fylle in tags 
                     try
                     { 
                         foreach (var item in lbValgtTags.Items)

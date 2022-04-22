@@ -105,7 +105,9 @@ namespace GMAP_Demo
 
             if (!string.IsNullOrEmpty(NyTag))
             {
-
+                lbTilgjengeligeTags.Items.Add(NyTag);
+                lbTilgjengeligeTags.Sorted = true;
+                txtNyTag.Text = "";
             }
         }
 
@@ -129,13 +131,12 @@ namespace GMAP_Demo
                 //laste opp området til database
                 try
                 {
-                    DatabaseCommunication.InsertOmrådeToDb(Løpenummer_område, txtNavn.Text.ToString(), txtfarge.Text.ToString(), InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text.ToString(), txtfarge.Text);
+                    DatabaseCommunication.InsertOmrådeToDb(Løpenummer_område, navn, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
                 }
                 catch (Exception)
                 {
 
                 }
-
                 //Legge til hvert punkt
                 try
                 {
@@ -151,6 +152,17 @@ namespace GMAP_Demo
                 catch (Exception)
                 {
 
+                }
+                //tags
+                try
+                {
+                    foreach (var item in lbValgtTags.Items)
+                    {
+                        DatabaseCommunication.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_område);
+                    }
+                }
+                catch (Exception)
+                {
 
                 }
 

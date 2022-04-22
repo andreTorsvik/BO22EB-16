@@ -15,7 +15,7 @@ namespace GMAP_Demo
     {
         public static frm_R_RedigerOmråde instance;
         public int Løpenummer_til_redigering;
-        public List<string> LagretTags = new List<string>();
+        public List<string> LGamleTag = new List<string>();
         public frm_R_RedigerOmråde()
         {
             InitializeComponent();
@@ -112,7 +112,9 @@ namespace GMAP_Demo
 
             if (!string.IsNullOrEmpty(NyTag))
             {
-
+                lbTilgjengeligeTags.Items.Add(NyTag);
+                lbTilgjengeligeTags.Sorted = true;
+                txtNyTag.Text = "";
             }
         }
 
@@ -124,6 +126,13 @@ namespace GMAP_Demo
             string Farge = txtfarge.Text;
             int antallPunkter = pointLatLngs.Count;
             int antallTags = lbValgtTags.Items.Count;
+            List<string> NyTags = new List<string>();
+
+            foreach (var item in lbValgtTags.Items)
+            {
+                NyTags.Add(item.ToString());
+            }
+
 
             string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Område(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags);
 
@@ -141,7 +150,7 @@ namespace GMAP_Demo
                         pList.Add(item);
                     }
 
-                    string Endring = Tekstbehandling.SjekkEndringerOmråde(Lområde, navn, sikkerhetsklarering, Kommentar, Farge,pList,antallTags);
+                    string Endring = Tekstbehandling.SjekkEndringerOmråde(Lområde, navn, sikkerhetsklarering, Kommentar, Farge,pList, LGamleTag, NyTags);
                     string enderingIPunkter = Tekstbehandling.sammenlignPunkter(Lområde, pList);
                     if (Endring != string.Empty)
                     {
@@ -168,6 +177,20 @@ namespace GMAP_Demo
                                     float lang = Convert.ToSingle(item.Lng);
                                     DatabaseCommunication.InsertPunkter_områdetToDb(Løpenummer_til_redigering, lat, lang, rekkefølge);
                                     rekkefølge++;
+                                }
+                            }
+
+                            List<string> SjekkOmNye1 = NyTags.Except(LGamleTag).ToList();
+                            List<string> SjekkOmNye2 = LGamleTag.Except(NyTags).ToList();
+
+                            if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
+                            {
+                                //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
+                                DatabaseCommunication.DeleteTags_Område(Løpenummer_til_redigering);
+                                //LEGGE TIL NYE
+                                foreach (var item in lbValgtTags.Items)
+                                {
+                                    DatabaseCommunication.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_til_redigering);
                                 }
                             }
 

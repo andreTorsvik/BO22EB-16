@@ -195,6 +195,24 @@ namespace GMAP_Demo
                 connection.Query<Ressurs>($"delete FROM [dbo].[Punkter_område] WHERE(Løpenummer_til_område = '{løpenummer}')");
             }
         }
+        public static void DeleteTags_Ressurs(int løpenummer)
+        {
+            //delete FROM [dbo].[Punkter_område]
+            //WHERE Løpenummer_til_område = 38
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                connection.Query<Ressurs>($"delete FROM [dbo].[Tag_ressurs] WHERE(Løpenummer_til_ressurs = '{løpenummer}')");
+            }
+        }
+        public static void DeleteTags_Område(int løpenummer)
+        {
+            //delete FROM [dbo].[Punkter_område]
+            //WHERE Løpenummer_til_område = 38
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                connection.Query<Ressurs>($"delete FROM [dbo].[Tag_område] WHERE(Løpenummer_til_område = '{løpenummer}')");
+            }
+        }
         public static void DeleteOmråde(int løpeNummer)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
@@ -228,7 +246,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void InsertOmrådeToDb(int løpenummer,string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, string farge)
+        public static void InsertOmrådeToDb(int løpenummer,string navn, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, string farge)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
@@ -335,13 +353,27 @@ namespace GMAP_Demo
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
-                Tag_Ressurs Tag_RessursKategoriToAdd = new Tag_Ressurs
+                Tag_Ressurs Tag_RessursToAdd = new Tag_Ressurs
                 {
                     Tag = Tag,
                     Løpenummer_til_ressurs = løpenummer_Til_ressurs
                 };
 
-                connection.Execute("[dbo].[PROCEDUREinsertIntoTag_Ressurs] @Løpenummer_til_ressurs,@Tag", Tag_RessursKategoriToAdd);
+                connection.Execute("[dbo].[PROCEDUREinsertIntoTag_Ressurs] @Løpenummer_til_ressurs,@Tag", Tag_RessursToAdd);
+            }
+        }
+
+        public static void InsertTag_OmrådeToDb(string Tag, int løpenummer_Til_område)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            {
+                Tag_Område Tag_områdeToAdd = new Tag_Område
+                {
+                    Tag = Tag,
+                    Løpenummer_til_område = løpenummer_Til_område
+                };
+
+                connection.Execute("[dbo].[PROCEDUREinsertIntoTag_område] @Løpenummer_til_område,@Tag", Tag_områdeToAdd);
             }
         }
 

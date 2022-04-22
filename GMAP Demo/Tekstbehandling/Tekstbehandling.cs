@@ -1,6 +1,7 @@
 ﻿using GMap.NET;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GMAP_Demo
 {
@@ -135,7 +136,7 @@ namespace GMAP_Demo
             return utFyllingsmangler;
         }
 
-        public static string SjekkEndringerObjekt(List<Ressurs> rList, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int ListeAntall)
+        public static string SjekkEndringerObjekt(List<Ressurs> rList, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, List<string> NyTags)
         {
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
@@ -177,8 +178,18 @@ namespace GMAP_Demo
                 DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
-            //må sjekke om hver tag er likt 
-
+            //tags
+            List<string> SjekkOmNye1 = NyTags.Except(GammleTags).ToList();
+            List<string> SjekkOmNye2 = GammleTags.Except(NyTags).ToList();
+            if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
+            {
+                Endringer += newLine + "Gjeldene Tags: " + newLine;
+                for (int i = 0; i < NyTags.Count; i++)
+                {
+                    Endringer += string.Format("{0}", NyTags[i]);
+                    if (i < NyTags.Count - 1) Endringer += newLine;
+                }
+            }
             return Endringer;
         }
 
@@ -260,7 +271,7 @@ namespace GMAP_Demo
             return svar;
         }
 
-        public static string SjekkEndringerOmråde(List<Område> oList,string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, int AntallTags)
+        public static string SjekkEndringerOmråde(List<Område> oList,string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, List<string> GammleTags, List<string> NyTags)
         {
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
@@ -278,14 +289,25 @@ namespace GMAP_Demo
             {
                 DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
-            //if (rList[0].Kategori != kategori)
-            //    Endringer += string.Format("Kategori: {0} -> {1}" + newLine, rList[0].Kategori, kategori);
             if (oList[0].Kommentar != kommentar)
                 Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, oList[0].Kommentar, kommentar);
             if (oList[0].Farge != farge)
                 Endringer += string.Format("Farge: {0} -> {1}" + newLine, oList[0].Farge, farge);
 
             Endringer += sammenlignPunkter(oList, pList);
+
+            //tags
+            List<string> SjekkOmNye1 = NyTags.Except(GammleTags).ToList();
+            List<string> SjekkOmNye2 = GammleTags.Except(NyTags).ToList();
+            if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
+            {
+                Endringer += newLine + "Gjeldene Tags: " + newLine;
+                for (int i = 0; i < NyTags.Count; i++)
+                {
+                    Endringer += string.Format("{0}", NyTags[i]);
+                    if (i < NyTags.Count - 1) Endringer += newLine;
+                }
+            }
 
             return Endringer;
         }

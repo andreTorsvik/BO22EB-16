@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GMAP_Demo
@@ -9,7 +10,7 @@ namespace GMAP_Demo
 
         public static frm_R_RedigerObjekt instance;
         public int Løpenummer_til_redigering;
-        public List<string> LagretTags = new List<string>();
+        public List<string> LGamleTag = new List<string>();
         public frm_R_RedigerObjekt()
         {
             InitializeComponent();
@@ -119,7 +120,9 @@ namespace GMAP_Demo
 
             if (!string.IsNullOrEmpty(NyTag))
             {
-
+                lbTilgjengeligeTags.Items.Add(NyTag);
+                lbTilgjengeligeTags.Sorted = true;
+                txtNyTag.Text = "";
             }
         }
 
@@ -132,6 +135,12 @@ namespace GMAP_Demo
             string lat = txtLat.Text;
             string lang = txtLong.Text;
             int antall = lbValgtTags.Items.Count;
+            List<string> NyTags = new List<string>();
+
+            foreach (var item in lbValgtTags.Items)
+            {
+                NyTags.Add(item.ToString());
+            }
 
             string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
 
@@ -141,7 +150,7 @@ namespace GMAP_Demo
                 string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
                 if (FeilTallSjekk == string.Empty)
                 {
-                    string Endring = Tekstbehandling.SjekkEndringerObjekt(d, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
+                    string Endring = Tekstbehandling.SjekkEndringerObjekt(d, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, LGamleTag,NyTags);
                     if (Endring != string.Empty)
                     {
                         string caption = "Vil du lagre disse endringene ";
@@ -153,10 +162,19 @@ namespace GMAP_Demo
                         if (result == DialogResult.Yes)
                         {
                             DatabaseCommunication.UpdateRessurs(Løpenummer_til_redigering, txtNavn.Text, txtKategori.Text, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text, Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
-                            //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
 
-                            //LEGGE TIL NYE
-
+                            List<string> SjekkOmNye1 = NyTags.Except(LGamleTag).ToList();
+                            List<string> SjekkOmNye2 = LGamleTag.Except(NyTags).ToList();
+                            if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)  
+                            {
+                                //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
+                                DatabaseCommunication.DeleteTags_Ressurs(Løpenummer_til_redigering);
+                                //LEGGE TIL NYE
+                                foreach (var item in lbValgtTags.Items)
+                                {
+                                    DatabaseCommunication.InsertTag_RessursToDb(item.ToString(), Løpenummer_til_redigering);
+                                }
+                            }
                             //Oppdatere Liste med ressurser 
                             Løpenummer_til_redigering = -1;
                             txtNavn.Text = "";

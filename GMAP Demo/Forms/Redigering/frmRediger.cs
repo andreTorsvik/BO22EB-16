@@ -273,7 +273,7 @@ namespace GMAP_Demo
                 //sletting av eksisterende lister
                 if (frm_R_RedigerObjekt.instance.lbValgtTags.Items.Count > 0) frm_R_RedigerObjekt.instance.lbValgtTags.Items.Clear();
                 if (frm_R_RedigerObjekt.instance.lbTilgjengeligeTags.Items.Count > 0) frm_R_RedigerObjekt.instance.lbTilgjengeligeTags.Items.Clear();
-                if (frm_R_RedigerObjekt.instance.LagretTags.Count > 0) frm_R_RedigerObjekt.instance.LagretTags.Clear();
+                if (frm_R_RedigerObjekt.instance.LGamleTag.Count > 0) frm_R_RedigerObjekt.instance.LGamleTag.Clear();
 
                 var TagListeTilRessurs = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].hentTags();
                 var AlleTags = FellesMetoder.FåAlleTags();
@@ -282,7 +282,7 @@ namespace GMAP_Demo
                 foreach (var tags in TagListeTilRessurs)
                 {
                     frm_R_RedigerObjekt.instance.lbValgtTags.Items.Add(tags);
-                    frm_R_RedigerObjekt.instance.LagretTags.Add(tags);
+                    frm_R_RedigerObjekt.instance.LGamleTag.Add(tags);
                 }
                 foreach (var tags in GjenværendeTag)
                 {
@@ -328,7 +328,7 @@ namespace GMAP_Demo
                 //tags
                 if (frm_R_RedigerOmråde.instance.lbValgtTags.Items.Count > 0) frm_R_RedigerOmråde.instance.lbValgtTags.Items.Clear();
                 if (frm_R_RedigerOmråde.instance.lbTilgjengeligeTags.Items.Count > 0) frm_R_RedigerOmråde.instance.lbTilgjengeligeTags.Items.Clear();
-                if (frm_R_RedigerOmråde.instance.LagretTags.Count > 0) frm_R_RedigerOmråde.instance.LagretTags.Clear();
+                if (frm_R_RedigerOmråde.instance.LGamleTag.Count > 0) frm_R_RedigerOmråde.instance.LGamleTag.Clear();
 
                 var TagListeTilRessurs = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].hentTags();
                 var AlleTags = FellesMetoder.FåAlleTags();
@@ -337,7 +337,7 @@ namespace GMAP_Demo
                 foreach (var tags in TagListeTilRessurs)
                 {
                     frm_R_RedigerOmråde.instance.lbValgtTags.Items.Add(tags);
-                    frm_R_RedigerOmråde.instance.LagretTags.Add(tags);
+                    frm_R_RedigerOmråde.instance.LGamleTag.Add(tags);
                 }
                 foreach (var tags in GjenværendeTag)
                 {
