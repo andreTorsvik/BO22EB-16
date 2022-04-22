@@ -200,7 +200,7 @@
             this.btnPosisjon.Text = "Posisjon";
             this.btnPosisjon.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnPosisjon.UseVisualStyleBackColor = true;
-            this.btnPosisjon.Click += new System.EventHandler(this.btnPosisjon_Click);
+            this.btnPosisjon.Click += new System.EventHandler(btnPoisjon_Click);
             // 
             // btnFilter
             // 
