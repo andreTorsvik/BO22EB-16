@@ -117,10 +117,15 @@ namespace GMAP_Demo
                     if(item.Id == "Polygons")
                     {
                         Kart.OppdaterListe_området();
-                    }
-                    else if (item.Id == "Objekter")
+                        break;
+                    }   
+                }
+                foreach (var item in map.Overlays)
+                {
+                    if (item.Id == "Objekter")
                     {
                         Kart.OppdaterListe_ressurs();
+                        break;
                     }
                 }
 
