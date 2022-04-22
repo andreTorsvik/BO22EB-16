@@ -96,8 +96,8 @@ namespace GMAP_Demo
 
         private void frmFilter_Load(object sender, EventArgs e)
         {
-            Kart.InitializekategoriListeVises();
-            Kart.InitializekategoriListeSkjult();
+            //Kart.InitializekategoriListeVises();
+            //Kart.InitializekategoriListeSkjult();
 
             lbKategorierVises.DataSource = Kart.kategoriListeVises;
             lbKategorierVises.DisplayMember = "Kategorinavn";

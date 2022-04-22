@@ -54,6 +54,8 @@
             this.lblKategorierSkjult = new System.Windows.Forms.Label();
             this.lblKategorierVises = new System.Windows.Forms.Label();
             this.lbKategorierVises = new System.Windows.Forms.ListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -69,7 +71,8 @@
             // 
             // btnRessurs
             // 
-            this.btnRessurs.Location = new System.Drawing.Point(21, 131);
+            this.btnRessurs.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRessurs.Location = new System.Drawing.Point(20, 77);
             this.btnRessurs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRessurs.Name = "btnRessurs";
             this.btnRessurs.Size = new System.Drawing.Size(113, 46);
@@ -80,7 +83,8 @@
             // 
             // btnLeggTil
             // 
-            this.btnLeggTil.Location = new System.Drawing.Point(21, 78);
+            this.btnLeggTil.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLeggTil.Location = new System.Drawing.Point(20, 24);
             this.btnLeggTil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLeggTil.Name = "btnLeggTil";
             this.btnLeggTil.Size = new System.Drawing.Size(113, 47);
@@ -91,7 +95,7 @@
             // 
             // txtAntall
             // 
-            this.txtAntall.Location = new System.Drawing.Point(21, 206);
+            this.txtAntall.Location = new System.Drawing.Point(20, 152);
             this.txtAntall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAntall.Name = "txtAntall";
             this.txtAntall.Size = new System.Drawing.Size(49, 22);
@@ -101,7 +105,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(18, 188);
+            this.label1.Location = new System.Drawing.Point(17, 134);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 16);
             this.label1.TabIndex = 7;
@@ -109,12 +113,13 @@
             // 
             // btnFjern
             // 
-            this.btnFjern.Location = new System.Drawing.Point(152, 241);
+            this.btnFjern.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFjern.Location = new System.Drawing.Point(151, 187);
             this.btnFjern.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFjern.Name = "btnFjern";
             this.btnFjern.Size = new System.Drawing.Size(97, 46);
             this.btnFjern.TabIndex = 8;
-            this.btnFjern.Text = "Fjern markør ";
+            this.btnFjern.Text = "Fjern Alt";
             this.btnFjern.UseVisualStyleBackColor = true;
             this.btnFjern.Click += new System.EventHandler(this.btnFjern_Click);
             // 
@@ -252,7 +257,8 @@
             // 
             // btnHentOmråde
             // 
-            this.btnHentOmråde.Location = new System.Drawing.Point(260, 78);
+            this.btnHentOmråde.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnHentOmråde.Location = new System.Drawing.Point(259, 24);
             this.btnHentOmråde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHentOmråde.Name = "btnHentOmråde";
             this.btnHentOmråde.Size = new System.Drawing.Size(113, 47);
@@ -263,7 +269,8 @@
             // 
             // btnLeggTilOmrådet
             // 
-            this.btnLeggTilOmrådet.Location = new System.Drawing.Point(260, 130);
+            this.btnLeggTilOmrådet.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLeggTilOmrådet.Location = new System.Drawing.Point(259, 76);
             this.btnLeggTilOmrådet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLeggTilOmrådet.Name = "btnLeggTilOmrådet";
             this.btnLeggTilOmrådet.Size = new System.Drawing.Size(113, 46);
@@ -276,7 +283,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(256, 188);
+            this.label2.Location = new System.Drawing.Point(255, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 16);
             this.label2.TabIndex = 24;
@@ -284,7 +291,7 @@
             // 
             // txtAntallOmråder
             // 
-            this.txtAntallOmråder.Location = new System.Drawing.Point(259, 206);
+            this.txtAntallOmråder.Location = new System.Drawing.Point(258, 152);
             this.txtAntallOmråder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAntallOmråder.Name = "txtAntallOmråder";
             this.txtAntallOmråder.Size = new System.Drawing.Size(49, 22);
@@ -332,20 +339,36 @@
             this.lbKategorierVises.TabIndex = 27;
             this.lbKategorierVises.DoubleClick += new System.EventHandler(this.lbKategorierVises_DoubleClick);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtAntallOmråder);
+            this.groupBox1.Controls.Add(this.btnLeggTilOmrådet);
+            this.groupBox1.Controls.Add(this.btnHentOmråde);
+            this.groupBox1.Controls.Add(this.btnFjern);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtAntall);
+            this.groupBox1.Controls.Add(this.btnLeggTil);
+            this.groupBox1.Controls.Add(this.btnRessurs);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox1.Location = new System.Drawing.Point(12, 54);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(384, 238);
+            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Kun midlertidig";
+            // 
             // frmFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(408, 871);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblKategorierVises);
             this.Controls.Add(this.lbKategorierVises);
             this.Controls.Add(this.lblKategorierSkjult);
             this.Controls.Add(this.lbKategorierSkjult);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtAntallOmråder);
-            this.Controls.Add(this.btnLeggTilOmrådet);
-            this.Controls.Add(this.btnHentOmråde);
             this.Controls.Add(this.txtKommentar);
             this.Controls.Add(this.txtSikkerhetsklarering);
             this.Controls.Add(this.txtOpprettetAvBruker);
@@ -358,17 +381,14 @@
             this.Controls.Add(this.lblKategori);
             this.Controls.Add(this.lblNavn);
             this.Controls.Add(this.txtNavn);
-            this.Controls.Add(this.btnFjern);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtAntall);
-            this.Controls.Add(this.btnLeggTil);
-            this.Controls.Add(this.btnRessurs);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmFilter";
             this.Text = "frmFilter";
             this.Load += new System.EventHandler(this.frmFilter_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,5 +422,6 @@
         private System.Windows.Forms.Label lblKategorierSkjult;
         private System.Windows.Forms.Label lblKategorierVises;
         private System.Windows.Forms.ListBox lbKategorierVises;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
