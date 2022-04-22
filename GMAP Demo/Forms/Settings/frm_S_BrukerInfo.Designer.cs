@@ -58,7 +58,7 @@
             // 
             this.lblFornavn.AutoSize = true;
             this.lblFornavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFornavn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblFornavn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
             this.lblFornavn.Location = new System.Drawing.Point(6, 22);
             this.lblFornavn.Name = "lblFornavn";
             this.lblFornavn.Size = new System.Drawing.Size(67, 17);
@@ -77,7 +77,7 @@
             // 
             this.lblEtternavn.AutoSize = true;
             this.lblEtternavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEtternavn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblEtternavn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
             this.lblEtternavn.Location = new System.Drawing.Point(6, 82);
             this.lblEtternavn.Name = "lblEtternavn";
             this.lblEtternavn.Size = new System.Drawing.Size(78, 17);
@@ -96,7 +96,7 @@
             // 
             this.lblTelefonnummer.AutoSize = true;
             this.lblTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefonnummer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblTelefonnummer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
             this.lblTelefonnummer.Location = new System.Drawing.Point(6, 142);
             this.lblTelefonnummer.Name = "lblTelefonnummer";
             this.lblTelefonnummer.Size = new System.Drawing.Size(120, 17);
@@ -115,7 +115,7 @@
             // 
             this.lblEpost.AutoSize = true;
             this.lblEpost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEpost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblEpost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
             this.lblEpost.Location = new System.Drawing.Point(6, 202);
             this.lblEpost.Name = "lblEpost";
             this.lblEpost.Size = new System.Drawing.Size(49, 17);
@@ -134,7 +134,7 @@
             // 
             this.lblSikkerhetsklarering.AutoSize = true;
             this.lblSikkerhetsklarering.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSikkerhetsklarering.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblSikkerhetsklarering.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
             this.lblSikkerhetsklarering.Location = new System.Drawing.Point(4, 262);
             this.lblSikkerhetsklarering.Name = "lblSikkerhetsklarering";
             this.lblSikkerhetsklarering.Size = new System.Drawing.Size(148, 17);
@@ -161,7 +161,7 @@
             this.gblInnloggetBruker.Controls.Add(this.tbEpost);
             this.gblInnloggetBruker.Controls.Add(this.tbTelefonnummer);
             this.gblInnloggetBruker.Controls.Add(this.lblTelefonnummer);
-            this.gblInnloggetBruker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.gblInnloggetBruker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
             this.gblInnloggetBruker.Location = new System.Drawing.Point(21, 70);
             this.gblInnloggetBruker.Name = "gblInnloggetBruker";
             this.gblInnloggetBruker.Size = new System.Drawing.Size(306, 321);
