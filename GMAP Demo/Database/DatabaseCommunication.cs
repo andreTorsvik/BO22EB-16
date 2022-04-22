@@ -12,15 +12,6 @@ using System.IO;
 
 namespace GMAP_Demo
 {
-    struct områdeToAdd
-    {
-        internal string Navn;
-        internal string Opprettet_av_bruker;
-        internal string Kommentar;
-        internal int Sikkerhetsklarering;
-        internal string Farge;
-        internal DataTable TVP_Punkter_område;
-    }
     internal class DatabaseCommunication
     {
         // SQLdatabase connection settings
