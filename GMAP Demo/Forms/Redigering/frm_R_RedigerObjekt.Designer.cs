@@ -150,7 +150,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.label9.Location = new System.Drawing.Point(5, 256);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(107, 20);
+            this.label9.Size = new System.Drawing.Size(78, 20);
             this.label9.TabIndex = 80;
             this.label9.Text = "Ny Tag ";
             // 
@@ -170,7 +170,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.label6.Location = new System.Drawing.Point(5, 18);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 20);
+            this.label6.Size = new System.Drawing.Size(151, 20);
             this.label6.TabIndex = 78;
             this.label6.Text = "Velg Hvilke tags";
             // 

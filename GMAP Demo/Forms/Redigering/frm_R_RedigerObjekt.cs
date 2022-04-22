@@ -30,12 +30,12 @@ namespace GMAP_Demo
 
         private void LastInnKategorier()
         {
-            frmVisning.instance.LKategori.Clear();
+            GlobaleLister.LKategori.Clear();
             var KategoriListe = DatabaseCommunication.ListAllKategorier_BildeFromDb();
 
             foreach (var item in KategoriListe)
             {
-                frmVisning.instance.LKategori.Add(item);
+                GlobaleLister.LKategori.Add(item);
                 lbTilgjengligKategori.Items.Add(item.Kategorinavn);
             }
 

@@ -10,7 +10,7 @@ namespace GMAP_Demo
     {
         public static List<Ressurs> LRessurs = new List<Ressurs>();
         public static  List<Område> LOmråde = new List<Område>();
-
+        public static  List<Kategorier_Bilde> LKategori = new List<Kategorier_Bilde>();
 
 
     }

@@ -159,7 +159,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.label9.Location = new System.Drawing.Point(5, 260);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(107, 20);
+            this.label9.Size = new System.Drawing.Size(68, 20);
             this.label9.TabIndex = 72;
             this.label9.Text = "Ny Tag ";
             // 
@@ -178,7 +178,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.label6.Location = new System.Drawing.Point(5, 18);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 20);
+            this.label6.Size = new System.Drawing.Size(151, 20);
             this.label6.TabIndex = 70;
             this.label6.Text = "Velg Hvilke Tags";
             // 
@@ -200,7 +200,7 @@
             this.txtLong.Name = "txtLong";
             this.txtLong.Size = new System.Drawing.Size(285, 22);
             this.txtLong.TabIndex = 68;
-            this.txtLong.Text = "Dobbelklikk på kartet + \"legg til";
+            this.txtLong.Text = "Dobbelklikk på kartet + \"legg til\"";
             // 
             // label8
             // 
@@ -220,7 +220,7 @@
             this.txtLat.Name = "txtLat";
             this.txtLat.Size = new System.Drawing.Size(287, 22);
             this.txtLat.TabIndex = 66;
-            this.txtLat.Text = "Dobbelklikk på kartet + \"legg til";
+            this.txtLat.Text = "Dobbelklikk på kartet + \"legg til\"";
             // 
             // label5
             // 

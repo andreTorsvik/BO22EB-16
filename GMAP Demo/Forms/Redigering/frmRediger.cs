@@ -10,6 +10,10 @@ namespace GMAP_Demo
 {
     public partial class frmRediger : Form
     {
+        //log
+        //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
+        //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
+
         private Color knapp_trykket;
         public PointLatLng DoubleClick_punkt; //tror denne kan bli flyttet inn i metoedn 
         public static frmRediger instance;
