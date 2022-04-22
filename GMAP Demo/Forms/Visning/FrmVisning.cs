@@ -13,8 +13,8 @@ namespace GMAP_Demo
     {
         //log
         //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
-        //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, "Test: Denne funkere ikke enda"); 
-        
+        //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
+
         private Color knapp_trykket;
         public List<Ressurs> LRessurs;
         public List<Område> LOmråde;
@@ -62,9 +62,22 @@ namespace GMAP_Demo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //midtstille brukernavn iforhold til "bilde"
             lblUserName.TextAlign = ContentAlignment.MiddleCenter;
+
             Kart.PunktFraForrige = FilBehandeling.GiStartPosisjon("StartPosisjon.txt");
             Kart.Setup(Kart.MuligKart.Visning, Kart.PunktFraForrige);
+
+            // KategoriListen  på kartet 
+            Kart.InitializekategoriListeVises();
+            Kart.InitializekategoriListeSkjult();
+
+            //legget til alle ressurser i lister 
+            Kart.OppdaterListe_ressurs();
+            Kart.OppdaterListe_området();
+
+            //tegner alt på karet
+            Kart.OppdaterKart(Kart.MuligKart.Visning, LRessurs, LOmråde);
         }
 
         private void btnPoisjon_Click(object sender, EventArgs e)
