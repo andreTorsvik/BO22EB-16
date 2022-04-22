@@ -88,8 +88,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.btnDbOmrådeView);
             this.panel1.Controls.Add(this.pnlNav);
+            this.panel1.Controls.Add(this.btnDbOmrådeView);
             this.panel1.Controls.Add(this.btnDbRessursView);
             this.panel1.Controls.Add(this.btnTilbake);
             this.panel1.Controls.Add(this.btnDbPunkter_områdeView);
@@ -125,7 +125,7 @@
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.pnlNav.Location = new System.Drawing.Point(0, 942);
+            this.pnlNav.Location = new System.Drawing.Point(0, 784);
             this.pnlNav.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pnlNav.Name = "pnlNav";
             this.pnlNav.Size = new System.Drawing.Size(3, 105);
