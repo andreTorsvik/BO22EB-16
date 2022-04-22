@@ -16,8 +16,8 @@ namespace GMAP_Demo
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
 
         private Color knapp_trykket;
-        public List<Ressurs> LRessurs;
-        public List<Område> LOmråde;
+        //public List<Ressurs> LRessurs;
+        //public List<Område> LOmråde;
         public List<Kategorier_Bilde> LKategori;
         public PointLatLng DoubleClick_punkt;
         public static frmVisning instance;
@@ -33,16 +33,16 @@ namespace GMAP_Demo
 
             //start form Posisjon
             this.PnlFormLoader.Controls.Clear();
-            frmPosisjon frmPosisjon_vrb = new frmPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
-            frmPosisjon_vrb.Show();
+            frmFilter frmFilter_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmFilter_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frmFilter_vrb);
+            frmFilter_vrb.Show();
 
             //sette Blåpanel til vesntre for Posisjonknapp 
-            FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
+            FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
 
             //endre farge
-            btnPosisjon.BackColor = knapp_trykket;
+            btnFilter.BackColor = knapp_trykket;
 
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
@@ -55,9 +55,9 @@ namespace GMAP_Demo
         private void OpprettingAvGlobaleVariabler()
         {
             knapp_trykket = Color.FromArgb(46, 51, 73);
-            LRessurs = new List<Ressurs>();
+            //LRessurs = new List<Ressurs>();
             LKategori = new List<Kategorier_Bilde>();
-            LOmråde = new List<Område>();
+            //LOmråde = new List<Område>();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -77,10 +77,10 @@ namespace GMAP_Demo
             Kart.OppdaterListe_området();
 
             //tegner alt på karet
-            Kart.OppdaterKart(Kart.MuligKart.Visning, LRessurs, LOmråde);
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
         }
 
-        private void btnPoisjon_Click(object sender, EventArgs e)
+        private void btnPosisjon_Click(object sender, EventArgs e)
         {
             if (pnlNav.Top != btnPosisjon.Top)
             {
@@ -139,7 +139,7 @@ namespace GMAP_Demo
                 //Kart.OppdaterListe_ressurs();
 
                 //Oppdatere kart basert på listene 
-                Kart.OppdaterKart(Kart.MuligKart.Visning, LRessurs, LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
 
         }
@@ -184,8 +184,8 @@ namespace GMAP_Demo
         void AlleKnapperTilStandarfarge()
         {
             //setter alle nødvendige knappen til standarfarge
-            btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
             btnFilter.BackColor = Color.FromArgb(24, 30, 54);
+            btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -199,7 +199,7 @@ namespace GMAP_Demo
             pnlNav.Height = høyde;
             pnlNav.Top = top;
             //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
-            pnlNav.Left = btnPosisjon.Left;
+            pnlNav.Left = btnFilter.Left;
         }
 
 
@@ -208,24 +208,24 @@ namespace GMAP_Demo
         {
             if (frmFilter.instance != null)
             {
-                frmFilter.instance.txtNavn.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Navn;
-                frmFilter.instance.txtKategori.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
-                frmFilter.instance.txtDato_opprettet.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Dato_opprettet;
-                frmFilter.instance.txtOpprettetAvBruker.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
-                frmFilter.instance.txtSikkerhetsklarering.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-                frmFilter.instance.txtKommentar.Text = instance.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
+                frmFilter.instance.txtNavn.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Navn;
+                frmFilter.instance.txtKategori.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
+                frmFilter.instance.txtDato_opprettet.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Dato_opprettet;
+                frmFilter.instance.txtOpprettetAvBruker.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
+                frmFilter.instance.txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frmFilter.instance.txtKommentar.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
             }
         }
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
             if (frmFilter.instance != null)
             {
-                frmFilter.instance.txtNavn.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Navn;
+                frmFilter.instance.txtNavn.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Navn;
                 frmFilter.instance.txtKategori.Text = "";
-                frmFilter.instance.txtDato_opprettet.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Dato_opprettet;
-                frmFilter.instance.txtOpprettetAvBruker.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
-                frmFilter.instance.txtSikkerhetsklarering.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-                frmFilter.instance.txtKommentar.Text = instance.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
+                frmFilter.instance.txtDato_opprettet.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Dato_opprettet;
+                frmFilter.instance.txtOpprettetAvBruker.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
+                frmFilter.instance.txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
+                frmFilter.instance.txtKommentar.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
             }
         }
 
@@ -260,7 +260,9 @@ namespace GMAP_Demo
             instance.map.Zoom--;
         }
 
-        
+
+
+
 
         //public void OppdaterKart()
         //{
