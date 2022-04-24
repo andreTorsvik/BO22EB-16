@@ -261,13 +261,37 @@ namespace GMAP_Demo
             }
             if (frm_R_RedigerObjekt.instance != null)
             {
+                //info 
                 frm_R_RedigerObjekt.instance.txtNavn.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Navn;
                 frm_R_RedigerObjekt.instance.txtKategori.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
                 frm_R_RedigerObjekt.instance.txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
                 frm_R_RedigerObjekt.instance.txtKommentar.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
                 frm_R_RedigerObjekt.instance.txtLat.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Lat.ToString();
                 frm_R_RedigerObjekt.instance.txtLong.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
+
+                //tagliste
+                //sletting av eksisterende lister
+                if (frm_R_RedigerObjekt.instance.lbValgtTags.Items.Count > 0) frm_R_RedigerObjekt.instance.lbValgtTags.Items.Clear();
+                if (frm_R_RedigerObjekt.instance.lbTilgjengeligeTags.Items.Count > 0) frm_R_RedigerObjekt.instance.lbTilgjengeligeTags.Items.Clear();
+                if (frm_R_RedigerObjekt.instance.LGamleTag.Count > 0) frm_R_RedigerObjekt.instance.LGamleTag.Clear();
+
+                var TagListeTilRessurs = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].hentTags();
+                var AlleTags = FellesMetoder.FåAlleTags();
+                var GjenværendeTag =  AlleTags.Except(TagListeTilRessurs);
+
+                foreach (var tags in TagListeTilRessurs)
+                {
+                    frm_R_RedigerObjekt.instance.lbValgtTags.Items.Add(tags);
+                    frm_R_RedigerObjekt.instance.LGamleTag.Add(tags);
+                }
+                foreach (var tags in GjenværendeTag)
+                {
+                    frm_R_RedigerObjekt.instance.lbTilgjengeligeTags.Items.Add(tags);
+                }
+
+                //info til redigering 
                 frm_R_RedigerObjekt.instance.Løpenummer_til_redigering = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
+
             }
             if (frm_R_FjernObjektOmråde.instance != null)
             {
@@ -290,6 +314,7 @@ namespace GMAP_Demo
                 frm_R_RedigerOmråde.instance.txtKommentar.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
                 frm_R_RedigerOmråde.instance.txtfarge.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Farge;
 
+                //punkt liste
                 if (frm_R_RedigerOmråde.instance.lbPunkter.Items.Count > 0) frm_R_RedigerOmråde.instance.pointLatLngs.Clear();
                 var Punktliste = DatabaseCommunication.GetPunkter_området(frm_R_RedigerOmråde.instance.Løpenummer_til_redigering);
                 Punktliste = Punktliste.OrderBy(x => x.Rekkefølge_punkter).ToList();
@@ -299,6 +324,25 @@ namespace GMAP_Demo
                     frm_R_RedigerOmråde.instance.pointLatLngs.Add(point);
                 }
                 frm_R_RedigerOmråde.instance.txtNrPunkt.Text = Punktliste.Count.ToString();
+
+                //tags
+                if (frm_R_RedigerOmråde.instance.lbValgtTags.Items.Count > 0) frm_R_RedigerOmråde.instance.lbValgtTags.Items.Clear();
+                if (frm_R_RedigerOmråde.instance.lbTilgjengeligeTags.Items.Count > 0) frm_R_RedigerOmråde.instance.lbTilgjengeligeTags.Items.Clear();
+                if (frm_R_RedigerOmråde.instance.LGamleTag.Count > 0) frm_R_RedigerOmråde.instance.LGamleTag.Clear();
+
+                var TagListeTilRessurs = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].hentTags();
+                var AlleTags = FellesMetoder.FåAlleTags();
+                var GjenværendeTag = AlleTags.Except(TagListeTilRessurs);
+
+                foreach (var tags in TagListeTilRessurs)
+                {
+                    frm_R_RedigerOmråde.instance.lbValgtTags.Items.Add(tags);
+                    frm_R_RedigerOmråde.instance.LGamleTag.Add(tags);
+                }
+                foreach (var tags in GjenværendeTag)
+                {
+                    frm_R_RedigerOmråde.instance.lbTilgjengeligeTags.Items.Add(tags);
+                }
             }
             if (frm_R_FjernObjektOmråde.instance != null)
             {

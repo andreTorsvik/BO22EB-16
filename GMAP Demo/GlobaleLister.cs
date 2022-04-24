@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GMAP_Demo
 {
-    public class GlobaleLister
+    internal class GlobaleLister
     {
         public static List<Ressurs> LRessurs = new List<Ressurs>();
         public static  List<Område> LOmråde = new List<Område>();

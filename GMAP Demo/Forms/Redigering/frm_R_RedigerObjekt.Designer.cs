@@ -409,8 +409,8 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtKommentar;
         private System.Windows.Forms.Button btnLeggTilTag;
-        private System.Windows.Forms.ListBox lbValgtTags;
-        private System.Windows.Forms.ListBox lbTilgjengeligeTags;
+        public System.Windows.Forms.ListBox lbValgtTags;
+        public System.Windows.Forms.ListBox lbTilgjengeligeTags;
         private System.Windows.Forms.Button btnLagreEndring;
         private System.Windows.Forms.Label LabelSikkerhetsklarering;
         public System.Windows.Forms.TextBox txtSikkerhetsklarering;

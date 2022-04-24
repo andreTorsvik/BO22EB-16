@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GMAP_Demo
@@ -9,6 +10,8 @@ namespace GMAP_Demo
 
         public static frm_R_RedigerObjekt instance;
         public int Løpenummer_til_redigering;
+        public List<string> LGamleTag = new List<string>();
+        string tekstLatLong = "Dobbelklikk på kartet";
         public frm_R_RedigerObjekt()
         {
             InitializeComponent();
@@ -63,26 +66,15 @@ namespace GMAP_Demo
 
         private void LastInnTags()
         {
-            HashSet<string> AlleTag = new HashSet<string>();
+            if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
 
-            var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
-
-            foreach (var item in TagOListe)
-            {
-                AlleTag.Add(item.Tag.ToString());
-            }
-
-            var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
-
-            foreach (var item in TagRListe)
-            {
-                AlleTag.Add(item.Tag.ToString());
-            }
+            HashSet<string> AlleTag = FellesMetoder.FåAlleTags();
 
             foreach (var item in AlleTag)
             {
                 lbTilgjengeligeTags.Items.Add(item);
             }
+
             lbTilgjengeligeTags.Sorted = true;
         }
 
@@ -118,7 +110,9 @@ namespace GMAP_Demo
 
             if (!string.IsNullOrEmpty(NyTag))
             {
-
+                lbTilgjengeligeTags.Items.Add(NyTag);
+                lbTilgjengeligeTags.Sorted = true;
+                txtNyTag.Text = "";
             }
         }
 
@@ -130,17 +124,34 @@ namespace GMAP_Demo
             string Kommentar = txtKommentar.Text;
             string lat = txtLat.Text;
             string lang = txtLong.Text;
-            int antall = lbValgtTags.Items.Count;
+            int antallTags = lbValgtTags.Items.Count;
+            List<string> NyTags = new List<string>();
 
-            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
+            foreach (var item in lbValgtTags.Items)
+            {
+                NyTags.Add(item.ToString());
+            }
+
+            string SjekkFeil = RedigerObjekt(Løpenummer_til_redigering, navn,kategori ,sikkerhetsklarering, Kommentar,lat,lang, antallTags, LGamleTag, NyTags);
+
+            if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
+
+           
+        }
+
+        private string RedigerObjekt(int løpenummer,string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags,List<string> GamleTags, List<string> nyTags)
+        {
+            string feilmelding = string.Empty;
+
+            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, AntallTags);
 
             if (utFyllingsmangler == string.Empty)
             {
-                var d = DatabaseCommunication.ListRessursFromDb(Løpenummer_til_redigering);
+                var ressurs = DatabaseCommunication.ListRessursFromDb(løpenummer);
                 string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
                 if (FeilTallSjekk == string.Empty)
                 {
-                    string Endring = Tekstbehandling.SjekkEndringerObjekt(d, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
+                    string Endring = Tekstbehandling.SjekkEndringerObjekt(ressurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
                     if (Endring != string.Empty)
                     {
                         string caption = "Vil du lagre disse endringene ";
@@ -151,20 +162,33 @@ namespace GMAP_Demo
                         result = MessageBox.Show(Endring, caption, buttons);
                         if (result == DialogResult.Yes)
                         {
-                            DatabaseCommunication.UpdateRessurs(Løpenummer_til_redigering, txtNavn.Text, txtKategori.Text, Convert.ToInt32(txtSikkerhetsklarering.Text), txtKommentar.Text, Convert.ToSingle(txtLat.Text), Convert.ToSingle(txtLong.Text));
-                            //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
+                            try
+                            {
+                                DatabaseCommunication.UpdateRessurs(løpenummer, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
 
-                            //LEGGE TIL NYE
+                                List<string> SjekkOmNye1 = nyTags.Except(GamleTags).ToList();
+                                List<string> SjekkOmNye2 = GamleTags.Except(nyTags).ToList();
+                                if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
+                                {
+                                    //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
+                                    DatabaseCommunication.DeleteTags_Ressurs(løpenummer);
+                                    //LEGGE TIL NYE
+                                    foreach (var item in lbValgtTags.Items)
+                                    {
+                                        DatabaseCommunication.InsertTag_RessursToDb(item.ToString(), løpenummer);
+                                    }
+                                }
+                            }
+                            catch (Exception Feilmelding)
+                            {
+                                feilmelding = Feilmelding.Message;
+
+                            }
+                            //tøme tekstfelt og lister 
+                            TømeTekstFeltOgLister();
 
                             //Oppdatere Liste med ressurser 
-                            Løpenummer_til_redigering = -1;
-                            txtNavn.Text = "";
-                            txtKategori.Text = "";
-                            txtKommentar.Text = "";
-                            txtSikkerhetsklarering.Text = "";
-                            txtLat.Text = "Dobbelklikk på kartet";
-                            txtLong.Text = "Dobbelklikk på kartet";
-
+                            
                             Kart.OppdaterListe_ressurs();
                             Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
 
@@ -175,6 +199,26 @@ namespace GMAP_Demo
                 else MessageBox.Show(FeilTallSjekk);
             }
             else MessageBox.Show(utFyllingsmangler);
+
+            return feilmelding;
+        }
+
+        private void TømeTekstFeltOgLister()
+        {
+            //tekstfelt
+            Løpenummer_til_redigering = -1;
+            txtNavn.Text = "";
+            txtKategori.Text = "";
+            txtKommentar.Text = "";
+            txtSikkerhetsklarering.Text = "";
+            txtLat.Text = tekstLatLong;
+            txtLong.Text = tekstLatLong;
+
+
+            //lister
+            lbValgtTags.Items.Clear();
+            lbTilgjengeligeTags.Items.Clear();
+            LastInnTags();
         }
     }
 }
