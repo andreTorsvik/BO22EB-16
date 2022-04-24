@@ -103,5 +103,14 @@ namespace GMAP_Demo
             frmRegistering.Location = this.Location;
             frmRegistering.Show();
         }
+
+        private void LbNyBruker_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmRegistering frmRegistering = new frmRegistering(); // instance
+            frmRegistering.Size = this.Size;
+            frmRegistering.Location = this.Location;
+            frmRegistering.Show();
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace GMAP_Demo
     {
 
         public static frm_R_LeggTilObjekt instance;
+        string tekstLatLong = "Dobbelklikk på kartet";
         public frm_R_LeggTilObjekt()
         {
             InitializeComponent();
@@ -32,8 +33,6 @@ namespace GMAP_Demo
                 lbTilgjengeligeTags.Items.Add(NyTag);
                 lbTilgjengeligeTags.Sorted = true;
                 txtNyTag.Text = "";
-
-                //Kart.OppdaterKategoriListe();
             }
         }
 
@@ -45,61 +44,17 @@ namespace GMAP_Demo
             string Kommentar = txtKommentar.Text;
             string lat = txtLat.Text;
             string lang = txtLong.Text;
-            int antall = lbValgtTags.Items.Count;
+            int AntallTags = lbValgtTags.Items.Count;
 
-
-            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antall);
-
-            if (utFyllingsmangler == string.Empty)
+            List<string> Tags = new List<string>();
+            foreach (var item in lbValgtTags.Items)
             {
-                string feilMelding = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
-                if (feilMelding == string.Empty)
-                {
-                    //løpenummer 
-                    var løpenummer = DatabaseCommunication.GetLøpenummer_område();
-                    int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
-
-                    //laste opp ressurs 
-                    try
-                    {
-                        if (Løpenummer_Ressurs > 0)
-                            DatabaseCommunication.InsertRessursToDb(Løpenummer_Ressurs, navn, kategori, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
-
-                    }
-                    catch (Exception)
-                    {
-
-                    }
-
-                    //fylle in tags 
-                    try
-                    { 
-                        foreach (var item in lbValgtTags.Items)
-                        {
-                            DatabaseCommunication.InsertTag_RessursToDb(item.ToString(), Løpenummer_Ressurs);
-                        }
-
-                    }
-                    catch (Exception)
-                    {
-
-                    }
-
-                    txtNavn.Text = "";
-                    txtKategori.Text = "";
-                    txtKommentar.Text = "";
-                    txtSikkerhetsklarering.Text = "";
-                    txtLat.Text = "Dobbelklikk på kart";
-                    txtLong.Text = "Dobbelklikk på kart";
-
-                    lbValgtTags.Items.Clear();
-                    LastInnTags();
-                    Kart.OppdaterListe_ressurs();
-                    Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-                }
-                else MessageBox.Show(feilMelding);
+                Tags.Add(item.ToString());
             }
-            else MessageBox.Show(utFyllingsmangler);
+
+            string SjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags,Tags);
+
+            if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
         }
 
@@ -151,28 +106,15 @@ namespace GMAP_Demo
         private void LastInnTags()
         {
             lbTilgjengeligeTags.Items.Clear();
-            
-            HashSet<string> AlleTags = new HashSet<string>();
 
-            //alle tags fra Området
-            var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
-            foreach (var item in TagOListe)
-            {
-                AlleTags.Add(item.Tag.ToString());
-            }
-
-            //alle tags fra Resusrs 
-            var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
-            foreach (var item in TagRListe)
-            {
-                AlleTags.Add(item.Tag.ToString());
-            }
+            HashSet<string> AlleTags = FellesMetoder.FåAlleTags();
 
             foreach (var item in AlleTags)
             {
                 lbTilgjengeligeTags.Items.Add(item);
             }
             lbTilgjengeligeTags.Sorted = true;
+
         }
 
         private void lbTilgjengelige_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -201,6 +143,75 @@ namespace GMAP_Demo
             {
                 e.Handled = true;
             }
+        }
+
+        private string LeggTilObjekt(string navn, string kategori, string sikkerhetsklarering, string Kommentar, string lat, string lang, int AntallTags, List<string> nyTags)
+        {
+            string feilmelding = string.Empty;
+
+            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags);
+
+            if (utFyllingsmangler == string.Empty)
+            {
+                string feilMelding = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
+                if (feilMelding == string.Empty)
+                {
+                    //løpenummer 
+                    var løpenummer = DatabaseCommunication.GetLøpenummer_Ressurs();
+                    int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
+
+                    //laste opp ressurs 
+                    try
+                    {
+                        if (Løpenummer_Ressurs > 0)
+                            DatabaseCommunication.InsertRessursToDb(Løpenummer_Ressurs, navn, kategori, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
+
+                    }
+                    catch (Exception feil)
+                    {
+                        feilmelding += feil.Message;
+                    }
+
+                    //fylle in tags 
+                    try
+                    {
+                        foreach (var item in lbValgtTags.Items)
+                        {
+                            DatabaseCommunication.InsertTag_RessursToDb(item.ToString(), Løpenummer_Ressurs);
+                        }
+
+                    }
+                    catch (Exception feil)
+                    {
+                        feilmelding += feil.Message;
+                    }
+                    //tøme tekstfelt og lister 
+                    TømeTekstFeltOgLister();
+
+                    Kart.OppdaterListe_ressurs();
+                    Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                }
+                else MessageBox.Show(feilMelding);
+            }
+            else MessageBox.Show(utFyllingsmangler);
+
+            return feilmelding;
+        }
+
+        private void TømeTekstFeltOgLister()
+        {
+            //tekstfelt
+            txtNavn.Text = "";
+            txtKategori.Text = "";
+            txtKommentar.Text = "";
+            txtSikkerhetsklarering.Text = "";
+            txtLat.Text = tekstLatLong;
+            txtLong.Text = tekstLatLong;
+
+            //lister
+            lbValgtTags.Items.Clear();
+            lbTilgjengeligeTags.Items.Clear();
+            LastInnTags();
         }
     }
 }

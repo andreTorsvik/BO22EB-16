@@ -45,21 +45,13 @@ namespace GMAP_Demo
         {
             if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
 
-            HashSet<string> AlleTags = new HashSet<string>();
-            var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
-            foreach (var item in TagOListe)
-            {
-                AlleTags.Add(item.Tag.ToString());
-            }
-            var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
-            foreach (var item in TagRListe)
-            {
-                AlleTags.Add(item.Tag.ToString());
-            }
+            HashSet<string> AlleTags = FellesMetoder.FåAlleTags();
+
             foreach (var item in AlleTags)
             {
                 lbTilgjengeligeTags.Items.Add(item);
             }
+
             lbTilgjengeligeTags.Sorted = true;
         }
 
@@ -120,73 +112,16 @@ namespace GMAP_Demo
             int antallPunkter = pointLatLngs.Count;
             int antallTags = lbValgtTags.Items.Count;
 
-            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Område(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags);
-
-            if (utFyllingsmangler == string.Empty)
+            List<string> Tags = new List<string>();
+            foreach (var item in lbValgtTags.Items)
             {
-                //hentløpenummer
-                var løpenummer = DatabaseCommunication.GetLøpenummer_område();
-                int Løpenummer_område = Convert.ToInt32(løpenummer[0]);
-
-                //laste opp området til database
-                try
-                {
-                    DatabaseCommunication.InsertOmrådeToDb(Løpenummer_område, navn, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
-                }
-                catch (Exception)
-                {
-
-                }
-                //Legge til hvert punkt
-                try
-                {
-                    int rekkefølge = 0;
-                    foreach (var item in pointLatLngs)
-                    {
-                        float lat = Convert.ToSingle(item.Lat);
-                        float lang = Convert.ToSingle(item.Lng);
-                        DatabaseCommunication.InsertPunkter_områdetToDb(Løpenummer_område, lat, lang, rekkefølge);
-                        rekkefølge++;
-                    }
-                }
-                catch (Exception)
-                {
-
-                }
-                //tags
-                try
-                {
-                    foreach (var item in lbValgtTags.Items)
-                    {
-                        DatabaseCommunication.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_område);
-                    }
-                }
-                catch (Exception)
-                {
-
-                }
-
-                //Slete innhold
-                txtNavn.Text = "";
-                txtSikkerhetsklarering.Text = "";
-                txtKommentar.Text = "";
-                txtfarge.Text = "";
-                txtLat.Text = "Dobbelklikk på kartet + \"legg til\"";
-                txtLong.Text = "Dobbelklikk på kartet + \"legg til\"";
-                lbValgtTags.Items.Clear();
-                lbTilgjengeligeTags.Items.Clear();
-                LastInnTags();
-                pointLatLngs.Clear();
-                txtNrPunkt.Text = "0";
-
-                //fjerne "hjelpe" markører 
-                Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
-
-                //legge til de nye området på kartet 
-                Kart.OppdaterListe_området();
-                Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                Tags.Add(item.ToString());
             }
-            else MessageBox.Show(utFyllingsmangler);
+
+            string SjekkFeil = LeggTilOmrådet(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags, Tags);
+
+            if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
+
         }
 
         private void btnLeggTilPunktIListe_Click(object sender, EventArgs e)
@@ -223,8 +158,99 @@ namespace GMAP_Demo
             {
                 Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
                 pointLatLngs.Clear();
-                txtNrPunkt.Text = "0";
+                txtNrPunkt.Text = pointLatLngs.Count.ToString();
             }
+        }
+
+        private string LeggTilOmrådet(string navn, string sikkerhetsklarering, string Kommentar, string Farge, int AntallPunkter, int AntallTags, List<string> Tags)
+        {
+            string feilmelding = string.Empty;
+
+            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Område(navn, sikkerhetsklarering, Kommentar, Farge, AntallPunkter, AntallTags);
+
+            if (utFyllingsmangler == string.Empty)
+            {
+                string FeilTallSjekk = Tekstbehandling.sjekkSikkerhetsKlarering(sikkerhetsklarering);
+
+                if (FeilTallSjekk == string.Empty)
+                {
+                    //Hentløpenummer
+                    var løpenummer = DatabaseCommunication.GetLøpenummer_område();
+                    int Løpenummer_område = Convert.ToInt32(løpenummer[0]);
+
+                    //Laste opp området til database
+                    try
+                    {
+                        DatabaseCommunication.InsertOmrådeToDb(Løpenummer_område, navn, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
+                    }
+                    catch (Exception feil) 
+                    {
+                        feilmelding += feil.Message;
+                    }
+
+                    //Legge til hvert punkt
+                    try
+                    {
+                        int rekkefølge = 0;
+                        foreach (var item in pointLatLngs)
+                        {
+                            float lat = Convert.ToSingle(item.Lat);
+                            float lang = Convert.ToSingle(item.Lng);
+                            DatabaseCommunication.InsertPunkter_områdetToDb(Løpenummer_område, lat, lang, rekkefølge);
+                            rekkefølge++;
+                        }
+                    }
+                    catch (Exception feil) 
+                    {
+                        feilmelding += feil.Message;
+                    }
+
+                    //Legge til hver tag tags
+                    try
+                    {
+                        foreach (var item in Tags)
+                        {
+                            DatabaseCommunication.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_område);
+                        }
+                    }
+                    catch (Exception feil ) 
+                    {
+                        feilmelding += feil.Message;
+                    }
+
+
+                    //Slete innhold
+                    TømeTekstfeltOgLister();
+
+                    //fjerne "hjelpe" markører 
+                    Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
+
+                    //legge til de nye området på kartet 
+                    Kart.OppdaterListe_området();
+                    Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                }
+                else MessageBox.Show(FeilTallSjekk);
+            }
+            else MessageBox.Show(utFyllingsmangler);
+
+            return feilmelding;
+        }
+        private void TømeTekstfeltOgLister()
+        {
+            //tekstfelt
+            txtNavn.Text = "";
+            txtSikkerhetsklarering.Text = "";
+            txtKommentar.Text = "";
+            txtfarge.Text = "";
+            txtLat.Text = "Dobbelklikk på kartet + \"legg til\"";
+            txtLong.Text = "Dobbelklikk på kartet + \"legg til\"";
+
+            //lister
+            lbValgtTags.Items.Clear();
+            lbTilgjengeligeTags.Items.Clear();
+            LastInnTags();
+            pointLatLngs.Clear();
+            txtNrPunkt.Text = pointLatLngs.Count.ToString();
         }
     }
 }
