@@ -17,6 +17,12 @@ namespace GMAP_Demo
         // Lister for filtrering på kategorier:
         // BindingList for lbKategorierVises REF: https://stackoverflow.com/questions/17615069/how-to-refresh-datasource-of-a-listbox, https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindinglist-1?view=net-6.0
         public static BindingList<Kategorier_Bilde> kategoriListeVises = new BindingList<Kategorier_Bilde>();
+        // BindingList for lbKategorierSkjult
+        public static BindingList<Kategorier_Bilde> kategoriListeSkjult = new BindingList<Kategorier_Bilde>();
+        public static BindingList<Tag_Ressurs> tag_RessursListeVises = new BindingList<Tag_Ressurs>();
+        public static BindingList<Tag_Ressurs> tag_RessursListeSkjult = new BindingList<Tag_Ressurs>();
+        public static BindingList<Tag_Område> tag_OmrådeListeVises = new BindingList<Tag_Område>();
+        public static BindingList<Tag_Område> tag_OmrådeListeSkjult = new BindingList<Tag_Område>();
         internal static void InitializekategoriListeVises()
         {
             kategoriListeVises.AllowNew = true;
@@ -29,6 +35,56 @@ namespace GMAP_Demo
                 OppdaterKategoriListe();
                 // OppdatertKart();
             }
+        }
+        internal static void InitializekategoriListeSkjult()
+        {
+            kategoriListeSkjult.AllowNew = true;
+            kategoriListeSkjult.AllowRemove = true;
+            kategoriListeSkjult.RaiseListChangedEvents = true;
+        }
+        internal static void InitializeTag_RessursListeVises()
+        {
+            tag_RessursListeVises.AllowNew = true;
+            tag_RessursListeVises.AllowRemove = true;
+            tag_RessursListeVises.RaiseListChangedEvents = true;
+
+            // Add items to the empty list.
+            if ((tag_RessursListeVises.Count == 0) && (tag_RessursListeSkjult.Count == 0))
+            {
+                OppdaterTag_RessursListe();
+                // OppdatertKart();
+            }
+        }
+
+
+
+        internal static void InitializeTag_RessursListeSkjult()
+        {
+            tag_RessursListeSkjult.AllowNew = true;
+            tag_RessursListeSkjult.AllowRemove = true;
+            tag_RessursListeSkjult.RaiseListChangedEvents = true;
+        }
+        internal static void InitializeTag_OmrådeListeVises()
+        {
+            tag_OmrådeListeVises.AllowNew = true;
+            tag_OmrådeListeVises.AllowRemove = true;
+            tag_OmrådeListeVises.RaiseListChangedEvents = true;
+
+            // Add items to the empty list.
+            if ((tag_OmrådeListeVises.Count == 0) && (tag_OmrådeListeSkjult.Count == 0))
+            {
+                OppdaterTag_OmrådeListe();
+                // OppdatertKart();
+            }
+        }
+
+
+
+        internal static void InitializeTag_OmrådeListeSkjult()
+        {
+            tag_OmrådeListeSkjult.AllowNew = true;
+            tag_OmrådeListeSkjult.AllowRemove = true;
+            tag_OmrådeListeSkjult.RaiseListChangedEvents = true;
         }
 
         public static void OppdaterKategoriListe()
@@ -43,14 +99,33 @@ namespace GMAP_Demo
             }
             // OppdatertKart();
         }
-        // BindingList for lbKategorierSkjult
-        public static BindingList<Kategorier_Bilde> kategoriListeSkjult = new BindingList<Kategorier_Bilde>();
-        internal static void InitializekategoriListeSkjult()
+        public static void OppdaterTag_RessursListe()
         {
-            kategoriListeSkjult.AllowNew = true;
-            kategoriListeSkjult.AllowRemove = true;
-            kategoriListeSkjult.RaiseListChangedEvents = true;
+            tag_RessursListeVises.Clear();
+
+            List<Tag_Ressurs> tag_RessursListeAlle = new List<Tag_Ressurs>();
+            tag_RessursListeAlle = DatabaseCommunication.ListAllTag_RessursFromDb();
+            foreach (var item in tag_RessursListeAlle)
+            {
+                tag_RessursListeVises.Add(item);
+            }
+
+            // OppdatertKart();
         }
+        public static void OppdaterTag_OmrådeListe()
+        {
+            tag_OmrådeListeVises.Clear();
+
+            List<Tag_Område> tag_OmrådeListeAlle = new List<Tag_Område>();
+            tag_OmrådeListeAlle = DatabaseCommunication.ListAllTag_OmrådeFromDb();
+            foreach (var item in tag_OmrådeListeAlle)
+            {
+                tag_OmrådeListeVises.Add(item);
+            }
+
+            // OppdatertKart();
+        }
+
 
         public static void Setup(MuligKart kart, PointLatLng p)
         {
@@ -115,10 +190,13 @@ namespace GMAP_Demo
             {
                 foreach (var item2 in Kart.kategoriListeVises)
                 {
-                    if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
+                    foreach (var item3 in tag_RessursListeVises)
                     {
-                        GlobaleLister.LRessurs.Add(item);
-                        break;
+                        if ((item.Kategori.ToString() == item2.Kategorinavn.ToString()) /*&& (item.Tag.ToString() == item3.Tag.ToString())*/) // Har kommentert ut delen som venter på Ressurs.Tag
+                        {
+                            GlobaleLister.LRessurs.Add(item);
+                            break;
+                        }
                     }
                 }
             }

@@ -53,7 +53,6 @@ namespace GMAP_Demo
                 GlobaleLister.LOmråde.Add(item);
             }
             Kart.LeggTilOmråde(GlobaleLister.LOmråde, Kart.MuligKart.Visning);
-
         }
 
         private void btnRessurs_Click(object sender, EventArgs e)
@@ -100,6 +99,10 @@ namespace GMAP_Demo
             lbKategorierVises.DisplayMember = "Kategorinavn";
             lbKategorierSkjult.DataSource = Kart.kategoriListeSkjult;
             lbKategorierSkjult.DisplayMember = "Kategorinavn";
+            lbTagsVises.DataSource = Kart.tag_RessursListeVises;
+            lbTagsVises.DisplayMember = "Tag";
+            lbTagsSkjult.DataSource = Kart.tag_RessursListeSkjult;
+            lbTagsSkjult.DisplayMember = "Tag";
         }
 
         private void lbKategorierVises_DoubleClick(object sender, EventArgs e)
@@ -119,6 +122,28 @@ namespace GMAP_Demo
             {
                 Kart.kategoriListeVises.Add((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
                 Kart.kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
+                Kart.OppdaterListe_ressurs();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            }
+        }
+
+        private void lbTagsVises_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbTagsVises.Items.Count > 0)
+            {
+                Kart.tag_RessursListeSkjult.Add((Tag_Ressurs)lbTagsVises.SelectedItem);
+                Kart.tag_RessursListeVises.Remove((Tag_Ressurs)lbTagsVises.SelectedItem);
+                Kart.OppdaterListe_ressurs();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            }
+        }
+
+        private void lbTagsSkjult_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbTagsSkjult.Items.Count > 0)
+            {
+                Kart.tag_RessursListeVises.Add((Tag_Ressurs)lbTagsSkjult.SelectedItem);
+                Kart.tag_RessursListeSkjult.Remove((Tag_Ressurs)lbTagsSkjult.SelectedItem);
                 Kart.OppdaterListe_ressurs();
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }

@@ -61,6 +61,12 @@ namespace GMAP_Demo
             Kart.InitializekategoriListeVises();
             Kart.InitializekategoriListeSkjult();
 
+            // TagListene på kartet
+            Kart.InitializeTag_RessursListeVises();
+            Kart.InitializeTag_RessursListeSkjult();
+            Kart.InitializeTag_OmrådeListeVises();
+            Kart.InitializeTag_OmrådeListeSkjult();
+
             //legget til alle ressurser i lister 
             Kart.OppdaterListe_ressurs();
             Kart.OppdaterListe_området();
