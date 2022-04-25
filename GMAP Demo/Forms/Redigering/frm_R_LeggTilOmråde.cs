@@ -122,6 +122,7 @@ namespace GMAP_Demo
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
+            Kart.OppdaterTag_Liste();
         }
 
         private void btnLeggTilPunktIListe_Click(object sender, EventArgs e)

@@ -136,7 +136,7 @@ namespace GMAP_Demo
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
-           
+            Kart.OppdaterTag_Liste();
         }
 
         private string RedigerObjekt(int løpenummer,string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags,List<string> GamleTags, List<string> nyTags)

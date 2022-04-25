@@ -52,7 +52,7 @@ namespace GMAP_Demo
             // Add items to the empty list.
             if ((tag_ListeVises.Count == 0) && (tag_ListeSkjult.Count == 0))
             {
-                OppdaterTag_RessursListe();
+                OppdaterTag_Liste();
                 // OppdatertKart();
             }
         }
@@ -100,7 +100,8 @@ namespace GMAP_Demo
             }
             // OppdatertKart();
         }
-        public static void OppdaterTag_RessursListe()
+
+        public static void OppdaterTag_Liste()
         {
             tag_ListeVises.Clear();
 

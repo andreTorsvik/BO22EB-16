@@ -128,6 +128,8 @@ namespace GMAP_Demo
             string SjekkFeil = RedigerOmrådet(Løpenummer_til_redigering, navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags, LGamleTag, NyTags);
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
+
+            Kart.OppdaterTag_Liste();
         }
 
         private void btnLeggTilPunkt_Click(object sender, EventArgs e)

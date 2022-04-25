@@ -33,6 +33,7 @@ namespace GMAP_Demo
                 lbTilgjengeligeTags.Items.Add(NyTag);
                 lbTilgjengeligeTags.Sorted = true;
                 txtNyTag.Text = "";
+                
             }
         }
 
@@ -56,6 +57,7 @@ namespace GMAP_Demo
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
+            Kart.OppdaterTag_Liste();
         }
 
         private void lbTilgjengligKategori_MouseDoubleClick(object sender, MouseEventArgs e)
