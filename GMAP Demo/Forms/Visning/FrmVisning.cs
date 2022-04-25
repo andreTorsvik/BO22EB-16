@@ -116,7 +116,7 @@ namespace GMAP_Demo
                 instance.map.Overlays.Clear();
 
                 //Oppdater listene 
-
+                //test
                 //Kun for å hindre at områdene kommer fram hvis de ikke allreder er der 
                 foreach (var item in map.Overlays)
                 {
