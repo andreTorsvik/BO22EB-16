@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 
 namespace GMAP_Demo
 {
@@ -177,6 +178,8 @@ namespace GMAP_Demo
             {
                 GlobaleLister.LOmråde.Add(item);
             }
+
+            if (true) FellesMetoder.FiltreBaserPåTags(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
         }
 
         public static void OppdaterListe_ressurs()
@@ -199,13 +202,8 @@ namespace GMAP_Demo
                     
                 }
             }
-            List<string> test = new List<string>();
-            foreach (var item in tag_ListeVises)
-            {
-                test.Add(item.ToString());
-            }
 
-            FellesMetoder.FiltreBAserPåTags(ref GlobaleLister.LRessurs, test);
+            FellesMetoder.FiltreBaserPåTags(ref GlobaleLister.LRessurs, tag_ListeVises.ToList()) ;
         }
 
         public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
