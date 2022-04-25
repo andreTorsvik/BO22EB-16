@@ -109,22 +109,23 @@ namespace GMAP_Demo
 
             frmVisning.instance.map.Position = point;
         }
+
         public static void FyllInfoObjekt(int Tag)
         {
-            frmFilter.instance.txtNavn.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Navn;
-            frmFilter.instance.txtKategori.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Kategori;
-            frmFilter.instance.txtDato_opprettet.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Dato_opprettet;
-            frmFilter.instance.txtOpprettetAvBruker.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Opprettet_av_bruker;
-            frmFilter.instance.txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Sikkerhetsklarering.ToString();
-            frmFilter.instance.txtKommentar.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Kommentar;
+            instance.txtNavn.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Navn;
+            instance.txtKategori.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Kategori;
+            instance.txtDato_opprettet.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Dato_opprettet;
+            instance.txtOpprettetAvBruker.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Opprettet_av_bruker;
+            instance.txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Sikkerhetsklarering.ToString();
+            instance.txtKommentar.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Kommentar;
 
             //tags
-            if (frmFilter.instance.lbTags.Items.Count > 0) frmFilter.instance.lbTags.Items.Clear();
+            if (instance.lbTags.Items.Count > 0) instance.lbTags.Items.Clear();
 
             var TagListeTilRessurs = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].hentTags();
             foreach (var tags in TagListeTilRessurs)
             {
-                frmFilter.instance.lbTags.Items.Add(tags);
+                instance.lbTags.Items.Add(tags);
             }
             //måling
         }
