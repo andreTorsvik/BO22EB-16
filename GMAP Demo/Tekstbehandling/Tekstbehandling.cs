@@ -152,7 +152,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
             if (rList[0].Kategori != kategori)
                 Endringer += string.Format("Kategori: {0} -> {1}" + newLine, rList[0].Kategori, kategori);
@@ -165,7 +165,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
             try
@@ -175,7 +175,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
             //tags
@@ -287,7 +287,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DatabaseCommunication.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
             if (oList[0].Kommentar != kommentar)
                 Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, oList[0].Kommentar, kommentar);

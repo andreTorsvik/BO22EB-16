@@ -18,7 +18,7 @@ namespace GMAP_Demo
         {
             GlobaleLister.LOmråde.Clear();
 
-            var OmrådeListe = DatabaseCommunication.ListAllOmrådeFromDb();
+            var OmrådeListe = DBComOmråde.ListAllOmrådeFromDb();
 
             foreach (var item in OmrådeListe)
             {

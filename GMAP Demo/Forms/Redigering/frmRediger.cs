@@ -316,7 +316,7 @@ namespace GMAP_Demo
 
                 //punkt liste
                 if (frm_R_RedigerOmråde.instance.lbPunkter.Items.Count > 0) frm_R_RedigerOmråde.instance.pointLatLngs.Clear();
-                var Punktliste = DatabaseCommunication.GetPunkter_området(frm_R_RedigerOmråde.instance.Løpenummer_til_redigering);
+                var Punktliste = DBComPunkter_område.GetPunkter_området(frm_R_RedigerOmråde.instance.Løpenummer_til_redigering);
                 Punktliste = Punktliste.OrderBy(x => x.Rekkefølge_punkter).ToList();
                 foreach (var item1 in Punktliste)
                 {

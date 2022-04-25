@@ -37,7 +37,7 @@ namespace GMAP_Demo
         {
             List<string> tags = new List<string>();
 
-            var TagListe = DatabaseCommunication.ListTag_ressursFromDb(Løpenummer_ressurs);
+            var TagListe = DBComTag_Ressurs.ListTag_ressursFromDb(Løpenummer_ressurs);
 
             foreach (var item in TagListe)
             {

@@ -38,7 +38,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
             if (LAdresse != null)
@@ -58,7 +58,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
             if (LAdresse != null)
@@ -77,7 +77,7 @@ namespace GMAP_Demo
                 }
                 catch (Exception feilmelding)
                 {
-                    DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                    DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
             }
         }

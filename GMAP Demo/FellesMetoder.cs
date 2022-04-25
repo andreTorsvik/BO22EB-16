@@ -14,13 +14,13 @@ namespace GMAP_Demo
 
             try
             {
-                var TagOListe = DatabaseCommunication.ListAllTag_OmrådeFromDb();
+                var TagOListe = DBComTag_Område.ListAllTag_OmrådeFromDb();
                 foreach (var item in TagOListe)
                 {
                     AlleTag.Add(item.Tag.ToString());
                 }
 
-                var TagRListe = DatabaseCommunication.ListAllTag_RessursFromDb();
+                var TagRListe = DBComTag_Ressurs.ListAllTag_RessursFromDb();
                 foreach (var item in TagRListe)
                 {
                     AlleTag.Add(item.Tag.ToString());

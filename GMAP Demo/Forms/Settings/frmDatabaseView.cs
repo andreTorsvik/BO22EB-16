@@ -81,7 +81,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbBrukerView.Height, btnDbBrukerView.Top);
             
-            brukerList = DatabaseCommunication.ListAllBrukerFromDb();
+            brukerList = DBComBruker.ListAllBrukerFromDb();
             listBoxDatabaseView.DataSource = brukerList;
             listBoxDatabaseView.DisplayMember = "brukerDataTypeToString";
         }
@@ -93,7 +93,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbKategorier_BildeView.Height, btnDbKategorier_BildeView.Top);
 
-            kategorier_BildeList = DatabaseCommunication.ListAllKategorier_BildeFromDb();
+            kategorier_BildeList = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
             listBoxDatabaseView.DataSource = kategorier_BildeList;
             listBoxDatabaseView.DisplayMember = "kategorier_BildeDataTypeToString";
         }
@@ -105,7 +105,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbMålingView.Height, btnDbMålingView.Top);
 
-            målingList = DatabaseCommunication.ListAllMålingFromDb();
+            målingList = DBComMåling.ListAllMålingFromDb();
             listBoxDatabaseView.DataSource = målingList;
             listBoxDatabaseView.DisplayMember = "målingDataTypeToString";
         }
@@ -117,7 +117,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbTag_OmrådeView.Height, btnDbTag_OmrådeView.Top);
             
-            tag_OmrådeList = DatabaseCommunication.ListAllTag_OmrådeFromDb();
+            tag_OmrådeList = DBComTag_Område.ListAllTag_OmrådeFromDb();
             listBoxDatabaseView.DataSource = tag_OmrådeList;
             listBoxDatabaseView.DisplayMember = "tag_OmrådeDataTypeToString";
         }
@@ -129,7 +129,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbTag_RessursView.Height, btnDbTag_RessursView.Top);
 
-            tag_RessursList = DatabaseCommunication.ListAllTag_RessursFromDb();
+            tag_RessursList = DBComTag_Ressurs.ListAllTag_RessursFromDb();
             listBoxDatabaseView.DataSource = tag_RessursList;
             listBoxDatabaseView.DisplayMember = "tag_RessursDataTypeToString";
         }
@@ -141,7 +141,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbPunkter_områdeView.Height, btnDbPunkter_områdeView.Top);
 
-            punkter_områdeList = DatabaseCommunication.ListAllPunkter_områdeFromDb();
+            punkter_områdeList = DBComPunkter_område.ListAllPunkter_områdeFromDb();
             listBoxDatabaseView.DataSource = punkter_områdeList;
             listBoxDatabaseView.DisplayMember = "punkter_områdeDataTypeToString";
         }
@@ -153,7 +153,7 @@ namespace GMAP_Demo
             
             FlyttNavigasjonsPanel(btnDbRessursView.Height, btnDbRessursView.Top);
 
-            ressursList = DatabaseCommunication.ListAllRessursFromDb();
+            ressursList = DBComRessurs.ListAllRessursFromDb();
             listBoxDatabaseView.DataSource = ressursList;
             listBoxDatabaseView.DisplayMember = "ressursDataTypeToString";
         }
@@ -174,7 +174,7 @@ namespace GMAP_Demo
 
             FlyttNavigasjonsPanel(btnDbOmrådeView.Height, btnDbOmrådeView.Top);
 
-            områdeList = DatabaseCommunication.ListAllOmrådeFromDb();
+            områdeList = DBComOmråde.ListAllOmrådeFromDb();
             listBoxDatabaseView.DataSource = områdeList;
             listBoxDatabaseView.DisplayMember = "områdeDataTypeToString";
         }

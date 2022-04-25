@@ -22,7 +22,7 @@ namespace GMAP_Demo
 
         private void FyllListeneBoksene()
         {
-            var BrukerListe = DatabaseCommunication.ListAllBrukerFromDb();
+            var BrukerListe = DBComBruker.ListAllBrukerFromDb();
 
             //liste over brukere 
             foreach (var item in BrukerListe)
@@ -48,7 +48,7 @@ namespace GMAP_Demo
         {
             lbListeOverbrukere.Items.Clear();
 
-            var BrukerListe = DatabaseCommunication.ListAllBrukerFromDb();
+            var BrukerListe = DBComBruker.ListAllBrukerFromDb();
 
             //liste over brukere 
             foreach (var item in BrukerListe)
@@ -69,8 +69,8 @@ namespace GMAP_Demo
                 string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
                 string TilEpost = HentEpostFraInfo(BrukerInfo);
 
-                var BrukerListe = DatabaseCommunication.ListBrukerInfoFromDb(TilEpost);
-                DatabaseCommunication.UpdateBruker_Godkjent(BrukerListe[0].Epost, true);
+                var BrukerListe = DBComBruker.ListBrukerInfoFromDb(TilEpost);
+                DBComBruker.UpdateBruker_Godkjent(BrukerListe[0].Epost, true);
 
                 int tallkode = BrukerListe[0].Tallkode; ;
                 try
@@ -80,7 +80,7 @@ namespace GMAP_Demo
                 }
                 catch (Exception feilmelding)
                 {
-                    DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                    DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
                 GodkjentListeSjekk();
             }
@@ -142,12 +142,12 @@ namespace GMAP_Demo
             //fjern fra databasen 
             try
             {
-                DatabaseCommunication.DeleteBruker(epost);
+                DBComBruker.DeleteBruker(epost);
                 lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
             }
             catch (Exception feilmelding)
             {
-                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
             GodkjentListeSjekk();
 
@@ -188,7 +188,7 @@ namespace GMAP_Demo
                 bool tillatelse = KanOppgradere(InnloggetBruker.BrukernavnInnlogget, epost);
                 if (tillatelse)
                 {
-                    var brukerListe = DatabaseCommunication.ListBrukerInfoFromDb(epost);
+                    var brukerListe = DBComBruker.ListBrukerInfoFromDb(epost);
 
                     int klarering = brukerListe[0].Sikkerhetsklarering;
 
@@ -201,7 +201,7 @@ namespace GMAP_Demo
                         MessageBox.Show("Kan ikke oppgradere fordi bruker allerede har høyeste");
                     }
 
-                    DatabaseCommunication.UpdateBruker_Sikkerhetsklarering(epost, klarering);
+                    DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
 
                     OppdaterListenOverBrukere(selectetItem);
                 }
@@ -229,7 +229,7 @@ namespace GMAP_Demo
             catch (Exception feilmelding)
             {
                 epost = null;
-                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
             if (epost != null)
@@ -237,7 +237,7 @@ namespace GMAP_Demo
                 bool tillatelse = KanNedgradere(InnloggetBruker.BrukernavnInnlogget, epost);
                 if (tillatelse)
                 {
-                    var brukerListe = DatabaseCommunication.ListBrukerInfoFromDb(epost);
+                    var brukerListe = DBComBruker.ListBrukerInfoFromDb(epost);
 
                     int klarering = brukerListe[0].Sikkerhetsklarering;
 
@@ -249,7 +249,7 @@ namespace GMAP_Demo
                     {
                         MessageBox.Show("Kan ikke nedgradere fordi bruker allerede har laveste");
                     }
-                    DatabaseCommunication.UpdateBruker_Sikkerhetsklarering(epost, klarering);
+                    DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
 
                     OppdaterListenOverBrukere(selectetItem);
                 }
@@ -261,8 +261,8 @@ namespace GMAP_Demo
 
             try
             {
-                var InnloggetBruker = DatabaseCommunication.ListBrukerInfoFromDb(Innlogget);
-                var AktuellBruker = DatabaseCommunication.ListBrukerInfoFromDb(Aktuell);
+                var InnloggetBruker = DBComBruker.ListBrukerInfoFromDb(Innlogget);
+                var AktuellBruker = DBComBruker.ListBrukerInfoFromDb(Aktuell);
 
                 if (InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
                 {
@@ -271,7 +271,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
 
@@ -285,8 +285,8 @@ namespace GMAP_Demo
 
             try
             {
-                var InnloggetBruker = DatabaseCommunication.ListBrukerInfoFromDb(Innlogget);
-                var AktuellBruker = DatabaseCommunication.ListBrukerInfoFromDb(Aktuell);
+                var InnloggetBruker = DBComBruker.ListBrukerInfoFromDb(Innlogget);
+                var AktuellBruker = DBComBruker.ListBrukerInfoFromDb(Aktuell);
 
                 if (InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
                 {
@@ -299,7 +299,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
             return sjekk;

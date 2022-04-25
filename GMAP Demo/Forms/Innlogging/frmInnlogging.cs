@@ -35,7 +35,7 @@ namespace GMAP_Demo
             string Epost = tbUserName.Text.ToLower();
             string passord = tbPassword.Text;
 
-            listBruker = DatabaseCommunication.CheckLoginAgainstDb(Epost, passord).ToList();
+            listBruker = DBComBruker.CheckLoginAgainstDb(Epost, passord).ToList();
 
             // if success
             if (listBruker.Count > 0)

@@ -20,7 +20,7 @@ namespace GMAP_Demo
             try
             {
                 List<Ressurs> ressursList = new List<Ressurs>();
-                ressursList = DatabaseCommunication.ListAllRessursFromDb();
+                ressursList = DBComRessurs.ListAllRessursFromDb();
             }
             catch (Exception e)
             {

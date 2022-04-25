@@ -17,7 +17,7 @@ namespace GMAP_Demo
             InitializeComponent();
             DatabaseCommunication db = new DatabaseCommunication();
             List<Bruker> listBruker = new List<Bruker>();
-            listBruker = (DatabaseCommunication.ListBrukerInfoFromDb(InnloggetBruker.BrukernavnInnlogget.ToString()));
+            listBruker = (DBComBruker.ListBrukerInfoFromDb(InnloggetBruker.BrukernavnInnlogget.ToString()));
 
             tbFornavn.Text = listBruker[0].Fornavn.ToString();
             tbEtternavn.Text = listBruker[0].Etternavn.ToString();

@@ -153,7 +153,7 @@ namespace GMAP_Demo
                 }
                 catch (Exception feilmelding)
                 {
-                    DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                    DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
             }
         }
@@ -176,7 +176,7 @@ namespace GMAP_Demo
 
             if (utFyllingsmangler == string.Empty)
             {
-                var Lområde = DatabaseCommunication.ListOmrådeFromDb(Løpenummer);
+                var Lområde = DBComOmråde.ListOmrådeFromDb(Løpenummer);
                 string FeilTallSjekk = Tekstbehandling.sjekkSikkerhetsKlarering(sikkerhetsklarering);
 
                 if (FeilTallSjekk == string.Empty)
@@ -202,20 +202,20 @@ namespace GMAP_Demo
                             try
                             {
                                 //Oppdtaer info 
-                                DatabaseCommunication.UpdateOmråde(Løpenummer_til_redigering, navn, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
+                                DBComOmråde.UpdateOmråde(Løpenummer_til_redigering, navn, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
 
 
                                 if (enderingIPunkter != string.Empty)
                                 {
                                     //SLETTE ALLE punlter KNYTTET TIL området 
-                                    DatabaseCommunication.DeletePunkter_området(Løpenummer_til_redigering);
+                                    DBComPunkter_område.DeletePunkter_området(Løpenummer_til_redigering);
                                     //LEGGE TIL NYE punkter
                                     int rekkefølge = 0;
                                     foreach (var item in pList)
                                     {
                                         float lat = Convert.ToSingle(item.Lat);
                                         float lang = Convert.ToSingle(item.Lng);
-                                        DatabaseCommunication.InsertPunkter_områdetToDb(Løpenummer_til_redigering, lat, lang, rekkefølge);
+                                        DBComPunkter_område.InsertPunkter_områdetToDb(Løpenummer_til_redigering, lat, lang, rekkefølge);
                                         rekkefølge++;
                                     }
                                 }
@@ -226,11 +226,11 @@ namespace GMAP_Demo
                                 if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
                                 {
                                     //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
-                                    DatabaseCommunication.DeleteTags_Område(Løpenummer_til_redigering);
+                                    DBComTag_Område.DeleteTags_Område(Løpenummer_til_redigering);
                                     //LEGGE TIL NYE
                                     foreach (var item in lbValgtTags.Items)
                                     {
-                                        DatabaseCommunication.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_til_redigering);
+                                        DBComTag_Område.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_til_redigering);
                                     }
                                 }
                                 //Da har alt gått igjennom og endringene lagret 

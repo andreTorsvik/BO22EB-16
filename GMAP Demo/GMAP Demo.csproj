@@ -90,7 +90,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bildebehandling\Bildebehandling.cs" />
-    <Compile Include="Database\DatabaseCommunication.cs" />
+    <Compile Include="Database\Databasekommunikasjon\DatabaseCommunication.cs" />
+    <Compile Include="Database\Databasekommunikasjon\DBComBruker.cs" />
+    <Compile Include="Database\Databasekommunikasjon\DBComKategorier_Bilde.cs" />
+    <Compile Include="Database\Databasekommunikasjon\DBComLog_feil.cs" />
+    <Compile Include="Database\Databasekommunikasjon\DBComMåling.cs" />
+    <Compile Include="Database\Databasekommunikasjon\DBComOmråde.cs" />
+    <Compile Include="Database\Databasekommunikasjon\DBComPunkter_område.cs" />
+    <Compile Include="Database\Databasekommunikasjon\DBComRessurs.cs" />
+    <Compile Include="Database\Databasekommunikasjon\DBComTag_Område.cs" />
+    <Compile Include="Database\Databasekommunikasjon\DBComTag_Ressurs.cs" />
     <Compile Include="Database\DataTypes\Bruker.cs" />
     <Compile Include="Database\DataTypes\Kategorier_Bilde.cs" />
     <Compile Include="Database\DataTypes\Måling.cs" />

@@ -25,7 +25,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DatabaseCommunication.LogFeil(typeof(FilBehandeling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(typeof(FilBehandeling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
             finally
             {

@@ -147,7 +147,7 @@ namespace GMAP_Demo
                 }
                 catch (Exception feilmelding)
                 {
-                    DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                    DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
             }
         }
@@ -175,13 +175,13 @@ namespace GMAP_Demo
                 if (FeilTallSjekk == string.Empty)
                 {
                     //Hentløpenummer
-                    var løpenummer = DatabaseCommunication.GetLøpenummer_område();
+                    var løpenummer = DBComOmråde.GetLøpenummer_område();
                     int Løpenummer_område = Convert.ToInt32(løpenummer[0]);
 
                     //Laste opp området til database
                     try
                     {
-                        DatabaseCommunication.InsertOmrådeToDb(Løpenummer_område, navn, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
+                        DBComOmråde.InsertOmrådeToDb(Løpenummer_område, navn, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
                     }
                     catch (Exception feil) 
                     {
@@ -196,7 +196,7 @@ namespace GMAP_Demo
                         {
                             float lat = Convert.ToSingle(item.Lat);
                             float lang = Convert.ToSingle(item.Lng);
-                            DatabaseCommunication.InsertPunkter_områdetToDb(Løpenummer_område, lat, lang, rekkefølge);
+                            DBComPunkter_område.InsertPunkter_områdetToDb(Løpenummer_område, lat, lang, rekkefølge);
                             rekkefølge++;
                         }
                     }
@@ -210,7 +210,7 @@ namespace GMAP_Demo
                     {
                         foreach (var item in Tags)
                         {
-                            DatabaseCommunication.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_område);
+                            DBComTag_Område.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_område);
                         }
                     }
                     catch (Exception feil ) 

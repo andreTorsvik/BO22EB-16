@@ -50,7 +50,7 @@ namespace GMAP_Demo
                 {
                     //sjekk at ingen har samme epost
                     Epost = Epost.ToLower();
-                    var SjekkEpost = DatabaseCommunication.ListBrukerInfoFromDb(Epost.Trim());
+                    var SjekkEpost = DBComBruker.ListBrukerInfoFromDb(Epost.Trim());
                     if (SjekkEpost.Count == 0)
                     {
                         try
@@ -58,7 +58,7 @@ namespace GMAP_Demo
                             //Generer tall 
                             int Tallkode = GenereTallKode();
                             //legge til i database
-                            DatabaseCommunication.InsertBrukerToDb(fornavn, etternavn, Convert.ToInt32(telefon), Epost.Trim(), passord, Tallkode);
+                            DBComBruker.InsertBrukerToDb(fornavn, etternavn, Convert.ToInt32(telefon), Epost.Trim(), passord, Tallkode);
 
                             svar = true;
                         }

@@ -31,7 +31,7 @@ namespace GMAP_Demo
         internal static bool sjekkOmKategoriHarBilde(Ressurs item) // Mottar en ressurs og ser om ressursens kategori har et tilhørende bilde.
         {
             List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
-            kategorier_Bilde = DatabaseCommunication.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
+            kategorier_Bilde = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
 
             if (kategorier_Bilde[0].Bilde != null)
             {
@@ -52,7 +52,7 @@ namespace GMAP_Demo
             DatabaseCommunication db = new DatabaseCommunication();
 
             List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
-            kategorier_Bilde = DatabaseCommunication.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
+            kategorier_Bilde = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);
 
             if (kategorier_Bilde[0] != null)
             {

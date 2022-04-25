@@ -75,7 +75,7 @@ namespace GMAP_Demo
             {
                 try
                 {
-                    DatabaseCommunication.InsertKategorier_BildeToDb(nyKategori);
+                    DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
                 }
                 catch (Exception)
                 {
@@ -92,7 +92,7 @@ namespace GMAP_Demo
         private void LastInnKategorier()
         {
             GlobaleLister.LKategori.Clear();
-            var KategoriListe = DatabaseCommunication.ListAllKategorier_BildeFromDb();
+            var KategoriListe = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
 
             foreach (var item in KategoriListe)
             {
@@ -157,14 +157,14 @@ namespace GMAP_Demo
                 if (feilMelding == string.Empty)
                 {
                     //løpenummer 
-                    var løpenummer = DatabaseCommunication.GetLøpenummer_Ressurs();
+                    var løpenummer = DBComRessurs.GetLøpenummer_Ressurs();
                     int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
 
                     //laste opp ressurs 
                     try
                     {
                         if (Løpenummer_Ressurs > 0)
-                            DatabaseCommunication.InsertRessursToDb(Løpenummer_Ressurs, navn, kategori, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
+                            DBComRessurs.InsertRessursToDb(Løpenummer_Ressurs, navn, kategori, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
 
                     }
                     catch (Exception feil)
@@ -177,7 +177,7 @@ namespace GMAP_Demo
                     {
                         foreach (var item in lbValgtTags.Items)
                         {
-                            DatabaseCommunication.InsertTag_RessursToDb(item.ToString(), Løpenummer_Ressurs);
+                            DBComTag_Ressurs.InsertTag_RessursToDb(item.ToString(), Løpenummer_Ressurs);
                         }
 
                     }

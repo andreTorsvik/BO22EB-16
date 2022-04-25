@@ -30,7 +30,7 @@ namespace GMAP_Demo
         {
             List<string> tags = new List<string>();
 
-            var TagListe = DatabaseCommunication.ListTag_områdeFromDb(Løpenummer_område);
+            var TagListe = DBComTag_Område.ListTag_områdeFromDb(Løpenummer_område);
 
             foreach (var item in TagListe)
             {
@@ -62,7 +62,7 @@ namespace GMAP_Demo
             //}
 
             List<PointLatLng> Lsvar = new List<PointLatLng>();
-            var PunktListe = DatabaseCommunication.GetPunkter_området(Løpenummer_område);
+            var PunktListe = DBComPunkter_område.GetPunkter_området(Løpenummer_område);
             PunktListe = PunktListe.OrderBy(x => x.Rekkefølge_punkter).ToList();
             foreach (var item in PunktListe)
             {        

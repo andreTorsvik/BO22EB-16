@@ -34,7 +34,7 @@ namespace GMAP_Demo
         private void LastInnKategorier()
         {
             GlobaleLister.LKategori.Clear();
-            var KategoriListe = DatabaseCommunication.ListAllKategorier_BildeFromDb();
+            var KategoriListe = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
 
             foreach (var item in KategoriListe)
             {
@@ -54,7 +54,7 @@ namespace GMAP_Demo
 
             if (!string.IsNullOrEmpty(nyKategori))
             {
-                DatabaseCommunication.InsertKategorier_BildeToDb(nyKategori);
+                DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
 
                 lbTilgjengligKategori.Items.Add(nyKategori);
                 lbTilgjengligKategori.Sorted = true;
@@ -147,7 +147,7 @@ namespace GMAP_Demo
 
             if (utFyllingsmangler == string.Empty)
             {
-                var ressurs = DatabaseCommunication.ListRessursFromDb(løpenummer);
+                var ressurs = DBComRessurs.ListRessursFromDb(løpenummer);
                 string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
                 if (FeilTallSjekk == string.Empty)
                 {
@@ -164,18 +164,18 @@ namespace GMAP_Demo
                         {
                             try
                             {
-                                DatabaseCommunication.UpdateRessurs(løpenummer, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
+                                DBComRessurs.UpdateRessurs(løpenummer, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
 
                                 List<string> SjekkOmNye1 = nyTags.Except(GamleTags).ToList();
                                 List<string> SjekkOmNye2 = GamleTags.Except(nyTags).ToList();
                                 if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
                                 {
                                     //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
-                                    DatabaseCommunication.DeleteTags_Ressurs(løpenummer);
+                                    DBComTag_Ressurs.DeleteTags_Ressurs(løpenummer);
                                     //LEGGE TIL NYE
                                     foreach (var item in lbValgtTags.Items)
                                     {
-                                        DatabaseCommunication.InsertTag_RessursToDb(item.ToString(), løpenummer);
+                                        DBComTag_Ressurs.InsertTag_RessursToDb(item.ToString(), løpenummer);
                                     }
                                 }
                             }

@@ -92,7 +92,7 @@ namespace GMAP_Demo
             kategoriListeVises.Clear();
 
             List<Kategorier_Bilde> kategoriListeAlle = new List<Kategorier_Bilde>();
-            kategoriListeAlle = DatabaseCommunication.ListAllKategorier_BildeFromDb();
+            kategoriListeAlle = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
             foreach (var item in kategoriListeAlle)
             {
                 kategoriListeVises.Add(item);
@@ -171,7 +171,7 @@ namespace GMAP_Demo
         {
             GlobaleLister.LOmråde.Clear();
 
-            var OmrådeListe = DatabaseCommunication.ListAllOmrådeFromDb();
+            var OmrådeListe = DBComOmråde.ListAllOmrådeFromDb();
 
             foreach (var item in OmrådeListe)
             {
@@ -184,7 +184,7 @@ namespace GMAP_Demo
             //Må oppdatere område liste også 
             if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
 
-            var RessursList = DatabaseCommunication.ListAllRessursFromDb();
+            var RessursList = DBComRessurs.ListAllRessursFromDb();
 
             // Er dette en tungvindt måte å gjøre det på? Kan dette forbedres?
             foreach (var item in RessursList)
@@ -474,7 +474,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DatabaseCommunication.LogFeil(typeof(Kart).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(typeof(Kart).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
             return null;
         }

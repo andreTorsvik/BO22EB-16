@@ -43,7 +43,7 @@ namespace GMAP_Demo
                     result = MessageBox.Show(tekst, caption, buttons);
                     if (result == DialogResult.Yes)
                     {
-                        DatabaseCommunication.DeleteRessurs(Løpenummer_til_objekt);
+                        DBComRessurs.DeleteRessurs(Løpenummer_til_objekt);
                         lableSlettet.Text = String.Format("Ressurs nr: {0} er slettet", Løpenummer_til_objekt);
                         Løpenummer_til_objekt = -1;
                         TømInnholdTekstboks();
@@ -71,8 +71,8 @@ namespace GMAP_Demo
                     result = MessageBox.Show(tekst, caption, buttons);
                     if (result == DialogResult.Yes)
                     {
-                        DatabaseCommunication.DeletePunkter_området(Løpenummer_til_Område);
-                        DatabaseCommunication.DeleteOmråde(Løpenummer_til_Område);
+                        DBComPunkter_område.DeletePunkter_området(Løpenummer_til_Område);
+                        DBComOmråde.DeleteOmråde(Løpenummer_til_Område);
                         lableSlettet.Text = String.Format("Område nr: {0} er slettet", Løpenummer_til_Område);
                         Løpenummer_til_Område = -1;
                         TømInnholdTekstboks();

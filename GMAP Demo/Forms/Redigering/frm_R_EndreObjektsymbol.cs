@@ -32,7 +32,7 @@ namespace GMAP_Demo
                 valgtKategori = txtValgtKategori.Text.ToString();
 
                 // vis bilde hvis tilgjengelig
-                List<Kategorier_Bilde> kategori = DatabaseCommunication.GetBildeForKategoriFromDbKategorier_Bilde(selectedItemtext.ToString());
+                List<Kategorier_Bilde> kategori = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(selectedItemtext.ToString());
                 if (kategori[0].Bilde != null) // Sjekk om kategori har bilde
                 {
                     
@@ -75,7 +75,7 @@ namespace GMAP_Demo
 
         private void frm_S_LeggTilBilde_Load(object sender, EventArgs e)
         {
-            var KategoriListe = DatabaseCommunication.ListAllKategorier_BildeFromDb();
+            var KategoriListe = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
 
             foreach (var item in KategoriListe)
             {
@@ -91,7 +91,7 @@ namespace GMAP_Demo
         {
             if ((valgtKategori != null) && (imageData != null))
             {
-                DatabaseCommunication.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
+                DBComKategorier_Bilde.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
                 pbValgtKategori.Visible = false;
                 pbValgtBilde.Dispose();
                 txtValgtKategori.Text = "";
