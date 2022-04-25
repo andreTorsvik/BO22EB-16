@@ -208,14 +208,11 @@ namespace GMAP_Demo
         {
             if (frmFilter.instance != null)
             {
-                frmFilter.instance.txtNavn.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Navn;
-                frmFilter.instance.txtKategori.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
-                frmFilter.instance.txtDato_opprettet.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Dato_opprettet;
-                frmFilter.instance.txtOpprettetAvBruker.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
-                frmFilter.instance.txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-                frmFilter.instance.txtKommentar.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
+                frmFilter.FyllInfoObjekt(Convert.ToInt32(item.Tag));
             }
         }
+
+        
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
             if (frmFilter.instance != null)
@@ -226,6 +223,15 @@ namespace GMAP_Demo
                 frmFilter.instance.txtOpprettetAvBruker.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
                 frmFilter.instance.txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
                 frmFilter.instance.txtKommentar.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
+
+                //tags
+                if (frmFilter.instance.lbTags.Items.Count > 0) frmFilter.instance.lbTags.Items.Clear();
+
+                var TagListeTilOmråde = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].hentTags();
+                foreach (var tags in TagListeTilOmråde)
+                {
+                    frmFilter.instance.lbTags.Items.Add(tags);
+                }
             }
         }
 
