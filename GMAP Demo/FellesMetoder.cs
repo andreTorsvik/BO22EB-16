@@ -41,9 +41,7 @@ namespace GMAP_Demo
 
             List<Ressurs> LRessurs = Rlist;
 
-            int antall = LRessurs.Count;
-
-            for (int i = 0; i < antall; i++)
+            for (int i = 0; i < LRessurs.Count; i++)
             {
                 List<string> TagsItem = LRessurs[i].hentTags(); ;
                 int antallTags = TagsItem.Count; //3
@@ -55,6 +53,7 @@ namespace GMAP_Demo
                 if((antallTags == Nåværende))
                 {
                     LRessurs.RemoveAt(i);
+                    i--;
                 }
             }
         }

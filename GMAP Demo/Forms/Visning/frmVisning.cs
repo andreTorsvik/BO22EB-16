@@ -116,8 +116,8 @@ namespace GMAP_Demo
                 instance.map.Overlays.Clear();
 
                 //Oppdater listene 
-
-                //kun for å hindre at områdene kommer fram hvis de ikke allreder er der 
+                //test
+                //Kun for å hindre at områdene kommer fram hvis de ikke allreder er der 
                 foreach (var item in map.Overlays)
                 {
                     if(item.Id == "Polygons")
