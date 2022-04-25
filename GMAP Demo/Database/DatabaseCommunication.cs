@@ -32,10 +32,19 @@ namespace GMAP_Demo
 
         public static List<Bruker> CheckLoginAgainstDb(string Username, string Password)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<Bruker>($"SELECT* FROM [dbo].[Bruker] WHERE ( (Epost = '{Username}') AND (Passord = '{Password}') )").ToList();
-                return output;
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Bruker>($"SELECT* FROM [dbo].[Bruker] WHERE ( (Epost = '{Username}') AND (Passord = '{Password}') )").ToList();
+                    return output;
+                }
+            }
+            catch (Exception)
+            {
+                //melding
+                List <Bruker> list = new List<Bruker> ();
+                return list;
             }
         }
 
@@ -47,6 +56,7 @@ namespace GMAP_Demo
                 return output;
             }
         }
+
         public static List<Kategorier_Bilde> ListAllKategorier_BildeFromDb()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
@@ -188,8 +198,6 @@ namespace GMAP_Demo
         }
         public static void DeletePunkter_området(int løpenummer)
         {
-            //delete FROM [dbo].[Punkter_område]
-            //WHERE Løpenummer_til_område = 38
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 connection.Query<Ressurs>($"delete FROM [dbo].[Punkter_område] WHERE(Løpenummer_til_område = '{løpenummer}')");
@@ -477,12 +485,7 @@ namespace GMAP_Demo
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
                 var output = connection.Query<Kategorier_Bilde>($"SELECT Kategorinavn, Bilde FROM [dbo].[Kategorier_Bilde] WHERE Kategorinavn = '{ kategorinavn }'").ToList();
-                
-                
-                
-                // Stored procedure virker ikke helt enda. Får en syntax error. 
-                //kategorinavn = $"'{kategorinavn}'";
-                //var output = connection.Query<Kategorier_Bilde>("[dbo].[Zz], @Kategorinavn", kategorinavn).ToList();
+
                 return output;
             }
         }
