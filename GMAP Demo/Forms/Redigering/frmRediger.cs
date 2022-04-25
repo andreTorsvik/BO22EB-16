@@ -42,8 +42,9 @@ namespace GMAP_Demo
         {
             Kart.Setup(Kart.MuligKart.Redigering, Kart.PunktFraForrige);
 
-            Kart.LeggTilRessurs(GlobaleLister.LRessurs, Kart.MuligKart.Redigering);
-            Kart.LeggTilOmråde(GlobaleLister.LOmråde, Kart.MuligKart.Redigering);
+            Kart.OppdaterKart(Kart.MuligKart.Redigering, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            //Kart.LeggTilRessurs(GlobaleLister.LRessurs, Kart.MuligKart.Redigering);
+            //Kart.LeggTilOmråde(GlobaleLister.LOmråde, Kart.MuligKart.Redigering);
 
             Kart.reff(Kart.MuligKart.Redigering);
         }

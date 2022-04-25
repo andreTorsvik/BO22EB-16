@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using GMap.NET;
 
 namespace GMAP_Demo
 {
@@ -14,32 +15,7 @@ namespace GMAP_Demo
             InitializeComponent();
             instance = this;
         }
-      
-        public void OppdaterOmrådeListe()
-        {
-            GlobaleLister.LOmråde.Clear();
-
-            var OmrådeListe = DBComOmråde.ListAllOmrådeFromDb();
-
-            foreach (var item in OmrådeListe)
-            {
-                GlobaleLister.LOmråde.Add(item);
-            }
-            Kart.LeggTilOmråde(GlobaleLister.LOmråde, Kart.MuligKart.Visning);
-        }
-
-        private void btnFjern_Click(object sender, EventArgs e)
-        {
-            frmVisning.instance.map.Overlays.Clear();
-            Kart.reff(Kart.MuligKart.Visning);
-            txtNavn.Text = "";
-            txtKategori.Text = "";
-            txtDato_opprettet.Text = "";
-            txtOpprettetAvBruker.Text = "";
-            txtSikkerhetsklarering.Text = "";
-            txtKommentar.Text = "";
-        }
-
+     
         private void frmFilter_Load(object sender, EventArgs e)
         {
             lbKategorierVises.DataSource = Kart.kategoriListeVises;
@@ -96,6 +72,66 @@ namespace GMAP_Demo
                 Kart.OppdaterListe_området();
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
+        }
+
+        private void cbViseOmråde_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbViseOmråde.Checked) Kart.ViseOmrådePåKart = false;
+            else Kart.ViseOmrådePåKart = true;
+
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+        }
+
+        private void btnNesteRessurs_Click(object sender, EventArgs e)
+        {
+            indexRessurs++;
+            if(indexRessurs >= GlobaleLister.LRessurs.Count) indexRessurs = 0;
+
+            FyllInfoObjekt(indexRessurs);
+            Flytt(indexRessurs);
+        }
+
+        private void btnForrigeRessurs_Click(object sender, EventArgs e)
+        {
+            indexRessurs--;
+            if (indexRessurs < 0) indexRessurs = GlobaleLister.LRessurs.Count - 1;
+
+            FyllInfoObjekt(indexRessurs);
+            Flytt(indexRessurs);
+        }
+
+        private void Flytt(int index)
+        {
+            double lat = GlobaleLister.LRessurs[index].Lat;
+            double lang = GlobaleLister.LRessurs[index].Lang;
+
+            PointLatLng point = new PointLatLng(lat,lang);
+
+            frmVisning.instance.map.Position = point;
+        }
+        public static void FyllInfoObjekt(int Tag)
+        {
+            frmFilter.instance.txtNavn.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Navn;
+            frmFilter.instance.txtKategori.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Kategori;
+            frmFilter.instance.txtDato_opprettet.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Dato_opprettet;
+            frmFilter.instance.txtOpprettetAvBruker.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Opprettet_av_bruker;
+            frmFilter.instance.txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Sikkerhetsklarering.ToString();
+            frmFilter.instance.txtKommentar.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Kommentar;
+
+            //tags
+            if (frmFilter.instance.lbTags.Items.Count > 0) frmFilter.instance.lbTags.Items.Clear();
+
+            var TagListeTilRessurs = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].hentTags();
+            foreach (var tags in TagListeTilRessurs)
+            {
+                frmFilter.instance.lbTags.Items.Add(tags);
+            }
+            //måling
+        }
+
+        private void btnKategoriLeggTilAlle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.btnFjern = new System.Windows.Forms.Button();
             this.txtNavn = new System.Windows.Forms.TextBox();
             this.lblNavn = new System.Windows.Forms.Label();
             this.lblKategori = new System.Windows.Forms.Label();
@@ -50,6 +49,21 @@
             this.lblTagsSkjult = new System.Windows.Forms.Label();
             this.lbTagsVises = new System.Windows.Forms.ListBox();
             this.lblTagsVises = new System.Windows.Forms.Label();
+            this.cbViseOmråde = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnTagFjernAlle = new System.Windows.Forms.Button();
+            this.btnKategoriFjernAlle = new System.Windows.Forms.Button();
+            this.btnTagLeggTilAlle = new System.Windows.Forms.Button();
+            this.btnKategoriLeggTilAlle = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbTags = new System.Windows.Forms.ListBox();
+            this.txtMåling = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnNesteRessurs = new System.Windows.Forms.Button();
+            this.btnForrigeRessurs = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -63,22 +77,10 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Filter";
             // 
-            // btnFjern
-            // 
-            this.btnFjern.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnFjern.Location = new System.Drawing.Point(23, 408);
-            this.btnFjern.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnFjern.Name = "btnFjern";
-            this.btnFjern.Size = new System.Drawing.Size(97, 40);
-            this.btnFjern.TabIndex = 8;
-            this.btnFjern.Text = "Fjern Alt";
-            this.btnFjern.UseVisualStyleBackColor = true;
-            this.btnFjern.Click += new System.EventHandler(this.btnFjern_Click);
-            // 
             // txtNavn
             // 
             this.txtNavn.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtNavn.Location = new System.Drawing.Point(146, 510);
+            this.txtNavn.Location = new System.Drawing.Point(146, 28);
             this.txtNavn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNavn.Multiline = true;
             this.txtNavn.Name = "txtNavn";
@@ -90,7 +92,7 @@
             // 
             this.lblNavn.AutoSize = true;
             this.lblNavn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNavn.Location = new System.Drawing.Point(12, 514);
+            this.lblNavn.Location = new System.Drawing.Point(12, 32);
             this.lblNavn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNavn.Name = "lblNavn";
             this.lblNavn.Size = new System.Drawing.Size(39, 16);
@@ -101,7 +103,7 @@
             // 
             this.lblKategori.AutoSize = true;
             this.lblKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKategori.Location = new System.Drawing.Point(12, 543);
+            this.lblKategori.Location = new System.Drawing.Point(12, 61);
             this.lblKategori.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKategori.Name = "lblKategori";
             this.lblKategori.Size = new System.Drawing.Size(57, 16);
@@ -112,7 +114,7 @@
             // 
             this.lblDato_opprettet.AutoSize = true;
             this.lblDato_opprettet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblDato_opprettet.Location = new System.Drawing.Point(12, 573);
+            this.lblDato_opprettet.Location = new System.Drawing.Point(12, 119);
             this.lblDato_opprettet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDato_opprettet.Name = "lblDato_opprettet";
             this.lblDato_opprettet.Size = new System.Drawing.Size(92, 16);
@@ -123,7 +125,7 @@
             // 
             this.lblOpprettetAvBruker.AutoSize = true;
             this.lblOpprettetAvBruker.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblOpprettetAvBruker.Location = new System.Drawing.Point(12, 602);
+            this.lblOpprettetAvBruker.Location = new System.Drawing.Point(12, 148);
             this.lblOpprettetAvBruker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOpprettetAvBruker.Name = "lblOpprettetAvBruker";
             this.lblOpprettetAvBruker.Size = new System.Drawing.Size(121, 16);
@@ -134,7 +136,7 @@
             // 
             this.lblSikkerhetsklarering.AutoSize = true;
             this.lblSikkerhetsklarering.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(12, 632);
+            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(12, 177);
             this.lblSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSikkerhetsklarering.Name = "lblSikkerhetsklarering";
             this.lblSikkerhetsklarering.Size = new System.Drawing.Size(122, 16);
@@ -145,7 +147,7 @@
             // 
             this.lblKommentar.AutoSize = true;
             this.lblKommentar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKommentar.Location = new System.Drawing.Point(12, 662);
+            this.lblKommentar.Location = new System.Drawing.Point(12, 202);
             this.lblKommentar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKommentar.Name = "lblKommentar";
             this.lblKommentar.Size = new System.Drawing.Size(75, 16);
@@ -155,7 +157,7 @@
             // txtKategori
             // 
             this.txtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtKategori.Location = new System.Drawing.Point(146, 540);
+            this.txtKategori.Location = new System.Drawing.Point(146, 57);
             this.txtKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKategori.Multiline = true;
             this.txtKategori.Name = "txtKategori";
@@ -166,7 +168,7 @@
             // txtDato_opprettet
             // 
             this.txtDato_opprettet.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtDato_opprettet.Location = new System.Drawing.Point(146, 569);
+            this.txtDato_opprettet.Location = new System.Drawing.Point(146, 115);
             this.txtDato_opprettet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDato_opprettet.Multiline = true;
             this.txtDato_opprettet.Name = "txtDato_opprettet";
@@ -177,7 +179,7 @@
             // txtOpprettetAvBruker
             // 
             this.txtOpprettetAvBruker.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtOpprettetAvBruker.Location = new System.Drawing.Point(146, 599);
+            this.txtOpprettetAvBruker.Location = new System.Drawing.Point(146, 144);
             this.txtOpprettetAvBruker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOpprettetAvBruker.Multiline = true;
             this.txtOpprettetAvBruker.Name = "txtOpprettetAvBruker";
@@ -188,7 +190,7 @@
             // txtSikkerhetsklarering
             // 
             this.txtSikkerhetsklarering.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSikkerhetsklarering.Location = new System.Drawing.Point(146, 628);
+            this.txtSikkerhetsklarering.Location = new System.Drawing.Point(146, 173);
             this.txtSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSikkerhetsklarering.Multiline = true;
             this.txtSikkerhetsklarering.Name = "txtSikkerhetsklarering";
@@ -199,19 +201,19 @@
             // txtKommentar
             // 
             this.txtKommentar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtKommentar.Location = new System.Drawing.Point(146, 658);
+            this.txtKommentar.Location = new System.Drawing.Point(146, 202);
             this.txtKommentar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKommentar.Multiline = true;
             this.txtKommentar.Name = "txtKommentar";
             this.txtKommentar.ReadOnly = true;
-            this.txtKommentar.Size = new System.Drawing.Size(217, 93);
+            this.txtKommentar.Size = new System.Drawing.Size(217, 75);
             this.txtKommentar.TabIndex = 20;
             // 
             // lbKategorierSkjult
             // 
             this.lbKategorierSkjult.FormattingEnabled = true;
             this.lbKategorierSkjult.ItemHeight = 16;
-            this.lbKategorierSkjult.Location = new System.Drawing.Point(22, 94);
+            this.lbKategorierSkjult.Location = new System.Drawing.Point(19, 39);
             this.lbKategorierSkjult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbKategorierSkjult.Name = "lbKategorierSkjult";
             this.lbKategorierSkjult.Size = new System.Drawing.Size(112, 84);
@@ -222,7 +224,7 @@
             // 
             this.lblKategorierSkjult.AutoSize = true;
             this.lblKategorierSkjult.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKategorierSkjult.Location = new System.Drawing.Point(18, 75);
+            this.lblKategorierSkjult.Location = new System.Drawing.Point(15, 20);
             this.lblKategorierSkjult.Name = "lblKategorierSkjult";
             this.lblKategorierSkjult.Size = new System.Drawing.Size(36, 16);
             this.lblKategorierSkjult.TabIndex = 26;
@@ -232,7 +234,7 @@
             // 
             this.lblKategorierVises.AutoSize = true;
             this.lblKategorierVises.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKategorierVises.Location = new System.Drawing.Point(256, 75);
+            this.lblKategorierVises.Location = new System.Drawing.Point(253, 20);
             this.lblKategorierVises.Name = "lblKategorierVises";
             this.lblKategorierVises.Size = new System.Drawing.Size(26, 16);
             this.lblKategorierVises.TabIndex = 28;
@@ -242,7 +244,7 @@
             // 
             this.lbKategorierVises.FormattingEnabled = true;
             this.lbKategorierVises.ItemHeight = 16;
-            this.lbKategorierVises.Location = new System.Drawing.Point(259, 94);
+            this.lbKategorierVises.Location = new System.Drawing.Point(256, 39);
             this.lbKategorierVises.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbKategorierVises.Name = "lbKategorierVises";
             this.lbKategorierVises.Size = new System.Drawing.Size(112, 84);
@@ -253,7 +255,7 @@
             // 
             this.lbTagsSkjult.FormattingEnabled = true;
             this.lbTagsSkjult.ItemHeight = 16;
-            this.lbTagsSkjult.Location = new System.Drawing.Point(23, 203);
+            this.lbTagsSkjult.Location = new System.Drawing.Point(20, 148);
             this.lbTagsSkjult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTagsSkjult.Name = "lbTagsSkjult";
             this.lbTagsSkjult.Size = new System.Drawing.Size(112, 84);
@@ -264,7 +266,7 @@
             // 
             this.lblTagsSkjult.AutoSize = true;
             this.lblTagsSkjult.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTagsSkjult.Location = new System.Drawing.Point(19, 184);
+            this.lblTagsSkjult.Location = new System.Drawing.Point(16, 129);
             this.lblTagsSkjult.Name = "lblTagsSkjult";
             this.lblTagsSkjult.Size = new System.Drawing.Size(36, 16);
             this.lblTagsSkjult.TabIndex = 26;
@@ -274,7 +276,7 @@
             // 
             this.lbTagsVises.FormattingEnabled = true;
             this.lbTagsVises.ItemHeight = 16;
-            this.lbTagsVises.Location = new System.Drawing.Point(260, 203);
+            this.lbTagsVises.Location = new System.Drawing.Point(257, 148);
             this.lbTagsVises.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTagsVises.Name = "lbTagsVises";
             this.lbTagsVises.Size = new System.Drawing.Size(112, 84);
@@ -285,11 +287,182 @@
             // 
             this.lblTagsVises.AutoSize = true;
             this.lblTagsVises.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTagsVises.Location = new System.Drawing.Point(257, 184);
+            this.lblTagsVises.Location = new System.Drawing.Point(254, 129);
             this.lblTagsVises.Name = "lblTagsVises";
             this.lblTagsVises.Size = new System.Drawing.Size(26, 16);
             this.lblTagsVises.TabIndex = 28;
             this.lblTagsVises.Text = "Vis";
+            // 
+            // cbViseOmråde
+            // 
+            this.cbViseOmråde.AutoSize = true;
+            this.cbViseOmråde.ForeColor = System.Drawing.SystemColors.Control;
+            this.cbViseOmråde.Location = new System.Drawing.Point(20, 252);
+            this.cbViseOmråde.Name = "cbViseOmråde";
+            this.cbViseOmråde.Size = new System.Drawing.Size(116, 20);
+            this.cbViseOmråde.TabIndex = 29;
+            this.cbViseOmråde.Text = "Skjule område";
+            this.cbViseOmråde.UseVisualStyleBackColor = true;
+            this.cbViseOmråde.CheckedChanged += new System.EventHandler(this.cbViseOmråde_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnTagFjernAlle);
+            this.groupBox1.Controls.Add(this.btnKategoriFjernAlle);
+            this.groupBox1.Controls.Add(this.btnTagLeggTilAlle);
+            this.groupBox1.Controls.Add(this.btnKategoriLeggTilAlle);
+            this.groupBox1.Controls.Add(this.cbViseOmråde);
+            this.groupBox1.Controls.Add(this.lblTagsVises);
+            this.groupBox1.Controls.Add(this.lblKategorierVises);
+            this.groupBox1.Controls.Add(this.lbTagsVises);
+            this.groupBox1.Controls.Add(this.lbKategorierVises);
+            this.groupBox1.Controls.Add(this.lblTagsSkjult);
+            this.groupBox1.Controls.Add(this.lblKategorierSkjult);
+            this.groupBox1.Controls.Add(this.lbTagsSkjult);
+            this.groupBox1.Controls.Add(this.lbKategorierSkjult);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(9, 73);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(387, 278);
+            this.groupBox1.TabIndex = 30;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filter";
+            // 
+            // btnTagFjernAlle
+            // 
+            this.btnTagFjernAlle.ForeColor = System.Drawing.Color.Coral;
+            this.btnTagFjernAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
+            this.btnTagFjernAlle.Location = new System.Drawing.Point(155, 193);
+            this.btnTagFjernAlle.Name = "btnTagFjernAlle";
+            this.btnTagFjernAlle.Size = new System.Drawing.Size(75, 29);
+            this.btnTagFjernAlle.TabIndex = 34;
+            this.btnTagFjernAlle.UseVisualStyleBackColor = true;
+            // 
+            // btnKategoriFjernAlle
+            // 
+            this.btnKategoriFjernAlle.ForeColor = System.Drawing.Color.Crimson;
+            this.btnKategoriFjernAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
+            this.btnKategoriFjernAlle.Location = new System.Drawing.Point(155, 84);
+            this.btnKategoriFjernAlle.Name = "btnKategoriFjernAlle";
+            this.btnKategoriFjernAlle.Size = new System.Drawing.Size(75, 29);
+            this.btnKategoriFjernAlle.TabIndex = 32;
+            this.btnKategoriFjernAlle.UseVisualStyleBackColor = true;
+            // 
+            // btnTagLeggTilAlle
+            // 
+            this.btnTagLeggTilAlle.ForeColor = System.Drawing.Color.Coral;
+            this.btnTagLeggTilAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
+            this.btnTagLeggTilAlle.Location = new System.Drawing.Point(155, 158);
+            this.btnTagLeggTilAlle.Name = "btnTagLeggTilAlle";
+            this.btnTagLeggTilAlle.Size = new System.Drawing.Size(75, 29);
+            this.btnTagLeggTilAlle.TabIndex = 33;
+            this.btnTagLeggTilAlle.UseVisualStyleBackColor = true;
+            // 
+            // btnKategoriLeggTilAlle
+            // 
+            this.btnKategoriLeggTilAlle.ForeColor = System.Drawing.Color.Coral;
+            this.btnKategoriLeggTilAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
+            this.btnKategoriLeggTilAlle.Location = new System.Drawing.Point(155, 49);
+            this.btnKategoriLeggTilAlle.Name = "btnKategoriLeggTilAlle";
+            this.btnKategoriLeggTilAlle.Size = new System.Drawing.Size(75, 29);
+            this.btnKategoriLeggTilAlle.TabIndex = 31;
+            this.btnKategoriLeggTilAlle.UseVisualStyleBackColor = true;
+            this.btnKategoriLeggTilAlle.Click += new System.EventHandler(this.btnKategoriLeggTilAlle_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(12, 282);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 16);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Tag";
+            // 
+            // lbTags
+            // 
+            this.lbTags.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lbTags.FormattingEnabled = true;
+            this.lbTags.ItemHeight = 16;
+            this.lbTags.Location = new System.Drawing.Point(146, 282);
+            this.lbTags.Name = "lbTags";
+            this.lbTags.Size = new System.Drawing.Size(217, 68);
+            this.lbTags.TabIndex = 32;
+            // 
+            // txtMåling
+            // 
+            this.txtMåling.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtMåling.Location = new System.Drawing.Point(146, 86);
+            this.txtMåling.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMåling.Multiline = true;
+            this.txtMåling.Name = "txtMåling";
+            this.txtMåling.ReadOnly = true;
+            this.txtMåling.Size = new System.Drawing.Size(217, 24);
+            this.txtMåling.TabIndex = 34;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(12, 90);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 16);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Måling";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtMåling);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.lbTags);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.txtKommentar);
+            this.groupBox2.Controls.Add(this.txtSikkerhetsklarering);
+            this.groupBox2.Controls.Add(this.txtOpprettetAvBruker);
+            this.groupBox2.Controls.Add(this.txtDato_opprettet);
+            this.groupBox2.Controls.Add(this.txtKategori);
+            this.groupBox2.Controls.Add(this.lblKommentar);
+            this.groupBox2.Controls.Add(this.lblSikkerhetsklarering);
+            this.groupBox2.Controls.Add(this.lblOpprettetAvBruker);
+            this.groupBox2.Controls.Add(this.lblDato_opprettet);
+            this.groupBox2.Controls.Add(this.lblKategori);
+            this.groupBox2.Controls.Add(this.lblNavn);
+            this.groupBox2.Controls.Add(this.txtNavn);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.Location = new System.Drawing.Point(9, 450);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(387, 377);
+            this.groupBox2.TabIndex = 35;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Info";
+            // 
+            // btnNesteRessurs
+            // 
+            this.btnNesteRessurs.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
+            this.btnNesteRessurs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNesteRessurs.Location = new System.Drawing.Point(262, 387);
+            this.btnNesteRessurs.Name = "btnNesteRessurs";
+            this.btnNesteRessurs.Size = new System.Drawing.Size(110, 35);
+            this.btnNesteRessurs.TabIndex = 37;
+            this.btnNesteRessurs.Text = "Til Neste";
+            this.btnNesteRessurs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNesteRessurs.UseVisualStyleBackColor = true;
+            this.btnNesteRessurs.Click += new System.EventHandler(this.btnNesteRessurs_Click);
+            // 
+            // btnForrigeRessurs
+            // 
+            this.btnForrigeRessurs.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
+            this.btnForrigeRessurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnForrigeRessurs.Location = new System.Drawing.Point(33, 387);
+            this.btnForrigeRessurs.Name = "btnForrigeRessurs";
+            this.btnForrigeRessurs.Size = new System.Drawing.Size(110, 35);
+            this.btnForrigeRessurs.TabIndex = 36;
+            this.btnForrigeRessurs.Text = "Til Forrige";
+            this.btnForrigeRessurs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnForrigeRessurs.UseVisualStyleBackColor = true;
+            this.btnForrigeRessurs.Click += new System.EventHandler(this.btnForrigeRessurs_Click);
             // 
             // frmFilter
             // 
@@ -297,33 +470,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(408, 871);
-            this.Controls.Add(this.lblTagsVises);
-            this.Controls.Add(this.lblKategorierVises);
-            this.Controls.Add(this.lbTagsVises);
-            this.Controls.Add(this.btnFjern);
-            this.Controls.Add(this.lbKategorierVises);
-            this.Controls.Add(this.lblTagsSkjult);
-            this.Controls.Add(this.lblKategorierSkjult);
-            this.Controls.Add(this.lbTagsSkjult);
-            this.Controls.Add(this.lbKategorierSkjult);
-            this.Controls.Add(this.txtKommentar);
-            this.Controls.Add(this.txtSikkerhetsklarering);
-            this.Controls.Add(this.txtOpprettetAvBruker);
-            this.Controls.Add(this.txtDato_opprettet);
-            this.Controls.Add(this.txtKategori);
-            this.Controls.Add(this.lblKommentar);
-            this.Controls.Add(this.lblSikkerhetsklarering);
-            this.Controls.Add(this.lblOpprettetAvBruker);
-            this.Controls.Add(this.lblDato_opprettet);
-            this.Controls.Add(this.lblKategori);
-            this.Controls.Add(this.lblNavn);
-            this.Controls.Add(this.txtNavn);
+            this.Controls.Add(this.btnNesteRessurs);
+            this.Controls.Add(this.btnForrigeRessurs);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmFilter";
             this.Text = "frmFilter";
             this.Load += new System.EventHandler(this.frmFilter_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,7 +492,6 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnFjern;
         public System.Windows.Forms.TextBox txtNavn;
         private System.Windows.Forms.Label lblNavn;
         private System.Windows.Forms.Label lblKategori;
@@ -353,5 +512,18 @@
         private System.Windows.Forms.Label lblTagsSkjult;
         private System.Windows.Forms.ListBox lbTagsVises;
         private System.Windows.Forms.Label lblTagsVises;
+        private System.Windows.Forms.CheckBox cbViseOmråde;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnTagFjernAlle;
+        private System.Windows.Forms.Button btnKategoriFjernAlle;
+        private System.Windows.Forms.Button btnTagLeggTilAlle;
+        private System.Windows.Forms.Button btnKategoriLeggTilAlle;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ListBox lbTags;
+        public System.Windows.Forms.TextBox txtMåling;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnForrigeRessurs;
+        private System.Windows.Forms.Button btnNesteRessurs;
     }
 }

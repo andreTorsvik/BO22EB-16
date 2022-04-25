@@ -13,7 +13,8 @@ namespace GMAP_Demo
     internal class Kart
     {
         public enum MuligKart { Visning, Redigering, Begge };
-        public static PointLatLng PunktFraForrige = new PointLatLng(); 
+        public static PointLatLng PunktFraForrige = new PointLatLng();
+        public static bool ViseOmrådePåKart = true;
 
         // Lister for filtrering på kategorier:
         // BindingList for lbKategorierVises REF: https://stackoverflow.com/questions/17615069/how-to-refresh-datasource-of-a-listbox, https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindinglist-1?view=net-6.0
@@ -180,7 +181,7 @@ namespace GMAP_Demo
                 GlobaleLister.LOmråde.Add(item);
             }
 
-            if (true) FellesMetoder.FiltreBaserPåTags(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
+            if (true) FellesMetoder.filtrereBaserPåTags(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
         }
 
         public static void OppdaterListe_ressurs()
@@ -204,7 +205,7 @@ namespace GMAP_Demo
                 }
             }
 
-            FellesMetoder.FiltreBaserPåTags(ref GlobaleLister.LRessurs, tag_ListeVises.ToList()) ;
+            FellesMetoder.filtrereBaserPåTags(ref GlobaleLister.LRessurs, tag_ListeVises.ToList()) ;
         }
 
         public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
@@ -224,7 +225,7 @@ namespace GMAP_Demo
                     //break;
             }
             LeggTilRessurs(Lressurs, kart);
-            LeggTilOmråde(Lområde, kart);
+            if(ViseOmrådePåKart) LeggTilOmråde(Lområde, kart);
             reff(kart);
         }
 

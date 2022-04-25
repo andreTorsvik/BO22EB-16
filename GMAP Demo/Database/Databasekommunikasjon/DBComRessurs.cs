@@ -18,12 +18,12 @@ namespace GMAP_Demo
                 return output;
             }
         }
-
+        //Where Sikkerhetsklarering <= '{Sikkerhetsklarering}')
         public static List<Ressurs> ListRessursFromDb(int løpenummer)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}')").ToList();
+                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}'").ToList();
                 return output;
             }
         }
