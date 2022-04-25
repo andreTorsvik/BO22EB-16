@@ -117,7 +117,7 @@ namespace GMAP_Demo
 
                 //Oppdater listene 
 
-                //kun for å hindre at områdene kommer fram hvis de ikke allreder er der 
+                //Kun for å hindre at områdene kommer fram hvis de ikke allreder er der 
                 foreach (var item in map.Overlays)
                 {
                     if(item.Id == "Polygons")
