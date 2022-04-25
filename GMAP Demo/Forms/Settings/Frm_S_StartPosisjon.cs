@@ -98,5 +98,10 @@ namespace GMAP_Demo
                 MessageBox.Show("Noe galt skjedde");
             }
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -35,7 +35,6 @@ namespace GMAP_Demo
             if ((kategoriListeVises.Count == 0) && (kategoriListeSkjult.Count == 0))
             {
                 OppdaterKategoriListe();
-                // OppdatertKart();
             }
         }
         internal static void InitializekategoriListeSkjult()
@@ -54,11 +53,8 @@ namespace GMAP_Demo
             if ((tag_ListeVises.Count == 0) && (tag_ListeSkjult.Count == 0))
             {
                 OppdaterTag_Liste();
-                // OppdatertKart();
             }
         }
-
-
 
         internal static void InitializeTag_RessursListeSkjult()
         {
@@ -66,28 +62,6 @@ namespace GMAP_Demo
             tag_ListeSkjult.AllowRemove = true;
             tag_ListeSkjult.RaiseListChangedEvents = true;
         }
-        //internal static void InitializeTag_OmrådeListeVises()
-        //{
-        //    tag_OmrådeListeVises.AllowNew = true;
-        //    tag_OmrådeListeVises.AllowRemove = true;
-        //    tag_OmrådeListeVises.RaiseListChangedEvents = true;
-
-        //    // Add items to the empty list.
-        //    if ((tag_OmrådeListeVises.Count == 0) && (tag_OmrådeListeSkjult.Count == 0))
-        //    {
-        //        OppdaterTag_OmrådeListe();
-        //        // OppdatertKart();
-        //    }
-        //}
-
-
-
-        //internal static void InitializeTag_OmrådeListeSkjult()
-        //{
-        //    tag_OmrådeListeSkjult.AllowNew = true;
-        //    tag_OmrådeListeSkjult.AllowRemove = true;
-        //    tag_OmrådeListeSkjult.RaiseListChangedEvents = true;
-        //}
 
         public static void OppdaterKategoriListe()
         {
@@ -99,7 +73,6 @@ namespace GMAP_Demo
             {
                 kategoriListeVises.Add(item);
             }
-            // OppdatertKart();
         }
 
         public static void OppdaterTag_Liste()
@@ -113,23 +86,8 @@ namespace GMAP_Demo
             {
                 tag_ListeVises.Add(item);
             }
-
-            // OppdatertKart();
         }
-        public static void OppdaterTag_OmrådeListe()
-        {
-            //tag_OmrådeListeVises.Clear();
-
-            //List<Tag_Område> tag_OmrådeListeAlle = new List<Tag_Område>();
-            //tag_OmrådeListeAlle = DatabaseCommunication.ListAllTag_OmrådeFromDb();
-            //foreach (var item in tag_OmrådeListeAlle)
-            //{
-            //    tag_OmrådeListeVises.Add(item);
-            //}
-
-            // OppdatertKart();
-        }
-
+    
 
         public static void Setup(MuligKart kart, PointLatLng p)
         {
@@ -168,7 +126,6 @@ namespace GMAP_Demo
                     break;
             }
         }
-
 
         public static void OppdaterListe_området()
         {
@@ -231,10 +188,6 @@ namespace GMAP_Demo
 
         public static void LeggTilRessurs(List<Ressurs> Rlist, MuligKart kart)
         {
-            // HvilketKart Visning = Visning.map
-            // HvilketKart Redigering = Redigerings.map
-            // Hvilketkart Begge = Begge 
-            // Alt annet: ingen ting
             int tag = 0;
             GMapMarker marker;
             GMapOverlay markers = new GMapOverlay("Objekter");

@@ -21,5 +21,17 @@ namespace GMAP_Demo
         {
             Application.Restart();
         }
+
+        private void frm_S_LoggUt_Load(object sender, EventArgs e)
+        {
+            List<Bruker> listBruker = new List<Bruker>();
+            listBruker = DBComBruker.ListBrukerInfoFromDb(InnloggetBruker.BrukernavnInnlogget.ToString());
+
+            tbFornavn.Text = listBruker[0].Fornavn.ToString();
+            tbEtternavn.Text = listBruker[0].Etternavn.ToString();
+            tbTelefonnummer.Text = listBruker[0].Telefonnummer.ToString();
+            tbEpost.Text = listBruker[0].Epost.ToString();
+            tbSikkerhetsklarering.Text = listBruker[0].Sikkerhetsklarering.ToString();
+        }
     }
 }

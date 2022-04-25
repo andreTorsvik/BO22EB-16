@@ -51,7 +51,7 @@ namespace GMAP_Demo
             btnLoggUt.BackColor = StandarFarge;
             btnStartPosisjon.BackColor = StandarFarge;
             btnAdmin.BackColor = StandarFarge;
-            btnBrukerInfo.BackColor = StandarFarge;
+            btnFjernKategori.BackColor = StandarFarge;
             btnDatabaseView.BackColor = StandarFarge;
             btnEkstra.BackColor = StandarFarge;
         }
@@ -109,15 +109,15 @@ namespace GMAP_Demo
 
         private void btnBrukerInfo_Click(object sender, EventArgs e)
         {
-            if (pnlNav.Top != btnBrukerInfo.Top)
+            if (pnlNav.Top != btnFjernKategori.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnBrukerInfo.BackColor = knapp_trykket;
+                btnFjernKategori.BackColor = knapp_trykket;
 
-                FlyttNavigasjonsPanel(btnBrukerInfo.Height, btnBrukerInfo.Top);
+                FlyttNavigasjonsPanel(btnFjernKategori.Height, btnFjernKategori.Top);
 
                 this.PnlFormLoader.Controls.Clear();
-                frm_S_BrukerInfo frm_S_BrukerInfo_vrb = new frm_S_BrukerInfo() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frm_S_FjernKategori frm_S_BrukerInfo_vrb = new frm_S_FjernKategori() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_BrukerInfo_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frm_S_BrukerInfo_vrb);
                 frm_S_BrukerInfo_vrb.Show();

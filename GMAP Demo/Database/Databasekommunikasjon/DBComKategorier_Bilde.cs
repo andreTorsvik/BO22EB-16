@@ -56,5 +56,14 @@ namespace GMAP_Demo
                 return output;
             }
         }
+
+        public static void DeleteKategorier_Bilde(string kategorinavn)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            {
+                var output = connection.Query<Ressurs>($"delete FROM [dbo].[Kategorier_Bilde] WHERE (Kategorinavn = '{ kategorinavn }')");
+
+            }
+        }
     }
 }
