@@ -13,35 +13,7 @@ namespace GMAP_Demo
             InitializeComponent();
             instance = this;
         }
-        private void btnLeggTil_Click(object sender, EventArgs e)
-        {
-
-            if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
-
-
-            var RessursList = DatabaseCommunication.ListAllRessursFromDb();
-
-            foreach (var item in RessursList)
-            {
-                GlobaleLister.LRessurs.Add(item);
-            }
-
-            txtAntall.Text = GlobaleLister.LRessurs.Count.ToString();
-        }
-
-        public void OppdaterRessursListe()
-        {
-            if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
-            //må endres 
-            var RessursList = DatabaseCommunication.ListAllRessursFromDb();
-
-            foreach (var item in RessursList)
-            {
-                GlobaleLister.LRessurs.Add(item);
-            }
-            Kart.LeggTilRessurs(GlobaleLister.LRessurs, Kart.MuligKart.Visning);
-        }
-
+      
         public void OppdaterOmrådeListe()
         {
             GlobaleLister.LOmråde.Clear();
@@ -55,12 +27,6 @@ namespace GMAP_Demo
             Kart.LeggTilOmråde(GlobaleLister.LOmråde, Kart.MuligKart.Visning);
         }
 
-        private void btnRessurs_Click(object sender, EventArgs e)
-        {
-            Kart.LeggTilRessurs(GlobaleLister.LRessurs, Kart.MuligKart.Visning);
-            Kart.reff(Kart.MuligKart.Visning);
-        }
-
         private void btnFjern_Click(object sender, EventArgs e)
         {
             frmVisning.instance.map.Overlays.Clear();
@@ -71,26 +37,6 @@ namespace GMAP_Demo
             txtOpprettetAvBruker.Text = "";
             txtSikkerhetsklarering.Text = "";
             txtKommentar.Text = "";
-        }
-
-        private void btnHentOmråde_Click(object sender, EventArgs e)
-        {
-            GlobaleLister.LOmråde.Clear();
-
-            var OmrådeListe = DatabaseCommunication.ListAllOmrådeFromDb();
-
-            foreach (var item in OmrådeListe)
-            {
-                GlobaleLister.LOmråde.Add(item);
-            }
-
-            txtAntallOmråder.Text = GlobaleLister.LOmråde.Count.ToString();
-        }
-
-        private void btnLeggTilOmrådet_Click(object sender, EventArgs e)
-        {
-            Kart.LeggTilOmråde(GlobaleLister.LOmråde, Kart.MuligKart.Visning);
-            Kart.reff(Kart.MuligKart.Visning);
         }
 
         private void frmFilter_Load(object sender, EventArgs e)

@@ -201,6 +201,7 @@ namespace GMAP_Demo
                 }
             }
         }
+
         public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
         {
             switch (kart)
