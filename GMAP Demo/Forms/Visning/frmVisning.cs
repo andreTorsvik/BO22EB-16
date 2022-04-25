@@ -217,21 +217,7 @@ namespace GMAP_Demo
         {
             if (frmFilter.instance != null)
             {
-                frmFilter.instance.txtNavn.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Navn;
-                frmFilter.instance.txtKategori.Text = "";
-                frmFilter.instance.txtDato_opprettet.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Dato_opprettet;
-                frmFilter.instance.txtOpprettetAvBruker.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Opprettet_av_bruker;
-                frmFilter.instance.txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-                frmFilter.instance.txtKommentar.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
-
-                //tags
-                if (frmFilter.instance.lbTags.Items.Count > 0) frmFilter.instance.lbTags.Items.Clear();
-
-                var TagListeTilOmråde = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].hentTags();
-                foreach (var tags in TagListeTilOmråde)
-                {
-                    frmFilter.instance.lbTags.Items.Add(tags);
-                }
+                frmFilter.FyllInfoOmråde(Convert.ToInt32(item.Tag));
             }
         }
 
@@ -249,9 +235,25 @@ namespace GMAP_Demo
             }
         }
 
+        bool sjekk = false;
+        public bool KartOppdatere = false;
         private void map_OnMapZoomChanged()
         {
-
+            const int ZoomLevel = 16;
+            if(!KartOppdatere)
+            {
+                if (map.Zoom < ZoomLevel && !sjekk)
+                {
+                    map.Overlays.Clear();
+                    sjekk = true;
+                }
+                else if (map.Zoom >= ZoomLevel && sjekk)
+                {
+                    Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                    sjekk = false;
+                }
+            }
+            
         }
 
         
@@ -265,17 +267,5 @@ namespace GMAP_Demo
         {
             instance.map.Zoom--;
         }
-
-
-
-
-
-        //public void OppdaterKart()
-        //{
-        //    instance.map.Overlays.Clear();
-        //    frmFilter.instance.OppdaterRessursListe();
-        //    frmFilter.instance.OppdaterOmrådeListe();
-        //    reff();
-        //}
     }
 }

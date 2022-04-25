@@ -388,6 +388,7 @@
             this.lbTags.Location = new System.Drawing.Point(146, 282);
             this.lbTags.Name = "lbTags";
             this.lbTags.Size = new System.Drawing.Size(217, 68);
+            this.lbTags.Sorted = true;
             this.lbTags.TabIndex = 32;
             // 
             // txtMåling

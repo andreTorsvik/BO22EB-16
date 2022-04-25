@@ -413,8 +413,12 @@ namespace GMAP_Demo
             switch (kart)
             {
                 case MuligKart.Visning:
+                    frmVisning.instance.KartOppdatere = true;
+
                     frmVisning.instance.map.Zoom++;
                     frmVisning.instance.map.Zoom--;
+
+                    frmVisning.instance.KartOppdatere = false;
                     break;
                 case MuligKart.Redigering:
                     frmRediger.instance.map.Zoom++;

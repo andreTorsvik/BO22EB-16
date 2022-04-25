@@ -1,6 +1,6 @@
-﻿using System;
+﻿using GMap.NET;
+using System;
 using System.Windows.Forms;
-using GMap.NET;
 
 namespace GMAP_Demo
 {
@@ -15,7 +15,7 @@ namespace GMAP_Demo
             InitializeComponent();
             instance = this;
         }
-     
+
         private void frmFilter_Load(object sender, EventArgs e)
         {
             lbKategorierVises.DataSource = Kart.kategoriListeVises;
@@ -76,7 +76,7 @@ namespace GMAP_Demo
 
         private void cbViseOmråde_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbViseOmråde.Checked) Kart.ViseOmrådePåKart = false;
+            if (cbViseOmråde.Checked) Kart.ViseOmrådePåKart = false;
             else Kart.ViseOmrådePåKart = true;
 
             Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
@@ -85,10 +85,10 @@ namespace GMAP_Demo
         private void btnNesteRessurs_Click(object sender, EventArgs e)
         {
             indexRessurs++;
-            if(indexRessurs >= GlobaleLister.LRessurs.Count) indexRessurs = 0;
+            if (indexRessurs >= GlobaleLister.LRessurs.Count) indexRessurs = 0;
 
             FyllInfoObjekt(indexRessurs);
-            Flytt(indexRessurs);
+            FlyttTilObjekt(indexRessurs);
         }
 
         private void btnForrigeRessurs_Click(object sender, EventArgs e)
@@ -97,15 +97,12 @@ namespace GMAP_Demo
             if (indexRessurs < 0) indexRessurs = GlobaleLister.LRessurs.Count - 1;
 
             FyllInfoObjekt(indexRessurs);
-            Flytt(indexRessurs);
+            FlyttTilObjekt(indexRessurs);
         }
 
-        private void Flytt(int index)
+        private void FlyttTilObjekt(int index)
         {
-            double lat = GlobaleLister.LRessurs[index].Lat;
-            double lang = GlobaleLister.LRessurs[index].Lang;
-
-            PointLatLng point = new PointLatLng(lat,lang);
+            PointLatLng point = GlobaleLister.LRessurs[index].GiPunktet();
 
             frmVisning.instance.map.Position = point;
         }
@@ -129,6 +126,28 @@ namespace GMAP_Demo
             }
             //måling
         }
+
+        public static void FyllInfoOmråde(int Tag)
+        {
+            instance.txtNavn.Text = GlobaleLister.LOmråde[Convert.ToInt32(Tag)].Navn;
+            instance.txtKategori.Text = "";
+            instance.txtMåling.Text = "";
+            instance.txtDato_opprettet.Text = GlobaleLister.LOmråde[Tag].Dato_opprettet;
+            instance.txtOpprettetAvBruker.Text = GlobaleLister.LOmråde[Tag].Opprettet_av_bruker;
+            instance.txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Tag].Sikkerhetsklarering.ToString();
+            instance.txtKommentar.Text = GlobaleLister.LOmråde[Tag].Kommentar;
+
+            //tags
+            if (instance.lbTags.Items.Count > 0) instance.lbTags.Items.Clear();
+
+            var TagListeTilOmråde = GlobaleLister.LOmråde[Tag].hentTags();
+            foreach (var tags in TagListeTilOmråde)
+            {
+                instance.lbTags.Items.Add(tags);
+            }
+
+        }
+
 
         private void btnKategoriLeggTilAlle_Click(object sender, EventArgs e)
         {
