@@ -19,12 +19,15 @@ namespace GMAP_Demo
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
+                // En vilkårlig metode som tester om vi har kontakt med databasen.
                 List<Ressurs> ressursList = new List<Ressurs>();
                 ressursList = DBComRessurs.ListAllRessursFromDb();
             }
             catch (Exception e)
             {
+                // Dersom vi ikke har kontakt med databasen vises en feilmelding,
                 MessageBox.Show(e.ToString());
+                // Og programmet avsluttes.
                 System.Environment.Exit(1);
             }
             Application.Run(new frmInnlogging());
