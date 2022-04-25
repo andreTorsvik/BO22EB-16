@@ -45,13 +45,14 @@ namespace GMAP_Demo
 
             for (int i = 0; i < antall; i++)
             {
-                List<string> TagsItem = LRessurs[i].hentTags();
-                int antallTags = TagsItem.Count;
+                List<string> TagsItem = LRessurs[i].hentTags(); ;
+                int antallTags = TagsItem.Count; //3
 
                 TagsItem = TagsItem.Except(TagFilterListe).ToList();
-                int Nåværende= TagsItem.Count;
+                int Nåværende= TagsItem.Count;// 
 
-                if(antallTags == Nåværende)
+
+                if((antallTags == Nåværende))
                 {
                     LRessurs.RemoveAt(i);
                 }

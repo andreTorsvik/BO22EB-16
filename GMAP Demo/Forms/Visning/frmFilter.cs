@@ -45,9 +45,9 @@ namespace GMAP_Demo
             lbKategorierVises.DisplayMember = "Kategorinavn";
             lbKategorierSkjult.DataSource = Kart.kategoriListeSkjult;
             lbKategorierSkjult.DisplayMember = "Kategorinavn";
-            lbTagsVises.DataSource = Kart.tag_RessursListeVises;
+            lbTagsVises.DataSource = Kart.tag_ListeVises;
             lbTagsVises.DisplayMember = "Tag";
-            lbTagsSkjult.DataSource = Kart.tag_RessursListeSkjult;
+            lbTagsSkjult.DataSource = Kart.tag_ListeSkjult;
             lbTagsSkjult.DisplayMember = "Tag";
         }
 
@@ -77,8 +77,8 @@ namespace GMAP_Demo
         {
             if (lbTagsVises.Items.Count > 0)
             {
-                Kart.tag_RessursListeSkjult.Add((Tag_Ressurs)lbTagsVises.SelectedItem);
-                Kart.tag_RessursListeVises.Remove((Tag_Ressurs)lbTagsVises.SelectedItem);
+                Kart.tag_ListeSkjult.Add((string)lbTagsVises.SelectedItem);
+                Kart.tag_ListeVises.Remove((string)lbTagsVises.SelectedItem);
                 Kart.OppdaterListe_ressurs();
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
@@ -88,8 +88,8 @@ namespace GMAP_Demo
         {
             if (lbTagsSkjult.Items.Count > 0)
             {
-                Kart.tag_RessursListeVises.Add((Tag_Ressurs)lbTagsSkjult.SelectedItem);
-                Kart.tag_RessursListeSkjult.Remove((Tag_Ressurs)lbTagsSkjult.SelectedItem);
+                Kart.tag_ListeVises.Add((string)lbTagsSkjult.SelectedItem);
+                Kart.tag_ListeSkjult.Remove((string)lbTagsSkjult.SelectedItem);
                 Kart.OppdaterListe_ressurs();
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }

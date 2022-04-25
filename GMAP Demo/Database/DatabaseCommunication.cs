@@ -80,11 +80,11 @@ namespace GMAP_Demo
             }
         }
 
-        public static List<Tag_Område> ListTag_ressursFromDb(int løpenummer)
+        public static List<Tag_Ressurs> ListTag_ressursFromDb(int løpenummer)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Tag_Område>($"SELECT * FROM[dbo].[Tag_ressurs] WHERE(Løpenummer_til_ressurs = '{løpenummer}')").ToList();
+                var output = connection.Query<Tag_Ressurs>($"SELECT * FROM[dbo].[Tag_ressurs] WHERE(Løpenummer_til_ressurs = '{løpenummer}')").ToList();
                 return output;
             }
         }

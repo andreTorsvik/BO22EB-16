@@ -19,10 +19,10 @@ namespace GMAP_Demo
         public static BindingList<Kategorier_Bilde> kategoriListeVises = new BindingList<Kategorier_Bilde>();
         // BindingList for lbKategorierSkjult
         public static BindingList<Kategorier_Bilde> kategoriListeSkjult = new BindingList<Kategorier_Bilde>();
-        public static BindingList<Tag_Ressurs> tag_RessursListeVises = new BindingList<Tag_Ressurs>();
-        public static BindingList<Tag_Ressurs> tag_RessursListeSkjult = new BindingList<Tag_Ressurs>();
-        public static BindingList<Tag_Område> tag_OmrådeListeVises = new BindingList<Tag_Område>();
-        public static BindingList<Tag_Område> tag_OmrådeListeSkjult = new BindingList<Tag_Område>();
+        public static BindingList<string> tag_ListeVises = new BindingList<string>();
+        public static BindingList<string> tag_ListeSkjult = new BindingList<string>();
+        //public static BindingList<Tag_Område> tag_OmrådeListeVises = new BindingList<Tag_Område>();
+        //public static BindingList<Tag_Område> tag_OmrådeListeSkjult = new BindingList<Tag_Område>();
         internal static void InitializekategoriListeVises()
         {
             kategoriListeVises.AllowNew = true;
@@ -44,12 +44,12 @@ namespace GMAP_Demo
         }
         internal static void InitializeTag_RessursListeVises()
         {
-            tag_RessursListeVises.AllowNew = true;
-            tag_RessursListeVises.AllowRemove = true;
-            tag_RessursListeVises.RaiseListChangedEvents = true;
+            tag_ListeVises.AllowNew = true;
+            tag_ListeVises.AllowRemove = true;
+            tag_ListeVises.RaiseListChangedEvents = true;
 
             // Add items to the empty list.
-            if ((tag_RessursListeVises.Count == 0) && (tag_RessursListeSkjult.Count == 0))
+            if ((tag_ListeVises.Count == 0) && (tag_ListeSkjult.Count == 0))
             {
                 OppdaterTag_RessursListe();
                 // OppdatertKart();
@@ -60,32 +60,32 @@ namespace GMAP_Demo
 
         internal static void InitializeTag_RessursListeSkjult()
         {
-            tag_RessursListeSkjult.AllowNew = true;
-            tag_RessursListeSkjult.AllowRemove = true;
-            tag_RessursListeSkjult.RaiseListChangedEvents = true;
+            tag_ListeSkjult.AllowNew = true;
+            tag_ListeSkjult.AllowRemove = true;
+            tag_ListeSkjult.RaiseListChangedEvents = true;
         }
-        internal static void InitializeTag_OmrådeListeVises()
-        {
-            tag_OmrådeListeVises.AllowNew = true;
-            tag_OmrådeListeVises.AllowRemove = true;
-            tag_OmrådeListeVises.RaiseListChangedEvents = true;
+        //internal static void InitializeTag_OmrådeListeVises()
+        //{
+        //    tag_OmrådeListeVises.AllowNew = true;
+        //    tag_OmrådeListeVises.AllowRemove = true;
+        //    tag_OmrådeListeVises.RaiseListChangedEvents = true;
 
-            // Add items to the empty list.
-            if ((tag_OmrådeListeVises.Count == 0) && (tag_OmrådeListeSkjult.Count == 0))
-            {
-                OppdaterTag_OmrådeListe();
-                // OppdatertKart();
-            }
-        }
+        //    // Add items to the empty list.
+        //    if ((tag_OmrådeListeVises.Count == 0) && (tag_OmrådeListeSkjult.Count == 0))
+        //    {
+        //        OppdaterTag_OmrådeListe();
+        //        // OppdatertKart();
+        //    }
+        //}
 
 
 
-        internal static void InitializeTag_OmrådeListeSkjult()
-        {
-            tag_OmrådeListeSkjult.AllowNew = true;
-            tag_OmrådeListeSkjult.AllowRemove = true;
-            tag_OmrådeListeSkjult.RaiseListChangedEvents = true;
-        }
+        //internal static void InitializeTag_OmrådeListeSkjult()
+        //{
+        //    tag_OmrådeListeSkjult.AllowNew = true;
+        //    tag_OmrådeListeSkjult.AllowRemove = true;
+        //    tag_OmrådeListeSkjult.RaiseListChangedEvents = true;
+        //}
 
         public static void OppdaterKategoriListe()
         {
@@ -101,27 +101,28 @@ namespace GMAP_Demo
         }
         public static void OppdaterTag_RessursListe()
         {
-            tag_RessursListeVises.Clear();
+            tag_ListeVises.Clear();
 
-            List<Tag_Ressurs> tag_RessursListeAlle = new List<Tag_Ressurs>();
-            tag_RessursListeAlle = DatabaseCommunication.ListAllTag_RessursFromDb();
-            foreach (var item in tag_RessursListeAlle)
+            HashSet<string> tag_ListeAlle = new HashSet<string>();
+            tag_ListeAlle = FellesMetoder.FåAlleTags();
+
+            foreach (var item in tag_ListeAlle)
             {
-                tag_RessursListeVises.Add(item);
+                tag_ListeVises.Add(item);
             }
 
             // OppdatertKart();
         }
         public static void OppdaterTag_OmrådeListe()
         {
-            tag_OmrådeListeVises.Clear();
+            //tag_OmrådeListeVises.Clear();
 
-            List<Tag_Område> tag_OmrådeListeAlle = new List<Tag_Område>();
-            tag_OmrådeListeAlle = DatabaseCommunication.ListAllTag_OmrådeFromDb();
-            foreach (var item in tag_OmrådeListeAlle)
-            {
-                tag_OmrådeListeVises.Add(item);
-            }
+            //List<Tag_Område> tag_OmrådeListeAlle = new List<Tag_Område>();
+            //tag_OmrådeListeAlle = DatabaseCommunication.ListAllTag_OmrådeFromDb();
+            //foreach (var item in tag_OmrådeListeAlle)
+            //{
+            //    tag_OmrådeListeVises.Add(item);
+            //}
 
             // OppdatertKart();
         }
@@ -190,16 +191,21 @@ namespace GMAP_Demo
             {
                 foreach (var item2 in Kart.kategoriListeVises)
                 {
-                    foreach (var item3 in tag_RessursListeVises)
+                    if ((item.Kategori.ToString() == item2.Kategorinavn.ToString()) /*&& (item.Tag.ToString() == item3.Tag.ToString())*/) // Har kommentert ut delen som venter på Ressurs.Tag
                     {
-                        if ((item.Kategori.ToString() == item2.Kategorinavn.ToString()) /*&& (item.Tag.ToString() == item3.Tag.ToString())*/) // Har kommentert ut delen som venter på Ressurs.Tag
-                        {
-                            GlobaleLister.LRessurs.Add(item);
-                            break;
-                        }
+                        GlobaleLister.LRessurs.Add(item);
+                        break;
                     }
+                    
                 }
             }
+            List<string> test = new List<string>();
+            foreach (var item in tag_ListeVises)
+            {
+                test.Add(item.ToString());
+            }
+
+            FellesMetoder.FiltreBAserPåTags(ref GlobaleLister.LRessurs, test);
         }
 
         public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
