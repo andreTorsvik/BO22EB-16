@@ -301,7 +301,7 @@
             this.groupBox2.Size = new System.Drawing.Size(314, 139);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Kordinater";
+            this.groupBox2.Text = "koordinater";
             // 
             // label9
             // 
