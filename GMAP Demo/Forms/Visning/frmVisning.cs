@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-
+// Test test
 namespace GMAP_Demo
 {
     public partial class frmVisning : Form
@@ -14,7 +14,7 @@ namespace GMAP_Demo
         //log
         //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
-
+        
         private Color knapp_trykket = Color.FromArgb(46, 51, 73);
         
         public PointLatLng DoubleClick_punkt;
