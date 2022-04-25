@@ -77,7 +77,7 @@ namespace GMAP_Demo
                         Løpenummer_til_Område = -1;
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart 
-                        Kart.OppdaterListe_ressurs();
+                        Kart.OppdaterListe_området();
                         Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
                     }
                 }

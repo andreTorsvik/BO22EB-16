@@ -7,6 +7,7 @@ namespace GMAP_Demo
     public partial class frmFilter : Form
     {
         public static frmFilter instance;
+        public int indexRessurs = 0;
 
         public frmFilter()
         {
@@ -80,6 +81,7 @@ namespace GMAP_Demo
                 Kart.tag_ListeSkjult.Add((string)lbTagsVises.SelectedItem);
                 Kart.tag_ListeVises.Remove((string)lbTagsVises.SelectedItem);
                 Kart.OppdaterListe_ressurs();
+                Kart.OppdaterListe_området();
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
         }
@@ -91,6 +93,7 @@ namespace GMAP_Demo
                 Kart.tag_ListeVises.Add((string)lbTagsSkjult.SelectedItem);
                 Kart.tag_ListeSkjult.Remove((string)lbTagsSkjult.SelectedItem);
                 Kart.OppdaterListe_ressurs();
+                Kart.OppdaterListe_området();
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
         }

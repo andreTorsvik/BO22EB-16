@@ -36,7 +36,7 @@ namespace GMAP_Demo
         }
 
 
-        public static void FiltreBAserPåTags(ref List<Ressurs> Rlist, List<string> TagFilterListe)
+        public static void FiltreBaserPåTags(ref List<Ressurs> Rlist, List<string> TagFilterListe)
         {
 
             List<Ressurs> LRessurs = Rlist;
@@ -58,5 +58,25 @@ namespace GMAP_Demo
             }
         }
 
+        public static void FiltreBaserPåTags(ref List<Område> Olist, List<string> TagFilterListe)
+        {
+            List<Område> LOmråde = Olist;
+
+            for (int i = 0; i < LOmråde.Count; i++)
+            {
+                List<string> TagsItem = LOmråde[i].hentTags(); ;
+                int antallTags = TagsItem.Count; //3
+
+                TagsItem = TagsItem.Except(TagFilterListe).ToList();
+                int Nåværende = TagsItem.Count;// 
+
+
+                if ((antallTags == Nåværende))
+                {
+                    LOmråde.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
     }
 }
