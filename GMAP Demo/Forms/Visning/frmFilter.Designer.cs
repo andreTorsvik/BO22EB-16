@@ -62,6 +62,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnNesteRessurs = new System.Windows.Forms.Button();
             this.btnForrigeRessurs = new System.Windows.Forms.Button();
+            this.cbOR = new System.Windows.Forms.CheckBox();
+            this.cbAND = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -217,6 +219,7 @@
             this.lbKategorierSkjult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbKategorierSkjult.Name = "lbKategorierSkjult";
             this.lbKategorierSkjult.Size = new System.Drawing.Size(112, 84);
+            this.lbKategorierSkjult.Sorted = true;
             this.lbKategorierSkjult.TabIndex = 25;
             this.lbKategorierSkjult.DoubleClick += new System.EventHandler(this.lbKategorierSkjult_DoubleClick);
             // 
@@ -248,6 +251,7 @@
             this.lbKategorierVises.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbKategorierVises.Name = "lbKategorierVises";
             this.lbKategorierVises.Size = new System.Drawing.Size(112, 84);
+            this.lbKategorierVises.Sorted = true;
             this.lbKategorierVises.TabIndex = 27;
             this.lbKategorierVises.DoubleClick += new System.EventHandler(this.lbKategorierVises_DoubleClick);
             // 
@@ -259,6 +263,7 @@
             this.lbTagsSkjult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTagsSkjult.Name = "lbTagsSkjult";
             this.lbTagsSkjult.Size = new System.Drawing.Size(112, 84);
+            this.lbTagsSkjult.Sorted = true;
             this.lbTagsSkjult.TabIndex = 25;
             this.lbTagsSkjult.DoubleClick += new System.EventHandler(this.lbTagsSkjult_DoubleClick);
             // 
@@ -280,6 +285,7 @@
             this.lbTagsVises.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTagsVises.Name = "lbTagsVises";
             this.lbTagsVises.Size = new System.Drawing.Size(112, 84);
+            this.lbTagsVises.Sorted = true;
             this.lbTagsVises.TabIndex = 27;
             this.lbTagsVises.DoubleClick += new System.EventHandler(this.lbTagsVises_DoubleClick);
             // 
@@ -307,6 +313,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbAND);
+            this.groupBox1.Controls.Add(this.cbOR);
             this.groupBox1.Controls.Add(this.btnTagFjernAlle);
             this.groupBox1.Controls.Add(this.btnKategoriFjernAlle);
             this.groupBox1.Controls.Add(this.btnTagLeggTilAlle);
@@ -323,7 +331,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Location = new System.Drawing.Point(9, 73);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(387, 278);
+            this.groupBox1.Size = new System.Drawing.Size(387, 291);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
@@ -465,6 +473,28 @@
             this.btnForrigeRessurs.UseVisualStyleBackColor = true;
             this.btnForrigeRessurs.Click += new System.EventHandler(this.btnForrigeRessurs_Click);
             // 
+            // cbOR
+            // 
+            this.cbOR.AutoSize = true;
+            this.cbOR.Location = new System.Drawing.Point(257, 237);
+            this.cbOR.Name = "cbOR";
+            this.cbOR.Size = new System.Drawing.Size(49, 20);
+            this.cbOR.TabIndex = 35;
+            this.cbOR.Text = "OR";
+            this.cbOR.UseVisualStyleBackColor = true;
+            this.cbOR.CheckedChanged += new System.EventHandler(this.cbOR_CheckedChanged);
+            // 
+            // cbAND
+            // 
+            this.cbAND.AutoSize = true;
+            this.cbAND.Location = new System.Drawing.Point(256, 263);
+            this.cbAND.Name = "cbAND";
+            this.cbAND.Size = new System.Drawing.Size(58, 20);
+            this.cbAND.TabIndex = 36;
+            this.cbAND.Text = "AND";
+            this.cbAND.UseVisualStyleBackColor = true;
+            this.cbAND.CheckedChanged += new System.EventHandler(this.cbAND_CheckedChanged);
+            // 
             // frmFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -526,5 +556,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnForrigeRessurs;
         private System.Windows.Forms.Button btnNesteRessurs;
+        private System.Windows.Forms.CheckBox cbAND;
+        private System.Windows.Forms.CheckBox cbOR;
     }
 }

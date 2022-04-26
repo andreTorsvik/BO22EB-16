@@ -9,6 +9,8 @@ namespace GMAP_Demo
     {
         public static frmFilter instance;
         public int indexRessurs = 0;
+        public bool filterOR;
+        public bool filterAND;
 
         public frmFilter()
         {
@@ -26,6 +28,8 @@ namespace GMAP_Demo
             lbTagsVises.DisplayMember = "Tag";
             lbTagsSkjult.DataSource = Kart.tag_ListeSkjult;
             lbTagsSkjult.DisplayMember = "Tag";
+
+            cbOR.Checked = true;
         }
 
         private void lbKategorierVises_DoubleClick(object sender, EventArgs e)
@@ -152,6 +156,48 @@ namespace GMAP_Demo
         private void btnKategoriLeggTilAlle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbOR_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbOR.Checked)
+            {
+                cbAND.Checked = false;
+            }
+            else 
+            {
+                cbAND.Checked = true;
+            }
+            SettFilterValg();
+
+            Kart.OppdaterListe_ressurs();
+            Kart.OppdaterListe_området();
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+        }
+
+        private void cbAND_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbAND.Checked)
+            {
+                cbOR.Checked = false;
+            }
+            else
+            {
+                cbOR.Checked = true;
+            }
+
+            SettFilterValg();
+
+            Kart.OppdaterListe_ressurs();
+            Kart.OppdaterListe_området();
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+
+        }
+
+        private void SettFilterValg()
+        {
+            filterOR = cbOR.Checked;
+            filterAND = cbAND.Checked;
         }
     }
 }

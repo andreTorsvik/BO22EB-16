@@ -110,6 +110,7 @@
     <Compile Include="Database\DataTypes\Ressurs.cs" />
     <Compile Include="FellesMetoder.cs" />
     <Compile Include="FilBehandeling.cs" />
+    <Compile Include="FilterBehandling.cs" />
     <Compile Include="Forms\Innlogging\frmInnlogging.cs">
       <SubType>Form</SubType>
     </Compile>
