@@ -129,6 +129,7 @@ namespace GMAP_Demo
                 lbTags.Items.Add(tags);
             }
             //måling
+            txtMåling.Text = Convert.ToString(DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0]);
         }
 
         public void FyllInfoOmråde(int Tag)
