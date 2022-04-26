@@ -14,16 +14,16 @@ namespace GMAP_Demo
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Ressurs>("[dbo].[PROCEDUREListAllRessursFromDb]").ToList();
+                var output = connection.Query<Ressurs>("[dbo].[PROCEDUREListAllRessursFromDb] @BrukersSikkerhetsklarering", (InnloggetBruker.Sikkerhetsklarering)).ToList();
                 return output;
             }
         }
-        //Where Sikkerhetsklarering <= '{Sikkerhetsklarering}')
+        //Where Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}'
         public static List<Ressurs> ListRessursFromDb(int løpenummer)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}')").ToList();
+                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}' AND Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").ToList();
                 return output;
             }
         }
@@ -32,7 +32,7 @@ namespace GMAP_Demo
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Kategori = '{Kategori}')").ToList();
+                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Kategori = '{Kategori}' AND Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").ToList();
                 return output;
             }
         }
@@ -64,10 +64,11 @@ namespace GMAP_Demo
                     Sikkerhetsklarering = sikkerhetsklarering,
                     Kommentar = kommentar,
                     Lat = lat,
-                    Lang = lang
+                    Lang = lang,
                 };
+                int brukersSikkerhetsklarering = InnloggetBruker.Sikkerhetsklarering;
 
-                connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", ressursToAdd);
+                connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang, @BrukersSikkerhetsklarering", (ressursToAdd, brukersSikkerhetsklarering));
             }
         }
 
@@ -96,8 +97,9 @@ namespace GMAP_Demo
                     Lat = lat,
                     Lang = lang
                 };
+                int brukersSikkerhetsklarering = InnloggetBruker.Sikkerhetsklarering;
 
-                connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", UpdateRessurs);
+                connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang, @BrukersSikkerhetsklarering", (UpdateRessurs, brukersSikkerhetsklarering));
 
             }
         }

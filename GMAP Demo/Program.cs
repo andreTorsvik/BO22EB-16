@@ -20,8 +20,8 @@ namespace GMAP_Demo
             try
             {
                 // En vilkårlig metode som tester om vi har kontakt med databasen.
-                List<Ressurs> ressursList = new List<Ressurs>();
-                ressursList = DBComRessurs.ListAllRessursFromDb();
+                List<Bruker> brukerList = new List<Bruker>();
+                brukerList = DBComBruker.ListAllBrukerFromDb();
             }
             catch (Exception e)
             {
