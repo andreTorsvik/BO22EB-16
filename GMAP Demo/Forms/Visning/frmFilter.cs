@@ -107,43 +107,43 @@ namespace GMAP_Demo
             frmVisning.instance.map.Position = point;
         }
 
-        public static void FyllInfoObjekt(int Tag)
+        public void FyllInfoObjekt(int Tag)
         {
-            instance.txtNavn.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Navn;
-            instance.txtKategori.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Kategori;
-            instance.txtDato_opprettet.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Dato_opprettet;
-            instance.txtOpprettetAvBruker.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Opprettet_av_bruker;
-            instance.txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Sikkerhetsklarering.ToString();
-            instance.txtKommentar.Text = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].Kommentar;
+            txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
+            txtKategori.Text = GlobaleLister.LRessurs[Tag].Kategori;
+            txtDato_opprettet.Text = GlobaleLister.LRessurs[Tag].Dato_opprettet;
+            txtOpprettetAvBruker.Text = GlobaleLister.LRessurs[Tag].Opprettet_av_bruker;
+            txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Tag].Sikkerhetsklarering.ToString();
+            txtKommentar.Text = GlobaleLister.LRessurs[Tag].Kommentar;
 
             //tags
-            if (instance.lbTags.Items.Count > 0) instance.lbTags.Items.Clear();
+            if (lbTags.Items.Count > 0) lbTags.Items.Clear();
 
-            var TagListeTilRessurs = GlobaleLister.LRessurs[Convert.ToInt32(Tag)].hentTags();
+            var TagListeTilRessurs = GlobaleLister.LRessurs[Tag].hentTags();
             foreach (var tags in TagListeTilRessurs)
             {
-                instance.lbTags.Items.Add(tags);
+                lbTags.Items.Add(tags);
             }
             //måling
         }
 
-        public static void FyllInfoOmråde(int Tag)
+        public void FyllInfoOmråde(int Tag)
         {
-            instance.txtNavn.Text = GlobaleLister.LOmråde[Convert.ToInt32(Tag)].Navn;
-            instance.txtKategori.Text = "";
-            instance.txtMåling.Text = "";
-            instance.txtDato_opprettet.Text = GlobaleLister.LOmråde[Tag].Dato_opprettet;
-            instance.txtOpprettetAvBruker.Text = GlobaleLister.LOmråde[Tag].Opprettet_av_bruker;
-            instance.txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Tag].Sikkerhetsklarering.ToString();
-            instance.txtKommentar.Text = GlobaleLister.LOmråde[Tag].Kommentar;
+            txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
+            txtKategori.Text = "";
+            txtMåling.Text = "";
+            txtDato_opprettet.Text = GlobaleLister.LOmråde[Tag].Dato_opprettet;
+            txtOpprettetAvBruker.Text = GlobaleLister.LOmråde[Tag].Opprettet_av_bruker;
+            txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Tag].Sikkerhetsklarering.ToString();
+            txtKommentar.Text = GlobaleLister.LOmråde[Tag].Kommentar;
 
             //tags
-            if (instance.lbTags.Items.Count > 0) instance.lbTags.Items.Clear();
+            if (lbTags.Items.Count > 0) lbTags.Items.Clear();
 
             var TagListeTilOmråde = GlobaleLister.LOmråde[Tag].hentTags();
             foreach (var tags in TagListeTilOmråde)
             {
-                instance.lbTags.Items.Add(tags);
+               lbTags.Items.Add(tags);
             }
 
         }

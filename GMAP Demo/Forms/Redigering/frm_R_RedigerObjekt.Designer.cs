@@ -392,30 +392,30 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox txtNyKategori;
+        private System.Windows.Forms.TextBox txtNyKategori;
         private System.Windows.Forms.Button btnLeggTilNyKategori;
         private System.Windows.Forms.ListBox lbTilgjengligKategori;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox txtKategori;
+        private System.Windows.Forms.TextBox txtKategori;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox txtNyTag;
+        private System.Windows.Forms.TextBox txtNyTag;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        public System.Windows.Forms.TextBox txtLong;
+        private System.Windows.Forms.TextBox txtLong;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.TextBox txtLat;
+        private System.Windows.Forms.TextBox txtLat;
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox txtKommentar;
+        private System.Windows.Forms.TextBox txtKommentar;
         private System.Windows.Forms.Button btnLeggTilTag;
-        public System.Windows.Forms.ListBox lbValgtTags;
-        public System.Windows.Forms.ListBox lbTilgjengeligeTags;
+        private System.Windows.Forms.ListBox lbValgtTags;
+        private System.Windows.Forms.ListBox lbTilgjengeligeTags;
         private System.Windows.Forms.Button btnLagreEndring;
         private System.Windows.Forms.Label LabelSikkerhetsklarering;
-        public System.Windows.Forms.TextBox txtSikkerhetsklarering;
+        private System.Windows.Forms.TextBox txtSikkerhetsklarering;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox txtNavn;
+        private System.Windows.Forms.TextBox txtNavn;
         private System.Windows.Forms.GroupBox gbObjekt;
         private System.Windows.Forms.GroupBox gbTag;
     }

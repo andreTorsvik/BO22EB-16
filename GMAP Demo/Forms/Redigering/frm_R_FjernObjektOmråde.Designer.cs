@@ -200,10 +200,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSøk;
         private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox txtLøpenumemr;
+        private System.Windows.Forms.TextBox txtLøpenumemr;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox txtNavn;
-        public System.Windows.Forms.TextBox txtInfo;
+        private System.Windows.Forms.TextBox txtNavn;
+        private System.Windows.Forms.TextBox txtInfo;
         private System.Windows.Forms.Button btnFjern;
         private System.Windows.Forms.Label lableSlettet;
         private System.Windows.Forms.GroupBox gbObjekt;

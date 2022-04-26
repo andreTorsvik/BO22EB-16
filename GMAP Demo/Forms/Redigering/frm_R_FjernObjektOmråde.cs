@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GMAP_Demo
@@ -28,6 +21,25 @@ namespace GMAP_Demo
 
         }
 
+        public void fyllInfoObjekt(int Tag)
+        {
+            Løpenummer_til_objekt = GlobaleLister.LRessurs[Tag].Løpenummer_ressurs;
+            txtInfo.Text = GlobaleLister.LRessurs[Tag].ToString();
+            txtLøpenumemr.Text = GlobaleLister.LRessurs[Tag].Løpenummer_ressurs.ToString();
+            txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
+
+            if (Løpenummer_til_Område >= 0) Løpenummer_til_Område = -1;
+        }
+
+        public void fyllInfoOmråde(int Tag)
+        {
+            Løpenummer_til_Område = GlobaleLister.LOmråde[Tag].Løpenummer_område;
+            txtInfo.Text = GlobaleLister.LOmråde[Tag].ToString();
+            txtLøpenumemr.Text = GlobaleLister.LOmråde[Tag].Løpenummer_område.ToString();
+            txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
+
+            if (Løpenummer_til_objekt >= 0) Løpenummer_til_objekt = -1;
+        }
         private void btnFjern_Click(object sender, EventArgs e)
         {
             if (Løpenummer_til_Område == -1 && Løpenummer_til_objekt != -1) // sletting av ressurs 
@@ -57,8 +69,8 @@ namespace GMAP_Demo
                 }
                 catch (Exception feil)
                 {
-                    MessageBox.Show(String.Format("Noe galt skjedde: {0}",feil.Message));
-                }     
+                    MessageBox.Show(String.Format("Noe galt skjedde: {0}", feil.Message));
+                }
             }
             else if (Løpenummer_til_objekt == -1 && Løpenummer_til_Område != -1) // sletting av Område
             {

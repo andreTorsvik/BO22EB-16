@@ -103,6 +103,12 @@ namespace GMAP_Demo
             }
         }
 
+        public void FyllKoordinater(double lat, double lang)
+        {
+            txtLat.Text = lat.ToString();
+            txtLong.Text = lang.ToString();
+        }
+
         private void btnLeggTilOmrådeIDb_Click(object sender, EventArgs e)
         {
             string navn = txtNavn.Text;

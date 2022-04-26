@@ -393,9 +393,8 @@
 
         #endregion
         //Her er et ekempel der vi bruker public textbox
-        public System.Windows.Forms.TextBox txtLat;
-        public System.Windows.Forms.TextBox txtLong;
-
+        private System.Windows.Forms.TextBox txtLat;
+        private System.Windows.Forms.TextBox txtLong;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLeggTilObjekt;
         private System.Windows.Forms.Label LabelSikkerhetsklarering;
@@ -411,13 +410,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox txtNyTag;
+        private System.Windows.Forms.TextBox txtNyTag;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ListBox lbTilgjengligKategori;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtKategori;
-        public System.Windows.Forms.TextBox txtNyKategori;
+        private System.Windows.Forms.TextBox txtNyKategori;
         private System.Windows.Forms.Button btnLeggTilNyKategori;
         private System.Windows.Forms.GroupBox gbTag;
         private System.Windows.Forms.GroupBox gbObjekt;

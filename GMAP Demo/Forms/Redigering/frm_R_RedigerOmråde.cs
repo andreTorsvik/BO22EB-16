@@ -110,6 +110,51 @@ namespace GMAP_Demo
             }
         }
 
+        public void FyllKoordinater(double lat, double lang)
+        {
+            txtLat.Text = lat.ToString();
+            txtLong.Text = lang.ToString();
+        }
+
+        public void FyllInfoOmråde(int Tag)
+        {
+            Løpenummer_til_redigering = GlobaleLister.LOmråde[Tag].Løpenummer_område;
+            txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
+            txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Tag].Sikkerhetsklarering.ToString();
+            txtKommentar.Text = GlobaleLister.LOmråde[Tag].Kommentar;
+            txtfarge.Text = GlobaleLister.LOmråde[Tag].Farge;
+
+            //punkt liste
+            if (lbPunkter.Items.Count > 0) pointLatLngs.Clear();
+            var Punktliste = DBComPunkter_område.GetPunkter_området(Løpenummer_til_redigering);
+            Punktliste = Punktliste.OrderBy(x => x.Rekkefølge_punkter).ToList();
+            foreach (var item1 in Punktliste)
+            {
+                PointLatLng point = new PointLatLng(item1.Lat, item1.Lang);
+                pointLatLngs.Add(point);
+            }
+            txtNrPunkt.Text = Punktliste.Count.ToString();
+
+            //tags
+            if (lbValgtTags.Items.Count > 0) lbValgtTags.Items.Clear();
+            if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
+            if (LGamleTag.Count > 0) LGamleTag.Clear();
+
+            var TagListeTilRessurs = GlobaleLister.LOmråde[Tag].hentTags();
+            var AlleTags = FellesMetoder.FåAlleTags();
+            var GjenværendeTag = AlleTags.Except(TagListeTilRessurs);
+
+            foreach (var tags in TagListeTilRessurs)
+            {
+                lbValgtTags.Items.Add(tags);
+                LGamleTag.Add(tags);
+            }
+            foreach (var tags in GjenværendeTag)
+            {
+                lbTilgjengeligeTags.Items.Add(tags);
+            }
+        }
+
         private void btnLagreEndring_Click(object sender, EventArgs e)
         {
             string navn = txtNavn.Text;

@@ -2,7 +2,6 @@
 using GMap.NET.WindowsForms;
 using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 
@@ -26,7 +25,6 @@ namespace GMAP_Demo
             //sette oransjePanelet til Posisjonknapp
             FlyttNavigasjonsPanel(btnObjekt.Height, btnObjekt.Top);
             btnObjekt.BackColor = knapp_trykket;
-
 
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
@@ -56,7 +54,6 @@ namespace GMAP_Demo
 
             this.Close();
         }
-
         void AlleKnapperTilStandarfarge()
         {
             Color StandarFarge = Color.FromArgb(24, 30, 54);
@@ -91,7 +88,6 @@ namespace GMAP_Demo
 
 
         }
-
         private void btnOmråde_Click(object sender, EventArgs e)
         {
             if (pnlNav.Top != btnOmråde.Top)
@@ -114,7 +110,11 @@ namespace GMAP_Demo
 
         }
 
-        private void btnRediger_obj_områ_Click(object sender, EventArgs e)
+        private void btnRediger_objekt_Click(object sender, EventArgs e)
+        {
+            ÅpneRediger_objektForm();
+        }
+        private void ÅpneRediger_objektForm()
         {
             if (pnlNav.Top != btnRediger_objekt.Top)
             {
@@ -133,9 +133,13 @@ namespace GMAP_Demo
                 this.PnlFormLoader.Controls.Add(frm_R_RedigerObjektOmråde_vrb);
                 frm_R_RedigerObjektOmråde_vrb.Show();
             }
-
         }
+
         private void btnRedigerOmråde_Click(object sender, EventArgs e)
+        {
+            ÅpneRediger_områdeForm();
+        }
+        private void ÅpneRediger_områdeForm()
         {
             if (pnlNav.Top != btnRedigerOmråde.Top)
             {
@@ -222,153 +226,86 @@ namespace GMAP_Demo
                 //Lpunkt.Add(DoubleClick_punkt);
 
                 double lat = DoubleClick_punkt.Lat;
-                double lng = DoubleClick_punkt.Lng;
+                double lang = DoubleClick_punkt.Lng;
 
                 Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
-                Kart.LeggtilMarkør(Kart.MuligKart.Redigering, new PointLatLng(lat, lng), -1, "HjelpeMarkør");
+                Kart.LeggtilMarkør(Kart.MuligKart.Redigering, new PointLatLng(lat, lang), -1, "HjelpeMarkør");
                 Kart.reff(Kart.MuligKart.Redigering);
 
                 if (frm_R_LeggTilObjekt.instance != null)
                 {
-                    frm_R_LeggTilObjekt.instance.txtLat.Text = lat.ToString();
-                    frm_R_LeggTilObjekt.instance.txtLong.Text = lng.ToString();
-
+                    frm_R_LeggTilObjekt.instance.FyllKoordinater(lat, lang);
                 }
                 if (frm_R_LeggTilOmråde.instance != null)
                 {
-                    frm_R_LeggTilOmråde.instance.txtLat.Text = lat.ToString();
-                    frm_R_LeggTilOmråde.instance.txtLong.Text = lng.ToString();
+                    frm_R_LeggTilOmråde.instance.FyllKoordinater(lat, lang);
                 }
                 if (frm_R_RedigerObjekt.instance != null)
                 {
-                    frm_R_RedigerObjekt.instance.txtLat.Text = lat.ToString();
-                    frm_R_RedigerObjekt.instance.txtLong.Text = lng.ToString();
-                    
-
+                    frm_R_RedigerObjekt.instance.FyllKoordinater(lat, lang);
                 }
                 if (frm_R_RedigerOmråde.instance != null)
                 {
-                    frm_R_RedigerOmråde.instance.txtLat.Text = lat.ToString();
-                    frm_R_RedigerOmråde.instance.txtLong.Text = lng.ToString();
+                    frm_R_RedigerOmråde.instance.FyllKoordinater(lat, lang);
                 }
             }
         }
 
         public void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            if (frm_R_LeggTilOmråde.instance != null)
+            //skal ikke åpne redigeringform hvis den er på fjerne
+            if (pnlNav.Top != btnFjern.Top)
             {
+                ÅpneRediger_objektForm();
+            }
 
+            //if (frm_R_LeggTilOmråde.instance != null)
+            //{
+
+            //}
+            if (frm_R_FjernObjektOmråde.instance != null)
+            {
+                frm_R_FjernObjektOmråde.instance.fyllInfoObjekt(Convert.ToInt32(item.Tag));
             }
             if (frm_R_RedigerObjekt.instance != null)
             {
-                //info 
-                frm_R_RedigerObjekt.instance.txtNavn.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Navn;
-                frm_R_RedigerObjekt.instance.txtKategori.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Kategori;
-                frm_R_RedigerObjekt.instance.txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-                frm_R_RedigerObjekt.instance.txtKommentar.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Kommentar;
-                frm_R_RedigerObjekt.instance.txtLat.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Lat.ToString();
-                frm_R_RedigerObjekt.instance.txtLong.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Lang.ToString();
 
-                //tagliste
-                //sletting av eksisterende lister
-                if (frm_R_RedigerObjekt.instance.lbValgtTags.Items.Count > 0) frm_R_RedigerObjekt.instance.lbValgtTags.Items.Clear();
-                if (frm_R_RedigerObjekt.instance.lbTilgjengeligeTags.Items.Count > 0) frm_R_RedigerObjekt.instance.lbTilgjengeligeTags.Items.Clear();
-                if (frm_R_RedigerObjekt.instance.LGamleTag.Count > 0) frm_R_RedigerObjekt.instance.LGamleTag.Clear();
-
-                var TagListeTilRessurs = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].hentTags();
-                var AlleTags = FellesMetoder.FåAlleTags();
-                var GjenværendeTag =  AlleTags.Except(TagListeTilRessurs);
-
-                foreach (var tags in TagListeTilRessurs)
-                {
-                    frm_R_RedigerObjekt.instance.lbValgtTags.Items.Add(tags);
-                    frm_R_RedigerObjekt.instance.LGamleTag.Add(tags);
-                }
-                foreach (var tags in GjenværendeTag)
-                {
-                    frm_R_RedigerObjekt.instance.lbTilgjengeligeTags.Items.Add(tags);
-                }
-
-                //info til redigering 
-                frm_R_RedigerObjekt.instance.Løpenummer_til_redigering = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
-
+                frm_R_RedigerObjekt.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
             }
-            if (frm_R_FjernObjektOmråde.instance != null)
-            {
-                frm_R_FjernObjektOmråde.instance.Løpenummer_til_objekt = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs;
-                if (frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område >= 0) frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område = -1;
-                frm_R_FjernObjektOmråde.instance.txtInfo.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].ToString();
-                frm_R_FjernObjektOmråde.instance.txtLøpenumemr.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Løpenummer_ressurs.ToString();
-                frm_R_FjernObjektOmråde.instance.txtNavn.Text = GlobaleLister.LRessurs[Convert.ToInt32(item.Tag)].Navn;
-            }
-
         }
 
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
+            //skal ikke åpne redigeringform hvis den er på fjerne
+            if (pnlNav.Top != btnFjern.Top)
+            {
+                ÅpneRediger_områdeForm();
+            }
+
             if (frm_R_RedigerOmråde.instance != null)
             {
-                frm_R_RedigerOmråde.instance.Løpenummer_til_redigering = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område;
-                frm_R_RedigerOmråde.instance.txtNavn.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Navn;
-                frm_R_RedigerOmråde.instance.txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Sikkerhetsklarering.ToString();
-                frm_R_RedigerOmråde.instance.txtKommentar.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Kommentar;
-                frm_R_RedigerOmråde.instance.txtfarge.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Farge;
-
-                //punkt liste
-                if (frm_R_RedigerOmråde.instance.lbPunkter.Items.Count > 0) frm_R_RedigerOmråde.instance.pointLatLngs.Clear();
-                var Punktliste = DBComPunkter_område.GetPunkter_området(frm_R_RedigerOmråde.instance.Løpenummer_til_redigering);
-                Punktliste = Punktliste.OrderBy(x => x.Rekkefølge_punkter).ToList();
-                foreach (var item1 in Punktliste)
-                {
-                    PointLatLng point = new PointLatLng(item1.Lat, item1.Lang);
-                    frm_R_RedigerOmråde.instance.pointLatLngs.Add(point);
-                }
-                frm_R_RedigerOmråde.instance.txtNrPunkt.Text = Punktliste.Count.ToString();
-
-                //tags
-                if (frm_R_RedigerOmråde.instance.lbValgtTags.Items.Count > 0) frm_R_RedigerOmråde.instance.lbValgtTags.Items.Clear();
-                if (frm_R_RedigerOmråde.instance.lbTilgjengeligeTags.Items.Count > 0) frm_R_RedigerOmråde.instance.lbTilgjengeligeTags.Items.Clear();
-                if (frm_R_RedigerOmråde.instance.LGamleTag.Count > 0) frm_R_RedigerOmråde.instance.LGamleTag.Clear();
-
-                var TagListeTilRessurs = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].hentTags();
-                var AlleTags = FellesMetoder.FåAlleTags();
-                var GjenværendeTag = AlleTags.Except(TagListeTilRessurs);
-
-                foreach (var tags in TagListeTilRessurs)
-                {
-                    frm_R_RedigerOmråde.instance.lbValgtTags.Items.Add(tags);
-                    frm_R_RedigerOmråde.instance.LGamleTag.Add(tags);
-                }
-                foreach (var tags in GjenværendeTag)
-                {
-                    frm_R_RedigerOmråde.instance.lbTilgjengeligeTags.Items.Add(tags);
-                }
+                frm_R_RedigerOmråde.instance.FyllInfoOmråde(Convert.ToInt32(item.Tag));
             }
             if (frm_R_FjernObjektOmråde.instance != null)
             {
-                frm_R_FjernObjektOmråde.instance.Løpenummer_til_Område = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område;
-                if (frm_R_FjernObjektOmråde.instance.Løpenummer_til_objekt >= 0) frm_R_FjernObjektOmråde.instance.Løpenummer_til_objekt = -1;
-                frm_R_FjernObjektOmråde.instance.txtInfo.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].ToString();
-                frm_R_FjernObjektOmråde.instance.txtLøpenumemr.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Løpenummer_område.ToString();
-                frm_R_FjernObjektOmråde.instance.txtNavn.Text = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].Navn;
+                frm_R_FjernObjektOmråde.instance.fyllInfoOmråde(Convert.ToInt32(item.Tag));
             }
 
         }
 
         private void btnZoomPluss_Click(object sender, EventArgs e)
         {
-            instance.map.Zoom++;
+            map.Zoom++;
         }
 
         private void btnZoomMinus_Click(object sender, EventArgs e)
         {
-            instance.map.Zoom--;
+            map.Zoom--;
         }
 
-        public void SlettHjelpeMarkører()
+        private void SlettHjelpeMarkører()
         {
-            foreach (var item in instance.map.Overlays)
+            foreach (var item in map.Overlays)
             {
                 if (item.Id == "MarkørForOmråde")
                 {
@@ -376,7 +313,7 @@ namespace GMAP_Demo
                     break;
                 }
             }
-            foreach (var item in instance.map.Overlays)
+            foreach (var item in map.Overlays)
             {
                 if (item.Id == "HjelpeMarkør")
                 {
@@ -385,7 +322,5 @@ namespace GMAP_Demo
                 }
             }
         }
-
-       
     }
 }

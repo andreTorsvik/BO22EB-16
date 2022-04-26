@@ -408,12 +408,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox txtNyTag;
+        private System.Windows.Forms.TextBox txtNyTag;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        public System.Windows.Forms.TextBox txtLong;
+        private System.Windows.Forms.TextBox txtLong;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.TextBox txtLat;
+        private System.Windows.Forms.TextBox txtLat;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKommentar;
         private System.Windows.Forms.Button btnLeggTilTag;
@@ -425,7 +425,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNavn;
         private System.Windows.Forms.Button btnLeggTilPunkt;
-        public System.Windows.Forms.ListBox lbPunkter;
+        private System.Windows.Forms.ListBox lbPunkter;
         private System.Windows.Forms.TextBox txtNrPunkt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtfarge;
