@@ -18,11 +18,11 @@ namespace GMAP_Demo
         {
             // perform the operation
             float måling = (Convert.ToSingle(random.Next(30)) + Convert.ToSingle(random.NextDouble()));
-            Math.Round(måling, 2);
+            måling = (float)Math.Round(måling, 2);
             DBComMåling.UpdateMåling("Termomåler 9001", (måling), 0, "C");
             
             måling = (Convert.ToSingle(random.Next(400)) + Convert.ToSingle(random.NextDouble()));
-            Math.Round(måling, 2);
+            måling = (float)Math.Round(måling, 2);
             DBComMåling.UpdateMåling("Voltron 777", (måling), 1, "V");
         }
     }
