@@ -37,6 +37,15 @@ namespace GMAP_Demo
             }
         }
 
+        public static List<Bruker> ListAllBrukerFromDbWithMaksSikkerhetsklarering(int Sikkerhetsklarering)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            {
+                var output = connection.Query<Bruker>($"SELECT * FROM [dbo].[Bruker] WHERE (Sikkerhetsklarering = '{Sikkerhetsklarering}')").ToList();
+                return output;
+            }
+        }
+
         public static List<Bruker> ListBrukerInfoFromDb(string username)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))

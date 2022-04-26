@@ -55,10 +55,10 @@ namespace GMAP_Demo
             {
                 if (item.Godkjent == true) lbListeOverbrukere.Items.Add(item.BrukerDataTilAdmin);
             }
-            if(index < lbListeOverbrukere.Items.Count)
+            if (index < lbListeOverbrukere.Items.Count)
                 lbListeOverbrukere.SelectedIndex = index;
             else
-                lbListeOverbrukere.SelectedIndex = index-1;
+                lbListeOverbrukere.SelectedIndex = index - 1;
 
         }
 
@@ -133,7 +133,7 @@ namespace GMAP_Demo
                 //finn mailen
                 string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
                 string epost = HentEpostFraInfo(BrukerInfo);
-                FjernBruker(epost, BrukerInfo,-1);
+                FjernBruker(epost, BrukerInfo, -1);
             }
         }
 
@@ -209,7 +209,7 @@ namespace GMAP_Demo
                 {
                     string newLine = Environment.NewLine;
                     MessageBox.Show(string.Format("Du kan ikke oppgradere denne brukeren." + newLine
-                        + "Du må ha høyre sikkerhetsklarering enn brukeren" + newLine +"Du har: {0}", InnloggetBruker.Sikkerhetsklarering));
+                        + "Du må ha høyre sikkerhetsklarering enn brukeren" + newLine + "Du har: {0}", InnloggetBruker.Sikkerhetsklarering));
                 }
             }
 
@@ -234,24 +234,71 @@ namespace GMAP_Demo
 
             if (epost != null)
             {
-                bool tillatelse = KanNedgradere(InnloggetBruker.BrukernavnInnlogget, epost);
+                bool tillatelse = KanNedgradereEllerFjerne(InnloggetBruker.BrukernavnInnlogget, epost);
                 if (tillatelse)
                 {
                     var brukerListe = DBComBruker.ListBrukerInfoFromDb(epost);
 
                     int klarering = brukerListe[0].Sikkerhetsklarering;
+                    if(InnloggetBruker.BrukernavnInnlogget == epost)
+                    {
+                        string caption = "Nedgradere av deg selv: ";
+                        string Endring = string.Format("{0}", epost);
+                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                        DialogResult result;
 
-                    if (brukerListe[0].Sikkerhetsklarering >= 2)
+                        // Displays the MessageBox.
+                        result = MessageBox.Show(Endring, caption, buttons);
+                        if (result == DialogResult.Yes)
+                        {
+                            bool Nedgrader = false;
+                            if (InnloggetBruker.Sikkerhetsklarering == frmVisning.instance.MaxSikkerhetsklarering)
+                            {
+                                var antallMaksSikkerhetsklaering = DBComBruker.ListAllBrukerFromDbWithMaksSikkerhetsklarering(frmVisning.instance.MaxSikkerhetsklarering);
+
+                                if (antallMaksSikkerhetsklaering.Count > 1) // må være minst 2
+                                {
+                                    Nedgrader = true;
+                                }
+                                else
+                                {
+                                    string newLine = Environment.NewLine;
+                                    MessageBox.Show(string.Format("Du er den eneste med maks sikkerhetsklaering." + newLine
+                                        + "Oppgrader noen andre før du kan nedgraderes"));
+                                }
+                            }
+                            else
+                            {
+                                Nedgrader = true;
+                            }
+
+                            if(Nedgrader)
+                            {
+                                klarering--;
+                                DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
+                                if (epost == InnloggetBruker.BrukernavnInnlogget) InnloggetBruker.Sikkerhetsklarering--;
+                            }
+                          
+                        }        
+                    }
+                    else if (brukerListe[0].Sikkerhetsklarering >= 2)
                     {
                         klarering--;
+                        DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
+                        if (epost == InnloggetBruker.BrukernavnInnlogget) InnloggetBruker.Sikkerhetsklarering--;
                     }
                     else
                     {
                         MessageBox.Show("Kan ikke nedgradere fordi bruker allerede har laveste");
                     }
-                    DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
 
                     OppdaterListenOverBrukere(selectetItem);
+                }
+                else
+                {
+                    string newLine = Environment.NewLine;
+                    MessageBox.Show(string.Format("Du kan ikke nedgradere denne brukeren." + newLine
+                        + "Du må ha høyre sikkerhetsklarering enn brukeren" + newLine + "Du har: {0}", InnloggetBruker.Sikkerhetsklarering));
                 }
             }
         }
@@ -263,6 +310,9 @@ namespace GMAP_Demo
             {
                 var InnloggetBruker = DBComBruker.ListBrukerInfoFromDb(Innlogget);
                 var AktuellBruker = DBComBruker.ListBrukerInfoFromDb(Aktuell);
+
+                if (InnloggetBruker[0].Sikkerhetsklarering > frmVisning.instance.MaxSikkerhetsklarering)
+                    InnloggetBruker[0].Sikkerhetsklarering = frmVisning.instance.MaxSikkerhetsklarering;
 
                 if (InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
                 {
@@ -279,7 +329,7 @@ namespace GMAP_Demo
             return sjekk;
         }
 
-        private bool KanNedgradere(string Innlogget, string Aktuell)
+        private bool KanNedgradereEllerFjerne(string Innlogget, string Aktuell)
         {
             bool sjekk = false;
 
@@ -288,6 +338,7 @@ namespace GMAP_Demo
                 var InnloggetBruker = DBComBruker.ListBrukerInfoFromDb(Innlogget);
                 var AktuellBruker = DBComBruker.ListBrukerInfoFromDb(Aktuell);
 
+               
                 if (InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
                 {
                     sjekk = true;
@@ -310,28 +361,46 @@ namespace GMAP_Demo
             //forløpi kun de med sikkerhetsklaering 3 som kan fjerne 
             if (InnloggetBruker.Sikkerhetsklarering == frmVisning.instance.MaxSikkerhetsklarering)
             {
+                
                 //finn mailen
                 int selectetItem = lbListeOverbrukere.SelectedIndex;
                 string BrukerInfo = lbListeOverbrukere.SelectedItem.ToString();
                 string epost = HentEpostFraInfo(BrukerInfo);
 
-                string caption = "Vil du Virkelig slette denne brukeren: ";
-                string Endring = string.Format("{0}",epost) ;
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result;
-
-                // Displays the MessageBox.
-                result = MessageBox.Show(Endring, caption, buttons);
-                if (result == DialogResult.Yes)
-                { 
-                    FjernBruker(epost, BrukerInfo, selectetItem);
+                if (InnloggetBruker.BrukernavnInnlogget == epost)
+                {
+                    MessageBox.Show("Du kan ikke slette din egen bruker");
                 }
+                else
+                {
+                    bool Tillatelse = KanNedgradereEllerFjerne(InnloggetBruker.BrukernavnInnlogget, epost);
+
+                    if (Tillatelse)
+                    {
+                        string caption = "Vil du Virkelig slette denne brukeren: ";
+                        string Endring = string.Format("{0}", epost);
+                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                        DialogResult result;
+
+                        // Displays the MessageBox.
+                        result = MessageBox.Show(Endring, caption, buttons);
+                        if (result == DialogResult.Yes)
+                        {
+                            FjernBruker(epost, BrukerInfo, selectetItem);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Du kan ikke fjerne en med høyeste sikkerhetsklarering");
+                    }
+                }
+               
             }
             else
             {
                 string newLine = Environment.NewLine;
-                MessageBox.Show(string.Format("Du Må ha høyeste sikkerhetsklarering: {0}."+ newLine + "Du har: {1}",
-                    frmVisning.instance.MaxSikkerhetsklarering.ToString(),InnloggetBruker.Sikkerhetsklarering.ToString()));
+                MessageBox.Show(string.Format("Du Må ha høyeste sikkerhetsklarering: {0}." + newLine + "Du har: {1}",
+                    frmVisning.instance.MaxSikkerhetsklarering.ToString(), InnloggetBruker.Sikkerhetsklarering.ToString()));
             }
 
 

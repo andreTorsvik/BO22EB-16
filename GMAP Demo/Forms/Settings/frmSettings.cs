@@ -27,10 +27,7 @@ namespace GMAP_Demo
             frm_S_LoggInn_vrb.Show();
 
         }
-        private void frmSettings_Load(object sender, EventArgs e)
-        {
 
-        }
         private void btnTilbake_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -52,8 +49,7 @@ namespace GMAP_Demo
             btnStartPosisjon.BackColor = StandarFarge;
             btnAdmin.BackColor = StandarFarge;
             btnFjernKategori.BackColor = StandarFarge;
-            btnDatabaseView.BackColor = StandarFarge;
-            btnEkstra.BackColor = StandarFarge;
+
         }
 
         private void btnLoggInn_Click(object sender, EventArgs e)
@@ -122,28 +118,6 @@ namespace GMAP_Demo
                 this.PnlFormLoader.Controls.Add(frm_S_BrukerInfo_vrb);
                 frm_S_BrukerInfo_vrb.Show();
             }
-        }
-
-        private void btnEkstra_Click(object sender, EventArgs e)
-        {
-            if (pnlNav.Top != btnEkstra.Top)
-            {
-                AlleKnapperTilStandarfarge();
-                btnEkstra.BackColor = knapp_trykket;
-
-                //pnlNav.Left = btnEkstra.Left;
-                FlyttNavigasjonsPanel(btnEkstra.Height, btnEkstra.Top);
-            }
-        }
-
-        private void btnDatabaseView_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            frmDatabaseView frmDatabaseView = new frmDatabaseView();
-            frmDatabaseView.Size = this.Size;
-            frmDatabaseView.Location = this.Location;
-            frmDatabaseView.Show();
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
