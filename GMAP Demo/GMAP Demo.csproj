@@ -147,12 +147,6 @@
     <Compile Include="Forms\Redigering\frmRediger.Designer.cs">
       <DependentUpon>frmRediger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\frmDatabaseView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Settings\frmDatabaseView.Designer.cs">
-      <DependentUpon>frmDatabaseView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Settings\frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,9 +262,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Redigering\frmRediger.resx">
       <DependentUpon>frmRediger.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\frmDatabaseView.resx">
-      <DependentUpon>frmDatabaseView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>

@@ -33,8 +33,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnTilbake = new System.Windows.Forms.Button();
-            this.btnDatabaseView = new System.Windows.Forms.Button();
-            this.btnEkstra = new System.Windows.Forms.Button();
             this.btnFjernKategori = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnStartPosisjon = new System.Windows.Forms.Button();
@@ -58,8 +56,6 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel1.Controls.Add(this.pnlNav);
             this.panel1.Controls.Add(this.btnTilbake);
-            this.panel1.Controls.Add(this.btnDatabaseView);
-            this.panel1.Controls.Add(this.btnEkstra);
             this.panel1.Controls.Add(this.btnFjernKategori);
             this.panel1.Controls.Add(this.btnAdmin);
             this.panel1.Controls.Add(this.btnStartPosisjon);
@@ -96,40 +92,6 @@
             this.btnTilbake.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnTilbake.UseVisualStyleBackColor = true;
             this.btnTilbake.Click += new System.EventHandler(this.btnTilbake_Click);
-            // 
-            // btnDatabaseView
-            // 
-            this.btnDatabaseView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDatabaseView.FlatAppearance.BorderSize = 0;
-            this.btnDatabaseView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDatabaseView.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDatabaseView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.btnDatabaseView.Location = new System.Drawing.Point(0, 420);
-            this.btnDatabaseView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDatabaseView.Name = "btnDatabaseView";
-            this.btnDatabaseView.Size = new System.Drawing.Size(316, 84);
-            this.btnDatabaseView.TabIndex = 1;
-            this.btnDatabaseView.Text = "Database sjekk";
-            this.btnDatabaseView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnDatabaseView.UseVisualStyleBackColor = true;
-            this.btnDatabaseView.Click += new System.EventHandler(this.btnDatabaseView_Click);
-            // 
-            // btnEkstra
-            // 
-            this.btnEkstra.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEkstra.FlatAppearance.BorderSize = 0;
-            this.btnEkstra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEkstra.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEkstra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.btnEkstra.Location = new System.Drawing.Point(0, 336);
-            this.btnEkstra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEkstra.Name = "btnEkstra";
-            this.btnEkstra.Size = new System.Drawing.Size(316, 84);
-            this.btnEkstra.TabIndex = 1;
-            this.btnEkstra.Text = "Hvis vi trenger mer [WIP]";
-            this.btnEkstra.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnEkstra.UseVisualStyleBackColor = true;
-            this.btnEkstra.Click += new System.EventHandler(this.btnEkstra_Click);
             // 
             // btnFjernKategori
             // 
@@ -213,7 +175,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSettings_FormClosing);
-            this.Load += new System.EventHandler(this.frmSettings_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -227,8 +188,6 @@
         private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.Button btnStartPosisjon;
         private System.Windows.Forms.Button btnLoggUt;
-        private System.Windows.Forms.Button btnDatabaseView;
         private System.Windows.Forms.Button btnFjernKategori;
-        private System.Windows.Forms.Button btnEkstra;
     }
 }

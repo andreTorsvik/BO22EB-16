@@ -79,6 +79,8 @@ namespace GMAP_Demo
 
                 SlettHjelpeMarkører();
 
+                ResettLøpenummerTilRedigering();
+
                 //legge inn rett forms i panelet
                 this.PnlFormLoader.Controls.Clear();
                 frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -98,6 +100,8 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnOmråde.Height, btnOmråde.Top);
 
                 SlettHjelpeMarkører();
+
+                ResettLøpenummerTilRedigering();
 
                 //legge inn rett form i panelet
                 this.PnlFormLoader.Controls.Clear();
@@ -124,6 +128,8 @@ namespace GMAP_Demo
 
                 SlettHjelpeMarkører();
 
+                ResettLøpenummerTilRedigering();
+
                 //legge inn rett form i panelet
                 this.PnlFormLoader.Controls.Clear();
                 frm_R_RedigerObjekt frm_R_RedigerObjektOmråde_vrb = new frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -149,6 +155,8 @@ namespace GMAP_Demo
 
                 SlettHjelpeMarkører();
 
+                ResettLøpenummerTilRedigering();
+
                 //legge inn rett form i panelet
                 this.PnlFormLoader.Controls.Clear();
                 frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -170,6 +178,8 @@ namespace GMAP_Demo
 
                 SlettHjelpeMarkører();
 
+                ResettLøpenummerTilRedigering();
+
                 //legge inn rett form i panelet
                 this.PnlFormLoader.Controls.Clear();
                 frm_R_EndreObjektsymbol frm_R_LeggTilBilde_vrb = new frm_R_EndreObjektsymbol() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -190,6 +200,8 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnFjern.Height, btnFjern.Top);
 
                 SlettHjelpeMarkører();
+
+                ResettLøpenummerTilRedigering();
 
                 //legge inn rett form i panelet
                 this.PnlFormLoader.Controls.Clear();
@@ -267,7 +279,6 @@ namespace GMAP_Demo
             }
             if (frm_R_RedigerObjekt.instance != null)
             {
-
                 frm_R_RedigerObjekt.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
             }
         }
@@ -299,6 +310,18 @@ namespace GMAP_Demo
         private void btnZoomMinus_Click(object sender, EventArgs e)
         {
             map.Zoom--;
+        }
+
+        private void ResettLøpenummerTilRedigering()
+        {
+            if(frm_R_RedigerObjekt.instance != null)
+            {
+                frm_R_RedigerObjekt.instance.Løpenummer_til_redigering = -1;
+            }       
+            if (frm_R_RedigerOmråde.instance != null)
+            {
+                frm_R_RedigerOmråde.instance.Løpenummer_til_redigering = -1;
+            }
         }
 
         private void SlettHjelpeMarkører()

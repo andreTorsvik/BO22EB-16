@@ -9,7 +9,7 @@ namespace GMAP_Demo
     {
 
         public static frm_R_RedigerObjekt instance;
-        public int Løpenummer_til_redigering;
+        public int Løpenummer_til_redigering = -1;
         public List<string> LGamleTag = new List<string>();
         string tekstLatLong = "Dobbelklikk på kartet";
         public frm_R_RedigerObjekt()
@@ -178,66 +178,73 @@ namespace GMAP_Demo
 
         private string RedigerObjekt(int løpenummer,string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags,List<string> GamleTags, List<string> nyTags)
         {
-            string feilmelding = string.Empty;
-
-            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, AntallTags);
-
-            if (utFyllingsmangler == string.Empty)
+            if (løpenummer >= 0)
             {
-                var ressurs = DBComRessurs.ListRessursFromDb(løpenummer);
-                string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
-                if (FeilTallSjekk == string.Empty)
+                string feilmelding = string.Empty;
+
+                string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, AntallTags);
+
+                if (utFyllingsmangler == string.Empty)
                 {
-                    string Endring = Tekstbehandling.SjekkEndringerObjekt(ressurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
-                    if (Endring != string.Empty)
+                    var ressurs = DBComRessurs.ListRessursFromDb(løpenummer);
+                    string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
+                    if (FeilTallSjekk == string.Empty)
                     {
-                        string caption = "Vil du lagre disse endringene ";
-                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                        DialogResult result;
-
-                        // Displays the MessageBox.
-                        result = MessageBox.Show(Endring, caption, buttons);
-                        if (result == DialogResult.Yes)
+                        string Endring = Tekstbehandling.SjekkEndringerObjekt(ressurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
+                        if (Endring != string.Empty)
                         {
-                            try
-                            {
-                                DBComRessurs.UpdateRessurs(løpenummer, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
+                            string caption = "Vil du lagre disse endringene ";
+                            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                            DialogResult result;
 
-                                List<string> SjekkOmNye1 = nyTags.Except(GamleTags).ToList();
-                                List<string> SjekkOmNye2 = GamleTags.Except(nyTags).ToList();
-                                if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
+                            // Displays the MessageBox.
+                            result = MessageBox.Show(Endring, caption, buttons);
+                            if (result == DialogResult.Yes)
+                            {
+                                try
                                 {
-                                    //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
-                                    DBComTag_Ressurs.DeleteTags_Ressurs(løpenummer);
-                                    //LEGGE TIL NYE
-                                    foreach (var item in lbValgtTags.Items)
+                                    DBComRessurs.UpdateRessurs(løpenummer, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
+
+                                    List<string> SjekkOmNye1 = nyTags.Except(GamleTags).ToList();
+                                    List<string> SjekkOmNye2 = GamleTags.Except(nyTags).ToList();
+                                    if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
                                     {
-                                        DBComTag_Ressurs.InsertTag_RessursToDb(item.ToString(), løpenummer);
+                                        //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
+                                        DBComTag_Ressurs.DeleteTags_Ressurs(løpenummer);
+                                        //LEGGE TIL NYE
+                                        foreach (var item in lbValgtTags.Items)
+                                        {
+                                            DBComTag_Ressurs.InsertTag_RessursToDb(item.ToString(), løpenummer);
+                                        }
                                     }
                                 }
-                            }
-                            catch (Exception Feilmelding)
-                            {
-                                feilmelding = Feilmelding.Message;
+                                catch (Exception Feilmelding)
+                                {
+                                    feilmelding = Feilmelding.Message;
+
+                                }
+                                //tøme tekstfelt og lister 
+                                TømeTekstFeltOgLister();
+
+                                //Oppdatere Liste med ressurser 
+
+                                Kart.OppdaterListe_ressurs();
+                                Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
 
                             }
-                            //tøme tekstfelt og lister 
-                            TømeTekstFeltOgLister();
-
-                            //Oppdatere Liste med ressurser 
-                            
-                            Kart.OppdaterListe_ressurs();
-                            Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-
                         }
+                        else MessageBox.Show("Ingen Endring");
                     }
-                    else MessageBox.Show("Ingen Endring");
+                    else MessageBox.Show(FeilTallSjekk);
                 }
-                else MessageBox.Show(FeilTallSjekk);
+                else MessageBox.Show(utFyllingsmangler);
+                return feilmelding;
             }
-            else MessageBox.Show(utFyllingsmangler);
-
-            return feilmelding;
+            else
+            {
+                return String.Format("Klikk på objekt du ønsker å endre");
+            }
+           
         }
 
         private void TømeTekstFeltOgLister()

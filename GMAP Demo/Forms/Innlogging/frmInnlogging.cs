@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net.Mail;
-using System.Net;
 
 namespace GMAP_Demo
 {
@@ -47,15 +40,29 @@ namespace GMAP_Demo
                         // Definer bruker 'globalt'
                         InnloggetBruker.BrukernavnInnlogget = listBruker[0].Epost;
                         InnloggetBruker.Sikkerhetsklarering = listBruker[0].Sikkerhetsklarering;
+
+
                         this.Hide();
                         frmVisning form1 = new frmVisning(); // instance
                         form1.Size = this.Size;
-
                         form1.Show();
 
                         if (frmVertifiseringskode.instance != null)
                         {
                             frmVertifiseringskode.instance.Close();
+                        }
+
+                        if(InnloggetBruker.Sikkerhetsklarering > frmVisning.instance.MaxSikkerhetsklarering)
+                        {
+                            try
+                            {
+                                DBComBruker.UpdateBruker_Sikkerhetsklarering(InnloggetBruker.BrukernavnInnlogget, frmVisning.instance.MaxSikkerhetsklarering);
+                                InnloggetBruker.Sikkerhetsklarering = frmVisning.instance.MaxSikkerhetsklarering;
+                            }
+                            catch (Exception)
+                            {
+
+                            }
                         }
                     }
                     else
@@ -75,7 +82,7 @@ namespace GMAP_Demo
             else
             {
                 MessageBox.Show("Ikke gyldig innlogging!");
-            }    
+            }
         }
 
         private void btnTestUser_Click(object sender, EventArgs e)
@@ -92,7 +99,7 @@ namespace GMAP_Demo
 
         private void LbNyBruker_MouseLeave(object sender, EventArgs e)
         {
-            LbNyBruker.Font = new Font(LbNyBruker.Font,FontStyle.Regular);
+            LbNyBruker.Font = new Font(LbNyBruker.Font, FontStyle.Regular);
         }
 
         private void btNyBruker_Click(object sender, EventArgs e)
