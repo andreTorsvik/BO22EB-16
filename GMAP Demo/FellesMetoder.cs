@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GMAP_Demo
 {
@@ -33,50 +31,9 @@ namespace GMAP_Demo
             }
 
             return AlleTag;
-            
+
         }
 
-        
-        public static void filtrereBaserPåTags(ref List<Ressurs> Rlist, List<string> TagFilterListe)
-        {
-            List<Ressurs> LRessurs = Rlist;
-
-            for (int i = 0; i < LRessurs.Count; i++)
-            {
-                List<string> TagsItem = LRessurs[i].hentTags(); ;
-                int antallTags = TagsItem.Count; //3
-
-                TagsItem = TagsItem.Except(TagFilterListe).ToList();
-                int Nåværende= TagsItem.Count;// 
-
-
-                if((antallTags == Nåværende))
-                {
-                    LRessurs.RemoveAt(i);
-                    i--;
-                }
-            }
-        }
-
-        public static void filtrereBaserPåTags(ref List<Område> Olist, List<string> TagFilterListe)
-        {
-            List<Område> LOmråde = Olist;
-
-            for (int i = 0; i < LOmråde.Count; i++)
-            {
-                List<string> TagsItem = LOmråde[i].hentTags(); ;
-                int antallTags = TagsItem.Count; //3
-
-                TagsItem = TagsItem.Except(TagFilterListe).ToList();
-                int Nåværende = TagsItem.Count;// 
-
-
-                if ((antallTags == Nåværende))
-                {
-                    LOmråde.RemoveAt(i);
-                    i--;
-                }
-            }
-        }
+       
     }
 }

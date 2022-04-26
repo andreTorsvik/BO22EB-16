@@ -267,7 +267,6 @@
             this.lbTilgjengeligeTags.Name = "lbTilgjengeligeTags";
             this.lbTilgjengeligeTags.Size = new System.Drawing.Size(141, 196);
             this.lbTilgjengeligeTags.TabIndex = 69;
-            this.lbTilgjengeligeTags.SelectedIndexChanged += new System.EventHandler(this.lbTilgjengeligeTags_SelectedIndexChanged);
             this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengeligeTags_MouseDoubleClick);
             // 
             // btnLagreEndring

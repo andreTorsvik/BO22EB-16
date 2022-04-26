@@ -16,7 +16,7 @@ namespace GMAP_Demo
         public static frm_R_RedigerOmråde instance;
         public int Løpenummer_til_redigering;
         public List<string> LGamleTag = new List<string>();
-        string tekstLatLong = "Dobbelklikk på kartet + \"legg til\"";
+        const string TekstTilLatLong = "Dobbelklikk på kartet + \"legg til\"";
 
         public frm_R_RedigerOmråde()
         {
@@ -118,7 +118,9 @@ namespace GMAP_Demo
 
         public void FyllInfoOmråde(int Tag)
         {
+            //løpenummer
             Løpenummer_til_redigering = GlobaleLister.LOmråde[Tag].Løpenummer_område;
+            //info
             txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
             txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Tag].Sikkerhetsklarering.ToString();
             txtKommentar.Text = GlobaleLister.LOmråde[Tag].Kommentar;
@@ -135,15 +137,17 @@ namespace GMAP_Demo
             }
             txtNrPunkt.Text = Punktliste.Count.ToString();
 
-            //tags
+            //Sletting av lister
             if (lbValgtTags.Items.Count > 0) lbValgtTags.Items.Clear();
             if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
             if (LGamleTag.Count > 0) LGamleTag.Clear();
 
+            //tags
             var TagListeTilRessurs = GlobaleLister.LOmråde[Tag].hentTags();
             var AlleTags = FellesMetoder.FåAlleTags();
             var GjenværendeTag = AlleTags.Except(TagListeTilRessurs);
 
+            //sortering av tags 
             foreach (var tags in TagListeTilRessurs)
             {
                 lbValgtTags.Items.Add(tags);
@@ -179,7 +183,7 @@ namespace GMAP_Demo
 
         private void btnLeggTilPunkt_Click(object sender, EventArgs e)
         {
-            if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != tekstLatLong))
+            if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != TekstTilLatLong))
             {
                 try
                 {
@@ -194,8 +198,8 @@ namespace GMAP_Demo
                     Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
                     Kart.reff(Kart.MuligKart.Redigering);
 
-                    txtLat.Text = tekstLatLong;
-                    txtLong.Text = tekstLatLong;
+                    txtLat.Text = TekstTilLatLong;
+                    txtLong.Text = TekstTilLatLong;
                     txtNrPunkt.Text = pointLatLngs.Count.ToString();
                 }
                 catch (Exception feilmelding)
@@ -314,8 +318,8 @@ namespace GMAP_Demo
             txtKommentar.Text = "";
             txtfarge.Text = "";
             txtSikkerhetsklarering.Text = "";
-            txtLat.Text = tekstLatLong;
-            txtLong.Text = tekstLatLong;
+            txtLat.Text = TekstTilLatLong;
+            txtLong.Text = TekstTilLatLong;
 
             //lister
             lbValgtTags.Items.Clear();

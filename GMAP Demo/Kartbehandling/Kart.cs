@@ -138,7 +138,13 @@ namespace GMAP_Demo
                 GlobaleLister.LOmråde.Add(item);
             }
 
-            if (true) FellesMetoder.filtrereBaserPåTags(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
+            bool OR = frmFilter.instance.filterOR;
+            bool AND = frmFilter.instance.filterAND;
+
+            if (OR && !AND) //OR
+                FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
+            else if (AND && !OR) //AND
+                FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
         }
 
         public static void OppdaterListe_ressurs()
@@ -157,12 +163,17 @@ namespace GMAP_Demo
                     {
                         GlobaleLister.LRessurs.Add(item);
                         break;
-                    }
-                    
+                    }                 
                 }
             }
 
-            FellesMetoder.filtrereBaserPåTags(ref GlobaleLister.LRessurs, tag_ListeVises.ToList()) ;
+            bool OR = frmFilter.instance.filterOR;
+            bool AND = frmFilter.instance.filterAND;
+
+            if(OR && !AND) //OR
+                FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LRessurs, tag_ListeVises.ToList()) ;
+            else if(AND && !OR) //AND
+                FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LRessurs, tag_ListeVises.ToList());
         }
 
         public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)

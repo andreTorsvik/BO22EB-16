@@ -16,6 +16,7 @@ namespace GMAP_Demo
         private Color knapp_trykket;
         public PointLatLng DoubleClick_punkt; //tror denne kan bli flyttet inn i metoedn 
         public static frmRediger instance;
+
         public frmRediger()
         {
             InitializeComponent();
@@ -85,8 +86,6 @@ namespace GMAP_Demo
                 this.PnlFormLoader.Controls.Add(frm_R_LeggTilObjekt_vrb);
                 frm_R_LeggTilObjekt_vrb.Show();
             }
-
-
         }
         private void btnOmråde_Click(object sender, EventArgs e)
         {
@@ -107,7 +106,6 @@ namespace GMAP_Demo
                 this.PnlFormLoader.Controls.Add(frm_R_LeggTilOmråde_vrb);
                 frm_R_LeggTilOmråde_vrb.Show();
             }
-
         }
 
         private void btnRediger_objekt_Click(object sender, EventArgs e)

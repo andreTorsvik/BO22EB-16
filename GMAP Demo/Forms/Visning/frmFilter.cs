@@ -9,6 +9,8 @@ namespace GMAP_Demo
     {
         public static frmFilter instance;
         public int indexRessurs = 0;
+        public bool filterOR;
+        public bool filterAND;
 
         public frmFilter()
         {
@@ -26,6 +28,8 @@ namespace GMAP_Demo
             lbTagsVises.DisplayMember = "Tag";
             lbTagsSkjult.DataSource = Kart.tag_ListeSkjult;
             lbTagsSkjult.DisplayMember = "Tag";
+
+            cbOR.Checked = true;
         }
 
         private void lbKategorierVises_DoubleClick(object sender, EventArgs e)
@@ -148,10 +152,113 @@ namespace GMAP_Demo
 
         }
 
+        private void cbOR_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbOR.Checked)
+            {
+                cbAND.Checked = false;
+            }
+            else 
+            {
+                cbAND.Checked = true;
+            }
+            SettFilterValg();
 
+            Kart.OppdaterListe_ressurs();
+            Kart.OppdaterListe_området();
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+        }
+
+        private void cbAND_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbAND.Checked)
+            {
+                cbOR.Checked = false;
+            }
+            else
+            {
+                cbOR.Checked = true;
+            }
+
+            SettFilterValg();
+
+            Kart.OppdaterListe_ressurs();
+            Kart.OppdaterListe_området();
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+
+        }
+
+        private void SettFilterValg()
+        {
+            filterOR = cbOR.Checked;
+            filterAND = cbAND.Checked;
+        }
+
+        private void btnTagFjernAlle_Click(object sender, EventArgs e)
+        {
+            if(lbTagsVises.Items.Count >0 )
+            {
+                int antall = lbTagsVises.Items.Count;
+                for (int i = 0; i < antall; i++)
+                {
+                    Kart.tag_ListeSkjult.Add((string)lbTagsVises.Items[0]);
+                    Kart.tag_ListeVises.Remove((string)lbTagsVises.Items[0]);
+                }
+
+                Kart.OppdaterListe_ressurs();
+                Kart.OppdaterListe_området();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            }
+            
+        }
+
+        private void btnTagLeggTilAlle_Click(object sender, EventArgs e)
+        {
+            if(lbTagsSkjult.Items.Count > 0)
+            {
+                int antall = lbTagsSkjult.Items.Count;
+                for (int i = 0; i < antall; i++)
+                {
+                    Kart.tag_ListeVises.Add((string)lbTagsSkjult.Items[0]);
+                    Kart.tag_ListeSkjult.Remove((string)lbTagsSkjult.Items[0]);
+                }
+
+                Kart.OppdaterListe_ressurs();
+                Kart.OppdaterListe_området();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            }
+            
+        }
+
+        private void btnKategoriFjernAlle_Click(object sender, EventArgs e)
+        {
+            if (lbKategorierVises.Items.Count > 0)
+            {
+                int antall = lbKategorierVises.Items.Count;
+                for (int i = 0; i < antall; i++)
+                {
+                    Kart.kategoriListeSkjult.Add((Kategorier_Bilde)lbKategorierVises.Items[0]);
+                    Kart.kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.Items[0]);
+                }
+
+                Kart.OppdaterListe_ressurs();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            }
+        }
         private void btnKategoriLeggTilAlle_Click(object sender, EventArgs e)
         {
+            if (lbKategorierSkjult.Items.Count >0)
+            {
+                int antall = lbKategorierSkjult.Items.Count;
+                for (int i = 0; i < antall; i++)
+                {
+                    Kart.kategoriListeVises.Add((Kategorier_Bilde)lbKategorierSkjult.Items[0]);
+                    Kart.kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.Items[0]);
+                }
 
+                Kart.OppdaterListe_ressurs();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            }     
         }
     }
 }

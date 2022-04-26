@@ -98,11 +98,6 @@ namespace GMAP_Demo
             lbValgtTags.Items.Remove(selectedItemtext);
         }
 
-        private void lbTilgjengeligeTags_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLeggTilTag_Click(object sender, EventArgs e)
         {
             string NyTag = "";
@@ -124,6 +119,8 @@ namespace GMAP_Demo
 
         public void FyllInfoObjekt(int Tag)
         {
+            //løpenummeret 
+            Løpenummer_til_redigering = GlobaleLister.LRessurs[Tag].Løpenummer_ressurs;
             //info 
             txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
             txtKategori.Text = GlobaleLister.LRessurs[Tag].Kategori;
@@ -132,16 +129,18 @@ namespace GMAP_Demo
             txtLat.Text = GlobaleLister.LRessurs[Tag].Lat.ToString();
             txtLong.Text = GlobaleLister.LRessurs[Tag].Lang.ToString();
 
-            //tagliste
+            
             //sletting av eksisterende lister
             if (lbValgtTags.Items.Count > 0) lbValgtTags.Items.Clear();
             if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
             if (LGamleTag.Count > 0) LGamleTag.Clear();
 
+            //tagliste
             var TagListeTilRessurs = GlobaleLister.LRessurs[Tag].hentTags();
             var AlleTags = FellesMetoder.FåAlleTags();
             var GjenværendeTag = AlleTags.Except(TagListeTilRessurs);
 
+            //sorter Tags
             foreach (var tags in TagListeTilRessurs)
             {
                 lbValgtTags.Items.Add(tags);
@@ -150,10 +149,8 @@ namespace GMAP_Demo
             foreach (var tags in GjenværendeTag)
             {
                 lbTilgjengeligeTags.Items.Add(tags);
-            }
-
-            //info til redigering 
-            Løpenummer_til_redigering = GlobaleLister.LRessurs[Tag].Løpenummer_ressurs;
+            } 
+            
         }
 
         private void btnLeggTilObjekt_Click(object sender, EventArgs e)

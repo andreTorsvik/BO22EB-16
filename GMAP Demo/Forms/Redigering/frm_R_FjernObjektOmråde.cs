@@ -61,9 +61,9 @@ namespace GMAP_Demo
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart
                         Kart.OppdaterTag_Liste();
+                        Kart.OppdaterKategoriListe();
                         Kart.OppdaterListe_ressurs();
                         Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-
                     }
 
                 }
