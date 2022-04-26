@@ -64,8 +64,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnNesteRessurs = new System.Windows.Forms.Button();
             this.btnForrigeRessurs = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -218,7 +220,7 @@
             this.lbKategorierSkjult.Location = new System.Drawing.Point(19, 39);
             this.lbKategorierSkjult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbKategorierSkjult.Name = "lbKategorierSkjult";
-            this.lbKategorierSkjult.Size = new System.Drawing.Size(112, 84);
+            this.lbKategorierSkjult.Size = new System.Drawing.Size(130, 84);
             this.lbKategorierSkjult.Sorted = true;
             this.lbKategorierSkjult.TabIndex = 25;
             this.lbKategorierSkjult.DoubleClick += new System.EventHandler(this.lbKategorierSkjult_DoubleClick);
@@ -247,10 +249,10 @@
             // 
             this.lbKategorierVises.FormattingEnabled = true;
             this.lbKategorierVises.ItemHeight = 16;
-            this.lbKategorierVises.Location = new System.Drawing.Point(256, 39);
+            this.lbKategorierVises.Location = new System.Drawing.Point(236, 39);
             this.lbKategorierVises.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbKategorierVises.Name = "lbKategorierVises";
-            this.lbKategorierVises.Size = new System.Drawing.Size(112, 84);
+            this.lbKategorierVises.Size = new System.Drawing.Size(130, 84);
             this.lbKategorierVises.Sorted = true;
             this.lbKategorierVises.TabIndex = 27;
             this.lbKategorierVises.DoubleClick += new System.EventHandler(this.lbKategorierVises_DoubleClick);
@@ -262,7 +264,7 @@
             this.lbTagsSkjult.Location = new System.Drawing.Point(20, 148);
             this.lbTagsSkjult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTagsSkjult.Name = "lbTagsSkjult";
-            this.lbTagsSkjult.Size = new System.Drawing.Size(112, 84);
+            this.lbTagsSkjult.Size = new System.Drawing.Size(130, 84);
             this.lbTagsSkjult.Sorted = true;
             this.lbTagsSkjult.TabIndex = 25;
             this.lbTagsSkjult.DoubleClick += new System.EventHandler(this.lbTagsSkjult_DoubleClick);
@@ -281,10 +283,10 @@
             // 
             this.lbTagsVises.FormattingEnabled = true;
             this.lbTagsVises.ItemHeight = 16;
-            this.lbTagsVises.Location = new System.Drawing.Point(257, 148);
+            this.lbTagsVises.Location = new System.Drawing.Point(236, 148);
             this.lbTagsVises.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTagsVises.Name = "lbTagsVises";
-            this.lbTagsVises.Size = new System.Drawing.Size(112, 84);
+            this.lbTagsVises.Size = new System.Drawing.Size(130, 84);
             this.lbTagsVises.Sorted = true;
             this.lbTagsVises.TabIndex = 27;
             this.lbTagsVises.DoubleClick += new System.EventHandler(this.lbTagsVises_DoubleClick);
@@ -474,9 +476,10 @@
             // 
             // btnNesteRessurs
             // 
+            this.btnNesteRessurs.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnNesteRessurs.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
             this.btnNesteRessurs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNesteRessurs.Location = new System.Drawing.Point(262, 387);
+            this.btnNesteRessurs.Location = new System.Drawing.Point(250, 29);
             this.btnNesteRessurs.Name = "btnNesteRessurs";
             this.btnNesteRessurs.Size = new System.Drawing.Size(110, 35);
             this.btnNesteRessurs.TabIndex = 37;
@@ -487,9 +490,10 @@
             // 
             // btnForrigeRessurs
             // 
+            this.btnForrigeRessurs.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnForrigeRessurs.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
             this.btnForrigeRessurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnForrigeRessurs.Location = new System.Drawing.Point(33, 387);
+            this.btnForrigeRessurs.Location = new System.Drawing.Point(11, 29);
             this.btnForrigeRessurs.Name = "btnForrigeRessurs";
             this.btnForrigeRessurs.Size = new System.Drawing.Size(110, 35);
             this.btnForrigeRessurs.TabIndex = 36;
@@ -498,14 +502,25 @@
             this.btnForrigeRessurs.UseVisualStyleBackColor = true;
             this.btnForrigeRessurs.Click += new System.EventHandler(this.btnForrigeRessurs_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnForrigeRessurs);
+            this.groupBox3.Controls.Add(this.btnNesteRessurs);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox3.Location = new System.Drawing.Point(9, 370);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(387, 74);
+            this.groupBox3.TabIndex = 35;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Objekter";
+            // 
             // frmFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(408, 871);
-            this.Controls.Add(this.btnNesteRessurs);
-            this.Controls.Add(this.btnForrigeRessurs);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
@@ -518,6 +533,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -561,5 +577,6 @@
         private System.Windows.Forms.Button btnNesteRessurs;
         private System.Windows.Forms.CheckBox cbAND;
         private System.Windows.Forms.CheckBox cbOR;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
