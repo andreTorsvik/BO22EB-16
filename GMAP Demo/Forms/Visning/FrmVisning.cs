@@ -207,26 +207,23 @@ namespace GMAP_Demo
             pnlNav.Left = btnFilter.Left;
         }
 
-
-
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
             ÅpneFilterForm();
 
             if (frmFilter.instance != null)
             {
-                frmFilter.FyllInfoObjekt(Convert.ToInt32(item.Tag));
+                frmFilter.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
             }
         }
 
-        
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
             ÅpneFilterForm();
 
             if (frmFilter.instance != null)
             {
-                frmFilter.FyllInfoOmråde(Convert.ToInt32(item.Tag));
+                frmFilter.instance.FyllInfoOmråde(Convert.ToInt32(item.Tag));
             }
         }
 
@@ -264,8 +261,6 @@ namespace GMAP_Demo
             }
             
         }
-
-        
 
         private void btnZoomPluss_Click(object sender, EventArgs e)
         {
