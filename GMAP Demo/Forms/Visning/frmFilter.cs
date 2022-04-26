@@ -99,7 +99,7 @@ namespace GMAP_Demo
         {
             indexRessurs--;
             if (indexRessurs < 0) indexRessurs = GlobaleLister.LRessurs.Count - 1;
-            else if(indexRessurs >= GlobaleLister.LRessurs.Count) indexRessurs = GlobaleLister.LRessurs.Count - 1;
+            else if (indexRessurs >= GlobaleLister.LRessurs.Count) indexRessurs = GlobaleLister.LRessurs.Count - 1;
             FyllInfoObjekt(indexRessurs);
             FlyttTilObjekt(indexRessurs);
         }
@@ -129,7 +129,30 @@ namespace GMAP_Demo
                 lbTags.Items.Add(tags);
             }
             //måling
-            txtMåling.Text = Convert.ToString(DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0]);
+            var listmåling = DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs);
+            string måling = "";
+            try
+            {
+                //prøving på 2 desimaler
+                måling = listmåling[0];
+                bool sjekkpunkt = måling.Contains(".");
+                bool komma = måling.Contains(",");
+                måling = måling.Replace(".", ",");
+
+                float Mål = Convert.ToSingle(måling);
+                måling = Mål.ToString("0.00");
+                txtMåling.Text = måling;
+
+
+
+            }
+            catch (Exception)
+            {
+                txtMåling.Text = listmåling[0];
+            }
+
+
+
         }
 
         public void FyllInfoOmråde(int Tag)
@@ -148,18 +171,18 @@ namespace GMAP_Demo
             var TagListeTilOmråde = GlobaleLister.LOmråde[Tag].hentTags();
             foreach (var tags in TagListeTilOmråde)
             {
-               lbTags.Items.Add(tags);
+                lbTags.Items.Add(tags);
             }
 
         }
 
         private void cbOR_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbOR.Checked)
+            if (cbOR.Checked)
             {
                 cbAND.Checked = false;
             }
-            else 
+            else
             {
                 cbAND.Checked = true;
             }
@@ -172,7 +195,7 @@ namespace GMAP_Demo
 
         private void cbAND_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbAND.Checked)
+            if (cbAND.Checked)
             {
                 cbOR.Checked = false;
             }
@@ -197,7 +220,7 @@ namespace GMAP_Demo
 
         private void btnTagFjernAlle_Click(object sender, EventArgs e)
         {
-            if(lbTagsVises.Items.Count >0 )
+            if (lbTagsVises.Items.Count > 0)
             {
                 int antall = lbTagsVises.Items.Count;
                 for (int i = 0; i < antall; i++)
@@ -210,12 +233,12 @@ namespace GMAP_Demo
                 Kart.OppdaterListe_området();
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
-            
+
         }
 
         private void btnTagLeggTilAlle_Click(object sender, EventArgs e)
         {
-            if(lbTagsSkjult.Items.Count > 0)
+            if (lbTagsSkjult.Items.Count > 0)
             {
                 int antall = lbTagsSkjult.Items.Count;
                 for (int i = 0; i < antall; i++)
@@ -228,7 +251,7 @@ namespace GMAP_Demo
                 Kart.OppdaterListe_området();
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
-            
+
         }
 
         private void btnKategoriFjernAlle_Click(object sender, EventArgs e)
@@ -248,7 +271,7 @@ namespace GMAP_Demo
         }
         private void btnKategoriLeggTilAlle_Click(object sender, EventArgs e)
         {
-            if (lbKategorierSkjult.Items.Count >0)
+            if (lbKategorierSkjult.Items.Count > 0)
             {
                 int antall = lbKategorierSkjult.Items.Count;
                 for (int i = 0; i < antall; i++)
@@ -259,7 +282,7 @@ namespace GMAP_Demo
 
                 Kart.OppdaterListe_ressurs();
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-            }     
+            }
         }
     }
 }
