@@ -129,30 +129,9 @@ namespace GMAP_Demo
                 lbTags.Items.Add(tags);
             }
             //måling
-            var listmåling = DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs);
-            string måling = "";
-            try
-            {
-                //prøving på 2 desimaler
-                måling = listmåling[0];
-                bool sjekkpunkt = måling.Contains(".");
-                bool komma = måling.Contains(",");
-                måling = måling.Replace(".", ",");
-
-                float Mål = Convert.ToSingle(måling);
-                måling = Mål.ToString("0.00");
-                txtMåling.Text = måling;
-
-
-
-            }
-            catch (Exception)
-            {
-                txtMåling.Text = listmåling[0];
-            }
-
-
-
+            txtMåling.Text = Convert.ToString(DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0].Verdi);
+            txtMålingDato.Text = Convert.ToString(DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0].Dato);
+            txtEnhetMåling.Text = Convert.ToString(DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0].Enhet);
         }
 
         public void FyllInfoOmråde(int Tag)
@@ -282,6 +261,19 @@ namespace GMAP_Demo
 
                 Kart.OppdaterListe_ressurs();
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            }
+        }
+
+        bool målingRunning = false;
+        private void btnTimerMåling_Click(object sender, EventArgs e)
+        {
+            if (målingRunning)
+            {
+
+            }
+            else
+            {
+                
             }
         }
     }
