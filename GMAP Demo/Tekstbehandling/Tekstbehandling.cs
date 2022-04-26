@@ -221,7 +221,7 @@ namespace GMAP_Demo
 
             try
             {
-                int sjekk = Convert.ToInt16(sikkerhetsKlarering);
+                int sjekk = Convert.ToInt32(sikkerhetsKlarering);
                 if (sjekk > frmVisning.instance.MaxSikkerhetsklarering)
                 {
                     svar = "Sikkerhetsklarering er for høy";
@@ -229,6 +229,11 @@ namespace GMAP_Demo
                 else if (sjekk < 1)
                 {
                     svar = "Sikkerhetsklarering kan ikke være lavere enn 1 ";
+                }
+
+                if(sjekk > InnloggetBruker.Sikkerhetsklarering)
+                {
+                    svar = "Sikkerhetsklaering Kan ikke være høyre enn din egen";
                 }
             }
             catch (Exception)

@@ -152,7 +152,7 @@ namespace GMAP_Demo
             //Må oppdatere område liste også 
             if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
 
-            var RessursList = DBComRessurs.ListAllRessursFromDb();
+            var RessursList = DBComRessurs.ListAllRessursFromDb(InnloggetBruker.Sikkerhetsklarering);
 
             // Er dette en tungvindt måte å gjøre det på? Kan dette forbedres?
             foreach (var item in RessursList)

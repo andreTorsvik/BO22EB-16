@@ -10,11 +10,18 @@ namespace GMAP_Demo
 {
     internal class DBComRessurs
     {
-        public static List<Ressurs> ListAllRessursFromDb()
+        public static List<Ressurs> ListAllRessursFromDb(int SikkerhetsklareringBruker)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Ressurs>("[dbo].[PROCEDUREListAllRessursFromDb] @BrukersSikkerhetsklarering", (InnloggetBruker.Sikkerhetsklarering)).ToList();
+                //Ressurs Sikkerhetsklarering = new Ressurs
+                //{
+                //    Sikkerhetsklarering = SikkerhetsklareringBruker
+                //};
+
+                //var output = connection.Query<Ressurs>("[dbo].[PROCEDUREListAllRessursFromDb] @BrukersSikkerhetsklarering", Sikkerhetsklarering).ToList();
+                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE (Sikkerhetsklarering <= '{SikkerhetsklareringBruker}')").ToList();
+               
                 return output;
             }
         }

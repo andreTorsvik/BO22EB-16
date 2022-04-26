@@ -153,7 +153,7 @@ namespace GMAP_Demo
             
             FlyttNavigasjonsPanel(btnDbRessursView.Height, btnDbRessursView.Top);
 
-            ressursList = DBComRessurs.ListAllRessursFromDb();
+            ressursList = DBComRessurs.ListAllRessursFromDb(InnloggetBruker.Sikkerhetsklarering);
             listBoxDatabaseView.DataSource = ressursList;
             listBoxDatabaseView.DisplayMember = "ressursDataTypeToString";
         }
