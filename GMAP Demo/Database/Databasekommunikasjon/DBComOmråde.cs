@@ -14,7 +14,8 @@ namespace GMAP_Demo
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Område>("[dbo].[PROCEDUREListAllOmrådeFromDb]").ToList();
+                //var output = connection.Query<Område>("[dbo].[PROCEDUREListAllOmrådeFromDb]").ToList();
+                var output = connection.Query<Område>($"SELECT * FROM[dbo].[Område] WHERE (Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").ToList();
                 return output;
             }
         }
