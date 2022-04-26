@@ -64,7 +64,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnNesteRessurs = new System.Windows.Forms.Button();
             this.btnForrigeRessurs = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbMålingDato = new System.Windows.Forms.Label();
             this.txtMålingDato = new System.Windows.Forms.TextBox();
             this.lblEnhetMåling = new System.Windows.Forms.Label();
@@ -72,7 +71,6 @@
             this.btnTimerMåling = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -590,7 +588,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
