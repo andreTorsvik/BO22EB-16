@@ -19,21 +19,24 @@ namespace GMAP_Demo
             }
         }
 
-        public static List<String> GetLatestValueMålingFromSelectedRessurs(int løpenummer_til_ressurs)
+        public static List<Måling> GetLatestValueMålingFromSelectedRessurs(int løpenummer_til_ressurs)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<String>($"SELECT TOP(1) Verdi FROM dbo.Måling WHERE Løpenummer_til_ressurs = {løpenummer_til_ressurs} ORDER BY Dato DESC;").ToList();
-                if (output == null)
+                var output = connection.Query<Måling>($"SELECT TOP(1) Verdi, Dato, Enhet FROM dbo.Måling WHERE Løpenummer_til_ressurs = {løpenummer_til_ressurs} ORDER BY Dato DESC;").ToList();
+
+                if (output.Count == 0)  // Metoden viser "Ingen måling" for de ressurser som ikke har målinger.
                 {
-                    return output;
+                    Måling tomMåling = new Måling();
+                    tomMåling.Navn_på_sensor = "";
+                    tomMåling.Verdi = 0;
+                    tomMåling.Løpenummer_til_ressurs = 0;
+                    tomMåling.Måling_id = 0;
+                    tomMåling.Dato = "Ingen måling";
+                    tomMåling.Enhet = "";
+                    output.Add(tomMåling);
                 }
-                else
-                {
-                    output.Add("Ingen måling");
-                    return output;
-                }
-                
+                return output;
             }
         }
 

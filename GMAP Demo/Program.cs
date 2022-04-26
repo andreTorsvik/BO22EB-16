@@ -33,8 +33,8 @@ namespace GMAP_Demo
             }
 
             // Simulerer målinger ved å oppdatere Målingstabellen regelmessig
-            MålingSim målingSim = new MålingSim();
-            målingSim.InitTimer();
+            MålingSim.InitTimer();
+
 
             Application.Run(new frmInnlogging());
         }

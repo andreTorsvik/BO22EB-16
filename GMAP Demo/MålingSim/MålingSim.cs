@@ -9,12 +9,13 @@ namespace GMAP_Demo
     internal class MålingSim
     {
         internal static Random random = new Random();
-        public void InitTimer()
+        public static void InitTimer()
         {
             Timer timer = new Timer(TimerProc);
-            timer.Change(10000, 10000); // Start after 10 second, repeat every 10 seconds
+            timer.Change(Timeout.Infinite, Timeout.Infinite);
         }
-        public void TimerProc(object state)
+
+        public static void TimerProc(object state)
         {
             // perform the operation
             float måling = (Convert.ToSingle(random.Next()) + Convert.ToSingle(random.NextDouble()));
