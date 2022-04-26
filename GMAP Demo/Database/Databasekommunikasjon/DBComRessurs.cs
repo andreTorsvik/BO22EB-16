@@ -103,9 +103,8 @@ namespace GMAP_Demo
                     Lat = lat,
                     Lang = lang
                 };
-                int brukersSikkerhetsklarering = InnloggetBruker.Sikkerhetsklarering;
 
-                connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang, @BrukersSikkerhetsklarering", (UpdateRessurs, brukersSikkerhetsklarering));
+                connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (UpdateRessurs);
 
             }
         }
