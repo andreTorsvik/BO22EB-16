@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace GMAP_Demo
 {
@@ -30,6 +31,11 @@ namespace GMAP_Demo
                 // Og programmet avsluttes.
                 System.Environment.Exit(1);
             }
+
+            // Simulerer målinger ved å oppdatere Målingstabellen regelmessig
+            MålingSim målingSim = new MålingSim();
+            målingSim.InitTimer();
+
             Application.Run(new frmInnlogging());
         }
     }
