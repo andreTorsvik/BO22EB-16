@@ -23,8 +23,7 @@ namespace GMAP_Demo
         public static BindingList<Kategorier_Bilde> kategoriListeSkjult = new BindingList<Kategorier_Bilde>();
         public static BindingList<string> tag_ListeVises = new BindingList<string>();
         public static BindingList<string> tag_ListeSkjult = new BindingList<string>();
-        //public static BindingList<Tag_Område> tag_OmrådeListeVises = new BindingList<Tag_Område>();
-        //public static BindingList<Tag_Område> tag_OmrådeListeSkjult = new BindingList<Tag_Område>();
+
         internal static void InitializekategoriListeVises()
         {
             kategoriListeVises.AllowNew = true;
@@ -287,11 +286,10 @@ namespace GMAP_Demo
             }
         }
 
-        public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla }; // listen er kun for å vise hva som er tilgjenglig i "BestemFarge" 
+        public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla, Rosa, Turkis, Hvit,Svart }; // listen er kun for å vise hva som er tilgjenglig i "BestemFarge" 
         public static GMapPolygon BestemFarge(List<PointLatLng> Lpunkter, string Farge)
         {
             GMapPolygon polygon;
-
             switch (Farge)
             {
                 case "Rødt":
@@ -341,7 +339,34 @@ namespace GMAP_Demo
                         Fill = new SolidBrush(Color.FromArgb(50, Color.Purple))
                     };
                     break;
-
+                case "Rosa":
+                    polygon = new GMapPolygon(Lpunkter, "My area")
+                    {
+                        Stroke = new Pen(Color.Pink, 2),
+                        Fill = new SolidBrush(Color.FromArgb(50, Color.Pink))
+                    };
+                    break;
+                case "Turkis":
+                    polygon = new GMapPolygon(Lpunkter, "My area")
+                    {
+                        Stroke = new Pen(Color.Cyan, 2),
+                        Fill = new SolidBrush(Color.FromArgb(50, Color.Cyan))
+                    };
+                    break;
+                case "Hvit":
+                    polygon = new GMapPolygon(Lpunkter, "My area")
+                    {
+                        Stroke = new Pen(Color.White, 2),
+                        Fill = new SolidBrush(Color.FromArgb(50, Color.White))
+                    };
+                    break;
+                case "Svart":
+                    polygon = new GMapPolygon(Lpunkter, "My area")
+                    {
+                        Stroke = new Pen(Color.Black, 2),
+                        Fill = new SolidBrush(Color.FromArgb(50, Color.Black))
+                    };
+                    break;
                 default:
                     polygon = new GMapPolygon(Lpunkter, "My area")
                     {

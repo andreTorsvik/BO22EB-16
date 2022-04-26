@@ -25,7 +25,7 @@ namespace GMAP_Demo
                 }
 
             }
-            catch (Exception feilmelding)
+            catch (Exception)
             {
 
             }
