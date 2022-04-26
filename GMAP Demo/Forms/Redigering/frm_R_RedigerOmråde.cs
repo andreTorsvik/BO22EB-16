@@ -1,20 +1,17 @@
-﻿using System;
+﻿using GMap.NET;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using GMap.NET;
 
 namespace GMAP_Demo
 {
     public partial class frm_R_RedigerOmråde : Form
     {
         public static frm_R_RedigerOmråde instance;
-        public int Løpenummer_til_redigering;
+        public int Løpenummer_til_redigering = -1;
         public List<string> LGamleTag = new List<string>();
         const string TekstTilLatLong = "Dobbelklikk på kartet + \"legg til\"";
 
@@ -128,6 +125,7 @@ namespace GMAP_Demo
 
             //punkt liste
             if (lbPunkter.Items.Count > 0) pointLatLngs.Clear();
+
             var Punktliste = DBComPunkter_område.GetPunkter_området(Løpenummer_til_redigering);
             Punktliste = Punktliste.OrderBy(x => x.Rekkefølge_punkter).ToList();
             foreach (var item1 in Punktliste)
@@ -219,100 +217,107 @@ namespace GMAP_Demo
             }
         }
 
-        private string RedigerOmrådet(int Løpenummer,string navn, string sikkerhetsklarering, string Kommentar, string Farge, int AntallPunkter, int AntallTags, List<string> GamleTags, List<string> NyTags)
+        private string RedigerOmrådet(int Løpenummer, string navn, string sikkerhetsklarering, string Kommentar, string Farge, int AntallPunkter, int AntallTags, List<string> GamleTags, List<string> NyTags)
         {
-            string feilmelding = string.Empty;
-
-            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Område(navn, sikkerhetsklarering, Kommentar, Farge, AntallPunkter, AntallTags);
-
-            if (utFyllingsmangler == string.Empty)
+            if (Løpenummer >= 0)
             {
-                var Lområde = DBComOmråde.ListOmrådeFromDb(Løpenummer);
-                string FeilTallSjekk = Tekstbehandling.sjekkSikkerhetsKlarering(sikkerhetsklarering);
+                string feilmelding = string.Empty;
 
-                if (FeilTallSjekk == string.Empty)
+                string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Område(navn, sikkerhetsklarering, Kommentar, Farge, AntallPunkter, AntallTags);
+
+                if (utFyllingsmangler == string.Empty)
                 {
-                    //legge til alle punktene 
-                    List<PointLatLng> pList = new List<PointLatLng>();
-                    foreach (var item in pointLatLngs)
-                    {
-                        pList.Add(item);
-                    }
+                    var Lområde = DBComOmråde.ListOmrådeFromDb(Løpenummer);
+                    string FeilTallSjekk = Tekstbehandling.sjekkSikkerhetsKlarering(sikkerhetsklarering);
 
-                    string Endring = Tekstbehandling.SjekkEndringerOmråde(Lområde, navn, sikkerhetsklarering, Kommentar, Farge, pList, LGamleTag, NyTags);
-                    string enderingIPunkter = Tekstbehandling.sammenlignPunkter(Lområde, pList);
-                    if (Endring != string.Empty)
+                    if (FeilTallSjekk == string.Empty)
                     {
-                        string caption = "Vil du lagre disse endringene ";
-                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                        DialogResult result;
-
-                        result = MessageBox.Show(Endring, caption, buttons);
-                        if (result == DialogResult.Yes)
+                        //legge til alle punktene 
+                        List<PointLatLng> pList = new List<PointLatLng>();
+                        foreach (var item in pointLatLngs)
                         {
-                            try
-                            {
-                                //Oppdtaer info 
-                                DBComOmråde.UpdateOmråde(Løpenummer_til_redigering, navn, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
-
-
-                                if (enderingIPunkter != string.Empty)
-                                {
-                                    //SLETTE ALLE punlter KNYTTET TIL området 
-                                    DBComPunkter_område.DeletePunkter_området(Løpenummer_til_redigering);
-                                    //LEGGE TIL NYE punkter
-                                    int rekkefølge = 0;
-                                    foreach (var item in pList)
-                                    {
-                                        float lat = Convert.ToSingle(item.Lat);
-                                        float lang = Convert.ToSingle(item.Lng);
-                                        DBComPunkter_område.InsertPunkter_områdetToDb(Løpenummer_til_redigering, lat, lang, rekkefølge);
-                                        rekkefølge++;
-                                    }
-                                }
-
-                                List<string> SjekkOmNye1 = NyTags.Except(LGamleTag).ToList();
-                                List<string> SjekkOmNye2 = LGamleTag.Except(NyTags).ToList();
-
-                                if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
-                                {
-                                    //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
-                                    DBComTag_Område.DeleteTags_Område(Løpenummer_til_redigering);
-                                    //LEGGE TIL NYE
-                                    foreach (var item in lbValgtTags.Items)
-                                    {
-                                        DBComTag_Område.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_til_redigering);
-                                    }
-                                }
-                                //Da har alt gått igjennom og endringene lagret 
-                                
-                            }
-                            catch (Exception Feilmelding)
-                            {
-                                feilmelding = Feilmelding.Message;
-                            }
-
-                            //Oppdatere Liste med ressurser 
-                            Løpenummer_til_redigering = -1;
-
-                            TømeTekstFeltOgLister();
-
-
-                            Kart.OppdaterListe_området();
-                            Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                            pList.Add(item);
                         }
-                    }
-                    else MessageBox.Show("Ingen Endring");
-                }
-                else MessageBox.Show(FeilTallSjekk);
-            }
-            else MessageBox.Show(utFyllingsmangler);
 
-            return feilmelding;
+                        string Endring = Tekstbehandling.SjekkEndringerOmråde(Lområde, navn, sikkerhetsklarering, Kommentar, Farge, pList, LGamleTag, NyTags);
+                        string enderingIPunkter = Tekstbehandling.sammenlignPunkter(Lområde, pList);
+                        if (Endring != string.Empty)
+                        {
+                            string caption = "Vil du lagre disse endringene ";
+                            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                            DialogResult result;
+
+                            result = MessageBox.Show(Endring, caption, buttons);
+                            if (result == DialogResult.Yes)
+                            {
+                                try
+                                {
+                                    //Oppdtaer info 
+                                    DBComOmråde.UpdateOmråde(Løpenummer_til_redigering, navn, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
+
+
+                                    if (enderingIPunkter != string.Empty)
+                                    {
+                                        //SLETTE ALLE punlter KNYTTET TIL området 
+                                        DBComPunkter_område.DeletePunkter_området(Løpenummer_til_redigering);
+                                        //LEGGE TIL NYE punkter
+                                        int rekkefølge = 0;
+                                        foreach (var item in pList)
+                                        {
+                                            float lat = Convert.ToSingle(item.Lat);
+                                            float lang = Convert.ToSingle(item.Lng);
+                                            DBComPunkter_område.InsertPunkter_områdetToDb(Løpenummer_til_redigering, lat, lang, rekkefølge);
+                                            rekkefølge++;
+                                        }
+                                    }
+
+                                    List<string> SjekkOmNye1 = NyTags.Except(LGamleTag).ToList();
+                                    List<string> SjekkOmNye2 = LGamleTag.Except(NyTags).ToList();
+
+                                    if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
+                                    {
+                                        //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
+                                        DBComTag_Område.DeleteTags_Område(Løpenummer_til_redigering);
+                                        //LEGGE TIL NYE
+                                        foreach (var item in lbValgtTags.Items)
+                                        {
+                                            DBComTag_Område.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_til_redigering);
+                                        }
+                                    }
+                                    //Da har alt gått igjennom og endringene lagret 
+
+                                }
+                                catch (Exception Feilmelding)
+                                {
+                                    feilmelding = Feilmelding.Message;
+                                }
+
+                                //Oppdatere Liste med ressurser 
+                                Løpenummer_til_redigering = -1;
+
+                                TømeTekstFeltOgLister();
+
+
+                                Kart.OppdaterListe_området();
+                                Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                            }
+                        }
+                        else MessageBox.Show("Ingen Endring");
+                    }
+                    else MessageBox.Show(FeilTallSjekk);
+                }
+                else MessageBox.Show(utFyllingsmangler);
+
+                return feilmelding;
+            }
+            else
+            {
+                return String.Format("Klikk på område du ønsker å endre");
+            }
         }
 
         private void TømeTekstFeltOgLister()
-        {   
+        {
             //tekstfelt
             txtNavn.Text = "";
             txtKommentar.Text = "";
@@ -326,8 +331,8 @@ namespace GMAP_Demo
             lbTilgjengeligeTags.Items.Clear();
             LastInnTags();
             pointLatLngs.Clear();
-            txtNrPunkt.Text = pointLatLngs.Count.ToString(); 
+            txtNrPunkt.Text = pointLatLngs.Count.ToString();
         }
     }
-        
+
 }
