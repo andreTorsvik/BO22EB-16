@@ -94,6 +94,10 @@ namespace GMAP_Demo
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            ÅpneFilterForm();          
+        }
+        private void ÅpneFilterForm()
+        {
             if (pnlNav.Top != btnFilter.Top)
             {
                 AlleKnapperTilStandarfarge();
@@ -107,6 +111,7 @@ namespace GMAP_Demo
                 this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
                 frmPosisjon_vrb.Show();
             }
+
         }
 
         private void btnOppdater_Click(object sender, EventArgs e)
@@ -206,6 +211,8 @@ namespace GMAP_Demo
 
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
+            ÅpneFilterForm();
+
             if (frmFilter.instance != null)
             {
                 frmFilter.FyllInfoObjekt(Convert.ToInt32(item.Tag));
@@ -215,6 +222,8 @@ namespace GMAP_Demo
         
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
+            ÅpneFilterForm();
+
             if (frmFilter.instance != null)
             {
                 frmFilter.FyllInfoOmråde(Convert.ToInt32(item.Tag));
@@ -266,6 +275,11 @@ namespace GMAP_Demo
         private void btnZoomMinus_Click(object sender, EventArgs e)
         {
             instance.map.Zoom--;
+        }
+
+        private void PnlFormLoader_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

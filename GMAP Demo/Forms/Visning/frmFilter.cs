@@ -95,7 +95,7 @@ namespace GMAP_Demo
         {
             indexRessurs--;
             if (indexRessurs < 0) indexRessurs = GlobaleLister.LRessurs.Count - 1;
-
+            else if(indexRessurs >= GlobaleLister.LRessurs.Count) indexRessurs = GlobaleLister.LRessurs.Count - 1;
             FyllInfoObjekt(indexRessurs);
             FlyttTilObjekt(indexRessurs);
         }
