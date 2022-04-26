@@ -71,7 +71,7 @@ namespace GMAP_Demo
                     Sikkerhetsklarering = sikkerhetsklarering,
                     Kommentar = kommentar,
                     Lat = lat,
-                    Lang = lang,
+                    Lang = lang
                 };
 
                 connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (ressursToAdd));
@@ -103,9 +103,8 @@ namespace GMAP_Demo
                     Lat = lat,
                     Lang = lang
                 };
-                int brukersSikkerhetsklarering = InnloggetBruker.Sikkerhetsklarering;
 
-                connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang, @BrukersSikkerhetsklarering", (UpdateRessurs, brukersSikkerhetsklarering));
+                connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (UpdateRessurs));
 
             }
         }
