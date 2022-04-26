@@ -63,12 +63,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtEnhetMåling = new System.Windows.Forms.TextBox();
+            this.btnTimerMåling = new System.Windows.Forms.Button();
             this.lblEnhetMåling = new System.Windows.Forms.Label();
             this.lbMålingDato = new System.Windows.Forms.Label();
             this.txtMålingDato = new System.Windows.Forms.TextBox();
             this.btnNesteRessurs = new System.Windows.Forms.Button();
             this.btnForrigeRessurs = new System.Windows.Forms.Button();
-            this.btnTimerMåling = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -80,31 +80,31 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Location = new System.Drawing.Point(14, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 46);
+            this.label3.Size = new System.Drawing.Size(94, 37);
             this.label3.TabIndex = 3;
             this.label3.Text = "Filter";
             // 
             // txtNavn
             // 
             this.txtNavn.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtNavn.Location = new System.Drawing.Point(147, 28);
+            this.txtNavn.Location = new System.Drawing.Point(165, 35);
             this.txtNavn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNavn.Multiline = true;
             this.txtNavn.Name = "txtNavn";
             this.txtNavn.ReadOnly = true;
-            this.txtNavn.Size = new System.Drawing.Size(217, 24);
+            this.txtNavn.Size = new System.Drawing.Size(244, 29);
             this.txtNavn.TabIndex = 9;
             // 
             // lblNavn
             // 
             this.lblNavn.AutoSize = true;
             this.lblNavn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNavn.Location = new System.Drawing.Point(12, 32);
+            this.lblNavn.Location = new System.Drawing.Point(14, 40);
             this.lblNavn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNavn.Name = "lblNavn";
-            this.lblNavn.Size = new System.Drawing.Size(39, 16);
+            this.lblNavn.Size = new System.Drawing.Size(45, 20);
             this.lblNavn.TabIndex = 10;
             this.lblNavn.Text = "Navn";
             // 
@@ -112,10 +112,10 @@
             // 
             this.lblKategori.AutoSize = true;
             this.lblKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKategori.Location = new System.Drawing.Point(12, 62);
+            this.lblKategori.Location = new System.Drawing.Point(14, 78);
             this.lblKategori.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKategori.Name = "lblKategori";
-            this.lblKategori.Size = new System.Drawing.Size(57, 16);
+            this.lblKategori.Size = new System.Drawing.Size(68, 20);
             this.lblKategori.TabIndex = 11;
             this.lblKategori.Text = "Kategori";
             // 
@@ -123,10 +123,10 @@
             // 
             this.lblDato_opprettet.AutoSize = true;
             this.lblDato_opprettet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblDato_opprettet.Location = new System.Drawing.Point(12, 150);
+            this.lblDato_opprettet.Location = new System.Drawing.Point(14, 188);
             this.lblDato_opprettet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDato_opprettet.Name = "lblDato_opprettet";
-            this.lblDato_opprettet.Size = new System.Drawing.Size(92, 16);
+            this.lblDato_opprettet.Size = new System.Drawing.Size(113, 20);
             this.lblDato_opprettet.TabIndex = 12;
             this.lblDato_opprettet.Text = "Dato opprettet";
             // 
@@ -134,10 +134,10 @@
             // 
             this.lblOpprettetAvBruker.AutoSize = true;
             this.lblOpprettetAvBruker.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblOpprettetAvBruker.Location = new System.Drawing.Point(12, 178);
+            this.lblOpprettetAvBruker.Location = new System.Drawing.Point(14, 222);
             this.lblOpprettetAvBruker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOpprettetAvBruker.Name = "lblOpprettetAvBruker";
-            this.lblOpprettetAvBruker.Size = new System.Drawing.Size(121, 16);
+            this.lblOpprettetAvBruker.Size = new System.Drawing.Size(146, 20);
             this.lblOpprettetAvBruker.TabIndex = 13;
             this.lblOpprettetAvBruker.Text = "Opprettet av bruker";
             // 
@@ -145,10 +145,10 @@
             // 
             this.lblSikkerhetsklarering.AutoSize = true;
             this.lblSikkerhetsklarering.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(12, 208);
+            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(14, 260);
             this.lblSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSikkerhetsklarering.Name = "lblSikkerhetsklarering";
-            this.lblSikkerhetsklarering.Size = new System.Drawing.Size(122, 16);
+            this.lblSikkerhetsklarering.Size = new System.Drawing.Size(144, 20);
             this.lblSikkerhetsklarering.TabIndex = 14;
             this.lblSikkerhetsklarering.Text = "Sikkerhetsklarering";
             // 
@@ -156,76 +156,76 @@
             // 
             this.lblKommentar.AutoSize = true;
             this.lblKommentar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKommentar.Location = new System.Drawing.Point(12, 233);
+            this.lblKommentar.Location = new System.Drawing.Point(14, 291);
             this.lblKommentar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKommentar.Name = "lblKommentar";
-            this.lblKommentar.Size = new System.Drawing.Size(75, 16);
+            this.lblKommentar.Size = new System.Drawing.Size(91, 20);
             this.lblKommentar.TabIndex = 15;
             this.lblKommentar.Text = "Kommentar";
             // 
             // txtKategori
             // 
             this.txtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtKategori.Location = new System.Drawing.Point(147, 57);
+            this.txtKategori.Location = new System.Drawing.Point(165, 71);
             this.txtKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKategori.Multiline = true;
             this.txtKategori.Name = "txtKategori";
             this.txtKategori.ReadOnly = true;
-            this.txtKategori.Size = new System.Drawing.Size(217, 24);
+            this.txtKategori.Size = new System.Drawing.Size(244, 29);
             this.txtKategori.TabIndex = 16;
             // 
             // txtDato_opprettet
             // 
             this.txtDato_opprettet.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtDato_opprettet.Location = new System.Drawing.Point(147, 145);
+            this.txtDato_opprettet.Location = new System.Drawing.Point(165, 181);
             this.txtDato_opprettet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDato_opprettet.Multiline = true;
             this.txtDato_opprettet.Name = "txtDato_opprettet";
             this.txtDato_opprettet.ReadOnly = true;
-            this.txtDato_opprettet.Size = new System.Drawing.Size(217, 24);
+            this.txtDato_opprettet.Size = new System.Drawing.Size(244, 29);
             this.txtDato_opprettet.TabIndex = 17;
             // 
             // txtOpprettetAvBruker
             // 
             this.txtOpprettetAvBruker.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtOpprettetAvBruker.Location = new System.Drawing.Point(147, 175);
+            this.txtOpprettetAvBruker.Location = new System.Drawing.Point(165, 219);
             this.txtOpprettetAvBruker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOpprettetAvBruker.Multiline = true;
             this.txtOpprettetAvBruker.Name = "txtOpprettetAvBruker";
             this.txtOpprettetAvBruker.ReadOnly = true;
-            this.txtOpprettetAvBruker.Size = new System.Drawing.Size(217, 24);
+            this.txtOpprettetAvBruker.Size = new System.Drawing.Size(244, 29);
             this.txtOpprettetAvBruker.TabIndex = 18;
             // 
             // txtSikkerhetsklarering
             // 
             this.txtSikkerhetsklarering.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSikkerhetsklarering.Location = new System.Drawing.Point(147, 204);
+            this.txtSikkerhetsklarering.Location = new System.Drawing.Point(165, 255);
             this.txtSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSikkerhetsklarering.Multiline = true;
             this.txtSikkerhetsklarering.Name = "txtSikkerhetsklarering";
             this.txtSikkerhetsklarering.ReadOnly = true;
-            this.txtSikkerhetsklarering.Size = new System.Drawing.Size(217, 24);
+            this.txtSikkerhetsklarering.Size = new System.Drawing.Size(244, 29);
             this.txtSikkerhetsklarering.TabIndex = 19;
             // 
             // txtKommentar
             // 
             this.txtKommentar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtKommentar.Location = new System.Drawing.Point(147, 233);
+            this.txtKommentar.Location = new System.Drawing.Point(165, 291);
             this.txtKommentar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKommentar.Multiline = true;
             this.txtKommentar.Name = "txtKommentar";
             this.txtKommentar.ReadOnly = true;
-            this.txtKommentar.Size = new System.Drawing.Size(217, 75);
+            this.txtKommentar.Size = new System.Drawing.Size(244, 93);
             this.txtKommentar.TabIndex = 20;
             // 
             // lbKategorierSkjult
             // 
             this.lbKategorierSkjult.FormattingEnabled = true;
-            this.lbKategorierSkjult.ItemHeight = 16;
-            this.lbKategorierSkjult.Location = new System.Drawing.Point(19, 39);
+            this.lbKategorierSkjult.ItemHeight = 20;
+            this.lbKategorierSkjult.Location = new System.Drawing.Point(21, 49);
             this.lbKategorierSkjult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbKategorierSkjult.Name = "lbKategorierSkjult";
-            this.lbKategorierSkjult.Size = new System.Drawing.Size(112, 84);
+            this.lbKategorierSkjult.Size = new System.Drawing.Size(126, 104);
             this.lbKategorierSkjult.Sorted = true;
             this.lbKategorierSkjult.TabIndex = 25;
             this.lbKategorierSkjult.DoubleClick += new System.EventHandler(this.lbKategorierSkjult_DoubleClick);
@@ -234,9 +234,9 @@
             // 
             this.lblKategorierSkjult.AutoSize = true;
             this.lblKategorierSkjult.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKategorierSkjult.Location = new System.Drawing.Point(15, 20);
+            this.lblKategorierSkjult.Location = new System.Drawing.Point(17, 25);
             this.lblKategorierSkjult.Name = "lblKategorierSkjult";
-            this.lblKategorierSkjult.Size = new System.Drawing.Size(36, 16);
+            this.lblKategorierSkjult.Size = new System.Drawing.Size(43, 20);
             this.lblKategorierSkjult.TabIndex = 26;
             this.lblKategorierSkjult.Text = "Skjul";
             // 
@@ -244,20 +244,20 @@
             // 
             this.lblKategorierVises.AutoSize = true;
             this.lblKategorierVises.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKategorierVises.Location = new System.Drawing.Point(253, 20);
+            this.lblKategorierVises.Location = new System.Drawing.Point(285, 25);
             this.lblKategorierVises.Name = "lblKategorierVises";
-            this.lblKategorierVises.Size = new System.Drawing.Size(26, 16);
+            this.lblKategorierVises.Size = new System.Drawing.Size(31, 20);
             this.lblKategorierVises.TabIndex = 28;
             this.lblKategorierVises.Text = "Vis";
             // 
             // lbKategorierVises
             // 
             this.lbKategorierVises.FormattingEnabled = true;
-            this.lbKategorierVises.ItemHeight = 16;
-            this.lbKategorierVises.Location = new System.Drawing.Point(256, 39);
+            this.lbKategorierVises.ItemHeight = 20;
+            this.lbKategorierVises.Location = new System.Drawing.Point(288, 49);
             this.lbKategorierVises.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbKategorierVises.Name = "lbKategorierVises";
-            this.lbKategorierVises.Size = new System.Drawing.Size(112, 84);
+            this.lbKategorierVises.Size = new System.Drawing.Size(126, 104);
             this.lbKategorierVises.Sorted = true;
             this.lbKategorierVises.TabIndex = 27;
             this.lbKategorierVises.DoubleClick += new System.EventHandler(this.lbKategorierVises_DoubleClick);
@@ -265,11 +265,11 @@
             // lbTagsSkjult
             // 
             this.lbTagsSkjult.FormattingEnabled = true;
-            this.lbTagsSkjult.ItemHeight = 16;
-            this.lbTagsSkjult.Location = new System.Drawing.Point(20, 148);
+            this.lbTagsSkjult.ItemHeight = 20;
+            this.lbTagsSkjult.Location = new System.Drawing.Point(22, 185);
             this.lbTagsSkjult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTagsSkjult.Name = "lbTagsSkjult";
-            this.lbTagsSkjult.Size = new System.Drawing.Size(112, 84);
+            this.lbTagsSkjult.Size = new System.Drawing.Size(126, 104);
             this.lbTagsSkjult.Sorted = true;
             this.lbTagsSkjult.TabIndex = 25;
             this.lbTagsSkjult.DoubleClick += new System.EventHandler(this.lbTagsSkjult_DoubleClick);
@@ -278,20 +278,20 @@
             // 
             this.lblTagsSkjult.AutoSize = true;
             this.lblTagsSkjult.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTagsSkjult.Location = new System.Drawing.Point(16, 129);
+            this.lblTagsSkjult.Location = new System.Drawing.Point(18, 161);
             this.lblTagsSkjult.Name = "lblTagsSkjult";
-            this.lblTagsSkjult.Size = new System.Drawing.Size(36, 16);
+            this.lblTagsSkjult.Size = new System.Drawing.Size(43, 20);
             this.lblTagsSkjult.TabIndex = 26;
             this.lblTagsSkjult.Text = "Skjul";
             // 
             // lbTagsVises
             // 
             this.lbTagsVises.FormattingEnabled = true;
-            this.lbTagsVises.ItemHeight = 16;
-            this.lbTagsVises.Location = new System.Drawing.Point(257, 148);
+            this.lbTagsVises.ItemHeight = 20;
+            this.lbTagsVises.Location = new System.Drawing.Point(289, 185);
             this.lbTagsVises.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTagsVises.Name = "lbTagsVises";
-            this.lbTagsVises.Size = new System.Drawing.Size(112, 84);
+            this.lbTagsVises.Size = new System.Drawing.Size(126, 104);
             this.lbTagsVises.Sorted = true;
             this.lbTagsVises.TabIndex = 27;
             this.lbTagsVises.DoubleClick += new System.EventHandler(this.lbTagsVises_DoubleClick);
@@ -300,9 +300,9 @@
             // 
             this.lblTagsVises.AutoSize = true;
             this.lblTagsVises.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTagsVises.Location = new System.Drawing.Point(253, 129);
+            this.lblTagsVises.Location = new System.Drawing.Point(285, 161);
             this.lblTagsVises.Name = "lblTagsVises";
-            this.lblTagsVises.Size = new System.Drawing.Size(26, 16);
+            this.lblTagsVises.Size = new System.Drawing.Size(31, 20);
             this.lblTagsVises.TabIndex = 28;
             this.lblTagsVises.Text = "Vis";
             // 
@@ -310,10 +310,10 @@
             // 
             this.cbViseOmråde.AutoSize = true;
             this.cbViseOmråde.ForeColor = System.Drawing.SystemColors.Control;
-            this.cbViseOmråde.Location = new System.Drawing.Point(20, 252);
+            this.cbViseOmråde.Location = new System.Drawing.Point(22, 315);
             this.cbViseOmråde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbViseOmråde.Name = "cbViseOmråde";
-            this.cbViseOmråde.Size = new System.Drawing.Size(116, 20);
+            this.cbViseOmråde.Size = new System.Drawing.Size(129, 24);
             this.cbViseOmråde.TabIndex = 29;
             this.cbViseOmråde.Text = "Skjule område";
             this.cbViseOmråde.UseVisualStyleBackColor = true;
@@ -337,11 +337,11 @@
             this.groupBox1.Controls.Add(this.lbTagsSkjult);
             this.groupBox1.Controls.Add(this.lbKategorierSkjult);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Location = new System.Drawing.Point(9, 73);
+            this.groupBox1.Location = new System.Drawing.Point(10, 91);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(387, 290);
+            this.groupBox1.Size = new System.Drawing.Size(435, 362);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
@@ -349,10 +349,10 @@
             // cbAND
             // 
             this.cbAND.AutoSize = true;
-            this.cbAND.Location = new System.Drawing.Point(256, 263);
+            this.cbAND.Location = new System.Drawing.Point(288, 329);
             this.cbAND.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbAND.Name = "cbAND";
-            this.cbAND.Size = new System.Drawing.Size(58, 20);
+            this.cbAND.Size = new System.Drawing.Size(62, 24);
             this.cbAND.TabIndex = 36;
             this.cbAND.Text = "AND";
             this.cbAND.UseVisualStyleBackColor = true;
@@ -361,10 +361,10 @@
             // cbOR
             // 
             this.cbOR.AutoSize = true;
-            this.cbOR.Location = new System.Drawing.Point(257, 238);
+            this.cbOR.Location = new System.Drawing.Point(289, 298);
             this.cbOR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbOR.Name = "cbOR";
-            this.cbOR.Size = new System.Drawing.Size(49, 20);
+            this.cbOR.Size = new System.Drawing.Size(52, 24);
             this.cbOR.TabIndex = 35;
             this.cbOR.Text = "OR";
             this.cbOR.UseVisualStyleBackColor = true;
@@ -374,10 +374,10 @@
             // 
             this.btnTagFjernAlle.ForeColor = System.Drawing.Color.Coral;
             this.btnTagFjernAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
-            this.btnTagFjernAlle.Location = new System.Drawing.Point(155, 193);
+            this.btnTagFjernAlle.Location = new System.Drawing.Point(174, 241);
             this.btnTagFjernAlle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTagFjernAlle.Name = "btnTagFjernAlle";
-            this.btnTagFjernAlle.Size = new System.Drawing.Size(75, 30);
+            this.btnTagFjernAlle.Size = new System.Drawing.Size(84, 38);
             this.btnTagFjernAlle.TabIndex = 34;
             this.btnTagFjernAlle.UseVisualStyleBackColor = true;
             this.btnTagFjernAlle.Click += new System.EventHandler(this.btnTagFjernAlle_Click);
@@ -386,10 +386,10 @@
             // 
             this.btnKategoriFjernAlle.ForeColor = System.Drawing.Color.Crimson;
             this.btnKategoriFjernAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
-            this.btnKategoriFjernAlle.Location = new System.Drawing.Point(155, 84);
+            this.btnKategoriFjernAlle.Location = new System.Drawing.Point(174, 105);
             this.btnKategoriFjernAlle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKategoriFjernAlle.Name = "btnKategoriFjernAlle";
-            this.btnKategoriFjernAlle.Size = new System.Drawing.Size(75, 30);
+            this.btnKategoriFjernAlle.Size = new System.Drawing.Size(84, 38);
             this.btnKategoriFjernAlle.TabIndex = 32;
             this.btnKategoriFjernAlle.UseVisualStyleBackColor = true;
             this.btnKategoriFjernAlle.Click += new System.EventHandler(this.btnKategoriFjernAlle_Click);
@@ -398,10 +398,10 @@
             // 
             this.btnTagLeggTilAlle.ForeColor = System.Drawing.Color.Coral;
             this.btnTagLeggTilAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
-            this.btnTagLeggTilAlle.Location = new System.Drawing.Point(155, 158);
+            this.btnTagLeggTilAlle.Location = new System.Drawing.Point(174, 198);
             this.btnTagLeggTilAlle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTagLeggTilAlle.Name = "btnTagLeggTilAlle";
-            this.btnTagLeggTilAlle.Size = new System.Drawing.Size(75, 30);
+            this.btnTagLeggTilAlle.Size = new System.Drawing.Size(84, 38);
             this.btnTagLeggTilAlle.TabIndex = 33;
             this.btnTagLeggTilAlle.UseVisualStyleBackColor = true;
             this.btnTagLeggTilAlle.Click += new System.EventHandler(this.btnTagLeggTilAlle_Click);
@@ -410,10 +410,10 @@
             // 
             this.btnKategoriLeggTilAlle.ForeColor = System.Drawing.Color.Coral;
             this.btnKategoriLeggTilAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
-            this.btnKategoriLeggTilAlle.Location = new System.Drawing.Point(155, 49);
+            this.btnKategoriLeggTilAlle.Location = new System.Drawing.Point(174, 61);
             this.btnKategoriLeggTilAlle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKategoriLeggTilAlle.Name = "btnKategoriLeggTilAlle";
-            this.btnKategoriLeggTilAlle.Size = new System.Drawing.Size(75, 30);
+            this.btnKategoriLeggTilAlle.Size = new System.Drawing.Size(84, 38);
             this.btnKategoriLeggTilAlle.TabIndex = 31;
             this.btnKategoriLeggTilAlle.UseVisualStyleBackColor = true;
             this.btnKategoriLeggTilAlle.Click += new System.EventHandler(this.btnKategoriLeggTilAlle_Click);
@@ -422,10 +422,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(12, 313);
+            this.label1.Location = new System.Drawing.Point(14, 391);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 16);
+            this.label1.Size = new System.Drawing.Size(36, 20);
             this.label1.TabIndex = 31;
             this.label1.Text = "Tag";
             // 
@@ -433,33 +433,33 @@
             // 
             this.lbTags.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lbTags.FormattingEnabled = true;
-            this.lbTags.ItemHeight = 16;
-            this.lbTags.Location = new System.Drawing.Point(147, 313);
+            this.lbTags.ItemHeight = 20;
+            this.lbTags.Location = new System.Drawing.Point(165, 391);
             this.lbTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTags.Name = "lbTags";
-            this.lbTags.Size = new System.Drawing.Size(217, 68);
+            this.lbTags.Size = new System.Drawing.Size(244, 84);
             this.lbTags.Sorted = true;
             this.lbTags.TabIndex = 32;
             // 
             // txtMåling
             // 
             this.txtMåling.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtMåling.Location = new System.Drawing.Point(147, 116);
+            this.txtMåling.Location = new System.Drawing.Point(165, 145);
             this.txtMåling.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMåling.Multiline = true;
             this.txtMåling.Name = "txtMåling";
             this.txtMåling.ReadOnly = true;
-            this.txtMåling.Size = new System.Drawing.Size(111, 24);
+            this.txtMåling.Size = new System.Drawing.Size(124, 29);
             this.txtMåling.TabIndex = 34;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(12, 119);
+            this.label2.Location = new System.Drawing.Point(14, 149);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 16);
+            this.label2.Size = new System.Drawing.Size(55, 20);
             this.label2.TabIndex = 33;
             this.label2.Text = "Måling";
             // 
@@ -486,11 +486,11 @@
             this.groupBox2.Controls.Add(this.lblNavn);
             this.groupBox2.Controls.Add(this.txtNavn);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox2.Location = new System.Drawing.Point(9, 449);
+            this.groupBox2.Location = new System.Drawing.Point(10, 561);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(387, 389);
+            this.groupBox2.Size = new System.Drawing.Size(435, 486);
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Info";
@@ -498,22 +498,35 @@
             // txtEnhetMåling
             // 
             this.txtEnhetMåling.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtEnhetMåling.Location = new System.Drawing.Point(319, 116);
+            this.txtEnhetMåling.Location = new System.Drawing.Point(359, 145);
             this.txtEnhetMåling.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEnhetMåling.Multiline = true;
             this.txtEnhetMåling.Name = "txtEnhetMåling";
             this.txtEnhetMåling.ReadOnly = true;
-            this.txtEnhetMåling.Size = new System.Drawing.Size(44, 24);
+            this.txtEnhetMåling.Size = new System.Drawing.Size(49, 29);
             this.txtEnhetMåling.TabIndex = 39;
+            // 
+            // btnTimerMåling
+            // 
+            this.btnTimerMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimerMåling.ForeColor = System.Drawing.Color.Black;
+            this.btnTimerMåling.Location = new System.Drawing.Point(10, 1054);
+            this.btnTimerMåling.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTimerMåling.Name = "btnTimerMåling";
+            this.btnTimerMåling.Size = new System.Drawing.Size(436, 29);
+            this.btnTimerMåling.TabIndex = 38;
+            this.btnTimerMåling.Text = "Simulering av målinger inaktiv";
+            this.btnTimerMåling.UseVisualStyleBackColor = true;
+            this.btnTimerMåling.Click += new System.EventHandler(this.btnTimerMåling_Click);
             // 
             // lblEnhetMåling
             // 
             this.lblEnhetMåling.AutoSize = true;
             this.lblEnhetMåling.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblEnhetMåling.Location = new System.Drawing.Point(265, 119);
+            this.lblEnhetMåling.Location = new System.Drawing.Point(298, 149);
             this.lblEnhetMåling.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEnhetMåling.Name = "lblEnhetMåling";
-            this.lblEnhetMåling.Size = new System.Drawing.Size(41, 16);
+            this.lblEnhetMåling.Size = new System.Drawing.Size(52, 20);
             this.lblEnhetMåling.TabIndex = 38;
             this.lblEnhetMåling.Text = "Enhet";
             // 
@@ -521,22 +534,22 @@
             // 
             this.lbMålingDato.AutoSize = true;
             this.lbMålingDato.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbMålingDato.Location = new System.Drawing.Point(12, 90);
+            this.lbMålingDato.Location = new System.Drawing.Point(14, 112);
             this.lbMålingDato.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMålingDato.Name = "lbMålingDato";
-            this.lbMålingDato.Size = new System.Drawing.Size(127, 16);
+            this.lbMålingDato.Size = new System.Drawing.Size(151, 20);
             this.lbMålingDato.TabIndex = 35;
             this.lbMålingDato.Text = "Tidspunkt for måling";
             // 
             // txtMålingDato
             // 
             this.txtMålingDato.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtMålingDato.Location = new System.Drawing.Point(147, 86);
+            this.txtMålingDato.Location = new System.Drawing.Point(165, 108);
             this.txtMålingDato.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMålingDato.Multiline = true;
             this.txtMålingDato.Name = "txtMålingDato";
             this.txtMålingDato.ReadOnly = true;
-            this.txtMålingDato.Size = new System.Drawing.Size(217, 24);
+            this.txtMålingDato.Size = new System.Drawing.Size(243, 29);
             this.txtMålingDato.TabIndex = 34;
             // 
             // btnNesteRessurs
@@ -544,10 +557,10 @@
             this.btnNesteRessurs.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnNesteRessurs.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
             this.btnNesteRessurs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNesteRessurs.Location = new System.Drawing.Point(256, 37);
+            this.btnNesteRessurs.Location = new System.Drawing.Point(288, 46);
             this.btnNesteRessurs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNesteRessurs.Name = "btnNesteRessurs";
-            this.btnNesteRessurs.Size = new System.Drawing.Size(109, 34);
+            this.btnNesteRessurs.Size = new System.Drawing.Size(123, 42);
             this.btnNesteRessurs.TabIndex = 37;
             this.btnNesteRessurs.Text = "Til Neste";
             this.btnNesteRessurs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -559,45 +572,36 @@
             this.btnForrigeRessurs.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnForrigeRessurs.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
             this.btnForrigeRessurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnForrigeRessurs.Location = new System.Drawing.Point(11, 37);
+            this.btnForrigeRessurs.Location = new System.Drawing.Point(12, 46);
             this.btnForrigeRessurs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnForrigeRessurs.Name = "btnForrigeRessurs";
-            this.btnForrigeRessurs.Size = new System.Drawing.Size(109, 34);
+            this.btnForrigeRessurs.Size = new System.Drawing.Size(123, 42);
             this.btnForrigeRessurs.TabIndex = 36;
             this.btnForrigeRessurs.Text = "Til Forrige";
             this.btnForrigeRessurs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnForrigeRessurs.UseVisualStyleBackColor = true;
             this.btnForrigeRessurs.Click += new System.EventHandler(this.btnForrigeRessurs_Click);
             // 
-            // btnTimerMåling
-            // 
-            this.btnTimerMåling.Location = new System.Drawing.Point(160, 15);
-            this.btnTimerMåling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnTimerMåling.Name = "btnTimerMåling";
-            this.btnTimerMåling.Size = new System.Drawing.Size(232, 28);
-            this.btnTimerMåling.TabIndex = 38;
-            this.btnTimerMåling.Text = "Midlertidig Knapp Timer Måling";
-            this.btnTimerMåling.UseVisualStyleBackColor = true;
-            this.btnTimerMåling.Click += new System.EventHandler(this.btnTimerMåling_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnNesteRessurs);
             this.groupBox3.Controls.Add(this.btnForrigeRessurs);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox3.Location = new System.Drawing.Point(9, 368);
+            this.groupBox3.Location = new System.Drawing.Point(10, 460);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(387, 76);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(435, 95);
             this.groupBox3.TabIndex = 39;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Objekt";
             // 
             // frmFilter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(408, 871);
+            this.ClientSize = new System.Drawing.Size(459, 1089);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnTimerMåling);
             this.Controls.Add(this.groupBox2);

@@ -9,11 +9,11 @@ namespace GMAP_Demo
     internal class MålingSim
     {
         internal static Random random = new Random();
-        public static void InitTimer()
-        {
-            Timer timer = new Timer(TimerProc);
-            timer.Change(Timeout.Infinite, Timeout.Infinite);
-        }
+        //public static void InitTimer()
+        //{
+        //    Timer timer = new Timer(TimerProc);
+        //    timer.Change(Timeout.Infinite, Timeout.Infinite);
+        //}
 
         public static void TimerProc(object state)
         {

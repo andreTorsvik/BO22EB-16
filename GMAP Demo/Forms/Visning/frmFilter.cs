@@ -1,6 +1,7 @@
 ﻿using GMap.NET;
 using System;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace GMAP_Demo
 {
@@ -264,16 +265,22 @@ namespace GMAP_Demo
             }
         }
 
-        bool målingRunning = false;
-        private void btnTimerMåling_Click(object sender, EventArgs e)
+        static bool målingRunning = false;
+        public static System.Threading.Timer timer = new System.Threading.Timer(MålingSim.TimerProc);
+        
+        internal void btnTimerMåling_Click(object sender, EventArgs e)
         {
             if (målingRunning)
             {
-
+                målingRunning = false;
+                btnTimerMåling.Text = "Simulering av målinger inaktiv";
+                timer.Change(Timeout.Infinite, Timeout.Infinite); // Timeren aktiveres aldri i denne modusen.
             }
             else
             {
-                
+                målingRunning = true;
+                btnTimerMåling.Text = "Simulering av målinger aktiv";
+                timer.Change(0, 10000); // Starter timeren og simulering av måling gjentaes hvert 10sek.
             }
         }
     }
