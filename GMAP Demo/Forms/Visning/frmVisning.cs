@@ -4,6 +4,7 @@ using GMap.NET.WindowsForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 // Test test
@@ -16,15 +17,13 @@ namespace GMAP_Demo
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
         
         private Color knapp_trykket = Color.FromArgb(46, 51, 73);
-        
         public PointLatLng DoubleClick_punkt;
         public static frmVisning instance;
-
-        public int MaxSikkerhetsklarering = 3;
+        public int MaxSikkerhetsklarering = 3; // må vurdere å flytte
 
         public frmVisning()
         {
-            GMapProviders.GoogleMap.ApiKey = "AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM";
+            GMapProviders.GoogleMap.ApiKey = "AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM"; // flytte og oppdatere 
             InitializeComponent();
             instance = this;
 
@@ -122,26 +121,29 @@ namespace GMAP_Demo
 
                 //Oppdater listene 
                 //test
-                //Kun for å hindre at områdene kommer fram hvis de ikke allreder er der 
+                //Kun for å hindre at områdene kommer fram hvis de ikke allreder er der
+                bool polygon = false;
+                bool objekt = false;
+
                 foreach (var item in map.Overlays)
                 {
-                    if(item.Id == "Polygons")
+                    if(item.Id == "Polygons" && !polygon)
                     {
                         Kart.OppdaterListe_området();
-                        break;
-                    }   
-                }
-                foreach (var item in map.Overlays)
-                {
-                    if (item.Id == "Objekter")
+                        polygon = true;
+                    }
+                    if (item.Id == "Objekter" && !objekt)
                     {
                         Kart.OppdaterListe_ressurs();
+                        objekt = true;
+                        
+                    }
+
+                    if(polygon && objekt) // har oppdater begge listene 
+                    {
                         break;
                     }
                 }
-
-                //Kart.OppdaterListe_området();
-                //Kart.OppdaterListe_ressurs();
 
                 //Oppdatere kart basert på listene 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
@@ -163,12 +165,12 @@ namespace GMAP_Demo
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-
             this.Hide();
             frmSettings frmSettings = new frmSettings(); // instance 
             frmSettings.Size = this.Size;
             frmSettings.Location = this.Location;
 
+            //til startpoisjon formen 
             frmSettings.instance.lat = map.Position.Lat;
             frmSettings.instance.lng = map.Position.Lng;
 
@@ -183,7 +185,6 @@ namespace GMAP_Demo
             frmHjelp.Size = this.Size;
             frmHjelp.TopMost = true;
             frmHjelp.Show();
-
         }
 
         void AlleKnapperTilStandarfarge()
@@ -242,7 +243,7 @@ namespace GMAP_Demo
         }
 
         bool sjekk = false;
-        public bool KartOppdatere = false;
+        public bool KartOppdatere = false; //Hindrer at kart.reff() påvirker denne metoden 
         private void map_OnMapZoomChanged()
         {
             const int ZoomLevel = 16;

@@ -82,7 +82,6 @@
             this.lbTilgjengligKategorier.Name = "lbTilgjengligKategorier";
             this.lbTilgjengligKategorier.Size = new System.Drawing.Size(247, 204);
             this.lbTilgjengligKategorier.TabIndex = 64;
-            this.lbTilgjengligKategorier.SelectedIndexChanged += new System.EventHandler(this.lbTilgjengligKategorier_SelectedIndexChanged);
             this.lbTilgjengligKategorier.DoubleClick += new System.EventHandler(this.lbTilgjengligKategorier_DoubleClick);
             // 
             // txtValgtKategori

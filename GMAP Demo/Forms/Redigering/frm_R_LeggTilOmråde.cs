@@ -9,8 +9,8 @@ namespace GMAP_Demo
     public partial class frm_R_LeggTilOmråde : Form
     {
         public int FjernMakør;
-        //public List<Markør> lMakør = new List<Markør>();
         public static frm_R_LeggTilOmråde instance;
+        const string TekstTilLatLong = "Dobbelklikk på kartet + \"legg til\"";
         public frm_R_LeggTilOmråde()
         {
             InitializeComponent();
@@ -63,6 +63,7 @@ namespace GMAP_Demo
             }
             lbTilgjengligFarge.Sorted = true;
         }
+
         private void lbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
@@ -133,7 +134,7 @@ namespace GMAP_Demo
 
         private void btnLeggTilPunktIListe_Click(object sender, EventArgs e)
         {
-            if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != "Dobbelklikk på kartet + \"legg til\""))
+            if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != TekstTilLatLong))
             {
                 try
                 {
@@ -148,8 +149,8 @@ namespace GMAP_Demo
                     Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
                     Kart.reff(Kart.MuligKart.Redigering);
 
-                    txtLat.Text = "Dobbelklikk på kartet + \"legg til\"";
-                    txtLong.Text = "Dobbelklikk på kartet + \"legg til\"";
+                    txtLat.Text = TekstTilLatLong;
+                    txtLong.Text = TekstTilLatLong;
                     txtNrPunkt.Text = (pointLatLngs.Count).ToString();
                 }
                 catch (Exception feilmelding)
@@ -249,8 +250,8 @@ namespace GMAP_Demo
             txtSikkerhetsklarering.Text = "";
             txtKommentar.Text = "";
             txtfarge.Text = "";
-            txtLat.Text = "Dobbelklikk på kartet + \"legg til\"";
-            txtLong.Text = "Dobbelklikk på kartet + \"legg til\"";
+            txtLat.Text = TekstTilLatLong;
+            txtLong.Text = TekstTilLatLong;
 
             //lister
             lbValgtTags.Items.Clear();

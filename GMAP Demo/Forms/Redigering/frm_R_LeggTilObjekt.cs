@@ -83,15 +83,14 @@ namespace GMAP_Demo
                 try
                 {
                     DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
+                    lbTilgjengligKategori.Items.Add(nyKategori);
+                    lbTilgjengligKategori.Sorted = true;
+                    txtKategori.Text = nyKategori;
                 }
                 catch (Exception)
                 {
 
                 }
-
-                lbTilgjengligKategori.Items.Add(nyKategori);
-                lbTilgjengligKategori.Sorted = true;
-                txtKategori.Text = nyKategori;
                 txtNyKategori.Text = "";
             }
             Kart.OppdaterKategoriListe();

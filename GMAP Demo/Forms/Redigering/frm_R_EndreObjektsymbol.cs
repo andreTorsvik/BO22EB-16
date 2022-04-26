@@ -108,9 +108,5 @@ namespace GMAP_Demo
             else MessageBox.Show("Du har ikke valgt en kategori, og har heller ikke valgt et bilde.", "Kunne ikke utføre oppgaven!");
         }
 
-        private void lbTilgjengligKategorier_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -37,6 +37,12 @@ namespace GMAP_Demo
                     }
                 }
             }
+            else
+            {
+                List<Ressurs> LRessurs = Rlist;
+
+                LRessurs.Clear();
+            }
         }
 
         public static void filtrereBaserPåTagsAND(ref List<Område> Olist, List<string> TagFilterListe)
@@ -67,6 +73,12 @@ namespace GMAP_Demo
                         i--;
                     }
                 }
+            }
+            else
+            {
+                List<Område> LOmråde = Olist;
+
+                LOmråde.Clear();
             }
         }
 

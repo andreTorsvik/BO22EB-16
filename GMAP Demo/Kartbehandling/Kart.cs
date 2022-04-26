@@ -145,7 +145,6 @@ namespace GMAP_Demo
                 FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
             else if (AND && !OR) //AND
                 FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
-
         }
 
         public static void OppdaterListe_ressurs()

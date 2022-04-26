@@ -152,12 +152,6 @@ namespace GMAP_Demo
 
         }
 
-
-        private void btnKategoriLeggTilAlle_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbOR_CheckedChanged(object sender, EventArgs e)
         {
             if(cbOR.Checked)
@@ -198,6 +192,73 @@ namespace GMAP_Demo
         {
             filterOR = cbOR.Checked;
             filterAND = cbAND.Checked;
+        }
+
+        private void btnTagFjernAlle_Click(object sender, EventArgs e)
+        {
+            if(lbTagsVises.Items.Count >0 )
+            {
+                int antall = lbTagsVises.Items.Count;
+                for (int i = 0; i < antall; i++)
+                {
+                    Kart.tag_ListeSkjult.Add((string)lbTagsVises.Items[0]);
+                    Kart.tag_ListeVises.Remove((string)lbTagsVises.Items[0]);
+                }
+
+                Kart.OppdaterListe_ressurs();
+                Kart.OppdaterListe_området();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            }
+            
+        }
+
+        private void btnTagLeggTilAlle_Click(object sender, EventArgs e)
+        {
+            if(lbTagsSkjult.Items.Count > 0)
+            {
+                int antall = lbTagsSkjult.Items.Count;
+                for (int i = 0; i < antall; i++)
+                {
+                    Kart.tag_ListeVises.Add((string)lbTagsSkjult.Items[0]);
+                    Kart.tag_ListeSkjult.Remove((string)lbTagsSkjult.Items[0]);
+                }
+
+                Kart.OppdaterListe_ressurs();
+                Kart.OppdaterListe_området();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            }
+            
+        }
+
+        private void btnKategoriFjernAlle_Click(object sender, EventArgs e)
+        {
+            if (lbKategorierVises.Items.Count > 0)
+            {
+                int antall = lbKategorierVises.Items.Count;
+                for (int i = 0; i < antall; i++)
+                {
+                    Kart.kategoriListeSkjult.Add((Kategorier_Bilde)lbKategorierVises.Items[0]);
+                    Kart.kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.Items[0]);
+                }
+
+                Kart.OppdaterListe_ressurs();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            }
+        }
+        private void btnKategoriLeggTilAlle_Click(object sender, EventArgs e)
+        {
+            if (lbKategorierSkjult.Items.Count >0)
+            {
+                int antall = lbKategorierSkjult.Items.Count;
+                for (int i = 0; i < antall; i++)
+                {
+                    Kart.kategoriListeVises.Add((Kategorier_Bilde)lbKategorierSkjult.Items[0]);
+                    Kart.kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.Items[0]);
+                }
+
+                Kart.OppdaterListe_ressurs();
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            }     
         }
     }
 }

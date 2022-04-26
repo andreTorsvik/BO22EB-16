@@ -51,6 +51,8 @@
             this.lblTagsVises = new System.Windows.Forms.Label();
             this.cbViseOmråde = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbAND = new System.Windows.Forms.CheckBox();
+            this.cbOR = new System.Windows.Forms.CheckBox();
             this.btnTagFjernAlle = new System.Windows.Forms.Button();
             this.btnKategoriFjernAlle = new System.Windows.Forms.Button();
             this.btnTagLeggTilAlle = new System.Windows.Forms.Button();
@@ -62,8 +64,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnNesteRessurs = new System.Windows.Forms.Button();
             this.btnForrigeRessurs = new System.Windows.Forms.Button();
-            this.cbOR = new System.Windows.Forms.CheckBox();
-            this.cbAND = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -336,6 +336,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
             // 
+            // cbAND
+            // 
+            this.cbAND.AutoSize = true;
+            this.cbAND.Location = new System.Drawing.Point(256, 263);
+            this.cbAND.Name = "cbAND";
+            this.cbAND.Size = new System.Drawing.Size(58, 20);
+            this.cbAND.TabIndex = 36;
+            this.cbAND.Text = "AND";
+            this.cbAND.UseVisualStyleBackColor = true;
+            this.cbAND.CheckedChanged += new System.EventHandler(this.cbAND_CheckedChanged);
+            // 
+            // cbOR
+            // 
+            this.cbOR.AutoSize = true;
+            this.cbOR.Location = new System.Drawing.Point(257, 237);
+            this.cbOR.Name = "cbOR";
+            this.cbOR.Size = new System.Drawing.Size(49, 20);
+            this.cbOR.TabIndex = 35;
+            this.cbOR.Text = "OR";
+            this.cbOR.UseVisualStyleBackColor = true;
+            this.cbOR.CheckedChanged += new System.EventHandler(this.cbOR_CheckedChanged);
+            // 
             // btnTagFjernAlle
             // 
             this.btnTagFjernAlle.ForeColor = System.Drawing.Color.Coral;
@@ -345,6 +367,7 @@
             this.btnTagFjernAlle.Size = new System.Drawing.Size(75, 29);
             this.btnTagFjernAlle.TabIndex = 34;
             this.btnTagFjernAlle.UseVisualStyleBackColor = true;
+            this.btnTagFjernAlle.Click += new System.EventHandler(this.btnTagFjernAlle_Click);
             // 
             // btnKategoriFjernAlle
             // 
@@ -355,6 +378,7 @@
             this.btnKategoriFjernAlle.Size = new System.Drawing.Size(75, 29);
             this.btnKategoriFjernAlle.TabIndex = 32;
             this.btnKategoriFjernAlle.UseVisualStyleBackColor = true;
+            this.btnKategoriFjernAlle.Click += new System.EventHandler(this.btnKategoriFjernAlle_Click);
             // 
             // btnTagLeggTilAlle
             // 
@@ -365,6 +389,7 @@
             this.btnTagLeggTilAlle.Size = new System.Drawing.Size(75, 29);
             this.btnTagLeggTilAlle.TabIndex = 33;
             this.btnTagLeggTilAlle.UseVisualStyleBackColor = true;
+            this.btnTagLeggTilAlle.Click += new System.EventHandler(this.btnTagLeggTilAlle_Click);
             // 
             // btnKategoriLeggTilAlle
             // 
@@ -473,28 +498,6 @@
             this.btnForrigeRessurs.UseVisualStyleBackColor = true;
             this.btnForrigeRessurs.Click += new System.EventHandler(this.btnForrigeRessurs_Click);
             // 
-            // cbOR
-            // 
-            this.cbOR.AutoSize = true;
-            this.cbOR.Location = new System.Drawing.Point(257, 237);
-            this.cbOR.Name = "cbOR";
-            this.cbOR.Size = new System.Drawing.Size(49, 20);
-            this.cbOR.TabIndex = 35;
-            this.cbOR.Text = "OR";
-            this.cbOR.UseVisualStyleBackColor = true;
-            this.cbOR.CheckedChanged += new System.EventHandler(this.cbOR_CheckedChanged);
-            // 
-            // cbAND
-            // 
-            this.cbAND.AutoSize = true;
-            this.cbAND.Location = new System.Drawing.Point(256, 263);
-            this.cbAND.Name = "cbAND";
-            this.cbAND.Size = new System.Drawing.Size(58, 20);
-            this.cbAND.TabIndex = 36;
-            this.cbAND.Text = "AND";
-            this.cbAND.UseVisualStyleBackColor = true;
-            this.cbAND.CheckedChanged += new System.EventHandler(this.cbAND_CheckedChanged);
-            // 
             // frmFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -539,10 +542,10 @@
         private System.Windows.Forms.Label lblKategorierSkjult;
         private System.Windows.Forms.Label lblKategorierVises;
         private System.Windows.Forms.ListBox lbKategorierVises;
-        private System.Windows.Forms.ListBox lbTagsSkjult;
-        private System.Windows.Forms.Label lblTagsSkjult;
-        private System.Windows.Forms.ListBox lbTagsVises;
-        private System.Windows.Forms.Label lblTagsVises;
+        public System.Windows.Forms.ListBox lbTagsSkjult;
+        public System.Windows.Forms.Label lblTagsSkjult;
+        public System.Windows.Forms.ListBox lbTagsVises;
+        public System.Windows.Forms.Label lblTagsVises;
         private System.Windows.Forms.CheckBox cbViseOmråde;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnTagFjernAlle;
