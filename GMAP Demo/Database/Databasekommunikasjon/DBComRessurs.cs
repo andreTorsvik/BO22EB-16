@@ -39,7 +39,7 @@ namespace GMAP_Demo
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
             {
-                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Kategori = '{Kategori}' AND Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").ToList();
+                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Kategori = '{Kategori}')").ToList();
                 return output;
             }
         }
