@@ -71,10 +71,10 @@ namespace GMAP_Demo
                     Sikkerhetsklarering = sikkerhetsklarering,
                     Kommentar = kommentar,
                     Lat = lat,
-                    Lang = lang,
+                    Lang = lang
                 };
 
-                connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (ressursToAdd);
+                connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (ressursToAdd));
             }
         }
 
