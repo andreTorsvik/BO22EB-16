@@ -86,7 +86,13 @@ namespace GMAP_Demo
         {
             Kart.FjernRute();
         }
-        
+
+        public void FyllKoordinater(double lat, double lang)
+        {
+            txtLat.Text = lat.ToString();
+            txtLong.Text = lang.ToString();
+        }
+
 
         private void frmPosisjon_Load(object sender, EventArgs e)
         {

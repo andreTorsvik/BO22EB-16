@@ -399,26 +399,31 @@ namespace GMAP_Demo
 
         public static void reff(MuligKart kart)
         {
+            //oppdatere kart med å zoom inn og ut 
+            //zoomer inn så lite at det ikke merkes
+            double plussminus = 0.01;
             switch (kart)
             {
                 case MuligKart.Visning:
                     frmVisning.instance.KartOppdatere = true;
 
-                    frmVisning.instance.map.Zoom++;
-                    frmVisning.instance.map.Zoom--;
+                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + plussminus;
+                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom - plussminus;
 
                     frmVisning.instance.KartOppdatere = false;
                     break;
                 case MuligKart.Redigering:
-                    frmRediger.instance.map.Zoom++;
-                    frmRediger.instance.map.Zoom--;
+
+                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom + plussminus;
+                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom - plussminus;
+
                     break;
                 case MuligKart.Begge:
-                    frmVisning.instance.map.Zoom++;
-                    frmVisning.instance.map.Zoom--;
+                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + plussminus;
+                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom - plussminus;
 
-                    frmRediger.instance.map.Zoom++;
-                    frmRediger.instance.map.Zoom--;
+                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom + plussminus;
+                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom - plussminus;
                     break;
             }
         }
@@ -488,16 +493,15 @@ namespace GMAP_Demo
 
         public static void FjernAlleMarkører_redigier(string områdeId)
         {
+            
             for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
             {
                 if (frmRediger.instance.map.Overlays[i].Id == områdeId)
                 {
                     frmRediger.instance.map.Overlays.RemoveAt(i);
                     i--;
-
                 }
             }
-
             reff(MuligKart.Redigering);
         }
     }
