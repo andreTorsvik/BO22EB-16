@@ -32,11 +32,11 @@ namespace GMAP_Demo
             List<string> Lfeil = new List<string>();
             int antalltegnPassord = 4;
 
-            //sjekk passord  
-            if (passord.Length > antalltegnPassord)
-                Lfeil.Add(String.Format("passord er for kort, må minst være: {0}", antalltegnPassord));
-            else if (!(passord == Bepassord))
+            //sjekk passord
+            if (!(passord == Bepassord))
                 Lfeil.Add("Passord samsvarer ikke");
+            else if (passord.Length < antalltegnPassord)
+                Lfeil.Add(String.Format("passord er for kort, må minst være: {0}", antalltegnPassord)); 
 
             //Sjekk epost 
             if (!ErEmailGodkjent(Epost))

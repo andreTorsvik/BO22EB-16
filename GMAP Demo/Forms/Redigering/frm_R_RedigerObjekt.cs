@@ -91,6 +91,7 @@ namespace GMAP_Demo
 
         private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            
             string selectedItemtext = lbValgtTags.SelectedItem.ToString();
 
             lbTilgjengeligeTags.Items.Add(selectedItemtext);

@@ -36,7 +36,7 @@ namespace GMAP_Demo
             string fornavn = txtFornavn.Text;
             string etternavn = txtEtternavn.Text;
             string telefon = txtTelefon.Text;
-            string Epost = txtEpost.Text;
+            string Epost = txtEpost.Text.ToLower();
             string passord = txtPassord.Text;
             string bePassord = txtBePassord.Text;
 
@@ -48,8 +48,6 @@ namespace GMAP_Demo
 
                 if (feil == string.Empty)
                 {
-                    
-
                     try
                     {
                         //Generer tall 

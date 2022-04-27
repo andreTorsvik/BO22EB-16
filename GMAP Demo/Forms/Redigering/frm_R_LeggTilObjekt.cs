@@ -67,9 +67,15 @@ namespace GMAP_Demo
 
         private void lbTilgjengligKategori_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbTilgjengligKategori.SelectedItem.ToString();
+            if (lbTilgjengligKategori.Items.Count > 0)
+            {
+                if (lbTilgjengligKategori.SelectedIndex != -1)
+                {
+                    string selectedItemtext = lbTilgjengligKategori.SelectedItem.ToString();
 
-            txtKategori.Text = selectedItemtext;
+                    txtKategori.Text = selectedItemtext;
+                }
+            }
         }
 
         private void btnLeggTilNyKategori_Click(object sender, EventArgs e)
@@ -125,22 +131,35 @@ namespace GMAP_Demo
 
         private void lbTilgjengelige_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
+            if (lbTilgjengeligeTags.Items.Count > 0)
+            {
+                if(lbTilgjengeligeTags.SelectedIndex != -1)
+                {
+                    string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
 
-            lbValgtTags.Items.Add(selectedItemtext);
+                    lbValgtTags.Items.Add(selectedItemtext);
 
-            lbTilgjengeligeTags.Items.Remove(selectedItemtext);
+                    lbTilgjengeligeTags.Items.Remove(selectedItemtext);
 
-            lbValgtTags.Sorted = true;
+                    lbValgtTags.Sorted = true;
+                }
+                
+            }
         }
 
         private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbValgtTags.SelectedItem.ToString();
+            if (lbValgtTags.Items.Count > 0)
+            {
+                if (lbValgtTags.SelectedIndex != -1)
+                {
+                    string selectedItemtext = lbValgtTags.SelectedItem.ToString();
 
-            lbTilgjengeligeTags.Items.Add(selectedItemtext);
+                    lbTilgjengeligeTags.Items.Add(selectedItemtext);
 
-            lbValgtTags.Items.Remove(selectedItemtext);
+                    lbValgtTags.Items.Remove(selectedItemtext);
+                }
+            }
         }
 
         private void txtSikkerhetsklarering_KeyPress(object sender, KeyPressEventArgs e)

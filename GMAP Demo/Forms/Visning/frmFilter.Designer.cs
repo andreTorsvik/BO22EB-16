@@ -545,7 +545,7 @@
             this.btnTimerMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimerMåling.ForeColor = System.Drawing.Color.Black;
             this.btnTimerMåling.Location = new System.Drawing.Point(9, 843);
-            this.btnTimerMåling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTimerMåling.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimerMåling.Name = "btnTimerMåling";
             this.btnTimerMåling.Size = new System.Drawing.Size(388, 23);
             this.btnTimerMåling.TabIndex = 38;
