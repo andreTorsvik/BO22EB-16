@@ -75,6 +75,7 @@ namespace GMAP_Demo
                     txtValgtKategori.Text = string.Empty;
 
                     OppdaterKategoriListe();
+                    Kart.OppdaterKategoriListe();
                 }
             }
         }

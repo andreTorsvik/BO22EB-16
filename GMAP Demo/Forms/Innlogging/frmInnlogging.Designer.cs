@@ -64,9 +64,9 @@
             this.lblUserName.Location = new System.Drawing.Point(71, 155);
             this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(82, 16);
+            this.lblUserName.Size = new System.Drawing.Size(44, 16);
             this.lblUserName.TabIndex = 1;
-            this.lblUserName.Text = "Brukernavn";
+            this.lblUserName.Text = "Epost";
             // 
             // lblPassword
             // 
@@ -84,7 +84,7 @@
             // 
             this.tbUserName.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbUserName.Location = new System.Drawing.Point(232, 151);
-            this.tbUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUserName.Margin = new System.Windows.Forms.Padding(4);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(132, 22);
             this.tbUserName.TabIndex = 3;
@@ -93,7 +93,7 @@
             // 
             this.tbPassword.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbPassword.Location = new System.Drawing.Point(232, 197);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(132, 22);
             this.tbPassword.TabIndex = 4;
@@ -106,7 +106,7 @@
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(242, 226);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(111, 32);
             this.btnLogin.TabIndex = 5;
@@ -121,7 +121,7 @@
             this.btnTestUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestUser.ForeColor = System.Drawing.Color.White;
             this.btnTestUser.Location = new System.Drawing.Point(242, 380);
-            this.btnTestUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTestUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnTestUser.Name = "btnTestUser";
             this.btnTestUser.Size = new System.Drawing.Size(111, 32);
             this.btnTestUser.TabIndex = 6;
@@ -157,7 +157,7 @@
             // 
             this.pictureBox1.Image = global::GMAP_Demo.Properties.Resources.HVL;
             this.pictureBox1.Location = new System.Drawing.Point(51, 43);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(68, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -169,7 +169,7 @@
             this.LbNyBruker.AutoSize = true;
             this.LbNyBruker.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbNyBruker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.LbNyBruker.Location = new System.Drawing.Point(172, 272);
+            this.LbNyBruker.Location = new System.Drawing.Point(171, 290);
             this.LbNyBruker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbNyBruker.Name = "LbNyBruker";
             this.LbNyBruker.Size = new System.Drawing.Size(106, 16);
@@ -184,7 +184,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Lucida Sans", 8.25F);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(71, 272);
+            this.label1.Location = new System.Drawing.Point(70, 290);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 16);
             this.label1.TabIndex = 12;
@@ -210,7 +210,7 @@
             this.Controls.Add(this.lblTitle);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(488, 475);
             this.MinimumSize = new System.Drawing.Size(488, 475);
             this.Name = "frmInnlogging";

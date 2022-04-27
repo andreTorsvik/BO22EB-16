@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security;
 using System.Windows.Forms;
 
 namespace GMAP_Demo
@@ -27,8 +28,9 @@ namespace GMAP_Demo
 
             string Epost = tbUserName.Text.ToLower();
             string passord = tbPassword.Text;
-
-            listBruker = DBComBruker.CheckLoginAgainstDb(Epost, passord).ToList();
+         
+            if(Epost.Length > 0 && passord.Length > 0)
+                listBruker = DBComBruker.CheckLoginAgainstDb(Epost, passord).ToList();
 
             // if success
             if (listBruker.Count > 0)

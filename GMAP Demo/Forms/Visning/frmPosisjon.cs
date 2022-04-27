@@ -9,8 +9,9 @@ namespace GMAP_Demo
     public partial class frmPosisjon : Form
     {
         public static frmPosisjon instance;
-        public PointLatLng Til;
-        public PointLatLng Fra;
+        public PointLatLng TilPunkt;
+        public PointLatLng FraPunkt;
+
         public frmPosisjon()
         {
             InitializeComponent();
@@ -24,56 +25,64 @@ namespace GMAP_Demo
             string Adresse = txtAdresse.Text;
                 
             if(!(string.IsNullOrWhiteSpace(Land) && string.IsNullOrWhiteSpace(ByKommune) && string.IsNullOrWhiteSpace(Adresse)))
-            Kart.FinnLokasjon(Land,ByKommune,Adresse);
+                Kart.FinnLokasjon(Land,ByKommune,Adresse);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            List<string> LAdresse = new List<string>();
-            try
+            if(txtLat.Text != "Dobbelklikk på kart" && txtLong.Text != "Dobbelklikk på kart")
             {
-                PointLatLng point = new PointLatLng(Convert.ToDouble(txtLat.Text), Convert.ToDouble(txtLong.Text));
-                LAdresse = Kart.FåAddress(point);
-                Fra = point;
-            }
-            catch (Exception feilmelding)
-            {
-                DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
-            }
+                List<string> LAdresse = new List<string>();
+                try
+                {
 
-            if (LAdresse != null)
-                txtFra.Text = "Addresse: \n-----------------" + string.Join(", ", LAdresse.ToArray());
-            else
-                txtFra.Text = "Unable to load Address";
+                    PointLatLng point = new PointLatLng(Convert.ToDouble(txtLat.Text), Convert.ToDouble(txtLong.Text));
+                    LAdresse = Kart.FåAddress(point);
+                    FraPunkt = point;
+                }
+                catch (Exception feilmelding)
+                {
+                    DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                }
+
+                if (LAdresse != null)
+                    txtFra.Text = "Addresse: \n-----------------" + string.Join(", ", LAdresse.ToArray());
+                else
+                    txtFra.Text = "Unable to load Address";
+            }
+           
         }
 
         private void btnSlutt_Click(object sender, EventArgs e)
         {
-            List<string> LAdresse = new List<string>();
-            try
+            if (txtLat.Text != "Dobbelklikk på kart" && txtLong.Text != "Dobbelklikk på kart")
             {
-                PointLatLng point = new PointLatLng(Convert.ToDouble(txtLat.Text), Convert.ToDouble(txtLong.Text));
-                LAdresse = Kart.FåAddress(point);
-                Til = point;
-            }
-            catch (Exception feilmelding)
-            {
-                DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
-            }
+                List<string> LAdresse = new List<string>();
+                try
+                {
+                    PointLatLng point = new PointLatLng(Convert.ToDouble(txtLat.Text), Convert.ToDouble(txtLong.Text));
+                    LAdresse = Kart.FåAddress(point);
+                    TilPunkt = point;
+                }
+                catch (Exception feilmelding)
+                {
+                    DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                }
 
-            if (LAdresse != null)
-                txtTil.Text = "Addresse: \n-----------------" + string.Join(", ", LAdresse.ToArray());
-            else
-                txtTil.Text = "Unable to load Address";
+                if (LAdresse != null)
+                    txtTil.Text = "Addresse: \n-----------------" + string.Join(", ", LAdresse.ToArray());
+                else
+                    txtTil.Text = "Unable to load Address";
+            }
         }
 
         private void btnFinnRute_Click(object sender, EventArgs e)
         {
-            if (!Fra.IsEmpty && !Til.IsEmpty)
+            if (!FraPunkt.IsEmpty && !TilPunkt.IsEmpty)
             {
                 try
                 {
-                    Kart.LeggTilRute(Fra, Til);    
+                    Kart.LeggTilRute(FraPunkt, TilPunkt);    
                 }
                 catch (Exception feilmelding)
                 {
