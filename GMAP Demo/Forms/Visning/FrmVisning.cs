@@ -244,22 +244,61 @@ namespace GMAP_Demo
             }
         }
 
-        bool sjekk = false;
+        bool ZoomInvervall = false;
         public bool KartOppdatere = false; //Hindrer at kart.reff() påvirker denne metoden 
         private void map_OnMapZoomChanged()
         {
             const int ZoomLevel = 16;
+
             if(!KartOppdatere)
             {
-                if (map.Zoom < ZoomLevel && !sjekk)
+                if (map.Zoom < ZoomLevel && !ZoomInvervall)
                 {
-                    map.Overlays.Clear();
-                    sjekk = true;
+                    //fjerner alle overlays utenom rute 
+                    for (int i = 0; i < map.Overlays.Count; i++)
+                    {
+                        if (map.Overlays[i].Id != "routes")
+                        {
+                            map.Overlays.RemoveAt(i);
+                            i--;
+                        }
+                    }
+
+                    ZoomInvervall = true;
                 }
-                else if (map.Zoom >= ZoomLevel && sjekk)
+                else if (map.Zoom >= ZoomLevel && ZoomInvervall)
                 {
-                    Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-                    sjekk = false;
+                   
+                    if(map.Overlays.Count == 0) // det finnes ingen rute på kartet 
+                    {
+                        Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                        ZoomInvervall = false;
+                    }
+                    else // finnes en rute 
+                    {
+                        //legger til alle rutene på kartet i en liste
+                        List<GMapOverlay> routes = new List<GMapOverlay>();
+                        for (int i = 0; i < map.Overlays.Count; i++)
+                        {
+                            if (map.Overlays[i].Id == "routes")
+                            {
+                                routes.Add(map.Overlays[i]);
+
+                            }
+                        }
+
+                        //Opptatere kartet (alt blir fjernet med denne metoden og lagt til utenom ruter) 
+                        Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                        ZoomInvervall = false;
+
+                        //må legge til ruten igjen 
+                        foreach (var item in routes)
+                        {
+                            map.Overlays.Add(item);
+                        }
+                        
+                    }
+
                 }
             }
             
