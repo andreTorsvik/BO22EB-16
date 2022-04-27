@@ -235,10 +235,12 @@ namespace GMAP_Demo
                 DoubleClick_punkt = map.FromLocalToLatLng(e.X, e.Y);
 
                 double lat = DoubleClick_punkt.Lat;
-                double lng = DoubleClick_punkt.Lng;
+                double lang = DoubleClick_punkt.Lng;
 
-                frmPosisjon.instance.txtLat.Text = lat.ToString();
-                frmPosisjon.instance.txtLong.Text = lng.ToString();
+                if(frmPosisjon.instance != null)
+                {
+                    frmPosisjon.instance.FyllKoordinater(lat, lang);
+                }         
             }
         }
 
