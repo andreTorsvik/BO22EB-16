@@ -2,38 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 
 namespace GMAP_Demo
 {
     public class Tekstbehandling
     {
-        static public string sjekkGyldigTallData_objekt(string sikkerhetsKlarering, string lat, string lang)
-        {
-            string feil = string.Empty;
-            List<string> Lfeil = new List<string>();
-            string SjekkSikkerhetsklarering = sjekkSikkerhetsKlarering(sikkerhetsKlarering);
-            string SjekkLat = sjekkLat(lat);
-            string SjekkLang = sjekkLong(lang);
-
-
-            if (SjekkSikkerhetsklarering != string.Empty) Lfeil.Add(SjekkSikkerhetsklarering);
-            if (SjekkLat != string.Empty) Lfeil.Add(SjekkLat);
-            if (SjekkLang != string.Empty) Lfeil.Add(SjekkLang);
-
-            if (Lfeil.Count > 0)
-            {
-                feil = "Feil med: ";
-                for (int i = 0; i < Lfeil.Count; i++)
-                {
-                    feil += Lfeil[i];
-                    if (i < Lfeil.Count - 1) feil += ", ";
-                }
-            }
-
-            return feil;
-        }
-
-        static public string SjekkInntastetDataRegisterings(string Fornavn, string Etternavn, string Telefon, string Epost, string Passord, string BePassord)
+        static public string AltUtfylt_Registerings(string Fornavn, string Etternavn, string Telefon, string Epost, string Passord, string BePassord)
         {
             string utFyllingsmangler = string.Empty;
             List<string> Lfeil = new List<string>();
@@ -44,17 +19,10 @@ namespace GMAP_Demo
             if (string.IsNullOrWhiteSpace(Telefon)) Lfeil.Add(" Telefonnummer");
             if (string.IsNullOrWhiteSpace(Epost)) Lfeil.Add(" Epost");
             if (string.IsNullOrWhiteSpace(Passord)) Lfeil.Add(" Passord");
-            if (string.IsNullOrWhiteSpace(BePassord)) Lfeil.Add(" bekrefte passord");
+            if (string.IsNullOrWhiteSpace(BePassord)) Lfeil.Add(" Bekrefte passord");
 
-            if (Lfeil.Count > 0)
-            {
-                utFyllingsmangler = "Du mangler: ";
-                for (int i = 0; i < Lfeil.Count; i++)
-                {
-                    utFyllingsmangler += Lfeil[i];
-                    if (i < Lfeil.Count - 1) utFyllingsmangler += ", ";
-                }
-            }
+            utFyllingsmangler = SammenslåTekst("Du mangler: ", Lfeil);
+
             return utFyllingsmangler;
         }
 
@@ -62,30 +30,35 @@ namespace GMAP_Demo
         {
             string svar = string.Empty;
             List<string> Lfeil = new List<string>();
-            //alle sjekkenede  
-            if (!(passord == Bepassord)) Lfeil.Add("Passord samsvarer ikke");
+            int antalltegnPassord = 4;
 
+            //sjekk passord  
+            if (passord.Length > antalltegnPassord)
+                Lfeil.Add(String.Format("passord er for kort, må minst være: {0}", antalltegnPassord));
+            else if (!(passord == Bepassord))
+                Lfeil.Add("Passord samsvarer ikke");
 
-            //En enkel epost adresse sjekk 
-            if (!((Epost.Contains(".com") || Epost.Contains(".no") || Epost.Contains(".net"))
-                && Epost.Contains("@")))
+            //Sjekk epost 
+            if (!ErEmailGodkjent(Epost))
             {
-                Lfeil.Add("ikke oppgitt en mail adresse");
+                Lfeil.Add("Ikke oppgitt en mail adresse");
+            }
+            else
+            {
+                //om Eposten er i systemet allerede 
+                Epost = Epost.ToLower();
+                var SjekkEpost = DBComBruker.ListBrukerInfoFromDb(Epost.Trim());
+
+                if (SjekkEpost.Count != 0)
+                    Lfeil.Add("Mailen eksitere allerede i systemet");
             }
 
-            if (Lfeil.Count > 0)
-            {
-                svar = "Feil: ";
-                for (int i = 0; i < Lfeil.Count; i++)
-                {
-                    svar += Lfeil[i];
-                    if (i < Lfeil.Count - 1) svar += ", ";
-                }
-            }
+            svar = SammenslåTekst("Feil: ", Lfeil);
+
             return svar;
         }
-
-        static public string SjekkInntastetData_Objekt(string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int ListeAntall)
+      
+        static public string AltUtfylt_Objekt(string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int ListeAntall,string TekstLatLong)
         {
             string utFyllingsmangler = string.Empty;
             List<string> Lfeil = new List<string>();
@@ -95,48 +68,16 @@ namespace GMAP_Demo
             if (string.IsNullOrWhiteSpace(kategori)) Lfeil.Add("Kategori");
             if (string.IsNullOrWhiteSpace(sikkerhetsklarering)) Lfeil.Add("Sikkerhetsklarering");
             if (string.IsNullOrWhiteSpace(kommentar)) Lfeil.Add("Kommentar");
-            if (string.IsNullOrWhiteSpace(lat)) Lfeil.Add("Lat");
-            if (string.IsNullOrWhiteSpace(lang)) Lfeil.Add("Long");
+            if (string.IsNullOrWhiteSpace(lat) || lat == TekstLatLong) Lfeil.Add("Lat");
+            if (string.IsNullOrWhiteSpace(lang) || lang == TekstLatLong) Lfeil.Add("Long");
             if (ListeAntall <= 0) Lfeil.Add("Tag");
 
-            if (Lfeil.Count > 0)
-            {
-                utFyllingsmangler = "Du mangler: ";
-                for (int i = 0; i < Lfeil.Count; i++)
-                {
-                    utFyllingsmangler += Lfeil[i];
-                    if (i < Lfeil.Count - 1) utFyllingsmangler += ", ";
-                }
-            }
+            utFyllingsmangler = SammenslåTekst("Du mangler: ", Lfeil);
+
             return utFyllingsmangler;
         }
 
-        public static string SjekkInntastetData_Område(string navn, string sikkerhetsklarering, string kommentar, string farge, int AntallPunkter, int AntallTags)
-        {
-            string utFyllingsmangler = string.Empty;
-            List<string> Lfeil = new List<string>();
-
-            //kode for sjekk at alle felten er utfylt
-            if (string.IsNullOrWhiteSpace(navn)) Lfeil.Add("Navn");
-            if (string.IsNullOrWhiteSpace(sikkerhetsklarering)) Lfeil.Add("Sikkerhetsklarering");
-            if (string.IsNullOrWhiteSpace(kommentar)) Lfeil.Add("Kommentar");
-            if (string.IsNullOrWhiteSpace(farge)) Lfeil.Add("Farge");
-            if (AntallPunkter < 3) Lfeil.Add("Må minst ha 3 punkter");
-            if (AntallTags <= 0) Lfeil.Add("Tag");
-
-            if (Lfeil.Count > 0)
-            {
-                utFyllingsmangler = "Du mangler: ";
-                for (int i = 0; i < Lfeil.Count; i++)
-                {
-                    utFyllingsmangler += Lfeil[i];
-                    if (i < Lfeil.Count - 1) utFyllingsmangler += ", ";
-                }
-            }
-            return utFyllingsmangler;
-        }
-
-        public static string SjekkEndringerObjekt(List<Ressurs> rList, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, List<string> NyTags)
+        public static string SjekkEndringer_Objekt(List<Ressurs> rList, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, List<string> NyTags)
         {
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
@@ -181,6 +122,7 @@ namespace GMAP_Demo
             //tags
             List<string> SjekkOmNye1 = NyTags.Except(GammleTags).ToList();
             List<string> SjekkOmNye2 = GammleTags.Except(NyTags).ToList();
+
             if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
             {
                 Endringer += newLine + "Gjeldene Tags: " + newLine;
@@ -193,90 +135,42 @@ namespace GMAP_Demo
             return Endringer;
         }
 
-        public static string SammenSlåingTekstfelt(string land, string ByKommune, string adresse)
+        static public string sjekkGyldigTallData_objekt(string sikkerhetsKlarering, string lat, string lang)
         {
+            string feil = string.Empty;
+            List<string> Lfeil = new List<string>();
+            string SjekkSikkerhetsklarering = sjekkSikkerhetsKlarering(sikkerhetsKlarering);
+            string SjekkLat = sjekkLat(lat);
+            string SjekkLang = sjekkLong(lang);
 
-            string svar = string.Empty;
-            List<string> LSammenSlåing = new List<string>();
+            if (SjekkSikkerhetsklarering != string.Empty) Lfeil.Add(SjekkSikkerhetsklarering);
+            if (SjekkLat != string.Empty) Lfeil.Add(SjekkLat);
+            if (SjekkLang != string.Empty) Lfeil.Add(SjekkLang);
 
-            if (!string.IsNullOrWhiteSpace(land)) LSammenSlåing.Add(land.Trim());
-            if (!string.IsNullOrWhiteSpace(ByKommune)) LSammenSlåing.Add(ByKommune.Trim());
-            if (!string.IsNullOrWhiteSpace(adresse)) LSammenSlåing.Add(adresse.Trim());
+            feil = SammenslåTekst("Feil: ", Lfeil);
 
-            if (LSammenSlåing.Count > 0)
-            {
-                for (int i = 0; i < LSammenSlåing.Count; i++)
-                {
-                    svar += LSammenSlåing[i];
-                    if (i < LSammenSlåing.Count - 1) svar += ", ";
-                }
-            }
-
-            return svar;
+            return feil;
         }
 
-        public static string sjekkSikkerhetsKlarering(string sikkerhetsKlarering)
+        public static string AltUtfylt_Område(string navn, string sikkerhetsklarering, string kommentar, string farge, int AntallPunkter, int AntallTags)
         {
-            string svar = string.Empty;
+            string utFyllingsmangler = string.Empty;
+            List<string> Lfeil = new List<string>();
 
-            try
-            {
-                int sjekk = Convert.ToInt32(sikkerhetsKlarering);
-                if (sjekk > frmVisning.instance.MaxSikkerhetsklarering)
-                {
-                    svar = "Sikkerhetsklarering er for høy";
-                }
-                else if (sjekk < 1)
-                {
-                    svar = "Sikkerhetsklarering kan ikke være lavere enn 1 ";
-                }
+            //kode for sjekk at alle felten er utfylt
+            if (string.IsNullOrWhiteSpace(navn)) Lfeil.Add("Navn");
+            if (string.IsNullOrWhiteSpace(sikkerhetsklarering)) Lfeil.Add("Sikkerhetsklarering");
+            if (string.IsNullOrWhiteSpace(kommentar)) Lfeil.Add("Kommentar");
+            if (string.IsNullOrWhiteSpace(farge)) Lfeil.Add("Farge");
+            if (AntallPunkter < 3) Lfeil.Add("Må minst ha 3 punkter");
+            if (AntallTags <= 0) Lfeil.Add("Tag");
 
-                if(sjekk > InnloggetBruker.Sikkerhetsklarering)
-                {
-                    svar = "Sikkerhetsklaering Kan ikke være høyre enn din egen";
-                }
-            }
-            catch (Exception)
-            {
-                svar = "Feil inntasting med Sikkerhetsklarering";
-            }
+            utFyllingsmangler = SammenslåTekst("Du mangler: ", Lfeil);
 
-            return svar;
+            return utFyllingsmangler;
         }
 
-        public static string sjekkLat(string lat)
-        {
-            string svar = string.Empty;
-
-            try
-            {
-                float sjekk = Convert.ToSingle(lat);
-            }
-            catch (Exception)
-            {
-                svar = "Feil inntasting med Lat";
-            }
-
-            return svar;
-        }
-
-        public static string sjekkLong(string lang)
-        {
-            string svar = string.Empty;
-
-            try
-            {
-                float sjekk = Convert.ToSingle(lang);
-            }
-            catch (Exception)
-            {
-                svar = "Feil inntasting med Long";
-            }
-
-            return svar;
-        }
-
-        public static string SjekkEndringerOmråde(List<Område> oList,string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, List<string> GammleTags, List<string> NyTags)
+        public static string SjekkEndringer_Område(List<Område> oList, string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, List<string> GammleTags, List<string> NyTags)
         {
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
@@ -304,6 +198,7 @@ namespace GMAP_Demo
             //tags
             List<string> SjekkOmNye1 = NyTags.Except(GammleTags).ToList();
             List<string> SjekkOmNye2 = GammleTags.Except(NyTags).ToList();
+
             if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
             {
                 Endringer += newLine + "Gjeldene Tags: " + newLine;
@@ -315,6 +210,38 @@ namespace GMAP_Demo
             }
 
             return Endringer;
+        }
+
+        public static string AdresseTekstfelt(string land, string ByKommune, string adresse)
+        {
+            string svar = string.Empty;
+            List<string> LSammenSlåing = new List<string>();
+
+            if (!string.IsNullOrWhiteSpace(land)) LSammenSlåing.Add(land.Trim());
+            if (!string.IsNullOrWhiteSpace(ByKommune)) LSammenSlåing.Add(ByKommune.Trim());
+            if (!string.IsNullOrWhiteSpace(adresse)) LSammenSlåing.Add(adresse.Trim());
+
+            svar = SammenslåTekst(null, LSammenSlåing);
+
+            return svar;
+        }
+
+        public static string SammenslåTekst(string startTekst, List<string> liste)
+        {
+            string svar = string.Empty;
+
+            if (liste.Count > 0)
+            {
+                if (startTekst != null) svar = startTekst;
+
+                for (int i = 0; i < liste.Count; i++)
+                {
+                    svar += liste[i];
+                    if (i < liste.Count - 1) svar += ", ";
+                }
+            }
+
+            return svar;
         }
 
         public static string sammenlignPunkter(List<Område> oList, List<PointLatLng> pList)
@@ -350,6 +277,87 @@ namespace GMAP_Demo
 
             return Endringer;
         }
+
+        public static bool ErEmailGodkjent(string email)
+        {
+            var trimmedEmail = email.Trim();
+
+            if (trimmedEmail.EndsWith("."))
+            {
+                return false;
+            }
+            try
+            {
+                var addr = new MailAddress(email);
+                return addr.Address == trimmedEmail;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static string sjekkSikkerhetsKlarering(string sikkerhetsKlarering)
+        {
+            string svar = string.Empty;
+
+            try
+            {
+                int sjekk = Convert.ToInt32(sikkerhetsKlarering);
+                if (sjekk > frmVisning.instance.MaxSikkerhetsklarering)
+                {
+                    svar = "Sikkerhetsklarering er for høy";
+                }
+                else if (sjekk < 1)
+                {
+                    svar = "Sikkerhetsklarering kan ikke være lavere enn 1 ";
+                }
+
+                if (sjekk > InnloggetBruker.Sikkerhetsklarering)
+                {
+                    svar = "Sikkerhetsklaering kan ikke være høyre enn din egen";
+                }
+            }
+            catch (Exception)
+            {
+                svar = "Feil inntasting med Sikkerhetsklarering";
+            }
+
+            return svar;
+        }
+
+        public static string sjekkLat(string lat)
+        {
+            string svar = string.Empty;
+
+            try
+            {
+                float sjekk = Convert.ToSingle(lat);
+            }
+            catch (Exception)
+            {
+                svar = "inntasting med Lat";
+            }
+
+            return svar;
+        }
+
+        public static string sjekkLong(string lang)
+        {
+            string svar = string.Empty;
+
+            try
+            {
+                float sjekk = Convert.ToSingle(lang);
+            }
+            catch (Exception)
+            {
+                svar = "inntasting med Long";
+            }
+
+            return svar;
+        }
+
         public static double HentLat(string text)
         {
             double lat = 0;
@@ -368,6 +376,7 @@ namespace GMAP_Demo
 
             return lat;
         }
+
         public static double hentLong(string text)
         {
             double lang = 0;

@@ -155,7 +155,7 @@ namespace GMAP_Demo
         {
             string feilmelding = string.Empty;
 
-            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags);
+            string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags,tekstLatLong);
 
             if (utFyllingsmangler == string.Empty)
             {

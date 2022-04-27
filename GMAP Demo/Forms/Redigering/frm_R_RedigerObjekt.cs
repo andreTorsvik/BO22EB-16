@@ -182,7 +182,7 @@ namespace GMAP_Demo
             {
                 string feilmelding = string.Empty;
 
-                string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Objekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, AntallTags);
+                string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, AntallTags,tekstLatLong);
 
                 if (utFyllingsmangler == string.Empty)
                 {
@@ -190,7 +190,7 @@ namespace GMAP_Demo
                     string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
                     if (FeilTallSjekk == string.Empty)
                     {
-                        string Endring = Tekstbehandling.SjekkEndringerObjekt(ressurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
+                        string Endring = Tekstbehandling.SjekkEndringer_Objekt(ressurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
                         if (Endring != string.Empty)
                         {
                             string caption = "Vil du lagre disse endringene ";

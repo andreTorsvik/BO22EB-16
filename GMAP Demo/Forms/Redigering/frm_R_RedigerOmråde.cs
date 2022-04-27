@@ -223,7 +223,7 @@ namespace GMAP_Demo
             {
                 string feilmelding = string.Empty;
 
-                string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Område(navn, sikkerhetsklarering, Kommentar, Farge, AntallPunkter, AntallTags);
+                string utFyllingsmangler = Tekstbehandling.AltUtfylt_Område(navn, sikkerhetsklarering, Kommentar, Farge, AntallPunkter, AntallTags);
 
                 if (utFyllingsmangler == string.Empty)
                 {
@@ -239,7 +239,7 @@ namespace GMAP_Demo
                             pList.Add(item);
                         }
 
-                        string Endring = Tekstbehandling.SjekkEndringerOmråde(Lområde, navn, sikkerhetsklarering, Kommentar, Farge, pList, LGamleTag, NyTags);
+                        string Endring = Tekstbehandling.SjekkEndringer_Område(Lområde, navn, sikkerhetsklarering, Kommentar, Farge, pList, LGamleTag, NyTags);
                         string enderingIPunkter = Tekstbehandling.sammenlignPunkter(Lområde, pList);
                         if (Endring != string.Empty)
                         {

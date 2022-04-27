@@ -140,6 +140,8 @@ namespace GMAP_Demo
             txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
             txtKategori.Text = "";
             txtMåling.Text = "";
+            txtMålingDato.Text = "";
+            txtEnhetMåling.Text = "";
             txtDato_opprettet.Text = GlobaleLister.LOmråde[Tag].Dato_opprettet;
             txtOpprettetAvBruker.Text = GlobaleLister.LOmråde[Tag].Opprettet_av_bruker;
             txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Tag].Sikkerhetsklarering.ToString();

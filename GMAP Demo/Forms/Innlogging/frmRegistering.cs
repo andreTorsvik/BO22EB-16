@@ -40,7 +40,7 @@ namespace GMAP_Demo
             string passord = txtPassord.Text;
             string bePassord = txtBePassord.Text;
 
-            string utFyllingsmangler = Tekstbehandling.SjekkInntastetDataRegisterings(fornavn, etternavn, telefon, Epost, passord, bePassord);
+            string utFyllingsmangler = Tekstbehandling.AltUtfylt_Registerings(fornavn, etternavn, telefon, Epost, passord, bePassord);
 
             if (utFyllingsmangler == string.Empty)
             {
@@ -48,26 +48,19 @@ namespace GMAP_Demo
 
                 if (feil == string.Empty)
                 {
-                    //sjekk at ingen har samme epost
-                    Epost = Epost.ToLower();
-                    var SjekkEpost = DBComBruker.ListBrukerInfoFromDb(Epost.Trim());
-                    if (SjekkEpost.Count == 0)
-                    {
-                        try
-                        {
-                            //Generer tall 
-                            int Tallkode = GenereTallKode();
-                            //legge til i database
-                            DBComBruker.InsertBrukerToDb(fornavn, etternavn, Convert.ToInt32(telefon), Epost.Trim(), passord, Tallkode);
+                    
 
-                            svar = true;
-                        }
-                        catch (Exception) { }
-                    }
-                    else
+                    try
                     {
-                        MessageBox.Show("Mailen eksitere allerede i systemet");
+                        //Generer tall 
+                        int Tallkode = GenereTallKode();
+                        //legge til i database
+                        DBComBruker.InsertBrukerToDb(fornavn, etternavn, Convert.ToInt32(telefon), Epost.Trim(), passord, Tallkode);
+
+                        svar = true;
                     }
+                    catch (Exception) { }
+
                 }
                 else MessageBox.Show(feil);
             }

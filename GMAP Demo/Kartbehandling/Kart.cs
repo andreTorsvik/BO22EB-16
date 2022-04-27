@@ -91,9 +91,9 @@ namespace GMAP_Demo
         public static void Setup(MuligKart kart, PointLatLng p)
         {
             int minZoom = 0;
-            int maksZoom = 27;
-            int Zoom = 17;
-            GMapProvider Valgtkart = GMapProviders.OpenStreetMap;
+            int maksZoom = 27; 
+            int Zoom = 17; // behagelig zoom level 
+            GMapProvider Valgtkart = GMapProviders.OpenStreetMap; // hvilket kart som blir brukt 
 
             switch (kart)
             {
@@ -401,29 +401,29 @@ namespace GMAP_Demo
         {
             //oppdatere kart med å zoom inn og ut 
             //zoomer inn så lite at det ikke merkes
-            double plussminus = 0.01;
+            double PlussMinus = 0.01;
             switch (kart)
             {
                 case MuligKart.Visning:
                     frmVisning.instance.KartOppdatere = true;
 
-                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + plussminus;
-                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom - plussminus;
+                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + PlussMinus;
+                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom - PlussMinus;
 
                     frmVisning.instance.KartOppdatere = false;
                     break;
                 case MuligKart.Redigering:
 
-                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom + plussminus;
-                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom - plussminus;
+                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom + PlussMinus;
+                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom - PlussMinus;
 
                     break;
                 case MuligKart.Begge:
-                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + plussminus;
-                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom - plussminus;
+                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + PlussMinus;
+                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom - PlussMinus;
 
-                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom + plussminus;
-                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom - plussminus;
+                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom + PlussMinus;
+                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom - PlussMinus;
                     break;
             }
         }
@@ -431,9 +431,11 @@ namespace GMAP_Demo
         public static void FinnLokasjon(string Land, string ByKommune, string Adresse)
         {
             //setter sammen strengene til rett format
-            string sammenSlått = Tekstbehandling.SammenSlåingTekstfelt(Land, ByKommune, Adresse);
+            string sammenSlått = Tekstbehandling.AdresseTekstfelt(Land, ByKommune, Adresse);
 
             PointLatLng PosisjonFør = frmVisning.instance.map.Position;
+
+            //setter kartet til posisjon bassert på tekst 
             frmVisning.instance.map.SetPositionByKeywords(sammenSlått);
 
             //finne nåværende punkt 

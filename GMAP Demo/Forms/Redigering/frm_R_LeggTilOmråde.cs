@@ -174,7 +174,7 @@ namespace GMAP_Demo
         {
             string feilmelding = string.Empty;
 
-            string utFyllingsmangler = Tekstbehandling.SjekkInntastetData_Område(navn, sikkerhetsklarering, Kommentar, Farge, AntallPunkter, AntallTags);
+            string utFyllingsmangler = Tekstbehandling.AltUtfylt_Område(navn, sikkerhetsklarering, Kommentar, Farge, AntallPunkter, AntallTags);
 
             if (utFyllingsmangler == string.Empty)
             {

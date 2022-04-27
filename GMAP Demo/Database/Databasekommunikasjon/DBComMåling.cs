@@ -27,13 +27,22 @@ namespace GMAP_Demo
 
                 if (output.Count == 0)  // Metoden viser "Ingen måling" for de ressurser som ikke har målinger.
                 {
-                    Måling tomMåling = new Måling();
-                    tomMåling.Navn_på_sensor = "";
-                    tomMåling.Verdi = 0;
-                    tomMåling.Løpenummer_til_ressurs = 0;
-                    tomMåling.Måling_id = 0;
-                    tomMåling.Dato = "Ingen måling";
-                    tomMåling.Enhet = "";
+                    Måling tomMåling = new Måling()
+                    {
+                        Navn_på_sensor = "",
+                        Verdi = 0,
+                        Løpenummer_til_ressurs = 0,
+                        Måling_id = 0,
+                        Dato = "Ingen måling",
+                        Enhet = ""
+
+                    };
+                    //tomMåling.Navn_på_sensor = "";
+                    //tomMåling.Verdi = 0;
+                    //tomMåling.Løpenummer_til_ressurs = 0;
+                    //tomMåling.Måling_id = 0;
+                    //tomMåling.Dato = "Ingen måling";
+                    //tomMåling.Enhet = "";
                     output.Add(tomMåling);
                 }
                 return output;
