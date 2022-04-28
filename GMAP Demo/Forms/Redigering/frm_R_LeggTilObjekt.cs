@@ -33,7 +33,7 @@ namespace GMAP_Demo
                 lbTilgjengeligeTags.Items.Add(NyTag);
                 lbTilgjengeligeTags.Sorted = true;
                 txtNyTag.Text = "";
-                
+
             }
         }
 
@@ -58,7 +58,7 @@ namespace GMAP_Demo
                 Tags.Add(item.ToString());
             }
 
-            string SjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags,Tags);
+            string SjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, Tags);
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
@@ -67,15 +67,14 @@ namespace GMAP_Demo
 
         private void lbTilgjengligKategori_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (lbTilgjengligKategori.Items.Count > 0)
-            {
-                if (lbTilgjengligKategori.SelectedIndex != -1)
-                {
-                    string selectedItemtext = lbTilgjengligKategori.SelectedItem.ToString();
 
-                    txtKategori.Text = selectedItemtext;
-                }
+            if (lbTilgjengligKategori.SelectedIndex != -1)
+            {
+                string selectedItemtext = lbTilgjengligKategori.SelectedItem.ToString();
+
+                txtKategori.Text = selectedItemtext;
             }
+
         }
 
         private void btnLeggTilNyKategori_Click(object sender, EventArgs e)
@@ -111,8 +110,6 @@ namespace GMAP_Demo
                 GlobaleLister.LKategori.Add(item);
                 lbTilgjengligKategori.Items.Add(item.Kategorinavn);
             }
-
-            lbTilgjengligKategori.Sorted = true;
         }
 
         private void LastInnTags()
@@ -131,34 +128,28 @@ namespace GMAP_Demo
 
         private void lbTilgjengelige_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (lbTilgjengeligeTags.Items.Count > 0)
+
+            if (lbTilgjengeligeTags.SelectedIndex != -1)
             {
-                if(lbTilgjengeligeTags.SelectedIndex != -1)
-                {
-                    string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
+                string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
 
-                    lbValgtTags.Items.Add(selectedItemtext);
+                lbValgtTags.Items.Add(selectedItemtext);
 
-                    lbTilgjengeligeTags.Items.Remove(selectedItemtext);
+                lbTilgjengeligeTags.Items.Remove(selectedItemtext);
 
-                    lbValgtTags.Sorted = true;
-                }
-                
+                lbValgtTags.Sorted = true;
             }
         }
 
         private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (lbValgtTags.Items.Count > 0)
+            if (lbValgtTags.SelectedIndex != -1)
             {
-                if (lbValgtTags.SelectedIndex != -1)
-                {
-                    string selectedItemtext = lbValgtTags.SelectedItem.ToString();
+                string selectedItemtext = lbValgtTags.SelectedItem.ToString();
 
-                    lbTilgjengeligeTags.Items.Add(selectedItemtext);
+                lbTilgjengeligeTags.Items.Add(selectedItemtext);
 
-                    lbValgtTags.Items.Remove(selectedItemtext);
-                }
+                lbValgtTags.Items.Remove(selectedItemtext);
             }
         }
 
@@ -174,7 +165,7 @@ namespace GMAP_Demo
         {
             string feilmelding = string.Empty;
 
-            string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags,tekstLatLong);
+            string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, tekstLatLong);
 
             if (utFyllingsmangler == string.Empty)
             {
@@ -238,5 +229,6 @@ namespace GMAP_Demo
             lbTilgjengeligeTags.Items.Clear();
             LastInnTags();
         }
+
     }
 }

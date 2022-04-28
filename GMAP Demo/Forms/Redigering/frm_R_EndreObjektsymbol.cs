@@ -24,32 +24,36 @@ namespace GMAP_Demo
 
         private void lbTilgjengligKategorier_DoubleClick(object sender, EventArgs e)
         {
-            if (lbTilgjengligKategorier.SelectedIndex.ToString() != null)
+            if (lbTilgjengligKategorier.SelectedIndex != -1)
             {
-                string selectedItemtext = lbTilgjengligKategorier.SelectedItem.ToString();
-
-                txtValgtKategori.Text = selectedItemtext;
-                valgtKategori = txtValgtKategori.Text.ToString();
-
-                // vis bilde hvis tilgjengelig
-                List<Kategorier_Bilde> kategori = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(selectedItemtext.ToString());
-                if (kategori[0].Bilde != null) // Sjekk om kategori har bilde
+                if (lbTilgjengligKategorier.SelectedIndex.ToString() != null)
                 {
-                    
-                    image = Bildebehandling.byteArrayToImage(kategori[0].Bilde);
+                    string selectedItemtext = lbTilgjengligKategorier.SelectedItem.ToString();
 
-                    pbValgtKategori.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pbValgtKategori.Image = image;
-                    pbValgtKategori.Visible = true;
+                    txtValgtKategori.Text = selectedItemtext;
+                    valgtKategori = txtValgtKategori.Text.ToString();
+
+                    // vis bilde hvis tilgjengelig
+                    List<Kategorier_Bilde> kategori = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(selectedItemtext.ToString());
+                    if (kategori[0].Bilde != null) // Sjekk om kategori har bilde
+                    {
+
+                        image = Bildebehandling.byteArrayToImage(kategori[0].Bilde);
+
+                        pbValgtKategori.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pbValgtKategori.Image = image;
+                        pbValgtKategori.Visible = true;
+
+                    }
+                    else
+                    {
+                        pbValgtKategori.Visible = false;
+                    }
+
 
                 }
-                else
-                {
-                    pbValgtKategori.Visible = false;
-                }
-                
-                
             }
+            
         }
 
         private void btnLeggTilBilde_Click(object sender, EventArgs e)

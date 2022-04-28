@@ -57,6 +57,7 @@
             this.lbTilgjengligKategorier.Location = new System.Drawing.Point(16, 104);
             this.lbTilgjengligKategorier.Name = "lbTilgjengligKategorier";
             this.lbTilgjengligKategorier.Size = new System.Drawing.Size(290, 212);
+            this.lbTilgjengligKategorier.Sorted = true;
             this.lbTilgjengligKategorier.TabIndex = 5;
             this.lbTilgjengligKategorier.DoubleClick += new System.EventHandler(this.lbKategorier_DoubleClick);
             // 

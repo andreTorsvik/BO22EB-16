@@ -39,6 +39,8 @@ namespace GMAP_Demo
             PnlFormLoader.Controls.Clear();
 
             frmVisning.instance.Show();
+            if (frmSettings.instance != null)
+                frmSettings.instance = null;
         }
 
         void AlleKnapperTilStandarfarge()

@@ -58,6 +58,7 @@
             this.lbVenterPåGodkjenning.Location = new System.Drawing.Point(78, 91);
             this.lbVenterPåGodkjenning.Name = "lbVenterPåGodkjenning";
             this.lbVenterPåGodkjenning.Size = new System.Drawing.Size(496, 196);
+            this.lbVenterPåGodkjenning.Sorted = true;
             this.lbVenterPåGodkjenning.TabIndex = 5;
             // 
             // btnGodta
@@ -107,6 +108,7 @@
             this.lbListeOverbrukere.Location = new System.Drawing.Point(78, 321);
             this.lbListeOverbrukere.Name = "lbListeOverbrukere";
             this.lbListeOverbrukere.Size = new System.Drawing.Size(496, 196);
+            this.lbListeOverbrukere.Sorted = true;
             this.lbListeOverbrukere.TabIndex = 8;
             // 
             // label1

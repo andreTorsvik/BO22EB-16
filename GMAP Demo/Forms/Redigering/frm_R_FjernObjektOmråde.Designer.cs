@@ -38,8 +38,8 @@
             this.btnFjern = new System.Windows.Forms.Button();
             this.lableSlettet = new System.Windows.Forms.Label();
             this.gbObjekt = new System.Windows.Forms.GroupBox();
-            this.lblInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.gbObjekt.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,6 +152,16 @@
             this.gbObjekt.TabStop = false;
             this.gbObjekt.Text = "Objekt";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(9, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(293, 16);
+            this.label2.TabIndex = 61;
+            this.label2.Text = "Klikk på objekte eller område du ønsker å fjerne ";
+            // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
@@ -162,16 +172,6 @@
             this.lblInfo.Size = new System.Drawing.Size(40, 20);
             this.lblInfo.TabIndex = 58;
             this.lblInfo.Text = "Info";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(9, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(295, 16);
-            this.label2.TabIndex = 61;
-            this.label2.Text = "Klikk på Objekte eller område du ønsker å fjerne ";
             // 
             // frm_R_FjernObjektOmråde
             // 

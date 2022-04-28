@@ -79,6 +79,7 @@
             this.lbTilgjengligFarge.Location = new System.Drawing.Point(5, 170);
             this.lbTilgjengligFarge.Name = "lbTilgjengligFarge";
             this.lbTilgjengligFarge.Size = new System.Drawing.Size(138, 36);
+            this.lbTilgjengligFarge.Sorted = true;
             this.lbTilgjengligFarge.TabIndex = 80;
             this.lbTilgjengligFarge.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligFarge_MouseDoubleClick);
             // 
@@ -159,7 +160,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.label9.Location = new System.Drawing.Point(5, 260);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 20);
+            this.label9.Size = new System.Drawing.Size(74, 20);
             this.label9.TabIndex = 72;
             this.label9.Text = "Ny Tag ";
             // 
@@ -258,6 +259,7 @@
             this.lbValgtTags.Location = new System.Drawing.Point(152, 62);
             this.lbValgtTags.Name = "lbValgtTags";
             this.lbValgtTags.Size = new System.Drawing.Size(140, 196);
+            this.lbValgtTags.Sorted = true;
             this.lbValgtTags.TabIndex = 62;
             this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtTags_MouseDoubleClick);
             // 
@@ -268,6 +270,7 @@
             this.lbTilgjengeligeTags.Location = new System.Drawing.Point(5, 62);
             this.lbTilgjengeligeTags.Name = "lbTilgjengeligeTags";
             this.lbTilgjengeligeTags.Size = new System.Drawing.Size(141, 196);
+            this.lbTilgjengeligeTags.Sorted = true;
             this.lbTilgjengeligeTags.TabIndex = 61;
             this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengeligeTags_MouseDoubleClick);
             // 

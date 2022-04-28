@@ -210,8 +210,31 @@ namespace GMAP_Demo
 
         private void frmRediger_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //instance = null;
+            instanceNull();
             this.PnlFormLoader.Controls.Clear();
             frmVisning.instance.Show();
+        }
+
+        private void instanceNull()
+        {
+            if (frm_R_FjernObjektOmråde.instance != null)
+                frm_R_FjernObjektOmråde.instance = null;
+
+            if (frm_R_LeggTilObjekt.instance != null)
+                frm_R_LeggTilObjekt.instance = null;
+
+            if (frm_R_LeggTilOmråde.instance != null)
+                frm_R_LeggTilOmråde.instance = null;
+
+            if (frm_R_RedigerObjekt.instance != null)
+                frm_R_RedigerObjekt.instance = null;
+
+            if (frm_R_RedigerOmråde.instance != null)
+                frm_R_RedigerOmråde.instance = null;
+
+            if (frmRediger.instance != null)
+                frmRediger.instance = null;
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)

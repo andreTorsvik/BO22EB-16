@@ -98,6 +98,7 @@
             this.lbTilgjengligKategori.Location = new System.Drawing.Point(5, 127);
             this.lbTilgjengligKategori.Name = "lbTilgjengligKategori";
             this.lbTilgjengligKategori.Size = new System.Drawing.Size(138, 36);
+            this.lbTilgjengligKategori.Sorted = true;
             this.lbTilgjengligKategori.TabIndex = 85;
             this.lbTilgjengligKategori.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligKategori_MouseDoubleClick);
             // 
@@ -150,7 +151,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.label9.Location = new System.Drawing.Point(5, 256);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(78, 20);
+            this.label9.Size = new System.Drawing.Size(74, 20);
             this.label9.TabIndex = 80;
             this.label9.Text = "Ny Tag ";
             // 
@@ -170,7 +171,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.label6.Location = new System.Drawing.Point(5, 18);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(151, 20);
+            this.label6.Size = new System.Drawing.Size(146, 20);
             this.label6.TabIndex = 78;
             this.label6.Text = "Velg Hvilke tags";
             // 
@@ -255,6 +256,7 @@
             this.lbValgtTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbValgtTags.Name = "lbValgtTags";
             this.lbValgtTags.Size = new System.Drawing.Size(140, 196);
+            this.lbValgtTags.Sorted = true;
             this.lbValgtTags.TabIndex = 70;
             this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtTags_MouseDoubleClick);
             // 
@@ -266,6 +268,7 @@
             this.lbTilgjengeligeTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTilgjengeligeTags.Name = "lbTilgjengeligeTags";
             this.lbTilgjengeligeTags.Size = new System.Drawing.Size(141, 196);
+            this.lbTilgjengeligeTags.Sorted = true;
             this.lbTilgjengeligeTags.TabIndex = 69;
             this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengeligeTags_MouseDoubleClick);
             // 

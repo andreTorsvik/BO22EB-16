@@ -49,11 +49,14 @@ namespace GMAP_Demo
 
         private void lbKategorier_DoubleClick(object sender, EventArgs e)
         {
-            if (lbTilgjengligKategorier.SelectedIndex.ToString() != null)
+            if (lbTilgjengligKategorier.SelectedIndex != -1)
             {
-                string selectedItemtext = lbTilgjengligKategorier.SelectedItem.ToString();
+                if (lbTilgjengligKategorier.SelectedIndex.ToString() != null)
+                {
+                    string selectedItemtext = lbTilgjengligKategorier.SelectedItem.ToString();
 
-                txtValgtKategori.Text = selectedItemtext;
+                    txtValgtKategori.Text = selectedItemtext;
+                }
             }
         }
 

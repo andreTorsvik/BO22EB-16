@@ -26,9 +26,12 @@ namespace GMAP_Demo
 
         private void lbTilgjengligKategori_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbTilgjengligKategori.SelectedItem.ToString();
+            if (lbTilgjengligKategori.SelectedIndex != -1)
+            {
+                string selectedItemtext = lbTilgjengligKategori.SelectedItem.ToString();
 
-            txtKategori.Text = selectedItemtext;
+                txtKategori.Text = selectedItemtext;
+            }
         }
 
         private void LastInnKategorier()
@@ -41,8 +44,6 @@ namespace GMAP_Demo
                 GlobaleLister.LKategori.Add(item);
                 lbTilgjengligKategori.Items.Add(item.Kategorinavn);
             }
-
-            lbTilgjengligKategori.Sorted = true;
         }
 
         private void btnLeggTilNyKategori_Click(object sender, EventArgs e)
@@ -80,23 +81,26 @@ namespace GMAP_Demo
 
         private void lbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
+            if (lbTilgjengeligeTags.SelectedIndex != -1)
+            {
+                string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
 
-            lbValgtTags.Items.Add(selectedItemtext);
+                lbValgtTags.Items.Add(selectedItemtext);
 
-            lbTilgjengeligeTags.Items.Remove(selectedItemtext);
-
-            lbValgtTags.Sorted = true;
+                lbTilgjengeligeTags.Items.Remove(selectedItemtext);
+            }
         }
 
         private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            
-            string selectedItemtext = lbValgtTags.SelectedItem.ToString();
+            if (lbValgtTags.SelectedIndex != -1)
+            {
+                string selectedItemtext = lbValgtTags.SelectedItem.ToString();
 
-            lbTilgjengeligeTags.Items.Add(selectedItemtext);
+                lbTilgjengeligeTags.Items.Add(selectedItemtext);
 
-            lbValgtTags.Items.Remove(selectedItemtext);
+                lbValgtTags.Items.Remove(selectedItemtext);
+            }
         }
 
         private void btnLeggTilTag_Click(object sender, EventArgs e)
@@ -130,7 +134,7 @@ namespace GMAP_Demo
             txtLat.Text = GlobaleLister.LRessurs[Tag].Lat.ToString();
             txtLong.Text = GlobaleLister.LRessurs[Tag].Lang.ToString();
 
-            
+
             //sletting av eksisterende lister
             if (lbValgtTags.Items.Count > 0) lbValgtTags.Items.Clear();
             if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
@@ -150,8 +154,8 @@ namespace GMAP_Demo
             foreach (var tags in GjenværendeTag)
             {
                 lbTilgjengeligeTags.Items.Add(tags);
-            } 
-            
+            }
+
         }
 
         private void btnLeggTilObjekt_Click(object sender, EventArgs e)
@@ -170,20 +174,20 @@ namespace GMAP_Demo
                 NyTags.Add(item.ToString());
             }
 
-            string SjekkFeil = RedigerObjekt(Løpenummer_til_redigering, navn,kategori ,sikkerhetsklarering, Kommentar,lat,lang, antallTags, LGamleTag, NyTags);
+            string SjekkFeil = RedigerObjekt(Løpenummer_til_redigering, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antallTags, LGamleTag, NyTags);
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
             Kart.OppdaterTag_Liste();
         }
 
-        private string RedigerObjekt(int løpenummer,string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags,List<string> GamleTags, List<string> nyTags)
+        private string RedigerObjekt(int løpenummer, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags, List<string> GamleTags, List<string> nyTags)
         {
             if (løpenummer >= 0)
             {
                 string feilmelding = string.Empty;
 
-                string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, AntallTags,tekstLatLong);
+                string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, AntallTags, tekstLatLong);
 
                 if (utFyllingsmangler == string.Empty)
                 {
@@ -245,7 +249,7 @@ namespace GMAP_Demo
             {
                 return String.Format("Klikk på objekt du ønsker å endre");
             }
-           
+
         }
 
         private void TømeTekstFeltOgLister()
@@ -258,7 +262,6 @@ namespace GMAP_Demo
             txtSikkerhetsklarering.Text = "";
             txtLat.Text = tekstLatLong;
             txtLong.Text = tekstLatLong;
-
 
             //lister
             lbValgtTags.Items.Clear();

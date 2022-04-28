@@ -69,29 +69,41 @@ namespace GMAP_Demo
 
         private void lbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
+            if (lbTilgjengeligeTags.SelectedIndex != -1)
+            {
+                string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
 
-            lbValgtTags.Items.Add(selectedItemtext);
+                lbValgtTags.Items.Add(selectedItemtext);
 
-            lbTilgjengeligeTags.Items.Remove(selectedItemtext);
+                lbTilgjengeligeTags.Items.Remove(selectedItemtext);
 
-            lbValgtTags.Sorted = true;
+                lbValgtTags.Sorted = true;
+            }
+
         }
 
         private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbValgtTags.SelectedItem.ToString();
+            if (lbValgtTags.SelectedIndex != -1)
+            {
+                string selectedItemtext = lbValgtTags.SelectedItem.ToString();
 
-            lbTilgjengeligeTags.Items.Add(selectedItemtext);
+                lbTilgjengeligeTags.Items.Add(selectedItemtext);
 
-            lbValgtTags.Items.Remove(selectedItemtext);
+                lbValgtTags.Items.Remove(selectedItemtext);
+            }
+
         }
 
         private void lbTilgjengligFarge_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string selectedItemtext = lbTilgjengligFarge.SelectedItem.ToString();
+            if (lbTilgjengligFarge.SelectedIndex != -1)
+            {
+                string selectedItemtext = lbTilgjengligFarge.SelectedItem.ToString();
 
-            txtfarge.Text = selectedItemtext;
+                txtfarge.Text = selectedItemtext;
+            }
+
         }
 
         private void btnLeggTilTag_Click(object sender, EventArgs e)
