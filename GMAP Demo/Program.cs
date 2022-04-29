@@ -19,12 +19,7 @@ namespace GMAP_Demo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            List<Bruker> brukerList = new List<Bruker>();
-            brukerList = DBComBruker.StartupConnectionTest(); // Dersom programmet ikke får kontakt med databasen ved oppstart, avsluttes programmet etter vist feilmelding.
-
-            // Simulerer målinger ved å oppdatere Målingstabellen regelmessig
-            //MålingSim.InitTimer();
-
+            List<Bruker> brukerList = new List<Bruker>(DBComBruker.StartupConnectionTest()); // Dersom programmet ikke får kontakt med databasen ved oppstart, avsluttes programmet etter vist feilmelding.
 
             Application.Run(new frmInnlogging());
         }
