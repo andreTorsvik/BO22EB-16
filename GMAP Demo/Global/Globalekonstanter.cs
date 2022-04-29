@@ -12,5 +12,14 @@ namespace GMAP_Demo
         public static int MaxSikkerhetsklarering = 3;
         public static Color knapp_trykket = Color.FromArgb(46, 51, 73);
         public static Color StandarFargeKnapp = Color.FromArgb(24, 30, 54);
+
+
+
+
+
+
+
+        public const string tekstLatLong_område = "Dobbelklikk på kartet + \"legg til\"";
+        public const string tekstLatLong_objekt = "Dobbelklikk på kartet";
     }
 }

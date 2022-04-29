@@ -9,7 +9,7 @@ namespace GMAP_Demo
     {
 
         public static frm_R_LeggTilObjekt instance;
-        string tekstLatLong = "Dobbelklikk på kartet";
+       
         public frm_R_LeggTilObjekt()
         {
             InitializeComponent();
@@ -165,7 +165,7 @@ namespace GMAP_Demo
         {
             string feilmelding = string.Empty;
 
-            string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, tekstLatLong);
+            string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, Globalekonstanter.tekstLatLong_objekt);
 
             if (utFyllingsmangler == string.Empty)
             {
@@ -221,8 +221,8 @@ namespace GMAP_Demo
             txtKategori.Text = "";
             txtKommentar.Text = "";
             txtSikkerhetsklarering.Text = "";
-            txtLat.Text = tekstLatLong;
-            txtLong.Text = tekstLatLong;
+            txtLat.Text = Globalekonstanter.tekstLatLong_objekt;
+            txtLong.Text = Globalekonstanter.tekstLatLong_objekt;
 
             //lister
             lbValgtTags.Items.Clear();
