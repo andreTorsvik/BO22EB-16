@@ -86,12 +86,12 @@ namespace GMAP_Demo
                 tag_ListeVises.Add(item);
             }
         }
-    
+
 
         public static void Setup(MuligKart kart, PointLatLng p)
         {
             int minZoom = 0;
-            int maksZoom = 27; 
+            int maksZoom = 27;
             int Zoom = 17; // behagelig zoom level 
             GMapProvider Valgtkart = GMapProviders.OpenStreetMap; // hvilket kart som blir brukt 
 
@@ -162,16 +162,16 @@ namespace GMAP_Demo
                     {
                         GlobaleLister.LRessurs.Add(item);
                         break;
-                    }                 
+                    }
                 }
             }
 
             bool OR = frmFilter.instance.filterOR;
             bool AND = frmFilter.instance.filterAND;
 
-            if(OR && !AND) //OR
-                FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LRessurs, tag_ListeVises.ToList()) ;
-            else if(AND && !OR) //AND
+            if (OR && !AND) //OR
+                FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LRessurs, tag_ListeVises.ToList());
+            else if (AND && !OR) //AND
                 FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LRessurs, tag_ListeVises.ToList());
         }
 
@@ -192,7 +192,7 @@ namespace GMAP_Demo
                     //break;
             }
             LeggTilRessurs(Lressurs, kart);
-            if(ViseOmrådePåKart) LeggTilOmråde(Lområde, kart);
+            if (ViseOmrådePåKart) LeggTilOmråde(Lområde, kart);
             reff(kart);
         }
 
@@ -232,7 +232,7 @@ namespace GMAP_Demo
                 frmRediger.instance.map.Overlays.Add(markers);
             }
         }
-       
+
         public static void LeggtilMarkør(MuligKart kart, PointLatLng point, int Rekkefølge, string områdeId)
         {
             // HvilketKart Visning = Visning.map
@@ -250,7 +250,10 @@ namespace GMAP_Demo
                 marker.ToolTip.Stroke = Pens.Black;
                 marker.ToolTip.TextPadding = new Size(20, 20);
                 marker.Tag = Rekkefølge;
+
             }
+            marker.Tag = -1;
+
             markers.Markers.Add(marker);
 
             if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
@@ -286,7 +289,7 @@ namespace GMAP_Demo
             }
         }
 
-        public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla, Rosa, Turkis, Hvit,Svart }; // listen er kun for å vise hva som er tilgjenglig i "BestemFarge" 
+        public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla, Rosa, Turkis, Hvit, Svart }; // listen er kun for å vise hva som er tilgjenglig i "BestemFarge" 
         public static GMapPolygon BestemFarge(List<PointLatLng> Lpunkter, string Farge)
         {
             GMapPolygon polygon;
@@ -488,7 +491,7 @@ namespace GMAP_Demo
                 {
                     frmVisning.instance.map.Overlays.RemoveAt(i);
                     reff(MuligKart.Visning);
-                    if( frmPosisjon.instance != null)
+                    if (frmPosisjon.instance != null)
                         frmPosisjon.instance.LbDistanse.Text = "[Distanse i Km]";
                     break;
                 }
@@ -497,7 +500,7 @@ namespace GMAP_Demo
 
         public static void FjernAlleMarkører_redigier(string områdeId)
         {
-            
+
             for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
             {
                 if (frmRediger.instance.map.Overlays[i].Id == områdeId)
