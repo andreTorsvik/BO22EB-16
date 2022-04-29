@@ -55,6 +55,7 @@
             this.txtNavn = new System.Windows.Forms.TextBox();
             this.gbObjekt = new System.Windows.Forms.GroupBox();
             this.gbTag = new System.Windows.Forms.GroupBox();
+            this.cbOmråde = new System.Windows.Forms.CheckBox();
             this.gbObjekt.SuspendLayout();
             this.gbTag.SuspendLayout();
             this.SuspendLayout();
@@ -274,7 +275,7 @@
             // 
             // btnLagreEndring
             // 
-            this.btnLagreEndring.Location = new System.Drawing.Point(20, 721);
+            this.btnLagreEndring.Location = new System.Drawing.Point(20, 752);
             this.btnLagreEndring.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLagreEndring.Name = "btnLagreEndring";
             this.btnLagreEndring.Size = new System.Drawing.Size(123, 34);
@@ -323,6 +324,7 @@
             // 
             // gbObjekt
             // 
+            this.gbObjekt.Controls.Add(this.cbOmråde);
             this.gbObjekt.Controls.Add(this.label1);
             this.gbObjekt.Controls.Add(this.txtNyKategori);
             this.gbObjekt.Controls.Add(this.txtNavn);
@@ -343,7 +345,7 @@
             this.gbObjekt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbObjekt.Name = "gbObjekt";
             this.gbObjekt.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbObjekt.Size = new System.Drawing.Size(300, 342);
+            this.gbObjekt.Size = new System.Drawing.Size(303, 373);
             this.gbObjekt.TabIndex = 88;
             this.gbObjekt.TabStop = false;
             this.gbObjekt.Text = "Objekt";
@@ -359,7 +361,7 @@
             this.gbTag.Controls.Add(this.label9);
             this.gbTag.Controls.Add(this.txtNyTag);
             this.gbTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.gbTag.Location = new System.Drawing.Point(20, 403);
+            this.gbTag.Location = new System.Drawing.Point(20, 434);
             this.gbTag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbTag.Name = "gbTag";
             this.gbTag.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -367,6 +369,17 @@
             this.gbTag.TabIndex = 89;
             this.gbTag.TabStop = false;
             this.gbTag.Text = "Tag";
+            // 
+            // cbOmråde
+            // 
+            this.cbOmråde.AutoSize = true;
+            this.cbOmråde.Location = new System.Drawing.Point(4, 341);
+            this.cbOmråde.Name = "cbOmråde";
+            this.cbOmråde.Size = new System.Drawing.Size(244, 20);
+            this.cbOmråde.TabIndex = 88;
+            this.cbOmråde.Text = "Kan legge inni eksisterende område";
+            this.cbOmråde.UseVisualStyleBackColor = true;
+            this.cbOmråde.CheckedChanged += new System.EventHandler(this.cbOmråde_CheckedChanged);
             // 
             // frm_R_RedigerObjekt
             // 
@@ -420,5 +433,6 @@
         private System.Windows.Forms.TextBox txtNavn;
         private System.Windows.Forms.GroupBox gbObjekt;
         private System.Windows.Forms.GroupBox gbTag;
+        private System.Windows.Forms.CheckBox cbOmråde;
     }
 }

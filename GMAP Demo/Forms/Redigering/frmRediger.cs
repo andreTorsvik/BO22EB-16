@@ -14,6 +14,7 @@ namespace GMAP_Demo
         //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
         public static frmRediger instance;
+        public static bool OmrådeKlikkBar = true;
 
         public frmRediger()
         {
@@ -72,6 +73,8 @@ namespace GMAP_Demo
 
                 SlettHjelpeMarkørerOgOmråder();
 
+                OmrådeKlikkbare();
+
                 ResettLøpenummerTilRedigering();
 
                 //legge inn rett forms i panelet
@@ -92,7 +95,10 @@ namespace GMAP_Demo
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnOmråde.Height, btnOmråde.Top);
 
+
                 SlettHjelpeMarkørerOgOmråder();
+
+                OmrådeKlikkbare();
 
                 ResettLøpenummerTilRedigering();
 
@@ -121,6 +127,8 @@ namespace GMAP_Demo
 
                 SlettHjelpeMarkørerOgOmråder();
 
+                OmrådeKlikkbare();
+
                 ResettLøpenummerTilRedigering();
 
                 //legge inn rett form i panelet
@@ -148,6 +156,8 @@ namespace GMAP_Demo
 
                 SlettHjelpeMarkørerOgOmråder();
 
+                OmrådeKlikkbare();
+
                 ResettLøpenummerTilRedigering();
 
                 //legge inn rett form i panelet
@@ -171,6 +181,8 @@ namespace GMAP_Demo
 
                 SlettHjelpeMarkørerOgOmråder();
 
+                OmrådeKlikkbare();
+
                 ResettLøpenummerTilRedigering();
 
                 //legge inn rett form i panelet
@@ -191,6 +203,8 @@ namespace GMAP_Demo
 
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnFjern.Height, btnFjern.Top);
+
+                OmrådeKlikkbare();
 
                 SlettHjelpeMarkørerOgOmråder();
 
@@ -281,20 +295,25 @@ namespace GMAP_Demo
                 }
                 if (frm_R_RedigerOmråde.instance != null)
                 {
-                    frm_R_RedigerOmråde.instance.FyllKoordinater(lat, lang);
-
-                    if (frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1) // tegne område underveis 
+                    if (frm_R_RedigerOmråde.instance.Løpenummer_til_redigering != -1) // for å unngå at den tegner hvis den ikke er inni "RedigerOmråde"
                     {
-                        Kart.FjernHjelpeOmråde();
+                        frm_R_RedigerOmråde.instance.FyllKoordinater(lat, lang);
 
-                        List<PointLatLng> Punkter = new List<PointLatLng>();
-                        foreach (var item in frm_R_RedigerOmråde.instance.pointLatLngs)
+                        if (frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1) // tegne område underveis 
                         {
-                            Punkter.Add(item);
-                        }
-                        Kart.TegnHjelpeOmråde_rediger(DoubleClick_punkt, Punkter);
+                            Kart.FjernHjelpeOmråde();
 
+                            List<PointLatLng> Punkter = new List<PointLatLng>();
+                            foreach (var item in frm_R_RedigerOmråde.instance.pointLatLngs)
+                            {
+                                Punkter.Add(item);
+                            }
+
+                            Kart.TegnHjelpeOmråde_rediger(DoubleClick_punkt, Punkter);
+
+                        }
                     }
+                   
                 }
 
                 Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
@@ -367,6 +386,14 @@ namespace GMAP_Demo
             if (frm_R_RedigerOmråde.instance != null)
             {
                 frm_R_RedigerOmråde.instance.Løpenummer_til_redigering = -1;
+            }
+        }
+
+        public void OmrådeKlikkbare()
+        {
+            if(!OmrådeKlikkBar)
+            {
+                Kart.AlleOmrådeTilgjenlighet(true);
             }
         }
 

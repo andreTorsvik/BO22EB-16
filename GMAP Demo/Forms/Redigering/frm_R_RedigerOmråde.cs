@@ -123,6 +123,8 @@ namespace GMAP_Demo
         {
             txtLat.Text = lat.ToString();
             txtLong.Text = lang.ToString();
+
+
         }
 
         public void FyllInfoOmråde(int Tag)
@@ -136,16 +138,8 @@ namespace GMAP_Demo
             txtfarge.Text = GlobaleLister.LOmråde[Tag].Farge;
 
             //punkt liste
-            if (lbPunkter.Items.Count > 0) pointLatLngs.Clear();
+            FyllPunktListe(Løpenummer_til_redigering);
 
-            var Punktliste = DBComPunkter_område.GetPunkter_området(Løpenummer_til_redigering);
-            Punktliste = Punktliste.OrderBy(x => x.Rekkefølge_punkter).ToList();
-            foreach (var item1 in Punktliste)
-            {
-                PointLatLng point = new PointLatLng(item1.Lat, item1.Lang);
-                pointLatLngs.Add(point);
-            }
-            txtNrPunkt.Text = Punktliste.Count.ToString();
 
             //Sletting av lister
             if (lbValgtTags.Items.Count > 0) lbValgtTags.Items.Clear();
@@ -167,6 +161,20 @@ namespace GMAP_Demo
             {
                 lbTilgjengeligeTags.Items.Add(tags);
             }
+        }
+
+        private void FyllPunktListe(int Løpenummer)
+        {
+            if (lbPunkter.Items.Count > 0) pointLatLngs.Clear();
+
+            var Punktliste = DBComPunkter_område.GetPunkter_området(Løpenummer_til_redigering);
+            Punktliste = Punktliste.OrderBy(x => x.Rekkefølge_punkter).ToList();
+            foreach (var item1 in Punktliste)
+            {
+                PointLatLng point = new PointLatLng(item1.Lat, item1.Lang);
+                pointLatLngs.Add(point);
+            }
+            txtNrPunkt.Text = Punktliste.Count.ToString();
         }
 
         private void btnLagreEndring_Click(object sender, EventArgs e)
@@ -218,16 +226,46 @@ namespace GMAP_Demo
                 }
             }
         }
+      
 
         private void btnFjernPunktIListe_Click(object sender, EventArgs e)
         {
-            if (pointLatLngs.Count > 0)
+            if (frmRediger.OmrådeKlikkBar)
             {
-                Kart.FjernHjelpeOmråde();
-                Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
-                pointLatLngs.Clear();
-                txtNrPunkt.Text = pointLatLngs.Count.ToString();
+                if (pointLatLngs.Count > 0)
+                {
+                    btnFjernPunktIListe.Text = "Angre";
+
+                    Kart.FjernHjelpeOmråde();
+                    Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
+                    pointLatLngs.Clear();
+                    txtNrPunkt.Text = pointLatLngs.Count.ToString();
+                    Kart.AlleOmrådeTilgjenlighet(false);
+                    frmRediger.OmrådeKlikkBar = false;
+
+                }
+
             }
+            else
+            {
+
+                if (pointLatLngs.Count > 0)
+                {
+                    Kart.FjernHjelpeOmråde();
+                    Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
+                    pointLatLngs.Clear();
+                    txtNrPunkt.Text = pointLatLngs.Count.ToString();
+                }
+
+                btnFjernPunktIListe.Text = "Fjern punktene";
+                FyllPunktListe(Løpenummer_til_redigering);
+                Kart.AlleOmrådeTilgjenlighet(true);
+                frmRediger.OmrådeKlikkBar = true;
+
+            }
+
+
+
         }
 
         private string RedigerOmrådet(int Løpenummer, string navn, string sikkerhetsklarering, string Kommentar, string Farge, int AntallPunkter, int AntallTags, List<string> GamleTags, List<string> NyTags)
@@ -258,7 +296,7 @@ namespace GMAP_Demo
                         {
                             string Tittle = "Vil du lagre disse endringene ";
 
-                            bool LagreEndring = FellesMetoder.MeldingsboksYesNo(Tittle, Endring);        
+                            bool LagreEndring = FellesMetoder.MeldingsboksYesNo(Tittle, Endring);
                             if (LagreEndring)
                             {
                                 try
