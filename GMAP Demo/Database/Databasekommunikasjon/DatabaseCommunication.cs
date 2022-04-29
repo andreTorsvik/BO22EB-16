@@ -38,5 +38,14 @@ namespace GMAP_Demo
             }
         }
 
+        public static void FeilmeldingFikkIkkeKontaktMedDatabasenOppstart(Exception exception)
+        {
+            System.Windows.Forms.DialogResult messageBoxResult = System.Windows.Forms.MessageBox.Show("Det oppstod et problem og programmet fikk ikke kontakt med databasen. Vennligst sjekk tilkoblingen. \nProgrammet avsluttes da det ikke kan brukes uten tilkobling til databasen. \nDersom du ønsker mer teknisk informasjon om feilen, trykk \"OK\"", "Fikk ikke kontakt med databasen.", System.Windows.Forms.MessageBoxButtons.OKCancel);
+            if (messageBoxResult == System.Windows.Forms.DialogResult.OK)
+            {
+                System.Windows.Forms.MessageBox.Show(exception.ToString());
+            }
+        }
+
     }
 }

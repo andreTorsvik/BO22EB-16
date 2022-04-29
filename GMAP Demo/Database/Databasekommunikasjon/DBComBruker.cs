@@ -47,6 +47,25 @@ namespace GMAP_Demo
 
         }
 
+        public static List<Bruker> StartupConnectionTest()
+        {
+            try
+            {
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Bruker>("[dbo].[PROCEDUREListAllBrukerFromDb]").ToList();
+                    return output;
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasenOppstart(exeption);
+                System.Environment.Exit(1); // Dersom programmet ikke får kontakt med databasen ved oppstart avsluttes programmet etter vist feilmelding.
+                List<Bruker> list = new List<Bruker>();
+                return list;
+            }
+        }
+
 
         public static List<Bruker> ListAllBrukerFromDbWithMaksSikkerhetsklarering(int Sikkerhetsklarering)
         {
