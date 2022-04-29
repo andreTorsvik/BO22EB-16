@@ -74,7 +74,7 @@ namespace GMAP_Demo
             }
         }
 
-
+        // Versjon 1. Ikke i bruk.
         public static Bitmap ResizeBitmap(Bitmap bmp, int width, int height)
         {
             Bitmap result = new Bitmap(width, height);
@@ -86,7 +86,7 @@ namespace GMAP_Demo
             return result;
         }
 
-        // Skalerer Bitmap basert på en faktor og tilnærmet beholder "Aspect Ratio". Basert på ResizeBitmap()
+        // Versjon 2. Ikke i bruk. Skalerer Bitmap basert på en faktor og tilnærmet beholder "Aspect Ratio". Basert på ResizeBitmap()
         public static Bitmap ScaleBitmap(Bitmap bmp, double scalar)
         {
             double Width = bmp.Width;
@@ -103,8 +103,8 @@ namespace GMAP_Demo
             return newImage;
         }
 
-
-        public static Bitmap AutoScaleDownBitmap(Bitmap bmp) // Autoskalerer Bitmap og tilnærmet beholder "Aspect Ratio". Basert på ScaleBitmap()
+        //Versjon 3. Autoskalerer Bitmap og tilnærmet beholder "Aspect Ratio". Basert på ScaleBitmap()
+        public static Bitmap AutoScaleDownBitmap(Bitmap bmp) 
         {
             double Increments = 0.9; // (0 < Increments < 1) Oppløsning for Autoskalering. Større tall = større oppløsning, og mer krevende for programmet.
             double Width = bmp.Width;
