@@ -17,7 +17,7 @@ namespace GMAP_Demo
             instance = this;
         }
         // Opprette liste av punkter for område
-        BindingList<PointLatLng> pointLatLngs;
+        public BindingList<PointLatLng> pointLatLngs;
         private void InitializepointLatLngs()
         {
             // Create the new BindingList of Part type.
@@ -176,6 +176,7 @@ namespace GMAP_Demo
         {
             if (pointLatLngs.Count > 0)
             {
+                Kart.FjernHjelpeOmråde();
                 Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
                 pointLatLngs.Clear();
                 txtNrPunkt.Text = pointLatLngs.Count.ToString();

@@ -1,6 +1,7 @@
 ﻿using GMap.NET;
 using GMap.NET.WindowsForms;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -69,7 +70,7 @@ namespace GMAP_Demo
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnObjekt.Height, btnObjekt.Top);
 
-                SlettHjelpeMarkører();
+                SlettHjelpeMarkørerOgOmråder();
 
                 ResettLøpenummerTilRedigering();
 
@@ -91,7 +92,7 @@ namespace GMAP_Demo
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnOmråde.Height, btnOmråde.Top);
 
-                SlettHjelpeMarkører();
+                SlettHjelpeMarkørerOgOmråder();
 
                 ResettLøpenummerTilRedigering();
 
@@ -118,7 +119,7 @@ namespace GMAP_Demo
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnRediger_objekt.Height, btnRediger_objekt.Top);
 
-                SlettHjelpeMarkører();
+                SlettHjelpeMarkørerOgOmråder();
 
                 ResettLøpenummerTilRedigering();
 
@@ -145,7 +146,7 @@ namespace GMAP_Demo
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnRedigerOmråde.Height, btnRedigerOmråde.Top);
 
-                SlettHjelpeMarkører();
+                SlettHjelpeMarkørerOgOmråder();
 
                 ResettLøpenummerTilRedigering();
 
@@ -168,7 +169,7 @@ namespace GMAP_Demo
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnLeggTilBilde.Height, btnLeggTilBilde.Top);
 
-                SlettHjelpeMarkører();
+                SlettHjelpeMarkørerOgOmråder();
 
                 ResettLøpenummerTilRedigering();
 
@@ -191,7 +192,7 @@ namespace GMAP_Demo
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnFjern.Height, btnFjern.Top);
 
-                SlettHjelpeMarkører();
+                SlettHjelpeMarkørerOgOmråder();
 
                 ResettLøpenummerTilRedigering();
 
@@ -253,10 +254,6 @@ namespace GMAP_Demo
                 double lat = DoubleClick_punkt.Lat;
                 double lang = DoubleClick_punkt.Lng;
 
-                Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
-                Kart.LeggtilMarkør(Kart.MuligKart.Redigering, new PointLatLng(lat, lang), -1, "HjelpeMarkør");
-                Kart.reff(Kart.MuligKart.Redigering);
-
                 if (frm_R_LeggTilObjekt.instance != null)
                 {
                     frm_R_LeggTilObjekt.instance.FyllKoordinater(lat, lang);
@@ -264,6 +261,19 @@ namespace GMAP_Demo
                 if (frm_R_LeggTilOmråde.instance != null)
                 {
                     frm_R_LeggTilOmråde.instance.FyllKoordinater(lat, lang);
+
+                    if(frm_R_LeggTilOmråde.instance.pointLatLngs.Count >= 1)
+                    {
+                        Kart.FjernHjelpeOmråde();
+
+                        List<PointLatLng> Punkter = new List<PointLatLng>();
+                        foreach (var item in frm_R_LeggTilOmråde.instance.pointLatLngs)
+                        {
+                            Punkter.Add(item);
+                        }
+                        Kart.TegnHjelpeOmråde_rediger(DoubleClick_punkt, Punkter);
+
+                    }
                 }
                 if (frm_R_RedigerObjekt.instance != null)
                 {
@@ -272,7 +282,24 @@ namespace GMAP_Demo
                 if (frm_R_RedigerOmråde.instance != null)
                 {
                     frm_R_RedigerOmråde.instance.FyllKoordinater(lat, lang);
+
+                    if (frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1) // tegne område underveis 
+                    {
+                        Kart.FjernHjelpeOmråde();
+
+                        List<PointLatLng> Punkter = new List<PointLatLng>();
+                        foreach (var item in frm_R_RedigerOmråde.instance.pointLatLngs)
+                        {
+                            Punkter.Add(item);
+                        }
+                        Kart.TegnHjelpeOmråde_rediger(DoubleClick_punkt, Punkter);
+
+                    }
                 }
+
+                Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
+                Kart.LeggtilMarkør(Kart.MuligKart.Redigering, new PointLatLng(lat, lang), -1, "HjelpeMarkør");
+                Kart.reff(Kart.MuligKart.Redigering);
             }
         }
 
@@ -343,7 +370,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void SlettHjelpeMarkører()
+        private void SlettHjelpeMarkørerOgOmråder()
         {
             foreach (var item in map.Overlays)
             {
@@ -356,6 +383,14 @@ namespace GMAP_Demo
             foreach (var item in map.Overlays)
             {
                 if (item.Id == "HjelpeMarkør")
+                {
+                    Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
+                    break;
+                }
+            }
+            foreach(var item in map.Overlays)
+            {
+                if (item.Id == "HjelpeOmråde")
                 {
                     Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
                     break;

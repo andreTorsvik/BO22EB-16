@@ -241,9 +241,18 @@ namespace GMAP_Demo
             GMapMarker marker;
             GMapOverlay markers = new GMapOverlay(områdeId);
 
-            marker = new GMarkerGoogle(point, GMarkerGoogleType.blue);
+            if(områdeId == "HjelpeMarkør")
+            {
+                marker = new GMarkerGoogle(point, GMarkerGoogleType.yellow);
+            }
+            else
+            {
+                marker = new GMarkerGoogle(point, GMarkerGoogleType.blue);
+            }
+            
             if (Rekkefølge != -1)
             {
+
                 marker.ToolTipText = String.Format("{0}", Rekkefølge);
                 marker.ToolTip.Fill = Brushes.Black;
                 marker.ToolTip.Foreground = Brushes.White;
@@ -253,6 +262,9 @@ namespace GMAP_Demo
 
             }
             marker.Tag = -1;
+
+            if(områdeId == "HjelpeMarkør")
+            { }
 
             markers.Markers.Add(marker);
 
@@ -399,6 +411,44 @@ namespace GMAP_Demo
 
 
             frmPosisjon.instance.LbDistanse.Text = route.Distance.ToString() + " Km";
+        }
+
+        public static void TegnHjelpeOmråde_rediger(PointLatLng klikket, List<PointLatLng> Lpunkt)
+        {
+            //bruker google API
+            //Denne metoden er kun for visning
+            int antallPunkter = Lpunkt.Count;
+
+            if(antallPunkter >= 1)
+            {
+                Lpunkt.Add(klikket);
+
+                if(antallPunkter != 1) 
+                    Lpunkt.Add(Lpunkt[0]);
+
+                var r = new GMapRoute(Lpunkt, "HjelpeOmråde")
+                {
+                    Stroke = new Pen(Color.Red, 3)
+                };
+                var routes = new GMapOverlay("HjelpeOmråde");
+                routes.Routes.Add(r);
+                frmRediger.instance.map.Overlays.Add(routes);
+
+                reff(MuligKart.Redigering);
+            }
+        }
+
+        public static void FjernHjelpeOmråde()
+        {
+            for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
+            {
+                if (frmRediger.instance.map.Overlays[i].Id == "HjelpeOmråde")
+                {
+                    frmRediger.instance.map.Overlays.RemoveAt(i);
+                    reff(MuligKart.Visning);
+                    break;
+                }
+            }
         }
 
         public static void reff(MuligKart kart)
