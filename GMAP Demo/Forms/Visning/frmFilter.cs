@@ -295,6 +295,5 @@ namespace GMAP_Demo
                 timer.Change(0, 10000); // Starter timeren og simulering av måling gjentaes hvert 10sek.
             }
         }
-
     }
 }
