@@ -12,100 +12,157 @@ namespace GMAP_Demo
     {
         public static List<Ressurs> ListAllRessursFromDb(int SikkerhetsklareringBruker)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                //Ressurs Sikkerhetsklarering = new Ressurs
-                //{
-                //    Sikkerhetsklarering = SikkerhetsklareringBruker
-                //};
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    //Ressurs Sikkerhetsklarering = new Ressurs
+                    //{
+                    //    Sikkerhetsklarering = SikkerhetsklareringBruker
+                    //};
 
-                //var output = connection.Query<Ressurs>("[dbo].[PROCEDUREListAllRessursFromDb] @BrukersSikkerhetsklarering", Sikkerhetsklarering).ToList();
-                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE (Sikkerhetsklarering <= '{SikkerhetsklareringBruker}')").ToList();
-               
-                return output;
+                    //var output = connection.Query<Ressurs>("[dbo].[PROCEDUREListAllRessursFromDb] @BrukersSikkerhetsklarering", Sikkerhetsklarering).ToList();
+                    var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE (Sikkerhetsklarering <= '{SikkerhetsklareringBruker}')").ToList();
+
+                    return output;
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+                List<Ressurs> list = new List<Ressurs>();
+                return list;
             }
         }
         //Where Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}'
         public static List<Ressurs> ListRessursFromDb(int løpenummer)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}' AND Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").ToList();
-                return output;
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}' AND Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").ToList();
+                    return output;
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+                List<Ressurs> list = new List<Ressurs>();
+                return list;
             }
         }
 
         public static List<Ressurs> ListRessursBasedonKategori(string Kategori)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Kategori = '{Kategori}')").ToList();
-                return output;
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Kategori = '{Kategori}')").ToList();
+                    return output;
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+                List<Ressurs> list = new List<Ressurs>();
+                return list;
             }
         }
 
         public static void DeleteRessurs(int løpeNummer)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                Ressurs DeleteRessurs = new Ressurs
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Løpenummer_ressurs = løpeNummer
-                };
+                    Ressurs DeleteRessurs = new Ressurs
+                    {
+                        Løpenummer_ressurs = løpeNummer
+                    };
 
-                connection.Execute("[dbo].[PROCEDURERemoveRessurs] @Løpenummer_ressurs", (DeleteRessurs));
+                    connection.Execute("[dbo].[PROCEDURERemoveRessurs] @Løpenummer_ressurs", (DeleteRessurs));
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
 
         public static void InsertRessursToDb(int Løpenummer_ressurs, string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                Ressurs ressursToAdd = new Ressurs
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Løpenummer_ressurs = Løpenummer_ressurs,
-                    Navn = navn,
-                    Kategori = kategori,
-                    //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
-                    Opprettet_av_bruker = opprettet_av_bruker,
-                    Sikkerhetsklarering = sikkerhetsklarering,
-                    Kommentar = kommentar,
-                    Lat = lat,
-                    Lang = lang
-                };
+                    Ressurs ressursToAdd = new Ressurs
+                    {
+                        Løpenummer_ressurs = Løpenummer_ressurs,
+                        Navn = navn,
+                        Kategori = kategori,
+                        //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
+                        Opprettet_av_bruker = opprettet_av_bruker,
+                        Sikkerhetsklarering = sikkerhetsklarering,
+                        Kommentar = kommentar,
+                        Lat = lat,
+                        Lang = lang
+                    };
 
-                connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (ressursToAdd));
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (ressursToAdd));
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
 
         public static List<int> GetLøpenummer_Ressurs()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<int>($"select (NEXT VALUE FOR [dbo].[SEQUENCERessursId]) as int").ToList();
-                return output;
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<int>($"select (NEXT VALUE FOR [dbo].[SEQUENCERessursId]) as int").ToList();
+                    return output;
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+                List<int> list = new List<int>();
+                return list;
             }
         }
 
         public static void UpdateRessurs(int Løpenummer, string navn, string kategori, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                Ressurs UpdateRessurs = new Ressurs
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Løpenummer_ressurs = Løpenummer,
-                    Navn = navn,
-                    Kategori = kategori,
-                    //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
-                    //Opprettet_av_bruker = opprettet_av_bruker,
-                    Sikkerhetsklarering = sikkerhetsklarering,
-                    Kommentar = kommentar,
-                    Lat = lat,
-                    Lang = lang
-                };
+                    Ressurs UpdateRessurs = new Ressurs
+                    {
+                        Løpenummer_ressurs = Løpenummer,
+                        Navn = navn,
+                        Kategori = kategori,
+                        //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
+                        //Opprettet_av_bruker = opprettet_av_bruker,
+                        Sikkerhetsklarering = sikkerhetsklarering,
+                        Kommentar = kommentar,
+                        Lat = lat,
+                        Lang = lang
+                    };
 
-                connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (UpdateRessurs));
+                    connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (UpdateRessurs));
 
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
     }

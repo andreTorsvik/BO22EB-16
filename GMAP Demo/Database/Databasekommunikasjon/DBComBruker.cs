@@ -20,9 +20,9 @@ namespace GMAP_Demo
                     return output;
                 }
             }
-            catch (Exception)
+            catch (Exception exeption)
             {
-                //melding
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
                 List<Bruker> list = new List<Bruker>();
                 return list;
             }
@@ -30,103 +30,168 @@ namespace GMAP_Demo
 
         public static List<Bruker> ListAllBrukerFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<Bruker>("[dbo].[PROCEDUREListAllBrukerFromDb]").ToList();
-                return output;
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Bruker>("[dbo].[PROCEDUREListAllBrukerFromDb]").ToList();
+                    return output;
+                }
             }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+                List<Bruker> list = new List<Bruker>();
+                return list;
+            }
+
         }
+
 
         public static List<Bruker> ListAllBrukerFromDbWithMaksSikkerhetsklarering(int Sikkerhetsklarering)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<Bruker>($"SELECT * FROM [dbo].[Bruker] WHERE (Sikkerhetsklarering = '{Sikkerhetsklarering}')").ToList();
-                return output;
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Bruker>($"SELECT * FROM [dbo].[Bruker] WHERE (Sikkerhetsklarering = '{Sikkerhetsklarering}')").ToList();
+                    return output;
+                }
             }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+                List<Bruker> list = new List<Bruker>();
+                return list;
+            }
+
         }
 
         public static List<Bruker> ListBrukerInfoFromDb(string username)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<Bruker>($"SELECT * FROM [dbo].[Bruker] WHERE (Epost = '{username}')").ToList();
-                return output;
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Bruker>($"SELECT * FROM [dbo].[Bruker] WHERE (Epost = '{username}')").ToList();
+                    return output;
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+                List<Bruker> list = new List<Bruker>();
+                return list;
             }
         }
 
         public static void InsertBrukerToDb(string fornavn, string etternavn, int telefonnummer, string epost, string passord, int tallkode)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                Bruker brukerToAdd = new Bruker
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Fornavn = fornavn,
-                    Etternavn = etternavn,
-                    Telefonnummer = telefonnummer,
-                    Epost = epost,
-                    Sikkerhetsklarering = 1,
-                    Passord = passord,
-                    Tallkode = tallkode,
-                    Godkjent = false,
-                    Verifisert = false
-                };
+                    Bruker brukerToAdd = new Bruker
+                    {
+                        Fornavn = fornavn,
+                        Etternavn = etternavn,
+                        Telefonnummer = telefonnummer,
+                        Epost = epost,
+                        Sikkerhetsklarering = 1,
+                        Passord = passord,
+                        Tallkode = tallkode,
+                        Godkjent = false,
+                        Verifisert = false
+                    };
 
-                connection.Execute("[dbo].[PROCEDUREinsertIntoBruker] @Fornavn, @Etternavn, @Telefonnummer, @Epost,@Sikkerhetsklarering ,@Passord, @Tallkode, @Godkjent, @Verifisert ", brukerToAdd);
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoBruker] @Fornavn, @Etternavn, @Telefonnummer, @Epost,@Sikkerhetsklarering ,@Passord, @Tallkode, @Godkjent, @Verifisert ", brukerToAdd);
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
 
         public static void UpdateBruker_Godkjent(string epost, bool godkjent)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                Bruker UpdateGodkjent = new Bruker
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Epost = epost,
-                    Godkjent = godkjent
-                };
+                    Bruker UpdateGodkjent = new Bruker
+                    {
+                        Epost = epost,
+                        Godkjent = godkjent
+                    };
 
-                connection.Execute("[dbo].[PROCEDUREUpdateBruker_godkjent] @Epost, @Godkjent", (UpdateGodkjent));
+                    connection.Execute("[dbo].[PROCEDUREUpdateBruker_godkjent] @Epost, @Godkjent", (UpdateGodkjent));
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
         public static void UpdateBruker_Verifisert(string epost, bool godkjent)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                Bruker UpdateVerifisert = new Bruker
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Epost = epost,
-                    Verifisert = godkjent
-                };
+                    Bruker UpdateVerifisert = new Bruker
+                    {
+                        Epost = epost,
+                        Verifisert = godkjent
+                    };
 
-                connection.Execute("[dbo].[PROCEDUREUpdateBruker_Verifisert] @Epost, @Verifisert", (UpdateVerifisert));
+                    connection.Execute("[dbo].[PROCEDUREUpdateBruker_Verifisert] @Epost, @Verifisert", (UpdateVerifisert));
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
         public static void UpdateBruker_Sikkerhetsklarering(string epost, int klarering)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                Bruker UpdateSikkerhetsklarering = new Bruker
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Epost = epost,
-                    Sikkerhetsklarering = klarering
-                };
+                    Bruker UpdateSikkerhetsklarering = new Bruker
+                    {
+                        Epost = epost,
+                        Sikkerhetsklarering = klarering
+                    };
 
-                connection.Execute("[dbo].[PROCEDUREUpgradeBruker_Sikkerhetsklarering] @Epost, @Sikkerhetsklarering", (UpdateSikkerhetsklarering));
+                    connection.Execute("[dbo].[PROCEDUREUpgradeBruker_Sikkerhetsklarering] @Epost, @Sikkerhetsklarering", (UpdateSikkerhetsklarering));
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
 
 
         public static void DeleteBruker(string username)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                Bruker DeleteUser = new Bruker
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Epost = username
-                };
+                    Bruker DeleteUser = new Bruker
+                    {
+                        Epost = username
+                    };
 
-                connection.Execute("[dbo].[PROCEDURERemoveBruker] @Epost", (DeleteUser));
+                    connection.Execute("[dbo].[PROCEDURERemoveBruker] @Epost", (DeleteUser));
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
     }
