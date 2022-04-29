@@ -18,23 +18,8 @@ namespace GMAP_Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            try
-            {
-                // En vilkårlig metode som tester om vi har kontakt med databasen.
-                List<Bruker> brukerList = new List<Bruker>();
-                brukerList = DBComBruker.ListAllBrukerFromDb();
-            }
-            catch (Exception e)
-            {
-                // Dersom vi ikke har kontakt med databasen vises en feilmelding,
-                MessageBox.Show(e.ToString());
-                // Og programmet avsluttes.
-                System.Environment.Exit(1);
-            }
-
-            // Simulerer målinger ved å oppdatere Målingstabellen regelmessig
-            //MålingSim.InitTimer();
-
+            
+            List<Bruker> brukerList = new List<Bruker>(DBComBruker.StartupConnectionTest()); // Dersom programmet ikke får kontakt med databasen ved oppstart, avsluttes programmet etter vist feilmelding.
 
             Application.Run(new frmInnlogging());
         }
