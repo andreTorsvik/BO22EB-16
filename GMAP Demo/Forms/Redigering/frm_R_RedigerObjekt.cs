@@ -198,13 +198,10 @@ namespace GMAP_Demo
                         string Endring = Tekstbehandling.SjekkEndringer_Objekt(ressurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
                         if (Endring != string.Empty)
                         {
-                            string caption = "Vil du lagre disse endringene ";
-                            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                            DialogResult result;
-
-                            // Displays the MessageBox.
-                            result = MessageBox.Show(Endring, caption, buttons);
-                            if (result == DialogResult.Yes)
+                            string Tittle = "Vil du lagre disse endringene ";
+                            bool lagreEndring = FellesMetoder.MeldingsboksYesNo(Tittle, Endring);
+                          
+                            if (lagreEndring)
                             {
                                 try
                                 {

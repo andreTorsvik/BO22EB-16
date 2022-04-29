@@ -254,14 +254,12 @@ namespace GMAP_Demo
                         int klarering = brukerListe[0].Sikkerhetsklarering;
                         if (InnloggetBruker.BrukernavnInnlogget == epost)
                         {
-                            string caption = "Nedgradere av deg selv: ";
+                            string Tittel = "Nedgradere av deg selv: ";
                             string Endring = string.Format("{0}", epost);
-                            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                            DialogResult result;
 
-                            // Displays the MessageBox.
-                            result = MessageBox.Show(Endring, caption, buttons);
-                            if (result == DialogResult.Yes)
+                            bool nedgrader = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
+                            
+                            if (nedgrader)
                             {
                                 bool Nedgrader = false;
                                 if (InnloggetBruker.Sikkerhetsklarering == frmVisning.instance.MaxSikkerhetsklarering)
@@ -293,7 +291,7 @@ namespace GMAP_Demo
 
                             }
                         }
-                        else if (brukerListe[0].Sikkerhetsklarering >= 2)
+                        else if (brukerListe[0].Sikkerhetsklarering >= frmVisning.instance.MaxSikkerhetsklarering-1) // 2
                         {
                             klarering--;
                             DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
@@ -394,12 +392,14 @@ namespace GMAP_Demo
                         {
                             string caption = "Vil du Virkelig slette denne brukeren: ";
                             string Endring = string.Format("{0}", epost);
-                            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                            DialogResult result;
 
-                            // Displays the MessageBox.
-                            result = MessageBox.Show(Endring, caption, buttons);
-                            if (result == DialogResult.Yes)
+                            bool Fjern = FellesMetoder.MeldingsboksYesNo(caption, Endring);
+                            //MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                            //DialogResult result;
+
+                            //// Displays the MessageBox.
+                            //result = MessageBox.Show(Endring, caption, buttons);
+                            if (Fjern)
                             {
                                 FjernBruker(epost, BrukerInfo, selectetItem);
                             }

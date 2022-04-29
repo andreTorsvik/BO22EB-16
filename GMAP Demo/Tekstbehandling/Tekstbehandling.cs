@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
+using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
@@ -277,6 +278,8 @@ namespace GMAP_Demo
 
             return Endringer;
         }
+
+       
 
         public static bool ErEmailGodkjent(string email)
         {
