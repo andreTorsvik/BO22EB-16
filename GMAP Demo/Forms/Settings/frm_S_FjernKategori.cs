@@ -65,14 +65,11 @@ namespace GMAP_Demo
             if(!string.IsNullOrEmpty( txtValgtKategori.Text))
             {
                 string kategori = txtValgtKategori.Text;
-                string caption = "Vil du Fjerne denne Kategorien: ";
-                
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result;
+                string Tittel = "Vil du Fjerne denne Kategorien: ";
 
-                // Displays the MessageBox.
-                result = MessageBox.Show(kategori, caption, buttons);
-                if (result == DialogResult.Yes)
+                bool Fjern = FellesMetoder.MeldingsboksYesNo(Tittel, kategori);
+
+                if (Fjern)
                 {
                     DBComKategorier_Bilde.DeleteKategorier_Bilde(kategori);
                     txtValgtKategori.Text = string.Empty;

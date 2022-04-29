@@ -255,12 +255,10 @@ namespace GMAP_Demo
                         string enderingIPunkter = Tekstbehandling.sammenlignPunkter(Lområde, pList);
                         if (Endring != string.Empty)
                         {
-                            string caption = "Vil du lagre disse endringene ";
-                            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                            DialogResult result;
+                            string Tittle = "Vil du lagre disse endringene ";
 
-                            result = MessageBox.Show(Endring, caption, buttons);
-                            if (result == DialogResult.Yes)
+                            bool LagreEndring = FellesMetoder.MeldingsboksYesNo(Tittle, Endring);        
+                            if (LagreEndring)
                             {
                                 try
                                 {

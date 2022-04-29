@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
@@ -33,7 +34,24 @@ namespace GMAP_Demo
             return AlleTag;
 
         }
+        public static bool MeldingsboksYesNo(string Tittle, string tekst)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
 
-       
+            // Displays the MessageBox.
+            result = MessageBox.Show(tekst, Tittle, buttons);
+            if (result == DialogResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+
     }
 }

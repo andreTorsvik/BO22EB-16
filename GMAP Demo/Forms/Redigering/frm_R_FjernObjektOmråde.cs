@@ -46,14 +46,11 @@ namespace GMAP_Demo
             {
                 try
                 {
-                    string caption = "Sletting";
+                    string Tittle = "Sletting";
                     string tekst = string.Format("Vil du slette ressurs: {0} ", Løpenummer_til_objekt);
-                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                    DialogResult result;
+                    bool Fjern = FellesMetoder.MeldingsboksYesNo(Tittle, tekst);
 
-                    // Displays the MessageBox.
-                    result = MessageBox.Show(tekst, caption, buttons);
-                    if (result == DialogResult.Yes)
+                    if (Fjern)
                     {
                         DBComRessurs.DeleteRessurs(Løpenummer_til_objekt);
                         lableSlettet.Text = String.Format("Ressurs nr: {0} er slettet", Løpenummer_til_objekt);
@@ -76,14 +73,12 @@ namespace GMAP_Demo
             {
                 try
                 {
-                    string caption = "Sletting";
+                    string Tittle = "Sletting";
                     string tekst = string.Format("Vil du slette Område: {0} ", Løpenummer_til_Område);
-                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                    DialogResult result;
 
-                    // Displays the MessageBox.
-                    result = MessageBox.Show(tekst, caption, buttons);
-                    if (result == DialogResult.Yes)
+                    bool fjern = FellesMetoder.MeldingsboksYesNo(Tittle, tekst);
+
+                    if (fjern)
                     {
                         DBComPunkter_område.DeletePunkter_området(Løpenummer_til_Område);
                         DBComOmråde.DeleteOmråde(Løpenummer_til_Område);
