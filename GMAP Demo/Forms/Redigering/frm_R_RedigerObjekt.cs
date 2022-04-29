@@ -11,7 +11,7 @@ namespace GMAP_Demo
         public static frm_R_RedigerObjekt instance;
         public int Løpenummer_til_redigering = -1;
         public List<string> LGamleTag = new List<string>();
-        string tekstLatLong = "Dobbelklikk på kartet";
+
         public frm_R_RedigerObjekt()
         {
             InitializeComponent();
@@ -187,7 +187,7 @@ namespace GMAP_Demo
             {
                 string feilmelding = string.Empty;
 
-                string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, AntallTags, tekstLatLong);
+                string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, AntallTags, Globalekonstanter.tekstLatLong_objekt);
 
                 if (utFyllingsmangler == string.Empty)
                 {
@@ -257,8 +257,8 @@ namespace GMAP_Demo
             txtKategori.Text = "";
             txtKommentar.Text = "";
             txtSikkerhetsklarering.Text = "";
-            txtLat.Text = tekstLatLong;
-            txtLong.Text = tekstLatLong;
+            txtLat.Text = Globalekonstanter.tekstLatLong_objekt;
+            txtLong.Text = Globalekonstanter.tekstLatLong_objekt;
 
             //lister
             lbValgtTags.Items.Clear();

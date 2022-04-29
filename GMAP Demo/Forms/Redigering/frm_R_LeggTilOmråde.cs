@@ -10,7 +10,7 @@ namespace GMAP_Demo
     {
         public int FjernMakør;
         public static frm_R_LeggTilOmråde instance;
-        const string TekstTilLatLong = "Dobbelklikk på kartet + \"legg til\"";
+
         public frm_R_LeggTilOmråde()
         {
             InitializeComponent();
@@ -146,7 +146,7 @@ namespace GMAP_Demo
 
         private void btnLeggTilPunktIListe_Click(object sender, EventArgs e)
         {
-            if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != TekstTilLatLong))
+            if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != Globalekonstanter.tekstLatLong_område))
             {
                 try
                 {
@@ -161,8 +161,8 @@ namespace GMAP_Demo
                     Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
                     Kart.reff(Kart.MuligKart.Redigering);
 
-                    txtLat.Text = TekstTilLatLong;
-                    txtLong.Text = TekstTilLatLong;
+                    txtLat.Text = Globalekonstanter.tekstLatLong_område;
+                    txtLong.Text = Globalekonstanter.tekstLatLong_område;
                     txtNrPunkt.Text = (pointLatLngs.Count).ToString();
                 }
                 catch (Exception feilmelding)
@@ -262,8 +262,8 @@ namespace GMAP_Demo
             txtSikkerhetsklarering.Text = "";
             txtKommentar.Text = "";
             txtfarge.Text = "";
-            txtLat.Text = TekstTilLatLong;
-            txtLong.Text = TekstTilLatLong;
+            txtLat.Text = Globalekonstanter.tekstLatLong_område;
+            txtLong.Text = Globalekonstanter.tekstLatLong_område;
 
             //lister
             lbValgtTags.Items.Clear();

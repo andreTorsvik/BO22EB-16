@@ -17,7 +17,7 @@ namespace GMAP_Demo
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
         
 
-        public PointLatLng DoubleClick_punkt;
+       
         public static frmVisning instance;
 
         public frmVisning()
@@ -234,7 +234,7 @@ namespace GMAP_Demo
         {
             if (e.Button == MouseButtons.Left)
             {
-                DoubleClick_punkt = map.FromLocalToLatLng(e.X, e.Y);
+                PointLatLng DoubleClick_punkt = map.FromLocalToLatLng(e.X, e.Y);
 
                 double lat = DoubleClick_punkt.Lat;
                 double lang = DoubleClick_punkt.Lng;
@@ -316,14 +316,5 @@ namespace GMAP_Demo
             instance.map.Zoom--;
         }
 
-        private void PnlFormLoader_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
