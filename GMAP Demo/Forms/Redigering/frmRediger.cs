@@ -278,24 +278,28 @@ namespace GMAP_Demo
 
         public void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            //skal ikke åpne redigeringform hvis den er på fjerne
-            if (pnlNav.Top != btnFjern.Top)
+            if(Convert.ToInt32(item.Tag) != -1)
             {
-                ÅpneRediger_objektForm();
-            }
+                //skal ikke åpne redigeringform hvis den er på fjerne
+                if (pnlNav.Top != btnFjern.Top)
+                {
+                    ÅpneRediger_objektForm();
+                }
 
-            //if (frm_R_LeggTilOmråde.instance != null)
-            //{
+                //if (frm_R_LeggTilOmråde.instance != null)
+                //{
 
-            //}
-            if (frm_R_FjernObjektOmråde.instance != null)
-            {
-                frm_R_FjernObjektOmråde.instance.fyllInfoObjekt(Convert.ToInt32(item.Tag));
+                //}
+                if (frm_R_FjernObjektOmråde.instance != null)
+                {
+                    frm_R_FjernObjektOmråde.instance.fyllInfoObjekt(Convert.ToInt32(item.Tag));
+                }
+                if (frm_R_RedigerObjekt.instance != null)
+                {
+                    frm_R_RedigerObjekt.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
+                }
             }
-            if (frm_R_RedigerObjekt.instance != null)
-            {
-                frm_R_RedigerObjekt.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
-            }
+           
         }
 
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
