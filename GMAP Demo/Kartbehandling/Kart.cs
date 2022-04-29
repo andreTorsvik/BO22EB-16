@@ -137,11 +137,13 @@ namespace GMAP_Demo
                 GlobaleLister.LOmråde.Add(item);
             }
 
-            bool OR = frmFilter.instance.filterOR;
-            bool AND = frmFilter.instance.filterAND;
+           
 
             if(kategoriListeSkjult.Count != 0 || tag_ListeSkjult.Count != 0)
             {
+                bool OR = frmFilter.instance.filterOR;
+                bool AND = frmFilter.instance.filterAND;
+
                 if (OR && !AND) //OR
                     FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
                 else if (AND && !OR) //AND
