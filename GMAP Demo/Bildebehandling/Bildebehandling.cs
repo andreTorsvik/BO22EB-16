@@ -60,7 +60,7 @@ namespace GMAP_Demo
 
                 Bitmap bitmap = new Bitmap(image);
 
-                bitmap = AutoScaleBitmap(bitmap);
+                bitmap = AutoScaleDownBitmap(bitmap);
 
                 kategorier_Bilde.Clear();
 
@@ -104,17 +104,15 @@ namespace GMAP_Demo
         }
 
 
-        public static Bitmap AutoScaleBitmap(Bitmap bmp) // Autoskalerer Bitmap og tilnærmet beholder "Aspect Ratio". Basert på ScaleBitmap()
+        public static Bitmap AutoScaleDownBitmap(Bitmap bmp) // Autoskalerer Bitmap og tilnærmet beholder "Aspect Ratio". Basert på ScaleBitmap()
         {
-            double MaxWidth = 40.0; // Max bredde i pixler
-            double MaxHeight = 70.0; // Max Høyde i pixler
             double Increments = 0.9; // (0 < Increments < 1) Oppløsning for Autoskalering. Større tall = større oppløsning, og mer krevende for programmet.
             double Width = bmp.Width;
             double Height = bmp.Height;
             int newWidth;
             int newHeight;
 
-            while ((Width > MaxWidth) || (Height > MaxHeight))
+            while ((Width > Globalekonstanter.MaxWidth) || (Height > Globalekonstanter.MaxHeight))
             {
                 Width = Width * Increments;
                 Height = Height * Increments;

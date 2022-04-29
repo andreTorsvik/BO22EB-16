@@ -14,12 +14,11 @@ namespace GMAP_Demo
         public static Color StandarFargeKnapp = Color.FromArgb(24, 30, 54);
 
 
-
-
-
-
-
         public const string tekstLatLong_område = "Dobbelklikk på kartet + \"legg til\"";
         public const string tekstLatLong_objekt = "Dobbelklikk på kartet";
+
+        // Tilpassing av størrelse på viste ikoner på kart:
+        public const double MaxWidth = 40.0; // Max bredde i pixler
+        public const double MaxHeight = 70.0; // Max Høyde i pixler
     }
 }
