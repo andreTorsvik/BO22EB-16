@@ -31,21 +31,12 @@ namespace GMAP_Demo
 
         public static void FeilmeldingFikkIkkeKontaktMedDatabasen(Exception exception)
         {
-            System.Windows.Forms.DialogResult messageBoxResult = System.Windows.Forms.MessageBox.Show("Det oppstod et problem og programmet fikk ikke kontakt med databasen. Vennligst sjekk tilkoblingen og prøv på nytt. \nSom følge av feilen kan programmet krasje, dersom det skjer, vennligst start programmet på nytt og prøv igjen. \n\nØnsker du å se den tekniske feilmeldingen til programmet?", "Fikk ikke kontakt med databasen.", System.Windows.Forms.MessageBoxButtons.YesNo);
-            if (messageBoxResult == System.Windows.Forms.DialogResult.Yes)
-            {
-                System.Windows.Forms.MessageBox.Show(exception.ToString());
-            }
-        }
-
-        public static void FeilmeldingFikkIkkeKontaktMedDatabasenOppstart(Exception exception)
-        {
             System.Windows.Forms.DialogResult messageBoxResult = System.Windows.Forms.MessageBox.Show("Det oppstod et problem og programmet fikk ikke kontakt med databasen. Vennligst sjekk tilkoblingen. \nProgrammet avsluttes da det ikke kan brukes uten tilkobling til databasen. \n\nØnsker du å se den tekniske feilmeldingen til programmet?", "Fikk ikke kontakt med databasen.", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (messageBoxResult == System.Windows.Forms.DialogResult.Yes)
             {
                 System.Windows.Forms.MessageBox.Show(exception.ToString());
             }
+            System.Environment.Exit(1); // Dersom programmet ikke får kontakt med databasen avsluttes programmet etter vist feilmelding.
         }
-
     }
 }
