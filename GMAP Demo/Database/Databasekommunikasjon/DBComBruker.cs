@@ -59,8 +59,7 @@ namespace GMAP_Demo
             }
             catch (Exception exeption)
             {
-                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasenOppstart(exeption);
-                System.Environment.Exit(1); // Dersom programmet ikke får kontakt med databasen ved oppstart avsluttes programmet etter vist feilmelding.
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
                 List<Bruker> list = new List<Bruker>();
                 return list;
             }
