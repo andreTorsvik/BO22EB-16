@@ -34,17 +34,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnTilbake = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.btnZoomMinus = new System.Windows.Forms.Button();
-            this.btnZoomPluss = new System.Windows.Forms.Button();
             this.btnFjern = new System.Windows.Forms.Button();
             this.btnLeggTilBilde = new System.Windows.Forms.Button();
             this.btnRedigerOmråde = new System.Windows.Forms.Button();
             this.btnRediger_objekt = new System.Windows.Forms.Button();
             this.btnOmråde = new System.Windows.Forms.Button();
             this.btnObjekt = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnZoomMinus = new System.Windows.Forms.Button();
+            this.btnZoomPluss = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -135,6 +135,120 @@
             this.btnTilbake.UseVisualStyleBackColor = true;
             this.btnTilbake.Click += new System.EventHandler(this.btnTilbake_Click);
             // 
+            // btnFjern
+            // 
+            this.btnFjern.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFjern.FlatAppearance.BorderSize = 0;
+            this.btnFjern.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFjern.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFjern.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnFjern.Image = global::GMAP_Demo.Properties.Resources.icons8_trash_can_40;
+            this.btnFjern.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFjern.Location = new System.Drawing.Point(0, 629);
+            this.btnFjern.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFjern.Name = "btnFjern";
+            this.btnFjern.Size = new System.Drawing.Size(316, 76);
+            this.btnFjern.TabIndex = 1;
+            this.btnFjern.Text = "Fjern obj/område";
+            this.btnFjern.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnFjern.UseVisualStyleBackColor = true;
+            this.btnFjern.Click += new System.EventHandler(this.btnFjern_Click);
+            // 
+            // btnLeggTilBilde
+            // 
+            this.btnLeggTilBilde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLeggTilBilde.FlatAppearance.BorderSize = 0;
+            this.btnLeggTilBilde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeggTilBilde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeggTilBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnLeggTilBilde.Image = global::GMAP_Demo.Properties.Resources.icons8_change_40;
+            this.btnLeggTilBilde.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLeggTilBilde.Location = new System.Drawing.Point(0, 553);
+            this.btnLeggTilBilde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLeggTilBilde.Name = "btnLeggTilBilde";
+            this.btnLeggTilBilde.Size = new System.Drawing.Size(316, 76);
+            this.btnLeggTilBilde.TabIndex = 1;
+            this.btnLeggTilBilde.Text = "Endre objektsymbol";
+            this.btnLeggTilBilde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLeggTilBilde.UseVisualStyleBackColor = true;
+            this.btnLeggTilBilde.Click += new System.EventHandler(this.btnLeggTilBilde_Click);
+            // 
+            // btnRedigerOmråde
+            // 
+            this.btnRedigerOmråde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRedigerOmråde.FlatAppearance.BorderSize = 0;
+            this.btnRedigerOmråde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRedigerOmråde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRedigerOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnRedigerOmråde.Image = global::GMAP_Demo.Properties.Resources.icons8_edit_40__1_;
+            this.btnRedigerOmråde.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRedigerOmråde.Location = new System.Drawing.Point(0, 477);
+            this.btnRedigerOmråde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRedigerOmråde.Name = "btnRedigerOmråde";
+            this.btnRedigerOmråde.Size = new System.Drawing.Size(316, 76);
+            this.btnRedigerOmråde.TabIndex = 1;
+            this.btnRedigerOmråde.Text = "Rediger område";
+            this.btnRedigerOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnRedigerOmråde.UseVisualStyleBackColor = true;
+            this.btnRedigerOmråde.Click += new System.EventHandler(this.btnRedigerOmråde_Click);
+            // 
+            // btnRediger_objekt
+            // 
+            this.btnRediger_objekt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRediger_objekt.FlatAppearance.BorderSize = 0;
+            this.btnRediger_objekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRediger_objekt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRediger_objekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnRediger_objekt.Image = global::GMAP_Demo.Properties.Resources.icons8_edit_40__1_;
+            this.btnRediger_objekt.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRediger_objekt.Location = new System.Drawing.Point(0, 401);
+            this.btnRediger_objekt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRediger_objekt.Name = "btnRediger_objekt";
+            this.btnRediger_objekt.Size = new System.Drawing.Size(316, 76);
+            this.btnRediger_objekt.TabIndex = 1;
+            this.btnRediger_objekt.Text = "Rediger objekt";
+            this.btnRediger_objekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnRediger_objekt.UseVisualStyleBackColor = true;
+            this.btnRediger_objekt.Click += new System.EventHandler(this.btnRediger_objekt_Click);
+            // 
+            // btnOmråde
+            // 
+            this.btnOmråde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOmråde.FlatAppearance.BorderSize = 0;
+            this.btnOmråde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOmråde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnOmråde.Image = global::GMAP_Demo.Properties.Resources.icons8_add_40__1_;
+            this.btnOmråde.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOmråde.Location = new System.Drawing.Point(0, 325);
+            this.btnOmråde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnOmråde.Name = "btnOmråde";
+            this.btnOmråde.Size = new System.Drawing.Size(316, 76);
+            this.btnOmråde.TabIndex = 1;
+            this.btnOmråde.Text = "Legg til område";
+            this.btnOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnOmråde.UseVisualStyleBackColor = true;
+            this.btnOmråde.Click += new System.EventHandler(this.btnOmråde_Click);
+            // 
+            // btnObjekt
+            // 
+            this.btnObjekt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnObjekt.FlatAppearance.BorderSize = 0;
+            this.btnObjekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnObjekt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObjekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnObjekt.Image = global::GMAP_Demo.Properties.Resources.icons8_add_40__1_;
+            this.btnObjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnObjekt.Location = new System.Drawing.Point(0, 249);
+            this.btnObjekt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnObjekt.Name = "btnObjekt";
+            this.btnObjekt.Size = new System.Drawing.Size(316, 76);
+            this.btnObjekt.TabIndex = 1;
+            this.btnObjekt.Text = "Legg til objekt";
+            this.btnObjekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnObjekt.UseVisualStyleBackColor = true;
+            this.btnObjekt.Click += new System.EventHandler(this.btnObjekt_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.lblUserName);
@@ -157,6 +271,17 @@
             this.lblUserName.TabIndex = 2;
             this.lblUserName.Text = "username.username@stud.hvl.no";
             this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pictureBox1.Location = new System.Drawing.Point(87, 32);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(135, 127);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // btnZoomMinus
             // 
@@ -189,125 +314,6 @@
             this.btnZoomPluss.Text = "+";
             this.btnZoomPluss.UseVisualStyleBackColor = false;
             this.btnZoomPluss.Click += new System.EventHandler(this.btnZoomPluss_Click);
-            // 
-            // btnFjern
-            // 
-            this.btnFjern.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFjern.FlatAppearance.BorderSize = 0;
-            this.btnFjern.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFjern.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFjern.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.btnFjern.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFjern.Location = new System.Drawing.Point(0, 629);
-            this.btnFjern.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFjern.Name = "btnFjern";
-            this.btnFjern.Size = new System.Drawing.Size(316, 76);
-            this.btnFjern.TabIndex = 1;
-            this.btnFjern.Text = "Fjern obj/område";
-            this.btnFjern.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnFjern.UseVisualStyleBackColor = true;
-            this.btnFjern.Click += new System.EventHandler(this.btnFjern_Click);
-            // 
-            // btnLeggTilBilde
-            // 
-            this.btnLeggTilBilde.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLeggTilBilde.FlatAppearance.BorderSize = 0;
-            this.btnLeggTilBilde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeggTilBilde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLeggTilBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.btnLeggTilBilde.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLeggTilBilde.Location = new System.Drawing.Point(0, 553);
-            this.btnLeggTilBilde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnLeggTilBilde.Name = "btnLeggTilBilde";
-            this.btnLeggTilBilde.Size = new System.Drawing.Size(316, 76);
-            this.btnLeggTilBilde.TabIndex = 1;
-            this.btnLeggTilBilde.Text = "Endre objektsymbol";
-            this.btnLeggTilBilde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnLeggTilBilde.UseVisualStyleBackColor = true;
-            this.btnLeggTilBilde.Click += new System.EventHandler(this.btnLeggTilBilde_Click);
-            // 
-            // btnRedigerOmråde
-            // 
-            this.btnRedigerOmråde.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRedigerOmråde.FlatAppearance.BorderSize = 0;
-            this.btnRedigerOmråde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRedigerOmråde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRedigerOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.btnRedigerOmråde.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRedigerOmråde.Location = new System.Drawing.Point(0, 477);
-            this.btnRedigerOmråde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnRedigerOmråde.Name = "btnRedigerOmråde";
-            this.btnRedigerOmråde.Size = new System.Drawing.Size(316, 76);
-            this.btnRedigerOmråde.TabIndex = 1;
-            this.btnRedigerOmråde.Text = "Rediger område";
-            this.btnRedigerOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnRedigerOmråde.UseVisualStyleBackColor = true;
-            this.btnRedigerOmråde.Click += new System.EventHandler(this.btnRedigerOmråde_Click);
-            // 
-            // btnRediger_objekt
-            // 
-            this.btnRediger_objekt.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRediger_objekt.FlatAppearance.BorderSize = 0;
-            this.btnRediger_objekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRediger_objekt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRediger_objekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.btnRediger_objekt.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRediger_objekt.Location = new System.Drawing.Point(0, 401);
-            this.btnRediger_objekt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnRediger_objekt.Name = "btnRediger_objekt";
-            this.btnRediger_objekt.Size = new System.Drawing.Size(316, 76);
-            this.btnRediger_objekt.TabIndex = 1;
-            this.btnRediger_objekt.Text = "Rediger objekt";
-            this.btnRediger_objekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnRediger_objekt.UseVisualStyleBackColor = true;
-            this.btnRediger_objekt.Click += new System.EventHandler(this.btnRediger_objekt_Click);
-            // 
-            // btnOmråde
-            // 
-            this.btnOmråde.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOmråde.FlatAppearance.BorderSize = 0;
-            this.btnOmråde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOmråde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.btnOmråde.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOmråde.Location = new System.Drawing.Point(0, 325);
-            this.btnOmråde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnOmråde.Name = "btnOmråde";
-            this.btnOmråde.Size = new System.Drawing.Size(316, 76);
-            this.btnOmråde.TabIndex = 1;
-            this.btnOmråde.Text = "Legg til område";
-            this.btnOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnOmråde.UseVisualStyleBackColor = true;
-            this.btnOmråde.Click += new System.EventHandler(this.btnOmråde_Click);
-            // 
-            // btnObjekt
-            // 
-            this.btnObjekt.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnObjekt.FlatAppearance.BorderSize = 0;
-            this.btnObjekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnObjekt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnObjekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.btnObjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnObjekt.Location = new System.Drawing.Point(0, 249);
-            this.btnObjekt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnObjekt.Name = "btnObjekt";
-            this.btnObjekt.Size = new System.Drawing.Size(316, 76);
-            this.btnObjekt.TabIndex = 1;
-            this.btnObjekt.Text = "Legg til objekt";
-            this.btnObjekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnObjekt.UseVisualStyleBackColor = true;
-            this.btnObjekt.Click += new System.EventHandler(this.btnObjekt_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.pictureBox1.Location = new System.Drawing.Point(87, 32);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 127);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // frmRediger
             // 
