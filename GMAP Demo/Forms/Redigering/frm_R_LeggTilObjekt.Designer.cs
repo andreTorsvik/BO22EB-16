@@ -375,6 +375,7 @@
             // cbOmråde
             // 
             this.cbOmråde.AutoSize = true;
+            this.cbOmråde.ForeColor = System.Drawing.Color.LightCoral;
             this.cbOmråde.Location = new System.Drawing.Point(6, 341);
             this.cbOmråde.Name = "cbOmråde";
             this.cbOmråde.Size = new System.Drawing.Size(244, 20);
