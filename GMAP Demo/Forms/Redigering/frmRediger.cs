@@ -392,7 +392,7 @@ namespace GMAP_Demo
             {
                 if (item.Id == "HjelpeOmråde")
                 {
-                    Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
+                    Kart.FjernAlleMarkører_redigier("HjelpeOmråde");
                     break;
                 }
             }
