@@ -173,13 +173,16 @@ namespace GMAP_Demo
                 }
             }
 
-            bool OR = frmFilter.instance.filterOR;
-            bool AND = frmFilter.instance.filterAND;
+            if (kategoriListeSkjult.Count != 0 || tag_ListeSkjult.Count != 0)
+            {
+                bool OR = frmFilter.instance.filterOR;
+                bool AND = frmFilter.instance.filterAND;
 
-            if (OR && !AND) //OR
-                FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LRessurs, tag_ListeVises.ToList());
-            else if (AND && !OR) //AND
-                FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LRessurs, tag_ListeVises.ToList());
+                if (OR && !AND) //OR
+                    FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LRessurs, tag_ListeVises.ToList());
+                else if (AND && !OR) //AND
+                    FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LRessurs, tag_ListeVises.ToList());
+            }
         }
 
         public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
