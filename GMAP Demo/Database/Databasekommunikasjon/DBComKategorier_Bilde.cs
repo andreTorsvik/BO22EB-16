@@ -12,57 +12,96 @@ namespace GMAP_Demo
     {
         public static List<Kategorier_Bilde> ListAllKategorier_BildeFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<Kategorier_Bilde>("[dbo].[PROCEDUREListAllKategorier_BildeFromDb]").ToList();
-                return output;
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Kategorier_Bilde>("[dbo].[PROCEDUREListAllKategorier_BildeFromDb]").ToList();
+                    return output;
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+                List<Kategorier_Bilde> list = new List<Kategorier_Bilde>();
+                return list;
             }
         }
 
         public static void InsertKategorier_BildeToDb(string kategorinavn)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                Kategorier_Bilde kategorier_BildeKategoriToAdd = new Kategorier_Bilde
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Kategorinavn = kategorinavn
-                    //Bilde = NULL, ordnes av Procedure
-                };
+                    Kategorier_Bilde kategorier_BildeKategoriToAdd = new Kategorier_Bilde
+                    {
+                        Kategorinavn = kategorinavn
+                        //Bilde = NULL, ordnes av Procedure
+                    };
 
-                connection.Execute("[dbo].[PROCEDUREinsertIntoKategorier_Bilde] @Kategorinavn", kategorier_BildeKategoriToAdd);
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoKategorier_Bilde] @Kategorinavn", kategorier_BildeKategoriToAdd);
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
 
         public static void InsertBildeToChosenKategorier_BildeToDb(string kategorinavn, byte[] imageData)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                Kategorier_Bilde kategorier_BildeBildeToAdd = new Kategorier_Bilde
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Kategorinavn = kategorinavn,
-                    Bilde = imageData
-                };
+                    Kategorier_Bilde kategorier_BildeBildeToAdd = new Kategorier_Bilde
+                    {
+                        Kategorinavn = kategorinavn,
+                        Bilde = imageData
+                    };
 
-                connection.Execute("[dbo].[PROCEDUREinsertBildeIntoKategorier_Bilde] @Kategorinavn, @Bilde", (kategorier_BildeBildeToAdd));
+                    connection.Execute("[dbo].[PROCEDUREinsertBildeIntoKategorier_Bilde] @Kategorinavn, @Bilde", (kategorier_BildeBildeToAdd));
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
 
         public static List<Kategorier_Bilde> GetBildeForKategoriFromDbKategorier_Bilde(string kategorinavn)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<Kategorier_Bilde>($"SELECT Kategorinavn, Bilde FROM [dbo].[Kategorier_Bilde] WHERE Kategorinavn = '{ kategorinavn }'").ToList();
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Kategorier_Bilde>($"SELECT Kategorinavn, Bilde FROM [dbo].[Kategorier_Bilde] WHERE Kategorinavn = '{ kategorinavn }'").ToList();
 
-                return output;
+                    return output;
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+                List<Kategorier_Bilde> list = new List<Kategorier_Bilde>();
+                return list;
             }
         }
 
         public static void DeleteKategorier_Bilde(string kategorinavn)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<Ressurs>($"delete FROM [dbo].[Kategorier_Bilde] WHERE (Kategorinavn = '{ kategorinavn }')");
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Ressurs>($"delete FROM [dbo].[Kategorier_Bilde] WHERE (Kategorinavn = '{ kategorinavn }')");
 
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
     }

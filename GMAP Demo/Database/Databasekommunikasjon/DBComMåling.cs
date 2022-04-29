@@ -12,57 +12,82 @@ namespace GMAP_Demo
     {
         public static List<Måling> ListAllMålingFromDb()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<Måling>("[dbo].[PROCEDUREListAllMålingFromDb]").ToList();
-                return output;
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Måling>("[dbo].[PROCEDUREListAllMålingFromDb]").ToList();
+                    return output;
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+                List<Måling> list = new List<Måling>();
+                return list;
             }
         }
 
         public static List<Måling> GetLatestValueMålingFromSelectedRessurs(int løpenummer_til_ressurs)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                var output = connection.Query<Måling>($"SELECT TOP(1) Verdi, Dato, Enhet FROM dbo.Måling WHERE Løpenummer_til_ressurs = {løpenummer_til_ressurs} ORDER BY Dato DESC;").ToList();
-
-                if (output.Count == 0)  // Metoden viser "Ingen måling" for de ressurser som ikke har målinger.
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Måling tomMåling = new Måling()
-                    {
-                        Navn_på_sensor = "",
-                        Verdi = 0,
-                        Løpenummer_til_ressurs = 0,
-                        Måling_id = 0,
-                        Dato = "Ingen måling",
-                        Enhet = ""
+                    var output = connection.Query<Måling>($"SELECT TOP(1) Verdi, Dato, Enhet FROM dbo.Måling WHERE Løpenummer_til_ressurs = {løpenummer_til_ressurs} ORDER BY Dato DESC;").ToList();
 
-                    };
-                    //tomMåling.Navn_på_sensor = "";
-                    //tomMåling.Verdi = 0;
-                    //tomMåling.Løpenummer_til_ressurs = 0;
-                    //tomMåling.Måling_id = 0;
-                    //tomMåling.Dato = "Ingen måling";
-                    //tomMåling.Enhet = "";
-                    output.Add(tomMåling);
+                    if (output.Count == 0)  // Metoden viser "Ingen måling" for de ressurser som ikke har målinger.
+                    {
+                        Måling tomMåling = new Måling()
+                        {
+                            Navn_på_sensor = "",
+                            Verdi = 0,
+                            Løpenummer_til_ressurs = 0,
+                            Måling_id = 0,
+                            Dato = "Ingen måling",
+                            Enhet = ""
+
+                        };
+                        //tomMåling.Navn_på_sensor = "";
+                        //tomMåling.Verdi = 0;
+                        //tomMåling.Løpenummer_til_ressurs = 0;
+                        //tomMåling.Måling_id = 0;
+                        //tomMåling.Dato = "Ingen måling";
+                        //tomMåling.Enhet = "";
+                        output.Add(tomMåling);
+                    }
+                    return output;
                 }
-                return output;
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+                List<Måling> list = new List<Måling>();
+                return list;
             }
         }
 
         public static void UpdateMåling(string navn_på_sensor, float verdi, int løpenummer_til_ressurs, string enhet)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+            try
             {
-                Måling UpdateMåling = new Måling
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                Navn_på_sensor = navn_på_sensor,
-                Verdi = verdi,
-                Løpenummer_til_ressurs = løpenummer_til_ressurs,
-                Enhet = enhet
-                };
+                    Måling UpdateMåling = new Måling
+                    {
+                        Navn_på_sensor = navn_på_sensor,
+                        Verdi = verdi,
+                        Løpenummer_til_ressurs = løpenummer_til_ressurs,
+                        Enhet = enhet
+                    };
 
-                connection.Execute("[dbo].[PROCEDUREinsertIntoMåling] @Navn_på_sensor, @Verdi, @Løpenummer_til_ressurs, @Enhet", (UpdateMåling));
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoMåling] @Navn_på_sensor, @Verdi, @Løpenummer_til_ressurs, @Enhet", (UpdateMåling));
 
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
 
