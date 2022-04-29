@@ -21,7 +21,7 @@ namespace GMAP_Demo
         {
             LastInnKategorier();
             LastInnTags();
-            LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", frmVisning.instance.MaxSikkerhetsklarering);
+            LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", Globalekonstanter.MaxSikkerhetsklarering);
         }
 
         private void lbTilgjengligKategori_MouseDoubleClick(object sender, MouseEventArgs e)

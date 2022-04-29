@@ -54,12 +54,12 @@ namespace GMAP_Demo
                             frmVertifiseringskode.instance.Close();
                         }
 
-                        if(InnloggetBruker.Sikkerhetsklarering > frmVisning.instance.MaxSikkerhetsklarering)
+                        if(InnloggetBruker.Sikkerhetsklarering > Globalekonstanter.MaxSikkerhetsklarering)
                         {
                             try
                             {
-                                DBComBruker.UpdateBruker_Sikkerhetsklarering(InnloggetBruker.BrukernavnInnlogget, frmVisning.instance.MaxSikkerhetsklarering);
-                                InnloggetBruker.Sikkerhetsklarering = frmVisning.instance.MaxSikkerhetsklarering;
+                                DBComBruker.UpdateBruker_Sikkerhetsklarering(InnloggetBruker.BrukernavnInnlogget, Globalekonstanter.MaxSikkerhetsklarering);
+                                InnloggetBruker.Sikkerhetsklarering = Globalekonstanter.MaxSikkerhetsklarering;
                             }
                             catch (Exception)
                             {

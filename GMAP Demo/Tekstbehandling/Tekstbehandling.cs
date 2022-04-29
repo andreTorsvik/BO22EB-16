@@ -307,7 +307,7 @@ namespace GMAP_Demo
             try
             {
                 int sjekk = Convert.ToInt32(sikkerhetsKlarering);
-                if (sjekk > frmVisning.instance.MaxSikkerhetsklarering)
+                if (sjekk > Globalekonstanter.MaxSikkerhetsklarering)
                 {
                     svar = "Sikkerhetsklarering er for høy";
                 }
