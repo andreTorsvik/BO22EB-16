@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label3 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             this.btnFjernPunktIListe = new System.Windows.Forms.Button();
             this.gbOmråde = new System.Windows.Forms.GroupBox();
             this.gbTag = new System.Windows.Forms.GroupBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.gbOmråde.SuspendLayout();
             this.gbTag.SuspendLayout();
             this.SuspendLayout();
@@ -361,6 +363,7 @@
             this.gbOmråde.TabIndex = 83;
             this.gbOmråde.TabStop = false;
             this.gbOmråde.Text = "Område";
+            this.toolTip1.SetToolTip(this.gbOmråde, "Test");
             // 
             // gbTag
             // 
@@ -381,6 +384,10 @@
             this.gbTag.TabIndex = 83;
             this.gbTag.TabStop = false;
             this.gbTag.Text = "Tag";
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipTitle = "Hjelp";
             // 
             // frm_R_LeggTilOmråde
             // 
@@ -436,5 +443,6 @@
         private System.Windows.Forms.Button btnFjernPunktIListe;
         private System.Windows.Forms.GroupBox gbOmråde;
         private System.Windows.Forms.GroupBox gbTag;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
