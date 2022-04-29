@@ -137,9 +137,13 @@ namespace GMAP_Demo
                 }
                 //måling
                 Måling NyesteMåling = DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0];
-                txtMåling.Text = NyesteMåling.Verdi.ToString();
-                txtMålingDato.Text = NyesteMåling.Dato;
-                txtEnhetMåling.Text = NyesteMåling.Enhet;
+                if(NyesteMåling != null)
+                {
+                    txtMåling.Text = NyesteMåling.Verdi.ToString();
+                    txtMålingDato.Text = NyesteMåling.Dato;
+                    txtEnhetMåling.Text = NyesteMåling.Enhet;
+                }
+                
 
                 //txtMåling.Text = Convert.ToString(DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0].Verdi);
                 //txtMålingDato.Text = Convert.ToString(DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0].Dato);
