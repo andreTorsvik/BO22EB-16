@@ -16,10 +16,9 @@ namespace GMAP_Demo
         //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
         
-        private Color knapp_trykket = Color.FromArgb(46, 51, 73);
+
         public PointLatLng DoubleClick_punkt;
         public static frmVisning instance;
-        public int MaxSikkerhetsklarering = 3; // må vurdere å flytte
 
         public frmVisning()
         {
@@ -38,7 +37,7 @@ namespace GMAP_Demo
             FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
 
             //endre farge
-            btnFilter.BackColor = knapp_trykket;
+            btnFilter.BackColor = Globalekonstanter.knapp_trykket;
 
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
@@ -79,7 +78,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnPosisjon.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnPosisjon.BackColor = knapp_trykket;
+                btnPosisjon.BackColor = Globalekonstanter.knapp_trykket;
 
                 FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
 
@@ -100,7 +99,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnFilter.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnFilter.BackColor = knapp_trykket;
+                btnFilter.BackColor = Globalekonstanter.knapp_trykket;
 
                 FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
 
@@ -190,8 +189,11 @@ namespace GMAP_Demo
         void AlleKnapperTilStandarfarge()
         {
             //setter alle nødvendige knappen til standarfarge
-            btnFilter.BackColor = Color.FromArgb(24, 30, 54);
-            btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
+            btnFilter.BackColor = Globalekonstanter.StandarFargeKnapp;
+            btnPosisjon.BackColor = Globalekonstanter.StandarFargeKnapp;
+            //btnFilter.BackColor = Color.FromArgb(24, 30, 54);
+            //btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -315,6 +317,11 @@ namespace GMAP_Demo
         }
 
         private void PnlFormLoader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
