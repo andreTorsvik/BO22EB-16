@@ -277,6 +277,7 @@
             // 
             // lbPunkter
             // 
+            this.lbPunkter.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lbPunkter.FormattingEnabled = true;
             this.lbPunkter.ItemHeight = 16;
             this.lbPunkter.Location = new System.Drawing.Point(5, 334);
@@ -286,6 +287,7 @@
             // 
             // txtNrPunkt
             // 
+            this.txtNrPunkt.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txtNrPunkt.Location = new System.Drawing.Point(118, 302);
             this.txtNrPunkt.Name = "txtNrPunkt";
             this.txtNrPunkt.ReadOnly = true;

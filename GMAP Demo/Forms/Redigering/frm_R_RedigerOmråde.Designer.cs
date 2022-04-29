@@ -105,14 +105,17 @@
             // 
             // txtNrPunkt
             // 
+            this.txtNrPunkt.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txtNrPunkt.Location = new System.Drawing.Point(116, 302);
             this.txtNrPunkt.Name = "txtNrPunkt";
+            this.txtNrPunkt.ReadOnly = true;
             this.txtNrPunkt.Size = new System.Drawing.Size(28, 22);
             this.txtNrPunkt.TabIndex = 77;
             this.txtNrPunkt.Text = "0";
             // 
             // lbPunkter
             // 
+            this.lbPunkter.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lbPunkter.FormattingEnabled = true;
             this.lbPunkter.ItemHeight = 16;
             this.lbPunkter.Location = new System.Drawing.Point(5, 333);

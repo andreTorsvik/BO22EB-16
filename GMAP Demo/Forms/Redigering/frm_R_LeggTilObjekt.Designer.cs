@@ -381,7 +381,6 @@
             this.cbOmråde.TabIndex = 86;
             this.cbOmråde.Text = "Kan legge inni eksisterende område";
             this.cbOmråde.UseVisualStyleBackColor = true;
-            this.cbOmråde.CheckedChanged += new System.EventHandler(this.cbOmråde_CheckedChanged);
             // 
             // frm_R_LeggTilObjekt
             // 
