@@ -10,7 +10,7 @@ namespace GMAP_Demo
     public partial class frmInnlogging : Form
     {
         public static frmInnlogging instance;
-        public List<Bruker> listBruker;
+
         public frmInnlogging()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace GMAP_Demo
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            listBruker = new List<Bruker>();
+            List<Bruker> listBruker = new List<Bruker>();
 
             string Epost = tbUserName.Text.ToLower();
             string passord = tbPassword.Text;
