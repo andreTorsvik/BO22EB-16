@@ -295,10 +295,5 @@ namespace GMAP_Demo
                 timer.Change(0, 10000); // Starter timeren og simulering av måling gjentaes hvert 10sek.
             }
         }
-
-        private void btnTimerMåling_MouseHover(object sender, EventArgs e)
-        {
-            ttTimerMåling.Show("Når simulering av målinger er aktiv blir sensorene som som har aktive målinger oppdatert med nye verdier hvert 10. sekund. Simulering gjøres ved at nye data sendes til databasen og programmet henter verdiene fra databasen.", btnTimerMåling);
-        }
     }
 }

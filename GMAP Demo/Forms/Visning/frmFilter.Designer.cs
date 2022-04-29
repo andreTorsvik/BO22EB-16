@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFilter));
             this.label3 = new System.Windows.Forms.Label();
             this.txtNavn = new System.Windows.Forms.TextBox();
             this.lblNavn = new System.Windows.Forms.Label();
@@ -86,7 +87,7 @@
             this.label3.Location = new System.Drawing.Point(9, 7);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 55);
+            this.label3.Size = new System.Drawing.Size(94, 37);
             this.label3.TabIndex = 3;
             this.label3.Text = "Filter";
             // 
@@ -311,7 +312,7 @@
             this.cbViseOmråde.Location = new System.Drawing.Point(15, 193);
             this.cbViseOmråde.Margin = new System.Windows.Forms.Padding(2);
             this.cbViseOmråde.Name = "cbViseOmråde";
-            this.cbViseOmråde.Size = new System.Drawing.Size(100, 21);
+            this.cbViseOmråde.Size = new System.Drawing.Size(93, 17);
             this.cbViseOmråde.TabIndex = 29;
             this.cbViseOmråde.Text = "Skjule område";
             this.cbViseOmråde.UseVisualStyleBackColor = true;
@@ -350,7 +351,7 @@
             this.cbAND.Location = new System.Drawing.Point(192, 214);
             this.cbAND.Margin = new System.Windows.Forms.Padding(2);
             this.cbAND.Name = "cbAND";
-            this.cbAND.Size = new System.Drawing.Size(56, 21);
+            this.cbAND.Size = new System.Drawing.Size(49, 17);
             this.cbAND.TabIndex = 36;
             this.cbAND.Text = "AND";
             this.cbAND.UseVisualStyleBackColor = true;
@@ -362,7 +363,7 @@
             this.cbOR.Location = new System.Drawing.Point(193, 193);
             this.cbOR.Margin = new System.Windows.Forms.Padding(2);
             this.cbOR.Name = "cbOR";
-            this.cbOR.Size = new System.Drawing.Size(49, 21);
+            this.cbOR.Size = new System.Drawing.Size(42, 17);
             this.cbOR.TabIndex = 35;
             this.cbOR.Text = "OR";
             this.cbOR.UseVisualStyleBackColor = true;
@@ -413,6 +414,7 @@
             this.btnKategoriLeggTilAlle.Name = "btnKategoriLeggTilAlle";
             this.btnKategoriLeggTilAlle.Size = new System.Drawing.Size(56, 24);
             this.btnKategoriLeggTilAlle.TabIndex = 31;
+            this.ttTimerMåling.SetToolTip(this.btnKategoriLeggTilAlle, "test123");
             this.btnKategoriLeggTilAlle.UseVisualStyleBackColor = true;
             this.btnKategoriLeggTilAlle.Click += new System.EventHandler(this.btnKategoriLeggTilAlle_Click);
             // 
@@ -541,9 +543,9 @@
             this.btnTimerMåling.Size = new System.Drawing.Size(291, 19);
             this.btnTimerMåling.TabIndex = 38;
             this.btnTimerMåling.Text = "Simulering av målinger inaktiv";
+            this.ttTimerMåling.SetToolTip(this.btnTimerMåling, resources.GetString("btnTimerMåling.ToolTip"));
             this.btnTimerMåling.UseVisualStyleBackColor = true;
             this.btnTimerMåling.Click += new System.EventHandler(this.btnTimerMåling_Click);
-            this.btnTimerMåling.MouseHover += new System.EventHandler(this.btnTimerMåling_MouseHover);
             // 
             // btnNesteRessurs
             // 
@@ -602,7 +604,7 @@
             // 
             // ttTimerMåling
             // 
-            this.ttTimerMåling.ToolTipTitle = "Simulering av målinger";
+            this.ttTimerMåling.ToolTipTitle = "Hjelp:";
             // 
             // frmFilter
             // 

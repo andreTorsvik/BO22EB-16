@@ -120,4 +120,11 @@
   <metadata name="ttTimerMåling.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="ttTimerMåling.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="btnTimerMåling.ToolTip" xml:space="preserve">
+    <value>Når simulering av målinger er aktiv blir sensorene som som har aktive målinger oppdatert med nye verdier hvert 10. sekund. 
+Simulering gjøres ved at nye data sendes til databasen og programmet henter verdiene fra databasen.</value>
+  </data>
 </root>
