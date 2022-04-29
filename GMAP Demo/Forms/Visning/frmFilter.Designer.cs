@@ -636,26 +636,26 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox txtNavn;
+        private System.Windows.Forms.TextBox txtNavn;
         private System.Windows.Forms.Label lblNavn;
         private System.Windows.Forms.Label lblKategori;
         private System.Windows.Forms.Label lblDato_opprettet;
         private System.Windows.Forms.Label lblOpprettetAvBruker;
         private System.Windows.Forms.Label lblSikkerhetsklarering;
         private System.Windows.Forms.Label lblKommentar;
-        public System.Windows.Forms.TextBox txtKategori;
-        public System.Windows.Forms.TextBox txtDato_opprettet;
-        public System.Windows.Forms.TextBox txtOpprettetAvBruker;
-        public System.Windows.Forms.TextBox txtSikkerhetsklarering;
-        public System.Windows.Forms.TextBox txtKommentar;
+        private System.Windows.Forms.TextBox txtKategori;
+        private System.Windows.Forms.TextBox txtDato_opprettet;
+        private System.Windows.Forms.TextBox txtOpprettetAvBruker;
+        private System.Windows.Forms.TextBox txtSikkerhetsklarering;
+        private System.Windows.Forms.TextBox txtKommentar;
         private System.Windows.Forms.ListBox lbKategorierSkjult;
         private System.Windows.Forms.Label lblKategorierSkjult;
         private System.Windows.Forms.Label lblKategorierVises;
         private System.Windows.Forms.ListBox lbKategorierVises;
-        public System.Windows.Forms.ListBox lbTagsSkjult;
-        public System.Windows.Forms.Label lblTagsSkjult;
-        public System.Windows.Forms.ListBox lbTagsVises;
-        public System.Windows.Forms.Label lblTagsVises;
+        private System.Windows.Forms.ListBox lbTagsSkjult;
+        private System.Windows.Forms.Label lblTagsSkjult;
+        private System.Windows.Forms.ListBox lbTagsVises;
+        private System.Windows.Forms.Label lblTagsVises;
         private System.Windows.Forms.CheckBox cbViseOmråde;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnTagFjernAlle;
@@ -663,8 +663,8 @@
         private System.Windows.Forms.Button btnTagLeggTilAlle;
         private System.Windows.Forms.Button btnKategoriLeggTilAlle;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.ListBox lbTags;
-        public System.Windows.Forms.TextBox txtMåling;
+        private System.Windows.Forms.ListBox lbTags;
+        private System.Windows.Forms.TextBox txtMåling;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnForrigeRessurs;

@@ -11,6 +11,7 @@ namespace GMAP_Demo
     {
         public static frmInnlogging instance;
         public List<Bruker> listBruker;
+
         public frmInnlogging()
         {
             InitializeComponent();

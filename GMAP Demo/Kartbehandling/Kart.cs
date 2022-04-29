@@ -394,6 +394,7 @@ namespace GMAP_Demo
             frmVisning.instance.map.Overlays.Add(routes);
             frmVisning.instance.map.Position = fra;
 
+
             frmPosisjon.instance.LbDistanse.Text = route.Distance.ToString() + " Km";
         }
 
@@ -487,7 +488,8 @@ namespace GMAP_Demo
                 {
                     frmVisning.instance.map.Overlays.RemoveAt(i);
                     reff(MuligKart.Visning);
-                    frmPosisjon.instance.LbDistanse.Text = "[Distanse i Km]";
+                    if( frmPosisjon.instance != null)
+                        frmPosisjon.instance.LbDistanse.Text = "[Distanse i Km]";
                     break;
                 }
             }
