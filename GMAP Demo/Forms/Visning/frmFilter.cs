@@ -17,10 +17,7 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
-        }
 
-        private void frmFilter_Load(object sender, EventArgs e)
-        {
             lbKategorierVises.DataSource = Kart.kategoriListeVises;
             lbKategorierVises.DisplayMember = "Kategorinavn";
             lbKategorierSkjult.DataSource = Kart.kategoriListeSkjult;
@@ -29,6 +26,11 @@ namespace GMAP_Demo
             lbTagsVises.DisplayMember = "Tag";
             lbTagsSkjult.DataSource = Kart.tag_ListeSkjult;
             lbTagsSkjult.DisplayMember = "Tag";
+        }
+
+        private void frmFilter_Load(object sender, EventArgs e)
+        {
+            
 
             cbOR.Checked = true;
         }
