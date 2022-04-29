@@ -66,7 +66,7 @@ namespace GMAP_Demo
         {
             if (lbVenterPåGodkjenning.SelectedIndex != -1)
             {
-                if (InnloggetBruker.Sikkerhetsklarering == frmVisning.instance.MaxSikkerhetsklarering)
+                if (InnloggetBruker.Sikkerhetsklarering == Globalekonstanter.MaxSikkerhetsklarering)
                 {
                     string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
                     string TilEpost = HentEpostFraInfo(BrukerInfo);
@@ -134,7 +134,7 @@ namespace GMAP_Demo
         {
             if (lbVenterPåGodkjenning.SelectedIndex != -1)
             {
-                if (InnloggetBruker.Sikkerhetsklarering == frmVisning.instance.MaxSikkerhetsklarering)
+                if (InnloggetBruker.Sikkerhetsklarering == Globalekonstanter.MaxSikkerhetsklarering)
                 {
                     //finn mailen
                     string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
@@ -201,7 +201,7 @@ namespace GMAP_Demo
 
                         int klarering = brukerListe[0].Sikkerhetsklarering;
 
-                        if (brukerListe[0].Sikkerhetsklarering < frmVisning.instance.MaxSikkerhetsklarering)
+                        if (brukerListe[0].Sikkerhetsklarering < Globalekonstanter.MaxSikkerhetsklarering)
                         {
                             klarering++;
                         }
@@ -262,9 +262,9 @@ namespace GMAP_Demo
                             if (nedgrader)
                             {
                                 bool Nedgrader = false;
-                                if (InnloggetBruker.Sikkerhetsklarering == frmVisning.instance.MaxSikkerhetsklarering)
+                                if (InnloggetBruker.Sikkerhetsklarering == Globalekonstanter.MaxSikkerhetsklarering)
                                 {
-                                    var antallMaksSikkerhetsklaering = DBComBruker.ListAllBrukerFromDbWithMaksSikkerhetsklarering(frmVisning.instance.MaxSikkerhetsklarering);
+                                    var antallMaksSikkerhetsklaering = DBComBruker.ListAllBrukerFromDbWithMaksSikkerhetsklarering(Globalekonstanter.MaxSikkerhetsklarering);
 
                                     if (antallMaksSikkerhetsklaering.Count > 1) // må være minst 2
                                     {
@@ -291,7 +291,7 @@ namespace GMAP_Demo
 
                             }
                         }
-                        else if (brukerListe[0].Sikkerhetsklarering >= frmVisning.instance.MaxSikkerhetsklarering-1) // 2
+                        else if (brukerListe[0].Sikkerhetsklarering >= Globalekonstanter.MaxSikkerhetsklarering-1) // 2
                         {
                             klarering--;
                             DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
@@ -322,8 +322,8 @@ namespace GMAP_Demo
                 var InnloggetBruker = DBComBruker.ListBrukerInfoFromDb(Innlogget);
                 var AktuellBruker = DBComBruker.ListBrukerInfoFromDb(Aktuell);
 
-                if (InnloggetBruker[0].Sikkerhetsklarering > frmVisning.instance.MaxSikkerhetsklarering)
-                    InnloggetBruker[0].Sikkerhetsklarering = frmVisning.instance.MaxSikkerhetsklarering;
+                if (InnloggetBruker[0].Sikkerhetsklarering > Globalekonstanter.MaxSikkerhetsklarering)
+                    InnloggetBruker[0].Sikkerhetsklarering = Globalekonstanter.MaxSikkerhetsklarering;
 
                 if (InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
                 {
@@ -372,7 +372,7 @@ namespace GMAP_Demo
             if (lbListeOverbrukere.SelectedIndex != -1)
             {
                 //forløpi kun de med sikkerhetsklaering 3 som kan fjerne 
-                if (InnloggetBruker.Sikkerhetsklarering == frmVisning.instance.MaxSikkerhetsklarering)
+                if (InnloggetBruker.Sikkerhetsklarering == Globalekonstanter.MaxSikkerhetsklarering)
                 {
 
                     //finn mailen
@@ -415,7 +415,7 @@ namespace GMAP_Demo
                 {
                     string newLine = Environment.NewLine;
                     MessageBox.Show(string.Format("Du Må ha høyeste sikkerhetsklarering: {0}." + newLine + "Du har: {1}",
-                        frmVisning.instance.MaxSikkerhetsklarering.ToString(), InnloggetBruker.Sikkerhetsklarering.ToString()));
+                        Globalekonstanter.MaxSikkerhetsklarering.ToString(), InnloggetBruker.Sikkerhetsklarering.ToString()));
                 }
             }
 

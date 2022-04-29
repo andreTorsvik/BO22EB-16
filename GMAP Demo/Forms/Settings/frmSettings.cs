@@ -7,18 +7,18 @@ namespace GMAP_Demo
     public partial class frmSettings : Form
     {
         public static frmSettings instance;
-        private Color knapp_trykket;
+        //private Color knapp_trykket;
         public double lng;
         public double lat;
         public frmSettings()
         {
             InitializeComponent();
             instance = this;
-            knapp_trykket = Color.FromArgb(46, 51, 73);
+
             //sette Blåpanel til vesntre for Posisjonknapp 
             FlyttNavigasjonsPanel(btnLoggUt.Height, btnLoggUt.Top);
 
-            btnLoggUt.BackColor = knapp_trykket;
+            btnLoggUt.BackColor = Globalekonstanter.knapp_trykket;
 
             this.PnlFormLoader.Controls.Clear();
             frm_S_LoggUt frm_S_LoggInn_vrb = new frm_S_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -45,7 +45,7 @@ namespace GMAP_Demo
 
         void AlleKnapperTilStandarfarge()
         {
-            Color StandarFarge = Color.FromArgb(24, 30, 54);
+            Color StandarFarge = Globalekonstanter.StandarFargeKnapp;
 
             btnLoggUt.BackColor = StandarFarge;
             btnStartPosisjon.BackColor = StandarFarge;
@@ -59,7 +59,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnLoggUt.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnLoggUt.BackColor = knapp_trykket;
+                btnLoggUt.BackColor = Globalekonstanter.knapp_trykket;
 
                 FlyttNavigasjonsPanel(btnLoggUt.Height, btnLoggUt.Top);
 
@@ -76,7 +76,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnStartPosisjon.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnStartPosisjon.BackColor = knapp_trykket;
+                btnStartPosisjon.BackColor = Globalekonstanter.knapp_trykket;
 
                 FlyttNavigasjonsPanel(btnStartPosisjon.Height, btnStartPosisjon.Top);
 
@@ -93,7 +93,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnAdmin.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnAdmin.BackColor = knapp_trykket;
+                btnAdmin.BackColor = Globalekonstanter.knapp_trykket;
 
                 FlyttNavigasjonsPanel(btnAdmin.Height, btnAdmin.Top);
 
@@ -110,7 +110,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnFjernKategori.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnFjernKategori.BackColor = knapp_trykket;
+                btnFjernKategori.BackColor = Globalekonstanter.knapp_trykket;
 
                 FlyttNavigasjonsPanel(btnFjernKategori.Height, btnFjernKategori.Top);
 

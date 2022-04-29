@@ -108,9 +108,9 @@
     <Compile Include="Database\DataTypes\Tag_Ressurs.cs" />
     <Compile Include="Database\DataTypes\Punkter_område.cs" />
     <Compile Include="Database\DataTypes\Ressurs.cs" />
-    <Compile Include="FellesMetoder.cs" />
-    <Compile Include="FilBehandeling.cs" />
-    <Compile Include="FilterBehandling.cs" />
+    <Compile Include="Global\FellesMetoder.cs" />
+    <Compile Include="Global\FilBehandeling.cs" />
+    <Compile Include="Global\FilterBehandling.cs" />
     <Compile Include="Forms\Innlogging\frmInnlogging.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,8 +225,9 @@
     <Compile Include="Forms\Innlogging\frmVertifiseringskode.Designer.cs">
       <DependentUpon>frmVertifiseringskode.cs</DependentUpon>
     </Compile>
-    <Compile Include="GlobaleLister.cs" />
-    <Compile Include="InnloggetBruker.cs" />
+    <Compile Include="Global\Globalekonstanter.cs" />
+    <Compile Include="Global\GlobaleLister.cs" />
+    <Compile Include="Global\InnloggetBruker.cs" />
     <Compile Include="Kartbehandling\Kart.cs" />
     <Compile Include="Kartbehandling\Kartbehandlingsmetoder.cs" />
     <Compile Include="Database\DataTypes\log_feil.cs" />
@@ -341,6 +342,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\arrow_24px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-trash-can-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-change-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-40 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-40 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

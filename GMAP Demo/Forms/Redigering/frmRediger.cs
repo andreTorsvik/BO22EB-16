@@ -13,7 +13,6 @@ namespace GMAP_Demo
         //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
 
-        private Color knapp_trykket;
         public PointLatLng DoubleClick_punkt; //tror denne kan bli flyttet inn i metoedn 
         public static frmRediger instance;
 
@@ -21,11 +20,10 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
-            knapp_trykket = Color.FromArgb(46, 51, 73);
 
             //sette oransjePanelet til Posisjonknapp
             FlyttNavigasjonsPanel(btnObjekt.Height, btnObjekt.Top);
-            btnObjekt.BackColor = knapp_trykket;
+            btnObjekt.BackColor = Globalekonstanter.knapp_trykket;
 
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
@@ -53,7 +51,7 @@ namespace GMAP_Demo
         }
         void AlleKnapperTilStandarfarge()
         {
-            Color StandarFarge = Color.FromArgb(24, 30, 54);
+            Color StandarFarge = Globalekonstanter.StandarFargeKnapp;
 
             btnLeggTilBilde.BackColor = StandarFarge;
             btnObjekt.BackColor = StandarFarge;
@@ -68,7 +66,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnObjekt.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnObjekt.BackColor = knapp_trykket;
+                btnObjekt.BackColor = Globalekonstanter.knapp_trykket;
 
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnObjekt.Height, btnObjekt.Top);
@@ -90,7 +88,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnOmråde.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnOmråde.BackColor = knapp_trykket;
+                btnOmråde.BackColor = Globalekonstanter.knapp_trykket;
 
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnOmråde.Height, btnOmråde.Top);
@@ -117,7 +115,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnRediger_objekt.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnRediger_objekt.BackColor = knapp_trykket;
+                btnRediger_objekt.BackColor = Globalekonstanter.knapp_trykket;
 
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnRediger_objekt.Height, btnRediger_objekt.Top);
@@ -144,7 +142,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnRedigerOmråde.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnRedigerOmråde.BackColor = knapp_trykket;
+                btnRedigerOmråde.BackColor = Globalekonstanter.knapp_trykket;
 
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnRedigerOmråde.Height, btnRedigerOmråde.Top);
@@ -167,7 +165,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnLeggTilBilde.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnLeggTilBilde.BackColor = knapp_trykket;
+                btnLeggTilBilde.BackColor = Globalekonstanter.knapp_trykket;
 
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnLeggTilBilde.Height, btnLeggTilBilde.Top);
@@ -190,7 +188,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnFjern.Top)
             {
                 AlleKnapperTilStandarfarge();
-                btnFjern.BackColor = knapp_trykket;
+                btnFjern.BackColor = Globalekonstanter.knapp_trykket;
 
                 //Flytte oransjePanelet til rett plass
                 FlyttNavigasjonsPanel(btnFjern.Height, btnFjern.Top);
