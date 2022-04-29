@@ -223,6 +223,7 @@ namespace GMAP_Demo
         {
             if (pointLatLngs.Count > 0)
             {
+                Kart.FjernHjelpeOmråde();
                 Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
                 pointLatLngs.Clear();
                 txtNrPunkt.Text = pointLatLngs.Count.ToString();

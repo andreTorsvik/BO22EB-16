@@ -76,7 +76,7 @@ namespace GMAP_Demo
 
         public static void OppdaterTag_Liste()
         {
-            tag_ListeVises.Clear();
+            if(tag_ListeVises.Count > 0) tag_ListeVises.Clear();
 
             HashSet<string> tag_ListeAlle = new HashSet<string>();
             tag_ListeAlle = FellesMetoder.FåAlleTags();
