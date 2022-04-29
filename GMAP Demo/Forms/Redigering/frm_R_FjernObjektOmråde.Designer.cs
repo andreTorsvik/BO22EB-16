@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.btnSøk = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtLøpenumemr = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,16 +52,6 @@
             this.label3.Size = new System.Drawing.Size(116, 46);
             this.label3.TabIndex = 3;
             this.label3.Text = "Fjern";
-            // 
-            // btnSøk
-            // 
-            this.btnSøk.Enabled = false;
-            this.btnSøk.Location = new System.Drawing.Point(255, 434);
-            this.btnSøk.Name = "btnSøk";
-            this.btnSøk.Size = new System.Drawing.Size(104, 28);
-            this.btnSøk.TabIndex = 52;
-            this.btnSøk.Text = "Søk";
-            this.btnSøk.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -182,7 +171,6 @@
             this.Controls.Add(this.gbObjekt);
             this.Controls.Add(this.lableSlettet);
             this.Controls.Add(this.btnFjern);
-            this.Controls.Add(this.btnSøk);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_R_FjernObjektOmråde";
@@ -198,7 +186,6 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnSøk;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtLøpenumemr;
         private System.Windows.Forms.Label label1;

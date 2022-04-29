@@ -21,7 +21,7 @@ namespace GMAP_Demo
         private void frm_S_BrukerInfo_Load(object sender, EventArgs e)
         {
             string newLine = Environment.NewLine;
-            labelInfo.Text = string.Format("Du må fjerne alle forkomster av \"kategorien\"" + newLine + "før den kommer opp her");
+            labelInfo.Text = string.Format("Du må fjerne alle forkomster av \"kategorien\"" + newLine + "før den kommer opp her" + newLine + "NB: Er ikke sikkert du har tilgang til alle objektene på grunn av sikkerhetsklarering");
 
             OppdaterKategoriListe();
         }

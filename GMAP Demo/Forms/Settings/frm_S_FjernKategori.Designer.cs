@@ -80,7 +80,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Location = new System.Drawing.Point(4, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(528, 344);
+            this.groupBox1.Size = new System.Drawing.Size(595, 344);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fjern Kategori";
@@ -89,7 +89,7 @@
             // labelInfo
             // 
             this.labelInfo.AutoSize = true;
-            this.labelInfo.Location = new System.Drawing.Point(13, 32);
+            this.labelInfo.Location = new System.Drawing.Point(8, 18);
             this.labelInfo.Name = "labelInfo";
             this.labelInfo.Size = new System.Drawing.Size(70, 16);
             this.labelInfo.TabIndex = 9;
