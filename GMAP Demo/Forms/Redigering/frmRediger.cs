@@ -66,9 +66,9 @@ namespace GMAP_Demo
             PnlFormLoader.BackColor = ThemeDesign.colorTertiaryBackground;
 
             btnZoomPluss.ForeColor = ThemeDesign.colorOrange;
-            btnZoomPluss.BackColor = ThemeDesign.colorGray;
+            btnZoomPluss.BackColor = ThemeDesign.colorBackground;
             btnZoomMinus.ForeColor = ThemeDesign.colorOrange;
-            btnZoomMinus.BackColor = ThemeDesign.colorGray;
+            btnZoomMinus.BackColor = ThemeDesign.colorBackground;
         }
 
         private void frmRediger_Load(object sender, EventArgs e)
