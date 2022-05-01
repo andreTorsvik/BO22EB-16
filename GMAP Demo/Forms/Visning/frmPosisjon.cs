@@ -16,6 +16,56 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+            lblTitle.ForeColor = ThemeDesign.colorBlue;
+
+            gbPosisjon.ForeColor = ThemeDesign.colorLabel;
+            gbPosisjon.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblLand.ForeColor = ThemeDesign.colorLabel;
+            lblByKommune.ForeColor = ThemeDesign.colorLabel;
+            lblAdresse.ForeColor = ThemeDesign.colorLabel;
+            txtLand.ForeColor = ThemeDesign.colorLabel;
+            txtLand.BackColor = ThemeDesign.colorGray;
+            txtByKommune.ForeColor = ThemeDesign.colorLabel;
+            txtByKommune.BackColor = ThemeDesign.colorGray;
+            txtAdresse.ForeColor = ThemeDesign.colorLabel;
+            txtAdresse.BackColor = ThemeDesign.colorGray;
+            btnSøk.ForeColor = ThemeDesign.colorLabel;
+            btnSøk.BackColor = ThemeDesign.colorGray;
+
+            gbKoordinater.ForeColor = ThemeDesign.colorLabel;
+            gbKoordinater.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblBasertPå.ForeColor = ThemeDesign.colorLabel;
+            lblLat.ForeColor = ThemeDesign.colorLabel;
+            lblLong.ForeColor = ThemeDesign.colorLabel;
+            txtLat.ForeColor = ThemeDesign.colorLabel;
+            txtLat.BackColor = ThemeDesign.colorGray6;
+            txtLong.ForeColor = ThemeDesign.colorLabel;
+            txtLong.BackColor = ThemeDesign.colorGray6;
+
+            gbRute.ForeColor = ThemeDesign.colorLabel;
+            gbRute.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblBasertPå2.ForeColor = ThemeDesign.colorLabel;
+            lblFra.ForeColor = ThemeDesign.colorLabel;
+            lblTil.ForeColor = ThemeDesign.colorLabel;
+            lblDistanse.ForeColor = ThemeDesign.colorLabel;
+            btnStart.ForeColor = ThemeDesign.colorLabel;
+            btnStart.BackColor = ThemeDesign.colorGray;
+            btnSlutt.ForeColor = ThemeDesign.colorLabel;
+            btnSlutt.BackColor = ThemeDesign.colorGray;
+            btnFinnRute.ForeColor = ThemeDesign.colorLabel;
+            btnFinnRute.BackColor =  ThemeDesign.colorGray;
+            btnFjernRute.ForeColor = ThemeDesign.colorLabel;
+            btnFjernRute.BackColor = ThemeDesign.colorGray;
+            tbFra.ForeColor = ThemeDesign.colorLabel;
+            tbFra.BackColor = ThemeDesign.colorGray;
+            tbTil.ForeColor = ThemeDesign.colorLabel;
+            tbTil.BackColor = ThemeDesign.colorGray;
         }
 
         private void btnSøk_Click(object sender, EventArgs e)
@@ -46,9 +96,9 @@ namespace GMAP_Demo
                 }
 
                 if (LAdresse != null)
-                    txtFra.Text = "Addresse: \n-----------------" + string.Join(", ", LAdresse.ToArray());
+                    tbFra.Text = "Addresse: \n-----------------" + string.Join(", ", LAdresse.ToArray());
                 else
-                    txtFra.Text = "Unable to load Address";
+                    tbFra.Text = "Unable to load Address";
             }
            
         }
@@ -70,9 +120,9 @@ namespace GMAP_Demo
                 }
 
                 if (LAdresse != null)
-                    txtTil.Text = "Addresse: \n-----------------" + string.Join(", ", LAdresse.ToArray());
+                    tbTil.Text = "Addresse: \n-----------------" + string.Join(", ", LAdresse.ToArray());
                 else
-                    txtTil.Text = "Unable to load Address";
+                    tbTil.Text = "Unable to load Address";
             }
         }
 

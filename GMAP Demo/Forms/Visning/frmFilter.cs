@@ -31,7 +31,7 @@ namespace GMAP_Demo
 
         private void SetTheme()
         {
-            this.BackColor = ThemeDesign.colorBackground;
+            instance.BackColor = ThemeDesign.colorBackground;
             
             lblTitle.ForeColor = ThemeDesign.colorBlue;
 
