@@ -77,14 +77,33 @@ namespace GMAP_Demo
         public static void OppdaterTag_Liste()
         {
             if (tag_ListeVises.Count > 0) tag_ListeVises.Clear();
+            //if (tag_ListeSkjult.Count > 0) tag_ListeSkjult.Clear();
 
-            HashSet<string> tag_ListeAlle = new HashSet<string>();
+                HashSet<string> tag_ListeAlle = new HashSet<string>();
             tag_ListeAlle = FellesMetoder.FåAlleTags();
 
-            foreach (var item in tag_ListeAlle)
+            List<string> ListsjultTags = tag_ListeSkjult.ToList();
+
+            List<string> ListeVisteTags = tag_ListeAlle.Except(ListsjultTags).ToList();
+
+            //oppdatere TagVisteListe
+            foreach (var item in ListeVisteTags)
             {
                 tag_ListeVises.Add(item);
             }
+
+            //ListsjultTags = tag_ListeAlle.Except(ListeVisteTags).ToList();
+
+            //if(ListsjultTags.Count != 0)
+            //{
+            //    foreach (var item in ListsjultTags)
+            //    {
+            //        tag_ListeSkjult.Add(item);
+            //    }
+            //}
+            
+
+            
         }
 
 

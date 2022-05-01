@@ -31,6 +31,7 @@ namespace GMAP_Demo
         private void frmFilter_Load(object sender, EventArgs e)
         {
             filterOR = true;
+            if(GlobaleLister.LRessurs.Count > 0) txtAntallObjekter.Text = GlobaleLister.LRessurs.Count.ToString();
         }
 
         private void lbKategorierVises_DoubleClick(object sender, EventArgs e)
