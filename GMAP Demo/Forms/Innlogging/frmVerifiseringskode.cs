@@ -24,7 +24,8 @@ namespace GMAP_Demo
         {
             instance.BackColor = ThemeDesign.colorBackground;
             lblSkrivInn.ForeColor = ThemeDesign.colorBlue;
-            tbKode.BackColor = ThemeDesign.colorGray6;
+            tbKode.ForeColor = ThemeDesign.colorLabel;
+            tbKode.BackColor = ThemeDesign.colorGray;
             btnVerifiser.ForeColor = ThemeDesign.colorBackground;
             btnVerifiser.BackColor = ThemeDesign.colorBlue;
             btnAvbryt.ForeColor = ThemeDesign.colorBackground;

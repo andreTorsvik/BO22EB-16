@@ -25,12 +25,18 @@ namespace GMAP_Demo
             lblPassord.ForeColor = ThemeDesign.colorBlue;
             lblBekreftPassord.ForeColor = ThemeDesign.colorBlue;
 
-            txtFornavn.BackColor = ThemeDesign.colorGray6;
-            txtEtternavn.BackColor = ThemeDesign.colorGray6;
-            txtTelefonnummer.BackColor = ThemeDesign.colorGray6;
-            txtEpost.BackColor = ThemeDesign.colorGray6;
-            txtPassord.BackColor = ThemeDesign.colorGray6;
-            txtBekreftPassord.BackColor = ThemeDesign.colorGray6;
+            tbFornavn.ForeColor = ThemeDesign.colorLabel;
+            tbFornavn.BackColor = ThemeDesign.colorGray;
+            tbEtternavn.ForeColor = ThemeDesign.colorLabel;
+            tbEtternavn.BackColor = ThemeDesign.colorGray;
+            tbTelefonnummer.ForeColor = ThemeDesign.colorLabel;
+            tbTelefonnummer.BackColor = ThemeDesign.colorGray;
+            tbEpost.ForeColor = ThemeDesign.colorLabel;
+            tbEpost.BackColor = ThemeDesign.colorGray;
+            tbPassord.ForeColor = ThemeDesign.colorLabel;
+            tbPassord.BackColor = ThemeDesign.colorGray;
+            tbBekreftPassord.ForeColor = ThemeDesign.colorLabel;
+            tbBekreftPassord.BackColor = ThemeDesign.colorGray;
 
             btnOpprettbruker.ForeColor = ThemeDesign.colorBackground;
             btnOpprettbruker.BackColor = ThemeDesign.colorBlue;
@@ -62,12 +68,12 @@ namespace GMAP_Demo
         private bool OpprettBruker()
         {
             bool svar = false;
-            string fornavn = txtFornavn.Text;
-            string etternavn = txtEtternavn.Text;
-            string telefon = txtTelefonnummer.Text;
-            string Epost = txtEpost.Text.ToLower();
-            string passord = txtPassord.Text;
-            string bePassord = txtBekreftPassord.Text;
+            string fornavn = tbFornavn.Text;
+            string etternavn = tbEtternavn.Text;
+            string telefon = tbTelefonnummer.Text;
+            string Epost = tbEpost.Text.ToLower();
+            string passord = tbPassord.Text;
+            string bePassord = tbBekreftPassord.Text;
 
             string utFyllingsmangler = Tekstbehandling.AltUtfylt_Registerings(fornavn, etternavn, telefon, Epost, passord, bePassord);
 

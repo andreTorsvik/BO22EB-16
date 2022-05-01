@@ -16,6 +16,7 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
+            ThemeDesign.DarkTheme();
             SetTheme();
         }
 
@@ -29,8 +30,10 @@ namespace GMAP_Demo
             lblIngenBruker.ForeColor = ThemeDesign.colorLabel;
             lblOpprettBruker.ForeColor = ThemeDesign.colorBlue;
             lblTest.ForeColor = ThemeDesign.colorBlue;
-            tbUserName.BackColor = ThemeDesign.colorGray6;
-            tbPassword.BackColor = ThemeDesign.colorGray6;
+            tbUserName.BackColor = ThemeDesign.colorGray;
+            tbUserName.ForeColor = ThemeDesign.colorLabel;
+            tbPassword.BackColor = ThemeDesign.colorGray;
+            tbPassword.ForeColor = ThemeDesign.colorLabel;
             btnLogin.ForeColor = ThemeDesign.colorBackground;
             btnLogin.BackColor = ThemeDesign.colorBlue;
             btnTestUser.ForeColor = ThemeDesign.colorBackground;

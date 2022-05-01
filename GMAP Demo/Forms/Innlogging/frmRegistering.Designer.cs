@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistering));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTitle2 = new System.Windows.Forms.Label();
-            this.txtEtternavn = new System.Windows.Forms.TextBox();
-            this.txtFornavn = new System.Windows.Forms.TextBox();
+            this.tbEtternavn = new System.Windows.Forms.TextBox();
+            this.tbFornavn = new System.Windows.Forms.TextBox();
             this.lblEtternavn = new System.Windows.Forms.Label();
             this.lbFornavn = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.txtEpost = new System.Windows.Forms.TextBox();
-            this.txtTelefonnummer = new System.Windows.Forms.TextBox();
+            this.tbEpost = new System.Windows.Forms.TextBox();
+            this.tbTelefonnummer = new System.Windows.Forms.TextBox();
             this.lblEpost = new System.Windows.Forms.Label();
             this.lblTelefonnummer = new System.Windows.Forms.Label();
-            this.txtBekreftPassord = new System.Windows.Forms.TextBox();
-            this.txtPassord = new System.Windows.Forms.TextBox();
+            this.tbBekreftPassord = new System.Windows.Forms.TextBox();
+            this.tbPassord = new System.Windows.Forms.TextBox();
             this.lblBekreftPassord = new System.Windows.Forms.Label();
             this.lblPassord = new System.Windows.Forms.Label();
             this.btnOpprettbruker = new System.Windows.Forms.Button();
@@ -70,21 +70,21 @@
             this.lblTitle2.TabIndex = 15;
             this.lblTitle2.Text = "OpenStreetMap i programmer ";
             // 
-            // txtEtternavn
+            // tbEtternavn
             // 
-            this.txtEtternavn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtEtternavn.Location = new System.Drawing.Point(145, 123);
-            this.txtEtternavn.Name = "txtEtternavn";
-            this.txtEtternavn.Size = new System.Drawing.Size(150, 20);
-            this.txtEtternavn.TabIndex = 14;
+            this.tbEtternavn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbEtternavn.Location = new System.Drawing.Point(145, 123);
+            this.tbEtternavn.Name = "tbEtternavn";
+            this.tbEtternavn.Size = new System.Drawing.Size(150, 20);
+            this.tbEtternavn.TabIndex = 14;
             // 
-            // txtFornavn
+            // tbFornavn
             // 
-            this.txtFornavn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtFornavn.Location = new System.Drawing.Point(145, 98);
-            this.txtFornavn.Name = "txtFornavn";
-            this.txtFornavn.Size = new System.Drawing.Size(150, 20);
-            this.txtFornavn.TabIndex = 13;
+            this.tbFornavn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbFornavn.Location = new System.Drawing.Point(145, 98);
+            this.tbFornavn.Name = "tbFornavn";
+            this.tbFornavn.Size = new System.Drawing.Size(150, 20);
+            this.tbFornavn.TabIndex = 13;
             // 
             // lblEtternavn
             // 
@@ -119,22 +119,22 @@
             this.lblTitle.TabIndex = 10;
             this.lblTitle.Text = "BO22EB-16";
             // 
-            // txtEpost
+            // tbEpost
             // 
-            this.txtEpost.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtEpost.Location = new System.Drawing.Point(145, 172);
-            this.txtEpost.Name = "txtEpost";
-            this.txtEpost.Size = new System.Drawing.Size(150, 20);
-            this.txtEpost.TabIndex = 20;
+            this.tbEpost.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbEpost.Location = new System.Drawing.Point(145, 172);
+            this.tbEpost.Name = "tbEpost";
+            this.tbEpost.Size = new System.Drawing.Size(150, 20);
+            this.tbEpost.TabIndex = 20;
             // 
-            // txtTelefonnummer
+            // tbTelefonnummer
             // 
-            this.txtTelefonnummer.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtTelefonnummer.Location = new System.Drawing.Point(145, 147);
-            this.txtTelefonnummer.Name = "txtTelefonnummer";
-            this.txtTelefonnummer.Size = new System.Drawing.Size(150, 20);
-            this.txtTelefonnummer.TabIndex = 19;
-            this.txtTelefonnummer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefon_KeyPress);
+            this.tbTelefonnummer.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbTelefonnummer.Location = new System.Drawing.Point(145, 147);
+            this.tbTelefonnummer.Name = "tbTelefonnummer";
+            this.tbTelefonnummer.Size = new System.Drawing.Size(150, 20);
+            this.tbTelefonnummer.TabIndex = 19;
+            this.tbTelefonnummer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefon_KeyPress);
             // 
             // lblEpost
             // 
@@ -158,23 +158,23 @@
             this.lblTelefonnummer.TabIndex = 17;
             this.lblTelefonnummer.Text = "Telefonnummer";
             // 
-            // txtBekreftPassord
+            // tbBekreftPassord
             // 
-            this.txtBekreftPassord.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtBekreftPassord.Location = new System.Drawing.Point(145, 220);
-            this.txtBekreftPassord.Name = "txtBekreftPassord";
-            this.txtBekreftPassord.Size = new System.Drawing.Size(150, 20);
-            this.txtBekreftPassord.TabIndex = 24;
-            this.txtBekreftPassord.UseSystemPasswordChar = true;
+            this.tbBekreftPassord.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbBekreftPassord.Location = new System.Drawing.Point(145, 220);
+            this.tbBekreftPassord.Name = "tbBekreftPassord";
+            this.tbBekreftPassord.Size = new System.Drawing.Size(150, 20);
+            this.tbBekreftPassord.TabIndex = 24;
+            this.tbBekreftPassord.UseSystemPasswordChar = true;
             // 
-            // txtPassord
+            // tbPassord
             // 
-            this.txtPassord.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPassord.Location = new System.Drawing.Point(145, 196);
-            this.txtPassord.Name = "txtPassord";
-            this.txtPassord.Size = new System.Drawing.Size(150, 20);
-            this.txtPassord.TabIndex = 23;
-            this.txtPassord.UseSystemPasswordChar = true;
+            this.tbPassord.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbPassord.Location = new System.Drawing.Point(145, 196);
+            this.tbPassord.Name = "tbPassord";
+            this.tbPassord.Size = new System.Drawing.Size(150, 20);
+            this.tbPassord.TabIndex = 23;
+            this.tbPassord.UseSystemPasswordChar = true;
             // 
             // lblBekreftPassord
             // 
@@ -236,18 +236,18 @@
             this.ClientSize = new System.Drawing.Size(356, 361);
             this.Controls.Add(this.btnAvbryt);
             this.Controls.Add(this.btnOpprettbruker);
-            this.Controls.Add(this.txtBekreftPassord);
-            this.Controls.Add(this.txtPassord);
+            this.Controls.Add(this.tbBekreftPassord);
+            this.Controls.Add(this.tbPassord);
             this.Controls.Add(this.lblBekreftPassord);
             this.Controls.Add(this.lblPassord);
-            this.Controls.Add(this.txtEpost);
-            this.Controls.Add(this.txtTelefonnummer);
+            this.Controls.Add(this.tbEpost);
+            this.Controls.Add(this.tbTelefonnummer);
             this.Controls.Add(this.lblEpost);
             this.Controls.Add(this.lblTelefonnummer);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTitle2);
-            this.Controls.Add(this.txtEtternavn);
-            this.Controls.Add(this.txtFornavn);
+            this.Controls.Add(this.tbEtternavn);
+            this.Controls.Add(this.tbFornavn);
             this.Controls.Add(this.lblEtternavn);
             this.Controls.Add(this.lbFornavn);
             this.Controls.Add(this.lblTitle);
@@ -268,17 +268,17 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTitle2;
-        private System.Windows.Forms.TextBox txtEtternavn;
-        private System.Windows.Forms.TextBox txtFornavn;
+        private System.Windows.Forms.TextBox tbEtternavn;
+        private System.Windows.Forms.TextBox tbFornavn;
         private System.Windows.Forms.Label lblEtternavn;
         private System.Windows.Forms.Label lbFornavn;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TextBox txtEpost;
-        private System.Windows.Forms.TextBox txtTelefonnummer;
+        private System.Windows.Forms.TextBox tbEpost;
+        private System.Windows.Forms.TextBox tbTelefonnummer;
         private System.Windows.Forms.Label lblEpost;
         private System.Windows.Forms.Label lblTelefonnummer;
-        private System.Windows.Forms.TextBox txtBekreftPassord;
-        private System.Windows.Forms.TextBox txtPassord;
+        private System.Windows.Forms.TextBox tbBekreftPassord;
+        private System.Windows.Forms.TextBox tbPassord;
         private System.Windows.Forms.Label lblBekreftPassord;
         private System.Windows.Forms.Label lblPassord;
         private System.Windows.Forms.Button btnOpprettbruker;
