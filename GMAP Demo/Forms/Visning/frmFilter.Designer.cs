@@ -74,6 +74,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ttTimerMåling = new System.Windows.Forms.ToolTip(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAntallObjekter = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -551,7 +553,7 @@
             this.btnTimerMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimerMåling.ForeColor = System.Drawing.Color.Black;
             this.btnTimerMåling.Location = new System.Drawing.Point(9, 843);
-            this.btnTimerMåling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTimerMåling.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimerMåling.Name = "btnTimerMåling";
             this.btnTimerMåling.Size = new System.Drawing.Size(388, 23);
             this.btnTimerMåling.TabIndex = 38;
@@ -592,6 +594,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtAntallObjekter);
+            this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.btnNesteRessurs);
             this.groupBox3.Controls.Add(this.btnForrigeRessurs);
@@ -617,6 +621,26 @@
             // ttTimerMåling
             // 
             this.ttTimerMåling.ToolTipTitle = "Hjelp:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(144, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 16);
+            this.label5.TabIndex = 37;
+            this.label5.Text = "Antall";
+            // 
+            // txtAntallObjekter
+            // 
+            this.txtAntallObjekter.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtAntallObjekter.Location = new System.Drawing.Point(190, 43);
+            this.txtAntallObjekter.Name = "txtAntallObjekter";
+            this.txtAntallObjekter.ReadOnly = true;
+            this.txtAntallObjekter.Size = new System.Drawing.Size(28, 22);
+            this.txtAntallObjekter.TabIndex = 54;
+            this.txtAntallObjekter.Text = "0";
+            this.txtAntallObjekter.TextChanged += new System.EventHandler(this.txtAntallObjekter_TextChanged);
             // 
             // frmFilter
             // 
@@ -691,5 +715,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolTip ttTimerMåling;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtAntallObjekter;
     }
 }

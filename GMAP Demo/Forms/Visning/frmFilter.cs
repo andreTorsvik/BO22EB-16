@@ -138,16 +138,16 @@ namespace GMAP_Demo
                 //måling
                 Måling NyesteMåling = DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0];
                 if(NyesteMåling != null)
-                {
-                    txtMåling.Text = NyesteMåling.Verdi.ToString();
+                {                
                     txtMålingDato.Text = NyesteMåling.Dato;
                     txtEnhetMåling.Text = NyesteMåling.Enhet;
+
+                    if (NyesteMåling.Dato == "Ingen måling")
+                        txtMåling.Text = "Ingen måling";                                  
+                    else
+                        txtMåling.Text = NyesteMåling.Verdi.ToString();
                 }
                 
-
-                //txtMåling.Text = Convert.ToString(DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0].Verdi);
-                //txtMålingDato.Text = Convert.ToString(DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0].Dato);
-                //txtEnhetMåling.Text = Convert.ToString(DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0].Enhet);
             }
             
         }
@@ -298,6 +298,16 @@ namespace GMAP_Demo
                 btnTimerMåling.Text = "Simulering av målinger aktiv";
                 timer.Change(0, 10000); // Starter timeren og simulering av måling gjentaes hvert 10sek.
             }
+        }
+
+        public void OppdaterAntall()
+        {
+            txtAntallObjekter.Text = GlobaleLister.LRessurs.Count.ToString();
+        }
+
+        private void txtAntallObjekter_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -251,6 +251,11 @@ namespace GMAP_Demo
                 frmVisning.instance.map.Overlays.Add(markers);
                 frmRediger.instance.map.Overlays.Add(markers);
             }
+
+            if(frmFilter.instance != null)
+            {
+                frmFilter.instance.OppdaterAntall();
+            }
         }
 
         public static void LeggtilMarkør(MuligKart kart, PointLatLng point, int Rekkefølge, string områdeId)
