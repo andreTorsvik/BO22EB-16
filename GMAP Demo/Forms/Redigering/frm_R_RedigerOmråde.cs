@@ -226,41 +226,52 @@ namespace GMAP_Demo
                 }
             }
         }
-      
 
-        private void btnFjernPunktIListe_Click(object sender, EventArgs e)
+
+        private void btnFjernAlle_Click(object sender, EventArgs e)
         {
-            if (frmRediger.OmrådeKlikkBar)
+
+            if (pointLatLngs.Count > 0)
             {
-                if (pointLatLngs.Count > 0)
-                {
-                    btnFjernPunktIListe.Text = "Angre";
+                frmRediger.instance.cbOmråde.Checked = false;
 
-                    Kart.FjernHjelpeOmråde();
-                    Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
-                    pointLatLngs.Clear();
-                    txtNrPunkt.Text = pointLatLngs.Count.ToString();
-                    Kart.AlleOmrådeTilgjenlighet(false);
-                    frmRediger.OmrådeKlikkBar = false;
-
-                }
-
+                Kart.FjernHjelpeOmråde();
+                Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
+                pointLatLngs.Clear();
+                txtNrPunkt.Text = pointLatLngs.Count.ToString();
             }
-            else
-            {
 
-                if (pointLatLngs.Count > 0)
+        }
+
+        private void btnFjernSistepunkt_Click(object sender, EventArgs e)
+        {
+            if (pointLatLngs.Count > 0)
+            {
+                frmRediger.instance.cbOmråde.Checked = false;
+
+                Kart.FjernHjelpeOmråde();
+                Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
+
+                pointLatLngs.RemoveAt(pointLatLngs.Count - 1);
+                txtNrPunkt.Text = pointLatLngs.Count.ToString();
+
+                List<PointLatLng> PunktListe = pointLatLngs.ToList();
+
+                if (Kart.SjekkKartharHjelpemarkør_redigier("HjelpeMarkør"))
                 {
-                    Kart.FjernHjelpeOmråde();
-                    Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
-                    pointLatLngs.Clear();
-                    txtNrPunkt.Text = pointLatLngs.Count.ToString();
+                    Kart.TegnHjelpeOmråde_rediger(frmRediger.DoubleClick_punkt, PunktListe);
+                }
+                else
+                {
+                    Kart.TegnHjelpeOmråde_rediger(PunktListe);
                 }
 
-                btnFjernPunktIListe.Text = "Fjern punktene";
-                FyllPunktListe(Løpenummer_til_redigering);
-                Kart.AlleOmrådeTilgjenlighet(true);
-                frmRediger.OmrådeKlikkBar = true;
+                for (int i = 0; i < (pointLatLngs.Count); i++)
+                {
+                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, PunktListe[i], i, "MarkørForOmråde");
+                }
+
+                Kart.reff(Kart.MuligKart.Redigering);
 
             }
 
@@ -382,6 +393,8 @@ namespace GMAP_Demo
             pointLatLngs.Clear();
             txtNrPunkt.Text = pointLatLngs.Count.ToString();
         }
+
+
     }
 
 }

@@ -234,5 +234,10 @@ namespace GMAP_Demo
         {
 
         }
+
+        private void cbOmråde_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

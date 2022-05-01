@@ -278,18 +278,18 @@ namespace GMAP_Demo
                 marker.ToolTip.Foreground = Brushes.White;
                 marker.ToolTip.Stroke = Pens.Black;
                 marker.ToolTip.TextPadding = new Size(20, 20);
-                marker.Tag = Rekkefølge;
 
             }
             marker.Tag = -1;
 
-            if (områdeId == "HjelpeMarkør")
-            { }
+            //if (områdeId == "HjelpeMarkør")
+            //{ }
 
             markers.Markers.Add(marker);
 
             if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
             else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
+
         }
         public static void LeggTilOmråde(List<Område> Olist, MuligKart kart)
         {
@@ -446,11 +446,11 @@ namespace GMAP_Demo
                 if (antallPunkter != 1)
                     Lpunkt.Add(Lpunkt[0]);
 
-                var r = new GMapRoute(Lpunkt, "HjelpeOmråde")
+                var r = new GMapRoute(Lpunkt, Globalekonstanter.NavnHjelpeOmråde)
                 {
-                    Stroke = new Pen(Color.Red, 3)
+                    Stroke = new Pen(Color.Magenta, 3)
                 };
-                var routes = new GMapOverlay("HjelpeOmråde");
+                var routes = new GMapOverlay(Globalekonstanter.NavnHjelpeOmråde);
                 routes.Routes.Add(r);
                 frmRediger.instance.map.Overlays.Add(routes);
 
@@ -458,6 +458,28 @@ namespace GMAP_Demo
             }
         }
 
+        public static void TegnHjelpeOmråde_rediger(List<PointLatLng> Lpunkt)
+        {
+            //bruker google API
+            //Denne metoden er kun for visning
+            int antallPunkter = Lpunkt.Count;
+
+            if (antallPunkter >= 1)
+            {
+                if (antallPunkter != 1)
+                    Lpunkt.Add(Lpunkt[0]);
+
+                var r = new GMapRoute(Lpunkt, Globalekonstanter.NavnHjelpeOmråde) // "HjelpeOmråde"
+                {
+                    Stroke = new Pen(Color.Magenta, 3)
+                };
+                var routes = new GMapOverlay(Globalekonstanter.NavnHjelpeOmråde);
+                routes.Routes.Add(r);
+                frmRediger.instance.map.Overlays.Add(routes);
+
+                reff(MuligKart.Redigering);
+            }
+        }
 
 
         public static void reff(MuligKart kart)
@@ -496,6 +518,7 @@ namespace GMAP_Demo
             //setter sammen strengene til rett format
             string sammenSlått = Tekstbehandling.AdresseTekstfelt(Land, ByKommune, Adresse);
 
+            //Posisjon før flytting
             PointLatLng PosisjonFør = frmVisning.instance.map.Position;
 
             //setter kartet til posisjon bassert på tekst 
@@ -504,7 +527,7 @@ namespace GMAP_Demo
             //finne nåværende punkt 
             PointLatLng PosisjonNå = frmVisning.instance.map.Position;
 
-
+            //hvis kartet har flyttet seg
             if (PosisjonFør != PosisjonNå)
             {
                 frmPosisjon.instance.txtLat.Text = PosisjonNå.Lat.ToString();
@@ -571,11 +594,26 @@ namespace GMAP_Demo
             reff(MuligKart.Redigering);
         }
 
+        public static bool SjekkKartharHjelpemarkør_redigier(string områdeId)
+        {
+            bool svar = false;
+            for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
+            {
+                if (frmRediger.instance.map.Overlays[i].Id == områdeId)
+                {
+                    svar = true;
+                    break;
+                }
+            }
+
+            return svar;
+        }
+
         public static void FjernHjelpeOmråde()
         {
             for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
             {
-                if (frmRediger.instance.map.Overlays[i].Id == "HjelpeOmråde")
+                if (frmRediger.instance.map.Overlays[i].Id == Globalekonstanter.NavnHjelpeOmråde)
                 {
                     frmRediger.instance.map.Overlays.RemoveAt(i);
                     break;

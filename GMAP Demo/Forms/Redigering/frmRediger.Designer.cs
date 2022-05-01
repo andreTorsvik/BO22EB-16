@@ -41,6 +41,7 @@
             this.btnOmråde = new System.Windows.Forms.Button();
             this.btnObjekt = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbOmråde = new System.Windows.Forms.CheckBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnZoomMinus = new System.Windows.Forms.Button();
@@ -251,6 +252,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cbOmråde);
             this.panel2.Controls.Add(this.lblUserName);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -259,6 +261,21 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(316, 249);
             this.panel2.TabIndex = 1;
+            // 
+            // cbOmråde
+            // 
+            this.cbOmråde.AutoSize = true;
+            this.cbOmråde.CausesValidation = false;
+            this.cbOmråde.Checked = true;
+            this.cbOmråde.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbOmråde.ForeColor = System.Drawing.Color.Lime;
+            this.cbOmråde.Location = new System.Drawing.Point(12, 210);
+            this.cbOmråde.Name = "cbOmråde";
+            this.cbOmråde.Size = new System.Drawing.Size(240, 20);
+            this.cbOmråde.TabIndex = 89;
+            this.cbOmråde.Text = "Kan klikke på eksisterende område";
+            this.cbOmråde.UseVisualStyleBackColor = true;
+            this.cbOmråde.CheckedChanged += new System.EventHandler(this.cbOmråde_CheckedChanged);
             // 
             // lblUserName
             // 
@@ -336,6 +353,7 @@
             this.Load += new System.EventHandler(this.frmRediger_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -359,5 +377,6 @@
         private System.Windows.Forms.Button btnZoomPluss;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Button btnFjern;
+        public System.Windows.Forms.CheckBox cbOmråde;
     }
 }

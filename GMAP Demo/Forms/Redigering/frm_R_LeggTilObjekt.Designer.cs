@@ -55,7 +55,6 @@
             this.btnLeggTilNyKategori = new System.Windows.Forms.Button();
             this.gbTag = new System.Windows.Forms.GroupBox();
             this.gbObjekt = new System.Windows.Forms.GroupBox();
-            this.cbOmråde = new System.Windows.Forms.CheckBox();
             this.gbTag.SuspendLayout();
             this.gbObjekt.SuspendLayout();
             this.SuspendLayout();
@@ -335,7 +334,7 @@
             this.gbTag.Controls.Add(this.label9);
             this.gbTag.Controls.Add(this.txtNyTag);
             this.gbTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.gbTag.Location = new System.Drawing.Point(20, 434);
+            this.gbTag.Location = new System.Drawing.Point(20, 408);
             this.gbTag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbTag.Name = "gbTag";
             this.gbTag.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -346,7 +345,6 @@
             // 
             // gbObjekt
             // 
-            this.gbObjekt.Controls.Add(this.cbOmråde);
             this.gbObjekt.Controls.Add(this.label1);
             this.gbObjekt.Controls.Add(this.txtNavn);
             this.gbObjekt.Controls.Add(this.txtNyKategori);
@@ -367,21 +365,10 @@
             this.gbObjekt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbObjekt.Name = "gbObjekt";
             this.gbObjekt.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbObjekt.Size = new System.Drawing.Size(303, 373);
+            this.gbObjekt.Size = new System.Drawing.Size(303, 347);
             this.gbObjekt.TabIndex = 85;
             this.gbObjekt.TabStop = false;
             this.gbObjekt.Text = "Objekt";
-            // 
-            // cbOmråde
-            // 
-            this.cbOmråde.AutoSize = true;
-            this.cbOmråde.ForeColor = System.Drawing.Color.LightCoral;
-            this.cbOmråde.Location = new System.Drawing.Point(6, 341);
-            this.cbOmråde.Name = "cbOmråde";
-            this.cbOmråde.Size = new System.Drawing.Size(244, 20);
-            this.cbOmråde.TabIndex = 86;
-            this.cbOmråde.Text = "Kan legge inni eksisterende område";
-            this.cbOmråde.UseVisualStyleBackColor = true;
             // 
             // frm_R_LeggTilObjekt
             // 
@@ -436,6 +423,5 @@
         private System.Windows.Forms.Button btnLeggTilNyKategori;
         private System.Windows.Forms.GroupBox gbTag;
         private System.Windows.Forms.GroupBox gbObjekt;
-        private System.Windows.Forms.CheckBox cbOmråde;
     }
 }

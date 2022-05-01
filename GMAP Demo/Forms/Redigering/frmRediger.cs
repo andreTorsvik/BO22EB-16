@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 
 namespace GMAP_Demo
@@ -15,6 +16,7 @@ namespace GMAP_Demo
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
         public static frmRediger instance;
         public static bool OmrådeKlikkBar = true;
+       public static PointLatLng DoubleClick_punkt;
 
         public frmRediger()
         {
@@ -261,7 +263,7 @@ namespace GMAP_Demo
         {
             if (e.Button == MouseButtons.Left)
             {
-                PointLatLng DoubleClick_punkt = map.FromLocalToLatLng(e.X, e.Y);
+                DoubleClick_punkt = map.FromLocalToLatLng(e.X, e.Y);
                 //List<PointLatLng> Lpunkt = new List<PointLatLng>();
                 //Lpunkt.Add(DoubleClick_punkt);
 
@@ -280,11 +282,8 @@ namespace GMAP_Demo
                     {
                         Kart.FjernHjelpeOmråde();
 
-                        List<PointLatLng> Punkter = new List<PointLatLng>();
-                        foreach (var item in frm_R_LeggTilOmråde.instance.pointLatLngs)
-                        {
-                            Punkter.Add(item);
-                        }
+                        List<PointLatLng> Punkter = frm_R_LeggTilOmråde.instance.pointLatLngs.ToList();
+                        
                         Kart.TegnHjelpeOmråde_rediger(DoubleClick_punkt, Punkter);
 
                     }
@@ -303,11 +302,7 @@ namespace GMAP_Demo
                         {
                             Kart.FjernHjelpeOmråde();
 
-                            List<PointLatLng> Punkter = new List<PointLatLng>();
-                            foreach (var item in frm_R_RedigerOmråde.instance.pointLatLngs)
-                            {
-                                Punkter.Add(item);
-                            }
+                            List<PointLatLng> Punkter = frm_R_RedigerOmråde.instance.pointLatLngs.ToList();
 
                             Kart.TegnHjelpeOmråde_rediger(DoubleClick_punkt, Punkter);
 
@@ -350,7 +345,7 @@ namespace GMAP_Demo
 
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
-            //skal ikke åpne redigeringform hvis den er på fjerne
+            //skal ikke åpne redigeringform hvis den er på fjerne formen
             if (pnlNav.Top != btnFjern.Top)
             {
                 ÅpneRediger_områdeForm();
@@ -359,6 +354,35 @@ namespace GMAP_Demo
             if (frm_R_RedigerOmråde.instance != null)
             {
                 frm_R_RedigerOmråde.instance.FyllInfoOmråde(Convert.ToInt32(item.Tag));
+
+                if (frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1)
+                {
+                    //slette hvis noen har allrede 
+                    SlettHjelpeMarkørerOgOmråder();
+
+                    //tegn område for valgt
+                    List<PointLatLng> PunkteListe = frm_R_RedigerOmråde.instance.pointLatLngs.ToList();
+
+                    if (Kart.SjekkKartharHjelpemarkør_redigier("HjelpeMarkør"))
+                    {
+                        Kart.TegnHjelpeOmråde_rediger(frmRediger.DoubleClick_punkt, PunkteListe);
+                    }
+                    else
+                    {
+                        Kart.TegnHjelpeOmråde_rediger(PunkteListe);
+                    }
+
+                    //sett inn markører i eksisterende områder 
+                    for (int i = 0; i < (PunkteListe.Count -1); i++)
+                    {
+                        Kart.LeggtilMarkør(Kart.MuligKart.Redigering, PunkteListe[i], i, "MarkørForOmråde");
+                    }
+
+                    Kart.reff(Kart.MuligKart.Redigering);
+                    
+
+
+                }
             }
             if (frm_R_FjernObjektOmråde.instance != null)
             {
@@ -393,7 +417,7 @@ namespace GMAP_Demo
         {
             if(!OmrådeKlikkBar)
             {
-                Kart.AlleOmrådeTilgjenlighet(true);
+                cbOmråde.Checked = true;
             }
         }
 
@@ -422,6 +446,28 @@ namespace GMAP_Demo
                     Kart.FjernAlleMarkører_redigier("HjelpeOmråde");
                     break;
                 }
+            }
+        }
+
+        private void cbOmråde_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbOmråde.Checked)
+            {
+                cbOmråde.Text = "Kan klikke på eksisterende område";
+                cbOmråde.BackColor = Color.FromArgb(24, 30, 54);
+                cbOmråde.ForeColor = Color.Lime;
+
+                frmRediger.OmrådeKlikkBar = true;
+                Kart.AlleOmrådeTilgjenlighet(true);
+            }
+            else
+            {
+                cbOmråde.Text = "Kan ikke klikke på eksisterende område";
+                cbOmråde.BackColor = Color.Red;
+                cbOmråde.ForeColor = Color.Black;
+
+                frmRediger.OmrådeKlikkBar = false;
+                Kart.AlleOmrådeTilgjenlighet(false);
             }
         }
     }

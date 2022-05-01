@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GMAP_Demo
@@ -172,10 +173,46 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnFjernPunktIListe_Click(object sender, EventArgs e)
+        private void btnFjernSistepunkt_Click(object sender, EventArgs e)
         {
             if (pointLatLngs.Count > 0)
             {
+                frmRediger.instance.cbOmråde.Checked = false;
+
+                Kart.FjernHjelpeOmråde();
+                Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
+
+                pointLatLngs.RemoveAt(pointLatLngs.Count - 1);
+
+
+                txtNrPunkt.Text = pointLatLngs.Count.ToString();
+
+                List<PointLatLng> PunktListe = pointLatLngs.ToList();
+
+                if (Kart.SjekkKartharHjelpemarkør_redigier("HjelpeMarkør"))
+                {
+                    Kart.TegnHjelpeOmråde_rediger(frmRediger.DoubleClick_punkt, PunktListe);
+                }
+                else
+                {
+                    Kart.TegnHjelpeOmråde_rediger(PunktListe);
+                }
+
+                for (int i = 0; i < (pointLatLngs.Count); i++)
+                {
+                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, PunktListe[i], i, "MarkørForOmråde");
+                }
+
+                Kart.reff(Kart.MuligKart.Redigering);
+            }
+        }
+
+        private void btnFjernAlle_Click(object sender, EventArgs e)
+        {
+            if (pointLatLngs.Count > 0)
+            {
+                frmRediger.instance.cbOmråde.Checked = false;
+
                 Kart.FjernHjelpeOmråde();
                 Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
                 pointLatLngs.Clear();
@@ -273,5 +310,7 @@ namespace GMAP_Demo
             pointLatLngs.Clear();
             txtNrPunkt.Text = pointLatLngs.Count.ToString();
         }
+
+       
     }
 }

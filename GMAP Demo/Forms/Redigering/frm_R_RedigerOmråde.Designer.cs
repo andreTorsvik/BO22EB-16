@@ -53,10 +53,11 @@
             this.txtSikkerhetsklarering = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNavn = new System.Windows.Forms.TextBox();
-            this.btnFjernPunktIListe = new System.Windows.Forms.Button();
+            this.btnFjernSistepunkt = new System.Windows.Forms.Button();
             this.btnLagreEndring = new System.Windows.Forms.Button();
             this.gbOmråde = new System.Windows.Forms.GroupBox();
             this.gbTag = new System.Windows.Forms.GroupBox();
+            this.btnFjernAlle = new System.Windows.Forms.Button();
             this.gbOmråde.SuspendLayout();
             this.gbTag.SuspendLayout();
             this.SuspendLayout();
@@ -313,16 +314,16 @@
             this.txtNavn.Size = new System.Drawing.Size(285, 22);
             this.txtNavn.TabIndex = 57;
             // 
-            // btnFjernPunktIListe
+            // btnFjernSistepunkt
             // 
-            this.btnFjernPunktIListe.ForeColor = System.Drawing.Color.Black;
-            this.btnFjernPunktIListe.Location = new System.Drawing.Point(173, 299);
-            this.btnFjernPunktIListe.Name = "btnFjernPunktIListe";
-            this.btnFjernPunktIListe.Size = new System.Drawing.Size(117, 28);
-            this.btnFjernPunktIListe.TabIndex = 81;
-            this.btnFjernPunktIListe.Text = "Fjern punktene";
-            this.btnFjernPunktIListe.UseVisualStyleBackColor = true;
-            this.btnFjernPunktIListe.Click += new System.EventHandler(this.btnFjernPunktIListe_Click);
+            this.btnFjernSistepunkt.ForeColor = System.Drawing.Color.Black;
+            this.btnFjernSistepunkt.Location = new System.Drawing.Point(155, 299);
+            this.btnFjernSistepunkt.Name = "btnFjernSistepunkt";
+            this.btnFjernSistepunkt.Size = new System.Drawing.Size(94, 28);
+            this.btnFjernSistepunkt.TabIndex = 81;
+            this.btnFjernSistepunkt.Text = "Fjern siste";
+            this.btnFjernSistepunkt.UseVisualStyleBackColor = true;
+            this.btnFjernSistepunkt.Click += new System.EventHandler(this.btnFjernSistepunkt_Click);
             // 
             // btnLagreEndring
             // 
@@ -339,7 +340,8 @@
             this.gbOmråde.Controls.Add(this.label1);
             this.gbOmråde.Controls.Add(this.txtNavn);
             this.gbOmråde.Controls.Add(this.txtSikkerhetsklarering);
-            this.gbOmråde.Controls.Add(this.btnFjernPunktIListe);
+            this.gbOmråde.Controls.Add(this.btnFjernAlle);
+            this.gbOmråde.Controls.Add(this.btnFjernSistepunkt);
             this.gbOmråde.Controls.Add(this.LabelSikkerhetsklarering);
             this.gbOmråde.Controls.Add(this.lbTilgjengligFarge);
             this.gbOmråde.Controls.Add(this.txtKommentar);
@@ -382,6 +384,18 @@
             this.gbTag.TabIndex = 83;
             this.gbTag.TabStop = false;
             this.gbTag.Text = "Tag";
+            // 
+            // btnFjernAlle
+            // 
+            this.btnFjernAlle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnFjernAlle.ForeColor = System.Drawing.Color.Black;
+            this.btnFjernAlle.Image = global::GMAP_Demo.Properties.Resources.trash_20px;
+            this.btnFjernAlle.Location = new System.Drawing.Point(255, 296);
+            this.btnFjernAlle.Name = "btnFjernAlle";
+            this.btnFjernAlle.Size = new System.Drawing.Size(35, 35);
+            this.btnFjernAlle.TabIndex = 81;
+            this.btnFjernAlle.UseVisualStyleBackColor = false;
+            this.btnFjernAlle.Click += new System.EventHandler(this.btnFjernAlle_Click);
             // 
             // frm_R_RedigerOmråde
             // 
@@ -433,9 +447,10 @@
         private System.Windows.Forms.TextBox txtSikkerhetsklarering;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNavn;
-        private System.Windows.Forms.Button btnFjernPunktIListe;
+        private System.Windows.Forms.Button btnFjernSistepunkt;
         private System.Windows.Forms.Button btnLagreEndring;
         private System.Windows.Forms.GroupBox gbOmråde;
         private System.Windows.Forms.GroupBox gbTag;
+        private System.Windows.Forms.Button btnFjernAlle;
     }
 }

@@ -254,18 +254,19 @@ namespace GMAP_Demo
 
             if (Orginalepunkter.Count == pList.Count)
             {
-                for (int i = 0; i < oList.Count; i++)
+                for (int i = 0; i < pList.Count; i++) // må sjekke om punktene er de samme som før 
                 {
-                    if (Math.Round(Orginalepunkter[i].Lat, 5) != Math.Round(pList[i].Lat, 5))
+                    if (Math.Round(Orginalepunkter[i].Lat, 6) != Math.Round(pList[i].Lat, 6))
                     {
                         Endringer += string.Format("Ny punkter" + newLine);
                         break;
                     }
-                    else if (Math.Round(Orginalepunkter[i].Lng, 5) != Math.Round(pList[i].Lng, 5))
+                    else if (Math.Round(Orginalepunkter[i].Lng, 6) != Math.Round(pList[i].Lng, 6))
                     {
                         Endringer += string.Format("Ny punkter" + newLine);
                         break;
                     }
+
                 }
             }
             else

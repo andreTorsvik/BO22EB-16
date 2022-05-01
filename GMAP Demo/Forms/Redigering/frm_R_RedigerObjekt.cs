@@ -266,18 +266,6 @@ namespace GMAP_Demo
             LastInnTags();
         }
 
-        private void cbOmråde_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbOmråde.Checked)
-            {
-                frmRediger.OmrådeKlikkBar = false;
-                Kart.AlleOmrådeTilgjenlighet(false);
-            }
-            else
-            {
-                frmRediger.OmrådeKlikkBar = true;
-                Kart.AlleOmrådeTilgjenlighet(true);
-            }
-        }
+       
     }
 }
