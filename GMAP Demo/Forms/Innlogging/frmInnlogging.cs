@@ -16,7 +16,7 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
-            ThemeDesign.DarkTheme();
+            //ThemeDesign.OldTheme();
             SetTheme();
         }
 

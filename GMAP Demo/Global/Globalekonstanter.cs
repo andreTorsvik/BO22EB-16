@@ -21,8 +21,8 @@ namespace GMAP_Demo
         public const double MaxHeight = 70.0; // Max Høyde i pixler
 
         // Design/Theme
-        public static Color knapp_trykket = Color.FromArgb(46, 51, 73); // Farge når knapp er trykket 
-        public static Color StandarFargeKnapp = Color.FromArgb(24, 30, 54); // Farge på knapp normalt sett
+        public static Color knapp_trykket = ThemeDesign.colorSecondaryBackground; // Farge når knapp er trykket 
+        public static Color StandarFargeKnapp = ThemeDesign.colorBackground; // Farge på knapp normalt sett
 
         public static string NavnHjelpeOmråde = "HjelpeOmråde";
     }

@@ -44,7 +44,6 @@ namespace GMAP_Demo
 
             // Første gang programmet starter etter innlogging så vises vinduet i midten av skjermen.
             this.CenterToScreen();
-            ThemeDesign.OldTheme();
             SetTheme();
 
         }
@@ -53,23 +52,23 @@ namespace GMAP_Demo
         {
             instance.BackColor = ThemeDesign.colorBackground;
 
-            pnlUser.BackColor = ThemeDesign.colorBackground;
-            btnHelp.ForeColor = ThemeDesign.colorBackground;
-            btnHelp.BackColor = ThemeDesign.colorBlue;
+            pnlUser.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnHelp.ForeColor = ThemeDesign.colorBlue;
+            btnHelp.BackColor = ThemeDesign.colorSecondaryGroupedBackground;
             lblUserName.ForeColor = ThemeDesign.colorBlue;
-            lblUserName.BackColor = ThemeDesign.colorBackground;
+            lblUserName.BackColor = ThemeDesign.colorSecondaryBackground;
 
-            pnlMenu.BackColor = ThemeDesign.colorBackground;
+            pnlMenu.BackColor = ThemeDesign.colorSecondaryBackground;
             btnFilter.ForeColor = ThemeDesign.colorBlue;
-            btnFilter.BackColor = ThemeDesign.colorBackground;
+            btnFilter.BackColor = ThemeDesign.colorSecondaryBackground;
             btnPosisjon.ForeColor = ThemeDesign.colorBlue;
-            btnPosisjon.BackColor = ThemeDesign.colorBackground;
+            btnPosisjon.BackColor = ThemeDesign.colorSecondaryBackground;
             btnOppdater.ForeColor = ThemeDesign.colorBlue;
-            btnOppdater.BackColor = ThemeDesign.colorBackground;
+            btnOppdater.BackColor = ThemeDesign.colorSecondaryBackground;
             btnRediger.ForeColor = ThemeDesign.colorBlue;
-            btnRediger.BackColor = ThemeDesign.colorBackground;
+            btnRediger.BackColor = ThemeDesign.colorSecondaryBackground;
             btnSettings.ForeColor = ThemeDesign.colorBlue;
-            btnSettings.BackColor = ThemeDesign.colorBackground;
+            btnSettings.BackColor = ThemeDesign.colorSecondaryBackground;
 
 
             btnZoomPluss.ForeColor = ThemeDesign.colorBlue;
@@ -77,7 +76,7 @@ namespace GMAP_Demo
             btnZoomMinus.ForeColor = ThemeDesign.colorBlue;
             btnZoomMinus.BackColor = ThemeDesign.colorBackground;
 
-            PnlFormLoader.BackColor = ThemeDesign.colorSecondaryBackground;
+            PnlFormLoader.BackColor = ThemeDesign.colorTertiaryBackground;
         }
 
         private void Form1_Load(object sender, EventArgs e)
