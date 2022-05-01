@@ -19,11 +19,6 @@ namespace GMAP_Demo
 
         private void SetTheme()
         {
-            throw new NotImplementedException();
-        }
-
-        private void frm_R_FjernObjektOmråde_Load(object sender, EventArgs e)
-        {
             instance.BackColor = ThemeDesign.colorBackground;
 
             lblTitle.ForeColor = ThemeDesign.colorOrange;

@@ -184,7 +184,6 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frm_R_FjernObjektOmråde";
             this.Text = "frm_R_FjernObjektOmråde";
-            this.Load += new System.EventHandler(this.frm_R_FjernObjektOmråde_Load);
             this.gbObjekt.ResumeLayout(false);
             this.gbObjekt.PerformLayout();
             this.ResumeLayout(false);
