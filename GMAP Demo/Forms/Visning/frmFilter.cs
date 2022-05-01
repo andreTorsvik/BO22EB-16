@@ -26,6 +26,7 @@ namespace GMAP_Demo
             lbTagsVises.DisplayMember = "Tag";
             lbTagsSkjult.DataSource = Kart.tag_ListeSkjult;
             lbTagsSkjult.DisplayMember = "Tag";
+            ThemeDesign.OldTheme();
             SetTheme();
         }
 
@@ -50,13 +51,13 @@ namespace GMAP_Demo
             lbTagsVises.ForeColor = ThemeDesign.colorLabel;
             lbTagsVises.BackColor = ThemeDesign.colorBackground;
             btnKategoriLeggTilAlle.ForeColor = ThemeDesign.colorLabel;
-            btnKategoriLeggTilAlle.BackColor = ThemeDesign.colorGray6;
+            btnKategoriLeggTilAlle.BackColor = ThemeDesign.colorGray;
             btnKategoriFjernAlle.ForeColor = ThemeDesign.colorLabel;
-            btnKategoriFjernAlle.BackColor = ThemeDesign.colorGray6;
+            btnKategoriFjernAlle.BackColor = ThemeDesign.colorGray;
             btnTagLeggTilAlle.ForeColor = ThemeDesign.colorLabel;
-            btnTagLeggTilAlle.BackColor = ThemeDesign.colorGray6;
+            btnTagLeggTilAlle.BackColor = ThemeDesign.colorGray;
             btnTagFjernAlle.ForeColor = ThemeDesign.colorLabel;
-            btnTagFjernAlle.BackColor = ThemeDesign.colorGray6;
+            btnTagFjernAlle.BackColor = ThemeDesign.colorGray;
             cbViseOmråde.ForeColor = ThemeDesign.colorLabel;
             cbOR.ForeColor = ThemeDesign.colorLabel;
             cbAND.ForeColor = ThemeDesign.colorLabel;
@@ -66,12 +67,12 @@ namespace GMAP_Demo
             lblHoppTilEtOmråde.ForeColor = ThemeDesign.colorLabel;
             lblObjektAntall.ForeColor = ThemeDesign.colorLabel;
             btnForrigeRessurs.ForeColor = ThemeDesign.colorLabel;
-            btnForrigeRessurs.BackColor = ThemeDesign.colorGray6;
+            btnForrigeRessurs.BackColor = ThemeDesign.colorGray;
             btnNesteRessurs.ForeColor = ThemeDesign.colorLabel;
-            btnNesteRessurs.BackColor = ThemeDesign.colorGray6;
+            btnNesteRessurs.BackColor = ThemeDesign.colorGray;
 
             tbAntallObjekter.ForeColor = ThemeDesign.colorLabel;
-            tbAntallObjekter.BackColor = ThemeDesign.colorGray6;
+            tbAntallObjekter.BackColor = ThemeDesign.colorGray;
 
             gbInfo.ForeColor = ThemeDesign.colorLabel;
             gbInfo.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
@@ -86,28 +87,28 @@ namespace GMAP_Demo
             lblKommentar.ForeColor = ThemeDesign.colorLabel;
             lblTag.ForeColor = ThemeDesign.colorLabel;
             tbNavn.ForeColor = ThemeDesign.colorLabel;
-            tbNavn.BackColor = ThemeDesign.colorGray6;
+            tbNavn.BackColor = ThemeDesign.colorGray;
             tbKategori.ForeColor = ThemeDesign.colorLabel;
-            tbKategori.BackColor = ThemeDesign.colorGray6;
+            tbKategori.BackColor = ThemeDesign.colorGray;
             tbMålingDato.ForeColor = ThemeDesign.colorLabel;
-            tbMålingDato.BackColor = ThemeDesign.colorGray6;
+            tbMålingDato.BackColor = ThemeDesign.colorGray;
             tbMåling.ForeColor = ThemeDesign.colorLabel;
-            tbMåling.BackColor = ThemeDesign.colorGray6;
+            tbMåling.BackColor = ThemeDesign.colorGray;
             tbEnhetMåling.ForeColor = ThemeDesign.colorLabel;
-            tbEnhetMåling.BackColor = ThemeDesign.colorGray6;
+            tbEnhetMåling.BackColor = ThemeDesign.colorGray;
             tbDato_opprettet.ForeColor = ThemeDesign.colorLabel;
-            tbDato_opprettet.BackColor = ThemeDesign.colorGray6;
+            tbDato_opprettet.BackColor = ThemeDesign.colorGray;
             tbOpprettetAvBruker.ForeColor = ThemeDesign.colorLabel;
-            tbOpprettetAvBruker.BackColor = ThemeDesign.colorGray6;
+            tbOpprettetAvBruker.BackColor = ThemeDesign.colorGray;
             tbSikkerhetsklarering.ForeColor = ThemeDesign.colorLabel;
-            tbSikkerhetsklarering.BackColor = ThemeDesign.colorGray6;
+            tbSikkerhetsklarering.BackColor = ThemeDesign.colorGray;
             tbKommentar.ForeColor = ThemeDesign.colorLabel;
-            tbKommentar.BackColor = ThemeDesign.colorGray6;
+            tbKommentar.BackColor = ThemeDesign.colorGray;
             lbTags.ForeColor = ThemeDesign.colorLabel;
-            lbTags.BackColor = ThemeDesign.colorGray6;
+            lbTags.BackColor = ThemeDesign.colorGray;
 
             btnTimerMåling.ForeColor = ThemeDesign.colorLabel;
-            btnTimerMåling.BackColor = ThemeDesign.colorGray6;
+            btnTimerMåling.BackColor = ThemeDesign.colorGray;
         }
 
         private void frmFilter_Load(object sender, EventArgs e)

@@ -10,6 +10,7 @@ namespace GMAP_Demo
     
     internal class ThemeDesign
     {
+        // Default colors
         public static Color colorRed = Color.FromArgb(255, 59, 48);
         public static Color colorOrange = Color.FromArgb(255, 149, 0);
         public static Color colorYellow = Color.FromArgb(255, 204, 0);
@@ -23,6 +24,7 @@ namespace GMAP_Demo
         public static Color colorPink = Color.FromArgb(255, 45, 85);
         public static Color colorBrown = Color.FromArgb(162, 132, 94);
 
+        // Default Grayscale
         public static Color colorGray = Color.FromArgb(142, 142, 147);
         public static Color colorGray2 = Color.FromArgb(174, 174, 178);
         public static Color colorGray3 = Color.FromArgb(199, 199, 204);
@@ -30,6 +32,7 @@ namespace GMAP_Demo
         public static Color colorGray5 = Color.FromArgb(229, 229, 234);
         public static Color colorGray6 = Color.FromArgb(242, 242, 247);
 
+        // Default Backgrounds
         public static Color colorBackground = Color.FromArgb(255, 255, 255);
         public static Color colorSecondaryBackground = Color.FromArgb(242, 242, 247);
         public static Color colorTertiaryBackground = Color.FromArgb(255, 255, 255);
@@ -37,6 +40,7 @@ namespace GMAP_Demo
         public static Color colorSecondaryGroupedBackground = Color.FromArgb(255, 255, 255);
         public static Color colorTertiaryGroupedBackground = Color.FromArgb(242, 242, 247);
 
+        // Default Labels
         public static Color colorLabel = Color.FromArgb(0, 0, 0);
         public static Color colorSecondaryLabel = Color.FromArgb(153, 60, 60, 67);
         public static Color colorTertiaryLabel = Color.FromArgb(77, 60, 60, 67);
@@ -126,6 +130,7 @@ namespace GMAP_Demo
 
             colorBackground = Color.FromArgb(24, 30, 54);
             colorSecondaryBackground = Color.FromArgb(46, 51, 73);
+            colorTertiaryGroupedBackground = Color.FromArgb(46, 51, 73);
         }
 
 

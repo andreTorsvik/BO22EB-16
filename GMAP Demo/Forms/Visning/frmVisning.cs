@@ -44,6 +44,7 @@ namespace GMAP_Demo
 
             // Første gang programmet starter etter innlogging så vises vinduet i midten av skjermen.
             this.CenterToScreen();
+            ThemeDesign.OldTheme();
             SetTheme();
 
         }
