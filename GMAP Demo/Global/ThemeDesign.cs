@@ -115,6 +115,20 @@ namespace GMAP_Demo
         }
 
 
+        public static void OldTheme()
+        {
+            colorOrange = Color.FromArgb(255, 159, 10);
+            colorBlue = Color.FromArgb(10, 132, 255);
+            colorPurple = Color.FromArgb(191, 90, 242);
+
+            colorGray = Color.FromArgb(142, 142, 147);
+            colorGray6 = Color.FromArgb(28, 28, 30);
+
+            colorBackground = Color.FromArgb(24, 30, 54);
+            colorSecondaryBackground = Color.FromArgb(46, 51, 73);
+        }
+
+
 
 
 
