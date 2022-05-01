@@ -44,7 +44,39 @@ namespace GMAP_Demo
 
             // Første gang programmet starter etter innlogging så vises vinduet i midten av skjermen.
             this.CenterToScreen();
+            SetTheme();
 
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+
+            pnlUser.BackColor = ThemeDesign.colorBackground;
+            btnHelp.ForeColor = ThemeDesign.colorBackground;
+            btnHelp.BackColor = ThemeDesign.colorBlue;
+            lblUserName.ForeColor = ThemeDesign.colorBlue;
+            lblUserName.BackColor = ThemeDesign.colorBackground;
+
+            pnlMenu.BackColor = ThemeDesign.colorBackground;
+            btnFilter.ForeColor = ThemeDesign.colorBlue;
+            btnFilter.BackColor = ThemeDesign.colorBackground;
+            btnPosisjon.ForeColor = ThemeDesign.colorBlue;
+            btnPosisjon.BackColor = ThemeDesign.colorBackground;
+            btnOppdater.ForeColor = ThemeDesign.colorBlue;
+            btnOppdater.BackColor = ThemeDesign.colorBackground;
+            btnRediger.ForeColor = ThemeDesign.colorBlue;
+            btnRediger.BackColor = ThemeDesign.colorBackground;
+            btnSettings.ForeColor = ThemeDesign.colorBlue;
+            btnSettings.BackColor = ThemeDesign.colorBackground;
+
+
+            btnZoomPluss.ForeColor = ThemeDesign.colorBlue;
+            btnZoomPluss.BackColor = ThemeDesign.colorBackground;
+            btnZoomMinus.ForeColor = ThemeDesign.colorBlue;
+            btnZoomMinus.BackColor = ThemeDesign.colorBackground;
+
+            PnlFormLoader.BackColor = ThemeDesign.colorSecondaryBackground;
         }
 
         private void Form1_Load(object sender, EventArgs e)
