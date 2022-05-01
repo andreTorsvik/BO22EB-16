@@ -35,6 +35,40 @@ namespace GMAP_Demo
             frm_R_LeggTilObjekt_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frm_R_LeggTilObjekt_vrb);
             frm_R_LeggTilObjekt_vrb.Show();
+
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+            pnlUser.BackColor = ThemeDesign.colorSecondaryBackground;
+            lblUserName.ForeColor = ThemeDesign.colorOrange;
+            lblUserName.BackColor = ThemeDesign.colorSecondaryBackground;
+            cbOmråde.ForeColor = ThemeDesign.colorGreen;
+
+            pnlMenu.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnObjekt.ForeColor = ThemeDesign.colorOrange;
+            btnObjekt.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnOmråde.ForeColor = ThemeDesign.colorOrange;
+            btnOmråde.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnRediger_objekt.ForeColor = ThemeDesign.colorOrange;
+            btnRediger_objekt.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnRedigerOmråde.ForeColor = ThemeDesign.colorOrange;
+            btnRedigerOmråde.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnLeggTilBilde.ForeColor = ThemeDesign.colorOrange;
+            btnLeggTilBilde.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnFjern.ForeColor = ThemeDesign.colorOrange;
+            btnFjern.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnTilbake.ForeColor = ThemeDesign.colorOrange;
+            btnTilbake.BackColor = ThemeDesign.colorSecondaryBackground;
+
+            PnlFormLoader.BackColor = ThemeDesign.colorTertiaryBackground;
+
+            btnZoomPluss.ForeColor = ThemeDesign.colorOrange;
+            btnZoomPluss.BackColor = ThemeDesign.colorGray;
+            btnZoomMinus.ForeColor = ThemeDesign.colorOrange;
+            btnZoomMinus.BackColor = ThemeDesign.colorGray;
         }
 
         private void frmRediger_Load(object sender, EventArgs e)
@@ -454,8 +488,8 @@ namespace GMAP_Demo
             if (cbOmråde.Checked)
             {
                 cbOmråde.Text = "Kan klikke på eksisterende område";
-                cbOmråde.BackColor = Color.FromArgb(24, 30, 54);
-                cbOmråde.ForeColor = Color.Lime;
+                cbOmråde.BackColor = ThemeDesign.colorSecondaryBackground;
+                cbOmråde.ForeColor = ThemeDesign.colorGreen;
 
                 frmRediger.OmrådeKlikkBar = true;
                 Kart.AlleOmrådeTilgjenlighet(true);
@@ -463,8 +497,8 @@ namespace GMAP_Demo
             else
             {
                 cbOmråde.Text = "Kan ikke klikke på eksisterende område";
-                cbOmråde.BackColor = Color.Red;
-                cbOmråde.ForeColor = Color.Black;
+                cbOmråde.BackColor = ThemeDesign.colorSecondaryBackground;
+                cbOmråde.ForeColor = ThemeDesign.colorRed;
 
                 frmRediger.OmrådeKlikkBar = false;
                 Kart.AlleOmrådeTilgjenlighet(false);

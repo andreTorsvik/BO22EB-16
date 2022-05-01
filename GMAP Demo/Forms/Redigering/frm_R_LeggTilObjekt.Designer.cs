@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.btnLeggTilObjekt = new System.Windows.Forms.Button();
-            this.LabelSikkerhetsklarering = new System.Windows.Forms.Label();
+            this.lblSikkerhetsklarering = new System.Windows.Forms.Label();
             this.txtSikkerhetsklarering = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNavn = new System.Windows.Forms.Label();
             this.txtNavn = new System.Windows.Forms.TextBox();
             this.lbTilgjengeligeTags = new System.Windows.Forms.ListBox();
             this.lbValgtTags = new System.Windows.Forms.ListBox();
             this.btnLeggTilTag = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblKommentar = new System.Windows.Forms.Label();
             this.txtKommentar = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblLong = new System.Windows.Forms.Label();
             this.txtLong = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblLat = new System.Windows.Forms.Label();
             this.txtLat = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblVelgTags = new System.Windows.Forms.Label();
+            this.lblNyTag = new System.Windows.Forms.Label();
             this.txtNyTag = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblEksisterende = new System.Windows.Forms.Label();
+            this.lblValgtForDetteObjektet = new System.Windows.Forms.Label();
             this.lbTilgjengligKategori = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblKategori = new System.Windows.Forms.Label();
             this.txtKategori = new System.Windows.Forms.TextBox();
             this.txtNyKategori = new System.Windows.Forms.TextBox();
             this.btnLeggTilNyKategori = new System.Windows.Forms.Button();
@@ -59,76 +59,78 @@
             this.gbObjekt.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label3
+            // lblTitle
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label3.Location = new System.Drawing.Point(12, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(290, 46);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Legg til Objekt";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+            this.lblTitle.Location = new System.Drawing.Point(9, 7);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(236, 37);
+            this.lblTitle.TabIndex = 3;
+            this.lblTitle.Text = "Legg til Objekt";
             // 
             // btnLeggTilObjekt
             // 
-            this.btnLeggTilObjekt.Location = new System.Drawing.Point(20, 747);
-            this.btnLeggTilObjekt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLeggTilObjekt.Location = new System.Drawing.Point(15, 607);
+            this.btnLeggTilObjekt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLeggTilObjekt.Name = "btnLeggTilObjekt";
-            this.btnLeggTilObjekt.Size = new System.Drawing.Size(123, 34);
+            this.btnLeggTilObjekt.Size = new System.Drawing.Size(92, 28);
             this.btnLeggTilObjekt.TabIndex = 16;
             this.btnLeggTilObjekt.Text = "Lagre objekt";
             this.btnLeggTilObjekt.UseVisualStyleBackColor = true;
             this.btnLeggTilObjekt.Click += new System.EventHandler(this.btnLeggTilObjekt_Click);
             // 
-            // LabelSikkerhetsklarering
+            // lblSikkerhetsklarering
             // 
-            this.LabelSikkerhetsklarering.AutoSize = true;
-            this.LabelSikkerhetsklarering.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelSikkerhetsklarering.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.LabelSikkerhetsklarering.Location = new System.Drawing.Point(6, 64);
-            this.LabelSikkerhetsklarering.Name = "LabelSikkerhetsklarering";
-            this.LabelSikkerhetsklarering.Size = new System.Drawing.Size(211, 20);
-            this.LabelSikkerhetsklarering.TabIndex = 15;
-            this.LabelSikkerhetsklarering.Text = "Sikkerhetsklarering(1-3)";
+            this.lblSikkerhetsklarering.AutoSize = true;
+            this.lblSikkerhetsklarering.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSikkerhetsklarering.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(4, 52);
+            this.lblSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSikkerhetsklarering.Name = "lblSikkerhetsklarering";
+            this.lblSikkerhetsklarering.Size = new System.Drawing.Size(184, 17);
+            this.lblSikkerhetsklarering.TabIndex = 15;
+            this.lblSikkerhetsklarering.Text = "Sikkerhetsklarering(1-3)";
             // 
             // txtSikkerhetsklarering
             // 
-            this.txtSikkerhetsklarering.Location = new System.Drawing.Point(6, 83);
-            this.txtSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSikkerhetsklarering.Location = new System.Drawing.Point(4, 67);
+            this.txtSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSikkerhetsklarering.MaxLength = 1;
             this.txtSikkerhetsklarering.Name = "txtSikkerhetsklarering";
-            this.txtSikkerhetsklarering.Size = new System.Drawing.Size(287, 22);
+            this.txtSikkerhetsklarering.Size = new System.Drawing.Size(216, 20);
             this.txtSikkerhetsklarering.TabIndex = 14;
             this.txtSikkerhetsklarering.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSikkerhetsklarering_KeyPress);
             // 
-            // label1
+            // lblNavn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(6, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Navn";
+            this.lblNavn.AutoSize = true;
+            this.lblNavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNavn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblNavn.Location = new System.Drawing.Point(4, 15);
+            this.lblNavn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNavn.Name = "lblNavn";
+            this.lblNavn.Size = new System.Drawing.Size(45, 17);
+            this.lblNavn.TabIndex = 11;
+            this.lblNavn.Text = "Navn";
             // 
             // txtNavn
             // 
-            this.txtNavn.Location = new System.Drawing.Point(6, 38);
-            this.txtNavn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNavn.Location = new System.Drawing.Point(4, 31);
+            this.txtNavn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNavn.Name = "txtNavn";
-            this.txtNavn.Size = new System.Drawing.Size(285, 22);
+            this.txtNavn.Size = new System.Drawing.Size(215, 20);
             this.txtNavn.TabIndex = 10;
             // 
             // lbTilgjengeligeTags
             // 
             this.lbTilgjengeligeTags.FormattingEnabled = true;
-            this.lbTilgjengeligeTags.ItemHeight = 16;
-            this.lbTilgjengeligeTags.Location = new System.Drawing.Point(5, 57);
-            this.lbTilgjengeligeTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbTilgjengeligeTags.Location = new System.Drawing.Point(4, 46);
+            this.lbTilgjengeligeTags.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbTilgjengeligeTags.Name = "lbTilgjengeligeTags";
-            this.lbTilgjengeligeTags.Size = new System.Drawing.Size(141, 196);
+            this.lbTilgjengeligeTags.Size = new System.Drawing.Size(107, 160);
             this.lbTilgjengeligeTags.Sorted = true;
             this.lbTilgjengeligeTags.TabIndex = 17;
             this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengelige_MouseDoubleClick);
@@ -136,11 +138,10 @@
             // lbValgtTags
             // 
             this.lbValgtTags.FormattingEnabled = true;
-            this.lbValgtTags.ItemHeight = 16;
-            this.lbValgtTags.Location = new System.Drawing.Point(152, 57);
-            this.lbValgtTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbValgtTags.Location = new System.Drawing.Point(114, 46);
+            this.lbValgtTags.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbValgtTags.Name = "lbValgtTags";
-            this.lbValgtTags.Size = new System.Drawing.Size(140, 196);
+            this.lbValgtTags.Size = new System.Drawing.Size(106, 160);
             this.lbValgtTags.Sorted = true;
             this.lbValgtTags.TabIndex = 18;
             this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtTags_MouseDoubleClick);
@@ -148,176 +149,185 @@
             // btnLeggTilTag
             // 
             this.btnLeggTilTag.ForeColor = System.Drawing.Color.Black;
-            this.btnLeggTilTag.Location = new System.Drawing.Point(131, 276);
-            this.btnLeggTilTag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLeggTilTag.Location = new System.Drawing.Point(98, 224);
+            this.btnLeggTilTag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLeggTilTag.Name = "btnLeggTilTag";
-            this.btnLeggTilTag.Size = new System.Drawing.Size(73, 27);
+            this.btnLeggTilTag.Size = new System.Drawing.Size(55, 22);
             this.btnLeggTilTag.TabIndex = 19;
             this.btnLeggTilTag.Text = "Legg til";
             this.btnLeggTilTag.UseVisualStyleBackColor = true;
             this.btnLeggTilTag.Click += new System.EventHandler(this.btnLeggTilTag_Click);
             // 
-            // label5
+            // lblKommentar
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(5, 198);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 20);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Kommentar";
+            this.lblKommentar.AutoSize = true;
+            this.lblKommentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKommentar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblKommentar.Location = new System.Drawing.Point(4, 161);
+            this.lblKommentar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblKommentar.Name = "lblKommentar";
+            this.lblKommentar.Size = new System.Drawing.Size(89, 17);
+            this.lblKommentar.TabIndex = 22;
+            this.lblKommentar.Text = "Kommentar";
             // 
             // txtKommentar
             // 
-            this.txtKommentar.Location = new System.Drawing.Point(5, 219);
-            this.txtKommentar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtKommentar.Location = new System.Drawing.Point(4, 178);
+            this.txtKommentar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtKommentar.Name = "txtKommentar";
-            this.txtKommentar.Size = new System.Drawing.Size(285, 22);
+            this.txtKommentar.Size = new System.Drawing.Size(215, 20);
             this.txtKommentar.TabIndex = 21;
             // 
-            // label7
+            // lblLong
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.label7.Location = new System.Drawing.Point(5, 290);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 20);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Long";
+            this.lblLong.AutoSize = true;
+            this.lblLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblLong.Location = new System.Drawing.Point(4, 236);
+            this.lblLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLong.Name = "lblLong";
+            this.lblLong.Size = new System.Drawing.Size(44, 17);
+            this.lblLong.TabIndex = 26;
+            this.lblLong.Text = "Long";
             // 
             // txtLong
             // 
             this.txtLong.BackColor = System.Drawing.SystemColors.Control;
-            this.txtLong.Location = new System.Drawing.Point(5, 314);
-            this.txtLong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLong.Location = new System.Drawing.Point(4, 255);
+            this.txtLong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLong.Name = "txtLong";
-            this.txtLong.Size = new System.Drawing.Size(285, 22);
+            this.txtLong.Size = new System.Drawing.Size(215, 20);
             this.txtLong.TabIndex = 25;
             this.txtLong.Text = "Dobbelklikk på kartet ";
             // 
-            // label8
+            // lblLat
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.label8.Location = new System.Drawing.Point(5, 245);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 20);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Lat";
+            this.lblLat.AutoSize = true;
+            this.lblLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblLat.Location = new System.Drawing.Point(4, 199);
+            this.lblLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLat.Name = "lblLat";
+            this.lblLat.Size = new System.Drawing.Size(31, 17);
+            this.lblLat.TabIndex = 24;
+            this.lblLat.Text = "Lat";
             // 
             // txtLat
             // 
             this.txtLat.BackColor = System.Drawing.SystemColors.Control;
-            this.txtLat.Location = new System.Drawing.Point(5, 266);
-            this.txtLat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLat.Location = new System.Drawing.Point(4, 216);
+            this.txtLat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLat.Name = "txtLat";
-            this.txtLat.Size = new System.Drawing.Size(287, 22);
+            this.txtLat.Size = new System.Drawing.Size(216, 20);
             this.txtLat.TabIndex = 23;
             this.txtLat.Text = "Dobbelklikk på kartet";
             // 
-            // label6
+            // lblVelgTags
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(5, 18);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 20);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Velg Hvilke tags";
+            this.lblVelgTags.AutoSize = true;
+            this.lblVelgTags.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVelgTags.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblVelgTags.Location = new System.Drawing.Point(4, 15);
+            this.lblVelgTags.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVelgTags.Name = "lblVelgTags";
+            this.lblVelgTags.Size = new System.Drawing.Size(125, 17);
+            this.lblVelgTags.TabIndex = 27;
+            this.lblVelgTags.Text = "Velg Hvilke tags";
             // 
-            // label9
+            // lblNyTag
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.label9.Location = new System.Drawing.Point(5, 255);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 20);
-            this.label9.TabIndex = 29;
-            this.label9.Text = "Ny Tag ";
+            this.lblNyTag.AutoSize = true;
+            this.lblNyTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNyTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblNyTag.Location = new System.Drawing.Point(4, 207);
+            this.lblNyTag.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNyTag.Name = "lblNyTag";
+            this.lblNyTag.Size = new System.Drawing.Size(65, 17);
+            this.lblNyTag.TabIndex = 29;
+            this.lblNyTag.Text = "Ny Tag ";
             // 
             // txtNyTag
             // 
             this.txtNyTag.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNyTag.Location = new System.Drawing.Point(4, 278);
-            this.txtNyTag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNyTag.Location = new System.Drawing.Point(3, 226);
+            this.txtNyTag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNyTag.Name = "txtNyTag";
-            this.txtNyTag.Size = new System.Drawing.Size(121, 22);
+            this.txtNyTag.Size = new System.Drawing.Size(92, 20);
             this.txtNyTag.TabIndex = 28;
             // 
-            // label10
+            // lblEksisterende
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.label10.Location = new System.Drawing.Point(5, 38);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 16);
-            this.label10.TabIndex = 30;
-            this.label10.Text = "Ekisterende";
+            this.lblEksisterende.AutoSize = true;
+            this.lblEksisterende.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEksisterende.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblEksisterende.Location = new System.Drawing.Point(4, 31);
+            this.lblEksisterende.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEksisterende.Name = "lblEksisterende";
+            this.lblEksisterende.Size = new System.Drawing.Size(68, 13);
+            this.lblEksisterende.TabIndex = 30;
+            this.lblEksisterende.Text = "Eksisterende";
             // 
-            // label11
+            // lblValgtForDetteObjektet
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.label11.Location = new System.Drawing.Point(152, 38);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(140, 16);
-            this.label11.TabIndex = 31;
-            this.label11.Text = "valgt for dette Objektet";
+            this.lblValgtForDetteObjektet.AutoSize = true;
+            this.lblValgtForDetteObjektet.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValgtForDetteObjektet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblValgtForDetteObjektet.Location = new System.Drawing.Point(114, 31);
+            this.lblValgtForDetteObjektet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblValgtForDetteObjektet.Name = "lblValgtForDetteObjektet";
+            this.lblValgtForDetteObjektet.Size = new System.Drawing.Size(115, 13);
+            this.lblValgtForDetteObjektet.TabIndex = 31;
+            this.lblValgtForDetteObjektet.Text = "valgt for dette Objektet";
             // 
             // lbTilgjengligKategori
             // 
             this.lbTilgjengligKategori.FormattingEnabled = true;
-            this.lbTilgjengligKategori.ItemHeight = 16;
-            this.lbTilgjengligKategori.Location = new System.Drawing.Point(6, 128);
+            this.lbTilgjengligKategori.Location = new System.Drawing.Point(4, 104);
+            this.lbTilgjengligKategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbTilgjengligKategori.Name = "lbTilgjengligKategori";
-            this.lbTilgjengligKategori.Size = new System.Drawing.Size(138, 36);
+            this.lbTilgjengligKategori.Size = new System.Drawing.Size(104, 30);
             this.lbTilgjengligKategori.Sorted = true;
             this.lbTilgjengligKategori.TabIndex = 61;
             this.lbTilgjengligKategori.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligKategori_MouseDoubleClick);
             // 
-            // label2
+            // lblKategori
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(6, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 20);
-            this.label2.TabIndex = 60;
-            this.label2.Text = "Kategori";
+            this.lblKategori.AutoSize = true;
+            this.lblKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKategori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblKategori.Location = new System.Drawing.Point(4, 87);
+            this.lblKategori.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblKategori.Name = "lblKategori";
+            this.lblKategori.Size = new System.Drawing.Size(69, 17);
+            this.lblKategori.TabIndex = 60;
+            this.lblKategori.Text = "Kategori";
             // 
             // txtKategori
             // 
             this.txtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtKategori.Location = new System.Drawing.Point(153, 128);
+            this.txtKategori.Location = new System.Drawing.Point(115, 104);
+            this.txtKategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtKategori.Name = "txtKategori";
             this.txtKategori.ReadOnly = true;
-            this.txtKategori.Size = new System.Drawing.Size(138, 22);
+            this.txtKategori.Size = new System.Drawing.Size(104, 20);
             this.txtKategori.TabIndex = 59;
             // 
             // txtNyKategori
             // 
             this.txtNyKategori.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNyKategori.Location = new System.Drawing.Point(6, 173);
-            this.txtNyKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNyKategori.Location = new System.Drawing.Point(4, 141);
+            this.txtNyKategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNyKategori.Name = "txtNyKategori";
-            this.txtNyKategori.Size = new System.Drawing.Size(139, 22);
+            this.txtNyKategori.Size = new System.Drawing.Size(105, 20);
             this.txtNyKategori.TabIndex = 63;
             // 
             // btnLeggTilNyKategori
             // 
             this.btnLeggTilNyKategori.ForeColor = System.Drawing.Color.Black;
-            this.btnLeggTilNyKategori.Location = new System.Drawing.Point(156, 170);
-            this.btnLeggTilNyKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLeggTilNyKategori.Location = new System.Drawing.Point(117, 138);
+            this.btnLeggTilNyKategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLeggTilNyKategori.Name = "btnLeggTilNyKategori";
-            this.btnLeggTilNyKategori.Size = new System.Drawing.Size(140, 27);
+            this.btnLeggTilNyKategori.Size = new System.Drawing.Size(105, 22);
             this.btnLeggTilNyKategori.TabIndex = 62;
             this.btnLeggTilNyKategori.Text = "Legg til ny Kategori";
             this.btnLeggTilNyKategori.UseVisualStyleBackColor = true;
@@ -325,63 +335,63 @@
             // 
             // gbTag
             // 
-            this.gbTag.Controls.Add(this.label6);
+            this.gbTag.Controls.Add(this.lblVelgTags);
             this.gbTag.Controls.Add(this.lbTilgjengeligeTags);
-            this.gbTag.Controls.Add(this.label11);
+            this.gbTag.Controls.Add(this.lblValgtForDetteObjektet);
             this.gbTag.Controls.Add(this.lbValgtTags);
-            this.gbTag.Controls.Add(this.label10);
+            this.gbTag.Controls.Add(this.lblEksisterende);
             this.gbTag.Controls.Add(this.btnLeggTilTag);
-            this.gbTag.Controls.Add(this.label9);
+            this.gbTag.Controls.Add(this.lblNyTag);
             this.gbTag.Controls.Add(this.txtNyTag);
             this.gbTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.gbTag.Location = new System.Drawing.Point(20, 408);
-            this.gbTag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbTag.Location = new System.Drawing.Point(15, 332);
+            this.gbTag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbTag.Name = "gbTag";
-            this.gbTag.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbTag.Size = new System.Drawing.Size(303, 310);
+            this.gbTag.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbTag.Size = new System.Drawing.Size(227, 252);
             this.gbTag.TabIndex = 84;
             this.gbTag.TabStop = false;
             this.gbTag.Text = "Tag";
             // 
             // gbObjekt
             // 
-            this.gbObjekt.Controls.Add(this.label1);
+            this.gbObjekt.Controls.Add(this.lblNavn);
             this.gbObjekt.Controls.Add(this.txtNavn);
             this.gbObjekt.Controls.Add(this.txtNyKategori);
             this.gbObjekt.Controls.Add(this.txtSikkerhetsklarering);
             this.gbObjekt.Controls.Add(this.btnLeggTilNyKategori);
-            this.gbObjekt.Controls.Add(this.LabelSikkerhetsklarering);
+            this.gbObjekt.Controls.Add(this.lblSikkerhetsklarering);
             this.gbObjekt.Controls.Add(this.lbTilgjengligKategori);
             this.gbObjekt.Controls.Add(this.txtKommentar);
-            this.gbObjekt.Controls.Add(this.label2);
-            this.gbObjekt.Controls.Add(this.label5);
+            this.gbObjekt.Controls.Add(this.lblKategori);
+            this.gbObjekt.Controls.Add(this.lblKommentar);
             this.gbObjekt.Controls.Add(this.txtKategori);
             this.gbObjekt.Controls.Add(this.txtLat);
-            this.gbObjekt.Controls.Add(this.label8);
+            this.gbObjekt.Controls.Add(this.lblLat);
             this.gbObjekt.Controls.Add(this.txtLong);
-            this.gbObjekt.Controls.Add(this.label7);
+            this.gbObjekt.Controls.Add(this.lblLong);
             this.gbObjekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.gbObjekt.Location = new System.Drawing.Point(20, 57);
-            this.gbObjekt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbObjekt.Location = new System.Drawing.Point(15, 46);
+            this.gbObjekt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbObjekt.Name = "gbObjekt";
-            this.gbObjekt.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbObjekt.Size = new System.Drawing.Size(303, 347);
+            this.gbObjekt.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbObjekt.Size = new System.Drawing.Size(227, 282);
             this.gbObjekt.TabIndex = 85;
             this.gbObjekt.TabStop = false;
             this.gbObjekt.Text = "Objekt";
             // 
             // frm_R_LeggTilObjekt
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(391, 825);
+            this.ClientSize = new System.Drawing.Size(293, 670);
             this.Controls.Add(this.gbTag);
             this.Controls.Add(this.gbObjekt);
             this.Controls.Add(this.btnLeggTilObjekt);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frm_R_LeggTilObjekt";
             this.Text = "frm_R_LeggTilObjekt";
             this.Load += new System.EventHandler(this.frm_R_LeggTilObjekt_Load);
@@ -398,26 +408,26 @@
         //Her er et ekempel der vi bruker public textbox
         private System.Windows.Forms.TextBox txtLat;
         private System.Windows.Forms.TextBox txtLong;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnLeggTilObjekt;
-        private System.Windows.Forms.Label LabelSikkerhetsklarering;
+        private System.Windows.Forms.Label lblSikkerhetsklarering;
         private System.Windows.Forms.TextBox txtSikkerhetsklarering;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNavn;
         private System.Windows.Forms.TextBox txtNavn;
         private System.Windows.Forms.ListBox lbTilgjengeligeTags;
         private System.Windows.Forms.ListBox lbValgtTags;
         private System.Windows.Forms.Button btnLeggTilTag;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblKommentar;
         private System.Windows.Forms.TextBox txtKommentar;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblLong;
+        private System.Windows.Forms.Label lblLat;
+        private System.Windows.Forms.Label lblVelgTags;
+        private System.Windows.Forms.Label lblNyTag;
         private System.Windows.Forms.TextBox txtNyTag;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblEksisterende;
+        private System.Windows.Forms.Label lblValgtForDetteObjektet;
         private System.Windows.Forms.ListBox lbTilgjengligKategori;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblKategori;
         private System.Windows.Forms.TextBox txtKategori;
         private System.Windows.Forms.TextBox txtNyKategori;
         private System.Windows.Forms.Button btnLeggTilNyKategori;
