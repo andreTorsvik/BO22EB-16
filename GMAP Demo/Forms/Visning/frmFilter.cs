@@ -30,7 +30,7 @@ namespace GMAP_Demo
 
         private void frmFilter_Load(object sender, EventArgs e)
         {
-
+            filterOR = true;
         }
 
         private void lbKategorierVises_DoubleClick(object sender, EventArgs e)
