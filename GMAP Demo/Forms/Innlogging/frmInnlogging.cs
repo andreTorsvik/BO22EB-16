@@ -69,9 +69,9 @@ namespace GMAP_Demo
                         form1.Size = this.Size;
                         form1.Show();
 
-                        if (frmVertifiseringskode.instance != null)
+                        if (frmVerifiseringskode.instance != null)
                         {
-                            frmVertifiseringskode.instance.Close();
+                            frmVerifiseringskode.instance.Close();
                         }
 
                         if(InnloggetBruker.Sikkerhetsklarering > Globalekonstanter.MaxSikkerhetsklarering)
@@ -91,7 +91,7 @@ namespace GMAP_Demo
                     {
                         if (listBruker[0].Godkjent == true)
                         {
-                            frmVertifiseringskode vertifiseringskode = new frmVertifiseringskode();
+                            frmVerifiseringskode vertifiseringskode = new frmVerifiseringskode();
                             vertifiseringskode.Show();
                         }
                         else if (listBruker[0].Godkjent == false)

@@ -220,11 +220,11 @@
     <Compile Include="Forms\Innlogging\frmRegistering.Designer.cs">
       <DependentUpon>frmRegistering.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Innlogging\frmVertifiseringskode.cs">
+    <Compile Include="Forms\Innlogging\frmVerifiseringskode.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Innlogging\frmVertifiseringskode.Designer.cs">
-      <DependentUpon>frmVertifiseringskode.cs</DependentUpon>
+    <Compile Include="Forms\Innlogging\frmVerifiseringskode.Designer.cs">
+      <DependentUpon>frmVerifiseringskode.cs</DependentUpon>
     </Compile>
     <Compile Include="Global\Globalekonstanter.cs" />
     <Compile Include="Global\GlobaleLister.cs" />
@@ -247,8 +247,8 @@
     <EmbeddedResource Include="Forms\Innlogging\frmRegistering.resx">
       <DependentUpon>frmRegistering.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Innlogging\frmVertifiseringskode.resx">
-      <DependentUpon>frmVertifiseringskode.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Innlogging\frmVerifiseringskode.resx">
+      <DependentUpon>frmVerifiseringskode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Visning\frmVisning.resx">
       <DependentUpon>frmVisning.cs</DependentUpon>
