@@ -109,6 +109,7 @@
     <Compile Include="Database\DataTypes\Punkter_område.cs" />
     <Compile Include="Database\DataTypes\Ressurs.cs" />
     <Compile Include="Global\FellesMetoder.cs" />
+    <Compile Include="Global\ThemeDesign.cs" />
     <Compile Include="Tekstbehandling\FilBehandeling.cs" />
     <Compile Include="Kartbehandling\FilterBehandling.cs" />
     <Compile Include="Forms\Innlogging\frmInnlogging.cs">

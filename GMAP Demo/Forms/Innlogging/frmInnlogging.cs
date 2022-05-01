@@ -16,6 +16,25 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+            lblTitle.ForeColor = ThemeDesign.colorBlue;
+            lblTitle2.ForeColor = ThemeDesign.colorBlue;
+            lblUserName.ForeColor = ThemeDesign.colorBlue;
+            lblPassword.ForeColor = ThemeDesign.colorBlue;
+            lblIngenBruker.ForeColor = ThemeDesign.colorLabel;
+            lblOpprettBruker.ForeColor = ThemeDesign.colorBlue;
+            lblTest.ForeColor = ThemeDesign.colorBlue;
+            tbUserName.BackColor = ThemeDesign.colorGray6;
+            tbPassword.BackColor = ThemeDesign.colorGray6;
+            btnLogin.ForeColor = ThemeDesign.colorBackground;
+            btnLogin.BackColor = ThemeDesign.colorBlue;
+            btnTestUser.ForeColor = ThemeDesign.colorBackground;
+            btnTestUser.BackColor = ThemeDesign.colorBlue;
         }
 
         private void frmInnlogging_Load(object sender, EventArgs e)
@@ -97,12 +116,12 @@ namespace GMAP_Demo
 
         private void LbNyBruker_MouseEnter(object sender, EventArgs e)
         {
-            LbNyBruker.Font = new Font(LbNyBruker.Font, FontStyle.Underline);
+            lblOpprettBruker.Font = new Font(lblOpprettBruker.Font, FontStyle.Underline);
         }
 
         private void LbNyBruker_MouseLeave(object sender, EventArgs e)
         {
-            LbNyBruker.Font = new Font(LbNyBruker.Font, FontStyle.Regular);
+            lblOpprettBruker.Font = new Font(lblOpprettBruker.Font, FontStyle.Regular);
         }
 
         private void btNyBruker_Click(object sender, EventArgs e)
