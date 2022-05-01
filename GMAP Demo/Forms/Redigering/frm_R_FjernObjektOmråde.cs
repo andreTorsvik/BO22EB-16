@@ -13,12 +13,37 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
-            lableSlettet.Text = "";
+            lblSlettet.Text = "";
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            throw new NotImplementedException();
         }
 
         private void frm_R_FjernObjektOmråde_Load(object sender, EventArgs e)
         {
+            instance.BackColor = ThemeDesign.colorBackground;
 
+            lblTitle.ForeColor = ThemeDesign.colorOrange;
+
+            gbObjekt.ForeColor = ThemeDesign.colorLabel;
+            gbObjekt.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblKlikkPåObjektet.ForeColor = ThemeDesign.colorLabel;
+            lblLøpenummer.ForeColor = ThemeDesign.colorLabel;
+            lblNavn.ForeColor = ThemeDesign.colorLabel;
+            lblInfo.ForeColor = ThemeDesign.colorLabel;
+            txtLøpenumemr.ForeColor = ThemeDesign.colorLabel;
+            txtLøpenumemr.BackColor = ThemeDesign.colorGray;
+            txtNavn.ForeColor = ThemeDesign.colorLabel;
+            txtNavn.BackColor = ThemeDesign.colorGray;
+            txtInfo.ForeColor = ThemeDesign.colorLabel;
+            txtInfo.BackColor = ThemeDesign.colorGray;
+
+            btnFjern.ForeColor = ThemeDesign.colorLabel;
+            btnFjern.BackColor = ThemeDesign.colorGray;
+            lblSlettet.ForeColor = ThemeDesign.colorLabel;
         }
 
         public void fyllInfoObjekt(int Tag)
@@ -53,7 +78,7 @@ namespace GMAP_Demo
                     if (Fjern)
                     {
                         DBComRessurs.DeleteRessurs(Løpenummer_til_objekt);
-                        lableSlettet.Text = String.Format("Ressurs nr: {0} er slettet", Løpenummer_til_objekt);
+                        lblSlettet.Text = String.Format("Ressurs nr: {0} er slettet", Løpenummer_til_objekt);
                         Løpenummer_til_objekt = -1;
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart
@@ -82,7 +107,7 @@ namespace GMAP_Demo
                     {
                         DBComPunkter_område.DeletePunkter_området(Løpenummer_til_Område);
                         DBComOmråde.DeleteOmråde(Løpenummer_til_Område);
-                        lableSlettet.Text = String.Format("Område nr: {0} er slettet", Løpenummer_til_Område);
+                        lblSlettet.Text = String.Format("Område nr: {0} er slettet", Løpenummer_til_Område);
                         Løpenummer_til_Område = -1;
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart 

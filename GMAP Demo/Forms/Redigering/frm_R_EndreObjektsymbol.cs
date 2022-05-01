@@ -13,6 +13,7 @@ namespace GMAP_Demo
 {
     public partial class frm_R_EndreObjektsymbol : Form
     {
+        public static frm_R_EndreObjektsymbol instance;
         public Image image = null;
         public byte[] imageData;
         public string valgtKategori;
@@ -20,6 +21,36 @@ namespace GMAP_Demo
         public frm_R_EndreObjektsymbol()
         {
             InitializeComponent();
+            instance = this;
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+
+            lblTitle.ForeColor = ThemeDesign.colorOrange;
+
+            gbKategori.ForeColor = ThemeDesign.colorLabel;
+            gbKategori.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblTilgjengeligeKategorier.ForeColor = ThemeDesign.colorLabel;
+            lblValgtKategori.ForeColor = ThemeDesign.colorLabel;
+            lbTilgjengligKategorier.ForeColor = ThemeDesign.colorLabel;
+            txtValgtKategori.ForeColor = ThemeDesign.colorLabel;
+            txtValgtKategori.BackColor = ThemeDesign.colorGray;
+
+            gbBilde.ForeColor = ThemeDesign.colorLabel;
+            gbBilde.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblVelgBilde.ForeColor = ThemeDesign.colorLabel;
+            lblValgtBilde.ForeColor = ThemeDesign.colorLabel;
+            lblVelgBilde.ForeColor = ThemeDesign.colorLabel;
+            btnLVelgBildeFraFiler.ForeColor = ThemeDesign.colorLabel;
+            btnLVelgBildeFraFiler.BackColor = ThemeDesign.colorGray;
+
+            gblLastOppTilDB.ForeColor = ThemeDesign.colorLabel;
+            gblLastOppTilDB.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            btnLeggTilIDb.ForeColor = ThemeDesign.colorLabel;
+            btnLeggTilIDb.BackColor = ThemeDesign.colorGray;
         }
 
         private void lbTilgjengligKategorier_DoubleClick(object sender, EventArgs e)
