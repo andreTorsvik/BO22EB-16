@@ -103,6 +103,9 @@ namespace GMAP_Demo
 
             //tegner alt på karet
             Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+
+            this.Size = new System.Drawing.Size(1000, 750);
+            this.MinimumSize = new System.Drawing.Size(1000, 750);
         }
 
         private void btnPosisjon_Click(object sender, EventArgs e)
