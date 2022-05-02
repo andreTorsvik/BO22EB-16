@@ -65,7 +65,7 @@ namespace GMAP_Demo
                 frmControlPanel.instance = null;
         }
 
-        void AlleKnapperTilStandarfarge()
+        internal void AlleKnapperTilStandarfarge()
         {
             Color StandarFarge = Globalekonstanter.StandarFargeKnapp;
 
@@ -178,6 +178,7 @@ namespace GMAP_Demo
 
         public void OppdaterThemeKnapp()
         {
+            frmControlPanel.instance.AlleKnapperTilStandarfarge();
             btnChangeTheme.BackColor = Globalekonstanter.knapp_trykket;
         }
     }

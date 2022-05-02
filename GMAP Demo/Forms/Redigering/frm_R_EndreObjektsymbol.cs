@@ -144,5 +144,20 @@ namespace GMAP_Demo
             else MessageBox.Show("Du har ikke valgt en kategori, og har heller ikke valgt et bilde.", "Kunne ikke utføre oppgaven!");
         }
 
+        private void btnFjernBilde_Click(object sender, EventArgs e)
+        {
+            if ((valgtKategori != null))
+            {
+                DBComKategorier_Bilde.DeleteBildeFromKategorier_Bilde(valgtKategori);
+                pbValgtKategori.Visible = false;
+                pbValgtBilde.Dispose();
+                tbValgtKategori.Text = "";
+                lbTilgjengligKategorier.ClearSelected();
+            }
+            else
+            {
+                MessageBox.Show("Vennligst velg en kategori fra listen, for å fjerne tilknyttet bilde.", "Kunne ikke utføre oppgaven!");
+            }
+        }
     }
 }

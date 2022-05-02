@@ -70,6 +70,22 @@ namespace GMAP_Demo
             }
         }
 
+        public static void DeleteBildeFromKategorier_Bilde(string kategorinavn)
+        {
+            try
+            {
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
+                {
+                    var output = connection.Query<Ressurs>($"UPDATE [dbo].[Kategorier_Bilde] SET Bilde = null WHERE (Kategorinavn = '{ kategorinavn }')");
+
+                }
+            }
+            catch (Exception exeption)
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
+            }
+        }
+
         public static List<Kategorier_Bilde> GetBildeForKategoriFromDbKategorier_Bilde(string kategorinavn)
         {
             try
