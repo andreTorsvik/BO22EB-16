@@ -9,9 +9,37 @@ namespace GMAP_Demo
 {
     public partial class frm_S_Admin : Form
     {
+        frm_S_Admin instance;
         public frm_S_Admin()
         {
             InitializeComponent();
+            instance = this;
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+
+            lblTitle.ForeColor = ThemeDesign.colorPurple;
+
+            lblVenterGodkjenning.ForeColor = ThemeDesign.colorLabel;
+            btnGodta.ForeColor = ThemeDesign.colorLabel;
+            btnGodta.BackColor = ThemeDesign.colorGray;
+            btnAvslå.ForeColor = ThemeDesign.colorLabel;
+            btnAvslå.BackColor = ThemeDesign.colorGray;
+            lbVenterPåGodkjenning.ForeColor = ThemeDesign.colorLabel;
+            lbVenterPåGodkjenning.BackColor = ThemeDesign.colorGray;
+
+            lblListeOverBrukere.ForeColor = ThemeDesign.colorLabel;
+            btnOppgrader.ForeColor = ThemeDesign.colorLabel;
+            btnOppgrader.BackColor = ThemeDesign.colorGray;
+            btnNedgrader.ForeColor = ThemeDesign.colorLabel;
+            btnNedgrader.BackColor = ThemeDesign.colorGray;
+            btnFjern.ForeColor = ThemeDesign.colorLabel;
+            btnFjern.BackColor = ThemeDesign.colorGray;
+            lbListeOverbrukere.ForeColor = ThemeDesign.colorLabel;
+            lbListeOverbrukere.BackColor = ThemeDesign.colorGray;
         }
 
         private void frm_S_Admin_Load(object sender, EventArgs e)

@@ -26,12 +26,94 @@ namespace GMAP_Demo
             lbTagsVises.DisplayMember = "Tag";
             lbTagsSkjult.DataSource = Kart.tag_ListeSkjult;
             lbTagsSkjult.DisplayMember = "Tag";
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+            
+            lblTitle.ForeColor = ThemeDesign.colorBlue;
+
+            gbFilter.ForeColor = ThemeDesign.colorLabel;
+            gbFilter.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblKategorierSkjult.ForeColor = ThemeDesign.colorLabel;
+            lblKategorierVises.ForeColor = ThemeDesign.colorLabel;
+            lblTagsSkjult.ForeColor = ThemeDesign.colorLabel;
+            lblTagsVises.ForeColor = ThemeDesign.colorLabel;
+            lbKategorierSkjult.ForeColor = ThemeDesign.colorLabel;
+            lbKategorierSkjult.BackColor = ThemeDesign.colorGray;
+            lbKategorierVises.ForeColor = ThemeDesign.colorLabel;
+            lbKategorierVises.BackColor = ThemeDesign.colorGray;
+            lbTagsSkjult.ForeColor = ThemeDesign.colorLabel;
+            lbTagsSkjult.BackColor = ThemeDesign.colorGray;
+            lbTagsVises.ForeColor = ThemeDesign.colorLabel;
+            lbTagsVises.BackColor = ThemeDesign.colorGray;
+            btnKategoriLeggTilAlle.ForeColor = ThemeDesign.colorLabel;
+            btnKategoriLeggTilAlle.BackColor = ThemeDesign.colorGray;
+            btnKategoriFjernAlle.ForeColor = ThemeDesign.colorLabel;
+            btnKategoriFjernAlle.BackColor = ThemeDesign.colorGray;
+            btnTagLeggTilAlle.ForeColor = ThemeDesign.colorLabel;
+            btnTagLeggTilAlle.BackColor = ThemeDesign.colorGray;
+            btnTagFjernAlle.ForeColor = ThemeDesign.colorLabel;
+            btnTagFjernAlle.BackColor = ThemeDesign.colorGray;
+            cbViseOmråde.ForeColor = ThemeDesign.colorLabel;
+            cbOR.ForeColor = ThemeDesign.colorLabel;
+            cbAND.ForeColor = ThemeDesign.colorLabel;
+
+            gbObjekt.ForeColor = ThemeDesign.colorLabel;
+            gbObjekt.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblHoppTilEtOmråde.ForeColor = ThemeDesign.colorLabel;
+            lblObjektAntall.ForeColor = ThemeDesign.colorLabel;
+            btnForrigeRessurs.ForeColor = ThemeDesign.colorLabel;
+            btnForrigeRessurs.BackColor = ThemeDesign.colorGray;
+            btnNesteRessurs.ForeColor = ThemeDesign.colorLabel;
+            btnNesteRessurs.BackColor = ThemeDesign.colorGray;
+
+            tbAntallObjekter.ForeColor = ThemeDesign.colorLabel;
+            tbAntallObjekter.BackColor = ThemeDesign.colorGray;
+
+            gbInfo.ForeColor = ThemeDesign.colorLabel;
+            gbInfo.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblNavn.ForeColor = ThemeDesign.colorLabel;
+            lblKategori.ForeColor = ThemeDesign.colorLabel;
+            lbMålingDato.ForeColor = ThemeDesign.colorLabel;
+            lblMåling.ForeColor = ThemeDesign.colorLabel;
+            lblEnhetMåling.ForeColor = ThemeDesign.colorLabel;
+            lblDato_opprettet.ForeColor = ThemeDesign.colorLabel;
+            lblOpprettetAvBruker.ForeColor = ThemeDesign.colorLabel;
+            lblSikkerhetsklarering.ForeColor = ThemeDesign.colorLabel;
+            lblKommentar.ForeColor = ThemeDesign.colorLabel;
+            lblTag.ForeColor = ThemeDesign.colorLabel;
+            tbNavn.ForeColor = ThemeDesign.colorLabel;
+            tbNavn.BackColor = ThemeDesign.colorGray6;
+            tbKategori.ForeColor = ThemeDesign.colorLabel;
+            tbKategori.BackColor = ThemeDesign.colorGray6;
+            tbMålingDato.ForeColor = ThemeDesign.colorLabel;
+            tbMålingDato.BackColor = ThemeDesign.colorGray6;
+            tbMåling.ForeColor = ThemeDesign.colorLabel;
+            tbMåling.BackColor = ThemeDesign.colorGray6;
+            tbEnhetMåling.ForeColor = ThemeDesign.colorLabel;
+            tbEnhetMåling.BackColor = ThemeDesign.colorGray6;
+            tbDato_opprettet.ForeColor = ThemeDesign.colorLabel;
+            tbDato_opprettet.BackColor = ThemeDesign.colorGray6;
+            tbOpprettetAvBruker.ForeColor = ThemeDesign.colorLabel;
+            tbOpprettetAvBruker.BackColor = ThemeDesign.colorGray6;
+            tbSikkerhetsklarering.ForeColor = ThemeDesign.colorLabel;
+            tbSikkerhetsklarering.BackColor = ThemeDesign.colorGray6;
+            tbKommentar.ForeColor = ThemeDesign.colorLabel;
+            tbKommentar.BackColor = ThemeDesign.colorGray6;
+            lbTags.ForeColor = ThemeDesign.colorLabel;
+            lbTags.BackColor = ThemeDesign.colorGray6;
+
+            btnTimerMåling.ForeColor = ThemeDesign.colorLabel;
+            btnTimerMåling.BackColor = ThemeDesign.colorGray;
         }
 
         private void frmFilter_Load(object sender, EventArgs e)
         {
             filterOR = true;
-            if(GlobaleLister.LRessurs.Count > 0) txtAntallObjekter.Text = GlobaleLister.LRessurs.Count.ToString();
+            if(GlobaleLister.LRessurs.Count > 0) tbAntallObjekter.Text = GlobaleLister.LRessurs.Count.ToString();
         }
 
         private void lbKategorierVises_DoubleClick(object sender, EventArgs e)
@@ -121,12 +203,12 @@ namespace GMAP_Demo
         {
             if(GlobaleLister.LRessurs.Count > 0)
             {
-                txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
-                txtKategori.Text = GlobaleLister.LRessurs[Tag].Kategori;
-                txtDato_opprettet.Text = GlobaleLister.LRessurs[Tag].Dato_opprettet;
-                txtOpprettetAvBruker.Text = GlobaleLister.LRessurs[Tag].Opprettet_av_bruker;
-                txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Tag].Sikkerhetsklarering.ToString();
-                txtKommentar.Text = GlobaleLister.LRessurs[Tag].Kommentar;
+                tbNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
+                tbKategori.Text = GlobaleLister.LRessurs[Tag].Kategori;
+                tbDato_opprettet.Text = GlobaleLister.LRessurs[Tag].Dato_opprettet;
+                tbOpprettetAvBruker.Text = GlobaleLister.LRessurs[Tag].Opprettet_av_bruker;
+                tbSikkerhetsklarering.Text = GlobaleLister.LRessurs[Tag].Sikkerhetsklarering.ToString();
+                tbKommentar.Text = GlobaleLister.LRessurs[Tag].Kommentar;
 
                 //tags
                 if (lbTags.Items.Count > 0) lbTags.Items.Clear();
@@ -140,13 +222,13 @@ namespace GMAP_Demo
                 Måling NyesteMåling = DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Løpenummer_ressurs)[0];
                 if(NyesteMåling != null)
                 {                
-                    txtMålingDato.Text = NyesteMåling.Dato;
-                    txtEnhetMåling.Text = NyesteMåling.Enhet;
+                    tbMålingDato.Text = NyesteMåling.Dato;
+                    tbEnhetMåling.Text = NyesteMåling.Enhet;
 
                     if (NyesteMåling.Dato == "Ingen måling")
-                        txtMåling.Text = "Ingen måling";                                  
+                        tbMåling.Text = "Ingen måling";                                  
                     else
-                        txtMåling.Text = NyesteMåling.Verdi.ToString();
+                        tbMåling.Text = NyesteMåling.Verdi.ToString();
                 }
                 
             }
@@ -157,15 +239,15 @@ namespace GMAP_Demo
         {
             if (GlobaleLister.LOmråde.Count > 0)
             {
-                txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
-                txtKategori.Text = "";
-                txtMåling.Text = "";
-                txtMålingDato.Text = "";
-                txtEnhetMåling.Text = "";
-                txtDato_opprettet.Text = GlobaleLister.LOmråde[Tag].Dato_opprettet;
-                txtOpprettetAvBruker.Text = GlobaleLister.LOmråde[Tag].Opprettet_av_bruker;
-                txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Tag].Sikkerhetsklarering.ToString();
-                txtKommentar.Text = GlobaleLister.LOmråde[Tag].Kommentar;
+                tbNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
+                tbKategori.Text = "";
+                tbMåling.Text = "";
+                tbMålingDato.Text = "";
+                tbEnhetMåling.Text = "";
+                tbDato_opprettet.Text = GlobaleLister.LOmråde[Tag].Dato_opprettet;
+                tbOpprettetAvBruker.Text = GlobaleLister.LOmråde[Tag].Opprettet_av_bruker;
+                tbSikkerhetsklarering.Text = GlobaleLister.LOmråde[Tag].Sikkerhetsklarering.ToString();
+                tbKommentar.Text = GlobaleLister.LOmråde[Tag].Kommentar;
 
                 //tags
                 if (lbTags.Items.Count > 0) lbTags.Items.Clear();
@@ -303,7 +385,7 @@ namespace GMAP_Demo
 
         public void OppdaterAntall()
         {
-            txtAntallObjekter.Text = GlobaleLister.LRessurs.Count.ToString();
+            tbAntallObjekter.Text = GlobaleLister.LRessurs.Count.ToString();
         }
 
         private void txtAntallObjekter_TextChanged(object sender, EventArgs e)

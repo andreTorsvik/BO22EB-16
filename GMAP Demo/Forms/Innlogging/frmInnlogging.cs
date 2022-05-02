@@ -16,6 +16,28 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
+            //ThemeDesign.OldTheme();
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+            lblTitle.ForeColor = ThemeDesign.colorBlue;
+            lblTitle2.ForeColor = ThemeDesign.colorBlue;
+            lblUserName.ForeColor = ThemeDesign.colorBlue;
+            lblPassword.ForeColor = ThemeDesign.colorBlue;
+            lblIngenBruker.ForeColor = ThemeDesign.colorLabel;
+            lblOpprettBruker.ForeColor = ThemeDesign.colorBlue;
+            lblTest.ForeColor = ThemeDesign.colorBlue;
+            tbUserName.BackColor = ThemeDesign.colorGray;
+            tbUserName.ForeColor = ThemeDesign.colorLabel;
+            tbPassword.BackColor = ThemeDesign.colorGray;
+            tbPassword.ForeColor = ThemeDesign.colorLabel;
+            btnLogin.ForeColor = ThemeDesign.colorBackground;
+            btnLogin.BackColor = ThemeDesign.colorBlue;
+            btnTestUser.ForeColor = ThemeDesign.colorBackground;
+            btnTestUser.BackColor = ThemeDesign.colorBlue;
         }
 
         private void frmInnlogging_Load(object sender, EventArgs e)
@@ -50,9 +72,9 @@ namespace GMAP_Demo
                         form1.Size = this.Size;
                         form1.Show();
 
-                        if (frmVertifiseringskode.instance != null)
+                        if (frmVerifiseringskode.instance != null)
                         {
-                            frmVertifiseringskode.instance.Close();
+                            frmVerifiseringskode.instance.Close();
                         }
 
                         if(InnloggetBruker.Sikkerhetsklarering > Globalekonstanter.MaxSikkerhetsklarering)
@@ -72,7 +94,7 @@ namespace GMAP_Demo
                     {
                         if (listBruker[0].Godkjent == true)
                         {
-                            frmVertifiseringskode vertifiseringskode = new frmVertifiseringskode();
+                            frmVerifiseringskode vertifiseringskode = new frmVerifiseringskode();
                             vertifiseringskode.Show();
                         }
                         else if (listBruker[0].Godkjent == false)
@@ -97,12 +119,12 @@ namespace GMAP_Demo
 
         private void LbNyBruker_MouseEnter(object sender, EventArgs e)
         {
-            LbNyBruker.Font = new Font(LbNyBruker.Font, FontStyle.Underline);
+            lblOpprettBruker.Font = new Font(lblOpprettBruker.Font, FontStyle.Underline);
         }
 
         private void LbNyBruker_MouseLeave(object sender, EventArgs e)
         {
-            LbNyBruker.Font = new Font(LbNyBruker.Font, FontStyle.Regular);
+            lblOpprettBruker.Font = new Font(lblOpprettBruker.Font, FontStyle.Regular);
         }
 
         private void btNyBruker_Click(object sender, EventArgs e)

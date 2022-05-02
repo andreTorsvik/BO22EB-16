@@ -117,4 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblMenu.Text" xml:space="preserve">
+    <value>Seksjonen til venstre består av et
+ "Panel" som grupperer "Button"s. 
+
+Disse knappene oppretter nye
+Forms enten i panelet til høyre,
+
+eller lukker hele dette vinduet
+og oppretter et helt nytt form.</value>
+  </data>
+  <data name="lblMap.Text" xml:space="preserve">
+    <value>Her er et "Panel" som inneholder kartet.
+Selve kartet blir laget av biblioteket GMAP.
+Kartet, zooming, panning mm ordnes av GMAP.
+Knapper på top av kartet er lagt til av oss.
+
+Ressurspunkter som tegnes i kartet er laget av oss 
+og inneholder lengde og breddegrader i tilleg til annen info.
+
+GMAP plasserer markørene på kartet ihht lengde og breddegraden.
+
+GMAP henter kartdata fra OpenStreetMap (andre valg finnes)</value>
+  </data>
 </root>

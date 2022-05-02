@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.PnlFormLoader = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnTilbake = new System.Windows.Forms.Button();
             this.btnFjernKategori = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnStartPosisjon = new System.Windows.Forms.Button();
             this.btnLoggUt = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlFormLoader
@@ -45,35 +45,35 @@
             this.PnlFormLoader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.PnlFormLoader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlFormLoader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.PnlFormLoader.Location = new System.Drawing.Point(316, 0);
+            this.PnlFormLoader.Location = new System.Drawing.Point(356, 0);
             this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PnlFormLoader.Name = "PnlFormLoader";
-            this.PnlFormLoader.Size = new System.Drawing.Size(967, 674);
+            this.PnlFormLoader.Size = new System.Drawing.Size(1087, 842);
             this.PnlFormLoader.TabIndex = 4;
             // 
-            // panel1
+            // pnlMenu
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.pnlNav);
-            this.panel1.Controls.Add(this.btnTilbake);
-            this.panel1.Controls.Add(this.btnFjernKategori);
-            this.panel1.Controls.Add(this.btnAdmin);
-            this.panel1.Controls.Add(this.btnStartPosisjon);
-            this.panel1.Controls.Add(this.btnLoggUt);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 674);
-            this.panel1.TabIndex = 3;
+            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.pnlMenu.Controls.Add(this.pnlNav);
+            this.pnlMenu.Controls.Add(this.btnTilbake);
+            this.pnlMenu.Controls.Add(this.btnFjernKategori);
+            this.pnlMenu.Controls.Add(this.btnAdmin);
+            this.pnlMenu.Controls.Add(this.btnStartPosisjon);
+            this.pnlMenu.Controls.Add(this.btnLoggUt);
+            this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlMenu.Location = new System.Drawing.Point(0, 0);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(356, 842);
+            this.pnlMenu.TabIndex = 3;
             // 
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.pnlNav.Location = new System.Drawing.Point(0, 318);
+            this.pnlNav.Location = new System.Drawing.Point(0, 398);
             this.pnlNav.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(3, 100);
+            this.pnlNav.Size = new System.Drawing.Size(3, 125);
             this.pnlNav.TabIndex = 1;
             // 
             // btnTilbake
@@ -83,10 +83,10 @@
             this.btnTilbake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTilbake.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTilbake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.btnTilbake.Location = new System.Drawing.Point(0, 590);
+            this.btnTilbake.Location = new System.Drawing.Point(0, 737);
             this.btnTilbake.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTilbake.Name = "btnTilbake";
-            this.btnTilbake.Size = new System.Drawing.Size(316, 84);
+            this.btnTilbake.Size = new System.Drawing.Size(356, 105);
             this.btnTilbake.TabIndex = 1;
             this.btnTilbake.Text = "Tilbake";
             this.btnTilbake.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -100,10 +100,10 @@
             this.btnFjernKategori.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFjernKategori.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFjernKategori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.btnFjernKategori.Location = new System.Drawing.Point(0, 252);
+            this.btnFjernKategori.Location = new System.Drawing.Point(0, 315);
             this.btnFjernKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFjernKategori.Name = "btnFjernKategori";
-            this.btnFjernKategori.Size = new System.Drawing.Size(316, 84);
+            this.btnFjernKategori.Size = new System.Drawing.Size(356, 105);
             this.btnFjernKategori.TabIndex = 1;
             this.btnFjernKategori.Text = "Fjern kategori";
             this.btnFjernKategori.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -117,10 +117,10 @@
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdmin.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.btnAdmin.Location = new System.Drawing.Point(0, 168);
+            this.btnAdmin.Location = new System.Drawing.Point(0, 210);
             this.btnAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(316, 84);
+            this.btnAdmin.Size = new System.Drawing.Size(356, 105);
             this.btnAdmin.TabIndex = 1;
             this.btnAdmin.Text = "Admin";
             this.btnAdmin.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -134,10 +134,10 @@
             this.btnStartPosisjon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStartPosisjon.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartPosisjon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.btnStartPosisjon.Location = new System.Drawing.Point(0, 84);
+            this.btnStartPosisjon.Location = new System.Drawing.Point(0, 105);
             this.btnStartPosisjon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStartPosisjon.Name = "btnStartPosisjon";
-            this.btnStartPosisjon.Size = new System.Drawing.Size(316, 84);
+            this.btnStartPosisjon.Size = new System.Drawing.Size(356, 105);
             this.btnStartPosisjon.TabIndex = 1;
             this.btnStartPosisjon.Text = "Start Posisjon";
             this.btnStartPosisjon.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -154,7 +154,7 @@
             this.btnLoggUt.Location = new System.Drawing.Point(0, 0);
             this.btnLoggUt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoggUt.Name = "btnLoggUt";
-            this.btnLoggUt.Size = new System.Drawing.Size(316, 84);
+            this.btnLoggUt.Size = new System.Drawing.Size(356, 105);
             this.btnLoggUt.TabIndex = 1;
             this.btnLoggUt.Text = "Logg ut";
             this.btnLoggUt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -163,26 +163,26 @@
             // 
             // frmSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 674);
+            this.ClientSize = new System.Drawing.Size(1443, 842);
             this.Controls.Add(this.PnlFormLoader);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1286, 668);
+            this.MinimumSize = new System.Drawing.Size(1444, 821);
             this.Name = "frmSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSettings_FormClosing);
-            this.panel1.ResumeLayout(false);
+            this.pnlMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel PnlFormLoader;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Panel pnlNav;
         private System.Windows.Forms.Button btnTilbake;
         private System.Windows.Forms.Button btnAdmin;

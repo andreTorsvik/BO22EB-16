@@ -5,10 +5,45 @@ namespace GMAP_Demo
 {
     public partial class frmRegistering : Form
     {
+        public static frmRegistering instance;
         public frmRegistering()
         {
             InitializeComponent();
+            instance = this;
+            SetTheme();
         }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+            lblTitle.ForeColor = ThemeDesign.colorBlue;
+            lblTitle2.ForeColor = ThemeDesign.colorBlue;
+            lbFornavn.ForeColor = ThemeDesign.colorBlue;
+            lblEtternavn.ForeColor = ThemeDesign.colorBlue;
+            lblTelefonnummer.ForeColor = ThemeDesign.colorBlue;
+            lblEpost.ForeColor = ThemeDesign.colorBlue;
+            lblPassord.ForeColor = ThemeDesign.colorBlue;
+            lblBekreftPassord.ForeColor = ThemeDesign.colorBlue;
+
+            tbFornavn.ForeColor = ThemeDesign.colorLabel;
+            tbFornavn.BackColor = ThemeDesign.colorGray;
+            tbEtternavn.ForeColor = ThemeDesign.colorLabel;
+            tbEtternavn.BackColor = ThemeDesign.colorGray;
+            tbTelefonnummer.ForeColor = ThemeDesign.colorLabel;
+            tbTelefonnummer.BackColor = ThemeDesign.colorGray;
+            tbEpost.ForeColor = ThemeDesign.colorLabel;
+            tbEpost.BackColor = ThemeDesign.colorGray;
+            tbPassord.ForeColor = ThemeDesign.colorLabel;
+            tbPassord.BackColor = ThemeDesign.colorGray;
+            tbBekreftPassord.ForeColor = ThemeDesign.colorLabel;
+            tbBekreftPassord.BackColor = ThemeDesign.colorGray;
+
+            btnOpprettbruker.ForeColor = ThemeDesign.colorBackground;
+            btnOpprettbruker.BackColor = ThemeDesign.colorBlue;
+            btnAvbryt.ForeColor = ThemeDesign.colorBackground;
+            btnAvbryt.BackColor = ThemeDesign.colorBlue;
+        }
+
 
         private void btnAvbryt_Click(object sender, EventArgs e)
         {
@@ -33,12 +68,12 @@ namespace GMAP_Demo
         private bool OpprettBruker()
         {
             bool svar = false;
-            string fornavn = txtFornavn.Text;
-            string etternavn = txtEtternavn.Text;
-            string telefon = txtTelefon.Text;
-            string Epost = txtEpost.Text.ToLower();
-            string passord = txtPassord.Text;
-            string bePassord = txtBePassord.Text;
+            string fornavn = tbFornavn.Text;
+            string etternavn = tbEtternavn.Text;
+            string telefon = tbTelefonnummer.Text;
+            string Epost = tbEpost.Text.ToLower();
+            string passord = tbPassord.Text;
+            string bePassord = tbBekreftPassord.Text;
 
             string utFyllingsmangler = Tekstbehandling.AltUtfylt_Registerings(fornavn, etternavn, telefon, Epost, passord, bePassord);
 

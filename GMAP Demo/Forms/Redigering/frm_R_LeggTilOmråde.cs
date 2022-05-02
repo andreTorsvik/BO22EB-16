@@ -16,7 +16,68 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
+            SetTheme();
         }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+
+            lblTitle.ForeColor = ThemeDesign.colorOrange;
+
+            gbOmråde.ForeColor = ThemeDesign.colorLabel;
+            gbOmråde.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblNavn.ForeColor = ThemeDesign.colorLabel;
+            lblSikkerhetsklarering.ForeColor = ThemeDesign.colorLabel;
+            lblKommentar.ForeColor = ThemeDesign.colorLabel;
+            lblFarge.ForeColor = ThemeDesign.colorLabel;
+            lblLat.ForeColor = ThemeDesign.colorLabel;
+            lblLong.ForeColor = ThemeDesign.colorLabel;
+            txtNavn.ForeColor = ThemeDesign.colorLabel;
+            txtNavn.BackColor = ThemeDesign.colorGray;
+            txtSikkerhetsklarering.ForeColor = ThemeDesign.colorLabel;
+            txtSikkerhetsklarering.BackColor = ThemeDesign.colorGray;
+            txtKommentar.ForeColor = ThemeDesign.colorLabel;
+            txtKommentar.BackColor = ThemeDesign.colorGray;
+            txtfarge.ForeColor = ThemeDesign.colorLabel;
+            txtfarge.BackColor = ThemeDesign.colorGray6;
+            txtLat.ForeColor = ThemeDesign.colorLabel;
+            txtLat.BackColor = ThemeDesign.colorGray;
+            txtLong.ForeColor = ThemeDesign.colorLabel;
+            txtLong.BackColor = ThemeDesign.colorGray;
+            txtNrPunkt.ForeColor = ThemeDesign.colorLabel;
+            txtNrPunkt.BackColor = ThemeDesign.colorGray6;
+            lbTilgjengligFarge.ForeColor = ThemeDesign.colorLabel;
+            lbTilgjengligFarge.BackColor = ThemeDesign.colorGray;
+            lbPunkter.ForeColor = ThemeDesign.colorLabel;
+            lbPunkter.BackColor = ThemeDesign.colorGray6;
+            btnLeggTilPunkt.ForeColor = ThemeDesign.colorLabel;
+            btnLeggTilPunkt.BackColor = ThemeDesign.colorGray;
+            btnFjernSistepunkt.ForeColor = ThemeDesign.colorLabel;
+            btnFjernSistepunkt.BackColor = ThemeDesign.colorGray;
+            btnFjernAlle.ForeColor = ThemeDesign.colorLabel;
+            btnFjernAlle.BackColor = ThemeDesign.colorGray;
+
+            gbTag.ForeColor = ThemeDesign.colorLabel;
+            gbTag.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblVelgTags.ForeColor = ThemeDesign.colorLabel;
+            lblEksisterende.ForeColor = ThemeDesign.colorLabel;
+            lblValgtForDetteObjektet.ForeColor = ThemeDesign.colorLabel;
+            lblNyTag.ForeColor = ThemeDesign.colorLabel;
+            lbTilgjengeligeTags.ForeColor = ThemeDesign.colorLabel;
+            lbTilgjengeligeTags.BackColor = ThemeDesign.colorGray;
+            lbValgtTags.ForeColor = ThemeDesign.colorLabel;
+            lbValgtTags.BackColor = ThemeDesign.colorGray;
+            txtNyTag.ForeColor = ThemeDesign.colorLabel;
+            txtNyTag.BackColor = ThemeDesign.colorGray;
+            btnLeggTilTag.ForeColor = ThemeDesign.colorLabel;
+            btnLeggTilTag.BackColor = ThemeDesign.colorGray;
+
+            btnLeggTilOmrådetIDb.ForeColor = ThemeDesign.colorLabel;
+            btnLeggTilOmrådetIDb.BackColor = ThemeDesign.colorGray;
+        }
+
+
         // Opprette liste av punkter for område
         public BindingList<PointLatLng> pointLatLngs;
         private void InitializepointLatLngs()

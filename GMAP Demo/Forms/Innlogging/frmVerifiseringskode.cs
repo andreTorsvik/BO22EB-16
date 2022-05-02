@@ -10,18 +10,33 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frmVertifiseringskode : Form
+    public partial class frmVerifiseringskode : Form
     {
-        public static frmVertifiseringskode instance;
-        public frmVertifiseringskode()
+        public static frmVerifiseringskode instance;
+        public frmVerifiseringskode()
         {
             InitializeComponent();
             instance = this;
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+            lblSkrivInn.ForeColor = ThemeDesign.colorBlue;
+            tbKode.ForeColor = ThemeDesign.colorLabel;
+            tbKode.BackColor = ThemeDesign.colorGray;
+            btnVerifiser.ForeColor = ThemeDesign.colorBackground;
+            btnVerifiser.BackColor = ThemeDesign.colorBlue;
+            btnAvbryt.ForeColor = ThemeDesign.colorBackground;
+            btnAvbryt.BackColor = ThemeDesign.colorBlue;
+            lblKommetPåMail.ForeColor = ThemeDesign.colorBlue;
+            lblSjekkSøppelpost.ForeColor = ThemeDesign.colorBlue;
         }
 
         private void btnVertifiser_Click(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(txtKode.Text) == frmInnlogging.instance.listBruker[0].Tallkode)
+            if(Convert.ToInt32(tbKode.Text) == frmInnlogging.instance.listBruker[0].Tallkode)
             {
                 //Endre database attributt bruker.godkjent = true
 

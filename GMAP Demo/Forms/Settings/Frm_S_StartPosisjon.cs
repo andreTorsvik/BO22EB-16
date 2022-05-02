@@ -8,16 +8,51 @@ namespace GMAP_Demo
 {
     public partial class Frm_S_StartPosisjon : Form
     {
+        Frm_S_StartPosisjon instance;
         public string FilNavn = "StartPosisjon.txt";
         public Frm_S_StartPosisjon()
         {
             InitializeComponent();
+            instance = this;
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+
+            lblTitle.ForeColor = ThemeDesign.colorPurple;
+
+            gbNåverendeStartpunkt.ForeColor = ThemeDesign.colorLabel;
+            gbNåverendeStartpunkt.BackColor = ThemeDesign.colorSecondaryBackground;
+            lblNåLat.ForeColor = ThemeDesign.colorLabel;
+            lblNåLong.ForeColor = ThemeDesign.colorLabel;
+            txtNåværendeLat.ForeColor = ThemeDesign.colorLabel;
+            txtNåværendeLat.BackColor = ThemeDesign.colorGray;
+            txtNåværendeLong.ForeColor = ThemeDesign.colorLabel;
+            txtNåværendeLong.BackColor = ThemeDesign.colorGray;
+            txtNåværendeAdresse.ForeColor = ThemeDesign.colorLabel;
+            txtNåværendeAdresse.BackColor = ThemeDesign.colorGray;
+
+            gbNyttStartpunkt.ForeColor = ThemeDesign.colorLabel;
+            gbNyttStartpunkt.BackColor = ThemeDesign.colorSecondaryBackground;
+            lblInfo.ForeColor = ThemeDesign.colorLabel;
+            lblNyLat.ForeColor = ThemeDesign.colorLabel;
+            lblNyLong.ForeColor = ThemeDesign.colorLabel;
+            txtNyLat.ForeColor = ThemeDesign.colorLabel;
+            txtNyLat.BackColor = ThemeDesign.colorGray;
+            txtNyLong.ForeColor = ThemeDesign.colorLabel;
+            txtNyLong.BackColor = ThemeDesign.colorGray;
+            txtNyAdresse.ForeColor = ThemeDesign.colorLabel;
+            txtNyAdresse.BackColor = ThemeDesign.colorGray;
+            btnStart.ForeColor = ThemeDesign.colorLabel;
+            btnStart.BackColor = ThemeDesign.colorGray;
         }
 
         private void Frm_S_StartPosisjon_Load(object sender, EventArgs e)
         {
             string newLine = Environment.NewLine;
-            lbInfo.Text = string.Format("Dra \"Visnings kartet\" til der du vil at kartet" + newLine + "skal starte når man åpner applikasjonen");
+            lblInfo.Text = string.Format("Dra \"Visnings kartet\" til der du vil at kartet" + newLine + "skal starte når man åpner applikasjonen");
             txtNyLat.Text = frmSettings.instance.lat.ToString();
             txtNyLong.Text = frmSettings.instance.lng.ToString();
             PointLatLng nåværendeStartPunkt = hentStartpunktFraFil();

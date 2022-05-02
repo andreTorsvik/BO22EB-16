@@ -16,12 +16,65 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+
+            lblTitle.ForeColor = ThemeDesign.colorOrange;
+
+            gbObjekt.ForeColor = ThemeDesign.colorLabel;
+            gbObjekt.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblNavn.ForeColor = ThemeDesign.colorLabel;
+            lblSikkerhetsklarering.ForeColor = ThemeDesign.colorLabel;
+            lblKategori.ForeColor = ThemeDesign.colorLabel;
+            lblKommentar.ForeColor = ThemeDesign.colorLabel;
+            lblLat.ForeColor = ThemeDesign.colorLabel;
+            lblLong.ForeColor = ThemeDesign.colorLabel;
+            txtNavn.ForeColor = ThemeDesign.colorLabel;
+            txtNavn.BackColor = ThemeDesign.colorGray;
+            txtSikkerhetsklarering.ForeColor = ThemeDesign.colorLabel;
+            txtSikkerhetsklarering.BackColor = ThemeDesign.colorGray;
+            lbTilgjengligKategori.ForeColor = ThemeDesign.colorLabel;
+            lbTilgjengligKategori.BackColor = ThemeDesign.colorGray;
+            txtKategori.ForeColor = ThemeDesign.colorLabel;
+            txtKategori.BackColor = ThemeDesign.colorGray;
+            txtNyKategori.ForeColor = ThemeDesign.colorLabel;
+            txtNyKategori.BackColor = ThemeDesign.colorGray;
+            txtKommentar.ForeColor = ThemeDesign.colorLabel;
+            txtKommentar.BackColor = ThemeDesign.colorGray;
+            txtLat.ForeColor = ThemeDesign.colorLabel;
+            txtLat.BackColor = ThemeDesign.colorGray;
+            txtLong.ForeColor = ThemeDesign.colorLabel;
+            txtLong.BackColor = ThemeDesign.colorGray;
+            btnLeggTilNyKategori.ForeColor = ThemeDesign.colorLabel;
+            btnLeggTilNyKategori.BackColor = ThemeDesign.colorGray;
+
+            gbTag.ForeColor = ThemeDesign.colorLabel;
+            gbTag.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            lblVelgTags.ForeColor = ThemeDesign.colorLabel;
+            lblEksisterende.ForeColor = ThemeDesign.colorLabel;
+            lblValgtForDetteObjektet.ForeColor = ThemeDesign.colorLabel;
+            lblNyTag.ForeColor = ThemeDesign.colorLabel;
+            lbTilgjengeligeTags.ForeColor = ThemeDesign.colorLabel;
+            lbTilgjengeligeTags.BackColor = ThemeDesign.colorGray;
+            lbValgtTags.ForeColor = ThemeDesign.colorLabel;
+            lbValgtTags.BackColor = ThemeDesign.colorGray;
+            txtNyTag.ForeColor = ThemeDesign.colorLabel;
+            txtNyTag.BackColor = ThemeDesign.colorGray;
+            btnLeggTilTag.ForeColor = ThemeDesign.colorLabel;
+            btnLeggTilTag.BackColor = ThemeDesign.colorGray;
+
+            btnLagreEndring.ForeColor = ThemeDesign.colorLabel;
+            btnLagreEndring.BackColor = ThemeDesign.colorGray;
         }
         private void frm_R_RedigerObjekt_Load(object sender, EventArgs e)
         {
             LastInnKategorier();
             LastInnTags();
-            LabelSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", Globalekonstanter.MaxSikkerhetsklarering);
+            lblSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", Globalekonstanter.MaxSikkerhetsklarering);
         }
 
         private void lbTilgjengligKategori_MouseDoubleClick(object sender, MouseEventArgs e)
