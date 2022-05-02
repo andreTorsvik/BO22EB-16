@@ -37,6 +37,7 @@
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnStartPosisjon = new System.Windows.Forms.Button();
             this.btnLoggUt = new System.Windows.Forms.Button();
+            this.btnChangeTheme = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.pnlMenu.Controls.Add(this.btnChangeTheme);
             this.pnlMenu.Controls.Add(this.pnlNav);
             this.pnlMenu.Controls.Add(this.btnTilbake);
             this.pnlMenu.Controls.Add(this.btnFjernKategori);
@@ -108,7 +110,7 @@
             this.btnFjernKategori.Text = "Fjern kategori";
             this.btnFjernKategori.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFjernKategori.UseVisualStyleBackColor = true;
-            this.btnFjernKategori.Click += new System.EventHandler(this.btnBrukerInfo_Click);
+            this.btnFjernKategori.Click += new System.EventHandler(this.btnFjernKategori_Click);
             // 
             // btnAdmin
             // 
@@ -161,6 +163,23 @@
             this.btnLoggUt.UseVisualStyleBackColor = true;
             this.btnLoggUt.Click += new System.EventHandler(this.btnLoggInn_Click);
             // 
+            // btnChangeTheme
+            // 
+            this.btnChangeTheme.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnChangeTheme.FlatAppearance.BorderSize = 0;
+            this.btnChangeTheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeTheme.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeTheme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.btnChangeTheme.Location = new System.Drawing.Point(0, 420);
+            this.btnChangeTheme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnChangeTheme.Name = "btnChangeTheme";
+            this.btnChangeTheme.Size = new System.Drawing.Size(356, 105);
+            this.btnChangeTheme.TabIndex = 1;
+            this.btnChangeTheme.Text = "Endre Utseende";
+            this.btnChangeTheme.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnChangeTheme.UseVisualStyleBackColor = true;
+            this.btnChangeTheme.Click += new System.EventHandler(this.btnChangeTheme_Click);
+            // 
             // frmControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,5 +209,6 @@
         private System.Windows.Forms.Button btnStartPosisjon;
         private System.Windows.Forms.Button btnLoggUt;
         private System.Windows.Forms.Button btnFjernKategori;
+        private System.Windows.Forms.Button btnChangeTheme;
     }
 }

@@ -127,7 +127,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnBrukerInfo_Click(object sender, EventArgs e)
+        private void btnFjernKategori_Click(object sender, EventArgs e)
         {
             if (pnlNav.Top != btnFjernKategori.Top)
             {
@@ -151,6 +151,23 @@ namespace GMAP_Demo
             pnlNav.Top = top;
             //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
             pnlNav.Left = btnLoggUt.Left;
+        }
+
+        private void btnChangeTheme_Click(object sender, EventArgs e)
+        {
+            if (pnlNav.Top != btnChangeTheme.Top)
+            {
+                AlleKnapperTilStandarfarge();
+                btnChangeTheme.BackColor = Globalekonstanter.knapp_trykket;
+
+                FlyttNavigasjonsPanel(btnChangeTheme.Height, btnChangeTheme.Top);
+
+                this.PnlFormLoader.Controls.Clear();
+                frm_CP_EndeUtseende frm_CP_EndeUtseende_vrb = new frm_CP_EndeUtseende() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frm_CP_EndeUtseende_vrb.FormBorderStyle = FormBorderStyle.None;
+                this.PnlFormLoader.Controls.Add(frm_CP_EndeUtseende_vrb);
+                frm_CP_EndeUtseende_vrb.Show();
+            }
         }
 
         private void frmControlPanel_Load(object sender, EventArgs e)
