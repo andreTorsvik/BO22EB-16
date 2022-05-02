@@ -292,6 +292,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pictureBox1.Image = global::GMAP_Demo.Properties.Resources.icons8_person_64;
             this.pictureBox1.Location = new System.Drawing.Point(98, 40);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.pictureBox1.Name = "pictureBox1";
