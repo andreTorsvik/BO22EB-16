@@ -144,6 +144,7 @@
             // 
             // tbFra
             // 
+            this.tbFra.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbFra.Location = new System.Drawing.Point(7, 117);
             this.tbFra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFra.Multiline = true;
@@ -154,6 +155,7 @@
             // 
             // tbTil
             // 
+            this.tbTil.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbTil.Location = new System.Drawing.Point(167, 117);
             this.tbTil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbTil.Multiline = true;
