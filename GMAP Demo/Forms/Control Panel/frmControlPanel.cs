@@ -152,6 +152,10 @@ namespace GMAP_Demo
             //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
             pnlNav.Left = btnLoggUt.Left;
         }
-  
+
+        private void frmControlPanel_Load(object sender, EventArgs e)
+        {
+            this.MinimumSize = new System.Drawing.Size(1000, 750);
+        }
     }
 }

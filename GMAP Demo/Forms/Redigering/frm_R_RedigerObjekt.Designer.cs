@@ -283,7 +283,7 @@
             // 
             // btnLagreEndring
             // 
-            this.btnLagreEndring.Location = new System.Drawing.Point(20, 752);
+            this.btnLagreEndring.Location = new System.Drawing.Point(20, 725);
             this.btnLagreEndring.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLagreEndring.Name = "btnLagreEndring";
             this.btnLagreEndring.Size = new System.Drawing.Size(123, 34);

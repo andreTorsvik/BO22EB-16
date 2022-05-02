@@ -366,7 +366,7 @@
             this.cbAND.Size = new System.Drawing.Size(58, 20);
             this.cbAND.TabIndex = 36;
             this.cbAND.Text = "AND";
-            this.ttTimerMåling.SetToolTip(this.cbAND, "Alle tags må stemme for å visses\r\npå kartet \r\n");
+            this.ttTimerMåling.SetToolTip(this.cbAND, "Alle tag(ene) må stemme for å visses\r\npå kartet \r\n");
             this.cbAND.UseVisualStyleBackColor = true;
             this.cbAND.CheckedChanged += new System.EventHandler(this.cbAND_CheckedChanged);
             // 
@@ -381,7 +381,7 @@
             this.cbOR.Size = new System.Drawing.Size(49, 20);
             this.cbOR.TabIndex = 35;
             this.cbOR.Text = "OR";
-            this.ttTimerMåling.SetToolTip(this.cbOR, "Kun en av tag tenger å stemme for å \r\nvisses på kartet");
+            this.ttTimerMåling.SetToolTip(this.cbOR, "Kun en av tag(ene) trenger å stemme for å \r\nvisses på kartet");
             this.cbOR.UseVisualStyleBackColor = true;
             this.cbOR.CheckedChanged += new System.EventHandler(this.cbOR_CheckedChanged);
             // 
@@ -648,10 +648,6 @@
             this.lblHoppTilEtOmråde.Size = new System.Drawing.Size(251, 16);
             this.lblHoppTilEtOmråde.TabIndex = 38;
             this.lblHoppTilEtOmråde.Text = "Hopp til et objekt med hjelp av knappene";
-            // 
-            // ttTimerMåling
-            // 
-            this.ttTimerMåling.ToolTipTitle = "Hjelp:";
             // 
             // frmFilter
             // 

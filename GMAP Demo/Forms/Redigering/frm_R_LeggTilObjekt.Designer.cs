@@ -199,7 +199,7 @@
             this.txtLong.Name = "txtLong";
             this.txtLong.Size = new System.Drawing.Size(285, 22);
             this.txtLong.TabIndex = 25;
-            this.txtLong.Text = "Dobbelklikk på kartet ";
+            this.txtLong.Text = "Dobbelklikk på kartet";
             this.toolTip1.SetToolTip(this.txtLong, "Dobbelklikk på kartet");
             // 
             // lblLat
