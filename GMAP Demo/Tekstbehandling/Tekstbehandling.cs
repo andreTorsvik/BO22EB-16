@@ -231,7 +231,8 @@ namespace GMAP_Demo
         {
             string svar = string.Empty;
 
-            svar = startTekst + String.Join(", ", liste);
+            if(liste.Count > 0)
+                svar = startTekst + String.Join(", ", liste);
 
             return svar;
         }

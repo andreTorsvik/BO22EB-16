@@ -17,7 +17,7 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
-            SetTheme();
+            //SetTheme();
         }
 
         private void SetTheme()
@@ -45,7 +45,7 @@ namespace GMAP_Demo
 
                 //logg inn
                 InnloggetBruker.BrukernavnInnlogget = frmInnlogging.instance.listBruker[0].Epost;
-
+                InnloggetBruker.Sikkerhetsklarering = frmInnlogging.instance.listBruker[0].Sikkerhetsklarering;
 
                 frmInnlogging.instance.Hide();
                 this.Close();
@@ -70,6 +70,11 @@ namespace GMAP_Demo
             {
                 e.Handled = true;
             }
+
+        }
+
+        private void frmVerifiseringskode_Load(object sender, EventArgs e)
+        {
 
         }
     }
