@@ -36,8 +36,9 @@ namespace GMAP_Demo
             lblTilgjengeligeKategorier.ForeColor = ThemeDesign.colorLabel;
             lblValgtKategori.ForeColor = ThemeDesign.colorLabel;
             lbTilgjengligKategorier.ForeColor = ThemeDesign.colorLabel;
-            txtValgtKategori.ForeColor = ThemeDesign.colorLabel;
-            txtValgtKategori.BackColor = ThemeDesign.colorGray;
+            lbTilgjengligKategorier.BackColor = ThemeDesign.colorGray;
+            tbValgtKategori.ForeColor = ThemeDesign.colorLabel;
+            tbValgtKategori.BackColor = ThemeDesign.colorGray6;
 
             gbBilde.ForeColor = ThemeDesign.colorLabel;
             gbBilde.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
@@ -61,8 +62,8 @@ namespace GMAP_Demo
                 {
                     string selectedItemtext = lbTilgjengligKategorier.SelectedItem.ToString();
 
-                    txtValgtKategori.Text = selectedItemtext;
-                    valgtKategori = txtValgtKategori.Text.ToString();
+                    tbValgtKategori.Text = selectedItemtext;
+                    valgtKategori = tbValgtKategori.Text.ToString();
 
                     // vis bilde hvis tilgjengelig
                     List<Kategorier_Bilde> kategori = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(selectedItemtext.ToString());
@@ -129,7 +130,7 @@ namespace GMAP_Demo
                 DBComKategorier_Bilde.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
                 pbValgtKategori.Visible = false;
                 pbValgtBilde.Dispose();
-                txtValgtKategori.Text = "";
+                tbValgtKategori.Text = "";
                 lbTilgjengligKategorier.ClearSelected();
             }
             else if ((valgtKategori == null) && (imageData != null))
