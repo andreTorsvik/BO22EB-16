@@ -71,9 +71,6 @@ namespace GMAP_Demo
             return svar;
         }
 
-       
-
-
         private void Fylltekstfelt()
         {
 

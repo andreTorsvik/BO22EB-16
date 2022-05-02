@@ -122,7 +122,6 @@ namespace GMAP_Demo
             lbTilgjengligKategorier.Sorted = true;
         }
 
-
         private void btnLeggTilIDb_Click(object sender, EventArgs e)
         {
             if ((valgtKategori != null) && (imageData != null))

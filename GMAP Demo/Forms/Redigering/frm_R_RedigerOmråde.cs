@@ -118,6 +118,7 @@ namespace GMAP_Demo
 
             lbTilgjengeligeTags.Sorted = true;
         }
+
         private void LastInnFargerMulighet()
         {
             foreach (var val in Enum.GetValues(typeof(Kart.MuligeFarger)))
@@ -287,7 +288,6 @@ namespace GMAP_Demo
                 }
             }
         }
-
 
         private void btnFjernAlle_Click(object sender, EventArgs e)
         {

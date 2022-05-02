@@ -60,6 +60,7 @@ namespace GMAP_Demo
 
             if (Løpenummer_til_objekt >= 0) Løpenummer_til_objekt = -1;
         }
+
         private void btnFjern_Click(object sender, EventArgs e)
         {
             if (Løpenummer_til_Område == -1 && Løpenummer_til_objekt != -1) // sletting av ressurs 
@@ -119,11 +120,13 @@ namespace GMAP_Demo
 
             }
         }
+
         public void TømInnholdTekstboks()
         {
             txtInfo.Text = "";
             txtLøpenumemr.Text = "";
             txtNavn.Text = "";
         }
+
     }
 }

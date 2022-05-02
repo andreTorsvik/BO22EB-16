@@ -48,7 +48,6 @@ namespace GMAP_Demo
             btnLoggUt.BackColor = ThemeDesign.colorGray;
         }
 
-
         private void btnLoggUt_Click(object sender, EventArgs e)
         {
             Application.Restart();

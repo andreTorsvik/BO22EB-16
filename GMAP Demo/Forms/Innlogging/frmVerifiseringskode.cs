@@ -17,21 +17,6 @@ namespace GMAP_Demo
         {
             InitializeComponent();
             instance = this;
-            //SetTheme();
-        }
-
-        private void SetTheme()
-        {
-            instance.BackColor = ThemeDesign.colorBackground;
-            lblSkrivInn.ForeColor = ThemeDesign.colorBlue;
-            tbKode.ForeColor = ThemeDesign.colorLabel;
-            tbKode.BackColor = ThemeDesign.colorGray;
-            btnVerifiser.ForeColor = ThemeDesign.colorBackground;
-            btnVerifiser.BackColor = ThemeDesign.colorBlue;
-            btnAvbryt.ForeColor = ThemeDesign.colorBackground;
-            btnAvbryt.BackColor = ThemeDesign.colorBlue;
-            lblKommetPåMail.ForeColor = ThemeDesign.colorBlue;
-            lblSjekkSøppelpost.ForeColor = ThemeDesign.colorBlue;
         }
 
         private void btnVertifiser_Click(object sender, EventArgs e)

@@ -153,6 +153,7 @@ namespace GMAP_Demo
             }
             Kart.OppdaterKategoriListe();
         }
+
         private void LastInnKategorier()
         {
             GlobaleLister.LKategori.Clear();

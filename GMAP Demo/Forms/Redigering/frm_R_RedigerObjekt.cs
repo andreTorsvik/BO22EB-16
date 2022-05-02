@@ -70,6 +70,7 @@ namespace GMAP_Demo
             btnLagreEndring.ForeColor = ThemeDesign.colorLabel;
             btnLagreEndring.BackColor = ThemeDesign.colorGray;
         }
+
         private void frm_R_RedigerObjekt_Load(object sender, EventArgs e)
         {
             LastInnKategorier();
@@ -318,7 +319,6 @@ namespace GMAP_Demo
             lbTilgjengeligeTags.Items.Clear();
             LastInnTags();
         }
-
-       
+    
     }
 }

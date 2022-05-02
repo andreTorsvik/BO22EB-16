@@ -116,7 +116,6 @@ namespace GMAP_Demo
             tbPassword.Text = "PassGjest";
         }
 
-
         private void LbNyBruker_MouseEnter(object sender, EventArgs e)
         {
             lblOpprettBruker.Font = new Font(lblOpprettBruker.Font, FontStyle.Underline);

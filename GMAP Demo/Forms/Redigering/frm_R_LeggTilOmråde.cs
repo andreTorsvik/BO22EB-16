@@ -77,7 +77,6 @@ namespace GMAP_Demo
             btnLeggTilOmrådetIDb.BackColor = ThemeDesign.colorGray;
         }
 
-
         // Opprette liste av punkter for område
         public BindingList<PointLatLng> pointLatLngs;
         private void InitializepointLatLngs()
@@ -354,6 +353,7 @@ namespace GMAP_Demo
 
             return feilmelding;
         }
+        
         private void TømeTekstfeltOgLister()
         {
             //tekstfelt

@@ -44,7 +44,6 @@ namespace GMAP_Demo
             btnAvbryt.BackColor = ThemeDesign.colorBlue;
         }
 
-
         private void btnAvbryt_Click(object sender, EventArgs e)
         {
             frmInnlogging.instance.Location = this.Location;
