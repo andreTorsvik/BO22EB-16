@@ -156,12 +156,12 @@ namespace GMAP_Demo
 
                 foreach (var item in map.Overlays)
                 {
-                    if(item.Id == "Polygons" && !polygon)
+                    if(item.Id == Globalekonstanter.NavnOmråde && !polygon) //"Polygons"
                     {
                         Kart.OppdaterListe_området();
                         polygon = true;
                     }
-                    if (item.Id == "Objekter" && !objekt)
+                    if (item.Id == Globalekonstanter.NavnObjekter && !objekt) //"Objekter"
                     {
                         Kart.OppdaterListe_ressurs();
                         objekt = true;
@@ -307,12 +307,12 @@ namespace GMAP_Demo
                     else // finnes en rute 
                     {
                         //legger til alle rutene på kartet i en liste
-                        List<GMapOverlay> routes = new List<GMapOverlay>();
+                        List<GMapOverlay> Lroutes = new List<GMapOverlay>();
                         for (int i = 0; i < map.Overlays.Count; i++)
                         {
                             if (map.Overlays[i].Id == Globalekonstanter.NavnRute)
                             {
-                                routes.Add(map.Overlays[i]);
+                                Lroutes.Add(map.Overlays[i]);
 
                             }
                         }
@@ -322,7 +322,7 @@ namespace GMAP_Demo
                         ZoomInvervall = false;
 
                         //må legge til ruten igjen 
-                        foreach (var item in routes)
+                        foreach (var item in Lroutes)
                         {
                             map.Overlays.Add(item);
                         }

@@ -387,10 +387,5 @@ namespace GMAP_Demo
         {
             tbAntallObjekter.Text = GlobaleLister.LRessurs.Count.ToString();
         }
-
-        private void txtAntallObjekter_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
