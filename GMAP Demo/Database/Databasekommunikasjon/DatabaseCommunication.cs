@@ -42,8 +42,9 @@ namespace GMAP_Demo
                         connection.Open();
                         return true;
                     }
-                    catch (SqlException)
+                    catch (SqlException e)
                     {
+                        FeilmeldingFikkIkkeKontaktMedDatabasen(e);
                         return false;
                     }
                 }        
