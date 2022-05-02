@@ -32,7 +32,7 @@ namespace GMAP_Demo
             lblTitle.ForeColor = ThemeDesign.colorOrange;
 
             gbKategori.ForeColor = ThemeDesign.colorLabel;
-            gbKategori.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbKategori.BackColor = ThemeDesign.colorBackground;
             lblTilgjengeligeKategorier.ForeColor = ThemeDesign.colorLabel;
             lblValgtKategori.ForeColor = ThemeDesign.colorLabel;
             lbTilgjengligKategorier.ForeColor = ThemeDesign.colorLabel;
@@ -41,7 +41,7 @@ namespace GMAP_Demo
             tbValgtKategori.BackColor = ThemeDesign.colorGray6;
 
             gbBilde.ForeColor = ThemeDesign.colorLabel;
-            gbBilde.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbBilde.BackColor = ThemeDesign.colorBackground;
             lblVelgBilde.ForeColor = ThemeDesign.colorLabel;
             lblValgtBilde.ForeColor = ThemeDesign.colorLabel;
             lblVelgBilde.ForeColor = ThemeDesign.colorLabel;
@@ -49,7 +49,7 @@ namespace GMAP_Demo
             btnLVelgBildeFraFiler.BackColor = ThemeDesign.colorGray;
 
             gblLastOppTilDB.ForeColor = ThemeDesign.colorLabel;
-            gblLastOppTilDB.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gblLastOppTilDB.BackColor = ThemeDesign.colorBackground;
             btnLeggTilIDb.ForeColor = ThemeDesign.colorLabel;
             btnLeggTilIDb.BackColor = ThemeDesign.colorGray;
         }

@@ -24,7 +24,7 @@ namespace GMAP_Demo
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
             gbNåverendeStartpunkt.ForeColor = ThemeDesign.colorLabel;
-            gbNåverendeStartpunkt.BackColor = ThemeDesign.colorSecondaryBackground;
+            gbNåverendeStartpunkt.BackColor = ThemeDesign.colorBackground;
             lblNåLat.ForeColor = ThemeDesign.colorLabel;
             lblNåLong.ForeColor = ThemeDesign.colorLabel;
             txtNåværendeLat.ForeColor = ThemeDesign.colorLabel;
@@ -35,7 +35,7 @@ namespace GMAP_Demo
             txtNåværendeAdresse.BackColor = ThemeDesign.colorGray;
 
             gbNyttStartpunkt.ForeColor = ThemeDesign.colorLabel;
-            gbNyttStartpunkt.BackColor = ThemeDesign.colorSecondaryBackground;
+            gbNyttStartpunkt.BackColor = ThemeDesign.colorBackground;
             lblInfo.ForeColor = ThemeDesign.colorLabel;
             lblNyLat.ForeColor = ThemeDesign.colorLabel;
             lblNyLong.ForeColor = ThemeDesign.colorLabel;

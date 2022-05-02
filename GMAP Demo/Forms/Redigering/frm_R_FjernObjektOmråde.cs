@@ -24,7 +24,7 @@ namespace GMAP_Demo
             lblTitle.ForeColor = ThemeDesign.colorOrange;
 
             gbObjekt.ForeColor = ThemeDesign.colorLabel;
-            gbObjekt.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbObjekt.BackColor = ThemeDesign.colorBackground;
             lblKlikkPåObjektet.ForeColor = ThemeDesign.colorLabel;
             lblLøpenummer.ForeColor = ThemeDesign.colorLabel;
             lblNavn.ForeColor = ThemeDesign.colorLabel;

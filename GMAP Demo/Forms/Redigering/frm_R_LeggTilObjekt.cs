@@ -24,7 +24,7 @@ namespace GMAP_Demo
             lblTitle.ForeColor = ThemeDesign.colorOrange;
 
             gbObjekt.ForeColor = ThemeDesign.colorLabel;
-            gbObjekt.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbObjekt.BackColor = ThemeDesign.colorBackground;
             lblNavn.ForeColor = ThemeDesign.colorLabel;
             lblSikkerhetsklarering.ForeColor = ThemeDesign.colorLabel;
             lblKategori.ForeColor = ThemeDesign.colorLabel;
@@ -51,7 +51,7 @@ namespace GMAP_Demo
             btnLeggTilNyKategori.BackColor =  ThemeDesign.colorGray;
             
             gbTag.ForeColor = ThemeDesign.colorLabel;
-            gbTag.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbTag.BackColor = ThemeDesign.colorBackground;
             lblVelgTags.ForeColor = ThemeDesign.colorLabel;
             lblEksisterende.ForeColor = ThemeDesign.colorLabel;
             lblValgtForDetteObjektet.ForeColor = ThemeDesign.colorLabel;

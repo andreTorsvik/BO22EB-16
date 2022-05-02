@@ -29,7 +29,7 @@ namespace GMAP_Demo
             lblTitle.ForeColor = ThemeDesign.colorOrange;
 
             gbOmråde.ForeColor = ThemeDesign.colorLabel;
-            gbOmråde.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbOmråde.BackColor = ThemeDesign.colorBackground;
             lblNavn.ForeColor = ThemeDesign.colorLabel;
             lblSikkerhetsklarering.ForeColor = ThemeDesign.colorLabel;
             lblKommentar.ForeColor = ThemeDesign.colorLabel;
@@ -62,7 +62,7 @@ namespace GMAP_Demo
             btnFjernAlle.BackColor = ThemeDesign.colorGray;
 
             gbTag.ForeColor = ThemeDesign.colorLabel;
-            gbTag.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbTag.BackColor = ThemeDesign.colorBackground;
             lblVelgTags.ForeColor = ThemeDesign.colorLabel;
             lblEksisterende.ForeColor = ThemeDesign.colorLabel;
             lblValgtForDetteObjektet.ForeColor = ThemeDesign.colorLabel;

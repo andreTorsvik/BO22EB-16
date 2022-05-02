@@ -27,7 +27,7 @@ namespace GMAP_Demo
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
             gblInnloggetBruker.ForeColor = ThemeDesign.colorLabel;
-            gblInnloggetBruker.BackColor = ThemeDesign.colorSecondaryBackground;
+            gblInnloggetBruker.BackColor = ThemeDesign.colorBackground;
             lblFornavn.ForeColor = ThemeDesign.colorLabel;
             lblEtternavn.ForeColor = ThemeDesign.colorLabel;
             lblTelefonnummer.ForeColor = ThemeDesign.colorLabel;

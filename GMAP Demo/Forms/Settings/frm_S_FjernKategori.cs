@@ -27,7 +27,7 @@ namespace GMAP_Demo
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
             gbFjernKategori.ForeColor = ThemeDesign.colorLabel;
-            gbFjernKategori.BackColor = ThemeDesign.colorSecondaryBackground;
+            gbFjernKategori.BackColor = ThemeDesign.colorBackground;
             lblInfo.ForeColor = ThemeDesign.colorLabel;
             lblSlettbareKategorier.ForeColor = ThemeDesign.colorLabel;
             lblValgtKategori.ForeColor = ThemeDesign.colorLabel;
