@@ -83,12 +83,14 @@ namespace GMAP_Demo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             frmInnlogging.instance = null;
 
             //midtstille brukernavn iforhold til "bilde"
             lblUserName.TextAlign = ContentAlignment.MiddleCenter;
 
-            Kart.PunktFraForrige = FilBehandeling.GiStartPosisjon("StartPosisjon.txt");
+            //Startpoisjon og setup av kart 
+            Kart.PunktFraForrige = FilBehandeling.HentStartPosisjon("StartPosisjon.txt");
             Kart.Setup(Kart.MuligKart.Visning, Kart.PunktFraForrige);
 
             // KategoriListen  på kartet 
