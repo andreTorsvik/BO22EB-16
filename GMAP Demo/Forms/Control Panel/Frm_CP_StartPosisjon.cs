@@ -28,9 +28,9 @@ namespace GMAP_Demo
             lblNåLat.ForeColor = ThemeDesign.colorLabel;
             lblNåLong.ForeColor = ThemeDesign.colorLabel;
             txtNåværendeLat.ForeColor = ThemeDesign.colorLabel;
-            txtNåværendeLat.BackColor = ThemeDesign.colorGray;
+            txtNåværendeLat.BackColor = ThemeDesign.colorGray4;
             txtNåværendeLong.ForeColor = ThemeDesign.colorLabel;
-            txtNåværendeLong.BackColor = ThemeDesign.colorGray;
+            txtNåværendeLong.BackColor = ThemeDesign.colorGray4;
             txtNåværendeAdresse.ForeColor = ThemeDesign.colorLabel;
             txtNåværendeAdresse.BackColor = ThemeDesign.colorGray;
 
@@ -40,9 +40,9 @@ namespace GMAP_Demo
             lblNyLat.ForeColor = ThemeDesign.colorLabel;
             lblNyLong.ForeColor = ThemeDesign.colorLabel;
             txtNyLat.ForeColor = ThemeDesign.colorLabel;
-            txtNyLat.BackColor = ThemeDesign.colorGray;
+            txtNyLat.BackColor = ThemeDesign.colorGray4;
             txtNyLong.ForeColor = ThemeDesign.colorLabel;
-            txtNyLong.BackColor = ThemeDesign.colorGray;
+            txtNyLong.BackColor = ThemeDesign.colorGray4;
             txtNyAdresse.ForeColor = ThemeDesign.colorLabel;
             txtNyAdresse.BackColor = ThemeDesign.colorGray;
             btnStart.ForeColor = ThemeDesign.colorLabel;

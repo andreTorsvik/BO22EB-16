@@ -38,7 +38,7 @@ namespace GMAP_Demo
             lbTilgjengligKategorier.ForeColor = ThemeDesign.colorLabel;
             lbTilgjengligKategorier.BackColor = ThemeDesign.colorGray;
             tbValgtKategori.ForeColor = ThemeDesign.colorLabel;
-            tbValgtKategori.BackColor = ThemeDesign.colorGray6;
+            tbValgtKategori.BackColor = ThemeDesign.colorGray4;
 
             gbBilde.ForeColor = ThemeDesign.colorLabel;
             gbBilde.BackColor = ThemeDesign.colorBackground;

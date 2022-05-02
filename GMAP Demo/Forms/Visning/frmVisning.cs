@@ -36,16 +36,18 @@ namespace GMAP_Demo
             //sette Blåpanel til vesntre for Posisjonknapp 
             FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
 
-            //endre farge
-            btnFilter.BackColor = Globalekonstanter.knapp_trykket;
+
 
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
 
             // Første gang programmet starter etter innlogging så vises vinduet i midten av skjermen.
             this.CenterToScreen();
+
             SetTheme();
 
+            //endre farge
+            btnFilter.BackColor = Globalekonstanter.knapp_trykket;
         }
 
         private void SetTheme()

@@ -48,7 +48,7 @@
             this.PnlFormLoader.Location = new System.Drawing.Point(356, 0);
             this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PnlFormLoader.Name = "PnlFormLoader";
-            this.PnlFormLoader.Size = new System.Drawing.Size(1087, 842);
+            this.PnlFormLoader.Size = new System.Drawing.Size(2182, 1384);
             this.PnlFormLoader.TabIndex = 4;
             // 
             // pnlMenu
@@ -64,7 +64,7 @@
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(356, 842);
+            this.pnlMenu.Size = new System.Drawing.Size(356, 1384);
             this.pnlMenu.TabIndex = 3;
             // 
             // pnlNav
@@ -83,7 +83,7 @@
             this.btnTilbake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTilbake.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTilbake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.btnTilbake.Location = new System.Drawing.Point(0, 737);
+            this.btnTilbake.Location = new System.Drawing.Point(0, 1279);
             this.btnTilbake.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTilbake.Name = "btnTilbake";
             this.btnTilbake.Size = new System.Drawing.Size(356, 105);
@@ -165,12 +165,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1443, 842);
+            this.ClientSize = new System.Drawing.Size(2538, 1384);
             this.Controls.Add(this.PnlFormLoader);
             this.Controls.Add(this.pnlMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1444, 821);
+            this.MinimumSize = new System.Drawing.Size(2560, 1440);
             this.Name = "frmControlPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Control Panel";
