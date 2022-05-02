@@ -50,9 +50,8 @@ namespace GMAP_Demo
             //endre fargen på knappen til formen 
             frmControlPanel.instance.OppdaterThemeKnapp();
 
-            //endre Theme på visning, må derfor åpne den på nytt 
-            //her feilen ligger 
-            frmVisning.instance.startup();
+            //endre Theme på visning, må derfor åpne den på nytt    
+            frmVisning.instance.startup();//her feilen ligger
 
             instance.SetTheme();
 
