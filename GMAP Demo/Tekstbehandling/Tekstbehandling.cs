@@ -411,6 +411,7 @@ namespace GMAP_Demo
 
             return lang;
         }
+
         public static string hentTheme(string text)
         {
             //kommer som " Void DarkTheme()"
