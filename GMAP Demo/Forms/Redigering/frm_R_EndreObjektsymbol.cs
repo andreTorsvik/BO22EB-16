@@ -132,6 +132,8 @@ namespace GMAP_Demo
                 pbValgtBilde.Dispose();
                 tbValgtKategori.Text = "";
                 lbTilgjengligKategorier.ClearSelected();
+
+                OppdaterKart();
             }
             else if ((valgtKategori == null) && (imageData != null))
             {
@@ -153,11 +155,20 @@ namespace GMAP_Demo
                 pbValgtBilde.Dispose();
                 tbValgtKategori.Text = "";
                 lbTilgjengligKategorier.ClearSelected();
+
+                OppdaterKart();
             }
             else
             {
                 MessageBox.Show("Vennligst velg en kategori fra listen, for å fjerne tilknyttet bilde.", "Kunne ikke utføre oppgaven!");
             }
+        }
+
+        private void OppdaterKart()
+        {
+            Kart.OppdaterListe_ressurs();
+            Kart.OppdaterKart(Kart.MuligKart.Redigering, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
         }
     }
 }
