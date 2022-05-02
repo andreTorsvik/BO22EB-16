@@ -66,7 +66,7 @@ namespace GMAP_Demo
                     valgtKategori = tbValgtKategori.Text.ToString();
 
                     // vis bilde hvis tilgjengelig
-                    List<Kategorier_Bilde> kategori = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(selectedItemtext.ToString());
+                    List<Kategorier_Bilde> kategori = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(valgtKategori);
                     if (kategori[0].Bilde != null) // Sjekk om kategori har bilde
                     {
 
@@ -129,21 +129,23 @@ namespace GMAP_Demo
 
         private void btnLeggTilIDb_Click(object sender, EventArgs e)
         {
-            if ((valgtKategori != null) && (imageData != null))
+            if ((valgtKategori != null) && (imageData != null)) //
             {
-                DBComKategorier_Bilde.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
+                DBComKategorier_Bilde.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);///valgtKategori
                 pbValgtKategori.Visible = false;
                 pbValgtBilde.Image = null;
                 tbValgtKategori.Text = "";
                 lbTilgjengligKategorier.ClearSelected();
+                valgtKategori = null;
+                imageData = null;
 
                 OppdaterKart();
             }
-            else if ((valgtKategori == null) && (imageData != null))
+            else if ((valgtKategori == null) && (imageData != null))// valgtKategori == null
             {
                 MessageBox.Show("Vennligst velg en kategori, fra listen, som dette bilde skal knyttes til.", "Kunne ikke utføre oppgaven!");
             }
-            else if ((valgtKategori != null) && (imageData == null))
+            else if ((valgtKategori != null) && (imageData == null)) //(valgtKategori != null)
             {
                 MessageBox.Show("Vennligst velg et bilde som skal knyttes til den valgte kategorien.", "Kunne ikke utføre oppgaven!");
             }
@@ -152,13 +154,15 @@ namespace GMAP_Demo
 
         private void btnFjernBilde_Click(object sender, EventArgs e)
         {
-            if ((tbValgtKategori.Text != null))
+            if (valgtKategori != null) //()
             {
                 DBComKategorier_Bilde.DeleteBildeFromKategorier_Bilde(valgtKategori);
                 pbValgtKategori.Visible = false;
                 pbValgtBilde.Image = null;
                 tbValgtKategori.Text = "";
                 lbTilgjengligKategorier.ClearSelected();
+                valgtKategori = null;
+                imageData = null;
 
                 OppdaterKart();
             }
@@ -170,7 +174,7 @@ namespace GMAP_Demo
 
         private void OppdaterKart()
         {
-            Kart.OppdaterListe_ressurs();
+            //Kart.OppdaterListe_ressurs();
             Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
         }
     }

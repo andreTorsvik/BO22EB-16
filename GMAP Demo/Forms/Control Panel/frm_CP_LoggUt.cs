@@ -51,6 +51,10 @@ namespace GMAP_Demo
         private void btnLoggUt_Click(object sender, EventArgs e)
         {
             Application.Restart();
+
+            //fikser bugen men får fremdeles feil på debug
+            //System.Diagnostics.Process.Start(Application.ExecutablePath);
+            //Application.Exit();
         }
 
         private void frm_S_LoggUt_Load(object sender, EventArgs e)

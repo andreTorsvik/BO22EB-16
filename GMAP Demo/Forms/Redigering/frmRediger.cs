@@ -504,8 +504,10 @@ namespace GMAP_Demo
             else
             {
                 cbOmråde.Text = "Kan ikke klikke på eksisterende område";
-                cbOmråde.BackColor = ThemeDesign.colorSecondaryBackground;
-                cbOmråde.ForeColor = ThemeDesign.colorRed;
+                //cbOmråde.BackColor = ThemeDesign.colorSecondaryBackground;
+                //cbOmråde.ForeColor = ThemeDesign.colorRed;
+                cbOmråde.BackColor = Color.Red;
+                cbOmråde.ForeColor = Color.Black;
 
                 frmRediger.OmrådeKlikkBar = false;
                 Kart.AlleOmrådeTilgjenlighet(false);

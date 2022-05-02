@@ -20,8 +20,8 @@ namespace GMAP_Demo
         public const string tekstLatLong_objekt = "Dobbelklikk på kartet";
 
         // Tilpassing av størrelse på viste ikoner på kart:
-        public const double MaxWidth =24.0; // Max bredde i pixler
-        public const double MaxHeight = 24.0; // Max Høyde i pixler
+        public const double MaxWidth = 30.0; // Max bredde i pixler
+        public const double MaxHeight = 30.0; // Max Høyde i pixler
 
         // Design/Theme
         public static Color knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground; // Farge når knapp er trykket 

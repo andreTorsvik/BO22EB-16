@@ -79,7 +79,7 @@ namespace GMAP_Demo
         public static void OppdaterTag_Liste() // Vurdere å flyttet
         {
             if (tag_ListeVises.Count > 0) tag_ListeVises.Clear();
-            //if (tag_ListeSkjult.Count > 0) tag_ListeSkjult.Clear();
+           
 
             HashSet<string> tag_ListeAlle = new HashSet<string>();
             tag_ListeAlle = FellesMetoder.FåAlleTags();
@@ -94,15 +94,16 @@ namespace GMAP_Demo
                 tag_ListeVises.Add(item);
             }
 
-            //ListsjultTags = tag_ListeAlle.Except(ListeVisteTags).ToList();
+            if (tag_ListeSkjult.Count > 0) tag_ListeSkjult.Clear();
+            ListsjultTags = tag_ListeAlle.Except(ListeVisteTags).ToList();
 
-            //if(ListsjultTags.Count != 0)
-            //{
-            //    foreach (var item in ListsjultTags)
-            //    {
-            //        tag_ListeSkjult.Add(item);
-            //    }
-            //}
+            if (ListsjultTags.Count != 0)
+            {
+                foreach (var item in ListsjultTags)
+                {
+                    tag_ListeSkjult.Add(item);
+                }
+            }
 
 
 

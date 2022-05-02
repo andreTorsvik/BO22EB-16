@@ -41,15 +41,16 @@ namespace GMAP_Demo
             FilBehandeling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());
 
             frmControlPanel.instance.SetTheme();
+            frmInnlogging.instance.SetTheme();
             
             //endre standerfarge 
             Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground; 
             Globalekonstanter.StandarFargeKnapp = ThemeDesign.colorSecondaryBackground;
 
-            //endre fargen på knappen 
+            //endre fargen på knappen til formen 
             frmControlPanel.instance.OppdaterThemeKnapp();
 
-            //endre Theme på visning 
+            //endre Theme på visning, må derfor åpne den på nytt 
             frmVisning.instance.startup();
 
             instance.SetTheme();

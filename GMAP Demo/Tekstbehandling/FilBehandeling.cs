@@ -136,7 +136,8 @@ namespace GMAP_Demo
 
             }
 
-            
+            //utfører theme vis man kan 
+            //hvis ikke bruker den default 
             foreach (MethodInfo item in typeof(ThemeDesign).GetMethods())
             {
                if(item.Name == midlertidig)
@@ -146,7 +147,7 @@ namespace GMAP_Demo
                }
             }
 
-            //return design;
+            
         }
     }
 }
