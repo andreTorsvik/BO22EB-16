@@ -330,10 +330,11 @@ namespace GMAP_Demo
                 }
                 if (frm_R_RedigerOmråde.instance != null)
                 {
+                    frm_R_RedigerOmråde.instance.FyllKoordinater(lat, lang);
+
                     if (frm_R_RedigerOmråde.instance.Løpenummer_til_redigering != -1) // for å unngå at den tegner hvis den ikke er inni "RedigerOmråde"
                     {
-                        frm_R_RedigerOmråde.instance.FyllKoordinater(lat, lang);
-
+                        
                         if (frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1) // tegne område underveis 
                         {
                             Kart.FjernHjelpeOmråde();
