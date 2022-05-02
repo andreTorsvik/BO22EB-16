@@ -38,8 +38,8 @@
             this.btnLeggTilBilde = new System.Windows.Forms.Button();
             this.btnRedigerOmråde = new System.Windows.Forms.Button();
             this.btnRediger_objekt = new System.Windows.Forms.Button();
-            this.btnOmråde = new System.Windows.Forms.Button();
-            this.btnObjekt = new System.Windows.Forms.Button();
+            this.btnLeggTilOmråde = new System.Windows.Forms.Button();
+            this.btnLeggTilObjekt = new System.Windows.Forms.Button();
             this.pnlUser = new System.Windows.Forms.Panel();
             this.cbOmråde = new System.Windows.Forms.CheckBox();
             this.lblUserName = new System.Windows.Forms.Label();
@@ -100,8 +100,8 @@
             this.pnlMenu.Controls.Add(this.btnLeggTilBilde);
             this.pnlMenu.Controls.Add(this.btnRedigerOmråde);
             this.pnlMenu.Controls.Add(this.btnRediger_objekt);
-            this.pnlMenu.Controls.Add(this.btnOmråde);
-            this.pnlMenu.Controls.Add(this.btnObjekt);
+            this.pnlMenu.Controls.Add(this.btnLeggTilOmråde);
+            this.pnlMenu.Controls.Add(this.btnLeggTilObjekt);
             this.pnlMenu.Controls.Add(this.pnlUser);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
@@ -212,43 +212,43 @@
             this.btnRediger_objekt.UseVisualStyleBackColor = true;
             this.btnRediger_objekt.Click += new System.EventHandler(this.btnRediger_objekt_Click);
             // 
-            // btnOmråde
+            // btnLeggTilOmråde
             // 
-            this.btnOmråde.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOmråde.FlatAppearance.BorderSize = 0;
-            this.btnOmråde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOmråde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.btnOmråde.Image = global::GMAP_Demo.Properties.Resources.icons8_add_40__1_;
-            this.btnOmråde.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOmråde.Location = new System.Drawing.Point(0, 406);
-            this.btnOmråde.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btnOmråde.Name = "btnOmråde";
-            this.btnOmråde.Size = new System.Drawing.Size(356, 95);
-            this.btnOmråde.TabIndex = 1;
-            this.btnOmråde.Text = "Legg til område";
-            this.btnOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnOmråde.UseVisualStyleBackColor = true;
-            this.btnOmråde.Click += new System.EventHandler(this.btnOmråde_Click);
+            this.btnLeggTilOmråde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLeggTilOmråde.FlatAppearance.BorderSize = 0;
+            this.btnLeggTilOmråde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeggTilOmråde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeggTilOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnLeggTilOmråde.Image = global::GMAP_Demo.Properties.Resources.icons8_add_40__1_;
+            this.btnLeggTilOmråde.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLeggTilOmråde.Location = new System.Drawing.Point(0, 406);
+            this.btnLeggTilOmråde.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnLeggTilOmråde.Name = "btnLeggTilOmråde";
+            this.btnLeggTilOmråde.Size = new System.Drawing.Size(356, 95);
+            this.btnLeggTilOmråde.TabIndex = 1;
+            this.btnLeggTilOmråde.Text = "Legg til område";
+            this.btnLeggTilOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLeggTilOmråde.UseVisualStyleBackColor = true;
+            this.btnLeggTilOmråde.Click += new System.EventHandler(this.btnOmråde_Click);
             // 
-            // btnObjekt
+            // btnLeggTilObjekt
             // 
-            this.btnObjekt.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnObjekt.FlatAppearance.BorderSize = 0;
-            this.btnObjekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnObjekt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnObjekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.btnObjekt.Image = global::GMAP_Demo.Properties.Resources.icons8_add_40__1_;
-            this.btnObjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnObjekt.Location = new System.Drawing.Point(0, 311);
-            this.btnObjekt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btnObjekt.Name = "btnObjekt";
-            this.btnObjekt.Size = new System.Drawing.Size(356, 95);
-            this.btnObjekt.TabIndex = 1;
-            this.btnObjekt.Text = "Legg til objekt";
-            this.btnObjekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnObjekt.UseVisualStyleBackColor = true;
-            this.btnObjekt.Click += new System.EventHandler(this.btnObjekt_Click);
+            this.btnLeggTilObjekt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLeggTilObjekt.FlatAppearance.BorderSize = 0;
+            this.btnLeggTilObjekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeggTilObjekt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeggTilObjekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnLeggTilObjekt.Image = global::GMAP_Demo.Properties.Resources.icons8_add_40__1_;
+            this.btnLeggTilObjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLeggTilObjekt.Location = new System.Drawing.Point(0, 311);
+            this.btnLeggTilObjekt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnLeggTilObjekt.Name = "btnLeggTilObjekt";
+            this.btnLeggTilObjekt.Size = new System.Drawing.Size(356, 95);
+            this.btnLeggTilObjekt.TabIndex = 1;
+            this.btnLeggTilObjekt.Text = "Legg til objekt";
+            this.btnLeggTilObjekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLeggTilObjekt.UseVisualStyleBackColor = true;
+            this.btnLeggTilObjekt.Click += new System.EventHandler(this.btnObjekt_Click);
             // 
             // pnlUser
             // 
@@ -369,8 +369,8 @@
         private System.Windows.Forms.Button btnTilbake;
         private System.Windows.Forms.Button btnRedigerOmråde;
         private System.Windows.Forms.Button btnRediger_objekt;
-        private System.Windows.Forms.Button btnOmråde;
-        private System.Windows.Forms.Button btnObjekt;
+        private System.Windows.Forms.Button btnLeggTilOmråde;
+        private System.Windows.Forms.Button btnLeggTilObjekt;
         private System.Windows.Forms.Panel pnlUser;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnLeggTilBilde;

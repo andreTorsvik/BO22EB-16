@@ -18,7 +18,7 @@ namespace GMAP_Demo
             //sette Blåpanel til vesntre for Posisjonknapp 
             FlyttNavigasjonsPanel(btnLoggUt.Height, btnLoggUt.Top);
 
-            btnLoggUt.BackColor = Globalekonstanter.knapp_trykket;
+            
 
             this.PnlFormLoader.Controls.Clear();
             frm_CP_LoggUt frm_S_LoggInn_vrb = new frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -27,6 +27,8 @@ namespace GMAP_Demo
             frm_S_LoggInn_vrb.Show();
 
             SetTheme();
+
+            btnLoggUt.BackColor = Globalekonstanter.knapp_trykket;
         }
 
         private void SetTheme()
