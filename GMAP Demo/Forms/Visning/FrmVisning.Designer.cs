@@ -123,7 +123,7 @@
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(356, 1055);
+            this.pnlMenu.Size = new System.Drawing.Size(356, 1384);
             this.pnlMenu.TabIndex = 0;
             // 
             // btnControlPanel
@@ -135,7 +135,7 @@
             this.btnControlPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnControlPanel.Image = global::GMAP_Demo.Properties.Resources.settings_40px;
             this.btnControlPanel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnControlPanel.Location = new System.Drawing.Point(0, 950);
+            this.btnControlPanel.Location = new System.Drawing.Point(0, 1279);
             this.btnControlPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnControlPanel.Name = "btnControlPanel";
             this.btnControlPanel.Size = new System.Drawing.Size(356, 105);
@@ -227,7 +227,7 @@
             this.PnlFormLoader.Location = new System.Drawing.Point(356, 0);
             this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.PnlFormLoader.Name = "PnlFormLoader";
-            this.PnlFormLoader.Size = new System.Drawing.Size(460, 1055);
+            this.PnlFormLoader.Size = new System.Drawing.Size(460, 1384);
             this.PnlFormLoader.TabIndex = 1;
             // 
             // map
@@ -254,7 +254,7 @@
             this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(1092, 1055);
+            this.map.Size = new System.Drawing.Size(1722, 1384);
             this.map.TabIndex = 2;
             this.map.Zoom = 0D;
             this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.map_OnMarkerClick);
@@ -269,7 +269,7 @@
             this.btnZoomPluss.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZoomPluss.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnZoomPluss.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnZoomPluss.Location = new System.Drawing.Point(824, 942);
+            this.btnZoomPluss.Location = new System.Drawing.Point(824, 1271);
             this.btnZoomPluss.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnZoomPluss.Name = "btnZoomPluss";
             this.btnZoomPluss.Size = new System.Drawing.Size(38, 38);
@@ -285,7 +285,7 @@
             this.btnZoomMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZoomMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnZoomMinus.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnZoomMinus.Location = new System.Drawing.Point(824, 989);
+            this.btnZoomMinus.Location = new System.Drawing.Point(824, 1318);
             this.btnZoomMinus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnZoomMinus.Name = "btnZoomMinus";
             this.btnZoomMinus.Size = new System.Drawing.Size(38, 38);
@@ -299,7 +299,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1908, 1055);
+            this.ClientSize = new System.Drawing.Size(2538, 1384);
             this.Controls.Add(this.btnZoomMinus);
             this.Controls.Add(this.btnZoomPluss);
             this.Controls.Add(this.map);
@@ -307,7 +307,7 @@
             this.Controls.Add(this.pnlMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.MinimumSize = new System.Drawing.Size(1441, 973);
+            this.MinimumSize = new System.Drawing.Size(2560, 1440);
             this.Name = "frmVisning";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Gmap Demo";
