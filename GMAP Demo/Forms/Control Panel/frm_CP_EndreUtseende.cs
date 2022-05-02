@@ -51,6 +51,7 @@ namespace GMAP_Demo
             frmControlPanel.instance.OppdaterThemeKnapp();
 
             //endre Theme på visning, må derfor åpne den på nytt 
+            //her feilen ligger 
             frmVisning.instance.startup();
 
             instance.SetTheme();

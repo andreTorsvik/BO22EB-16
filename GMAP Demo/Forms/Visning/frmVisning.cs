@@ -42,7 +42,6 @@ namespace GMAP_Demo
             FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
 
 
-
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
 
