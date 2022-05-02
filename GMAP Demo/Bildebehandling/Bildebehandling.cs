@@ -74,35 +74,6 @@ namespace GMAP_Demo
             }
         }
 
-        // Versjon 1. Ikke i bruk.
-        public static Bitmap ResizeBitmap(Bitmap bmp, int width, int height)
-        {
-            Bitmap result = new Bitmap(width, height);
-            using (Graphics g = Graphics.FromImage(result))
-            {
-                g.DrawImage(bmp, 0, 0, width, height);
-            }
-
-            return result;
-        }
-
-        // Versjon 2. Ikke i bruk. Skalerer Bitmap basert på en faktor og tilnærmet beholder "Aspect Ratio". Basert på ResizeBitmap()
-        public static Bitmap ScaleBitmap(Bitmap bmp, double scalar)
-        {
-            double Width = bmp.Width;
-            double Height = bmp.Height;
-            int newWidth = Convert.ToInt32(System.Math.Round(Width * scalar));
-            int newHeight = Convert.ToInt32(System.Math.Round(Height * scalar));
-
-            Bitmap newImage = new Bitmap(newWidth, newHeight);
-            using (Graphics g = Graphics.FromImage(newImage))
-            {
-                g.DrawImage(bmp, 0, 0, newWidth, newHeight);
-            }
-
-            return newImage;
-        }
-
         //Versjon 3. Autoskalerer Bitmap og tilnærmet beholder "Aspect Ratio". Basert på ScaleBitmap()
         public static Bitmap AutoScaleDownBitmap(Bitmap bmp) 
         {
