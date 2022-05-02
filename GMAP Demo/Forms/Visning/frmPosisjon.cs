@@ -152,7 +152,6 @@ namespace GMAP_Demo
             txtLong.Text = lang.ToString();
         }
 
-
         private void frmPosisjon_Load(object sender, EventArgs e)
         {
 

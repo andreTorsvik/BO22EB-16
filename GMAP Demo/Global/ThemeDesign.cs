@@ -89,12 +89,6 @@ namespace GMAP_Demo
             colorGray4 = Color.FromArgb(199, 199, 204);
             colorGray5 = Color.FromArgb(174, 174, 178);
             colorGray6 = Color.FromArgb(142, 142, 147);
-            
-            
-            
-            
-            
-
 
             colorBackground = Color.FromArgb(255, 255, 255);
             colorSecondaryBackground = Color.FromArgb(242, 242, 247);

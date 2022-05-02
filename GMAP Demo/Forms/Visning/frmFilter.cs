@@ -347,6 +347,7 @@ namespace GMAP_Demo
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
         }
+
         private void btnKategoriLeggTilAlle_Click(object sender, EventArgs e)
         {
             if (lbKategorierSkjult.Items.Count > 0)
@@ -363,10 +364,8 @@ namespace GMAP_Demo
             }
         }
 
-
         static bool målingRunning = false;
         public static System.Threading.Timer timer = new System.Threading.Timer(MålingSim.TimerProc);
-        
         internal void btnTimerMåling_Click(object sender, EventArgs e)
         {
             if (målingRunning)

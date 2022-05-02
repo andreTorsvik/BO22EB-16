@@ -36,12 +36,14 @@ namespace GMAP_Demo
                 OppdaterKategoriListe();
             }
         }
+
         internal static void InitializekategoriListeSkjult()
         {
             kategoriListeSkjult.AllowNew = true;
             kategoriListeSkjult.AllowRemove = true;
             kategoriListeSkjult.RaiseListChangedEvents = true;
         }
+
         internal static void InitializeTag_RessursListeVises()
         {
             tag_ListeVises.AllowNew = true;
