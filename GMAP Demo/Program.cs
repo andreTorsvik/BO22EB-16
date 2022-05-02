@@ -18,10 +18,15 @@ namespace GMAP_Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            List<Bruker> brukerList = new List<Bruker>(DBComBruker.StartupConnectionTest()); // Dersom programmet ikke får kontakt med databasen ved oppstart, avsluttes programmet etter vist feilmelding.
 
-            Application.Run(new frmInnlogging());
+            bool sjekk = DatabaseCommunication.IsServerConnected();
+            //List<Bruker> brukerList = new List<Bruker>(DBComBruker.StartupConnectionTest()); // Dersom programmet ikke får kontakt med databasen ved oppstart, avsluttes programmet etter vist feilmelding.
+            if(sjekk)
+                Application.Run(new frmInnlogging());
+            else
+            {
+                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(null);
+            }
         }
     }
 }

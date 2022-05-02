@@ -33,6 +33,20 @@ namespace GMAP_Demo
             System.Environment.Exit(1); // Dersom programmet ikke får kontakt med databasen avsluttes programmet etter vist feilmelding.
         }
 
-
+        public static bool IsServerConnected()
+        {
+                using (IDbConnection connection = new SqlConnection(CnnVal(bo22eb16DatabasePathUrlLocation)))
+                {
+                    try
+                    {
+                        connection.Open();
+                        return true;
+                    }
+                    catch (SqlException)
+                    {
+                        return false;
+                    }
+                }        
+        }
     }
 }
