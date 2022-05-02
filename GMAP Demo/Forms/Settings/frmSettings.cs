@@ -26,6 +26,26 @@ namespace GMAP_Demo
             this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
             frm_S_LoggInn_vrb.Show();
 
+            SetTheme();
+        }
+
+        private void SetTheme()
+        {
+            instance.BackColor = ThemeDesign.colorBackground;
+
+            pnlMenu.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnLoggUt.ForeColor = ThemeDesign.colorPurple;
+            btnLoggUt.BackColor = ThemeDesign.colorSecondaryGroupedBackground;
+            btnStartPosisjon.ForeColor = ThemeDesign.colorPurple;
+            btnStartPosisjon.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnAdmin.ForeColor = ThemeDesign.colorPurple;
+            btnAdmin.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnFjernKategori.ForeColor = ThemeDesign.colorPurple;
+            btnFjernKategori.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnTilbake.ForeColor = ThemeDesign.colorPurple;
+            btnTilbake.BackColor = ThemeDesign.colorSecondaryBackground;
+
+            PnlFormLoader.BackColor = ThemeDesign.colorSecondaryBackground;
         }
 
         private void btnTilbake_Click(object sender, EventArgs e)
