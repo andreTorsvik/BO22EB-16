@@ -209,6 +209,6 @@
         private System.Windows.Forms.Button btnStartPosisjon;
         private System.Windows.Forms.Button btnLoggUt;
         private System.Windows.Forms.Button btnFjernKategori;
-        public System.Windows.Forms.Button btnChangeTheme;
+        private System.Windows.Forms.Button btnChangeTheme;
     }
 }

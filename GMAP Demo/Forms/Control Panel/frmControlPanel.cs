@@ -175,5 +175,10 @@ namespace GMAP_Demo
         {
             this.MinimumSize = new System.Drawing.Size(1000, 750);
         }
+
+        public void OppdaterThemeKnapp()
+        {
+            btnChangeTheme.BackColor = Globalekonstanter.knapp_trykket;
+        }
     }
 }
