@@ -40,21 +40,18 @@ namespace GMAP_Demo
 
             frmControlPanel.instance.SetTheme();
             
-
-            Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground; // Farge når knapp er trykket 
+            //endre standerfarge 
+            Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground; 
             Globalekonstanter.StandarFargeKnapp = ThemeDesign.colorSecondaryBackground;
 
+            //endre fargen på knappen 
             frmControlPanel.instance.btnChangeTheme.BackColor = Globalekonstanter.knapp_trykket;
 
+            //endre Theme på visning 
             frmVisning.instance.startup();
-
 
             instance.SetTheme();
 
-            foreach (Form item in Application.OpenForms)
-            {
-                item.Refresh();
-            }
         }
     }
 }
