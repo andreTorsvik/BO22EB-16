@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frmSettings
+    partial class frmControlPanel
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmControlPanel));
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlNav = new System.Windows.Forms.Panel();
@@ -161,7 +161,7 @@
             this.btnLoggUt.UseVisualStyleBackColor = true;
             this.btnLoggUt.Click += new System.EventHandler(this.btnLoggInn_Click);
             // 
-            // frmSettings
+            // frmControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,9 +171,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(1444, 821);
-            this.Name = "frmSettings";
+            this.Name = "frmControlPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Settings";
+            this.Text = "Control Panel";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSettings_FormClosing);
             this.pnlMenu.ResumeLayout(false);
             this.ResumeLayout(false);

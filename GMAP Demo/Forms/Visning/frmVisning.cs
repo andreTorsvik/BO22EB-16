@@ -67,8 +67,8 @@ namespace GMAP_Demo
             btnOppdater.BackColor = ThemeDesign.colorSecondaryBackground;
             btnRediger.ForeColor = ThemeDesign.colorBlue;
             btnRediger.BackColor = ThemeDesign.colorSecondaryBackground;
-            btnSettings.ForeColor = ThemeDesign.colorBlue;
-            btnSettings.BackColor = ThemeDesign.colorSecondaryBackground;
+            btnControlPanel.ForeColor = ThemeDesign.colorBlue;
+            btnControlPanel.BackColor = ThemeDesign.colorSecondaryBackground;
 
 
             btnZoomPluss.ForeColor = ThemeDesign.colorBlue;
@@ -195,13 +195,13 @@ namespace GMAP_Demo
         private void btnSettings_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmSettings frmSettings = new frmSettings(); // instance 
+            frmControlPanel frmSettings = new frmControlPanel(); // instance 
             frmSettings.Size = this.Size;
             frmSettings.Location = this.Location;
 
             //til startpoisjon formen 
-            frmSettings.instance.lat = map.Position.Lat;
-            frmSettings.instance.lng = map.Position.Lng;
+            frmControlPanel.instance.lat = map.Position.Lat;
+            frmControlPanel.instance.lng = map.Position.Lng;
 
             frmSettings.Show();
         }

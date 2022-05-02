@@ -4,13 +4,13 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frmSettings : Form
+    public partial class frmControlPanel : Form
     {
-        public static frmSettings instance;
+        public static frmControlPanel instance;
         //private Color knapp_trykket;
         public double lng;
         public double lat;
-        public frmSettings()
+        public frmControlPanel()
         {
             InitializeComponent();
             instance = this;
@@ -21,7 +21,7 @@ namespace GMAP_Demo
             btnLoggUt.BackColor = Globalekonstanter.knapp_trykket;
 
             this.PnlFormLoader.Controls.Clear();
-            frm_S_LoggUt frm_S_LoggInn_vrb = new frm_S_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frm_CP_LoggUt frm_S_LoggInn_vrb = new frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
             frm_S_LoggInn_vrb.Show();
@@ -59,8 +59,8 @@ namespace GMAP_Demo
             PnlFormLoader.Controls.Clear();
 
             frmVisning.instance.Show();
-            if (frmSettings.instance != null)
-                frmSettings.instance = null;
+            if (frmControlPanel.instance != null)
+                frmControlPanel.instance = null;
         }
 
         void AlleKnapperTilStandarfarge()
@@ -84,7 +84,7 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnLoggUt.Height, btnLoggUt.Top);
 
                 this.PnlFormLoader.Controls.Clear();
-                frm_S_LoggUt frm_S_LoggInn_vrb = new frm_S_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frm_CP_LoggUt frm_S_LoggInn_vrb = new frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
                 frm_S_LoggInn_vrb.Show();
@@ -101,7 +101,7 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnStartPosisjon.Height, btnStartPosisjon.Top);
 
                 this.PnlFormLoader.Controls.Clear();
-                Frm_S_StartPosisjon frm_S_StartPosisjon_vrb = new Frm_S_StartPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                Frm_CP_StartPosisjon frm_S_StartPosisjon_vrb = new Frm_CP_StartPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_StartPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frm_S_StartPosisjon_vrb);
                 frm_S_StartPosisjon_vrb.Show();
@@ -118,7 +118,7 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnAdmin.Height, btnAdmin.Top);
 
                 this.PnlFormLoader.Controls.Clear();
-                frm_S_Admin frm_S_Admin_vrb = new frm_S_Admin() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frm_CP_Admin frm_S_Admin_vrb = new frm_CP_Admin() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_Admin_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frm_S_Admin_vrb);
                 frm_S_Admin_vrb.Show();
@@ -135,7 +135,7 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnFjernKategori.Height, btnFjernKategori.Top);
 
                 this.PnlFormLoader.Controls.Clear();
-                frm_S_FjernKategori frm_S_BrukerInfo_vrb = new frm_S_FjernKategori() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frm_CP_FjernKategori frm_S_BrukerInfo_vrb = new frm_CP_FjernKategori() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_BrukerInfo_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frm_S_BrukerInfo_vrb);
                 frm_S_BrukerInfo_vrb.Show();

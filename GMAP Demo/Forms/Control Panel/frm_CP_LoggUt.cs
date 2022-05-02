@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_S_LoggUt : Form
+    public partial class frm_CP_LoggUt : Form
     {
-        frm_S_LoggUt instance;
-        public frm_S_LoggUt()
+        frm_CP_LoggUt instance;
+        public frm_CP_LoggUt()
         {
             InitializeComponent();
             instance = this;

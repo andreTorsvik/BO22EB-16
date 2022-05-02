@@ -148,11 +148,11 @@
     <Compile Include="Forms\Redigering\frmRediger.Designer.cs">
       <DependentUpon>frmRediger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\frmSettings.cs">
+    <Compile Include="Forms\Control Panel\frmControlPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings\frmSettings.Designer.cs">
-      <DependentUpon>frmSettings.cs</DependentUpon>
+    <Compile Include="Forms\Control Panel\frmControlPanel.Designer.cs">
+      <DependentUpon>frmControlPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Redigering\frm_R_FjernObjektOmråde.cs">
       <SubType>Form</SubType>
@@ -178,17 +178,17 @@
     <Compile Include="Forms\Redigering\frm_R_RedigerObjekt.Designer.cs">
       <DependentUpon>frm_R_RedigerObjekt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\frm_S_FjernKategori.cs">
+    <Compile Include="Forms\Control Panel\frm_CP_FjernKategori.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings\frm_S_FjernKategori.Designer.cs">
-      <DependentUpon>frm_S_FjernKategori.cs</DependentUpon>
+    <Compile Include="Forms\Control Panel\frm_CP_FjernKategori.Designer.cs">
+      <DependentUpon>frm_CP_FjernKategori.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\frm_S_Admin.cs">
+    <Compile Include="Forms\Control Panel\frm_CP_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings\frm_S_Admin.Designer.cs">
-      <DependentUpon>frm_S_Admin.cs</DependentUpon>
+    <Compile Include="Forms\Control Panel\frm_CP_Admin.Designer.cs">
+      <DependentUpon>frm_CP_Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Redigering\frm_R_EndreObjektsymbol.cs">
       <SubType>Form</SubType>
@@ -196,17 +196,17 @@
     <Compile Include="Forms\Redigering\frm_R_EndreObjektsymbol.Designer.cs">
       <DependentUpon>frm_R_EndreObjektsymbol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\frm_S_LoggUt.cs">
+    <Compile Include="Forms\Control Panel\frm_CP_LoggUt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings\frm_S_LoggUt.Designer.cs">
-      <DependentUpon>frm_S_LoggUt.cs</DependentUpon>
+    <Compile Include="Forms\Control Panel\frm_CP_LoggUt.Designer.cs">
+      <DependentUpon>frm_CP_LoggUt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\Frm_S_StartPosisjon.cs">
+    <Compile Include="Forms\Control Panel\Frm_CP_StartPosisjon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings\Frm_S_StartPosisjon.Designer.cs">
-      <DependentUpon>Frm_S_StartPosisjon.cs</DependentUpon>
+    <Compile Include="Forms\Control Panel\Frm_CP_StartPosisjon.Designer.cs">
+      <DependentUpon>Frm_CP_StartPosisjon.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Redigering\frm_R_RedigerOmråde.cs">
       <SubType>Form</SubType>
@@ -265,8 +265,8 @@
     <EmbeddedResource Include="Forms\Redigering\frmRediger.resx">
       <DependentUpon>frmRediger.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\frmSettings.resx">
-      <DependentUpon>frmSettings.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Control Panel\frmControlPanel.resx">
+      <DependentUpon>frmControlPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Redigering\frm_R_FjernObjektOmråde.resx">
       <DependentUpon>frm_R_FjernObjektOmråde.cs</DependentUpon>
@@ -283,20 +283,20 @@
     <EmbeddedResource Include="Forms\Redigering\frm_R_RedigerOmråde.resx">
       <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\frm_S_FjernKategori.resx">
-      <DependentUpon>frm_S_FjernKategori.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Control Panel\frm_CP_FjernKategori.resx">
+      <DependentUpon>frm_CP_FjernKategori.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\frm_S_Admin.resx">
-      <DependentUpon>frm_S_Admin.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Control Panel\frm_CP_Admin.resx">
+      <DependentUpon>frm_CP_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Redigering\frm_R_EndreObjektsymbol.resx">
       <DependentUpon>frm_R_EndreObjektsymbol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\frm_S_LoggUt.resx">
-      <DependentUpon>frm_S_LoggUt.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Control Panel\frm_CP_LoggUt.resx">
+      <DependentUpon>frm_CP_LoggUt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\Frm_S_StartPosisjon.resx">
-      <DependentUpon>Frm_S_StartPosisjon.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Control Panel\Frm_CP_StartPosisjon.resx">
+      <DependentUpon>Frm_CP_StartPosisjon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

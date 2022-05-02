@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class Frm_S_StartPosisjon : Form
+    public partial class Frm_CP_StartPosisjon : Form
     {
-        Frm_S_StartPosisjon instance;
+        Frm_CP_StartPosisjon instance;
         public string FilNavn = "StartPosisjon.txt";
-        public Frm_S_StartPosisjon()
+        public Frm_CP_StartPosisjon()
         {
             InitializeComponent();
             instance = this;
@@ -53,8 +53,8 @@ namespace GMAP_Demo
         {
             string newLine = Environment.NewLine;
             lblInfo.Text = string.Format("Dra \"Visnings kartet\" til der du vil at kartet" + newLine + "skal starte når man åpner applikasjonen");
-            txtNyLat.Text = frmSettings.instance.lat.ToString();
-            txtNyLong.Text = frmSettings.instance.lng.ToString();
+            txtNyLat.Text = frmControlPanel.instance.lat.ToString();
+            txtNyLong.Text = frmControlPanel.instance.lng.ToString();
             PointLatLng nåværendeStartPunkt = hentStartpunktFraFil();
             txtNåværendeLat.Text = nåværendeStartPunkt.Lat.ToString();
             txtNåværendeLong.Text = nåværendeStartPunkt.Lng.ToString();
