@@ -108,6 +108,12 @@
     <Compile Include="Database\DataTypes\Tag_Ressurs.cs" />
     <Compile Include="Database\DataTypes\Punkter_område.cs" />
     <Compile Include="Database\DataTypes\Ressurs.cs" />
+    <Compile Include="Forms\Control Panel\frm_CP_EndreUtseende.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Control Panel\frm_CP_EndreUtseende.Designer.cs">
+      <DependentUpon>frm_CP_EndreUtseende.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global\FellesMetoder.cs" />
     <Compile Include="Global\ThemeDesign.cs" />
     <Compile Include="Tekstbehandling\FilBehandeling.cs" />
@@ -241,6 +247,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Tekstbehandling\Tekstbehandling.cs" />
+    <EmbeddedResource Include="Forms\Control Panel\frm_CP_EndreUtseende.resx">
+      <DependentUpon>frm_CP_EndreUtseende.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Innlogging\frmInnlogging.resx">
       <DependentUpon>frmInnlogging.cs</DependentUpon>
     </EmbeddedResource>
