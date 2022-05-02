@@ -62,7 +62,7 @@ namespace GMAP_Demo
             tag_ListeSkjult.RaiseListChangedEvents = true;
         }
 
-        public static void OppdaterKategoriListe() 
+        public static void OppdaterKategoriListe()
         {
             kategoriListeVises.Clear();
 
@@ -79,7 +79,7 @@ namespace GMAP_Demo
             if (tag_ListeVises.Count > 0) tag_ListeVises.Clear();
             //if (tag_ListeSkjult.Count > 0) tag_ListeSkjult.Clear();
 
-                HashSet<string> tag_ListeAlle = new HashSet<string>();
+            HashSet<string> tag_ListeAlle = new HashSet<string>();
             tag_ListeAlle = FellesMetoder.FåAlleTags();
 
             List<string> ListsjultTags = tag_ListeSkjult.ToList();
@@ -101,9 +101,9 @@ namespace GMAP_Demo
             //        tag_ListeSkjult.Add(item);
             //    }
             //}
-            
 
-            
+
+
         }
 
 
@@ -147,18 +147,21 @@ namespace GMAP_Demo
 
         public static void OppdaterListe_området() // Vurdere å flyttet
         {
+            //tømmer listen
             GlobaleLister.LOmråde.Clear();
 
+            //henter alle områdene
             var OmrådeListe = DBComOmråde.ListAllOmrådeFromDb();
 
+            //legger dem til i den globale listen 
             foreach (var item in OmrådeListe)
             {
                 GlobaleLister.LOmråde.Add(item);
             }
 
-            if (kategoriListeVises.Count != 0 || tag_ListeVises.Count != 0)
+            //filterer ut områder basert på tag 
+            if (tag_ListeVises.Count != 0)
             {
-
                 bool OR = frmFilter.instance.filterOR;
                 bool AND = frmFilter.instance.filterAND;
 
@@ -172,29 +175,37 @@ namespace GMAP_Demo
                 else if (AND && !OR) //AND
                     FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
             }
+            else // ingen valgte tags 
+            {
+                GlobaleLister.LOmråde.Clear();
+            }
+
         }
 
 
 
         public static void OppdaterListe_ressurs() // Vurdere å flyttet
         {
-            //Må oppdatere område liste også 
+            //tømmerlisten 
             if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
 
+            //henter alle ressurser
             var RessursList = DBComRessurs.ListAllRessursFromDb(InnloggetBruker.Sikkerhetsklarering);
 
-            // Er dette en tungvindt måte å gjøre det på? Kan dette forbedres?
+            //legger til i den globale listen, men basert på kategorilisten 
             foreach (var item in RessursList)
             {
                 foreach (var item2 in Kart.kategoriListeVises)
                 {
-                    if ((item.Kategori.ToString() == item2.Kategorinavn.ToString()) /*&& (item.Tag.ToString() == item3.Tag.ToString())*/) // Har kommentert ut delen som venter på Ressurs.Tag
+                    if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
                     {
                         GlobaleLister.LRessurs.Add(item);
                         break;
                     }
                 }
             }
+
+            //filtrering ut objekter baser på tag
             if (kategoriListeVises.Count != 0 || tag_ListeVises.Count != 0)
             {
                 bool OR = frmFilter.instance.filterOR;
@@ -210,6 +221,10 @@ namespace GMAP_Demo
                 else if (AND && !OR) //AND
                     FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LRessurs, tag_ListeVises.ToList());
             }
+            else // alt skal være skult
+            {
+                GlobaleLister.LRessurs.Clear();
+            }
         }
 
 
@@ -219,10 +234,10 @@ namespace GMAP_Demo
             switch (kart)
             {
                 case MuligKart.Visning:
-                    frmVisning.instance.map.Overlays.Clear();
+                    frmVisning.instance.map.Overlays.Clear(); // fjerne alt på kartet, programmet har lagt til
                     break;
                 case MuligKart.Redigering:
-                    frmRediger.instance.map.Overlays.Clear();
+                    frmRediger.instance.map.Overlays.Clear();// fjerne alt på kartet, programmet har lagt til
                     break;
                 case MuligKart.Begge:
                     OppdaterKart(MuligKart.Visning, Lressurs, Lområde);
@@ -230,16 +245,18 @@ namespace GMAP_Demo
                     return;
                     //break;
             }
-            LeggTilRessurs(Lressurs, kart);
-            if (ViseOmrådePåKart) LeggTilOmråde(Lområde, kart);
-            reff(kart);
+
+            LeggTilRessurs(Lressurs, kart); // legger til objektene  
+            if (ViseOmrådePåKart) LeggTilOmråde(Lområde, kart); //legger til områdene, hvis man "checked" i filter 
+            reff(kart); // Må oppdatere kartet etter man har lagt til 
         }
 
         public static void LeggTilRessurs(List<Ressurs> Rlist, MuligKart kart)
         {
-            int tag = 0;
+            int tag = 0; // index i listen 
             GMapMarker marker;
             GMapOverlay markers = new GMapOverlay(Globalekonstanter.NavnObjekter);
+
             foreach (var item in Rlist)
             {
                 PointLatLng punkt = item.GiPunktet();
@@ -253,25 +270,30 @@ namespace GMAP_Demo
                     marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
                 }
 
+                //tooltip info 
                 marker.ToolTipText = String.Format("{0}", item.Navn);
                 marker.ToolTip.Fill = Brushes.Black;
                 marker.ToolTip.Foreground = Brushes.White;
                 marker.ToolTip.Stroke = Pens.Black;
                 marker.ToolTip.TextPadding = new Size(20, 20);
+                //tag = plassering i listen 
                 marker.Tag = tag;
                 tag++;
 
                 markers.Markers.Add(marker);
             }
+
+            //legger til i riktig kart 
             if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
             else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
-            else if (MuligKart.Begge == kart) // begge funkere ikke 
+            else if (MuligKart.Begge == kart)
             {
                 frmVisning.instance.map.Overlays.Add(markers);
                 frmRediger.instance.map.Overlays.Add(markers);
             }
 
-            if(frmFilter.instance != null)
+            //oppdatere antall objekter i formFilter hvis den er åpen 
+            if (frmFilter.instance != null)
             {
                 frmFilter.instance.OppdaterAntall();
             }
@@ -281,22 +303,26 @@ namespace GMAP_Demo
         {
             // HvilketKart Visning = Visning.map
             // HvilketKart Redigering = Redigerings.map
-            //-1 da vil man ikke få tooltip tekst 
+            //Rekkefølge = -1, da vil man ikke få tooltip tekst,- 
+            //Det blir brukt som dobbelttrykk på redigeringsformen 
+
             GMapMarker marker;
             GMapOverlay markers = new GMapOverlay(områdeId);
 
             if (områdeId == Globalekonstanter.NavnHjelpeMarkør)
             {
+                //gulmarkør
                 marker = new GMarkerGoogle(point, GMarkerGoogleType.yellow);
             }
             else
             {
+                //blåmarkør 
                 marker = new GMarkerGoogle(point, GMarkerGoogleType.blue);
             }
 
             if (Rekkefølge != -1)
             {
-
+                //tooltip info 
                 marker.ToolTipText = String.Format("{0}", Rekkefølge);
                 marker.ToolTip.Fill = Brushes.Black;
                 marker.ToolTip.Foreground = Brushes.White;
@@ -304,10 +330,11 @@ namespace GMAP_Demo
                 marker.ToolTip.TextPadding = new Size(20, 20);
 
             }
-            marker.Tag = -1;
+            marker.Tag = -1; // for at den ikke skal kunne bli trykket. 
 
             markers.Markers.Add(marker);
 
+            //legger til på riktig kart
             if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
             else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
 
@@ -318,20 +345,28 @@ namespace GMAP_Demo
             // HvilketKart Redigering = Redigerings.map
             // Hvilketkart begge = Begge 
             // Alt annet: ingen ting
-            int Tag = 0;
+
+            int Tag = 0; // index i listen 
             foreach (var item in Olist)
             {
+                //henter punktene i de aktuelle område, metoen sortere også punktene i riktig rekkfølge
                 List<PointLatLng> Lpunkter = item.HentPunkter();
 
+                //farge på polygonet 
                 GMapPolygon polygon = BestemFarge(Lpunkter, item.Farge);
 
+                //legge til tag og øker
                 polygon.Tag = Tag;
                 Tag++;
-                polygon.IsHitTestVisible = true; // nødvendig for å kunne trykke på Polygonet
+
+                // nødvendig for å kunne trykke på Polygonet
+                polygon.IsHitTestVisible = true;
+
+                //legger til polygonet som overlay på kartet 
                 GMapOverlay polygons = new GMapOverlay(Globalekonstanter.NavnOmråde);
                 polygons.Polygons.Add(polygon);
-                //frmVisning.instance.map.Overlays.Add(polygons);
 
+                //legger til på riktig kart
                 if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(polygons);
                 else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(polygons);
                 else if (MuligKart.Begge == kart)
@@ -342,7 +377,7 @@ namespace GMAP_Demo
             }
         }
 
-        public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla, Rosa, Turkis, Hvit, Svart }; // listen er kun for å vise hva som er tilgjenglig i "BestemFarge" 
+        public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla, Rosa, Turkis, Hvit, Svart }; // listen er kun for å vise hva som er tilgjenglig i "BestemFarge", må legge inn manuelt 
         public static GMapPolygon BestemFarge(List<PointLatLng> Lpunkter, string Farge)
         {
             GMapPolygon polygon;
@@ -435,69 +470,85 @@ namespace GMAP_Demo
             return polygon;
         }
 
-        public static void LeggTilRute(PointLatLng fra, PointLatLng til)
+        public static void LeggTilRute(PointLatLng Start, PointLatLng Mål)
         {
             //bruker google API
-            //Denne metoden er kun for visning
-            var route = GoogleMapProvider.Instance.GetRoute(fra, til, false, false, 14);
+            //Denne metoden er kun for visningskaret
 
+            //henter rute fra googlemap
+            var route = GoogleMapProvider.Instance.GetRoute(Start, Mål, false, false, 14);
+
+            //tegner rute
             var r = new GMapRoute(route.Points, "My rute")
             {
                 Stroke = new Pen(Color.Red, 5)
             };
+
+            //legger til i overlays på kartet
             var routes = new GMapOverlay(Globalekonstanter.NavnRute);
             routes.Routes.Add(r);
             frmVisning.instance.map.Overlays.Add(routes);
-            frmVisning.instance.map.Position = fra;
 
+            //plasser kartet i starten av ruten 
+            frmVisning.instance.map.Position = Start;
 
+            //legger inn avstanden 
             frmPosisjon.instance.lblDistanse.Text = route.Distance.ToString() + " Km";
         }
 
         public static void TegnHjelpeOmråde_rediger(PointLatLng klikket, List<PointLatLng> Lpunkt)
         {
-            //bruker google API
-            //Denne metoden er kun for visning
-            int antallPunkter = Lpunkt.Count;
+
+            int antallPunkter = Lpunkt.Count; // må lagre antallet for seinere bruk
 
             if (antallPunkter >= 1)
             {
+                //legger til punktet bruker har klikket
                 Lpunkt.Add(klikket);
 
+                //legger til de første punkte igjen, for å tegne området slik det vil se ut 
                 if (antallPunkter != 1)
                     Lpunkt.Add(Lpunkt[0]);
 
+                //tegner området
                 var r = new GMapRoute(Lpunkt, Globalekonstanter.NavnHjelpeOmråde)
                 {
                     Stroke = new Pen(Color.Magenta, 3)
                 };
+
+                //legger til som overlay
                 var routes = new GMapOverlay(Globalekonstanter.NavnHjelpeOmråde);
                 routes.Routes.Add(r);
                 frmRediger.instance.map.Overlays.Add(routes);
 
+                //oppdatere kartet 
                 reff(MuligKart.Redigering);
             }
         }
 
         public static void TegnHjelpeOmråde_rediger(List<PointLatLng> Lpunkt)
         {
-            //bruker google API
-            //Denne metoden er kun for visning
-            int antallPunkter = Lpunkt.Count;
+
+            int antallPunkter = Lpunkt.Count; // må lagre antallet for seinere bruk
 
             if (antallPunkter >= 1)
             {
+                // legger til de første punkte igjen, for å tegne området slik det vil se ut
                 if (antallPunkter != 1)
                     Lpunkt.Add(Lpunkt[0]);
 
+                //tegner området
                 var r = new GMapRoute(Lpunkt, Globalekonstanter.NavnHjelpeOmråde) // "HjelpeOmråde"
                 {
                     Stroke = new Pen(Color.Magenta, 3)
                 };
+
+                //legger til som overlay
                 var routes = new GMapOverlay(Globalekonstanter.NavnHjelpeOmråde);
                 routes.Routes.Add(r);
                 frmRediger.instance.map.Overlays.Add(routes);
 
+                //oppdatere kartet 
                 reff(MuligKart.Redigering);
             }
         }
@@ -505,8 +556,9 @@ namespace GMAP_Demo
 
         public static void reff(MuligKart kart)
         {
-            //oppdatere kart med å zoom inn og ut 
+            //Enkleste måte å oppdatere kartet på er å zoom inn og ut
             //zoomer inn så lite at det ikke merkes
+
             double PlussMinus = 0.01;
             switch (kart)
             {
@@ -551,10 +603,12 @@ namespace GMAP_Demo
             //hvis kartet har flyttet seg
             if (PosisjonFør != PosisjonNå)
             {
-                frmPosisjon.instance.txtLat.Text = PosisjonNå.Lat.ToString();
-                frmPosisjon.instance.txtLong.Text = PosisjonNå.Lng.ToString();
-                int ZoomLevel = 18;
+                //fyller in kordinater
+                frmPosisjon.instance.FyllKoordinater(PosisjonNå.Lat, PosisjonNå.Lng);
 
+                int ZoomLevel = 18;  
+                
+                //zoomlevel baser på hva du har fylt ut
                 if (!string.IsNullOrWhiteSpace(Adresse)) ZoomLevel = 18;
                 else if (!string.IsNullOrWhiteSpace(ByKommune)) ZoomLevel = 11;
                 else if (!string.IsNullOrWhiteSpace(Land)) ZoomLevel = 5;
@@ -570,8 +624,9 @@ namespace GMAP_Demo
             try
             {
                 List<Placemark> Info = null;
+                //henter info baser på kordinater 
                 var statusCode = GMapProviders.GoogleMap.GetPlacemarks(point, out Info);
-                //var statusCode = GMapProviders.OpenStreetMap.GetPlacemarks(point,out Info);
+                //var statusCode = GMapProviders.OpenStreetMap.GetPlacemarks(point,out Info); // OpenStreetMap
                 if (statusCode == GeoCoderStatusCode.OK && Info != null)
                 {
                     List<string> addresse = new List<string>();
@@ -588,6 +643,7 @@ namespace GMAP_Demo
 
         public static void FjernRute()
         {
+            //fjern en enkelt rute 
             for (int i = 0; i < frmVisning.instance.map.Overlays.Count; i++)
             {
                 if (frmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
@@ -603,7 +659,7 @@ namespace GMAP_Demo
 
         public static void FjernAlleMarkører_redigier(string områdeId)
         {
-
+            //fjerner alle hjelpemarkør i redigeringskartet
             for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
             {
                 if (frmRediger.instance.map.Overlays[i].Id == områdeId)
@@ -612,12 +668,15 @@ namespace GMAP_Demo
                     i--;
                 }
             }
+            //opddaere kartet 
             reff(MuligKart.Redigering);
         }
 
         public static bool SjekkKartharHjelpemarkør_redigier(string områdeId)
         {
+            //sjekker om kartet har en hjelpemakør ute nå
             bool svar = false;
+
             for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
             {
                 if (frmRediger.instance.map.Overlays[i].Id == områdeId)
@@ -629,12 +688,12 @@ namespace GMAP_Demo
 
             return svar;
         }
-        
+
 
         public static void FjernHjelpeOmråde()
         {
             //Er kun et Hjelpeområde av gangen 
-            //derfor vi har en break 
+
             for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
             {
                 if (frmRediger.instance.map.Overlays[i].Id == Globalekonstanter.NavnHjelpeOmråde)
@@ -642,19 +701,20 @@ namespace GMAP_Demo
                     frmRediger.instance.map.Overlays.RemoveAt(i);
                     break;
                 }
-            }           
+            }
         }
+
 
         public static void AlleOmrådeTilgjenlighet(bool klikkBar)
         {
+            //metode for å gjøre polygoner/områder klikkbare eller uklikkbare 
             foreach (var item in frmRediger.instance.map.Overlays)
-            { 
+            {
                 if (item.Id == Globalekonstanter.NavnOmråde)
                 {
                     item.IsHitTestVisible = klikkBar;
                 }
-
-            }           
+            }
         }
     }
 }
