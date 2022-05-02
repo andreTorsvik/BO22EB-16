@@ -62,7 +62,7 @@ namespace GMAP_Demo
             tag_ListeSkjult.RaiseListChangedEvents = true;
         }
 
-        public static void OppdaterKategoriListe()
+        public static void OppdaterKategoriListe() 
         {
             kategoriListeVises.Clear();
 
@@ -74,7 +74,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void OppdaterTag_Liste()
+        public static void OppdaterTag_Liste() // Vurdere å flyttet
         {
             if (tag_ListeVises.Count > 0) tag_ListeVises.Clear();
             //if (tag_ListeSkjult.Count > 0) tag_ListeSkjult.Clear();
@@ -145,7 +145,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void OppdaterListe_området()
+        public static void OppdaterListe_området() // Vurdere å flyttet
         {
             GlobaleLister.LOmråde.Clear();
 
@@ -176,7 +176,7 @@ namespace GMAP_Demo
 
 
 
-        public static void OppdaterListe_ressurs()
+        public static void OppdaterListe_ressurs() // Vurdere å flyttet
         {
             //Må oppdatere område liste også 
             if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
@@ -448,7 +448,7 @@ namespace GMAP_Demo
             {
                 Stroke = new Pen(Color.Red, 5)
             };
-            var routes = new GMapOverlay("routes");
+            var routes = new GMapOverlay(Globalekonstanter.NavnRute);
             routes.Routes.Add(r);
             frmVisning.instance.map.Overlays.Add(routes);
             frmVisning.instance.map.Position = fra;
@@ -593,7 +593,7 @@ namespace GMAP_Demo
         {
             for (int i = 0; i < frmVisning.instance.map.Overlays.Count; i++)
             {
-                if (frmVisning.instance.map.Overlays[i].Id == "routes")
+                if (frmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
                 {
                     frmVisning.instance.map.Overlays.RemoveAt(i);
                     reff(MuligKart.Visning);

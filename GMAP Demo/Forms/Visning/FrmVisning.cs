@@ -94,8 +94,6 @@ namespace GMAP_Demo
             // TagListene på kartet
             Kart.InitializeTag_RessursListeVises();
             Kart.InitializeTag_RessursListeSkjult();
-            //Kart.InitializeTag_OmrådeListeVises();
-            //Kart.InitializeTag_OmrådeListeSkjult();
 
             //legget til alle ressurser i lister 
             Kart.OppdaterListe_ressurs();
@@ -223,9 +221,6 @@ namespace GMAP_Demo
             //setter alle nødvendige knappen til standarfarge
             btnFilter.BackColor = Globalekonstanter.StandarFargeKnapp;
             btnPosisjon.BackColor = Globalekonstanter.StandarFargeKnapp;
-            //btnFilter.BackColor = Color.FromArgb(24, 30, 54);
-            //btnPosisjon.BackColor = Color.FromArgb(24, 30, 54);
-
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -237,9 +232,8 @@ namespace GMAP_Demo
         {
             //henter Høyde på knapp og hvor toppen er plassert 
             pnlNav.Height = høyde;
-            pnlNav.Top = top;
-            //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
-            pnlNav.Left = btnFilter.Left;
+            pnlNav.Top = top;      
+            pnlNav.Left = btnFilter.Left; //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
         }
 
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
@@ -282,16 +276,18 @@ namespace GMAP_Demo
         public bool KartOppdatere = false; //Hindrer at kart.reff() påvirker denne metoden 
         private void map_OnMapZoomChanged()
         {
-            const int ZoomLevel = 16;
+            const int ZoomLevel = Globalekonstanter.ZoomLevel; // zoom = 16
 
-            if(!KartOppdatere)
+            //metoden blir ikke påvirket av kart.reff(). 
+            //den metoen zoomer ut og inn for å oppdatere kartet 
+            if(!KartOppdatere) 
             {
                 if (map.Zoom < ZoomLevel && !ZoomInvervall)
                 {
                     //fjerner alle overlays utenom rute 
                     for (int i = 0; i < map.Overlays.Count; i++)
                     {
-                        if (map.Overlays[i].Id != "routes")
+                        if (map.Overlays[i].Id != Globalekonstanter.NavnRute)
                         {
                             map.Overlays.RemoveAt(i);
                             i--;
@@ -314,7 +310,7 @@ namespace GMAP_Demo
                         List<GMapOverlay> routes = new List<GMapOverlay>();
                         for (int i = 0; i < map.Overlays.Count; i++)
                         {
-                            if (map.Overlays[i].Id == "routes")
+                            if (map.Overlays[i].Id == Globalekonstanter.NavnRute)
                             {
                                 routes.Add(map.Overlays[i]);
 

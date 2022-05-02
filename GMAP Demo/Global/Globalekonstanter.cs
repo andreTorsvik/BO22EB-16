@@ -24,6 +24,11 @@ namespace GMAP_Demo
         public static Color knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground; // Farge når knapp er trykket 
         public static Color StandarFargeKnapp = ThemeDesign.colorSecondaryBackground; // Farge på knapp normalt sett
 
-        public static string NavnHjelpeOmråde = "HjelpeOmråde";
+        //navn på Overlays 
+        public static string NavnHjelpeOmråde = "HjelpeOmråde"; // området som blir tegnet underveis når man skal legge til eller redigere 
+        public static string NavnRute = "routes";
+
+        //grensen hvor område(polygon) og objekter blir borte fra kartet 
+        public const int  ZoomLevel = 16;
     }
 }
