@@ -26,6 +26,11 @@ namespace GMAP_Demo
             InitializeComponent();
             instance = this;
 
+           startup();
+        }
+
+        public void startup()
+        {
             //start form Posisjon
             this.PnlFormLoader.Controls.Clear();
             frmFilter frmFilter_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -50,7 +55,7 @@ namespace GMAP_Demo
             btnFilter.BackColor = Globalekonstanter.knapp_trykket;
         }
 
-        private void SetTheme()
+        public void SetTheme()
         {
             instance.BackColor = ThemeDesign.colorBackground;
 

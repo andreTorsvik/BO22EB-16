@@ -106,7 +106,6 @@ namespace GMAP_Demo
 
         }
 
-
         public static void Setup(MuligKart kart, PointLatLng Startpunkt)
         {
             int minZoom = 0;
@@ -182,8 +181,6 @@ namespace GMAP_Demo
 
         }
 
-
-
         public static void OppdaterListe_ressurs() // Vurdere å flyttet
         {
             //tømmerlisten 
@@ -226,8 +223,6 @@ namespace GMAP_Demo
                 GlobaleLister.LRessurs.Clear();
             }
         }
-
-
 
         public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
         {
@@ -339,6 +334,7 @@ namespace GMAP_Demo
             else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
 
         }
+
         public static void LeggTilOmråde(List<Område> Olist, MuligKart kart)
         {
             // HvilketKart Visning = Visning.map
@@ -553,7 +549,6 @@ namespace GMAP_Demo
             }
         }
 
-
         public static void reff(MuligKart kart)
         {
             //Enkleste måte å oppdatere kartet på er å zoom inn og ut
@@ -689,7 +684,6 @@ namespace GMAP_Demo
             return svar;
         }
 
-
         public static void FjernHjelpeOmråde()
         {
             //Er kun et Hjelpeområde av gangen 
@@ -703,7 +697,6 @@ namespace GMAP_Demo
                 }
             }
         }
-
 
         public static void AlleOmrådeTilgjenlighet(bool klikkBar)
         {

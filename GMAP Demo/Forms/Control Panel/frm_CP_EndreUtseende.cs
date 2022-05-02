@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GMAP_Demo
@@ -47,6 +40,16 @@ namespace GMAP_Demo
 
 
             frmControlPanel.instance.SetTheme();
+            
+
+            Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground; // Farge når knapp er trykket 
+            Globalekonstanter.StandarFargeKnapp = ThemeDesign.colorSecondaryBackground;
+
+            frmControlPanel.instance.btnChangeTheme.BackColor = Globalekonstanter.knapp_trykket;
+
+            frmVisning.instance.startup();
+
+
             instance.SetTheme();
         }
     }
