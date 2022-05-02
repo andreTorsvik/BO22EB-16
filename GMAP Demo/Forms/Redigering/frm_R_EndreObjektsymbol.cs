@@ -100,11 +100,17 @@ namespace GMAP_Demo
 
             if(filepath != null)
             {
+
                 image = Image.FromFile(filepath);
                 imageData = Bildebehandling.ImageToByteArray(image);
 
                 pbValgtBilde.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbValgtBilde.Image = image;
+                pbValgtBilde.Visible = true;
+            }
+            else
+            {
+                pbValgtBilde.Visible = false;
             }
             
         }
