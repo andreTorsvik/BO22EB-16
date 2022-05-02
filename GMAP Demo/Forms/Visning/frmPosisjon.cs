@@ -44,9 +44,9 @@ namespace GMAP_Demo
             lblLat.ForeColor = ThemeDesign.colorLabel;
             lblLong.ForeColor = ThemeDesign.colorLabel;
             txtLat.ForeColor = ThemeDesign.colorLabel;
-            txtLat.BackColor = ThemeDesign.colorGray6;
+            txtLat.BackColor = ThemeDesign.colorGray4;
             txtLong.ForeColor = ThemeDesign.colorLabel;
-            txtLong.BackColor = ThemeDesign.colorGray6;
+            txtLong.BackColor = ThemeDesign.colorGray4;
 
             gbRute.ForeColor = ThemeDesign.colorLabel;
             gbRute.BackColor = ThemeDesign.colorBackground;
@@ -63,9 +63,9 @@ namespace GMAP_Demo
             btnFjernRute.ForeColor = ThemeDesign.colorLabel;
             btnFjernRute.BackColor = ThemeDesign.colorGray;
             tbFra.ForeColor = ThemeDesign.colorLabel;
-            tbFra.BackColor = ThemeDesign.colorGray;
+            tbFra.BackColor = ThemeDesign.colorGray4;
             tbTil.ForeColor = ThemeDesign.colorLabel;
-            tbTil.BackColor = ThemeDesign.colorGray;
+            tbTil.BackColor = ThemeDesign.colorGray4;
         }
 
         private void btnSøk_Click(object sender, EventArgs e)
