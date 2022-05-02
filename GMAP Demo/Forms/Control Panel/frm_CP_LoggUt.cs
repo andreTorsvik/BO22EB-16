@@ -34,15 +34,15 @@ namespace GMAP_Demo
             lblEpost.ForeColor = ThemeDesign.colorLabel;
             lblSikkerhetsklarering.ForeColor = ThemeDesign.colorLabel;
             tbFornavn.ForeColor = ThemeDesign.colorLabel;
-            tbFornavn.BackColor = ThemeDesign.colorGray;
+            tbFornavn.BackColor = ThemeDesign.colorGray4;
             tbEtternavn.ForeColor = ThemeDesign.colorLabel;
-            tbEtternavn.BackColor = ThemeDesign.colorGray;
+            tbEtternavn.BackColor = ThemeDesign.colorGray4;
             tbTelefonnummer.ForeColor = ThemeDesign.colorLabel;
-            tbTelefonnummer.BackColor = ThemeDesign.colorGray;
+            tbTelefonnummer.BackColor = ThemeDesign.colorGray4;
             tbEpost.ForeColor = ThemeDesign.colorLabel;
-            tbEpost.BackColor = ThemeDesign.colorGray;
+            tbEpost.BackColor = ThemeDesign.colorGray4;
             tbSikkerhetsklarering.ForeColor = ThemeDesign.colorLabel;
-            tbSikkerhetsklarering.BackColor = ThemeDesign.colorGray;
+            tbSikkerhetsklarering.BackColor = ThemeDesign.colorGray4;
 
             btnLoggUt.ForeColor = ThemeDesign.colorLabel;
             btnLoggUt.BackColor = ThemeDesign.colorGray;
