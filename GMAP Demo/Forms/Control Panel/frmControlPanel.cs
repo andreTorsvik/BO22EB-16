@@ -31,7 +31,7 @@ namespace GMAP_Demo
             btnLoggUt.BackColor = Globalekonstanter.knapp_trykket;
         }
 
-        private void SetTheme()
+        internal void SetTheme()
         {
             instance.BackColor = ThemeDesign.colorBackground;
 
@@ -73,6 +73,7 @@ namespace GMAP_Demo
             btnStartPosisjon.BackColor = StandarFarge;
             btnAdmin.BackColor = StandarFarge;
             btnFjernKategori.BackColor = StandarFarge;
+            btnChangeTheme.BackColor = StandarFarge;
 
         }
 

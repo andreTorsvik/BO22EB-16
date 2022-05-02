@@ -60,9 +60,9 @@
             // 
             this.btnSelectTheme.Location = new System.Drawing.Point(24, 178);
             this.btnSelectTheme.Name = "btnSelectTheme";
-            this.btnSelectTheme.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectTheme.Size = new System.Drawing.Size(123, 45);
             this.btnSelectTheme.TabIndex = 6;
-            this.btnSelectTheme.Text = "button1";
+            this.btnSelectTheme.Text = "Endre Utseende";
             this.btnSelectTheme.UseVisualStyleBackColor = true;
             this.btnSelectTheme.Click += new System.EventHandler(this.btnSelectTheme_Click);
             // 
