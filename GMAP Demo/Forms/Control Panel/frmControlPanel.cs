@@ -178,6 +178,7 @@ namespace GMAP_Demo
 
         public void OppdaterThemeKnapp()
         {
+            frmControlPanel.instance.AlleKnapperTilStandarfarge();
             btnChangeTheme.BackColor = Globalekonstanter.knapp_trykket;
         }
     }
