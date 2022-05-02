@@ -38,6 +38,8 @@ namespace GMAP_Demo
         {
             object p = mInfos[lbThemes.SelectedIndex].Invoke(null, null);
 
+            FilBehandeling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());
+
             frmControlPanel.instance.SetTheme();
             
             //endre standerfarge 

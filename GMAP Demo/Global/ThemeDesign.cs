@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GMAP_Demo
 {// https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
     
-    internal class ThemeDesign
+    public class ThemeDesign
     {
         // UI Elements
         //formBackground = colorBackground;

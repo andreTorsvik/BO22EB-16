@@ -19,6 +19,8 @@ namespace GMAP_Demo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            FilBehandeling.HentTheme(Globalekonstanter.filTheme);
+
             bool sjekk = DatabaseCommunication.IsServerConnected();
             //List<Bruker> brukerList = new List<Bruker>(DBComBruker.StartupConnectionTest()); // Dersom programmet ikke får kontakt med databasen ved oppstart, avsluttes programmet etter vist feilmelding.
             if(sjekk)
