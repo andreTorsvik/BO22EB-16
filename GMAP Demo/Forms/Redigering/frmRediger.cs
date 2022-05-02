@@ -78,6 +78,8 @@ namespace GMAP_Demo
             Kart.Setup(Kart.MuligKart.Redigering, Kart.PunktFraForrige);
 
             Kart.OppdaterKart(Kart.MuligKart.Redigering, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+
+            this.MinimumSize = new System.Drawing.Size(1000, 750);
         }
 
         private void btnTilbake_Click(object sender, EventArgs e)
@@ -259,8 +261,10 @@ namespace GMAP_Demo
 
         private void frmRediger_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //instance = null;
+            frmVisning.instance.Size = this.Size;
+            frmVisning.instance.Location = this.Location;
             instanceNull();
+            
             this.PnlFormLoader.Controls.Clear();
             frmVisning.instance.Show();
         }

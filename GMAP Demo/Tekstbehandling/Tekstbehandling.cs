@@ -231,16 +231,8 @@ namespace GMAP_Demo
         {
             string svar = string.Empty;
 
-            if (liste.Count > 0)
-            {
-                if (startTekst != null) svar = startTekst;
-
-                for (int i = 0; i < liste.Count; i++)
-                {
-                    svar += liste[i];
-                    if (i < liste.Count - 1) svar += ", ";
-                }
-            }
+            if(liste.Count > 0)
+                svar = startTekst + String.Join(", ", liste);
 
             return svar;
         }
@@ -279,8 +271,6 @@ namespace GMAP_Demo
 
             return Endringer;
         }
-
-       
 
         public static bool ErEmailGodkjent(string email)
         {

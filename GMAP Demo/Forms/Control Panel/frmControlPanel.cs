@@ -170,5 +170,10 @@ namespace GMAP_Demo
                 frm_CP_EndeUtseende_vrb.Show();
             }
         }
+
+        private void frmControlPanel_Load(object sender, EventArgs e)
+        {
+            this.MinimumSize = new System.Drawing.Size(1000, 750);
+        }
     }
 }

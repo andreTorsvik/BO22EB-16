@@ -305,6 +305,11 @@ namespace GMAP_Demo
                                             + "Oppgrader noen andre før du kan nedgraderes"));
                                     }
                                 }
+                                else if(InnloggetBruker.Sikkerhetsklarering >= 1 )
+                                {
+                                    nedgrader = false;
+                                    MessageBox.Show(string.Format("Kan ikke nedgradere fordi bruker allerede har laveste"));
+                                }
                                 else
                                 {
                                     Nedgrader = true;
