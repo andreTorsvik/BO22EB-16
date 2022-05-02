@@ -106,11 +106,10 @@ namespace GMAP_Demo
 
                 pbValgtBilde.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbValgtBilde.Image = image;
-                pbValgtBilde.Visible = true;
             }
             else
             {
-                pbValgtBilde.Visible = false;
+                
             }
             
         }
@@ -134,7 +133,7 @@ namespace GMAP_Demo
             {
                 DBComKategorier_Bilde.InsertBildeToChosenKategorier_BildeToDb(valgtKategori, imageData);
                 pbValgtKategori.Visible = false;
-                pbValgtBilde.Dispose();
+                pbValgtBilde.Image = null;
                 tbValgtKategori.Text = "";
                 lbTilgjengligKategorier.ClearSelected();
 
@@ -153,11 +152,11 @@ namespace GMAP_Demo
 
         private void btnFjernBilde_Click(object sender, EventArgs e)
         {
-            if ((valgtKategori != null))
+            if ((tbValgtKategori.Text != null))
             {
                 DBComKategorier_Bilde.DeleteBildeFromKategorier_Bilde(valgtKategori);
                 pbValgtKategori.Visible = false;
-                pbValgtBilde.Dispose();
+                pbValgtBilde.Image = null;
                 tbValgtKategori.Text = "";
                 lbTilgjengligKategorier.ClearSelected();
 
