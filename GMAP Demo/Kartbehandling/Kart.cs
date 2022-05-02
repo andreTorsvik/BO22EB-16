@@ -107,7 +107,7 @@ namespace GMAP_Demo
         }
 
 
-        public static void Setup(MuligKart kart, PointLatLng p)
+        public static void Setup(MuligKart kart, PointLatLng Startpunkt)
         {
             int minZoom = 0;
             int maksZoom = 27;
@@ -120,7 +120,7 @@ namespace GMAP_Demo
                     frmVisning.instance.map.MapProvider = Valgtkart;
 
                     //start posisjon kart
-                    frmVisning.instance.map.Position = p; //PointLatLng(60.36893643470203, 5.350878781967968);
+                    frmVisning.instance.map.Position = Startpunkt; //PointLatLng(60.36893643470203, 5.350878781967968);
 
                     //settings for kart
                     frmVisning.instance.map.MinZoom = minZoom; // min zoom level
@@ -131,7 +131,7 @@ namespace GMAP_Demo
                 case MuligKart.Redigering:
                     frmRediger.instance.map.MapProvider = Valgtkart;
 
-                    frmRediger.instance.map.Position = p;  //start posisjon kart
+                    frmRediger.instance.map.Position = Startpunkt;  //start posisjon kart
 
                     //settings for kart
                     frmRediger.instance.map.MinZoom = minZoom;

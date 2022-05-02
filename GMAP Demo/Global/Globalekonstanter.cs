@@ -12,6 +12,9 @@ namespace GMAP_Demo
         // Sikkerhetsklarering (1-3)
         public const int MaxSikkerhetsklarering = 3;
 
+        // Antall tegn man må ha i passordet, når man registerer seg 
+        public const int antalltegnPassord = 4;
+
         // Default textbox text for input Lat+Long
         public const string tekstLatLong_område = "Dobbelklikk på kartet + \"legg til\"";
         public const string tekstLatLong_objekt = "Dobbelklikk på kartet";
@@ -24,7 +27,7 @@ namespace GMAP_Demo
         public static Color knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground; // Farge når knapp er trykket 
         public static Color StandarFargeKnapp = ThemeDesign.colorSecondaryBackground; // Farge på knapp normalt sett
 
-        //navn på Overlays 
+        // Navn på Overlays 
         public const  string NavnHjelpeOmråde = "HjelpeOmråde"; // området som blir tegnet underveis, når man skal legge til eller redigere område 
         public const string NavnRute = "routes"; // navn på rute mellom to plasser 
         public const string NavnObjekter = "Objekter"; // navn på objekter 
@@ -32,7 +35,7 @@ namespace GMAP_Demo
         public const string NavnOmråde = "Polygons"; //navn område 
         public const string NavnMarkørForOmråde = "MarkørForOmråde"; //markør for hjørnen i et område som er lagt til 
 
-        //grensen hvor område(polygon) og objekter blir borte fra kartet 
+        // Grensen hvor område(polygon) og objekter blir borte fra kartet 
         public const int  ZoomLevel = 16;
     }
 }
