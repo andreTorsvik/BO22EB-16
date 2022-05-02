@@ -47,6 +47,7 @@ namespace GMAP_Demo
             //endre fargen på knappen 
             frmControlPanel.instance.AlleKnapperTilStandarfarge();
             frmControlPanel.instance.btnChangeTheme.BackColor = Globalekonstanter.knapp_trykket;
+            frmControlPanel.instance.OppdaterThemeKnapp();
 
             //endre Theme på visning 
             frmVisning.instance.startup();
