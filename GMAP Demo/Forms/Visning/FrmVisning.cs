@@ -31,28 +31,30 @@ namespace GMAP_Demo
 
         public void startup()
         {
-            //start form Posisjon
-            this.PnlFormLoader.Controls.Clear();
-            frmFilter frmFilter_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmFilter_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(frmFilter_vrb);
-            frmFilter_vrb.Show();
-
-            //sette Blåpanel til vesntre for Posisjonknapp 
-            FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
-
-
-
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
 
             // Første gang programmet starter etter innlogging så vises vinduet i midten av skjermen.
             this.CenterToScreen();
 
-            SetTheme();
-
             //endre farge
             btnFilter.BackColor = Globalekonstanter.knapp_trykket;
+
+            //sette Blåpanel til vesntre for Posisjonknapp 
+            FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
+
+            SetTheme();
+
+            //start form filter
+            this.PnlFormLoader.Controls.Clear();
+            frmFilter frmFilter_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmFilter_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frmFilter_vrb);
+            frmFilter_vrb.Show();
+
+            
+
+           
         }
 
         public void SetTheme()
