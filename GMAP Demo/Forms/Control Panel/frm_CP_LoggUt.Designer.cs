@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_S_LoggUt
+    partial class frm_CP_LoggUt
     {
         /// <summary>
         /// Required designer variable.

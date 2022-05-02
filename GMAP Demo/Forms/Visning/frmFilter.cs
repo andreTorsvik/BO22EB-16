@@ -36,7 +36,7 @@ namespace GMAP_Demo
             lblTitle.ForeColor = ThemeDesign.colorBlue;
 
             gbFilter.ForeColor = ThemeDesign.colorLabel;
-            gbFilter.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbFilter.BackColor = ThemeDesign.colorBackground;
             lblKategorierSkjult.ForeColor = ThemeDesign.colorLabel;
             lblKategorierVises.ForeColor = ThemeDesign.colorLabel;
             lblTagsSkjult.ForeColor = ThemeDesign.colorLabel;
@@ -62,7 +62,7 @@ namespace GMAP_Demo
             cbAND.ForeColor = ThemeDesign.colorLabel;
 
             gbObjekt.ForeColor = ThemeDesign.colorLabel;
-            gbObjekt.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbObjekt.BackColor = ThemeDesign.colorBackground;
             lblHoppTilEtOmråde.ForeColor = ThemeDesign.colorLabel;
             lblObjektAntall.ForeColor = ThemeDesign.colorLabel;
             btnForrigeRessurs.ForeColor = ThemeDesign.colorLabel;
@@ -74,7 +74,7 @@ namespace GMAP_Demo
             tbAntallObjekter.BackColor = ThemeDesign.colorGray;
 
             gbInfo.ForeColor = ThemeDesign.colorLabel;
-            gbInfo.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbInfo.BackColor = ThemeDesign.colorBackground;
             lblNavn.ForeColor = ThemeDesign.colorLabel;
             lblKategori.ForeColor = ThemeDesign.colorLabel;
             lbMålingDato.ForeColor = ThemeDesign.colorLabel;

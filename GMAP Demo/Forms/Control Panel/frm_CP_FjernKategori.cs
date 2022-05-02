@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_S_FjernKategori : Form
+    public partial class frm_CP_FjernKategori : Form
     {
-        frm_S_FjernKategori instance;
-        public frm_S_FjernKategori()
+        frm_CP_FjernKategori instance;
+        public frm_CP_FjernKategori()
         {
             InitializeComponent();
             instance = this;
@@ -27,7 +27,7 @@ namespace GMAP_Demo
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
             gbFjernKategori.ForeColor = ThemeDesign.colorLabel;
-            gbFjernKategori.BackColor = ThemeDesign.colorSecondaryBackground;
+            gbFjernKategori.BackColor = ThemeDesign.colorBackground;
             lblInfo.ForeColor = ThemeDesign.colorLabel;
             lblSlettbareKategorier.ForeColor = ThemeDesign.colorLabel;
             lblValgtKategori.ForeColor = ThemeDesign.colorLabel;

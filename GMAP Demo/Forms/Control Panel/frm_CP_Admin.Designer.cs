@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_S_Admin
+    partial class frm_CP_Admin
     {
         /// <summary>
         /// Required designer variable.

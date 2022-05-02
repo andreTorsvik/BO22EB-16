@@ -25,7 +25,7 @@ namespace GMAP_Demo
             lblTitle.ForeColor = ThemeDesign.colorBlue;
 
             gbPosisjon.ForeColor = ThemeDesign.colorLabel;
-            gbPosisjon.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbPosisjon.BackColor = ThemeDesign.colorBackground;
             lblLand.ForeColor = ThemeDesign.colorLabel;
             lblByKommune.ForeColor = ThemeDesign.colorLabel;
             lblAdresse.ForeColor = ThemeDesign.colorLabel;
@@ -39,7 +39,7 @@ namespace GMAP_Demo
             btnSøk.BackColor = ThemeDesign.colorGray;
 
             gbKoordinater.ForeColor = ThemeDesign.colorLabel;
-            gbKoordinater.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbKoordinater.BackColor = ThemeDesign.colorBackground;
             lblBasertPå.ForeColor = ThemeDesign.colorLabel;
             lblLat.ForeColor = ThemeDesign.colorLabel;
             lblLong.ForeColor = ThemeDesign.colorLabel;
@@ -49,7 +49,7 @@ namespace GMAP_Demo
             txtLong.BackColor = ThemeDesign.colorGray6;
 
             gbRute.ForeColor = ThemeDesign.colorLabel;
-            gbRute.BackColor = ThemeDesign.colorTertiaryGroupedBackground;
+            gbRute.BackColor = ThemeDesign.colorBackground;
             lblBasertPå2.ForeColor = ThemeDesign.colorLabel;
             lblFra.ForeColor = ThemeDesign.colorLabel;
             lblTil.ForeColor = ThemeDesign.colorLabel;

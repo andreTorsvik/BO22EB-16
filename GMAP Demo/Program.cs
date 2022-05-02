@@ -21,7 +21,6 @@ namespace GMAP_Demo
             
             List<Bruker> brukerList = new List<Bruker>(DBComBruker.StartupConnectionTest()); // Dersom programmet ikke får kontakt med databasen ved oppstart, avsluttes programmet etter vist feilmelding.
 
-            ThemeDesign.OldTheme();
             Application.Run(new frmInnlogging());
         }
     }

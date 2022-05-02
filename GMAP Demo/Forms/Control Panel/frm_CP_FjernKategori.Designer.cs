@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_S_FjernKategori
+    partial class frm_CP_FjernKategori
     {
         /// <summary>
         /// Required designer variable.

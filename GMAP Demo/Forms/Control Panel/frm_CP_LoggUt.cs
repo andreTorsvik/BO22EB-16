@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_S_LoggUt : Form
+    public partial class frm_CP_LoggUt : Form
     {
-        frm_S_LoggUt instance;
-        public frm_S_LoggUt()
+        frm_CP_LoggUt instance;
+        public frm_CP_LoggUt()
         {
             InitializeComponent();
             instance = this;
@@ -27,7 +27,7 @@ namespace GMAP_Demo
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
             gblInnloggetBruker.ForeColor = ThemeDesign.colorLabel;
-            gblInnloggetBruker.BackColor = ThemeDesign.colorSecondaryBackground;
+            gblInnloggetBruker.BackColor = ThemeDesign.colorBackground;
             lblFornavn.ForeColor = ThemeDesign.colorLabel;
             lblEtternavn.ForeColor = ThemeDesign.colorLabel;
             lblTelefonnummer.ForeColor = ThemeDesign.colorLabel;

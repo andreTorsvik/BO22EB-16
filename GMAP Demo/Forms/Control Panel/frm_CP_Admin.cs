@@ -7,10 +7,10 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_S_Admin : Form
+    public partial class frm_CP_Admin : Form
     {
-        frm_S_Admin instance;
-        public frm_S_Admin()
+        frm_CP_Admin instance;
+        public frm_CP_Admin()
         {
             InitializeComponent();
             instance = this;
