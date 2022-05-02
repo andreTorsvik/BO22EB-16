@@ -10,7 +10,7 @@ namespace GMAP_Demo
     public class Globalekonstanter
     {
         // Sikkerhetsklarering (1-3)
-        public static int MaxSikkerhetsklarering = 3;
+        public const int MaxSikkerhetsklarering = 3;
 
         // Default textbox text for input Lat+Long
         public const string tekstLatLong_område = "Dobbelklikk på kartet + \"legg til\"";
@@ -25,8 +25,12 @@ namespace GMAP_Demo
         public static Color StandarFargeKnapp = ThemeDesign.colorSecondaryBackground; // Farge på knapp normalt sett
 
         //navn på Overlays 
-        public static string NavnHjelpeOmråde = "HjelpeOmråde"; // området som blir tegnet underveis når man skal legge til eller redigere 
-        public static string NavnRute = "routes";
+        public const  string NavnHjelpeOmråde = "HjelpeOmråde"; // området som blir tegnet underveis når man skal legge til eller redigere 
+        public const string NavnRute = "routes"; // navn på rute mellom to plasser //x
+        public const string NavnObjekter = "Objekter"; // navn på objekter //x
+        public const string NavnHjelpeMarkør = "HjelpeMarkør"; //x
+        public const string NavnOmråde = "Polygons"; //navn område x
+        public const string NavnMarkørForOmråde = "MarkørForOmråde"; //x
 
         //grensen hvor område(polygon) og objekter blir borte fra kartet 
         public const int  ZoomLevel = 16;

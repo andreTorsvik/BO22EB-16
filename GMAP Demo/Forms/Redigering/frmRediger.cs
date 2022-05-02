@@ -345,8 +345,8 @@ namespace GMAP_Demo
                    
                 }
 
-                Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
-                Kart.LeggtilMarkør(Kart.MuligKart.Redigering, new PointLatLng(lat, lang), -1, "HjelpeMarkør");
+                Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeMarkør); //"HjelpeMarkør"
+                Kart.LeggtilMarkør(Kart.MuligKart.Redigering, new PointLatLng(lat, lang), -1, Globalekonstanter.NavnHjelpeMarkør); //"HjelpeMarkør"
                 Kart.reff(Kart.MuligKart.Redigering);
             }
         }
@@ -409,7 +409,7 @@ namespace GMAP_Demo
                     //sett inn markører i eksisterende områder 
                     for (int i = 0; i < (PunkteListe.Count -1); i++)
                     {
-                        Kart.LeggtilMarkør(Kart.MuligKart.Redigering, PunkteListe[i], i, "MarkørForOmråde");
+                        Kart.LeggtilMarkør(Kart.MuligKart.Redigering, PunkteListe[i], i, Globalekonstanter.NavnMarkørForOmråde);
                     }
 
                     Kart.reff(Kart.MuligKart.Redigering);
@@ -459,25 +459,25 @@ namespace GMAP_Demo
         {
             foreach (var item in map.Overlays)
             {
-                if (item.Id == "MarkørForOmråde")
+                if (item.Id == Globalekonstanter.NavnMarkørForOmråde) //"MarkørForOmråde"
                 {
-                    Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
+                    Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde);//"MarkørForOmråde"
                     break;
                 }
             }
             foreach (var item in map.Overlays)
             {
-                if (item.Id == "HjelpeMarkør")
+                if (item.Id == Globalekonstanter.NavnHjelpeMarkør) //"HjelpeMarkør"
                 {
-                    Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
+                    Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeMarkør);
                     break;
                 }
             }
             foreach(var item in map.Overlays)
             {
-                if (item.Id == "HjelpeOmråde")
+                if (item.Id == Globalekonstanter.NavnHjelpeOmråde) // "HjelpeOmråde"
                 {
-                    Kart.FjernAlleMarkører_redigier("HjelpeOmråde");
+                    Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeOmråde);
                     break;
                 }
             }

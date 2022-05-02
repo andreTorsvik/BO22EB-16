@@ -239,7 +239,7 @@ namespace GMAP_Demo
         {
             int tag = 0;
             GMapMarker marker;
-            GMapOverlay markers = new GMapOverlay("Objekter");
+            GMapOverlay markers = new GMapOverlay(Globalekonstanter.NavnObjekter);
             foreach (var item in Rlist)
             {
                 PointLatLng punkt = item.GiPunktet();
@@ -285,7 +285,7 @@ namespace GMAP_Demo
             GMapMarker marker;
             GMapOverlay markers = new GMapOverlay(områdeId);
 
-            if (områdeId == "HjelpeMarkør")
+            if (områdeId == Globalekonstanter.NavnHjelpeMarkør)
             {
                 marker = new GMarkerGoogle(point, GMarkerGoogleType.yellow);
             }
@@ -305,9 +305,6 @@ namespace GMAP_Demo
 
             }
             marker.Tag = -1;
-
-            //if (områdeId == "HjelpeMarkør")
-            //{ }
 
             markers.Markers.Add(marker);
 
@@ -331,7 +328,7 @@ namespace GMAP_Demo
                 polygon.Tag = Tag;
                 Tag++;
                 polygon.IsHitTestVisible = true; // nødvendig for å kunne trykke på Polygonet
-                GMapOverlay polygons = new GMapOverlay("Polygons");
+                GMapOverlay polygons = new GMapOverlay(Globalekonstanter.NavnOmråde);
                 polygons.Polygons.Add(polygon);
                 //frmVisning.instance.map.Overlays.Add(polygons);
 
@@ -632,9 +629,12 @@ namespace GMAP_Demo
 
             return svar;
         }
+        
 
         public static void FjernHjelpeOmråde()
         {
+            //Er kun et Hjelpeområde av gangen 
+            //derfor vi har en break 
             for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
             {
                 if (frmRediger.instance.map.Overlays[i].Id == Globalekonstanter.NavnHjelpeOmråde)
@@ -642,21 +642,19 @@ namespace GMAP_Demo
                     frmRediger.instance.map.Overlays.RemoveAt(i);
                     break;
                 }
-            }
-            reff(MuligKart.Visning);
+            }           
         }
 
         public static void AlleOmrådeTilgjenlighet(bool klikkBar)
         {
             foreach (var item in frmRediger.instance.map.Overlays)
             { 
-                if (item.Id == "Polygons")
+                if (item.Id == Globalekonstanter.NavnOmråde)
                 {
                     item.IsHitTestVisible = klikkBar;
                 }
 
-            }
-            reff(MuligKart.Visning);
+            }           
         }
     }
 }

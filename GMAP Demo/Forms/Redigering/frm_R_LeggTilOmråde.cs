@@ -219,8 +219,8 @@ namespace GMAP_Demo
 
                     pointLatLngs.Add(point);
 
-                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, point, rekkefølge, "MarkørForOmråde");
-                    Kart.FjernAlleMarkører_redigier("HjelpeMarkør");
+                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, point, rekkefølge, Globalekonstanter.NavnMarkørForOmråde); 
+                    Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeMarkør); 
                     Kart.reff(Kart.MuligKart.Redigering);
 
                     txtLat.Text = Globalekonstanter.tekstLatLong_område;
@@ -241,7 +241,7 @@ namespace GMAP_Demo
                 frmRediger.instance.cbOmråde.Checked = false;
 
                 Kart.FjernHjelpeOmråde();
-                Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
+                Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde); 
 
                 pointLatLngs.RemoveAt(pointLatLngs.Count - 1);
 
@@ -250,7 +250,7 @@ namespace GMAP_Demo
 
                 List<PointLatLng> PunktListe = pointLatLngs.ToList();
 
-                if (Kart.SjekkKartharHjelpemarkør_redigier("HjelpeMarkør"))
+                if (Kart.SjekkKartharHjelpemarkør_redigier(Globalekonstanter.NavnHjelpeMarkør)) 
                 {
                     Kart.TegnHjelpeOmråde_rediger(frmRediger.DoubleClick_punkt, PunktListe);
                 }
@@ -261,7 +261,7 @@ namespace GMAP_Demo
 
                 for (int i = 0; i < (pointLatLngs.Count); i++)
                 {
-                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, PunktListe[i], i, "MarkørForOmråde");
+                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, PunktListe[i], i, Globalekonstanter.NavnMarkørForOmråde); //"MarkørForOmråde"
                 }
 
                 Kart.reff(Kart.MuligKart.Redigering);
@@ -275,7 +275,7 @@ namespace GMAP_Demo
                 frmRediger.instance.cbOmråde.Checked = false;
 
                 Kart.FjernHjelpeOmråde();
-                Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
+                Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde); // "MarkørForOmråde"
                 pointLatLngs.Clear();
                 txtNrPunkt.Text = pointLatLngs.Count.ToString();
             }
@@ -342,7 +342,7 @@ namespace GMAP_Demo
                     TømeTekstfeltOgLister();
 
                     //fjerne "hjelpe" markører 
-                    Kart.FjernAlleMarkører_redigier("MarkørForOmråde");
+                    Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde); // 
 
                     //legge til de nye området på kartet 
                     Kart.OppdaterListe_området();
