@@ -28,97 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.lbTilgjengligKategorier = new System.Windows.Forms.ListBox();
-            this.txtValgtKategori = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelInfo = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tbValgtKategori = new System.Windows.Forms.TextBox();
+            this.gbFjernKategori = new System.Windows.Forms.GroupBox();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.lblValgtKategori = new System.Windows.Forms.Label();
+            this.lblSlettbareKategorier = new System.Windows.Forms.Label();
             this.btnFjern = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gbFjernKategori.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label3
+            // lblTitle
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label3.Location = new System.Drawing.Point(12, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(479, 46);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Fjern Ubrukte Kategorier";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+            this.lblTitle.Location = new System.Drawing.Point(14, 11);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(574, 55);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "Fjern Ubrukte Kategorier";
             // 
             // lbTilgjengligKategorier
             // 
             this.lbTilgjengligKategorier.FormattingEnabled = true;
-            this.lbTilgjengligKategorier.ItemHeight = 16;
-            this.lbTilgjengligKategorier.Location = new System.Drawing.Point(16, 104);
+            this.lbTilgjengligKategorier.ItemHeight = 20;
+            this.lbTilgjengligKategorier.Location = new System.Drawing.Point(18, 130);
+            this.lbTilgjengligKategorier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbTilgjengligKategorier.Name = "lbTilgjengligKategorier";
-            this.lbTilgjengligKategorier.Size = new System.Drawing.Size(290, 212);
+            this.lbTilgjengligKategorier.Size = new System.Drawing.Size(326, 264);
             this.lbTilgjengligKategorier.Sorted = true;
             this.lbTilgjengligKategorier.TabIndex = 5;
             this.lbTilgjengligKategorier.DoubleClick += new System.EventHandler(this.lbKategorier_DoubleClick);
             // 
-            // txtValgtKategori
+            // tbValgtKategori
             // 
-            this.txtValgtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtValgtKategori.Location = new System.Drawing.Point(324, 104);
-            this.txtValgtKategori.Name = "txtValgtKategori";
-            this.txtValgtKategori.Size = new System.Drawing.Size(163, 22);
-            this.txtValgtKategori.TabIndex = 6;
+            this.tbValgtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tbValgtKategori.Location = new System.Drawing.Point(364, 130);
+            this.tbValgtKategori.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbValgtKategori.Name = "tbValgtKategori";
+            this.tbValgtKategori.Size = new System.Drawing.Size(183, 26);
+            this.tbValgtKategori.TabIndex = 6;
             // 
-            // groupBox1
+            // gbFjernKategori
             // 
-            this.groupBox1.Controls.Add(this.labelInfo);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnFjern);
-            this.groupBox1.Controls.Add(this.txtValgtKategori);
-            this.groupBox1.Controls.Add(this.lbTilgjengligKategorier);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Location = new System.Drawing.Point(4, 66);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(595, 344);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Fjern Kategori";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.gbFjernKategori.Controls.Add(this.lblInfo);
+            this.gbFjernKategori.Controls.Add(this.lblValgtKategori);
+            this.gbFjernKategori.Controls.Add(this.lblSlettbareKategorier);
+            this.gbFjernKategori.Controls.Add(this.btnFjern);
+            this.gbFjernKategori.Controls.Add(this.tbValgtKategori);
+            this.gbFjernKategori.Controls.Add(this.lbTilgjengligKategorier);
+            this.gbFjernKategori.ForeColor = System.Drawing.SystemColors.Control;
+            this.gbFjernKategori.Location = new System.Drawing.Point(4, 82);
+            this.gbFjernKategori.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbFjernKategori.Name = "gbFjernKategori";
+            this.gbFjernKategori.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbFjernKategori.Size = new System.Drawing.Size(669, 430);
+            this.gbFjernKategori.TabIndex = 7;
+            this.gbFjernKategori.TabStop = false;
+            this.gbFjernKategori.Text = "Fjern Kategori";
+            this.gbFjernKategori.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // labelInfo
+            // lblInfo
             // 
-            this.labelInfo.AutoSize = true;
-            this.labelInfo.Location = new System.Drawing.Point(8, 18);
-            this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(70, 16);
-            this.labelInfo.TabIndex = 9;
-            this.labelInfo.Text = "Bruker info";
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(9, 22);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(86, 20);
+            this.lblInfo.TabIndex = 9;
+            this.lblInfo.Text = "Bruker info";
             // 
-            // label2
+            // lblValgtKategori
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(321, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 16);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Valgt kategorier";
+            this.lblValgtKategori.AutoSize = true;
+            this.lblValgtKategori.Location = new System.Drawing.Point(361, 106);
+            this.lblValgtKategori.Name = "lblValgtKategori";
+            this.lblValgtKategori.Size = new System.Drawing.Size(121, 20);
+            this.lblValgtKategori.TabIndex = 8;
+            this.lblValgtKategori.Text = "Valgt kategorier";
             // 
-            // label1
+            // lblSlettbareKategorier
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 16);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Slettbare kategorier";
+            this.lblSlettbareKategorier.AutoSize = true;
+            this.lblSlettbareKategorier.Location = new System.Drawing.Point(15, 106);
+            this.lblSlettbareKategorier.Name = "lblSlettbareKategorier";
+            this.lblSlettbareKategorier.Size = new System.Drawing.Size(149, 20);
+            this.lblSlettbareKategorier.TabIndex = 8;
+            this.lblSlettbareKategorier.Text = "Slettbare kategorier";
             // 
             // btnFjern
             // 
             this.btnFjern.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnFjern.Location = new System.Drawing.Point(324, 132);
+            this.btnFjern.Location = new System.Drawing.Point(364, 165);
+            this.btnFjern.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFjern.Name = "btnFjern";
-            this.btnFjern.Size = new System.Drawing.Size(93, 31);
+            this.btnFjern.Size = new System.Drawing.Size(105, 39);
             this.btnFjern.TabIndex = 7;
             this.btnFjern.Text = "Fjern";
             this.btnFjern.UseVisualStyleBackColor = true;
@@ -126,19 +131,19 @@
             // 
             // frm_S_FjernKategori
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1280, 825);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(1440, 1031);
+            this.Controls.Add(this.gbFjernKategori);
+            this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frm_S_FjernKategori";
             this.Text = "frm_S_BrukerInfo";
             this.Load += new System.EventHandler(this.frm_S_BrukerInfo_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbFjernKategori.ResumeLayout(false);
+            this.gbFjernKategori.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,13 +151,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.ListBox lbTilgjengligKategorier;
-        private System.Windows.Forms.TextBox txtValgtKategori;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbValgtKategori;
+        private System.Windows.Forms.GroupBox gbFjernKategori;
+        private System.Windows.Forms.Label lblValgtKategori;
+        private System.Windows.Forms.Label lblSlettbareKategorier;
         private System.Windows.Forms.Button btnFjern;
-        private System.Windows.Forms.Label labelInfo;
+        private System.Windows.Forms.Label lblInfo;
     }
 }
