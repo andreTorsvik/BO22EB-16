@@ -608,7 +608,6 @@
             this.tbAntallObjekter.Size = new System.Drawing.Size(22, 20);
             this.tbAntallObjekter.TabIndex = 54;
             this.tbAntallObjekter.Text = "0";
-            this.tbAntallObjekter.TextChanged += new System.EventHandler(this.txtAntallObjekter_TextChanged);
             // 
             // lblObjektAntall
             // 
