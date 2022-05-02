@@ -46,7 +46,7 @@ namespace GMAP_Demo
 
         private void btnSelectTheme_Click(object sender, EventArgs e)
         {
-            lbThemes.SelectedItem.
+            throw new NotImplementedException();
         }
     }
 }
