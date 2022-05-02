@@ -34,19 +34,20 @@ namespace GMAP_Demo
         }
 
         //https://www.naveedulhaq.com/index.php/dot-net-core/get-the-list-of-method-names-from-the-c-class/
+        MethodInfo[] mInfos = typeof(ThemeDesign).GetMethods(BindingFlags.Public | BindingFlags.Static);
         private void frm_CP_EndeUtseende_Load(object sender, EventArgs e)
         {
-            MethodInfo[] mInfos = typeof(ThemeDesign).GetMethods(BindingFlags.Public |BindingFlags.Static);
-
-            foreach (MethodInfo mi in mInfos)
-            {
-                lbThemes.Items.Add(mi.Name);
-            }
+            lbThemes.DataSource = mInfos;
+            lbThemes.DisplayMember = "Name";
         }
 
         private void btnSelectTheme_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            object p = mInfos[lbThemes.SelectedIndex].Invoke(null, null);
+
+
+            frmControlPanel.instance.SetTheme();
+            instance.SetTheme();
         }
     }
 }

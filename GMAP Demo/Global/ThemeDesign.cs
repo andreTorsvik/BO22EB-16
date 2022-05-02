@@ -11,26 +11,27 @@ namespace GMAP_Demo
     internal class ThemeDesign
     {
         // UI Elements
-        //public static Color DEformBackground = colorBackground;
-        //public static Color DEpanelLayer2Background = colorSecondaryBackground;
-        //public static Color DEpanelLayer3Background = colorTertiaryBackground;
-        //public static Color DEgroupboxForeground = colorLabel;
-        //public static Color DEgroupboxBackground = colorGroupedBackground;
-        //public static Color DEgroupboxLayer2Background = colorSecondaryGroupedBackground;
-        //public static Color DEgroupboxLayer3Background = colorTertiaryGroupedBackground;
-        //public static Color DElabelForeground = colorLabel;
-        //public static Color DEtextboxForeground = colorLabel;
-        //public static Color DEtextboxBackground = colorGray;
-        //public static Color DEtextboxDisabledForeground = colorBackground;
-        //public static Color DEtextBoxDisabledBackground = colorGray6;
-        //public static Color DElistboxForeground = colorLabel;
-        //public static Color DElistboxBackground = colorGray;
-        //public static Color DElistboxDisabledForeground = colorBackground;
-        //public static Color DElistboxDisabledBackground = colorGray6;
-        //public static Color DEbuttonForeground = colorLabel;
-        //public static Color DEbuttonBackground = colorGray;
-        //public static Color DEcheckboxForeground = colorLabel;
+        //formBackground = colorBackground;
+        //panelLayer2Background = colorSecondaryBackground;
+        //panelLayer3Background = colorTertiaryBackground;
+        //groupboxForeground = colorLabel;
+        //groupboxBackground = colorGroupedBackground;
+        //groupboxLayer2Background = colorSecondaryGroupedBackground;
+        //groupboxLayer3Background = colorTertiaryGroupedBackground;
+        //labelForeground = colorLabel;
+        //textboxForeground = colorLabel;
+        //textboxBackground = colorGray;
+        //textboxDisabledForeground = colorBackground;
+        //textBoxDisabledBackground = colorGray6;
+        //listboxForeground = colorLabel;
+        //listboxBackground = colorGray;
+        //listboxDisabledForeground = colorBackground;
+        //listboxDisabledBackground = colorGray6;
+        //buttonForeground = colorLabel;
+        //buttonBackground = colorGray;
+        //checkboxForeground = colorLabel;
         
+
         // Default colors
         public static Color colorRed = Color.FromArgb(255, 59, 48);
         public static Color colorOrange = Color.FromArgb(255, 149, 0);
@@ -67,7 +68,6 @@ namespace GMAP_Demo
         public static Color colorTertiaryLabel = Color.FromArgb(77, 60, 60, 67);
         public static Color colorQuaternaryLabel = Color.FromArgb(46, 60, 60, 67);
 
-        
         public static void LightTheme()
         {
             colorRed = Color.FromArgb(255, 59, 48);
