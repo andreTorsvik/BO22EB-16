@@ -83,6 +83,8 @@ namespace GMAP_Demo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            frmInnlogging.instance = null;
+
             //midtstille brukernavn iforhold til "bilde"
             lblUserName.TextAlign = ContentAlignment.MiddleCenter;
 
