@@ -38,7 +38,6 @@ namespace GMAP_Demo
         {
             object p = mInfos[lbThemes.SelectedIndex].Invoke(null, null);
 
-
             frmControlPanel.instance.SetTheme();
             
 
@@ -51,6 +50,11 @@ namespace GMAP_Demo
 
 
             instance.SetTheme();
+
+            foreach (Form item in Application.OpenForms)
+            {
+                item.Refresh();
+            }
         }
     }
 }
