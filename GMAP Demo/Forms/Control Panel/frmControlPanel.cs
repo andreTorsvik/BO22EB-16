@@ -65,7 +65,7 @@ namespace GMAP_Demo
                 frmControlPanel.instance = null;
         }
 
-        void AlleKnapperTilStandarfarge()
+        internal void AlleKnapperTilStandarfarge()
         {
             Color StandarFarge = Globalekonstanter.StandarFargeKnapp;
 
