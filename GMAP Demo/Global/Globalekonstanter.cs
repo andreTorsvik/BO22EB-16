@@ -37,5 +37,10 @@ namespace GMAP_Demo
 
         // Grensen hvor område(polygon) og objekter blir borte fra kartet 
         public const int  ZoomLevel = 16;
+
+        //filnaven
+        public const string filStartPosisjon = "StartPosisjon.txt";
+        public const string filTheme = "Theme.txt";
+
     }
 }

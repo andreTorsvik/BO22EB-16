@@ -9,7 +9,7 @@ namespace GMAP_Demo
     public partial class Frm_CP_StartPosisjon : Form
     {
         Frm_CP_StartPosisjon instance;
-        public string FilNavn = "StartPosisjon.txt";
+        
         public Frm_CP_StartPosisjon()
         {
             InitializeComponent();
@@ -66,7 +66,7 @@ namespace GMAP_Demo
 
             PointLatLng svar = new PointLatLng();
 
-            svar = FilBehandeling.HentStartPosisjon(FilNavn);
+            svar = FilBehandeling.HentStartPosisjon(Globalekonstanter.filStartPosisjon);
            
             return svar;
         }
@@ -120,7 +120,7 @@ namespace GMAP_Demo
         private void btnStart_Click(object sender, EventArgs e)
         {
 
-            bool fullført = FilBehandeling.LeggTilStartPosisjon(FilNavn,txtNyLat.Text,txtNyLong.Text);
+            bool fullført = FilBehandeling.LeggTilStartPosisjon(Globalekonstanter.filStartPosisjon,txtNyLat.Text,txtNyLong.Text);
 
             if(fullført)
             {

@@ -411,5 +411,32 @@ namespace GMAP_Demo
 
             return lang;
         }
+
+        public static string hentTheme(string text)
+        {
+            //kommer som " Void DarkTheme()"
+            string svar = "";
+
+            try
+            {
+                //" Void DarkTheme()"
+                int startIndex = text.IndexOf(" ");
+                string sjekk = text.Substring(startIndex); //Void DarkTheme()
+                startIndex = text.IndexOf(" ");
+                sjekk = sjekk.Substring(startIndex); //DarkTheme()
+
+                sjekk = sjekk.Substring(0,sjekk.Length-2); //DarkTheme
+
+                svar = sjekk;
+            }
+            catch (Exception)
+            {
+
+
+            }
+
+
+            return svar;
+        }
     }
 }
