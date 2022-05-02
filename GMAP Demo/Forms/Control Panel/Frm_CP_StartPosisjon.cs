@@ -66,7 +66,7 @@ namespace GMAP_Demo
 
             PointLatLng svar = new PointLatLng();
 
-            svar = FilBehandeling.GiStartPosisjon(FilNavn);
+            svar = FilBehandeling.HentStartPosisjon(FilNavn);
            
             return svar;
         }

@@ -34,11 +34,10 @@ namespace GMAP_Demo
             }
             return svar;
         }
-        
-           
-        public static PointLatLng GiStartPosisjon(string FilNavn)
+                
+        public static PointLatLng HentStartPosisjon(string FilNavn)
         {
-            PointLatLng svar = new PointLatLng(60.36893643470203, 5.350878781967968); // Over høyskolen vis
+            PointLatLng svar = new PointLatLng(60.36893643470203, 5.350878781967968); // Over høyskolen, hvis filen klare å hente noe 
 
             if (File.Exists(FilNavn))
             {
