@@ -316,6 +316,7 @@ namespace GMAP_Demo
                 {
                     frm_R_LeggTilOmråde.instance.FyllKoordinater(lat, lang);
 
+                    //tegner hjelpeområde, med punkt burker har klikket 
                     if(frm_R_LeggTilOmråde.instance.pointLatLngs.Count >= 1)
                     {
                         Kart.FjernHjelpeOmråde();
@@ -360,17 +361,14 @@ namespace GMAP_Demo
         {
             if(Convert.ToInt32(item.Tag) != -1)
             {
-                //skal ikke åpne redigeringform hvis den er på fjerne
-                if (pnlNav.Top != btnFjernObjektOmråde.Top)
+                //skal ikke åpne redigeringform hvis den er på fjerne eller er der allerede 
+                if (pnlNav.Top == btnRedigerObjekt.Top) { }
+                else if (pnlNav.Top != btnFjernObjektOmråde.Top)
                 {
                     frm_R_RedigerObjekt frm_R_RedigerObjekt_vrb = new frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                     ÅpneFormFraMenyknapp(btnRedigerObjekt, e, frm_R_RedigerObjekt_vrb);
                 }
 
-                //if (frm_R_LeggTilOmråde.instance != null)
-                //{
-
-                //}
                 if (Frm_R_FjernObjektOmråde.instance != null)
                 {
                     Frm_R_FjernObjektOmråde.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
@@ -385,13 +383,15 @@ namespace GMAP_Demo
 
         private void Map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
-            //skal ikke åpne redigeringform hvis den er på fjerne formen
-            if (pnlNav.Top != btnFjernObjektOmråde.Top)
+            //skal ikke åpne redigeringform hvis den er på fjerne eller er der allerede 
+            if (pnlNav.Top == btnRedigerOmråde.Top) {  }  
+            else if (pnlNav.Top != btnFjernObjektOmråde.Top)
             {
                 frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ÅpneFormFraMenyknapp(btnRedigerOmråde, e, frm_R_RedigerOmråde_vrb);
                 //ÅpneRediger_områdeForm();
             }
+            
 
             if (frm_R_RedigerOmråde.instance != null)
             {

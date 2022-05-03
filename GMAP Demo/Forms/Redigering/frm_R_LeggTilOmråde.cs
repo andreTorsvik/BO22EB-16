@@ -206,20 +206,35 @@ namespace GMAP_Demo
             {
                 try
                 {
-                    double lat = Convert.ToDouble(txtLat.Text);
-                    double lng = Convert.ToDouble(txtLong.Text);
-                    int rekkefølge = pointLatLngs.Count;
-                    PointLatLng point = new PointLatLng(lat, lng);
+                    string SjekkLat = Tekstbehandling.sjekkLat(txtLat.Text);
+                    string SjekkLang = Tekstbehandling.sjekkLong(txtLong.Text);
 
-                    pointLatLngs.Add(point);
+                    if (SjekkLat == string.Empty && SjekkLang == string.Empty)
+                    {
 
-                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, point, rekkefølge, Globalekonstanter.NavnMarkørForOmråde); 
-                    Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeMarkør); 
-                    Kart.reff(Kart.MuligKart.Redigering);
+                        double lat = Convert.ToDouble(txtLat.Text);
+                        double lng = Convert.ToDouble(txtLong.Text);
+                        int rekkefølge = pointLatLngs.Count;
+                        PointLatLng point = new PointLatLng(lat, lng);
 
-                    txtLat.Text = Globalekonstanter.tekstLatLong_område;
-                    txtLong.Text = Globalekonstanter.tekstLatLong_område;
-                    txtNrPunkt.Text = (pointLatLngs.Count).ToString();
+                        pointLatLngs.Add(point);
+
+                        Kart.LeggtilMarkør(Kart.MuligKart.Redigering, point, rekkefølge, Globalekonstanter.NavnMarkørForOmråde);
+                        Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeMarkør);
+                        Kart.reff(Kart.MuligKart.Redigering);
+
+                        txtLat.Text = Globalekonstanter.tekstLatLong_område;
+                        txtLong.Text = Globalekonstanter.tekstLatLong_område;
+                        txtNrPunkt.Text = (pointLatLngs.Count).ToString();
+                    }
+                    else
+                    {
+                        //viser kun en av feilene, selv hvis det skulle være 2 
+                        if (SjekkLang != string.Empty)
+                            MessageBox.Show(string.Format("Feil: " + SjekkLang));
+                        else
+                            MessageBox.Show(string.Format("Feil: " + SjekkLat));
+                    }
                 }
                 catch (Exception feilmelding)
                 {
