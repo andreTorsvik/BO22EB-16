@@ -31,7 +31,7 @@ namespace GMAP_Demo
         public static Color StandardFargeKnapp = ThemeDesign.colorSecondaryBackground; // Farge på knapp normalt sett
 
         // Navn på Overlays 
-        public const  string NavnHjelpeOmråde = "HjelpeOmråde"; // Området som blir tegnet underveis, når man skal legge til eller redigere område 
+        public const string NavnHjelpeOmråde = "HjelpeOmråde"; // Området som blir tegnet underveis, når man skal legge til eller redigere område 
         public const string NavnRute = "routes"; // Navn på rute mellom to plasser 
         public const string NavnObjekter = "Objekter"; // Navn på objekter 
         public const string NavnHjelpeMarkør = "HjelpeMarkør"; // Navn på markør (gul) som kommer når man dobbelttrykker på kart 
@@ -40,12 +40,6 @@ namespace GMAP_Demo
 
         // Grensen hvor objekter blir borte fra kartet 
         public const int  ZoomLevel = 16;
-
-        // Hvis kartet er utenfor zoom grense 
-        public static bool UtenforZoomGrense = false;
-
-        // bool variabel hvis kartet holder på å oppdatere 
-        public static bool KartOppdatere = false;
 
         // Filnavn
         public const string filStartPosisjon = "StartPosisjon.txt";

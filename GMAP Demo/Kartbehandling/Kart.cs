@@ -4,9 +4,7 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
 
 namespace GMAP_Demo
 {
@@ -29,7 +27,7 @@ namespace GMAP_Demo
             int Zoom = 17;
 
             // Hvilket kart som blir brukt 
-            GMapProvider Valgtkart = GMapProviders.OpenStreetMap; 
+            GMapProvider Valgtkart = GMapProviders.OpenStreetMap;
 
             switch (kart)
             {
@@ -37,12 +35,12 @@ namespace GMAP_Demo
                     frmVisning.instance.map.MapProvider = Valgtkart;
 
                     //start posisjon kart
-                    frmVisning.instance.map.Position = Startpunkt; 
+                    frmVisning.instance.map.Position = Startpunkt;
 
                     //settings for kart: zoom
-                    frmVisning.instance.map.MinZoom = minZoom; 
-                    frmVisning.instance.map.MaxZoom = maksZoom; 
-                    frmVisning.instance.map.Zoom = Zoom; 
+                    frmVisning.instance.map.MinZoom = minZoom;
+                    frmVisning.instance.map.MaxZoom = maksZoom;
+                    frmVisning.instance.map.Zoom = Zoom;
 
                     // Gjør det mulig å "dra" kartet 
                     frmVisning.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
@@ -53,7 +51,7 @@ namespace GMAP_Demo
                     FrmRediger.instance.map.MapProvider = Valgtkart;
 
                     // Start posisjon kart
-                    FrmRediger.instance.map.Position = Startpunkt; 
+                    FrmRediger.instance.map.Position = Startpunkt;
 
                     // Settings for kart: zoom
                     FrmRediger.instance.map.MinZoom = minZoom;
@@ -73,6 +71,7 @@ namespace GMAP_Demo
 
         public static List<GMapOverlay> LagreRute()
         {
+            //lagrer kun rute fra visning-kart 
             List<GMapOverlay> Lroutes = new List<GMapOverlay>();
 
             for (int i = 0; i < frmVisning.instance.map.Overlays.Count; i++)
@@ -87,49 +86,62 @@ namespace GMAP_Demo
             return Lroutes;
         }
 
-        public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
+        public static void LeggTilOverlayRute(List<GMapOverlay> Lroutes)
         {
-            List<GMapOverlay> Lroutes = new List<GMapOverlay>();
-            if (RutePåkartet > 0)
-            {
-                Lroutes = LagreRute();
-            }
-
-            switch (kart)
-            {
-                case MuligKart.Visning:
-                    // Fjerne alt på kartet, programmet har lagt til
-                    frmVisning.instance.map.Overlays.Clear(); 
-                    break;
-                case MuligKart.Redigering:
-                    // Fjerne alt på kartet, programmet har lagt til
-                    FrmRediger.instance.map.Overlays.Clear();
-                    break;
-                case MuligKart.Begge:
-                    OppdaterKart(MuligKart.Visning, Lressurs, Lområde);
-                    OppdaterKart(MuligKart.Redigering, Lressurs, Lområde);
-                    return;
-                    //break;
-            }
-            // Legger til objektene
-            if(!Globalekonstanter.UtenforZoomGrense)
-                LeggTilRessurs(Lressurs, kart);
-
-            // Legger til områdene, hvis man "checked" i filter 
-            if (VisOmrådePåKart) LeggTilOmråde(Lområde, kart);
-
-            // Legger til rute igjen
-            if(Lroutes.Count > 0)
+            if (Lroutes.Count > 0)
             {
                 foreach (var item in Lroutes)
                 {
                     frmVisning.instance.map.Overlays.Add(item);
                 }
             }
-            
+        }
+
+        public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
+        {
+             
+            switch (kart)
+            {
+                case MuligKart.Visning:
+
+                    //lagrer lagret ruter, hvis de finnes
+                    List<GMapOverlay> Lroutes = new List<GMapOverlay>();
+                    if (RutePåkartet > 0)
+                        Lroutes = LagreRute();
+
+                    // Fjerne alt på kartet som programmet har lagt til
+                    frmVisning.instance.map.Overlays.Clear();
+
+                    //objekter til ikke tegnet inn hvis zoomgrensen er utenfor 
+                    if (!frmVisning.instance.UtenforZoomGrense)
+                        LeggTilRessurs(Lressurs, kart);
+
+                    // Legger til rute, hvis noen
+                    LeggTilOverlayRute(Lroutes);
+                                      
+                    break;
+
+                case MuligKart.Redigering:
+
+                    // Fjerne alt på kartet som programmet har lagt til
+                    FrmRediger.instance.map.Overlays.Clear();
+
+                    //Tar ikke hensyn til zoom level 
+                    LeggTilRessurs(Lressurs, kart);
+                    break;
+
+                case MuligKart.Begge:
+                    OppdaterKart(MuligKart.Visning, Lressurs, Lområde);
+                    OppdaterKart(MuligKart.Redigering, Lressurs, Lområde);
+                    return;
+            }
+
+            // Legger til områdene, hvis man ikke har "checked" i filter 
+            if (VisOmrådePåKart) 
+                LeggTilOmråde(Lområde, kart);
 
             // Må oppdatere kartet etter man har lagt til 
-            reff(kart); 
+            reff(kart);
         }
 
         public static void LeggTilRessurs(List<Ressurs> Rlist, MuligKart kart)
@@ -217,7 +229,7 @@ namespace GMAP_Demo
             }
             // For at den ikke skal kunne bli trykket på setter man tag til -1. 
             // metode "Map_OnMarkerClick" i "FrmRediger" sjekker om tag != -1 
-            marker.Tag = -1; 
+            marker.Tag = -1;
 
             markers.Markers.Add(marker);
 
@@ -381,7 +393,7 @@ namespace GMAP_Demo
             frmVisning.instance.map.Position = Start;
 
             // Legger inn avstanden 
-            if(Frm_V_Posisjon.instance != null)
+            if (Frm_V_Posisjon.instance != null)
                 Frm_V_Posisjon.instance.lblDistanse.Text = route.Distance.ToString() + " Km";
         }
 
@@ -393,7 +405,7 @@ namespace GMAP_Demo
             // Dette for å gjøre "hjelpeområdet" mer dynamisk og tydeligere hvordan område kommer til å se ut 
 
             // Må lagre antallet for seinere bruk
-            int antallPunkter = Lpunkt.Count; 
+            int antallPunkter = Lpunkt.Count;
 
             if (antallPunkter >= 1)
             {
@@ -427,7 +439,7 @@ namespace GMAP_Demo
             // Det er 2 "TegnHjelpeOmråde_rediger" den metoden, tar kun punktene til område/polygon og tegner området 
 
             // Må lagre antallet for seinere bruk
-            int antallPunkter = Lpunkt.Count; 
+            int antallPunkter = Lpunkt.Count;
 
             if (antallPunkter >= 1)
             {
@@ -456,7 +468,7 @@ namespace GMAP_Demo
             //Enkleste måte å oppdatere kartet på, er å zoom inn og ut.
             //Zoomer inn og ut så lite at det ikke merkes
 
-            Globalekonstanter.KartOppdatere = true;
+            frmVisning.instance.KartOppdatere = true;
             double PlussMinus = 0.01;
             switch (kart)
             {
@@ -476,7 +488,7 @@ namespace GMAP_Demo
                     FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom - PlussMinus;
                     break;
             }
-            Globalekonstanter.KartOppdatere = false;
+            frmVisning.instance.KartOppdatere = false;
         }
 
         public static void FinnLokasjon(string Land, string ByKommune, string Adresse)
@@ -499,8 +511,8 @@ namespace GMAP_Demo
                 //fyller in kordinater
                 Frm_V_Posisjon.instance.FyllKoordinater(PosisjonNå.Lat, PosisjonNå.Lng);
 
-                int ZoomLevel = 18;  
-                
+                int ZoomLevel = 18;
+
                 //zoomlevel baser på hva du har fylt ut
                 if (!string.IsNullOrWhiteSpace(Adresse)) ZoomLevel = 18;
                 else if (!string.IsNullOrWhiteSpace(ByKommune)) ZoomLevel = 11;
@@ -544,7 +556,7 @@ namespace GMAP_Demo
                 if (frmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
                 {
                     frmVisning.instance.map.Overlays.RemoveAt(i);
-                    i--;            
+                    i--;
                 }
             }
 
@@ -573,7 +585,7 @@ namespace GMAP_Demo
         public static bool SjekkKartHarHjelpemarkør_redigier(string områdeId)
         {
             // Sjekker om kartet har en hjelpemakør ute nå, i redigerings kartet 
-            
+
             bool svar = false;
 
             for (int i = 0; i < FrmRediger.instance.map.Overlays.Count; i++)
