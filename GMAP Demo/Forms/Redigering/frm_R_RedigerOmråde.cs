@@ -456,7 +456,7 @@ namespace GMAP_Demo
                                     feilmelding = Feilmelding.Message;
                                 }
 
-                                //Oppdatere Liste med ressurser 
+                                // Oppdatere Liste med ressurser 
                                 Løpenummer_til_redigering = -1;
 
                                 TømeTekstFeltOgLister();
