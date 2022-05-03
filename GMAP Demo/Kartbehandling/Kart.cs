@@ -16,110 +16,6 @@ namespace GMAP_Demo
         public static PointLatLng PunktFraForrige = new PointLatLng();
         public static bool ViseOmrådePåKart = true;
 
-        // Lister for filtrering på kategorier:
-        // BindingList for lbKategorierVises REF: https://stackoverflow.com/questions/17615069/how-to-refresh-datasource-of-a-listbox, https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindinglist-1?view=net-6.0
-        public static BindingList<Kategorier_Bilde> kategoriListeVises = new BindingList<Kategorier_Bilde>();
-        // BindingList for lbKategorierSkjult
-        public static BindingList<Kategorier_Bilde> kategoriListeSkjult = new BindingList<Kategorier_Bilde>();
-        public static BindingList<string> tag_ListeVises = new BindingList<string>();
-        public static BindingList<string> tag_ListeSkjult = new BindingList<string>();
-
-        internal static void InitializekategoriListeVises()
-        {
-            kategoriListeVises.AllowNew = true;
-            kategoriListeVises.AllowRemove = true;
-            kategoriListeVises.RaiseListChangedEvents = true;
-
-            // Add items to the empty list.
-            if ((kategoriListeVises.Count == 0) && (kategoriListeSkjult.Count == 0))
-            {
-                OppdaterKategoriListe();
-            }
-        }
-
-        internal static void InitializekategoriListeSkjult()
-        {
-            kategoriListeSkjult.AllowNew = true;
-            kategoriListeSkjult.AllowRemove = true;
-            kategoriListeSkjult.RaiseListChangedEvents = true;
-        }
-
-        internal static void InitializeTag_RessursListeVises()
-        {
-            tag_ListeVises.AllowNew = true;
-            tag_ListeVises.AllowRemove = true;
-            tag_ListeVises.RaiseListChangedEvents = true;
-
-            // Add items to the empty list.
-            if ((tag_ListeVises.Count == 0) && (tag_ListeSkjult.Count == 0))
-            {
-                OppdaterTag_Liste();
-            }
-        }
-
-        internal static void InitializeTag_RessursListeSkjult()
-        {
-            tag_ListeSkjult.AllowNew = true;
-            tag_ListeSkjult.AllowRemove = true;
-            tag_ListeSkjult.RaiseListChangedEvents = true;
-        }
-
-        public static void OppdaterKategoriListe()
-        {
-            kategoriListeVises.Clear();
-
-            List<Kategorier_Bilde> kategoriListeAlle = new List<Kategorier_Bilde>();
-            kategoriListeAlle = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
-            foreach (var item in kategoriListeAlle)
-            {
-                kategoriListeVises.Add(item);
-            }
-        }
-
-        public static void OppdaterTag_Liste() // Vurdere å flyttet
-        {
-            //oppdatere Vises tagliste 
-
-            // Tømer hvis den har innhold 
-            if (tag_ListeVises.Count > 0) tag_ListeVises.Clear();
-           
-            // Henter alle tags fra databasen
-            HashSet<string> tag_ListeAlle = new HashSet<string>();
-            tag_ListeAlle = FellesMetoder.FåAlleTags();
-
-            // Henter alle "skjulte" tags 
-            List<string> ListsjultTags = tag_ListeSkjult.ToList();
-
-            // Sorter ut alle de "skjulte" fra alle tags  
-            List<string> ListeVisteTags = tag_ListeAlle.Except(ListsjultTags).ToList();
-
-            //oppdatere TagVisteListe
-            foreach (var item in ListeVisteTags)
-            {
-                tag_ListeVises.Add(item);
-            }
-
-            //oppdatere  skjulte taglisten:
-
-            //tømer listen 
-            if (tag_ListeSkjult.Count > 0) tag_ListeSkjult.Clear();
-
-            // Sorter ut alle de "synlige" fra alle tags 
-            ListsjultTags = tag_ListeAlle.Except(ListeVisteTags).ToList();
-
-            //legger dem til 
-            if (ListsjultTags.Count != 0)
-            {
-                foreach (var item in ListsjultTags)
-                {
-                    tag_ListeSkjult.Add(item);
-                }
-            }
-
-
-
-        }
-
         public static void Setup(MuligKart kart, PointLatLng Startpunkt)
         {
             // Min zoomlevel
@@ -171,88 +67,6 @@ namespace GMAP_Demo
                     Setup(MuligKart.Visning, Startpunkt);
                     Setup(MuligKart.Redigering, Startpunkt);
                     break;
-            }
-        }
-
-        public static void OppdaterListe_området() // Vurdere å flyttet
-        {
-            // Tømmer listen
-            GlobaleLister.LOmråde.Clear();
-
-            // Henter alle områdene
-            var OmrådeListe = DBComOmråde.ListAllOmrådeFromDb();
-
-            // Legger dem til i den globale listen 
-            foreach (var item in OmrådeListe)
-            {
-                GlobaleLister.LOmråde.Add(item);
-            }
-
-            // Filterer ut områder basert på tag 
-            if (tag_ListeVises.Count != 0)
-            {
-                // Finner ut hvilket filter man skal bruke 
-                bool OR = frmFilter.instance.filterOR;
-                bool AND = frmFilter.instance.filterAND;
-
-                if (OR && !AND) // OR
-                {
-                    if (kategoriListeSkjult.Count != 0 || tag_ListeSkjult.Count != 0)
-                    {
-                        FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
-                    }
-                }
-                else if (AND && !OR) // AND
-                    FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LOmråde, tag_ListeVises.ToList());
-            }
-            else // ingen valgte tags 
-            {
-                GlobaleLister.LOmråde.Clear();
-            }
-
-        }
-
-        public static void OppdaterListe_ressurs() // Vurdere å flyttet
-        {
-            // Tømmerlisten 
-            if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
-
-            // Henter alle ressurser
-            var RessursList = DBComRessurs.ListAllRessursFromDb(InnloggetBruker.Sikkerhetsklarering);
-
-            // Legger til i den globale listen, men basert på kategorilisten 
-            foreach (var item in RessursList)
-            {
-                foreach (var item2 in Kart.kategoriListeVises)
-                {
-                    if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
-                    {
-                        GlobaleLister.LRessurs.Add(item);
-                        break;
-                    }
-                }
-            }
-
-            // Filtrering ut objekter baser på tag
-            if (kategoriListeVises.Count != 0 || tag_ListeVises.Count != 0)
-            {
-                // Finner ut hvilket filter man skal bruke 
-                bool OR = frmFilter.instance.filterOR;
-                bool AND = frmFilter.instance.filterAND;
-
-                if (OR && !AND) // OR
-                {
-                    if (kategoriListeSkjult.Count != 0 || tag_ListeSkjult.Count != 0)
-                    {
-                        FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LRessurs, tag_ListeVises.ToList());
-                    }
-                }
-                else if (AND && !OR) // AND
-                    FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LRessurs, tag_ListeVises.ToList());
-            }
-            else // Ingen valgte tags 
-            {
-                GlobaleLister.LRessurs.Clear();
             }
         }
 
@@ -724,7 +538,8 @@ namespace GMAP_Demo
 
         public static bool SjekkKartHarHjelpemarkør_redigier(string områdeId)
         {
-            // Sjekker om kartet har en hjelpemakør ute nå
+            // Sjekker om kartet har en hjelpemakør ute nå, i redigerings kartet 
+            
             bool svar = false;
 
             for (int i = 0; i < FrmRediger.instance.map.Overlays.Count; i++)
@@ -741,7 +556,7 @@ namespace GMAP_Demo
 
         public static void FjernHjelpeOmråde()
         {
-            // Fjerner "Hjelpeområdet"
+            // Fjerner "Hjelpeområdet" på redigerings kartet 
             // Er kun et Hjelpeområde av gangen 
 
             for (int i = 0; i < FrmRediger.instance.map.Overlays.Count; i++)

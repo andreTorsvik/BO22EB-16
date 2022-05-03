@@ -106,16 +106,16 @@ namespace GMAP_Demo
             Kart.Setup(Kart.MuligKart.Visning, Kart.PunktFraForrige);
 
             // KategoriListen  på kartet 
-            Kart.InitializekategoriListeVises();
-            Kart.InitializekategoriListeSkjult();
+            GlobaleLister.InitializekategoriListeVises();
+            GlobaleLister.InitializekategoriListeSkjult();
 
             // TagListene på kartet
-            Kart.InitializeTag_RessursListeVises();
-            Kart.InitializeTag_RessursListeSkjult();
+            GlobaleLister.InitializeTag_RessursListeVises();
+            GlobaleLister.InitializeTag_RessursListeSkjult();
 
             //legget til alle ressurser i lister 
-            Kart.OppdaterListe_ressurs();
-            Kart.OppdaterListe_området();
+            FellesMetoder.OppdaterListe_ressurs();
+            FellesMetoder.OppdaterListe_området();
 
             //tegner alt på karet
             Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
@@ -179,12 +179,12 @@ namespace GMAP_Demo
                 {
                     if(item.Id == Globalekonstanter.NavnOmråde && !polygon) //"Polygons"
                     {
-                        Kart.OppdaterListe_området();
+                        FellesMetoder.OppdaterListe_området();
                         polygon = true;
                     }
                     if (item.Id == Globalekonstanter.NavnObjekter && !objekt) //"Objekter"
                     {
-                        Kart.OppdaterListe_ressurs();
+                        FellesMetoder.OppdaterListe_ressurs();
                         objekt = true;
                         
                     }

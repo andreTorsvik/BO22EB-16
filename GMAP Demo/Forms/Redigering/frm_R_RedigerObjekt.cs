@@ -116,7 +116,7 @@ namespace GMAP_Demo
                 txtNyKategori.Text = "";
             }
 
-            Kart.OppdaterKategoriListe();
+            FellesMetoder.OppdaterKategoriListe();
         }
 
         private void LastInnTags()
@@ -232,7 +232,7 @@ namespace GMAP_Demo
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
-            Kart.OppdaterTag_Liste();
+            FellesMetoder.OppdaterTag_Liste();
         }
 
         private string RedigerObjekt(int løpenummer, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags, List<string> GamleTags, List<string> nyTags)
@@ -284,7 +284,7 @@ namespace GMAP_Demo
 
                                 //Oppdatere Liste med ressurser 
 
-                                Kart.OppdaterListe_ressurs();
+                                FellesMetoder.OppdaterListe_ressurs();
                                 Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
 
                             }
