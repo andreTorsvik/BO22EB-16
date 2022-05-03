@@ -122,7 +122,7 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnAdmin.Height, btnAdmin.Top);
 
                 this.PnlFormLoader.Controls.Clear();
-                frm_CP_Admin frm_S_Admin_vrb = new frm_CP_Admin() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                Frm_CP_Admin frm_S_Admin_vrb = new Frm_CP_Admin() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_Admin_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frm_S_Admin_vrb);
                 frm_S_Admin_vrb.Show();
