@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_CP_LoggUt
+    partial class Frm_CP_LoggUt
     {
         /// <summary>
         /// Required designer variable.
@@ -68,7 +68,7 @@
             this.btnLoggUt.Text = "Logg ut";
             this.btnLoggUt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLoggUt.UseVisualStyleBackColor = true;
-            this.btnLoggUt.Click += new System.EventHandler(this.btnLoggUt_Click);
+            this.btnLoggUt.Click += new System.EventHandler(this.BtnLoggUt_Click);
             // 
             // gblInnloggetBruker
             // 
@@ -205,7 +205,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frm_S_LoggUt";
             this.Text = "frm_S_LoggInn";
-            this.Load += new System.EventHandler(this.frm_S_LoggUt_Load);
+            this.Load += new System.EventHandler(this.Frm_S_LoggUt_Load);
             this.gblInnloggetBruker.ResumeLayout(false);
             this.gblInnloggetBruker.PerformLayout();
             this.ResumeLayout(false);

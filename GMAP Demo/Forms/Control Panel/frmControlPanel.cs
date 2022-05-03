@@ -21,7 +21,7 @@ namespace GMAP_Demo
             
 
             this.PnlFormLoader.Controls.Clear();
-            frm_CP_LoggUt frm_S_LoggInn_vrb = new frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_CP_LoggUt frm_S_LoggInn_vrb = new Frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
             frm_S_LoggInn_vrb.Show();
@@ -92,7 +92,7 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnLoggUt.Height, btnLoggUt.Top);
 
                 this.PnlFormLoader.Controls.Clear();
-                frm_CP_LoggUt frm_S_LoggInn_vrb = new frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                Frm_CP_LoggUt frm_S_LoggInn_vrb = new Frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
                 frm_S_LoggInn_vrb.Show();

@@ -202,11 +202,11 @@
     <Compile Include="Forms\Redigering\frm_R_EndreObjektsymbol.Designer.cs">
       <DependentUpon>frm_R_EndreObjektsymbol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Control Panel\frm_CP_LoggUt.cs">
+    <Compile Include="Forms\Control Panel\Frm_CP_LoggUt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Control Panel\frm_CP_LoggUt.Designer.cs">
-      <DependentUpon>frm_CP_LoggUt.cs</DependentUpon>
+    <Compile Include="Forms\Control Panel\Frm_CP_LoggUt.Designer.cs">
+      <DependentUpon>Frm_CP_LoggUt.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Control Panel\Frm_CP_StartPosisjon.cs">
       <SubType>Form</SubType>
@@ -301,8 +301,8 @@
     <EmbeddedResource Include="Forms\Redigering\frm_R_EndreObjektsymbol.resx">
       <DependentUpon>frm_R_EndreObjektsymbol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Control Panel\frm_CP_LoggUt.resx">
-      <DependentUpon>frm_CP_LoggUt.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Control Panel\Frm_CP_LoggUt.resx">
+      <DependentUpon>Frm_CP_LoggUt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Control Panel\Frm_CP_StartPosisjon.resx">
       <DependentUpon>Frm_CP_StartPosisjon.cs</DependentUpon>

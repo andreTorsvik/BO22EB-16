@@ -33,7 +33,7 @@
             this.txtNyLong = new System.Windows.Forms.TextBox();
             this.lblNyLat = new System.Windows.Forms.Label();
             this.txtNyLat = new System.Windows.Forms.TextBox();
-            this.btnStart = new System.Windows.Forms.Button();
+            this.btnBrukSomStart = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblNåLong = new System.Windows.Forms.Label();
@@ -55,7 +55,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.lblTitle.Location = new System.Drawing.Point(14, 11);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(333, 55);
+            this.lblTitle.Size = new System.Drawing.Size(229, 37);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "Start Posisjon";
             // 
@@ -66,7 +66,7 @@
             this.lblNyLong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
             this.lblNyLong.Location = new System.Drawing.Point(7, 166);
             this.lblNyLong.Name = "lblNyLong";
-            this.lblNyLong.Size = new System.Drawing.Size(64, 25);
+            this.lblNyLong.Size = new System.Drawing.Size(44, 17);
             this.lblNyLong.TabIndex = 24;
             this.lblNyLong.Text = "Long";
             // 
@@ -88,7 +88,7 @@
             this.lblNyLat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
             this.lblNyLat.Location = new System.Drawing.Point(7, 95);
             this.lblNyLat.Name = "lblNyLat";
-            this.lblNyLat.Size = new System.Drawing.Size(45, 25);
+            this.lblNyLat.Size = new System.Drawing.Size(31, 17);
             this.lblNyLat.TabIndex = 22;
             this.lblNyLat.Text = "Lat";
             // 
@@ -103,27 +103,29 @@
             this.txtNyLat.TabIndex = 21;
             this.txtNyLat.Text = "Dobbelklikk på kart";
             // 
-            // btnStart
+            // btnBrukSomStart
             // 
-            this.btnStart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnStart.Location = new System.Drawing.Point(11, 242);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(143, 42);
-            this.btnStart.TabIndex = 25;
-            this.btnStart.Text = "Bruk som start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnBrukSomStart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnBrukSomStart.Location = new System.Drawing.Point(11, 242);
+            this.btnBrukSomStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBrukSomStart.Name = "btnBrukSomStart";
+            this.btnBrukSomStart.Size = new System.Drawing.Size(143, 42);
+            this.btnBrukSomStart.TabIndex = 25;
+            this.btnBrukSomStart.Text = "Bruk som start";
+            this.btnBrukSomStart.UseVisualStyleBackColor = true;
+            this.btnBrukSomStart.Click += new System.EventHandler(this.BtnBrukSomStart_Click);
             // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblInfo.Location = new System.Drawing.Point(12, 36);
+            this.lblInfo.Location = new System.Drawing.Point(56, 35);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(162, 20);
+            this.lblInfo.Size = new System.Drawing.Size(247, 48);
             this.lblInfo.TabIndex = 26;
-            this.lblInfo.Text = "Info tekst til brukeren ";
+            this.lblInfo.Text = "Flytt kartet i \"Filter\" eller \"Posisjon\" til der \r\ndu vil at kartet skal starte n" +
+    "år man åpner \r\napplikasjonen";
             // 
             // label2
             // 
@@ -141,7 +143,7 @@
             this.lblNåLong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
             this.lblNåLong.Location = new System.Drawing.Point(7, 109);
             this.lblNåLong.Name = "lblNåLong";
-            this.lblNåLong.Size = new System.Drawing.Size(64, 25);
+            this.lblNåLong.Size = new System.Drawing.Size(44, 17);
             this.lblNåLong.TabIndex = 31;
             this.lblNåLong.Text = "Long";
             // 
@@ -163,7 +165,7 @@
             this.lblNåLat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
             this.lblNåLat.Location = new System.Drawing.Point(7, 38);
             this.lblNåLat.Name = "lblNåLat";
-            this.lblNåLat.Size = new System.Drawing.Size(45, 25);
+            this.lblNåLat.Size = new System.Drawing.Size(31, 17);
             this.lblNåLat.TabIndex = 29;
             this.lblNåLat.Text = "Lat";
             // 
@@ -223,7 +225,7 @@
             this.gbNyttStartpunkt.Controls.Add(this.lblInfo);
             this.gbNyttStartpunkt.Controls.Add(this.txtNyLong);
             this.gbNyttStartpunkt.Controls.Add(this.lblNyLong);
-            this.gbNyttStartpunkt.Controls.Add(this.btnStart);
+            this.gbNyttStartpunkt.Controls.Add(this.btnBrukSomStart);
             this.gbNyttStartpunkt.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.gbNyttStartpunkt.Location = new System.Drawing.Point(14, 361);
             this.gbNyttStartpunkt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -233,9 +235,8 @@
             this.gbNyttStartpunkt.TabIndex = 36;
             this.gbNyttStartpunkt.TabStop = false;
             this.gbNyttStartpunkt.Text = "Nytt Startpunkt";
-            this.gbNyttStartpunkt.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // Frm_S_StartPosisjon
+            // Frm_CP_StartPosisjon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -247,8 +248,7 @@
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Frm_S_StartPosisjon";
-            this.Text = "Frm_S_StartPosisjon";
+            this.Name = "Frm_CP_StartPosisjon";
             this.Load += new System.EventHandler(this.Frm_S_StartPosisjon_Load);
             this.gbNåverendeStartpunkt.ResumeLayout(false);
             this.gbNåverendeStartpunkt.PerformLayout();
@@ -266,7 +266,7 @@
         public System.Windows.Forms.TextBox txtNyLong;
         private System.Windows.Forms.Label lblNyLat;
         public System.Windows.Forms.TextBox txtNyLat;
-        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnBrukSomStart;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblNåLong;

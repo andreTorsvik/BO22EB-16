@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_CP_LoggUt : Form
+    public partial class Frm_CP_LoggUt : Form
     {
-        public frm_CP_LoggUt()
+        public Frm_CP_LoggUt()
         {
             InitializeComponent();
             SetTheme();
@@ -47,12 +47,12 @@ namespace GMAP_Demo
             btnLoggUt.BackColor = ThemeDesign.colorGray;
         }
 
-        private void btnLoggUt_Click(object sender, EventArgs e)
+        private void BtnLoggUt_Click(object sender, EventArgs e)
         {      
             Application.Restart();
         }
 
-        private void frm_S_LoggUt_Load(object sender, EventArgs e)
+        private void Frm_S_LoggUt_Load(object sender, EventArgs e)
         {
             List<Bruker> listBruker = new List<Bruker>();
             listBruker = DBComBruker.ListBrukerInfoFromDb(InnloggetBruker.BrukernavnInnlogget.ToString());
