@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_R_FjernObjektOmråde
+    partial class Frm_R_FjernObjektOmråde
     {
         /// <summary>
         /// Required designer variable.
@@ -112,7 +112,7 @@
             this.btnFjern.TabIndex = 58;
             this.btnFjern.Text = "Fjern";
             this.btnFjern.UseVisualStyleBackColor = true;
-            this.btnFjern.Click += new System.EventHandler(this.btnFjern_Click);
+            this.btnFjern.Click += new System.EventHandler(this.BtnFjern_Click);
             // 
             // lblSlettet
             // 
