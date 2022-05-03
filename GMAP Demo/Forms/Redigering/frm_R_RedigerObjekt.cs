@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_R_RedigerObjekt : Form
+    public partial class Frm_R_RedigerObjekt : Form
     {
 
-        public static frm_R_RedigerObjekt instance;
-        public int Løpenummer_til_redigering = -1;
+        public static Frm_R_RedigerObjekt instance;
+        public int løpenummer_til_redigering = -1;
         public List<string> LGamleTag = new List<string>();
 
-        public frm_R_RedigerObjekt()
+        public Frm_R_RedigerObjekt()
         {
             InitializeComponent();
             instance = this;
@@ -71,7 +71,7 @@ namespace GMAP_Demo
             btnLagreEndring.BackColor = ThemeDesign.colorGray;
         }
 
-        private void frm_R_RedigerObjekt_Load(object sender, EventArgs e)
+        private void Frm_R_RedigerObjekt_Load(object sender, EventArgs e)
         {
             LastInnKategorier();
             LastInnTags();
@@ -79,7 +79,7 @@ namespace GMAP_Demo
         }
 
 
-        private void lbTilgjengligKategori_MouseClick(object sender, MouseEventArgs e)
+        private void LbTilgjengligKategori_MouseClick(object sender, MouseEventArgs e)
         {
             if (lbTilgjengligKategori.SelectedIndex != -1)
             {
@@ -92,16 +92,16 @@ namespace GMAP_Demo
         private void LastInnKategorier()
         {
             GlobaleLister.LKategori.Clear();
-            var KategoriListe = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
+            var kategoriListe = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
 
-            foreach (var item in KategoriListe)
+            foreach (var item in kategoriListe)
             {
                 GlobaleLister.LKategori.Add(item);
                 lbTilgjengligKategori.Items.Add(item.Kategorinavn);
             }
         }
 
-        private void btnLeggTilNyKategori_Click(object sender, EventArgs e)
+        private void BtnLeggTilNyKategori_Click(object sender, EventArgs e)
         {
             string nyKategori = txtNyKategori.Text;
 
@@ -129,7 +129,7 @@ namespace GMAP_Demo
 
         }
 
-        private void lbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void LbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (lbTilgjengeligeTags.SelectedIndex != -1)
             {
@@ -141,7 +141,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void LbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (lbValgtTags.SelectedIndex != -1)
             {
@@ -153,13 +153,13 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnLeggTilTag_Click(object sender, EventArgs e)
+        private void BtnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string NyTag = txtNyTag.Text;
+            string nyTag = txtNyTag.Text;
 
-            if (!string.IsNullOrEmpty(NyTag))
+            if (!string.IsNullOrEmpty(nyTag))
             {
-                lbTilgjengeligeTags.Items.Add(NyTag);
+                lbTilgjengeligeTags.Items.Add(nyTag);
                 txtNyTag.Text = "";
             }
         }
@@ -172,10 +172,9 @@ namespace GMAP_Demo
 
         public void FyllInfoObjekt(int Tag)
         {
-            // Løpenummeret 
-            Løpenummer_til_redigering = GlobaleLister.LRessurs[Tag].Løpenummer_ressurs;
-
-            // Info 
+            //løpenummeret 
+            løpenummer_til_redigering = GlobaleLister.LRessurs[Tag].Løpenummer_ressurs;
+            //info 
             txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
             txtKategori.Text = GlobaleLister.LRessurs[Tag].Kategori;
             txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Tag].Sikkerhetsklarering.ToString();
@@ -207,19 +206,19 @@ namespace GMAP_Demo
 
         }
 
-        private void btnLeggTilObjekt_Click(object sender, EventArgs e)
+        private void BtnLeggTilObjekt_Click(object sender, EventArgs e)
         {
             string navn = txtNavn.Text;
             string kategori = txtKategori.Text;
             string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string Kommentar = txtKommentar.Text;
+            string kommentar = txtKommentar.Text;
             string lat = txtLat.Text;
             string lang = txtLong.Text;
             int antallTags = lbValgtTags.Items.Count;
-            List<string> NyTags = lbValgtTags.Items.Cast<string>().ToList();
+            List<string> nyTags = lbValgtTags.Items.Cast<string>().ToList();
 
-            // Legger til, om alt stemmer 
-            string SjekkFeil = RedigerObjekt(Løpenummer_til_redigering, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antallTags, LGamleTag, NyTags);
+            // Legger til, om alt stemmer
+            string SjekkFeil = RedigerObjekt(løpenummer_til_redigering, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, antallTags, LGamleTag, nyTags);
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
@@ -297,7 +296,7 @@ namespace GMAP_Demo
         private void TømeTekstFeltOgLister()
         {
             //tekstfelt
-            Løpenummer_til_redigering = -1;
+            løpenummer_til_redigering = -1;
             txtNavn.Text = "";
             txtKategori.Text = "";
             txtKommentar.Text = "";
