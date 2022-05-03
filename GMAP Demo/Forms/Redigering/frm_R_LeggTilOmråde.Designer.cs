@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_R_LeggTilOmråde
+    partial class Frm_R_LeggTilOmråde
     {
         /// <summary>
         /// Required designer variable.
@@ -201,7 +201,7 @@
             this.btnLeggTilTag.TabIndex = 39;
             this.btnLeggTilTag.Text = "Legg til";
             this.btnLeggTilTag.UseVisualStyleBackColor = true;
-            this.btnLeggTilTag.Click += new System.EventHandler(this.btnLeggTilTag_Click);
+            this.btnLeggTilTag.Click += new System.EventHandler(this.BtnLeggTilTag_Click);
             // 
             // lbValgtTags
             // 
@@ -214,7 +214,7 @@
             this.lbValgtTags.Sorted = true;
             this.lbValgtTags.TabIndex = 38;
             this.toolTip1.SetToolTip(this.lbValgtTags, "Dobbelklikk for å flytte over");
-            this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtTags_MouseDoubleClick);
+            this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LbValgtTags_MouseDoubleClick);
             // 
             // lbTilgjengeligeTags
             // 
@@ -227,7 +227,7 @@
             this.lbTilgjengeligeTags.Sorted = true;
             this.lbTilgjengeligeTags.TabIndex = 39;
             this.toolTip1.SetToolTip(this.lbTilgjengeligeTags, "Dobbelklikk for å flytte over");
-            this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengeligeTags_MouseDoubleClick);
+            this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LbTilgjengeligeTags_MouseDoubleClick);
             // 
             // btnLeggTilOmrådetIDb
             // 
@@ -238,7 +238,7 @@
             this.btnLeggTilOmrådetIDb.TabIndex = 36;
             this.btnLeggTilOmrådetIDb.Text = "Lagre området";
             this.btnLeggTilOmrådetIDb.UseVisualStyleBackColor = true;
-            this.btnLeggTilOmrådetIDb.Click += new System.EventHandler(this.btnLeggTilOmrådeIDb_Click);
+            this.btnLeggTilOmrådetIDb.Click += new System.EventHandler(this.BtnLeggTilOmrådeIDb_Click);
             // 
             // lblSikkerhetsklarering
             // 
@@ -289,7 +289,7 @@
             this.btnLeggTilPunkt.TabIndex = 51;
             this.btnLeggTilPunkt.Text = "Legg til punkt";
             this.btnLeggTilPunkt.UseVisualStyleBackColor = true;
-            this.btnLeggTilPunkt.Click += new System.EventHandler(this.btnLeggTilPunktIListe_Click);
+            this.btnLeggTilPunkt.Click += new System.EventHandler(this.BtnLeggTilPunktIListe_Click);
             // 
             // lbPunkter
             // 
@@ -346,7 +346,7 @@
             this.lbTilgjengligFarge.Sorted = true;
             this.lbTilgjengligFarge.TabIndex = 35;
             this.toolTip1.SetToolTip(this.lbTilgjengligFarge, "Dobbelklikk for å velge");
-            this.lbTilgjengligFarge.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligFarge_MouseClick);
+            this.lbTilgjengligFarge.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LbTilgjengligFarge_MouseClick);
             // 
             // btnFjernSistepunkt
             // 
@@ -358,7 +358,7 @@
             this.btnFjernSistepunkt.TabIndex = 82;
             this.btnFjernSistepunkt.Text = "Fjern siste";
             this.btnFjernSistepunkt.UseVisualStyleBackColor = true;
-            this.btnFjernSistepunkt.Click += new System.EventHandler(this.btnFjernSistepunkt_Click);
+            this.btnFjernSistepunkt.Click += new System.EventHandler(this.BtnFjernSistepunkt_Click);
             // 
             // gbOmråde
             // 
@@ -403,7 +403,7 @@
             this.btnFjernAlle.TabIndex = 84;
             this.toolTip1.SetToolTip(this.btnFjernAlle, "Fjern alle punkter");
             this.btnFjernAlle.UseVisualStyleBackColor = false;
-            this.btnFjernAlle.Click += new System.EventHandler(this.btnFjernAlle_Click);
+            this.btnFjernAlle.Click += new System.EventHandler(this.BtnFjernAlle_Click);
             // 
             // gbTag
             // 
@@ -443,7 +443,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frm_R_LeggTilOmråde";
             this.Text = "frm_R_LeggTilOmråde";
-            this.Load += new System.EventHandler(this.frm_R_LeggTilOmråde_Load);
+            this.Load += new System.EventHandler(this.Frm_R_LeggTilOmråde_Load);
             this.gbOmråde.ResumeLayout(false);
             this.gbOmråde.PerformLayout();
             this.gbTag.ResumeLayout(false);

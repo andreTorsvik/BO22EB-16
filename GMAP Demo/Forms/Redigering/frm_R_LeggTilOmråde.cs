@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_R_LeggTilOmråde : Form
+    public partial class Frm_R_LeggTilOmråde : Form
     {
-        public int FjernMakør;
-        public static frm_R_LeggTilOmråde instance;
+        public int fjernMakør;
+        public static Frm_R_LeggTilOmråde instance;
 
-        public frm_R_LeggTilOmråde()
+        public Frm_R_LeggTilOmråde()
         {
             InitializeComponent();
             instance = this;
@@ -92,7 +92,7 @@ namespace GMAP_Demo
             pointLatLngs.RaiseListChangedEvents = true;
         }
 
-        private void frm_R_LeggTilOmråde_Load(object sender, EventArgs e)
+        private void Frm_R_LeggTilOmråde_Load(object sender, EventArgs e)
         {
             LastInnTags();
             LastInnFargerMuligheter();
@@ -125,7 +125,7 @@ namespace GMAP_Demo
             lbTilgjengligFarge.Sorted = true;
         }
 
-        private void lbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void LbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (lbTilgjengeligeTags.SelectedIndex != -1)
             {
@@ -140,7 +140,7 @@ namespace GMAP_Demo
 
         }
 
-        private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void LbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (lbValgtTags.SelectedIndex != -1)
             {
@@ -153,7 +153,7 @@ namespace GMAP_Demo
 
         }
 
-        private void lbTilgjengligFarge_MouseClick(object sender, MouseEventArgs e)
+        private void LbTilgjengligFarge_MouseClick(object sender, MouseEventArgs e)
         {
             if (lbTilgjengligFarge.SelectedIndex != -1)
             {
@@ -163,14 +163,13 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnLeggTilTag_Click(object sender, EventArgs e)
+        private void BtnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string NyTag = "";
-            NyTag = txtNyTag.Text;
+            string nyTag = txtNyTag.Text;
 
-            if (!string.IsNullOrEmpty(NyTag))
+            if (!string.IsNullOrEmpty(nyTag))
             {
-                lbTilgjengeligeTags.Items.Add(NyTag);
+                lbTilgjengeligeTags.Items.Add(nyTag);
                 lbTilgjengeligeTags.Sorted = true;
                 txtNyTag.Text = "";
             }
@@ -182,25 +181,24 @@ namespace GMAP_Demo
             txtLong.Text = lang.ToString();
         }
 
-        private void btnLeggTilOmrådeIDb_Click(object sender, EventArgs e)
+        private void BtnLeggTilOmrådeIDb_Click(object sender, EventArgs e)
         {
             string navn = txtNavn.Text;
             string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string Kommentar = txtKommentar.Text;
-            string Farge = txtfarge.Text;
+            string kommentar = txtKommentar.Text;
+            string farge = txtfarge.Text;
             int antallPunkter = pointLatLngs.Count;
             int antallTags = lbValgtTags.Items.Count;
-            List<string> Tags = lbValgtTags.Items.Cast<string>().ToList();
-            
+            List<string> tags = lbValgtTags.Items.Cast<string>().ToList();
 
-            string SjekkFeil = LeggTilOmrådet(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags, Tags);
+            string SjekkFeil = LeggTilOmrådet(navn, sikkerhetsklarering, kommentar, farge, antallPunkter, antallTags, tags);
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
             FellesMetoder.OppdaterTag_Liste();
         }
 
-        private void btnLeggTilPunktIListe_Click(object sender, EventArgs e)
+        private void BtnLeggTilPunktIListe_Click(object sender, EventArgs e)
         {
             if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != Globalekonstanter.tekstLatLong_område))
             {
@@ -243,7 +241,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnFjernSistepunkt_Click(object sender, EventArgs e)
+        private void BtnFjernSistepunkt_Click(object sender, EventArgs e)
         {
             if (pointLatLngs.Count > 0)
             {
@@ -277,7 +275,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnFjernAlle_Click(object sender, EventArgs e)
+        private void BtnFjernAlle_Click(object sender, EventArgs e)
         {
             if (pointLatLngs.Count > 0)
             {
