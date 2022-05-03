@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_CP_EndeUtseende : Form
+    public partial class Frm_CP_EndeUtseende : Form
     {
         public static frm_CP_EndeUtseende instance;
         public frm_CP_EndeUtseende()
@@ -36,8 +36,8 @@ namespace GMAP_Demo
 
         private void btnSelectTheme_Click(object sender, EventArgs e)
         {
-            //invoke metoden og endrer theme 
-            object p = mInfos[lbThemes.SelectedIndex].Invoke(null, null);
+            https://docs.microsoft.com/en-us/dotnet/api/system.reflection.methodbase.invoke?view=net-6.0
+            mInfos[lbThemes.SelectedIndex].Invoke(null, null);
 
             //skriver til fil for å lagre 
             FilBehandeling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());

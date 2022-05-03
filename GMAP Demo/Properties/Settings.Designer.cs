@@ -38,9 +38,27 @@ namespace GMAP_Demo.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Pass_Gmap_Demo_12!")]
-        public string Passord {
+        public string PassordEpostVerifisering {
             get {
-                return ((string)(this["Passord"]));
+                return ((string)(this["PassordEpostVerifisering"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("GmapDemo01@gmail.com")]
+        public string EpostVerifisering {
+            get {
+                return ((string)(this["EpostVerifisering"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("smtp.gmail.com")]
+        public string EmailTypeVerifisering {
+            get {
+                return ((string)(this["EmailTypeVerifisering"]));
             }
         }
     }

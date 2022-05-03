@@ -7,10 +7,10 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_CP_Admin : Form
+    public partial class Frm_CP_Admin : Form
     {
-        frm_CP_Admin instance;
-        public frm_CP_Admin()
+        Frm_CP_Admin instance;
+        public Frm_CP_Admin()
         {
             InitializeComponent();
             instance = this;
@@ -122,14 +122,14 @@ namespace GMAP_Demo
         {
             try
             {
-                NetworkCredential login = new NetworkCredential("GmapDemo01@gmail.com", GMAP_Demo.Properties.Settings.Default.Passord); // brukernavn og passord må gjømes en plass
-                SmtpClient client = new SmtpClient("smtp.gmail.com");
+                NetworkCredential login = new NetworkCredential(Properties.Settings.Default.EpostVerifisering, Properties.Settings.Default.PassordEpostVerifisering);
+                SmtpClient client = new SmtpClient(Properties.Settings.Default.EmailTypeVerifisering);
                 client.Credentials = login;
                 client.Port = 587;
                 client.EnableSsl = true;
 
-                MailMessage msg = new MailMessage("GmapDemo01@gmail.com", TilEpost);
-                msg.Subject = "Vertifiseringskode:";
+                MailMessage msg = new MailMessage(Properties.Settings.Default.EpostVerifisering, TilEpost);
+                msg.Subject = "Verifiseringskode:";
                 msg.Body = String.Format(tallkode.ToString());
                 msg.BodyEncoding = Encoding.UTF8;
                 msg.IsBodyHtml = true;
