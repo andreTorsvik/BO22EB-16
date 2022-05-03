@@ -318,7 +318,7 @@ namespace GMAP_Demo
 
                 List<PointLatLng> PunktListe = pointLatLngs.ToList();
 
-                if (Kart.SjekkKartharHjelpemarkør_redigier(Globalekonstanter.NavnHjelpeMarkør)) 
+                if (Kart.SjekkKartHarHjelpemarkør_redigier(Globalekonstanter.NavnHjelpeMarkør)) 
                 {
                     Kart.TegnHjelpeOmråde_rediger(frmRediger.DoubleClick_punkt, PunktListe);
                 }

@@ -404,7 +404,7 @@ namespace GMAP_Demo
                     //tegn område for valgt
                     List<PointLatLng> PunkteListe = frm_R_RedigerOmråde.instance.pointLatLngs.ToList();
 
-                    if (Kart.SjekkKartharHjelpemarkør_redigier("HjelpeMarkør"))
+                    if (Kart.SjekkKartHarHjelpemarkør_redigier("HjelpeMarkør"))
                     {
                         Kart.TegnHjelpeOmråde_rediger(frmRediger.DoubleClick_punkt, PunkteListe);
                     }
