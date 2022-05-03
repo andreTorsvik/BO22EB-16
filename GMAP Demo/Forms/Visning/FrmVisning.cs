@@ -247,8 +247,8 @@ namespace GMAP_Demo
         {
             instance = null;
             map = null;
-            Application.Exit();
-            
+
+            Environment.Exit(1);
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
