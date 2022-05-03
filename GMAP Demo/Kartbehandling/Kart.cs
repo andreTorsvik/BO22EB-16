@@ -456,22 +456,17 @@ namespace GMAP_Demo
             //Enkleste måte å oppdatere kartet på, er å zoom inn og ut.
             //Zoomer inn og ut så lite at det ikke merkes
 
+            Globalekonstanter.KartOppdatere = true;
             double PlussMinus = 0.01;
             switch (kart)
             {
                 case MuligKart.Visning:
-                    frmVisning.instance.KartOppdatere = true;
-
                     frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + PlussMinus;
                     frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom - PlussMinus;
-
-                    frmVisning.instance.KartOppdatere = false;
                     break;
                 case MuligKart.Redigering:
-
                     FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom + PlussMinus;
                     FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom - PlussMinus;
-
                     break;
                 case MuligKart.Begge:
                     frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + PlussMinus;
@@ -481,6 +476,7 @@ namespace GMAP_Demo
                     FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom - PlussMinus;
                     break;
             }
+            Globalekonstanter.KartOppdatere = false;
         }
 
         public static void FinnLokasjon(string Land, string ByKommune, string Adresse)

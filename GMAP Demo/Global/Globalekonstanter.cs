@@ -44,6 +44,8 @@ namespace GMAP_Demo
         // Hvis kartet er utenfor zoom grense 
         public static bool UtenforZoomGrense = false;
 
+        // bool variabel hvis kartet holder på å oppdatere 
+        public static bool KartOppdatere = false;
 
         // Filnavn
         public const string filStartPosisjon = "StartPosisjon.txt";

@@ -2,7 +2,6 @@
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -166,8 +165,6 @@ namespace GMAP_Demo
         {
             if (instance.map.Overlays.Count > 0)
             {
-                instance.map.Overlays.Clear();
-
                 bool polygon = false;
                 bool objekt = false;
 
@@ -201,6 +198,9 @@ namespace GMAP_Demo
         {
             // For å sende posisjonen til neste kart
             Kart.PunktFraForrige = map.Position;
+
+            // Hvis du er utenfor grensen må denne gjøres til false for å tegne 
+            Globalekonstanter.UtenforZoomGrense = false;
 
             // Åpner redigerings formen
             this.Hide();
@@ -257,7 +257,7 @@ namespace GMAP_Demo
             pnlNav.Top = top;
 
             //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
-            pnlNav.Left = btnFilter.Left; 
+            pnlNav.Left = btnFilter.Left;
         }
 
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
@@ -308,25 +308,21 @@ namespace GMAP_Demo
         }
 
 
-        bool RutePåKartet = false;
-        public bool KartOppdatere = false; //Hindrer at kart.reff() påvirker denne metoden 
+
+        /*public bool KartOppdatere = false;*/ //Hindrer at kart.reff() påvirker denne metoden 
         private void map_OnMapZoomChanged()
         {
             const int ZoomLevel = Globalekonstanter.ZoomLevel; // zoom = 16
 
             //metoden blir ikke påvirket av kart.reff(). 
             //den metoen zoomer ut og inn for å oppdatere kartet 
-            if (!KartOppdatere)
+            if (!Globalekonstanter.KartOppdatere)
             {
                 if (map.Zoom < ZoomLevel && !Globalekonstanter.UtenforZoomGrense)
                 {
                     // Fjerner objekt overlays 
                     for (int i = 0; i < map.Overlays.Count; i++)
                     {
-                        if (map.Overlays[i].Id == Globalekonstanter.NavnRute)
-                        {
-                            RutePåKartet = true;
-                        }
                         if (map.Overlays[i].Id == Globalekonstanter.NavnObjekter)
                         {
                             map.Overlays.RemoveAt(i);
@@ -338,38 +334,8 @@ namespace GMAP_Demo
                 }
                 else if (map.Zoom >= ZoomLevel && Globalekonstanter.UtenforZoomGrense)
                 {
-
-                    if (!RutePåKartet) // Det finnes ingen rute på kartet 
-                    {
-                        Globalekonstanter.UtenforZoomGrense = false;
-                        Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-                        
-                    }
-                    else // Finnes minst en rute 
-                    {
-                        // Legger til alle rutene på kartet i en liste
-                        List<GMapOverlay> Lroutes = new List<GMapOverlay>();
-                        for (int i = 0; i < map.Overlays.Count; i++)
-                        {
-                            if (map.Overlays[i].Id == Globalekonstanter.NavnRute)
-                            {
-                                Lroutes.Add(map.Overlays[i]);
-
-                            }
-                        }
-
-                        // Opptatere kartet (alt (uten om rute) blir fjernet med denne metoden og lagt til) 
-                        Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-
-                        // Må legge til ruten igjen 
-                        foreach (var item in Lroutes)
-                        {
-                            map.Overlays.Add(item);
-                        }
-
-                        Globalekonstanter.UtenforZoomGrense = false;
-                        RutePåKartet = false;
-                    }
+                    Globalekonstanter.UtenforZoomGrense = false;
+                    Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
 
                 }
             }
