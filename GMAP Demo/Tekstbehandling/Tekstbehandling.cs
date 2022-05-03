@@ -16,11 +16,11 @@ namespace GMAP_Demo
 
             //kode for sjekk at alle felten er utfylt
             if (string.IsNullOrWhiteSpace(Fornavn)) Lfeil.Add("Fornavn");
-            if (string.IsNullOrWhiteSpace(Etternavn)) Lfeil.Add(" Etternavn");
-            if (string.IsNullOrWhiteSpace(Telefon)) Lfeil.Add(" Telefonnummer");
-            if (string.IsNullOrWhiteSpace(Epost)) Lfeil.Add(" Epost");
-            if (string.IsNullOrWhiteSpace(Passord)) Lfeil.Add(" Passord");
-            if (string.IsNullOrWhiteSpace(BePassord)) Lfeil.Add(" Bekrefte passord");
+            if (string.IsNullOrWhiteSpace(Etternavn)) Lfeil.Add("Etternavn");
+            if (string.IsNullOrWhiteSpace(Telefon)) Lfeil.Add("Telefonnummer");
+            if (string.IsNullOrWhiteSpace(Epost)) Lfeil.Add("Epost");
+            if (string.IsNullOrWhiteSpace(Passord)) Lfeil.Add("Passord");
+            if (string.IsNullOrWhiteSpace(BePassord)) Lfeil.Add("Bekrefte passord");
 
             utFyllingsmangler = SammenslåTekst("Du mangler: ", Lfeil);
 
@@ -39,7 +39,7 @@ namespace GMAP_Demo
             if (!(passord == Bepassord))
                 Lfeil.Add("Passord samsvarer ikke");
             else if (passord.Length < antallTegnPassord)
-                Lfeil.Add(String.Format("passord er for kort, må minst være: {0}", antallTegnPassord)); 
+                Lfeil.Add(String.Format("Passord er for kort, må minst være: {0}", antallTegnPassord)); 
 
             //Sjekk epost 
             if (!ErEmailGodkjent(Epost))
@@ -82,8 +82,9 @@ namespace GMAP_Demo
 
         public static string SjekkEndringer_Objekt(List<Ressurs> rList, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, List<string> NyTags)
         {
-            //kode for å oppdage endringer, objekt 
-
+            //Objekt
+            //kode for å oppdage endringer og kommentere de,  
+            //ingen av try-catch skal feile, siden de allrede er sjekket  
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
 
@@ -133,11 +134,7 @@ namespace GMAP_Demo
             if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0) // hvis begge "sjekkOmNye" er 0, er det ingen nye tags 
             {
                 Endringer += newLine + "Gjeldene Tags: " + newLine;
-                for (int i = 0; i < NyTags.Count; i++)
-                {
-                    Endringer += string.Format("{0}", NyTags[i]);
-                    if (i < NyTags.Count - 1) Endringer += newLine;
-                }
+                Endringer += String.Join(newLine, NyTags);
             }
 
             return Endringer;
@@ -181,7 +178,9 @@ namespace GMAP_Demo
 
         public static string SjekkEndringer_Område(List<Område> oList, string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, List<string> GammleTags, List<string> NyTags)
         {
-            //kode for å oppdage endringer, områder 
+            //område
+            //kode for å oppdage endringer og kommentere de,  
+            //ingen av try-catch skal feile, siden de allrede er sjekket
 
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
@@ -218,11 +217,7 @@ namespace GMAP_Demo
             if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0) // hvis begge "sjekkOmNye" er 0, er det ingen nye tags 
             {
                 Endringer += newLine + "Gjeldene Tags: " + newLine;
-                for (int i = 0; i < NyTags.Count; i++)
-                {
-                    Endringer += string.Format("{0}", NyTags[i]);
-                    if (i < NyTags.Count - 1) Endringer += newLine;
-                }
+                Endringer += String.Join(newLine, NyTags);               
             }
 
             return Endringer;
@@ -252,27 +247,28 @@ namespace GMAP_Demo
             return svar;
         }
 
-        public static string sammenlignPunkter(List<Område> oList, List<PointLatLng> pList)
+        public static string sammenlignPunkter(List<Område> oList, List<PointLatLng> NyePunkter)
         {
             //kode for å sjekke om det er nye punkter i ommrådet 
             //koden skriver kun tilbakemelding på om det er flere, fære eller om det er nye punkter.
             //ikke hvilket punkter som er forandret 
+            //koden runder av, slik at hvis de nye punktene er for nærme ogrinalpunktene vil den ikke oppdage enderingen
 
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
             //sjekk punkter 
             List<PointLatLng> Orginalepunkter = oList[0].HentPunkter();
 
-            if (Orginalepunkter.Count == pList.Count)
+            if (Orginalepunkter.Count == NyePunkter.Count)
             {
-                for (int i = 0; i < pList.Count; i++) // må sjekke om punktene er de samme som før 
+                for (int i = 0; i < NyePunkter.Count; i++) // må sjekke om punktene er de samme som før 
                 {
-                    if (Math.Round(Orginalepunkter[i].Lat, 6) != Math.Round(pList[i].Lat, 6))
+                    if (Math.Round(Orginalepunkter[i].Lat, 6) != Math.Round(NyePunkter[i].Lat, 6))
                     {
                         Endringer += string.Format("Ny punkter" + newLine);
                         break;
                     }
-                    else if (Math.Round(Orginalepunkter[i].Lng, 6) != Math.Round(pList[i].Lng, 6))
+                    else if (Math.Round(Orginalepunkter[i].Lng, 6) != Math.Round(NyePunkter[i].Lng, 6))
                     {
                         Endringer += string.Format("Ny punkter" + newLine);
                         break;
@@ -282,9 +278,9 @@ namespace GMAP_Demo
             }
             else
             {
-                if (Orginalepunkter.Count > pList.Count)
+                if (Orginalepunkter.Count > NyePunkter.Count)
                     Endringer += string.Format("færre punkter enn før" + newLine);
-                else if (Orginalepunkter.Count < pList.Count)
+                else if (Orginalepunkter.Count < NyePunkter.Count)
                     Endringer += string.Format("flere punkter enn før" + newLine);
             }
 
@@ -293,6 +289,8 @@ namespace GMAP_Demo
 
         public static bool ErEmailGodkjent(string email)
         {
+            // En enkelt metode for å sjekke om mail kan brukes 
+            
             var trimmedEmail = email.Trim();
 
             if (trimmedEmail.EndsWith("."))
@@ -351,7 +349,7 @@ namespace GMAP_Demo
             }
             catch (Exception)
             {
-                svar = "inntasting med Lat";
+                svar = "Inntasting med Lat";
             }
 
             return svar;
@@ -367,7 +365,7 @@ namespace GMAP_Demo
             }
             catch (Exception)
             {
-                svar = "inntasting med Long";
+                svar = "Inntasting med Long";
             }
 
             return svar;

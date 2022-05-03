@@ -77,9 +77,8 @@ namespace GMAP_Demo
             return svar;
         }
 
-        public static bool LagreTheme(string FilNavn, string theme)
+        public static void LagreTheme(string FilNavn, string theme)
         {
-            bool svar = false;
             if (File.Exists(FilNavn)) File.Delete(FilNavn);
 
             StreamWriter sw = File.CreateText(FilNavn); ;
@@ -97,7 +96,6 @@ namespace GMAP_Demo
                 sw.Close();
 
             }
-            return svar;
 
         }
 

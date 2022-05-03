@@ -62,6 +62,7 @@ namespace GMAP_Demo
             tbTelefonnummer.Text = listBruker[0].Telefonnummer.ToString();
             tbEpost.Text = listBruker[0].Epost.ToString();
             tbSikkerhetsklarering.Text = listBruker[0].Sikkerhetsklarering.ToString();
+
         }
     }
 }
