@@ -461,8 +461,8 @@ namespace GMAP_Demo
             switch (kart)
             {
                 case MuligKart.Visning:
-                    FrmVisning.instance.map.Zoom = FrmVisning.instance.map.Zoom + PlussMinus;
-                    FrmVisning.instance.map.Zoom = FrmVisning.instance.map.Zoom - PlussMinus;
+                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + PlussMinus;
+                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom - PlussMinus;
                     break;
                 case MuligKart.Redigering:
                     FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom + PlussMinus;
