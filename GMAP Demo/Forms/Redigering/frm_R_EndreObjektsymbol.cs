@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_R_EndreObjektsymbol : Form
+    public partial class Frm_R_EndreObjektsymbol : Form
     {
-        public static frm_R_EndreObjektsymbol instance;
+        public static Frm_R_EndreObjektsymbol instance;
         public Image image = null;
         public byte[] imageData;
         public string valgtKategori;
 
-        public frm_R_EndreObjektsymbol()
+        public Frm_R_EndreObjektsymbol()
         {
             InitializeComponent();
             instance = this;
@@ -54,7 +54,7 @@ namespace GMAP_Demo
             btnLeggTilIDb.BackColor = ThemeDesign.colorGray;
         }
 
-        private void lbTilgjengligKategorier_DoubleClick(object sender, EventArgs e)
+        private void LbTilgjengligKategorier_DoubleClick(object sender, EventArgs e)
         {
             if (lbTilgjengligKategorier.SelectedIndex != -1)
             {
@@ -88,7 +88,7 @@ namespace GMAP_Demo
             
         }
 
-        private void btnLeggTilBilde_Click(object sender, EventArgs e)
+        private void BtnLeggTilBilde_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
             string filepath = null;
@@ -101,20 +101,22 @@ namespace GMAP_Demo
             if(filepath != null)
             {
 
-                image = Image.FromFile(filepath);
-                imageData = Bildebehandling.ImageToByteArray(image);
+                try
+                {
+                    image = Image.FromFile(filepath);
+                    imageData = Bildebehandling.ImageToByteArray(image);
 
-                pbValgtBilde.SizeMode = PictureBoxSizeMode.StretchImage;
-                pbValgtBilde.Image = image;
-            }
-            else
-            {
-                
-            }
-            
+                    pbValgtBilde.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pbValgtBilde.Image = image;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Det oppstod et problem med å hente inn bilde, vennligst prøv igjen", "Problemer med innhenting av bilde.");
+                }
+            }          
         }
 
-        private void frm_S_LeggTilBilde_Load(object sender, EventArgs e)
+        private void Frm_S_LeggTilBilde_Load(object sender, EventArgs e)
         {
             var KategoriListe = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
 
@@ -127,7 +129,7 @@ namespace GMAP_Demo
             lbTilgjengligKategorier.Sorted = true;
         }
 
-        private void btnLeggTilIDb_Click(object sender, EventArgs e)
+        private void BtnLeggTilIDb_Click(object sender, EventArgs e)
         {
             if ((valgtKategori != null) && (imageData != null)) //
             {
@@ -152,9 +154,9 @@ namespace GMAP_Demo
             else MessageBox.Show("Du har ikke valgt en kategori, og har heller ikke valgt et bilde.", "Kunne ikke utføre oppgaven!");
         }
 
-        private void btnFjernBilde_Click(object sender, EventArgs e)
+        private void BtnFjernBilde_Click(object sender, EventArgs e)
         {
-            if (valgtKategori != null) //()
+            if (valgtKategori != null)
             {
                 DBComKategorier_Bilde.DeleteBildeFromKategorier_Bilde(valgtKategori);
                 pbValgtKategori.Visible = false;

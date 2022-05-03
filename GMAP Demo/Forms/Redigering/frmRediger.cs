@@ -201,7 +201,7 @@ namespace GMAP_Demo
 
         private void BtnEndreObjektsymbol_Click(object sender, EventArgs e)
         {
-            frm_R_EndreObjektsymbol frm_R_EndreObjektsymbol_vrb = new frm_R_EndreObjektsymbol() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_R_EndreObjektsymbol frm_R_EndreObjektsymbol_vrb = new Frm_R_EndreObjektsymbol() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_EndreObjektsymbol_vrb);
             //if (pnlNav.Top != btnLeggTilBilde.Top)
             //{
@@ -281,8 +281,8 @@ namespace GMAP_Demo
             if (frm_R_RedigerOmråde.instance != null)
                 frm_R_RedigerOmråde.instance = null;
 
-            if (frm_R_EndreObjektsymbol.instance != null)
-                frm_R_EndreObjektsymbol.instance = null;
+            if (Frm_R_EndreObjektsymbol.instance != null)
+                Frm_R_EndreObjektsymbol.instance = null;
 
             if (instance != null)
                 instance = null;

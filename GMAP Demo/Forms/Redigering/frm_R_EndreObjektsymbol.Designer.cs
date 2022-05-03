@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_R_EndreObjektsymbol
+    partial class Frm_R_EndreObjektsymbol
     {
         /// <summary>
         /// Required designer variable.
@@ -74,7 +74,7 @@
             this.btnLVelgBildeFraFiler.TabIndex = 63;
             this.btnLVelgBildeFraFiler.Text = "Velg bilde fra Filer";
             this.btnLVelgBildeFraFiler.UseVisualStyleBackColor = true;
-            this.btnLVelgBildeFraFiler.Click += new System.EventHandler(this.btnLeggTilBilde_Click);
+            this.btnLVelgBildeFraFiler.Click += new System.EventHandler(this.BtnLeggTilBilde_Click);
             // 
             // lbTilgjengligKategorier
             // 
@@ -87,7 +87,7 @@
             this.lbTilgjengligKategorier.Sorted = true;
             this.lbTilgjengligKategorier.TabIndex = 64;
             this.toolTip1.SetToolTip(this.lbTilgjengligKategorier, "Dobbelklikk for å velge");
-            this.lbTilgjengligKategorier.DoubleClick += new System.EventHandler(this.lbTilgjengligKategorier_DoubleClick);
+            this.lbTilgjengligKategorier.DoubleClick += new System.EventHandler(this.LbTilgjengligKategorier_DoubleClick);
             // 
             // tbValgtKategori
             // 
@@ -153,7 +153,7 @@
             this.btnLeggTilIDb.TabIndex = 71;
             this.btnLeggTilIDb.Text = "Lagre bilde";
             this.btnLeggTilIDb.UseVisualStyleBackColor = true;
-            this.btnLeggTilIDb.Click += new System.EventHandler(this.btnLeggTilIDb_Click);
+            this.btnLeggTilIDb.Click += new System.EventHandler(this.BtnLeggTilIDb_Click);
             // 
             // lblLastOppTilDB
             // 
@@ -242,7 +242,7 @@
             this.btnFjernBilde.TabIndex = 63;
             this.btnFjernBilde.Text = "Fjern bilde fra kategori";
             this.btnFjernBilde.UseVisualStyleBackColor = true;
-            this.btnFjernBilde.Click += new System.EventHandler(this.btnFjernBilde_Click);
+            this.btnFjernBilde.Click += new System.EventHandler(this.BtnFjernBilde_Click);
             // 
             // frm_R_EndreObjektsymbol
             // 
@@ -258,7 +258,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frm_R_EndreObjektsymbol";
             this.Text = "frm_S_LeggTilBilde";
-            this.Load += new System.EventHandler(this.frm_S_LeggTilBilde_Load);
+            this.Load += new System.EventHandler(this.Frm_S_LeggTilBilde_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbValgtKategori)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbValgtBilde)).EndInit();
             this.gblLastOppTilDB.ResumeLayout(false);
