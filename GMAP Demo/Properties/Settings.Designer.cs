@@ -79,5 +79,14 @@ namespace GMAP_Demo.Properties {
                 return ((string)(this["GuestAccountPassword"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM")]
+        public string GoogleMapApiKey {
+            get {
+                return ((string)(this["GoogleMapApiKey"]));
+            }
+        }
     }
 }
