@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_CP_FjernKategori
+    partial class Frm_CP_FjernKategori
     {
         /// <summary>
         /// Required designer variable.
@@ -46,7 +46,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.lblTitle.Location = new System.Drawing.Point(14, 11);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(574, 55);
+            this.lblTitle.Size = new System.Drawing.Size(391, 37);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "Fjern Ubrukte Kategorier";
             // 
@@ -60,7 +60,7 @@
             this.lbTilgjengligKategorier.Size = new System.Drawing.Size(326, 264);
             this.lbTilgjengligKategorier.Sorted = true;
             this.lbTilgjengligKategorier.TabIndex = 5;
-            this.lbTilgjengligKategorier.DoubleClick += new System.EventHandler(this.lbKategorier_DoubleClick);
+            this.lbTilgjengligKategorier.DoubleClick += new System.EventHandler(this.LbKategorier_DoubleClick);
             // 
             // tbValgtKategori
             // 
@@ -88,7 +88,6 @@
             this.gbFjernKategori.TabIndex = 7;
             this.gbFjernKategori.TabStop = false;
             this.gbFjernKategori.Text = "Fjern Kategori";
-            this.gbFjernKategori.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblInfo
             // 
@@ -127,9 +126,9 @@
             this.btnFjern.TabIndex = 7;
             this.btnFjern.Text = "Fjern";
             this.btnFjern.UseVisualStyleBackColor = true;
-            this.btnFjern.Click += new System.EventHandler(this.btnFjern_Click);
+            this.btnFjern.Click += new System.EventHandler(this.BtnFjern_Click);
             // 
-            // frm_S_FjernKategori
+            // Frm_CP_FjernKategori
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,9 +138,9 @@
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frm_S_FjernKategori";
+            this.Name = "Frm_CP_FjernKategori";
             this.Text = "frm_S_BrukerInfo";
-            this.Load += new System.EventHandler(this.frm_S_BrukerInfo_Load);
+            this.Load += new System.EventHandler(this.Frm_S_BrukerInfo_Load);
             this.gbFjernKategori.ResumeLayout(false);
             this.gbFjernKategori.PerformLayout();
             this.ResumeLayout(false);

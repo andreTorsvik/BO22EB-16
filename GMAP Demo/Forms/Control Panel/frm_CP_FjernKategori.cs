@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_CP_FjernKategori : Form
+    public partial class Frm_CP_FjernKategori : Form
     {
-        frm_CP_FjernKategori instance;
-        public frm_CP_FjernKategori()
+        Frm_CP_FjernKategori instance;
+        public Frm_CP_FjernKategori()
         {
             InitializeComponent();
             instance = this;
@@ -39,10 +39,10 @@ namespace GMAP_Demo
             btnFjern.BackColor = ThemeDesign.colorGray;
         }
 
-        private void frm_S_BrukerInfo_Load(object sender, EventArgs e)
+        private void Frm_S_BrukerInfo_Load(object sender, EventArgs e)
         {
             string newLine = Environment.NewLine;
-            lblInfo.Text = string.Format("Du må fjerne alle forkomster av \"kategorien\"" + newLine + "før den kommer opp her" + newLine + "NB: Er ikke sikkert du har tilgang til alle objektene på grunn av sikkerhetsklarering");
+            lblInfo.Text = string.Format("Du må fjerne alle forkomster av \"kategorien\"" + newLine + "før den kommer opp her." + newLine + "Det er ikke sikkert du har tilgang til alle objektene på grunn av sikkerhetsklarering");
 
             OppdaterKategoriListe();
         }
@@ -68,7 +68,7 @@ namespace GMAP_Demo
             else btnFjern.Enabled = true;
         }
 
-        private void lbKategorier_DoubleClick(object sender, EventArgs e)
+        private void LbKategorier_DoubleClick(object sender, EventArgs e)
         {
             if (lbTilgjengligKategorier.SelectedIndex != -1)
             {
@@ -81,7 +81,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnFjern_Click(object sender, EventArgs e)
+        private void BtnFjern_Click(object sender, EventArgs e)
         {
             if(!string.IsNullOrEmpty( tbValgtKategori.Text))
             {
@@ -99,11 +99,6 @@ namespace GMAP_Demo
                     Kart.OppdaterKategoriListe();
                 }
             }
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }
