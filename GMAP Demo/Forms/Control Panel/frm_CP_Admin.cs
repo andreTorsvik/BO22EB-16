@@ -307,7 +307,7 @@ namespace GMAP_Demo
                                 }
                                 else if(InnloggetBruker.Sikkerhetsklarering >= 1 )
                                 {
-                                    nedgrader = false;
+                                    Nedgrader = false;
                                     MessageBox.Show(string.Format("Kan ikke nedgradere fordi bruker allerede har laveste"));
                                 }
                                 else
