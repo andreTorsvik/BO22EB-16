@@ -221,7 +221,7 @@ namespace GMAP_Demo
             {
                 PointLatLng point = GlobaleLister.LRessurs[index].GiPunktet();
 
-                frmVisning.instance.map.Position = point;
+                FrmVisning.instance.map.Position = point;
             }         
         }
 

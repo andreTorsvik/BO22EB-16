@@ -261,7 +261,7 @@ namespace GMAP_Demo
             PnlFormLoader.Controls.Clear();
             InstanceNull();
             
-            frmVisning.instance.Show();
+            FrmVisning.instance.Show();
         }
 
         private void InstanceNull()

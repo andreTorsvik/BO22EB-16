@@ -77,8 +77,8 @@ namespace GMAP_Demo
         private void FrmSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
             //PnlFormLoader.Controls.Clear();
-            if (frmVisning.instance != null)
-                frmVisning.instance.Show();
+            if (FrmVisning.instance != null)
+                FrmVisning.instance.Show();
 
             if (instance != null)
                 instance = null;

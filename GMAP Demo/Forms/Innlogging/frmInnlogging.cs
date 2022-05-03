@@ -63,7 +63,7 @@ namespace GMAP_Demo
 
 
                         Hide();
-                        frmVisning frmVisning = new frmVisning(); // instance
+                        FrmVisning frmVisning = new FrmVisning(); // instance
                         frmVisning.Show();
 
                         if (FrmVerifiseringskode.instance != null)

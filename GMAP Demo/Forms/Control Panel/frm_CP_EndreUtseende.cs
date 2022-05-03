@@ -66,7 +66,7 @@ namespace GMAP_Demo
 
             // Endre Theme på visning, Åpner nå filter uavhengiv va som var der før
             // For å endre theme 
-            frmVisning.instance.ByttetTheme();
+            FrmVisning.instance.ByttetTheme();
         }
     }
 }

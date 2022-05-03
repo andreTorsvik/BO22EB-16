@@ -8,7 +8,7 @@ using System.Windows.Forms;
 // Test test
 namespace GMAP_Demo
 {
-    public partial class frmVisning : Form
+    public partial class FrmVisning : Form
     {
         //log
         //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
@@ -16,9 +16,9 @@ namespace GMAP_Demo
 
 
 
-        public static frmVisning instance;
+        public static FrmVisning instance;
 
-        public frmVisning()
+        public FrmVisning()
         {
             GMapProviders.GoogleMap.ApiKey = Properties.Settings.Default.GoogleMapApiKey;
             InitializeComponent();
