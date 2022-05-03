@@ -106,6 +106,7 @@ namespace GMAP_Demo
             int AntallTags = lbValgtTags.Items.Count;
             List<string> Tags = lbValgtTags.Items.Cast<string>().ToList();
 
+            // Legger til, om alt stemmer 
             string SjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, Tags);
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
@@ -133,15 +134,17 @@ namespace GMAP_Demo
             {
                 try
                 {
+                    // Legge til ny kategori i databasen 
                     DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
                     lbTilgjengligKategori.Items.Add(nyKategori);
                     txtKategori.Text = nyKategori;
+                    txtNyKategori.Text = "";
                 }
                 catch (Exception)
                 {
 
                 }
-                txtNyKategori.Text = "";
+               
             }
             FellesMetoder.OppdaterKategoriListe();
         }
@@ -149,6 +152,7 @@ namespace GMAP_Demo
         private void LastInnKategorier()
         {
             GlobaleLister.LKategori.Clear();
+
             var KategoriListe = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
 
             foreach (var item in KategoriListe)
@@ -181,8 +185,6 @@ namespace GMAP_Demo
                 lbValgtTags.Items.Add(selectedItemtext);
 
                 lbTilgjengeligeTags.Items.Remove(selectedItemtext);
-
-                lbValgtTags.Sorted = true;
             }
         }
 
@@ -221,7 +223,7 @@ namespace GMAP_Demo
                     var løpenummer = DBComRessurs.GetLøpenummer_Ressurs();
                     int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
 
-                    //laste opp ressurs 
+                    // Laste opp ressurs 
                     try
                     {
                         if (Løpenummer_Ressurs > 0)
@@ -233,7 +235,7 @@ namespace GMAP_Demo
                         feilmelding += feil.Message;
                     }
 
-                    //fylle in tags 
+                    // Laste opp hver enkelt tag 
                     try
                     {
                         foreach (var item in nyTags)
@@ -274,17 +276,6 @@ namespace GMAP_Demo
             lbTilgjengeligeTags.Items.Clear();
             LastInnTags();
         }
-
-        private void cbOmråde_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbOmråde_CheckedChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         
     }
 }

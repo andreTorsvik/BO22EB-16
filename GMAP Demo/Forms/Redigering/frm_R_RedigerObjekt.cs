@@ -103,10 +103,7 @@ namespace GMAP_Demo
 
         private void btnLeggTilNyKategori_Click(object sender, EventArgs e)
         {
-            string nyKategori = "";
-
-            nyKategori = txtNyKategori.Text;
-
+            string nyKategori = txtNyKategori.Text;
 
             if (!string.IsNullOrEmpty(nyKategori))
             {
@@ -158,8 +155,7 @@ namespace GMAP_Demo
 
         private void btnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string NyTag = "";
-            NyTag = txtNyTag.Text;
+            string NyTag = txtNyTag.Text;
 
             if (!string.IsNullOrEmpty(NyTag))
             {
@@ -176,9 +172,10 @@ namespace GMAP_Demo
 
         public void FyllInfoObjekt(int Tag)
         {
-            //løpenummeret 
+            // Løpenummeret 
             Løpenummer_til_redigering = GlobaleLister.LRessurs[Tag].Løpenummer_ressurs;
-            //info 
+
+            // Info 
             txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
             txtKategori.Text = GlobaleLister.LRessurs[Tag].Kategori;
             txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Tag].Sikkerhetsklarering.ToString();
@@ -187,17 +184,17 @@ namespace GMAP_Demo
             txtLong.Text = GlobaleLister.LRessurs[Tag].Lang.ToString();
 
 
-            //sletting av eksisterende lister
+            // Sletting av eksisterende lister
             if (lbValgtTags.Items.Count > 0) lbValgtTags.Items.Clear();
             if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
             if (LGamleTag.Count > 0) LGamleTag.Clear();
 
-            //tagliste
+            // Tagliste
             var TagListeTilRessurs = GlobaleLister.LRessurs[Tag].hentTags();
             var AlleTags = FellesMetoder.FåAlleTags();
             var GjenværendeTag = AlleTags.Except(TagListeTilRessurs);
 
-            //sorter Tags
+            // Sorter Tags
             foreach (var tags in TagListeTilRessurs)
             {
                 lbValgtTags.Items.Add(tags);
@@ -220,8 +217,8 @@ namespace GMAP_Demo
             string lang = txtLong.Text;
             int antallTags = lbValgtTags.Items.Count;
             List<string> NyTags = lbValgtTags.Items.Cast<string>().ToList();
-           
 
+            // Legger til, om alt stemmer 
             string SjekkFeil = RedigerObjekt(Løpenummer_til_redigering, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antallTags, LGamleTag, NyTags);
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
