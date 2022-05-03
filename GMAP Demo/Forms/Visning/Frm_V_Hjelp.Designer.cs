@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frmHjelp
+    partial class Frm_V_Hjelp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHjelp));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_V_Hjelp));
             this.lblMenu = new System.Windows.Forms.Label();
             this.lblMap = new System.Windows.Forms.Label();
             this.lblBruker = new System.Windows.Forms.Label();

@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frmFilter
+    partial class Frm_V_Filter
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFilter));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_V_Filter));
             this.lblTitle = new System.Windows.Forms.Label();
             this.tbNavn = new System.Windows.Forms.TextBox();
             this.lblNavn = new System.Windows.Forms.Label();

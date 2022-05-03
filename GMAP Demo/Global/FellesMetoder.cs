@@ -25,8 +25,8 @@ namespace GMAP_Demo
             if (GlobaleLister.tag_ListeVises.Count != 0)
             {
                 // Finner ut hvilket filter man skal bruke 
-                bool OR = frmFilter.instance.filterOR;
-                bool AND = frmFilter.instance.filterAND;
+                bool OR = Frm_V_Filter.instance.filterOR;
+                bool AND = Frm_V_Filter.instance.filterAND;
 
                 if (OR && !AND) // OR
                 {
@@ -70,8 +70,8 @@ namespace GMAP_Demo
             if (GlobaleLister.kategoriListeVises.Count != 0 || GlobaleLister.tag_ListeVises.Count != 0)
             {
                 // Finner ut hvilket filter man skal bruke 
-                bool OR = frmFilter.instance.filterOR;
-                bool AND = frmFilter.instance.filterAND;
+                bool OR = Frm_V_Filter.instance.filterOR;
+                bool AND = Frm_V_Filter.instance.filterAND;
 
                 if (OR && !AND) // OR
                 {

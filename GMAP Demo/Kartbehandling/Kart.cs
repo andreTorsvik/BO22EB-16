@@ -143,9 +143,9 @@ namespace GMAP_Demo
             }
 
             //oppdatere antall objekter i formFilter hvis den er åpen 
-            if (frmFilter.instance != null)
+            if (Frm_V_Filter.instance != null)
             {
-                frmFilter.instance.OppdaterAntall();
+                Frm_V_Filter.instance.OppdaterAntall();
             }
         }
 
@@ -347,8 +347,8 @@ namespace GMAP_Demo
             frmVisning.instance.map.Position = Start;
 
             // Legger inn avstanden 
-            if(frmPosisjon.instance != null)
-                frmPosisjon.instance.lblDistanse.Text = route.Distance.ToString() + " Km";
+            if(Frm_V_Posisjon.instance != null)
+                Frm_V_Posisjon.instance.lblDistanse.Text = route.Distance.ToString() + " Km";
         }
 
         public static void TegnHjelpeOmråde_rediger(PointLatLng klikket, List<PointLatLng> Lpunkt)
@@ -467,7 +467,7 @@ namespace GMAP_Demo
             if (PosisjonFør != PosisjonNå)
             {
                 //fyller in kordinater
-                frmPosisjon.instance.FyllKoordinater(PosisjonNå.Lat, PosisjonNå.Lng);
+                Frm_V_Posisjon.instance.FyllKoordinater(PosisjonNå.Lat, PosisjonNå.Lng);
 
                 int ZoomLevel = 18;  
                 
@@ -515,8 +515,8 @@ namespace GMAP_Demo
                 {
                     frmVisning.instance.map.Overlays.RemoveAt(i);
                     reff(MuligKart.Visning);
-                    if (frmPosisjon.instance != null)
-                        frmPosisjon.instance.lblDistanse.Text = "[Distanse i Km]";
+                    if (Frm_V_Posisjon.instance != null)
+                        Frm_V_Posisjon.instance.lblDistanse.Text = "[Distanse i Km]";
                     break;
                 }
             }

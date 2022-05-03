@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frmHjelp : Form
+    public partial class Frm_V_Hjelp : Form
     {
-        public frmHjelp()
+        public Frm_V_Hjelp()
         {
             InitializeComponent();
         }

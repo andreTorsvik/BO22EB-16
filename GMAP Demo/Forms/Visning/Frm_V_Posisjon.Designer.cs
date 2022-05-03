@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frmPosisjon
+    partial class Frm_V_Posisjon
     {
         /// <summary>
         /// Required designer variable.
