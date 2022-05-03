@@ -36,7 +36,8 @@ namespace GMAP_Demo
 
         private void btnSelectTheme_Click(object sender, EventArgs e)
         {
-            object p = mInfos[lbThemes.SelectedIndex].Invoke(null, null);
+            https://docs.microsoft.com/en-us/dotnet/api/system.reflection.methodbase.invoke?view=net-6.0
+            mInfos[lbThemes.SelectedIndex].Invoke(null, null);
 
             FilBehandeling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());
 
