@@ -120,9 +120,14 @@ namespace GMAP_Demo
         {
             if (lbKategorierVises.Items.Count > 0)
             {
+                // Oppdatere begge listen basert på hva som er valgt 
                 GlobaleLister.kategoriListeSkjult.Add((Kategorier_Bilde)lbKategorierVises.SelectedItem);
                 GlobaleLister.kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.SelectedItem);
+
+                // Oppdaterer ressurs liste 
                 FellesMetoder.OppdaterListe_ressurs();
+
+                // Oppdaterer kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
         }
@@ -131,9 +136,14 @@ namespace GMAP_Demo
         {
             if (lbKategorierSkjult.Items.Count > 0)
             {
+                // Oppdatere begge listen basert på hva som er valgt 
                 GlobaleLister.kategoriListeVises.Add((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
                 GlobaleLister.kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
+
+                // Oppdaterer ressurs liste
                 FellesMetoder.OppdaterListe_ressurs();
+
+                // Oppdaterer kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
         }
@@ -142,10 +152,15 @@ namespace GMAP_Demo
         {
             if (lbTagsVises.Items.Count > 0)
             {
+                // Oppdatere begge listen basert på hva som er valgt
                 GlobaleLister.tag_ListeSkjult.Add((string)lbTagsVises.SelectedItem);
                 GlobaleLister.tag_ListeVises.Remove((string)lbTagsVises.SelectedItem);
+
+                // Oppdaterer begge liste
                 FellesMetoder.OppdaterListe_ressurs();
                 FellesMetoder.OppdaterListe_området();
+
+                // Oppdaterer kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
         }
@@ -154,18 +169,23 @@ namespace GMAP_Demo
         {
             if (lbTagsSkjult.Items.Count > 0)
             {
+                // Oppdatere begge listen basert på hva som er valgt
                 GlobaleLister.tag_ListeVises.Add((string)lbTagsSkjult.SelectedItem);
                 GlobaleLister.tag_ListeSkjult.Remove((string)lbTagsSkjult.SelectedItem);
+
+                // Oppdaterer begge liste
                 FellesMetoder.OppdaterListe_ressurs();
                 FellesMetoder.OppdaterListe_området();
+
+                // Oppdaterer kartet
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
         }
 
         private void cbViseOmråde_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbViseOmråde.Checked) Kart.ViseOmrådePåKart = false;
-            else Kart.ViseOmrådePåKart = true;
+            if (cbViseOmråde.Checked) Kart.VisOmrådePåKart = false;
+            else Kart.VisOmrådePåKart = true;
 
             Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
         }
@@ -175,7 +195,10 @@ namespace GMAP_Demo
             indexRessurs++;
             if (indexRessurs >= GlobaleLister.LRessurs.Count) indexRessurs = 0;
 
+            // Fyller inn info om objektet i filter 
             FyllInfoObjekt(indexRessurs);
+
+            // Flytter kartet til objektet  
             FlyttTilObjekt(indexRessurs);
         }
 
@@ -184,8 +207,11 @@ namespace GMAP_Demo
             indexRessurs--;
             if (indexRessurs < 0) indexRessurs = GlobaleLister.LRessurs.Count - 1;
             else if (indexRessurs >= GlobaleLister.LRessurs.Count) indexRessurs = GlobaleLister.LRessurs.Count - 1;
-
+            
+            // Fyller inn info om objektet i filter 
             FyllInfoObjekt(indexRessurs);
+           
+            // Flytter kartet til objektet 
             FlyttTilObjekt(indexRessurs);
         }
 
@@ -203,6 +229,7 @@ namespace GMAP_Demo
         {
             if(GlobaleLister.LRessurs.Count > 0)
             {
+                // Info
                 tbNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
                 tbKategori.Text = GlobaleLister.LRessurs[Tag].Kategori;
                 tbDato_opprettet.Text = GlobaleLister.LRessurs[Tag].Dato_opprettet;
@@ -210,7 +237,7 @@ namespace GMAP_Demo
                 tbSikkerhetsklarering.Text = GlobaleLister.LRessurs[Tag].Sikkerhetsklarering.ToString();
                 tbKommentar.Text = GlobaleLister.LRessurs[Tag].Kommentar;
 
-                //tags
+                // Tags
                 if (lbTags.Items.Count > 0) lbTags.Items.Clear();
 
                 var TagListeTilRessurs = GlobaleLister.LRessurs[Tag].hentTags();
@@ -239,6 +266,7 @@ namespace GMAP_Demo
         {
             if (GlobaleLister.LOmråde.Count > 0)
             {
+                // Info
                 tbNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
                 tbKategori.Text = "";
                 tbMåling.Text = "";
@@ -249,7 +277,7 @@ namespace GMAP_Demo
                 tbSikkerhetsklarering.Text = GlobaleLister.LOmråde[Tag].Sikkerhetsklarering.ToString();
                 tbKommentar.Text = GlobaleLister.LOmråde[Tag].Kommentar;
 
-                //tags
+                // Tags
                 if (lbTags.Items.Count > 0) lbTags.Items.Clear();
 
                 var TagListeTilOmråde = GlobaleLister.LOmråde[Tag].hentTags();
@@ -282,24 +310,23 @@ namespace GMAP_Demo
 
         private void OppdatarKartMedFilter()
         {
-            SettFilterValg();
-
-            FellesMetoder.OppdaterListe_ressurs();
-            FellesMetoder.OppdaterListe_området();
-            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-        }
-
-        private void SettFilterValg()
-        {
-            //bool variabler til de regjelde valget 
+            //bool variabler til det "checked" valget 
             filterOR = cbOR.Checked;
             filterAND = cbAND.Checked;
+
+            //Oppdaterer listene 
+            FellesMetoder.OppdaterListe_ressurs();
+            FellesMetoder.OppdaterListe_området();
+
+            //Oppdatere kartet
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
         }
 
         private void btnTagFjernAlle_Click(object sender, EventArgs e)
         {
             if (lbTagsVises.Items.Count > 0)
             {
+                // Legger over alle til den andre listen
                 int antall = lbTagsVises.Items.Count;
                 for (int i = 0; i < antall; i++)
                 {
@@ -307,8 +334,11 @@ namespace GMAP_Demo
                     GlobaleLister.tag_ListeVises.Remove((string)lbTagsVises.Items[0]);
                 }
 
-                FellesMetoder.OppdaterListe_ressurs();
-                FellesMetoder.OppdaterListe_området();
+                //Tømmer listene, siden ingen tags er valgt 
+                GlobaleLister.LOmråde.Clear();
+                GlobaleLister.LRessurs.Clear();
+
+                // Oppdater kartet
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
 
@@ -318,15 +348,19 @@ namespace GMAP_Demo
         {
             if (lbTagsSkjult.Items.Count > 0)
             {
+                // Legger over alle til den andre listen
                 int antall = lbTagsSkjult.Items.Count;
                 for (int i = 0; i < antall; i++)
                 {
                     GlobaleLister.tag_ListeVises.Add((string)lbTagsSkjult.Items[0]);
                     GlobaleLister.tag_ListeSkjult.Remove((string)lbTagsSkjult.Items[0]);
                 }
-
+                
+                // Oppdatere listene 
                 FellesMetoder.OppdaterListe_ressurs();
                 FellesMetoder.OppdaterListe_området();
+
+                // Oppdatere kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
 
@@ -336,6 +370,7 @@ namespace GMAP_Demo
         {
             if (lbKategorierVises.Items.Count > 0)
             {
+                // Legger over alle til den andre listen
                 int antall = lbKategorierVises.Items.Count;
                 for (int i = 0; i < antall; i++)
                 {
@@ -343,7 +378,10 @@ namespace GMAP_Demo
                     GlobaleLister.kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.Items[0]);
                 }
 
-                FellesMetoder.OppdaterListe_ressurs();
+                // Tømmer listene, siden ingen kategori er valgt 
+                GlobaleLister.LRessurs.Clear();
+
+                // Oppdatere kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
         }
@@ -352,6 +390,7 @@ namespace GMAP_Demo
         {
             if (lbKategorierSkjult.Items.Count > 0)
             {
+                // Legger over alle til den andre listen
                 int antall = lbKategorierSkjult.Items.Count;
                 for (int i = 0; i < antall; i++)
                 {
@@ -359,7 +398,10 @@ namespace GMAP_Demo
                     GlobaleLister.kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.Items[0]);
                 }
 
+                // Oppdatere listen 
                 FellesMetoder.OppdaterListe_ressurs();
+
+                // Oppdatere kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
         }
