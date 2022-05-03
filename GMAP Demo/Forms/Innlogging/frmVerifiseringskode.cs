@@ -10,33 +10,33 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frmVerifiseringskode : Form
+    public partial class FrmVerifiseringskode : Form
     {
-        public static frmVerifiseringskode instance;
-        public frmVerifiseringskode()
+        public static FrmVerifiseringskode instance;
+        public FrmVerifiseringskode()
         {
             InitializeComponent();
             instance = this;
         }
 
-        private void btnVertifiser_Click(object sender, EventArgs e)
+        private void BtnVerifiser_Click(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(tbKode.Text) == frmInnlogging.instance.listBruker[0].Tallkode)
+            if(Convert.ToInt32(tbKode.Text) == FrmInnlogging.instance.listBruker[0].Tallkode)
             {
                 //Endre database attributt bruker.godkjent = true
 
-                //endre til updateBruker_vertifisert:
-                DBComBruker.UpdateBruker_Verifisert(frmInnlogging.instance.listBruker[0].Epost, true);
+                //endre til updateBruker_verifisert:
+                DBComBruker.UpdateBruker_Verifisert(FrmInnlogging.instance.listBruker[0].Epost, true);
 
                 //logg inn
-                InnloggetBruker.BrukernavnInnlogget = frmInnlogging.instance.listBruker[0].Epost;
-                InnloggetBruker.Sikkerhetsklarering = frmInnlogging.instance.listBruker[0].Sikkerhetsklarering;
+                InnloggetBruker.BrukernavnInnlogget = FrmInnlogging.instance.listBruker[0].Epost;
+                InnloggetBruker.Sikkerhetsklarering = FrmInnlogging.instance.listBruker[0].Sikkerhetsklarering;
 
-                frmInnlogging.instance.Hide();
-                this.Close();
-                frmVisning form1 = new frmVisning(); // instance
-                form1.Size = this.Size;
-                form1.Show();
+                FrmInnlogging.instance.Hide();
+                Close();
+                frmVisning frmVisning = new frmVisning(); // instance
+                frmVisning.Size = Size;
+                frmVisning.Show();
             }
             else
             {
@@ -46,7 +46,7 @@ namespace GMAP_Demo
 
         private void btnAvbryt_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void txtKode_KeyPress(object sender, KeyPressEventArgs e)
@@ -55,11 +55,6 @@ namespace GMAP_Demo
             {
                 e.Handled = true;
             }
-
-        }
-
-        private void frmVerifiseringskode_Load(object sender, EventArgs e)
-        {
 
         }
     }

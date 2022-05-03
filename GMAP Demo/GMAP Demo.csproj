@@ -118,11 +118,11 @@
     <Compile Include="Global\ThemeDesign.cs" />
     <Compile Include="Tekstbehandling\FilBehandeling.cs" />
     <Compile Include="Kartbehandling\FilterBehandling.cs" />
-    <Compile Include="Forms\Innlogging\frmInnlogging.cs">
+    <Compile Include="Forms\Innlogging\FrmInnlogging.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Innlogging\frmInnlogging.Designer.cs">
-      <DependentUpon>frmInnlogging.cs</DependentUpon>
+    <Compile Include="Forms\Innlogging\FrmInnlogging.Designer.cs">
+      <DependentUpon>FrmInnlogging.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Visning\frmVisning.cs">
       <SubType>Form</SubType>
@@ -154,11 +154,11 @@
     <Compile Include="Forms\Redigering\frmRediger.Designer.cs">
       <DependentUpon>frmRediger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Control Panel\frmControlPanel.cs">
+    <Compile Include="Forms\Control Panel\FrmControlPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Control Panel\frmControlPanel.Designer.cs">
-      <DependentUpon>frmControlPanel.cs</DependentUpon>
+    <Compile Include="Forms\Control Panel\FrmControlPanel.Designer.cs">
+      <DependentUpon>FrmControlPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Redigering\frm_R_FjernObjektOmråde.cs">
       <SubType>Form</SubType>
@@ -220,17 +220,17 @@
     <Compile Include="Forms\Redigering\frm_R_RedigerOmråde.Designer.cs">
       <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Innlogging\frmRegistering.cs">
+    <Compile Include="Forms\Innlogging\FrmRegistering.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Innlogging\frmRegistering.Designer.cs">
-      <DependentUpon>frmRegistering.cs</DependentUpon>
+    <Compile Include="Forms\Innlogging\FrmRegistering.Designer.cs">
+      <DependentUpon>FrmRegistering.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Innlogging\frmVerifiseringskode.cs">
+    <Compile Include="Forms\Innlogging\FrmVerifiseringskode.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Innlogging\frmVerifiseringskode.Designer.cs">
-      <DependentUpon>frmVerifiseringskode.cs</DependentUpon>
+    <Compile Include="Forms\Innlogging\FrmVerifiseringskode.Designer.cs">
+      <DependentUpon>FrmVerifiseringskode.cs</DependentUpon>
     </Compile>
     <Compile Include="Global\Globalekonstanter.cs" />
     <Compile Include="Global\GlobaleLister.cs" />
@@ -250,14 +250,14 @@
     <EmbeddedResource Include="Forms\Control Panel\Frm_CP_EndreUtseende.resx">
       <DependentUpon>Frm_CP_EndreUtseende.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Innlogging\frmInnlogging.resx">
-      <DependentUpon>frmInnlogging.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Innlogging\FrmInnlogging.resx">
+      <DependentUpon>FrmInnlogging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Innlogging\frmRegistering.resx">
-      <DependentUpon>frmRegistering.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Innlogging\FrmRegistering.resx">
+      <DependentUpon>FrmRegistering.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Innlogging\frmVerifiseringskode.resx">
-      <DependentUpon>frmVerifiseringskode.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Innlogging\FrmVerifiseringskode.resx">
+      <DependentUpon>FrmVerifiseringskode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Visning\frmVisning.resx">
       <DependentUpon>frmVisning.cs</DependentUpon>
@@ -274,8 +274,8 @@
     <EmbeddedResource Include="Forms\Redigering\frmRediger.resx">
       <DependentUpon>frmRediger.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Control Panel\frmControlPanel.resx">
-      <DependentUpon>frmControlPanel.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Control Panel\FrmControlPanel.resx">
+      <DependentUpon>FrmControlPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Redigering\frm_R_FjernObjektOmråde.resx">
       <DependentUpon>frm_R_FjernObjektOmråde.cs</DependentUpon>

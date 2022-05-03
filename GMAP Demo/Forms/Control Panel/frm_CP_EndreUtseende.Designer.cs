@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class Frm_CP_EndeUtseende
+    partial class Frm_CP_EndreUtseende
     {
         /// <summary>
         /// Required designer variable.

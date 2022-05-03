@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frmInnlogging
+    partial class FrmInnlogging
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInnlogging));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInnlogging));
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -49,7 +49,8 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Lucida Sans", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblTitle.Location = new System.Drawing.Point(94, 41);
+            this.lblTitle.Location = new System.Drawing.Point(141, 63);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(188, 37);
             this.lblTitle.TabIndex = 0;
@@ -60,7 +61,8 @@
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblUserName.Location = new System.Drawing.Point(53, 126);
+            this.lblUserName.Location = new System.Drawing.Point(80, 194);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(37, 14);
             this.lblUserName.TabIndex = 1;
@@ -71,7 +73,8 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblPassword.Location = new System.Drawing.Point(53, 163);
+            this.lblPassword.Location = new System.Drawing.Point(80, 251);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(49, 14);
             this.lblPassword.TabIndex = 2;
@@ -80,17 +83,19 @@
             // tbUserName
             // 
             this.tbUserName.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tbUserName.Location = new System.Drawing.Point(174, 123);
+            this.tbUserName.Location = new System.Drawing.Point(261, 189);
+            this.tbUserName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(100, 20);
+            this.tbUserName.Size = new System.Drawing.Size(148, 26);
             this.tbUserName.TabIndex = 3;
             // 
             // tbPassword
             // 
             this.tbPassword.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tbPassword.Location = new System.Drawing.Point(174, 160);
+            this.tbPassword.Location = new System.Drawing.Point(261, 246);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(100, 20);
+            this.tbPassword.Size = new System.Drawing.Size(148, 26);
             this.tbPassword.TabIndex = 4;
             this.tbPassword.UseSystemPasswordChar = true;
             // 
@@ -100,13 +105,14 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(174, 184);
+            this.btnLogin.Location = new System.Drawing.Point(261, 283);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(83, 26);
+            this.btnLogin.Size = new System.Drawing.Size(124, 40);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Logg inn";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // btnTestUser
             // 
@@ -114,20 +120,22 @@
             this.btnTestUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTestUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestUser.ForeColor = System.Drawing.Color.White;
-            this.btnTestUser.Location = new System.Drawing.Point(182, 309);
+            this.btnTestUser.Location = new System.Drawing.Point(273, 475);
+            this.btnTestUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnTestUser.Name = "btnTestUser";
-            this.btnTestUser.Size = new System.Drawing.Size(83, 26);
+            this.btnTestUser.Size = new System.Drawing.Size(124, 40);
             this.btnTestUser.TabIndex = 6;
             this.btnTestUser.Text = "Testbruker";
             this.btnTestUser.UseVisualStyleBackColor = false;
-            this.btnTestUser.Click += new System.EventHandler(this.btnTestUser_Click);
+            this.btnTestUser.Click += new System.EventHandler(this.BtnTestUser_Click);
             // 
             // lblTest
             // 
             this.lblTest.AutoSize = true;
             this.lblTest.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblTest.Location = new System.Drawing.Point(53, 318);
+            this.lblTest.Location = new System.Drawing.Point(80, 489);
+            this.lblTest.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTest.Name = "lblTest";
             this.lblTest.Size = new System.Drawing.Size(115, 14);
             this.lblTest.TabIndex = 7;
@@ -138,7 +146,8 @@
             this.lblTitle2.AutoSize = true;
             this.lblTitle2.Font = new System.Drawing.Font("Lucida Sans", 14F);
             this.lblTitle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblTitle2.Location = new System.Drawing.Point(34, 78);
+            this.lblTitle2.Location = new System.Drawing.Point(51, 120);
+            this.lblTitle2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle2.Name = "lblTitle2";
             this.lblTitle2.Size = new System.Drawing.Size(292, 22);
             this.lblTitle2.TabIndex = 8;
@@ -147,9 +156,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GMAP_Demo.Properties.Resources.HVL;
-            this.pictureBox1.Location = new System.Drawing.Point(38, 35);
+            this.pictureBox1.Location = new System.Drawing.Point(57, 54);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(51, 43);
+            this.pictureBox1.Size = new System.Drawing.Size(76, 66);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -159,7 +169,8 @@
             this.lblOpprettBruker.AutoSize = true;
             this.lblOpprettBruker.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOpprettBruker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblOpprettBruker.Location = new System.Drawing.Point(53, 210);
+            this.lblOpprettBruker.Location = new System.Drawing.Point(80, 323);
+            this.lblOpprettBruker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOpprettBruker.Name = "lblOpprettBruker";
             this.lblOpprettBruker.Size = new System.Drawing.Size(87, 14);
             this.lblOpprettBruker.TabIndex = 11;
@@ -173,19 +184,18 @@
             this.lblIngenBruker.AutoSize = true;
             this.lblIngenBruker.Font = new System.Drawing.Font("Lucida Sans", 8.25F);
             this.lblIngenBruker.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblIngenBruker.Location = new System.Drawing.Point(53, 197);
-            this.lblIngenBruker.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblIngenBruker.Location = new System.Drawing.Point(80, 303);
             this.lblIngenBruker.Name = "lblIngenBruker";
             this.lblIngenBruker.Size = new System.Drawing.Size(80, 14);
             this.lblIngenBruker.TabIndex = 12;
             this.lblIngenBruker.Text = "Ingen Bruker?";
             // 
-            // frmInnlogging
+            // FrmInnlogging
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(354, 354);
+            this.ClientSize = new System.Drawing.Size(531, 545);
             this.Controls.Add(this.lblIngenBruker);
             this.Controls.Add(this.lblOpprettBruker);
             this.Controls.Add(this.pictureBox1);
@@ -200,12 +210,12 @@
             this.Controls.Add(this.lblTitle);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(370, 393);
-            this.MinimumSize = new System.Drawing.Size(370, 393);
-            this.Name = "frmInnlogging";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(547, 584);
+            this.MinimumSize = new System.Drawing.Size(547, 584);
+            this.Name = "FrmInnlogging";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logg inn";
-            this.Load += new System.EventHandler(this.frmInnlogging_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

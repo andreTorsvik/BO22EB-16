@@ -61,5 +61,23 @@ namespace GMAP_Demo.Properties {
                 return ((string)(this["EmailTypeVerifisering"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gjest@stud.hvl.no")]
+        public string GuestAccountEmail {
+            get {
+                return ((string)(this["GuestAccountEmail"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PassGjest")]
+        public string GuestAccountPassword {
+            get {
+                return ((string)(this["GuestAccountPassword"]));
+            }
+        }
     }
 }
