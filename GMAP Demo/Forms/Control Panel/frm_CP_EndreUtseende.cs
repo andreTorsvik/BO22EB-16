@@ -6,8 +6,8 @@ namespace GMAP_Demo
 {
     public partial class Frm_CP_EndeUtseende : Form
     {
-        public static frm_CP_EndeUtseende instance;
-        public frm_CP_EndeUtseende()
+        public static Frm_CP_EndeUtseende instance;
+        public Frm_CP_EndeUtseende()
         {
             InitializeComponent();
             instance = this;
@@ -28,13 +28,13 @@ namespace GMAP_Demo
 
         //https://www.naveedulhaq.com/index.php/dot-net-core/get-the-list-of-method-names-from-the-c-class/
         MethodInfo[] mInfos = typeof(ThemeDesign).GetMethods(BindingFlags.Public | BindingFlags.Static);
-        private void frm_CP_EndeUtseende_Load(object sender, EventArgs e)
+        private void Frm_CP_EndeUtseende_Load(object sender, EventArgs e)
         {
             lbThemes.DataSource = mInfos;
             lbThemes.DisplayMember = "Name";
         }
 
-        private void btnSelectTheme_Click(object sender, EventArgs e)
+        private void BtnSelectTheme_Click(object sender, EventArgs e)
         {
             https://docs.microsoft.com/en-us/dotnet/api/system.reflection.methodbase.invoke?view=net-6.0
             mInfos[lbThemes.SelectedIndex].Invoke(null, null);

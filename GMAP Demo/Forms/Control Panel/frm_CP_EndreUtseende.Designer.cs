@@ -64,7 +64,7 @@
             this.btnSelectTheme.TabIndex = 6;
             this.btnSelectTheme.Text = "Endre Utseende";
             this.btnSelectTheme.UseVisualStyleBackColor = true;
-            this.btnSelectTheme.Click += new System.EventHandler(this.btnSelectTheme_Click);
+            this.btnSelectTheme.Click += new System.EventHandler(this.BtnSelectTheme_Click);
             // 
             // frm_CP_EndeUtseende
             // 
@@ -79,7 +79,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frm_CP_EndeUtseende";
             this.Text = "frm_S_LoggInn";
-            this.Load += new System.EventHandler(this.frm_CP_EndeUtseende_Load);
+            this.Load += new System.EventHandler(this.Frm_CP_EndeUtseende_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
