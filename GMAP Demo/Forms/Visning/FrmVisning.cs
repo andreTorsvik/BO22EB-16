@@ -199,9 +199,6 @@ namespace GMAP_Demo
             // For å sende posisjonen til neste kart
             Kart.PunktFraForrige = map.Position;
 
-            // Hvis du er utenfor grensen må denne gjøres til false for å tegne 
-            Globalekonstanter.UtenforZoomGrense = false;
-
             // Åpner redigerings formen
             this.Hide();
             FrmRediger frmRediger = new FrmRediger(); // instance 
@@ -307,7 +304,10 @@ namespace GMAP_Demo
             }
         }
 
-
+        // Hvis kartet er utenfor zoom grense 
+        public bool UtenforZoomGrense = false;
+        // bool variabel hvis kartet holder på å oppdatere 
+        public bool KartOppdatere = false;
 
         /*public bool KartOppdatere = false;*/ //Hindrer at kart.reff() påvirker denne metoden 
         private void map_OnMapZoomChanged()
@@ -316,9 +316,9 @@ namespace GMAP_Demo
 
             //metoden blir ikke påvirket av kart.reff(). 
             //den metoen zoomer ut og inn for å oppdatere kartet 
-            if (!Globalekonstanter.KartOppdatere)
+            if (!KartOppdatere)
             {
-                if (map.Zoom < ZoomLevel && !Globalekonstanter.UtenforZoomGrense)
+                if (map.Zoom < ZoomLevel && !UtenforZoomGrense)
                 {
                     // Fjerner objekt overlays 
                     for (int i = 0; i < map.Overlays.Count; i++)
@@ -330,11 +330,11 @@ namespace GMAP_Demo
                         }
                     }
 
-                    Globalekonstanter.UtenforZoomGrense = true;
+                    UtenforZoomGrense = true;
                 }
-                else if (map.Zoom >= ZoomLevel && Globalekonstanter.UtenforZoomGrense)
+                else if (map.Zoom >= ZoomLevel && UtenforZoomGrense)
                 {
-                    Globalekonstanter.UtenforZoomGrense = false;
+                    UtenforZoomGrense = false;
                     Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
 
                 }

@@ -84,9 +84,6 @@ namespace GMAP_Demo
 
         private void BtnTilbake_Click(object sender, EventArgs e)
         {
-            frmVisning.instance.map.Position = map.Position;
-            frmVisning.instance.map.Zoom = map.Zoom;
-
             Close();
         }
         void AlleKnapperTilStandardFargeR()
@@ -257,6 +254,9 @@ namespace GMAP_Demo
         {
             frmVisning.instance.Size = Size;
             frmVisning.instance.Location = Location;
+            frmVisning.instance.map.Position = map.Position;
+            frmVisning.instance.map.Zoom = map.Zoom;
+
 
             PnlFormLoader.Controls.Clear();
             InstanceNull();
