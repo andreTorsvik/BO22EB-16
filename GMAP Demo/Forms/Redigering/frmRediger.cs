@@ -290,9 +290,10 @@ namespace GMAP_Demo
         {
             frmVisning.instance.Size = this.Size;
             frmVisning.instance.Location = this.Location;
+
+            this.PnlFormLoader.Controls.Clear();
             instanceNull();
             
-            this.PnlFormLoader.Controls.Clear();
             frmVisning.instance.Show();
         }
 
@@ -312,6 +313,9 @@ namespace GMAP_Demo
 
             if (frm_R_RedigerOmråde.instance != null)
                 frm_R_RedigerOmråde.instance = null;
+
+            if (frm_R_EndreObjektsymbol.instance != null)
+                frm_R_EndreObjektsymbol.instance = null;
 
             if (FrmRediger.instance != null)
                 FrmRediger.instance = null;
