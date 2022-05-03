@@ -356,7 +356,7 @@ namespace GMAP_Demo
             // Metoden blir kun brukt i redigering  
             // Metoden tegner et "hjelpeområde" underveis, for å vise brukeren hvordan område kommer til å se ut
             // Det er 2 "TegnHjelpeOmråde_rediger" den metoden tar et ekstra argument: der brukern har dobbeltklikket på kartet 
-            // Dette for å gjøre "hjelpeområdet" blir mer dynamisk og tydeligere hvordan område kommer til å se ut 
+            // Dette for å gjøre "hjelpeområdet" mer dynamisk og tydeligere hvordan område kommer til å se ut 
 
             // Må lagre antallet for seinere bruk
             int antallPunkter = Lpunkt.Count; 
@@ -390,7 +390,7 @@ namespace GMAP_Demo
         {
             // Metoden blir kun brukt i redigering
             // Metoden tegner et "hjelpeområde" underveis, for å vise brukeren hvordan område kommer til å se ut
-            // Det er 2 "TegnHjelpeOmråde_rediger" den metoden tar kun område/polygon punktene og tegner området 
+            // Det er 2 "TegnHjelpeOmråde_rediger" den metoden, tar kun punktene til område/polygon og tegner området 
 
             // Må lagre antallet for seinere bruk
             int antallPunkter = Lpunkt.Count; 

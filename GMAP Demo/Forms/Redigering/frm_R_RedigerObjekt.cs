@@ -78,7 +78,8 @@ namespace GMAP_Demo
             lblSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", Globalekonstanter.MaxSikkerhetsklarering);
         }
 
-        private void lbTilgjengligKategori_MouseDoubleClick(object sender, MouseEventArgs e)
+
+        private void lbTilgjengligKategori_MouseClick(object sender, MouseEventArgs e)
         {
             if (lbTilgjengligKategori.SelectedIndex != -1)
             {
@@ -312,6 +313,7 @@ namespace GMAP_Demo
             lbTilgjengeligeTags.Items.Clear();
             LastInnTags();
         }
-    
+
+
     }
 }

@@ -86,7 +86,8 @@
             this.lbTilgjengligFarge.Sorted = true;
             this.lbTilgjengligFarge.TabIndex = 80;
             this.toolTip1.SetToolTip(this.lbTilgjengligFarge, "Dobbelklikk for å velge");
-            this.lbTilgjengligFarge.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligFarge_MouseDoubleClick);
+            this.lbTilgjengligFarge.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligFarge_MouseClick);
+           
             // 
             // lblFarge
             // 

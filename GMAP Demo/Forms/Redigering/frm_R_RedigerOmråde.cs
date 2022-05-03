@@ -154,7 +154,7 @@ namespace GMAP_Demo
 
         }
 
-        private void lbTilgjengligFarge_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void lbTilgjengligFarge_MouseClick(object sender, MouseEventArgs e)
         {
             if (lbTilgjengligFarge.SelectedIndex != -1)
             {
@@ -162,7 +162,6 @@ namespace GMAP_Demo
 
                 txtFarge.Text = selectedItemtext;
             }
-
         }
 
         private void btnLeggTilTag_Click(object sender, EventArgs e)
@@ -452,6 +451,8 @@ namespace GMAP_Demo
             pointLatLngs.Clear();
             txtNrPunkt.Text = pointLatLngs.Count.ToString();
         }
+
+
     }
 
 }

@@ -34,14 +34,14 @@ namespace GMAP_Demo
         public const  string NavnHjelpeOmråde = "HjelpeOmråde"; // Området som blir tegnet underveis, når man skal legge til eller redigere område 
         public const string NavnRute = "routes"; // Navn på rute mellom to plasser 
         public const string NavnObjekter = "Objekter"; // Navn på objekter 
-        public const string NavnHjelpeMarkør = "HjelpeMarkør"; // Navn på markør som kommer når man dobbelttrykker på kart, (gul) 
+        public const string NavnHjelpeMarkør = "HjelpeMarkør"; // Navn på markør (gul) som kommer når man dobbelttrykker på kart 
         public const string NavnOmråde = "Polygons"; // Navn område 
-        public const string NavnMarkørForOmråde = "MarkørForOmråde"; // Markør for hjørnen i et område som er lagt til 
+        public const string NavnMarkørForOmråde = "MarkørForOmråde"; // Markør (blå) for hjørnen i et område som er lagt til  
 
-        // Grensen hvor område(polygon) og objekter blir borte fra kartet 
+        // Grensen hvor objekter blir borte fra kartet 
         public const int  ZoomLevel = 16;
 
-        //filnaven
+        // Filnavn
         public const string filStartPosisjon = "StartPosisjon.txt";
         public const string filTheme = "Theme.txt";
 
