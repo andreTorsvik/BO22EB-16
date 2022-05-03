@@ -67,35 +67,7 @@ namespace GMAP_Demo
                     Setup(MuligKart.Redigering, Startpunkt);
                     break;
             }
-        }
-
-        public static List<GMapOverlay> LagreRute()
-        {
-            //lagrer kun rute fra visning-kart 
-            List<GMapOverlay> Lroutes = new List<GMapOverlay>();
-
-            for (int i = 0; i < FrmVisning.instance.map.Overlays.Count; i++)
-            {
-                if (FrmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
-                {
-                    Lroutes.Add(FrmVisning.instance.map.Overlays[i]);
-
-                }
-            }
-
-            return Lroutes;
-        }
-
-        public static void LeggTilOverlayRute(List<GMapOverlay> Lroutes)
-        {
-            if (Lroutes.Count > 0)
-            {
-                foreach (var item in Lroutes)
-                {
-                    FrmVisning.instance.map.Overlays.Add(item);
-                }
-            }
-        }
+        } 
 
         public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
         {
@@ -107,7 +79,7 @@ namespace GMAP_Demo
                     //lagrer lagret ruter, hvis de finnes
                     List<GMapOverlay> Lroutes = new List<GMapOverlay>();
                     if (RutePåkartet > 0)
-                        Lroutes = LagreRute();
+                        Lroutes = LagreRuteVisning();
 
                     // Fjerne alt på kartet som programmet har lagt til
                     FrmVisning.instance.map.Overlays.Clear();
@@ -239,6 +211,62 @@ namespace GMAP_Demo
 
         }
 
+        public static void LeggTilRute(PointLatLng Start, PointLatLng Mål)
+        {
+            // Bruker google-API
+            // Denne metoden er kun for visningskaret
+
+
+            // Henter rute fra googlemap
+            var route = GoogleMapProvider.Instance.GetRoute(Start, Mål, false, false, 14);
+
+            // Tegner rute
+            var r = new GMapRoute(route.Points, "My rute")
+            {
+                Stroke = new Pen(Color.Red, 5)
+            };
+
+            // Legger til i overlays på kartet
+            var routes = new GMapOverlay(Globalekonstanter.NavnRute);
+            routes.Routes.Add(r);
+            FrmVisning.instance.map.Overlays.Add(routes);
+            RutePåkartet++;
+            // Plasser kartet i starten av ruten 
+            FrmVisning.instance.map.Position = Start;
+
+            // Legger inn avstanden 
+            if (Frm_V_Posisjon.instance != null)
+                Frm_V_Posisjon.instance.lblDistanse.Text = route.Distance.ToString() + " Km";
+        }
+
+        public static List<GMapOverlay> LagreRuteVisning()
+        {
+            //lagrer kun rute fra visning-kart 
+            List<GMapOverlay> Lroutes = new List<GMapOverlay>();
+
+            for (int i = 0; i < FrmVisning.instance.map.Overlays.Count; i++)
+            {
+                if (FrmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
+                {
+                    Lroutes.Add(FrmVisning.instance.map.Overlays[i]);
+
+                }
+            }
+
+            return Lroutes;
+        }
+
+        public static void LeggTilOverlayRute(List<GMapOverlay> Lroutes)
+        {
+            if (Lroutes.Count > 0)
+            {
+                foreach (var item in Lroutes)
+                {
+                    FrmVisning.instance.map.Overlays.Add(item);
+                }
+            }
+        }
+
         public static void LeggTilOmråde(List<Område> Olist, MuligKart kart)
         {
 
@@ -273,7 +301,7 @@ namespace GMAP_Demo
             }
         }
 
-        public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla, Rosa, Turkis, Hvit, Svart }; // listen er kun for å vise hva som er tilgjenglig i "BestemFarge", må legge inn manuelt 
+        public enum MuligeFarger { Rød, Oransje, Grønn, Blå, Gul, Lilla, Rosa, Turkis, Hvit, Svart };  // Listen er kun for å vise hva som er tilgjenglig i "BestemFarge", må legge inn manuelt
         public static GMapPolygon BestemFarge(List<PointLatLng> Lpunkter, string Farge)
         {
             //Når man legger til en ny farge må man legge til navne på fargen i enum "MuligeFarger"
@@ -368,35 +396,7 @@ namespace GMAP_Demo
 
             return polygon;
         }
-
-        public static void LeggTilRute(PointLatLng Start, PointLatLng Mål)
-        {
-            // Bruker google-API
-            // Denne metoden er kun for visningskaret
-
-
-            // Henter rute fra googlemap
-            var route = GoogleMapProvider.Instance.GetRoute(Start, Mål, false, false, 14);
-
-            // Tegner rute
-            var r = new GMapRoute(route.Points, "My rute")
-            {
-                Stroke = new Pen(Color.Red, 5)
-            };
-
-            // Legger til i overlays på kartet
-            var routes = new GMapOverlay(Globalekonstanter.NavnRute);
-            routes.Routes.Add(r);
-            FrmVisning.instance.map.Overlays.Add(routes);
-            RutePåkartet++;
-            // Plasser kartet i starten av ruten 
-            FrmVisning.instance.map.Position = Start;
-
-            // Legger inn avstanden 
-            if (Frm_V_Posisjon.instance != null)
-                Frm_V_Posisjon.instance.lblDistanse.Text = route.Distance.ToString() + " Km";
-        }
-
+   
         public static void TegnHjelpeOmråde_rediger(PointLatLng klikket, List<PointLatLng> Lpunkt)
         {
             // Metoden blir kun brukt i redigering  
