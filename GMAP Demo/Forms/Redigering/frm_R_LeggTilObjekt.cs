@@ -6,12 +6,12 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_R_LeggTilObjekt : Form
+    public partial class Frm_R_LeggTilObjekt : Form
     {
 
-        public static frm_R_LeggTilObjekt instance;
+        public static Frm_R_LeggTilObjekt instance;
        
-        public frm_R_LeggTilObjekt()
+        public Frm_R_LeggTilObjekt()
         {
             InitializeComponent();
             instance = this;
@@ -70,21 +70,20 @@ namespace GMAP_Demo
             btnLeggTilObjekt.BackColor =  ThemeDesign.colorGray;
         }
 
-        private void frm_R_LeggTilObjekt_Load(object sender, EventArgs e)
+        private void Frm_R_LeggTilObjekt_Load(object sender, EventArgs e)
         {
             LastInnKategorier();
             LastInnTags();
             lblSikkerhetsklarering.Text = string.Format("Sikkerhetsklarering(1-{0})", Globalekonstanter.MaxSikkerhetsklarering);
         }
 
-        private void btnLeggTilTag_Click(object sender, EventArgs e)
+        private void BtnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string NyTag = "";
-            NyTag = txtNyTag.Text;
+            string nyTag = txtNyTag.Text;
 
-            if (!string.IsNullOrEmpty(NyTag))
+            if (!string.IsNullOrEmpty(nyTag))
             {
-                lbTilgjengeligeTags.Items.Add(NyTag);
+                lbTilgjengeligeTags.Items.Add(nyTag);
                 txtNyTag.Text = "";
 
             }
@@ -95,26 +94,26 @@ namespace GMAP_Demo
             txtLat.Text = lat.ToString();
             txtLong.Text = lang.ToString();
         }
-        private void btnLeggTilObjekt_Click(object sender, EventArgs e)
+        private void BtnLeggTilObjekt_Click(object sender, EventArgs e)
         {
             string navn = txtNavn.Text;
             string kategori = txtKategori.Text;
             string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string Kommentar = txtKommentar.Text;
+            string kommentar = txtKommentar.Text;
             string lat = txtLat.Text;
             string lang = txtLong.Text;
-            int AntallTags = lbValgtTags.Items.Count;
+            int antallTags = lbValgtTags.Items.Count;
             List<string> Tags = lbValgtTags.Items.Cast<string>().ToList();
 
             // Legger til, om alt stemmer 
             string SjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, Tags);
 
-            if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
+            if (sjekkFeil != string.Empty) MessageBox.Show(sjekkFeil);
 
             FellesMetoder.OppdaterTag_Liste();
         }
 
-        private void lbTilgjengligKategori_MouseClick(object sender, MouseEventArgs e)
+        private void LbTilgjengligKategori_MouseClick(object sender, MouseEventArgs e)
         {
             if (lbTilgjengligKategori.SelectedIndex != -1)
             {
@@ -124,11 +123,9 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnLeggTilNyKategori_Click(object sender, EventArgs e)
+        private void BtnLeggTilNyKategori_Click(object sender, EventArgs e)
         {
-            string nyKategori = "";
-
-            nyKategori = txtNyKategori.Text;
+            string nyKategori = txtNyKategori.Text;
 
             if (!string.IsNullOrEmpty(nyKategori))
             {
@@ -175,9 +172,8 @@ namespace GMAP_Demo
 
         }
 
-        private void lbTilgjengelige_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void LbTilgjengelige_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
             if (lbTilgjengeligeTags.SelectedIndex != -1)
             {
                 string selectedItemtext = lbTilgjengeligeTags.SelectedItem.ToString();
@@ -188,7 +184,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void lbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void LbValgtTags_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (lbValgtTags.SelectedIndex != -1)
             {
@@ -200,7 +196,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void txtSikkerhetsklarering_KeyPress(object sender, KeyPressEventArgs e)
+        private void TbSikkerhetsklarering_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {

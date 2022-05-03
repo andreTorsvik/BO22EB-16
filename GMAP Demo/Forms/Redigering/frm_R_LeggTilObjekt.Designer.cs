@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_R_LeggTilObjekt
+    partial class Frm_R_LeggTilObjekt
     {
         /// <summary>
         /// Required designer variable.
@@ -81,7 +81,7 @@
             this.btnLeggTilObjekt.TabIndex = 16;
             this.btnLeggTilObjekt.Text = "Lagre objekt";
             this.btnLeggTilObjekt.UseVisualStyleBackColor = true;
-            this.btnLeggTilObjekt.Click += new System.EventHandler(this.btnLeggTilObjekt_Click);
+            this.btnLeggTilObjekt.Click += new System.EventHandler(this.BtnLeggTilObjekt_Click);
             // 
             // lblSikkerhetsklarering
             // 
@@ -102,7 +102,7 @@
             this.txtSikkerhetsklarering.Name = "txtSikkerhetsklarering";
             this.txtSikkerhetsklarering.Size = new System.Drawing.Size(287, 22);
             this.txtSikkerhetsklarering.TabIndex = 14;
-            this.txtSikkerhetsklarering.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSikkerhetsklarering_KeyPress);
+            this.txtSikkerhetsklarering.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbSikkerhetsklarering_KeyPress);
             // 
             // lblNavn
             // 
@@ -134,7 +134,7 @@
             this.lbTilgjengeligeTags.Sorted = true;
             this.lbTilgjengeligeTags.TabIndex = 17;
             this.toolTip1.SetToolTip(this.lbTilgjengeligeTags, "Dobbelklikk for å flytte over");
-            this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengelige_MouseDoubleClick);
+            this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LbTilgjengelige_MouseDoubleClick);
             // 
             // lbValgtTags
             // 
@@ -147,7 +147,7 @@
             this.lbValgtTags.Sorted = true;
             this.lbValgtTags.TabIndex = 18;
             this.toolTip1.SetToolTip(this.lbValgtTags, "Dobbelklikk for å flytte over");
-            this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtTags_MouseDoubleClick);
+            this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LbValgtTags_MouseDoubleClick);
             // 
             // btnLeggTilTag
             // 
@@ -159,7 +159,7 @@
             this.btnLeggTilTag.TabIndex = 19;
             this.btnLeggTilTag.Text = "Legg til";
             this.btnLeggTilTag.UseVisualStyleBackColor = true;
-            this.btnLeggTilTag.Click += new System.EventHandler(this.btnLeggTilTag_Click);
+            this.btnLeggTilTag.Click += new System.EventHandler(this.BtnLeggTilTag_Click);
             // 
             // lblKommentar
             // 
@@ -288,7 +288,7 @@
             this.lbTilgjengligKategori.Sorted = true;
             this.lbTilgjengligKategori.TabIndex = 61;
             this.toolTip1.SetToolTip(this.lbTilgjengligKategori, "Dobbelklikk for å velge");
-            this.lbTilgjengligKategori.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligKategori_MouseClick);
+            this.lbTilgjengligKategori.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LbTilgjengligKategori_MouseClick);
             // 
             // lblKategori
             // 
@@ -331,7 +331,7 @@
             this.btnLeggTilNyKategori.TabIndex = 62;
             this.btnLeggTilNyKategori.Text = "Legg til ny Kategori";
             this.btnLeggTilNyKategori.UseVisualStyleBackColor = true;
-            this.btnLeggTilNyKategori.Click += new System.EventHandler(this.btnLeggTilNyKategori_Click);
+            this.btnLeggTilNyKategori.Click += new System.EventHandler(this.BtnLeggTilNyKategori_Click);
             // 
             // gbTag
             // 
@@ -394,7 +394,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frm_R_LeggTilObjekt";
             this.Text = "frm_R_LeggTilObjekt";
-            this.Load += new System.EventHandler(this.frm_R_LeggTilObjekt_Load);
+            this.Load += new System.EventHandler(this.Frm_R_LeggTilObjekt_Load);
             this.gbTag.ResumeLayout(false);
             this.gbTag.PerformLayout();
             this.gbObjekt.ResumeLayout(false);

@@ -31,7 +31,7 @@ namespace GMAP_Demo
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
 
             PnlFormLoader.Controls.Clear();
-            frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new Frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frm_R_LeggTilObjekt_vrb.FormBorderStyle = FormBorderStyle.None;
             PnlFormLoader.Controls.Add(frm_R_LeggTilObjekt_vrb);
             frm_R_LeggTilObjekt_vrb.Show();
@@ -127,12 +127,12 @@ namespace GMAP_Demo
 
         private void BtnObjekt_Click(object sender, EventArgs e)
         {
-            frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new Frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_LeggTilObjekt_vrb);
         }
         private void BtnOmråde_Click(object sender, EventArgs e)
         {
-            frm_R_LeggTilOmråde frm_R_LeggTilOmråde_vrb = new frm_R_LeggTilOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_R_LeggTilOmråde frm_R_LeggTilOmråde_vrb = new Frm_R_LeggTilOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_LeggTilOmråde_vrb);
         }
 
@@ -269,11 +269,11 @@ namespace GMAP_Demo
             if (Frm_R_FjernObjektOmråde.instance != null)
                 Frm_R_FjernObjektOmråde.instance = null;
 
-            if (frm_R_LeggTilObjekt.instance != null)
-                frm_R_LeggTilObjekt.instance = null;
+            if (Frm_R_LeggTilObjekt.instance != null)
+                Frm_R_LeggTilObjekt.instance = null;
 
-            if (frm_R_LeggTilOmråde.instance != null)
-                frm_R_LeggTilOmråde.instance = null;
+            if (Frm_R_LeggTilOmråde.instance != null)
+                Frm_R_LeggTilOmråde.instance = null;
 
             if (frm_R_RedigerObjekt.instance != null)
                 frm_R_RedigerObjekt.instance = null;
@@ -308,20 +308,20 @@ namespace GMAP_Demo
                 double lat = DoubleClick_punkt.Lat;
                 double lang = DoubleClick_punkt.Lng;
 
-                if (frm_R_LeggTilObjekt.instance != null)
+                if (Frm_R_LeggTilObjekt.instance != null)
                 {
-                    frm_R_LeggTilObjekt.instance.FyllKoordinater(lat, lang);
+                    Frm_R_LeggTilObjekt.instance.FyllKoordinater(lat, lang);
                 }
-                if (frm_R_LeggTilOmråde.instance != null)
+                if (Frm_R_LeggTilOmråde.instance != null)
                 {
-                    frm_R_LeggTilOmråde.instance.FyllKoordinater(lat, lang);
+                    Frm_R_LeggTilOmråde.instance.FyllKoordinater(lat, lang);
 
                     //tegner hjelpeområde, med punkt burker har klikket 
-                    if(frm_R_LeggTilOmråde.instance.pointLatLngs.Count >= 1)
+                    if(Frm_R_LeggTilOmråde.instance.pointLatLngs.Count >= 1)
                     {
                         Kart.FjernHjelpeOmråde();
 
-                        List<PointLatLng> Punkter = frm_R_LeggTilOmråde.instance.pointLatLngs.ToList();
+                        List<PointLatLng> Punkter = Frm_R_LeggTilOmråde.instance.pointLatLngs.ToList();
                         
                         Kart.TegnHjelpeOmråde_rediger(DoubleClick_punkt, Punkter);
 
