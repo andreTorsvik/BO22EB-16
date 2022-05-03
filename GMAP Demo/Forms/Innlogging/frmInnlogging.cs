@@ -40,11 +40,6 @@ namespace GMAP_Demo
             btnTestUser.BackColor = ThemeDesign.colorBlue;
         }
 
-        private void FrmInnlogging_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             listBruker = new List<Bruker>();
@@ -71,9 +66,9 @@ namespace GMAP_Demo
                         frmVisning frmVisning = new frmVisning(); // instance
                         frmVisning.Show();
 
-                        if (frmVerifiseringskode.instance != null)
+                        if (FrmVerifiseringskode.instance != null)
                         {
-                            frmVerifiseringskode.instance.Close();
+                            FrmVerifiseringskode.instance.Close();
                         }
                         if (FrmRegistering.instance != null)
                         {
@@ -97,7 +92,7 @@ namespace GMAP_Demo
                     {
                         if (listBruker[0].Godkjent == true)
                         {
-                            frmVerifiseringskode frmVerifiseringskode = new frmVerifiseringskode();
+                            FrmVerifiseringskode frmVerifiseringskode = new FrmVerifiseringskode();
                             frmVerifiseringskode.Show();
                         }
                         else if (listBruker[0].Godkjent == false)
