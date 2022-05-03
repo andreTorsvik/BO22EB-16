@@ -295,6 +295,7 @@ namespace GMAP_Demo
         }
 
         bool ZoomInvervall = false;
+        bool RutePåKartet = false;
         public bool KartOppdatere = false; //Hindrer at kart.reff() påvirker denne metoden 
         private void map_OnMapZoomChanged()
         {
@@ -306,14 +307,19 @@ namespace GMAP_Demo
             {
                 if (map.Zoom < ZoomLevel && !ZoomInvervall)
                 {
-                    //fjerner alle overlays utenom rute 
+                    //Fjerner objekt overlays 
                     for (int i = 0; i < map.Overlays.Count; i++)
                     {
-                        if (map.Overlays[i].Id != Globalekonstanter.NavnRute)
+                        if (map.Overlays[i].Id == Globalekonstanter.NavnRute)
+                        {
+                            RutePåKartet = true;
+                        }
+                        if (map.Overlays[i].Id == Globalekonstanter.NavnObjekter)
                         {
                             map.Overlays.RemoveAt(i);
                             i--;
                         }
+                        
                     }
 
                     ZoomInvervall = true;
@@ -321,7 +327,7 @@ namespace GMAP_Demo
                 else if (map.Zoom >= ZoomLevel && ZoomInvervall)
                 {
                    
-                    if(map.Overlays.Count == 0) // det finnes ingen rute på kartet 
+                    if(!RutePåKartet) // det finnes ingen rute på kartet 
                     {
                         Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
                         ZoomInvervall = false;
@@ -341,14 +347,15 @@ namespace GMAP_Demo
 
                         //Opptatere kartet (alt blir fjernet med denne metoden og lagt til utenom ruter) 
                         Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-                        ZoomInvervall = false;
-
+                        
                         //må legge til ruten igjen 
                         foreach (var item in Lroutes)
                         {
                             map.Overlays.Add(item);
                         }
-                        
+
+                        ZoomInvervall = false;
+                        RutePåKartet = false;
                     }
 
                 }
