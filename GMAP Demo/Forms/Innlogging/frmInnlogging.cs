@@ -75,9 +75,9 @@ namespace GMAP_Demo
                         {
                             frmVerifiseringskode.instance.Close();
                         }
-                        if (frmRegistering.instance != null)
+                        if (FrmRegistering.instance != null)
                         {
-                            frmRegistering.instance.Close();
+                            FrmRegistering.instance.Close();
                         }
 
                         if (InnloggetBruker.Sikkerhetsklarering > Globalekonstanter.MaxSikkerhetsklarering)
@@ -132,7 +132,7 @@ namespace GMAP_Demo
         private void LbNyBruker_Click(object sender, EventArgs e)
         {
             Hide();
-            frmRegistering frmRegistering = new frmRegistering(); // instance
+            FrmRegistering frmRegistering = new FrmRegistering(); // instance
             frmRegistering.Size = Size;
             frmRegistering.Location = Location;
             frmRegistering.Show();

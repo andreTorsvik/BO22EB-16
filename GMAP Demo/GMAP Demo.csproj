@@ -220,11 +220,11 @@
     <Compile Include="Forms\Redigering\frm_R_RedigerOmråde.Designer.cs">
       <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Innlogging\frmRegistering.cs">
+    <Compile Include="Forms\Innlogging\FrmRegistering.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Innlogging\frmRegistering.Designer.cs">
-      <DependentUpon>frmRegistering.cs</DependentUpon>
+    <Compile Include="Forms\Innlogging\FrmRegistering.Designer.cs">
+      <DependentUpon>FrmRegistering.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Innlogging\frmVerifiseringskode.cs">
       <SubType>Form</SubType>
@@ -253,8 +253,8 @@
     <EmbeddedResource Include="Forms\Innlogging\FrmInnlogging.resx">
       <DependentUpon>FrmInnlogging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Innlogging\frmRegistering.resx">
-      <DependentUpon>frmRegistering.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Innlogging\FrmRegistering.resx">
+      <DependentUpon>FrmRegistering.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Innlogging\frmVerifiseringskode.resx">
       <DependentUpon>frmVerifiseringskode.cs</DependentUpon>

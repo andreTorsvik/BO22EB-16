@@ -3,10 +3,10 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frmRegistering : Form
+    public partial class FrmRegistering : Form
     {
-        public static frmRegistering instance;
-        public frmRegistering()
+        public static FrmRegistering instance;
+        public FrmRegistering()
         {
             InitializeComponent();
             instance = this;
@@ -44,23 +44,23 @@ namespace GMAP_Demo
             btnAvbryt.BackColor = ThemeDesign.colorBlue;
         }
 
-        private void btnAvbryt_Click(object sender, EventArgs e)
+        private void BtnAvbryt_Click(object sender, EventArgs e)
         {
-            FrmInnlogging.instance.Location = this.Location;
-            this.Close();
+            FrmInnlogging.instance.Location = Location;
+            Close();
 
         }
 
-        private void btnOpprettbruker_Click(object sender, EventArgs e)
+        private void BtnOpprettbruker_Click(object sender, EventArgs e)
         {
             bool opprettet = OpprettBruker();
 
             if (opprettet)
             {
-                MessageBox.Show("Bruker er nå opprett, venter på å bli godkjent av en admin. Hvis den blir godkjent " +
-                    "mottar du en mail med en tallkode.");
+                MessageBox.Show("Bruker er nå opprett, vent på å bli godkjent av en administrator." +
+                                "Hvis den blir godkjent mottar du en mail med en tallkode.");
 
-                this.Close();
+                Close();
             }
         }
 
@@ -70,24 +70,24 @@ namespace GMAP_Demo
             string fornavn = tbFornavn.Text;
             string etternavn = tbEtternavn.Text;
             string telefon = tbTelefonnummer.Text;
-            string Epost = tbEpost.Text.ToLower();
+            string epost = tbEpost.Text.ToLower();
             string passord = tbPassord.Text;
-            string bePassord = tbBekreftPassord.Text;
+            string bekreftPassord = tbBekreftPassord.Text;
 
-            string utFyllingsmangler = Tekstbehandling.AltUtfylt_Registerings(fornavn, etternavn, telefon, Epost, passord, bePassord);
+            string utfyllingMangler = Tekstbehandling.AltUtfylt_Registerings(fornavn, etternavn, telefon, epost, passord, bekreftPassord);
 
-            if (utFyllingsmangler == string.Empty)
+            if (utfyllingMangler == string.Empty)
             {
-                string feil = Tekstbehandling.SjekkGyldigDataRegistering(Epost, passord, bePassord);
+                string feil = Tekstbehandling.SjekkGyldigDataRegistering(epost, passord, bekreftPassord);
 
                 if (feil == string.Empty)
                 {
                     try
                     {
                         //Generer tall 
-                        int Tallkode = GenereTallKode();
+                        int Tallkode = GenererTallKode();
                         //legge til i database
-                        DBComBruker.InsertBrukerToDb(fornavn, etternavn, Convert.ToInt32(telefon), Epost.Trim(), passord, Tallkode);
+                        DBComBruker.InsertBrukerToDb(fornavn, etternavn, Convert.ToInt32(telefon), epost.Trim(), passord, Tallkode);
 
                         svar = true;
                     }
@@ -96,12 +96,12 @@ namespace GMAP_Demo
                 }
                 else MessageBox.Show(feil);
             }
-            else MessageBox.Show(utFyllingsmangler);
+            else MessageBox.Show(utfyllingMangler);
 
             return svar;
         }
 
-        private int GenereTallKode()
+        private int GenererTallKode()
         {
             double tallkode = 0;
             Random r = new Random();
@@ -123,13 +123,13 @@ namespace GMAP_Demo
             return Tallkode;
         }
 
-        private void frmRegistering_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmRegistering_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Application.Exit();
             FrmInnlogging.instance.Show();
         }
 
-        private void txtTelefon_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtTelefon_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {

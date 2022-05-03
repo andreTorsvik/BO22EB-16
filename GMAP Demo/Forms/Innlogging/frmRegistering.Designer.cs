@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frmRegistering
+    partial class FrmRegistering
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistering));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistering));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTitle2 = new System.Windows.Forms.Label();
             this.tbEtternavn = new System.Windows.Forms.TextBox();
@@ -134,7 +134,7 @@
             this.tbTelefonnummer.Name = "tbTelefonnummer";
             this.tbTelefonnummer.Size = new System.Drawing.Size(150, 20);
             this.tbTelefonnummer.TabIndex = 19;
-            this.tbTelefonnummer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefon_KeyPress);
+            this.tbTelefonnummer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTelefon_KeyPress);
             // 
             // lblEpost
             // 
@@ -211,7 +211,7 @@
             this.btnOpprettbruker.TabIndex = 25;
             this.btnOpprettbruker.Text = "Opprett Bruker";
             this.btnOpprettbruker.UseVisualStyleBackColor = false;
-            this.btnOpprettbruker.Click += new System.EventHandler(this.btnOpprettbruker_Click);
+            this.btnOpprettbruker.Click += new System.EventHandler(this.BtnOpprettbruker_Click);
             // 
             // btnAvbryt
             // 
@@ -226,7 +226,7 @@
             this.btnAvbryt.TabIndex = 26;
             this.btnAvbryt.Text = "Avbryt";
             this.btnAvbryt.UseVisualStyleBackColor = false;
-            this.btnAvbryt.Click += new System.EventHandler(this.btnAvbryt_Click);
+            this.btnAvbryt.Click += new System.EventHandler(this.BtnAvbryt_Click);
             // 
             // frmRegistering
             // 
@@ -257,7 +257,7 @@
             this.Name = "frmRegistering";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registering";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRegistering_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmRegistering_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
