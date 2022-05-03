@@ -369,7 +369,7 @@ namespace GMAP_Demo
                     ÅpneFormFraMenyknapp(btnRedigerObjekt, e, frm_R_RedigerObjekt_vrb);
                 }
 
-                if (frm_R_FjernObjektOmråde.instance != null)
+                if (Frm_R_FjernObjektOmråde.instance != null)
                 {
                     Frm_R_FjernObjektOmråde.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
                 }
