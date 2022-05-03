@@ -338,6 +338,9 @@ namespace GMAP_Demo
                 GlobaleLister.LOmråde.Clear();
                 GlobaleLister.LRessurs.Clear();
 
+                // Oppdatere antall
+                tbAntallObjekter.Text = GlobaleLister.LRessurs.Count.ToString();
+
                 // Oppdater kartet
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
             }
@@ -380,6 +383,9 @@ namespace GMAP_Demo
 
                 // Tømmer listene, siden ingen kategori er valgt 
                 GlobaleLister.LRessurs.Clear();
+
+                // Oppdatere antall
+                tbAntallObjekter.Text = GlobaleLister.LRessurs.Count.ToString();
 
                 // Oppdatere kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
