@@ -99,16 +99,16 @@ namespace GMAP_Demo
             string navn = txtNavn.Text;
             string kategori = txtKategori.Text;
             string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string kommentar = txtKommentar.Text;
+            string Kommentar = txtKommentar.Text;
             string lat = txtLat.Text;
             string lang = txtLong.Text;
-            int antallTags = lbValgtTags.Items.Count;
+            int AntallTags = lbValgtTags.Items.Count;
             List<string> Tags = lbValgtTags.Items.Cast<string>().ToList();
 
             // Legger til, om alt stemmer 
             string SjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, Tags);
 
-            if (sjekkFeil != string.Empty) MessageBox.Show(sjekkFeil);
+            if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
             FellesMetoder.OppdaterTag_Liste();
         }

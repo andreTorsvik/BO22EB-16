@@ -179,8 +179,8 @@ namespace GMAP_Demo
         {
             string navn = txtNavn.Text;
             string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string kommentar = txtKommentar.Text;
-            string farge = txtfarge.Text;
+            string Kommentar = txtKommentar.Text;
+            string Farge = txtfarge.Text;
             int antallPunkter = pointLatLngs.Count;
             int antallTags = lbValgtTags.Items.Count;
             List<string> Tags = lbValgtTags.Items.Cast<string>().ToList();
