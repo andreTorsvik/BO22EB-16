@@ -104,8 +104,7 @@
             this.lbTilgjengligKategori.Sorted = true;
             this.lbTilgjengligKategori.TabIndex = 85;
             this.toolTip1.SetToolTip(this.lbTilgjengligKategori, "Dobbelklikk for å velge");
-            this.lbTilgjengligKategori.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligKategori_MouseDoubleClick);
-            // 
+            this.lbTilgjengligKategori.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligKategori_MouseClick);            // 
             // lblKategori
             // 
             this.lblKategori.AutoSize = true;

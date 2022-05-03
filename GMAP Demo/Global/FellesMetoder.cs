@@ -7,7 +7,7 @@ namespace GMAP_Demo
 {
     public class FellesMetoder
     {
-        public static void OppdaterListe_området() // Vurdere å flyttet
+        public static void OppdaterListe_området() 
         {
             // Tømmer listen
             GlobaleLister.LOmråde.Clear();
@@ -45,7 +45,7 @@ namespace GMAP_Demo
 
         }
 
-        public static void OppdaterListe_ressurs() // Vurdere å flyttet
+        public static void OppdaterListe_ressurs() 
         {
             // Tømmerlisten 
             if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
@@ -89,7 +89,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void OppdaterTag_Liste() // Vurdere å flyttet
+        public static void OppdaterTag_Liste() 
         {
             //oppdatere Vises tagliste 
 
@@ -130,7 +130,6 @@ namespace GMAP_Demo
             }
         }
 
-
         public static void OppdaterKategoriListe()
         {
             GlobaleLister.kategoriListeVises.Clear();
@@ -142,6 +141,7 @@ namespace GMAP_Demo
                 GlobaleLister.kategoriListeVises.Add(item);
             }
         }
+
         public static HashSet<string> FåAlleTags()
         {
             HashSet<string> AlleTag = new HashSet<string>();
@@ -169,6 +169,7 @@ namespace GMAP_Demo
             return AlleTag;
 
         }
+
         public static bool MeldingsboksYesNo(string Tittel, string tekst)
         {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;

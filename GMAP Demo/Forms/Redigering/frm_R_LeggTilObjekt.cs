@@ -113,16 +113,14 @@ namespace GMAP_Demo
             FellesMetoder.OppdaterTag_Liste();
         }
 
-        private void lbTilgjengligKategori_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void lbTilgjengligKategori_MouseClick(object sender, MouseEventArgs e)
         {
-
             if (lbTilgjengligKategori.SelectedIndex != -1)
             {
                 string selectedItemtext = lbTilgjengligKategori.SelectedItem.ToString();
 
                 txtKategori.Text = selectedItemtext;
             }
-
         }
 
         private void btnLeggTilNyKategori_Click(object sender, EventArgs e)
@@ -286,5 +284,7 @@ namespace GMAP_Demo
         {
 
         }
+
+        
     }
 }

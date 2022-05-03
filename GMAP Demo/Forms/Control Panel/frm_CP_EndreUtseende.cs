@@ -47,6 +47,10 @@ namespace GMAP_Demo
             //skriver til fil for å lagre 
             FilBehandeling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());
 
+            //endre standerfarge 
+            Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground;
+            Globalekonstanter.StandardFargeKnapp = ThemeDesign.colorSecondaryBackground;
+
             //Setter theme på de instance som er oppe
             if (FrmControlPanel.instance != null)
             {
@@ -60,9 +64,7 @@ namespace GMAP_Demo
 
             SetTheme();
 
-            //endre standerfarge 
-            Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground;
-            Globalekonstanter.StandardFargeKnapp = ThemeDesign.colorSecondaryBackground;
+            
 
             //endre Theme på visning, Åpner nå filter uavhengiv va som var der før
             //for å endre theme 

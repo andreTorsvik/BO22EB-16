@@ -16,9 +16,9 @@ namespace GMAP_Demo
         // Lister for filtrering på kategorier:
         // BindingList for lbKategorierVises REF: https://stackoverflow.com/questions/17615069/how-to-refresh-datasource-of-a-listbox, https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindinglist-1?view=net-6.0
         public static BindingList<Kategorier_Bilde> kategoriListeVises = new BindingList<Kategorier_Bilde>();
-        // BindingList for lbKategorierSkjult
         public static BindingList<Kategorier_Bilde> kategoriListeSkjult = new BindingList<Kategorier_Bilde>();
 
+        // Lister for filtrering på Tags:
         public static BindingList<string> tag_ListeVises = new BindingList<string>();
         public static BindingList<string> tag_ListeSkjult = new BindingList<string>();
 
