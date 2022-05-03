@@ -94,9 +94,10 @@
             this.lblInfo.AutoSize = true;
             this.lblInfo.Location = new System.Drawing.Point(9, 22);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(86, 20);
+            this.lblInfo.Size = new System.Drawing.Size(575, 40);
             this.lblInfo.TabIndex = 9;
-            this.lblInfo.Text = "Bruker info";
+            this.lblInfo.Text = "Du må fjerne alle forkomster av kategorien før den kommer opp her.\r\nDet er ikke s" +
+    "ikkert du har tilgang til alle objektene på grunn av sikkerhetsklarering";
             // 
             // lblValgtKategori
             // 
