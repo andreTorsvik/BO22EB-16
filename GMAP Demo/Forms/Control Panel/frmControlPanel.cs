@@ -56,6 +56,24 @@ namespace GMAP_Demo
             //frmsettings_FormClosing blir utført 
         }
 
+        private void ÅpneFormFraMenyknapp(Button sender, EventArgs e, Form target)
+        {
+            if (pnlNav.Top != sender.Top)
+            {
+                AlleKnapperTilStandardFargeCP();
+                sender.BackColor = Globalekonstanter.knapp_trykket;
+
+                FlyttNavigasjonsPanel(sender.Height, sender.Top);
+
+                //legge inn rett form i panelet
+                PnlFormLoader.Controls.Clear();
+
+                target.FormBorderStyle = FormBorderStyle.None;
+                PnlFormLoader.Controls.Add(target);
+                target.Show();
+            }
+        }
+
         private void FrmSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
             //PnlFormLoader.Controls.Clear();
@@ -80,70 +98,78 @@ namespace GMAP_Demo
 
         private void BtnLoggInn_Click(object sender, EventArgs e)
         {
-            if (pnlNav.Top != btnLoggUt.Top)
-            {
-                AlleKnapperTilStandardFargeCP();
-                btnLoggUt.BackColor = Globalekonstanter.knapp_trykket;
+            Frm_CP_LoggUt frm_CP_LoggUt_vrb = new Frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            ÅpneFormFraMenyknapp((Button)sender, e, frm_CP_LoggUt_vrb);
+            //if (pnlNav.Top != btnLoggUt.Top)
+            //{
+            //    AlleKnapperTilStandardFargeCP();
+            //    btnLoggUt.BackColor = Globalekonstanter.knapp_trykket;
 
-                FlyttNavigasjonsPanel(btnLoggUt.Height, btnLoggUt.Top);
+            //    FlyttNavigasjonsPanel(btnLoggUt.Height, btnLoggUt.Top);
 
-                PnlFormLoader.Controls.Clear();
-                Frm_CP_LoggUt frm_S_LoggInn_vrb = new Frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
-                PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
-                frm_S_LoggInn_vrb.Show();
-            }
+            //    PnlFormLoader.Controls.Clear();
+            //    Frm_CP_LoggUt frm_CP_LoggUt_vrb = new Frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            //    frm_CP_LoggUt_vrb.FormBorderStyle = FormBorderStyle.None;
+            //    PnlFormLoader.Controls.Add(frm_CP_LoggUt_vrb);
+            //    frm_CP_LoggUt_vrb.Show();
+            //}
         }
 
         private void BtnStartPosisjon_Click(object sender, EventArgs e)
         {
-            if (pnlNav.Top != btnStartPosisjon.Top)
-            {
-                AlleKnapperTilStandardFargeCP();
-                btnStartPosisjon.BackColor = Globalekonstanter.knapp_trykket;
+            Frm_CP_StartPosisjon frm_CP_StartPosisjon_vrb = new Frm_CP_StartPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            ÅpneFormFraMenyknapp((Button)sender, e, frm_CP_StartPosisjon_vrb);
+            //if (pnlNav.Top != btnStartPosisjon.Top)
+            //{
+            //    AlleKnapperTilStandardFargeCP();
+            //    btnStartPosisjon.BackColor = Globalekonstanter.knapp_trykket;
 
-                FlyttNavigasjonsPanel(btnStartPosisjon.Height, btnStartPosisjon.Top);
+            //    FlyttNavigasjonsPanel(btnStartPosisjon.Height, btnStartPosisjon.Top);
 
-                PnlFormLoader.Controls.Clear();
-                Frm_CP_StartPosisjon frm_S_StartPosisjon_vrb = new Frm_CP_StartPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frm_S_StartPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
-                PnlFormLoader.Controls.Add(frm_S_StartPosisjon_vrb);
-                frm_S_StartPosisjon_vrb.Show();
-            }
+            //    PnlFormLoader.Controls.Clear();
+            //    Frm_CP_StartPosisjon frm_CP_StartPosisjon_vrb = new Frm_CP_StartPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            //    frm_CP_StartPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
+            //    PnlFormLoader.Controls.Add(frm_CP_StartPosisjon_vrb);
+            //    frm_CP_StartPosisjon_vrb.Show();
+            //}
         }
 
         private void BtnAdmin_Click(object sender, EventArgs e)
         {
-            if (pnlNav.Top != btnAdmin.Top)
-            {
-                AlleKnapperTilStandardFargeCP();
-                btnAdmin.BackColor = Globalekonstanter.knapp_trykket;
+            Frm_CP_Admin frm_CP_Admin_vrb = new Frm_CP_Admin() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            ÅpneFormFraMenyknapp((Button)sender, e, frm_CP_Admin_vrb);
+            //if (pnlNav.Top != btnAdmin.Top)
+            //{
+            //    AlleKnapperTilStandardFargeCP();
+            //    btnAdmin.BackColor = Globalekonstanter.knapp_trykket;
 
-                FlyttNavigasjonsPanel(btnAdmin.Height, btnAdmin.Top);
+            //    FlyttNavigasjonsPanel(btnAdmin.Height, btnAdmin.Top);
 
-                PnlFormLoader.Controls.Clear();
-                Frm_CP_Admin frm_S_Admin_vrb = new Frm_CP_Admin() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frm_S_Admin_vrb.FormBorderStyle = FormBorderStyle.None;
-                PnlFormLoader.Controls.Add(frm_S_Admin_vrb);
-                frm_S_Admin_vrb.Show();
-            }
+            //    PnlFormLoader.Controls.Clear();
+            //    Frm_CP_Admin frm_CP_Admin_vrb = new Frm_CP_Admin() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            //    frm_CP_Admin_vrb.FormBorderStyle = FormBorderStyle.None;
+            //    PnlFormLoader.Controls.Add(frm_CP_Admin_vrb);
+            //    frm_CP_Admin_vrb.Show();
+            //}
         }
 
         private void BtnFjernKategori_Click(object sender, EventArgs e)
         {
-            if (pnlNav.Top != btnFjernKategori.Top)
-            {
-                AlleKnapperTilStandardFargeCP();
-                btnFjernKategori.BackColor = Globalekonstanter.knapp_trykket;
+            Frm_CP_FjernKategori frm_CP_FjernKategori_vrb = new Frm_CP_FjernKategori() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            ÅpneFormFraMenyknapp((Button)sender, e, frm_CP_FjernKategori_vrb);
+            //if (pnlNav.Top != btnFjernKategori.Top)
+            //{
+            //    AlleKnapperTilStandardFargeCP();
+            //    btnFjernKategori.BackColor = Globalekonstanter.knapp_trykket;
 
-                FlyttNavigasjonsPanel(btnFjernKategori.Height, btnFjernKategori.Top);
+            //    FlyttNavigasjonsPanel(btnFjernKategori.Height, btnFjernKategori.Top);
 
-                PnlFormLoader.Controls.Clear();
-                Frm_CP_FjernKategori frm_S_BrukerInfo_vrb = new Frm_CP_FjernKategori() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frm_S_BrukerInfo_vrb.FormBorderStyle = FormBorderStyle.None;
-                PnlFormLoader.Controls.Add(frm_S_BrukerInfo_vrb);
-                frm_S_BrukerInfo_vrb.Show();
-            }
+            //    PnlFormLoader.Controls.Clear();
+            //    Frm_CP_FjernKategori frm_CP_FjernKategori_vrb = new Frm_CP_FjernKategori() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            //    frm_CP_FjernKategori_vrb.FormBorderStyle = FormBorderStyle.None;
+            //    PnlFormLoader.Controls.Add(frm_CP_FjernKategori_vrb);
+            //    frm_CP_FjernKategori_vrb.Show();
+            //}
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
@@ -157,24 +183,26 @@ namespace GMAP_Demo
 
         private void BtnChangeTheme_Click(object sender, EventArgs e)
         {
-            if (pnlNav.Top != btnChangeTheme.Top)
-            {
-                AlleKnapperTilStandardFargeCP();
-                btnChangeTheme.BackColor = Globalekonstanter.knapp_trykket;
+            Frm_CP_EndreUtseende frm_CP_EndeUtseende_vrb = new Frm_CP_EndreUtseende() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            ÅpneFormFraMenyknapp((Button)sender, e, frm_CP_EndeUtseende_vrb);
+            //if (pnlNav.Top != btnChangeTheme.Top)
+            //{
+            //    AlleKnapperTilStandardFargeCP();
+            //    btnChangeTheme.BackColor = Globalekonstanter.knapp_trykket;
 
-                FlyttNavigasjonsPanel(btnChangeTheme.Height, btnChangeTheme.Top);
+            //    FlyttNavigasjonsPanel(btnChangeTheme.Height, btnChangeTheme.Top);
 
-                PnlFormLoader.Controls.Clear();
-                Frm_CP_EndreUtseende frm_CP_EndeUtseende_vrb = new Frm_CP_EndreUtseende() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frm_CP_EndeUtseende_vrb.FormBorderStyle = FormBorderStyle.None;
-                PnlFormLoader.Controls.Add(frm_CP_EndeUtseende_vrb);
-                frm_CP_EndeUtseende_vrb.Show();
-            }
+            //    PnlFormLoader.Controls.Clear();
+            //    Frm_CP_EndreUtseende frm_CP_EndeUtseende_vrb = new Frm_CP_EndreUtseende() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            //    frm_CP_EndeUtseende_vrb.FormBorderStyle = FormBorderStyle.None;
+            //    PnlFormLoader.Controls.Add(frm_CP_EndeUtseende_vrb);
+            //    frm_CP_EndeUtseende_vrb.Show();
+            //}
         }
 
         private void FrmControlPanel_Load(object sender, EventArgs e)
         {
-            MinimumSize = new System.Drawing.Size(1000, 750);
+            MinimumSize = Globalekonstanter.frmWithMenuMinimumSize;
         }
 
         public void OppdaterThemeKnapp()
