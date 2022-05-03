@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frmControlPanel
+    partial class FrmControlPanel
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmControlPanel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmControlPanel));
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlNav = new System.Windows.Forms.Panel();
@@ -93,7 +93,7 @@
             this.btnTilbake.Text = "Tilbake";
             this.btnTilbake.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnTilbake.UseVisualStyleBackColor = true;
-            this.btnTilbake.Click += new System.EventHandler(this.btnTilbake_Click);
+            this.btnTilbake.Click += new System.EventHandler(this.BtnTilbake_Click);
             // 
             // btnFjernKategori
             // 
@@ -110,7 +110,7 @@
             this.btnFjernKategori.Text = "Fjern kategori";
             this.btnFjernKategori.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFjernKategori.UseVisualStyleBackColor = true;
-            this.btnFjernKategori.Click += new System.EventHandler(this.btnFjernKategori_Click);
+            this.btnFjernKategori.Click += new System.EventHandler(this.BtnFjernKategori_Click);
             // 
             // btnAdmin
             // 
@@ -127,7 +127,7 @@
             this.btnAdmin.Text = "Admin";
             this.btnAdmin.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAdmin.UseVisualStyleBackColor = true;
-            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            this.btnAdmin.Click += new System.EventHandler(this.BtnAdmin_Click);
             // 
             // btnStartPosisjon
             // 
@@ -144,7 +144,7 @@
             this.btnStartPosisjon.Text = "Start Posisjon";
             this.btnStartPosisjon.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnStartPosisjon.UseVisualStyleBackColor = true;
-            this.btnStartPosisjon.Click += new System.EventHandler(this.btnStartPosisjon_Click);
+            this.btnStartPosisjon.Click += new System.EventHandler(this.BtnStartPosisjon_Click);
             // 
             // btnLoggUt
             // 
@@ -161,7 +161,7 @@
             this.btnLoggUt.Text = "Logg ut";
             this.btnLoggUt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLoggUt.UseVisualStyleBackColor = true;
-            this.btnLoggUt.Click += new System.EventHandler(this.btnLoggInn_Click);
+            this.btnLoggUt.Click += new System.EventHandler(this.BtnLoggInn_Click);
             // 
             // btnChangeTheme
             // 
@@ -178,7 +178,7 @@
             this.btnChangeTheme.Text = "Endre Utseende";
             this.btnChangeTheme.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnChangeTheme.UseVisualStyleBackColor = true;
-            this.btnChangeTheme.Click += new System.EventHandler(this.btnChangeTheme_Click);
+            this.btnChangeTheme.Click += new System.EventHandler(this.BtnChangeTheme_Click);
             // 
             // frmControlPanel
             // 
@@ -193,8 +193,8 @@
             this.Name = "frmControlPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Control Panel";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSettings_FormClosing);
-            this.Load += new System.EventHandler(this.frmControlPanel_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSettings_FormClosing);
+            this.Load += new System.EventHandler(this.FrmControlPanel_Load);
             this.pnlMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 

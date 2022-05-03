@@ -51,8 +51,8 @@ namespace GMAP_Demo
 
         private void Frm_S_StartPosisjon_Load(object sender, EventArgs e)
         {
-            txtNyLat.Text = frmControlPanel.instance.lat.ToString();
-            txtNyLong.Text = frmControlPanel.instance.lng.ToString();
+            txtNyLat.Text = FrmControlPanel.instance.lat.ToString();
+            txtNyLong.Text = FrmControlPanel.instance.lng.ToString();
             PointLatLng nåværendeStartPunkt = HentStartpunktFraFil();
             txtNåværendeLat.Text = nåværendeStartPunkt.Lat.ToString();
             txtNåværendeLong.Text = nåværendeStartPunkt.Lng.ToString();

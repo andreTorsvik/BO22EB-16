@@ -216,13 +216,13 @@ namespace GMAP_Demo
         private void btnSettings_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmControlPanel frmSettings = new frmControlPanel(); // instance 
+            FrmControlPanel frmSettings = new FrmControlPanel(); // instance 
             frmSettings.Size = this.Size;
             frmSettings.Location = this.Location;
 
             //til startpoisjon formen 
-            frmControlPanel.instance.lat = map.Position.Lat;
-            frmControlPanel.instance.lng = map.Position.Lng;
+            FrmControlPanel.instance.lat = map.Position.Lat;
+            FrmControlPanel.instance.lng = map.Position.Lng;
 
             frmSettings.Show();
         }

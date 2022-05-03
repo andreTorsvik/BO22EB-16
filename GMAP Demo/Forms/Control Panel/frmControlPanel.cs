@@ -4,13 +4,13 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frmControlPanel : Form
+    public partial class FrmControlPanel : Form
     {
-        public static frmControlPanel instance;
+        public static FrmControlPanel instance;
         //private Color knapp_trykket;
         public double lng;
         public double lat;
-        public frmControlPanel()
+        public FrmControlPanel()
         {
             InitializeComponent();
             instance = this;
@@ -20,10 +20,10 @@ namespace GMAP_Demo
 
             
 
-            this.PnlFormLoader.Controls.Clear();
+            PnlFormLoader.Controls.Clear();
             Frm_CP_LoggUt frm_S_LoggInn_vrb = new Frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
+            PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
             frm_S_LoggInn_vrb.Show();
 
             SetTheme();
@@ -50,27 +50,27 @@ namespace GMAP_Demo
             PnlFormLoader.BackColor = ThemeDesign.colorSecondaryBackground;
         }
 
-        private void btnTilbake_Click(object sender, EventArgs e)
+        private void BtnTilbake_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             //frmsettings_FormClosing blir utført 
         }
 
-        private void frmSettings_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
             //PnlFormLoader.Controls.Clear();
             if (frmVisning.instance != null)
                 frmVisning.instance.Show();
 
-            if (frmControlPanel.instance != null)
-                frmControlPanel.instance = null;
-            if (Frm_CP_EndeUtseende.instance != null)
-                Frm_CP_EndeUtseende.instance = null;
+            if (instance != null)
+                instance = null;
+            if (Frm_CP_EndreUtseende.instance != null)
+                Frm_CP_EndreUtseende.instance = null;
 
 
         }
 
-        internal void AlleKnapperTilStandarfarge()
+        internal void AlleKnapperTilStandardFargeCP()
         {
             Color StandarFarge = Globalekonstanter.StandarFargeKnapp;
 
@@ -82,108 +82,108 @@ namespace GMAP_Demo
 
         }
 
-        private void btnLoggInn_Click(object sender, EventArgs e)
+        private void BtnLoggInn_Click(object sender, EventArgs e)
         {
             if (pnlNav.Top != btnLoggUt.Top)
             {
-                AlleKnapperTilStandarfarge();
+                AlleKnapperTilStandardFargeCP();
                 btnLoggUt.BackColor = Globalekonstanter.knapp_trykket;
 
                 FlyttNavigasjonsPanel(btnLoggUt.Height, btnLoggUt.Top);
 
-                this.PnlFormLoader.Controls.Clear();
+                PnlFormLoader.Controls.Clear();
                 Frm_CP_LoggUt frm_S_LoggInn_vrb = new Frm_CP_LoggUt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_LoggInn_vrb.FormBorderStyle = FormBorderStyle.None;
-                this.PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
+                PnlFormLoader.Controls.Add(frm_S_LoggInn_vrb);
                 frm_S_LoggInn_vrb.Show();
             }
         }
 
-        private void btnStartPosisjon_Click(object sender, EventArgs e)
+        private void BtnStartPosisjon_Click(object sender, EventArgs e)
         {
             if (pnlNav.Top != btnStartPosisjon.Top)
             {
-                AlleKnapperTilStandarfarge();
+                AlleKnapperTilStandardFargeCP();
                 btnStartPosisjon.BackColor = Globalekonstanter.knapp_trykket;
 
                 FlyttNavigasjonsPanel(btnStartPosisjon.Height, btnStartPosisjon.Top);
 
-                this.PnlFormLoader.Controls.Clear();
+                PnlFormLoader.Controls.Clear();
                 Frm_CP_StartPosisjon frm_S_StartPosisjon_vrb = new Frm_CP_StartPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_StartPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
-                this.PnlFormLoader.Controls.Add(frm_S_StartPosisjon_vrb);
+                PnlFormLoader.Controls.Add(frm_S_StartPosisjon_vrb);
                 frm_S_StartPosisjon_vrb.Show();
             }
         }
 
-        private void btnAdmin_Click(object sender, EventArgs e)
+        private void BtnAdmin_Click(object sender, EventArgs e)
         {
             if (pnlNav.Top != btnAdmin.Top)
             {
-                AlleKnapperTilStandarfarge();
+                AlleKnapperTilStandardFargeCP();
                 btnAdmin.BackColor = Globalekonstanter.knapp_trykket;
 
                 FlyttNavigasjonsPanel(btnAdmin.Height, btnAdmin.Top);
 
-                this.PnlFormLoader.Controls.Clear();
+                PnlFormLoader.Controls.Clear();
                 Frm_CP_Admin frm_S_Admin_vrb = new Frm_CP_Admin() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_Admin_vrb.FormBorderStyle = FormBorderStyle.None;
-                this.PnlFormLoader.Controls.Add(frm_S_Admin_vrb);
+                PnlFormLoader.Controls.Add(frm_S_Admin_vrb);
                 frm_S_Admin_vrb.Show();
             }
         }
 
-        private void btnFjernKategori_Click(object sender, EventArgs e)
+        private void BtnFjernKategori_Click(object sender, EventArgs e)
         {
             if (pnlNav.Top != btnFjernKategori.Top)
             {
-                AlleKnapperTilStandarfarge();
+                AlleKnapperTilStandardFargeCP();
                 btnFjernKategori.BackColor = Globalekonstanter.knapp_trykket;
 
                 FlyttNavigasjonsPanel(btnFjernKategori.Height, btnFjernKategori.Top);
 
-                this.PnlFormLoader.Controls.Clear();
+                PnlFormLoader.Controls.Clear();
                 Frm_CP_FjernKategori frm_S_BrukerInfo_vrb = new Frm_CP_FjernKategori() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_S_BrukerInfo_vrb.FormBorderStyle = FormBorderStyle.None;
-                this.PnlFormLoader.Controls.Add(frm_S_BrukerInfo_vrb);
+                PnlFormLoader.Controls.Add(frm_S_BrukerInfo_vrb);
                 frm_S_BrukerInfo_vrb.Show();
             }
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
         {
-            //henter Høyde på knapp og hvor toppen er plassert 
+            //Henter Høyde på knapp og hvor toppen er plassert.
             pnlNav.Height = høyde;
             pnlNav.Top = top;
-            //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
+            //Denne trenger kun å bli utført en gang.
             pnlNav.Left = btnLoggUt.Left;
         }
 
-        private void btnChangeTheme_Click(object sender, EventArgs e)
+        private void BtnChangeTheme_Click(object sender, EventArgs e)
         {
             if (pnlNav.Top != btnChangeTheme.Top)
             {
-                AlleKnapperTilStandarfarge();
+                AlleKnapperTilStandardFargeCP();
                 btnChangeTheme.BackColor = Globalekonstanter.knapp_trykket;
 
                 FlyttNavigasjonsPanel(btnChangeTheme.Height, btnChangeTheme.Top);
 
-                this.PnlFormLoader.Controls.Clear();
-                Frm_CP_EndeUtseende frm_CP_EndeUtseende_vrb = new Frm_CP_EndeUtseende() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                PnlFormLoader.Controls.Clear();
+                Frm_CP_EndreUtseende frm_CP_EndeUtseende_vrb = new Frm_CP_EndreUtseende() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_CP_EndeUtseende_vrb.FormBorderStyle = FormBorderStyle.None;
-                this.PnlFormLoader.Controls.Add(frm_CP_EndeUtseende_vrb);
+                PnlFormLoader.Controls.Add(frm_CP_EndeUtseende_vrb);
                 frm_CP_EndeUtseende_vrb.Show();
             }
         }
 
-        private void frmControlPanel_Load(object sender, EventArgs e)
+        private void FrmControlPanel_Load(object sender, EventArgs e)
         {
-            this.MinimumSize = new System.Drawing.Size(1000, 750);
+            MinimumSize = new System.Drawing.Size(1000, 750);
         }
 
         public void OppdaterThemeKnapp()
         {
-            frmControlPanel.instance.AlleKnapperTilStandarfarge();
+            instance.AlleKnapperTilStandardFargeCP();
             btnChangeTheme.BackColor = Globalekonstanter.knapp_trykket;
         }
     }

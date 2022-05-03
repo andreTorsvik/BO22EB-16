@@ -7,19 +7,20 @@ using System.Net;
 
 namespace GMAP_Demo
 {
-    public partial class Frm_CP_EndeUtseende : Form
+    public partial class Frm_CP_EndreUtseende : Form
     {
-
-        public Frm_CP_EndeUtseende()
+        public static Frm_CP_EndreUtseende instance;
+        
+        public Frm_CP_EndreUtseende()
         {
             InitializeComponent();
+            instance = this;
             SetTheme();
-
         }
 
         private void SetTheme()
         {
-            this.BackColor = ThemeDesign.colorBackground;
+            BackColor = ThemeDesign.colorBackground;
 
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
@@ -47,12 +48,12 @@ namespace GMAP_Demo
             FilBehandeling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());
 
             //Setter theme på de instance som er oppe
-            if (frmControlPanel.instance != null)
+            if (FrmControlPanel.instance != null)
             {
-                frmControlPanel.instance.SetTheme();
+                FrmControlPanel.instance.SetTheme();
 
                 //endre fargen på knappen til formen 
-                frmControlPanel.instance.OppdaterThemeKnapp();
+                FrmControlPanel.instance.OppdaterThemeKnapp();
             }      
             if (frmInnlogging.instance != null)
                 frmInnlogging.instance.SetTheme();
