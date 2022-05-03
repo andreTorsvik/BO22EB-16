@@ -25,5 +25,8 @@
     <Setting Name="GuestAccountPassword" Type="System.String" Scope="Application">
       <Value Profile="(Default)">PassGjest</Value>
     </Setting>
+    <Setting Name="GoogleMapApiKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

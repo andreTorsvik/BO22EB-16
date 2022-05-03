@@ -34,18 +34,18 @@ namespace GMAP_Demo
             switch (kart)
             {
                 case MuligKart.Visning:
-                    frmVisning.instance.map.MapProvider = Valgtkart;
+                    FrmVisning.instance.map.MapProvider = Valgtkart;
 
                     //start posisjon kart
-                    frmVisning.instance.map.Position = Startpunkt; 
+                    FrmVisning.instance.map.Position = Startpunkt; 
 
                     //settings for kart: zoom
-                    frmVisning.instance.map.MinZoom = minZoom; 
-                    frmVisning.instance.map.MaxZoom = maksZoom; 
-                    frmVisning.instance.map.Zoom = Zoom; 
+                    FrmVisning.instance.map.MinZoom = minZoom; 
+                    FrmVisning.instance.map.MaxZoom = maksZoom; 
+                    FrmVisning.instance.map.Zoom = Zoom; 
 
                     // Gjør det mulig å "dra" kartet 
-                    frmVisning.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
+                    FrmVisning.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
                     break;
 
                 case MuligKart.Redigering:
@@ -75,11 +75,11 @@ namespace GMAP_Demo
         {
             List<GMapOverlay> Lroutes = new List<GMapOverlay>();
 
-            for (int i = 0; i < frmVisning.instance.map.Overlays.Count; i++)
+            for (int i = 0; i < FrmVisning.instance.map.Overlays.Count; i++)
             {
-                if (frmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
+                if (FrmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
                 {
-                    Lroutes.Add(frmVisning.instance.map.Overlays[i]);
+                    Lroutes.Add(FrmVisning.instance.map.Overlays[i]);
 
                 }
             }
@@ -99,7 +99,7 @@ namespace GMAP_Demo
             {
                 case MuligKart.Visning:
                     // Fjerne alt på kartet, programmet har lagt til
-                    frmVisning.instance.map.Overlays.Clear(); 
+                    FrmVisning.instance.map.Overlays.Clear(); 
                     break;
                 case MuligKart.Redigering:
                     // Fjerne alt på kartet, programmet har lagt til
@@ -123,7 +123,7 @@ namespace GMAP_Demo
             {
                 foreach (var item in Lroutes)
                 {
-                    frmVisning.instance.map.Overlays.Add(item);
+                    FrmVisning.instance.map.Overlays.Add(item);
                 }
             }
             
@@ -168,11 +168,11 @@ namespace GMAP_Demo
             }
 
             //legger til i riktig kart 
-            if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
+            if (MuligKart.Visning == kart) FrmVisning.instance.map.Overlays.Add(markers);
             else if (MuligKart.Redigering == kart) FrmRediger.instance.map.Overlays.Add(markers);
             else if (MuligKart.Begge == kart)
             {
-                frmVisning.instance.map.Overlays.Add(markers);
+                FrmVisning.instance.map.Overlays.Add(markers);
                 FrmRediger.instance.map.Overlays.Add(markers);
             }
 
@@ -222,7 +222,7 @@ namespace GMAP_Demo
             markers.Markers.Add(marker);
 
             //legger til på riktig kart
-            if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
+            if (MuligKart.Visning == kart) FrmVisning.instance.map.Overlays.Add(markers);
             else if (MuligKart.Redigering == kart) FrmRediger.instance.map.Overlays.Add(markers);
 
         }
@@ -251,11 +251,11 @@ namespace GMAP_Demo
                 polygons.Polygons.Add(polygon);
 
                 // Legger til på riktig kart
-                if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(polygons);
+                if (MuligKart.Visning == kart) FrmVisning.instance.map.Overlays.Add(polygons);
                 else if (MuligKart.Redigering == kart) FrmRediger.instance.map.Overlays.Add(polygons);
                 else if (MuligKart.Begge == kart)
                 {
-                    frmVisning.instance.map.Overlays.Add(polygons);
+                    FrmVisning.instance.map.Overlays.Add(polygons);
                     FrmRediger.instance.map.Overlays.Add(polygons);
                 }
             }
@@ -375,10 +375,10 @@ namespace GMAP_Demo
             // Legger til i overlays på kartet
             var routes = new GMapOverlay(Globalekonstanter.NavnRute);
             routes.Routes.Add(r);
-            frmVisning.instance.map.Overlays.Add(routes);
+            FrmVisning.instance.map.Overlays.Add(routes);
             RutePåkartet++;
             // Plasser kartet i starten av ruten 
-            frmVisning.instance.map.Position = Start;
+            FrmVisning.instance.map.Position = Start;
 
             // Legger inn avstanden 
             if(Frm_V_Posisjon.instance != null)
@@ -460,12 +460,12 @@ namespace GMAP_Demo
             switch (kart)
             {
                 case MuligKart.Visning:
-                    frmVisning.instance.KartOppdatere = true;
+                    FrmVisning.instance.KartOppdatere = true;
 
-                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + PlussMinus;
-                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom - PlussMinus;
+                    FrmVisning.instance.map.Zoom = FrmVisning.instance.map.Zoom + PlussMinus;
+                    FrmVisning.instance.map.Zoom = FrmVisning.instance.map.Zoom - PlussMinus;
 
-                    frmVisning.instance.KartOppdatere = false;
+                    FrmVisning.instance.KartOppdatere = false;
                     break;
                 case MuligKart.Redigering:
 
@@ -474,8 +474,8 @@ namespace GMAP_Demo
 
                     break;
                 case MuligKart.Begge:
-                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + PlussMinus;
-                    frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom - PlussMinus;
+                    FrmVisning.instance.map.Zoom = FrmVisning.instance.map.Zoom + PlussMinus;
+                    FrmVisning.instance.map.Zoom = FrmVisning.instance.map.Zoom - PlussMinus;
 
                     FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom + PlussMinus;
                     FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom - PlussMinus;
@@ -489,13 +489,13 @@ namespace GMAP_Demo
             string sammenSlått = Tekstbehandling.AdresseTekstfelt(Land, ByKommune, Adresse);
 
             //Posisjon før flytting
-            PointLatLng PosisjonFør = frmVisning.instance.map.Position;
+            PointLatLng PosisjonFør = FrmVisning.instance.map.Position;
 
             //setter kartet til posisjon bassert på tekst 
-            frmVisning.instance.map.SetPositionByKeywords(sammenSlått);
+            FrmVisning.instance.map.SetPositionByKeywords(sammenSlått);
 
             //finne nåværende punkt 
-            PointLatLng PosisjonNå = frmVisning.instance.map.Position;
+            PointLatLng PosisjonNå = FrmVisning.instance.map.Position;
 
             //hvis kartet har flyttet seg
             if (PosisjonFør != PosisjonNå)
@@ -510,7 +510,7 @@ namespace GMAP_Demo
                 else if (!string.IsNullOrWhiteSpace(ByKommune)) ZoomLevel = 11;
                 else if (!string.IsNullOrWhiteSpace(Land)) ZoomLevel = 5;
 
-                frmVisning.instance.map.Zoom = ZoomLevel;
+                FrmVisning.instance.map.Zoom = ZoomLevel;
             }
         }
 
@@ -543,11 +543,11 @@ namespace GMAP_Demo
         public static void FjernRute()
         {
             // Fjern alle rutene 
-            for (int i = 0; i < frmVisning.instance.map.Overlays.Count; i++)
+            for (int i = 0; i < FrmVisning.instance.map.Overlays.Count; i++)
             {
-                if (frmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
+                if (FrmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
                 {
-                    frmVisning.instance.map.Overlays.RemoveAt(i);
+                    FrmVisning.instance.map.Overlays.RemoveAt(i);
                     i--;            
                 }
             }

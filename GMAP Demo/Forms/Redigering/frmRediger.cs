@@ -84,8 +84,8 @@ namespace GMAP_Demo
 
         private void BtnTilbake_Click(object sender, EventArgs e)
         {
-            frmVisning.instance.map.Position = map.Position;
-            frmVisning.instance.map.Zoom = map.Zoom;
+            FrmVisning.instance.map.Position = map.Position;
+            FrmVisning.instance.map.Zoom = map.Zoom;
 
             Close();
         }
@@ -255,13 +255,13 @@ namespace GMAP_Demo
 
         private void FrmRediger_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frmVisning.instance.Size = Size;
-            frmVisning.instance.Location = Location;
+            FrmVisning.instance.Size = Size;
+            FrmVisning.instance.Location = Location;
 
             PnlFormLoader.Controls.Clear();
             InstanceNull();
             
-            frmVisning.instance.Show();
+            FrmVisning.instance.Show();
         }
 
         private void InstanceNull()

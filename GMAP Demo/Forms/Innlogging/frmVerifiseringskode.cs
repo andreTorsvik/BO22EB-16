@@ -34,7 +34,7 @@ namespace GMAP_Demo
 
                 FrmInnlogging.instance.Hide();
                 Close();
-                frmVisning frmVisning = new frmVisning(); // instance
+                FrmVisning frmVisning = new FrmVisning(); // instance
                 frmVisning.Size = Size;
                 frmVisning.Show();
             }
