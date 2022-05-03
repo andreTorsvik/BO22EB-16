@@ -165,7 +165,7 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnChangeTheme.Height, btnChangeTheme.Top);
 
                 this.PnlFormLoader.Controls.Clear();
-                frm_CP_EndeUtseende frm_CP_EndeUtseende_vrb = new frm_CP_EndeUtseende() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                Frm_CP_EndeUtseende frm_CP_EndeUtseende_vrb = new Frm_CP_EndeUtseende() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frm_CP_EndeUtseende_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frm_CP_EndeUtseende_vrb);
                 frm_CP_EndeUtseende_vrb.Show();

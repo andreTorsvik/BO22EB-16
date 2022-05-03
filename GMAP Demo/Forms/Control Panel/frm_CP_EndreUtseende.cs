@@ -4,10 +4,10 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_CP_EndeUtseende : Form
+    public partial class Frm_CP_EndeUtseende : Form
     {
-        frm_CP_EndeUtseende instance;
-        public frm_CP_EndeUtseende()
+        Frm_CP_EndeUtseende instance;
+        public Frm_CP_EndeUtseende()
         {
             InitializeComponent();
             instance = this;
@@ -41,6 +41,7 @@ namespace GMAP_Demo
 
             FilBehandeling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());
 
+            //endre vinduene du er i nå
             frmControlPanel.instance.SetTheme();
             frmInnlogging.instance.SetTheme();
             
