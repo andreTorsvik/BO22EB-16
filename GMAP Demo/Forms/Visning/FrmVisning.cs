@@ -307,7 +307,7 @@ namespace GMAP_Demo
             }
         }
 
-        bool ZoomInvervall = false;
+
         bool RutePåKartet = false;
         public bool KartOppdatere = false; //Hindrer at kart.reff() påvirker denne metoden 
         private void map_OnMapZoomChanged()
@@ -318,7 +318,7 @@ namespace GMAP_Demo
             //den metoen zoomer ut og inn for å oppdatere kartet 
             if (!KartOppdatere)
             {
-                if (map.Zoom < ZoomLevel && !ZoomInvervall)
+                if (map.Zoom < ZoomLevel && !Globalekonstanter.UtenforZoomGrense)
                 {
                     // Fjerner objekt overlays 
                     for (int i = 0; i < map.Overlays.Count; i++)
@@ -334,15 +334,16 @@ namespace GMAP_Demo
                         }
                     }
 
-                    ZoomInvervall = true;
+                    Globalekonstanter.UtenforZoomGrense = true;
                 }
-                else if (map.Zoom >= ZoomLevel && ZoomInvervall)
+                else if (map.Zoom >= ZoomLevel && Globalekonstanter.UtenforZoomGrense)
                 {
 
                     if (!RutePåKartet) // Det finnes ingen rute på kartet 
                     {
+                        Globalekonstanter.UtenforZoomGrense = false;
                         Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-                        ZoomInvervall = false;
+                        
                     }
                     else // Finnes minst en rute 
                     {
@@ -366,7 +367,7 @@ namespace GMAP_Demo
                             map.Overlays.Add(item);
                         }
 
-                        ZoomInvervall = false;
+                        Globalekonstanter.UtenforZoomGrense = false;
                         RutePåKartet = false;
                     }
 
