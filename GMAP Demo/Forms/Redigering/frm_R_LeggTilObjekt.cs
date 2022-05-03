@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -103,12 +104,7 @@ namespace GMAP_Demo
             string lat = txtLat.Text;
             string lang = txtLong.Text;
             int AntallTags = lbValgtTags.Items.Count;
-
-            List<string> Tags = new List<string>();
-            foreach (var item in lbValgtTags.Items)
-            {
-                Tags.Add(item.ToString());
-            }
+            List<string> Tags = lbValgtTags.Items.Cast<string>().ToList();
 
             string SjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, Tags);
 
@@ -242,7 +238,7 @@ namespace GMAP_Demo
                     //fylle in tags 
                     try
                     {
-                        foreach (var item in lbValgtTags.Items)
+                        foreach (var item in nyTags)
                         {
                             DBComTag_Ressurs.InsertTag_RessursToDb(item.ToString(), Løpenummer_Ressurs);
                         }

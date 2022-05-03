@@ -225,7 +225,7 @@ namespace GMAP_Demo
         {
             if (lbPunkter.Items.Count > 0) pointLatLngs.Clear();
 
-            var Punktliste = DBComPunkter_område.GetPunkter_området(Løpenummer_til_redigering);
+            var Punktliste = DBComPunkter_område.GetPunkter_området(Løpenummer);
             Punktliste = Punktliste.OrderBy(x => x.Rekkefølge_punkter).ToList();
             foreach (var item1 in Punktliste)
             {
@@ -244,11 +244,13 @@ namespace GMAP_Demo
             int antallPunkter = pointLatLngs.Count;
             int antallTags = lbValgtTags.Items.Count;
 
-            List<string> NyTags = new List<string>();
-            foreach (var item in lbValgtTags.Items)
-            {
-                NyTags.Add(item.ToString());
-            }
+            List<string> NyTags = lbValgtTags.Items.Cast<string>().ToList();
+            //List<string> NyTags = new List<string>();
+            
+            //foreach (var item in lbValgtTags.Items)
+            //{
+            //    NyTags.Add(item.ToString());
+            //}
 
             string SjekkFeil = RedigerOmrådet(Løpenummer_til_redigering, navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags, LGamleTag, NyTags);
 
@@ -388,8 +390,8 @@ namespace GMAP_Demo
                                         }
                                     }
 
-                                    List<string> SjekkOmNye1 = NyTags.Except(LGamleTag).ToList();
-                                    List<string> SjekkOmNye2 = LGamleTag.Except(NyTags).ToList();
+                                    List<string> SjekkOmNye1 = NyTags.Except(GamleTags).ToList();
+                                    List<string> SjekkOmNye2 = GamleTags.Except(NyTags).ToList();
 
                                     if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
                                     {

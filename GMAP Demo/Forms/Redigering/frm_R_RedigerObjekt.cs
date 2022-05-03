@@ -218,12 +218,8 @@ namespace GMAP_Demo
             string lat = txtLat.Text;
             string lang = txtLong.Text;
             int antallTags = lbValgtTags.Items.Count;
-            List<string> NyTags = new List<string>();
-
-            foreach (var item in lbValgtTags.Items)
-            {
-                NyTags.Add(item.ToString());
-            }
+            List<string> NyTags = lbValgtTags.Items.Cast<string>().ToList();
+           
 
             string SjekkFeil = RedigerObjekt(Løpenummer_til_redigering, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antallTags, LGamleTag, NyTags);
 
