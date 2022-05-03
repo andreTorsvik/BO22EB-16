@@ -28,12 +28,12 @@ namespace GMAP_Demo
         public static Color StandarFargeKnapp = ThemeDesign.colorSecondaryBackground; // Farge på knapp normalt sett
 
         // Navn på Overlays 
-        public const  string NavnHjelpeOmråde = "HjelpeOmråde"; // området som blir tegnet underveis, når man skal legge til eller redigere område 
-        public const string NavnRute = "routes"; // navn på rute mellom to plasser 
-        public const string NavnObjekter = "Objekter"; // navn på objekter 
-        public const string NavnHjelpeMarkør = "HjelpeMarkør"; // navn på markør som kommer når man dobbelttrykker på kart, (gul) 
-        public const string NavnOmråde = "Polygons"; //navn område 
-        public const string NavnMarkørForOmråde = "MarkørForOmråde"; //markør for hjørnen i et område som er lagt til 
+        public const  string NavnHjelpeOmråde = "HjelpeOmråde"; // Området som blir tegnet underveis, når man skal legge til eller redigere område 
+        public const string NavnRute = "routes"; // Navn på rute mellom to plasser 
+        public const string NavnObjekter = "Objekter"; // Navn på objekter 
+        public const string NavnHjelpeMarkør = "HjelpeMarkør"; // Navn på markør som kommer når man dobbelttrykker på kart, (gul) 
+        public const string NavnOmråde = "Polygons"; // Navn område 
+        public const string NavnMarkørForOmråde = "MarkørForOmråde"; // Markør for hjørnen i et område som er lagt til 
 
         // Grensen hvor område(polygon) og objekter blir borte fra kartet 
         public const int  ZoomLevel = 16;

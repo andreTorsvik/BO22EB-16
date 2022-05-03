@@ -93,7 +93,7 @@ namespace GMAP_Demo
                     tbValgtKategori.Text = string.Empty;
 
                     OppdaterKategoriListe();
-                    Kart.OppdaterKategoriListe();
+                    FellesMetoder.OppdaterKategoriListe();
                 }
             }
         }

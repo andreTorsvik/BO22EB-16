@@ -115,7 +115,7 @@ namespace GMAP_Demo
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
-            Kart.OppdaterTag_Liste();
+            FellesMetoder.OppdaterTag_Liste();
         }
 
         private void lbTilgjengligKategori_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -151,7 +151,7 @@ namespace GMAP_Demo
                 }
                 txtNyKategori.Text = "";
             }
-            Kart.OppdaterKategoriListe();
+            FellesMetoder.OppdaterKategoriListe();
         }
 
         private void LastInnKategorier()
@@ -258,7 +258,7 @@ namespace GMAP_Demo
                     //tøme tekstfelt og lister 
                     TømeTekstFeltOgLister();
 
-                    Kart.OppdaterListe_ressurs();
+                    FellesMetoder.OppdaterListe_ressurs();
                     Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
                 }
                 else MessageBox.Show(feilMelding);

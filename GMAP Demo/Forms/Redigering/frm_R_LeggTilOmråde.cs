@@ -202,7 +202,7 @@ namespace GMAP_Demo
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
-            Kart.OppdaterTag_Liste();
+            FellesMetoder.OppdaterTag_Liste();
         }
 
         private void btnLeggTilPunktIListe_Click(object sender, EventArgs e)
@@ -344,7 +344,7 @@ namespace GMAP_Demo
                     Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde); // 
 
                     //legge til de nye området på kartet 
-                    Kart.OppdaterListe_området();
+                    FellesMetoder.OppdaterListe_området();
                     Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
                 }
                 else MessageBox.Show(FeilTallSjekk);
