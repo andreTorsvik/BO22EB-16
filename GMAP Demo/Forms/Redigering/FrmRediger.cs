@@ -170,7 +170,7 @@ namespace GMAP_Demo
 
         private void BtnRedigerOmråde_Click(object sender, EventArgs e)
         {
-            frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new Frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_RedigerOmråde_vrb);
             //ÅpneRediger_områdeForm();
         }
@@ -278,8 +278,8 @@ namespace GMAP_Demo
             if (Frm_R_RedigerObjekt.instance != null)
                 Frm_R_RedigerObjekt.instance = null;
 
-            if (frm_R_RedigerOmråde.instance != null)
-                frm_R_RedigerOmråde.instance = null;
+            if (Frm_R_RedigerOmråde.instance != null)
+                Frm_R_RedigerOmråde.instance = null;
 
             if (Frm_R_EndreObjektsymbol.instance != null)
                 Frm_R_EndreObjektsymbol.instance = null;
@@ -331,18 +331,18 @@ namespace GMAP_Demo
                 {
                     Frm_R_RedigerObjekt.instance.FyllKoordinater(lat, lang);
                 }
-                if (frm_R_RedigerOmråde.instance != null)
+                if (Frm_R_RedigerOmråde.instance != null)
                 {
-                    frm_R_RedigerOmråde.instance.FyllKoordinater(lat, lang);
+                    Frm_R_RedigerOmråde.instance.FyllKoordinater(lat, lang);
 
-                    if (frm_R_RedigerOmråde.instance.Løpenummer_til_redigering != -1) // for å unngå at den tegner hvis den ikke er inni "RedigerOmråde"
+                    if (Frm_R_RedigerOmråde.instance.løpenummer_til_redigering != -1) // for å unngå at den tegner hvis den ikke er inni "RedigerOmråde"
                     {
                         
-                        if (frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1) // tegne område underveis 
+                        if (Frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1) // tegne område underveis 
                         {
                             Kart.FjernHjelpeOmråde();
 
-                            List<PointLatLng> Punkter = frm_R_RedigerOmråde.instance.pointLatLngs.ToList();
+                            List<PointLatLng> Punkter = Frm_R_RedigerOmråde.instance.pointLatLngs.ToList();
 
                             Kart.TegnHjelpeOmråde_rediger(DoubleClick_punkt, Punkter);
 
@@ -387,23 +387,23 @@ namespace GMAP_Demo
             if (pnlNav.Top == btnRedigerOmråde.Top) {  }  
             else if (pnlNav.Top != btnFjernObjektOmråde.Top)
             {
-                frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                Frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new Frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ÅpneFormFraMenyknapp(btnRedigerOmråde, e, frm_R_RedigerOmråde_vrb);
                 //ÅpneRediger_områdeForm();
             }
             
 
-            if (frm_R_RedigerOmråde.instance != null)
+            if (Frm_R_RedigerOmråde.instance != null)
             {
-                frm_R_RedigerOmråde.instance.FyllInfoOmråde(Convert.ToInt32(item.Tag));
+                Frm_R_RedigerOmråde.instance.FyllInfoOmråde(Convert.ToInt32(item.Tag));
 
-                if (frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1)
+                if (Frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1)
                 {
                     //slette hvis noen har allrede 
                     SlettHjelpeMarkørerOgOmråder();
 
                     //tegn område for valgt
-                    List<PointLatLng> PunkteListe = frm_R_RedigerOmråde.instance.pointLatLngs.ToList();
+                    List<PointLatLng> PunkteListe = Frm_R_RedigerOmråde.instance.pointLatLngs.ToList();
 
                     if (Kart.SjekkKartHarHjelpemarkør_redigier("HjelpeMarkør"))
                     {
@@ -449,9 +449,9 @@ namespace GMAP_Demo
             {
                 Frm_R_RedigerObjekt.instance.løpenummer_til_redigering = -1;
             }       
-            if (frm_R_RedigerOmråde.instance != null)
+            if (Frm_R_RedigerOmråde.instance != null)
             {
-                frm_R_RedigerOmråde.instance.Løpenummer_til_redigering = -1;
+                Frm_R_RedigerOmråde.instance.løpenummer_til_redigering = -1;
             }
         }
 

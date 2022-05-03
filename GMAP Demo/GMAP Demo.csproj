@@ -214,11 +214,11 @@
     <Compile Include="Forms\Control Panel\Frm_CP_StartPosisjon.Designer.cs">
       <DependentUpon>Frm_CP_StartPosisjon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Redigering\frm_R_RedigerOmråde.cs">
+    <Compile Include="Forms\Redigering\Frm_R_RedigerOmråde.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Redigering\frm_R_RedigerOmråde.Designer.cs">
-      <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
+    <Compile Include="Forms\Redigering\Frm_R_RedigerOmråde.Designer.cs">
+      <DependentUpon>Frm_R_RedigerOmråde.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Innlogging\FrmRegistering.cs">
       <SubType>Form</SubType>
@@ -289,8 +289,8 @@
     <EmbeddedResource Include="Forms\Redigering\Frm_R_RedigerObjekt.resx">
       <DependentUpon>Frm_R_RedigerObjekt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Redigering\frm_R_RedigerOmråde.resx">
-      <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Redigering\Frm_R_RedigerOmråde.resx">
+      <DependentUpon>Frm_R_RedigerOmråde.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Control Panel\Frm_CP_FjernKategori.resx">
       <DependentUpon>Frm_CP_FjernKategori.cs</DependentUpon>
