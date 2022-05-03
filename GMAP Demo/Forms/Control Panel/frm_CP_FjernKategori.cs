@@ -60,7 +60,6 @@ namespace GMAP_Demo
 
             }
 
-            lbTilgjengligKategorier.Sorted = true;
             if (lbTilgjengligKategorier.Items.Count == 0) btnFjern.Enabled = false;
             else btnFjern.Enabled = true;
         }

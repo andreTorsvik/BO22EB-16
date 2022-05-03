@@ -84,7 +84,6 @@ namespace GMAP_Demo
             if (!string.IsNullOrEmpty(NyTag))
             {
                 lbTilgjengeligeTags.Items.Add(NyTag);
-                lbTilgjengeligeTags.Sorted = true;
                 txtNyTag.Text = "";
 
             }
@@ -142,7 +141,6 @@ namespace GMAP_Demo
                 {
                     DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
                     lbTilgjengligKategori.Items.Add(nyKategori);
-                    lbTilgjengligKategori.Sorted = true;
                     txtKategori.Text = nyKategori;
                 }
                 catch (Exception)
@@ -176,7 +174,6 @@ namespace GMAP_Demo
             {
                 lbTilgjengeligeTags.Items.Add(item);
             }
-            lbTilgjengeligeTags.Sorted = true;
 
         }
 

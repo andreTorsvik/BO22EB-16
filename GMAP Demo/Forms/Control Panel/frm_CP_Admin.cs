@@ -59,8 +59,7 @@ namespace GMAP_Demo
                 else if (item.Godkjent == false) lbVenterPåGodkjenning.Items.Add(item.BrukerDataTilAdmin); // har ikke gjort det
 
             }
-            lbListeOverbrukere.Sorted = true;
-            lbVenterPåGodkjenning.Sorted = true;
+
         }
 
         private void GodkjentListeSjekk()

@@ -124,7 +124,6 @@ namespace GMAP_Demo
                 lbTilgjengligKategorier.Items.Add(item.Kategorinavn);
             }
 
-            lbTilgjengligKategorier.Sorted = true;
         }
 
         private void btnLeggTilIDb_Click(object sender, EventArgs e)

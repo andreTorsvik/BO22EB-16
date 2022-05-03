@@ -112,7 +112,6 @@ namespace GMAP_Demo
                 DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
 
                 lbTilgjengligKategori.Items.Add(nyKategori);
-                lbTilgjengligKategori.Sorted = true;
                 txtNyKategori.Text = "";
             }
 
@@ -130,7 +129,6 @@ namespace GMAP_Demo
                 lbTilgjengeligeTags.Items.Add(item);
             }
 
-            lbTilgjengeligeTags.Sorted = true;
         }
 
         private void lbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -165,7 +163,6 @@ namespace GMAP_Demo
             if (!string.IsNullOrEmpty(NyTag))
             {
                 lbTilgjengeligeTags.Items.Add(NyTag);
-                lbTilgjengeligeTags.Sorted = true;
                 txtNyTag.Text = "";
             }
         }
