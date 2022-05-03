@@ -99,15 +99,16 @@ namespace GMAP_Demo
             string navn = txtNavn.Text;
             string kategori = txtKategori.Text;
             string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string kommentar = txtKommentar.Text;
+            string Kommentar = txtKommentar.Text;
             string lat = txtLat.Text;
             string lang = txtLong.Text;
-            int antallTags = lbValgtTags.Items.Count;
+            int AntallTags = lbValgtTags.Items.Count;
             List<string> Tags = lbValgtTags.Items.Cast<string>().ToList();
 
-            string sjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, antallTags, Tags);
+            // Legger til, om alt stemmer 
+            string SjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, Tags);
 
-            if (sjekkFeil != string.Empty) MessageBox.Show(sjekkFeil);
+            if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
 
             FellesMetoder.OppdaterTag_Liste();
         }
@@ -130,15 +131,17 @@ namespace GMAP_Demo
             {
                 try
                 {
+                    // Legge til ny kategori i databasen 
                     DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
                     lbTilgjengligKategori.Items.Add(nyKategori);
                     txtKategori.Text = nyKategori;
+                    txtNyKategori.Text = "";
                 }
                 catch (Exception)
                 {
 
                 }
-                txtNyKategori.Text = "";
+               
             }
             FellesMetoder.OppdaterKategoriListe();
         }
@@ -146,6 +149,7 @@ namespace GMAP_Demo
         private void LastInnKategorier()
         {
             GlobaleLister.LKategori.Clear();
+
             var KategoriListe = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
 
             foreach (var item in KategoriListe)
@@ -177,8 +181,6 @@ namespace GMAP_Demo
                 lbValgtTags.Items.Add(selectedItemtext);
 
                 lbTilgjengeligeTags.Items.Remove(selectedItemtext);
-
-                lbValgtTags.Sorted = true;
             }
         }
 
@@ -217,7 +219,7 @@ namespace GMAP_Demo
                     var løpenummer = DBComRessurs.GetLøpenummer_Ressurs();
                     int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
 
-                    //laste opp ressurs 
+                    // Laste opp ressurs 
                     try
                     {
                         if (Løpenummer_Ressurs > 0)
@@ -229,7 +231,7 @@ namespace GMAP_Demo
                         feilmelding += feil.Message;
                     }
 
-                    //fylle in tags 
+                    // Laste opp hver enkelt tag 
                     try
                     {
                         foreach (var item in nyTags)
@@ -269,6 +271,7 @@ namespace GMAP_Demo
             lbValgtTags.Items.Clear();
             lbTilgjengeligeTags.Items.Clear();
             LastInnTags();
-        }      
+        }
+        
     }
 }

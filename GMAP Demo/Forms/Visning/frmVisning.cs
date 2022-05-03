@@ -168,15 +168,12 @@ namespace GMAP_Demo
             {
                 instance.map.Overlays.Clear();
 
-                //Oppdater listene 
-                //test
-                //Kun for å hindre at områdene kommer fram hvis de ikke allreder er der
                 bool polygon = false;
                 bool objekt = false;
 
                 foreach (var item in map.Overlays)
                 {
-                    if (item.Id == Globalekonstanter.NavnOmråde && !polygon) //"Polygons"
+                    if (item.Id == Globalekonstanter.NavnOmråde && !polygon) //"Områder/Polygons"
                     {
                         FellesMetoder.OppdaterListe_området();
                         polygon = true;
@@ -202,9 +199,10 @@ namespace GMAP_Demo
 
         private void btnRediger_Click(object sender, EventArgs e)
         {
-            //for å sende posisjonen til neste kart
+            // For å sende posisjonen til neste kart
             Kart.PunktFraForrige = map.Position;
 
+            // Åpner redigerings formen
             this.Hide();
             FrmRediger frmRediger = new FrmRediger(); // instance 
             frmRediger.Size = this.Size;
@@ -214,16 +212,17 @@ namespace GMAP_Demo
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            // Åpner ControlPanel formen
             this.Hide();
-            FrmControlPanel frmSettings = new FrmControlPanel(); // instance 
-            frmSettings.Size = this.Size;
-            frmSettings.Location = this.Location;
+            FrmControlPanel FrmControlPanel = new FrmControlPanel(); // instance 
+            FrmControlPanel.Size = this.Size;
+            FrmControlPanel.Location = this.Location;
 
-            //til startpoisjon formen 
+            // Til startpoisjon formen 
             FrmControlPanel.instance.lat = map.Position.Lat;
             FrmControlPanel.instance.lng = map.Position.Lng;
 
-            frmSettings.Show();
+            FrmControlPanel.Show();
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -238,7 +237,7 @@ namespace GMAP_Demo
 
         void AlleKnapperTilStandarfarge()
         {
-            //setter alle nødvendige knappen til standarfarge
+            // Setter alle nødvendige knappen til standarfarge
             btnFilter.BackColor = Globalekonstanter.StandardFargeKnapp;
             btnPosisjon.BackColor = Globalekonstanter.StandardFargeKnapp;
         }
@@ -253,14 +252,17 @@ namespace GMAP_Demo
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
         {
-            //henter Høyde på knapp og hvor toppen er plassert 
+            //Henter høyde til knappen og hvor toppen er plassert 
             pnlNav.Height = høyde;
             pnlNav.Top = top;
-            pnlNav.Left = btnFilter.Left; //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
+
+            //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
+            pnlNav.Left = btnFilter.Left; 
         }
 
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
+            // Åpner filter hvis du er en annen plass 
             if (pnlNav.Top != btnFilter.Top)
             {
                 ÅpneFilterForm();
@@ -268,12 +270,14 @@ namespace GMAP_Demo
 
             if (Frm_V_Filter.instance != null)
             {
+                // Fyller inn info om Objektet 
                 Frm_V_Filter.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
             }
         }
 
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
+            // Åpner filter hvis du er en annen plass 
             if (pnlNav.Top != btnFilter.Top)
             {
                 ÅpneFilterForm();
@@ -281,6 +285,7 @@ namespace GMAP_Demo
 
             if (Frm_V_Filter.instance != null)
             {
+                // Fyller inn info om Polygonet 
                 Frm_V_Filter.instance.FyllInfoOmråde(Convert.ToInt32(item.Tag));
             }
         }
@@ -296,6 +301,7 @@ namespace GMAP_Demo
 
                 if (Frm_V_Posisjon.instance != null)
                 {
+                    //fyller inn kordinatene, basert på hvor du klikket 
                     Frm_V_Posisjon.instance.FyllKoordinater(lat, lang);
                 }
             }
@@ -314,7 +320,7 @@ namespace GMAP_Demo
             {
                 if (map.Zoom < ZoomLevel && !ZoomInvervall)
                 {
-                    //Fjerner objekt overlays 
+                    // Fjerner objekt overlays 
                     for (int i = 0; i < map.Overlays.Count; i++)
                     {
                         if (map.Overlays[i].Id == Globalekonstanter.NavnRute)
@@ -326,7 +332,6 @@ namespace GMAP_Demo
                             map.Overlays.RemoveAt(i);
                             i--;
                         }
-
                     }
 
                     ZoomInvervall = true;
@@ -334,14 +339,14 @@ namespace GMAP_Demo
                 else if (map.Zoom >= ZoomLevel && ZoomInvervall)
                 {
 
-                    if (!RutePåKartet) // det finnes ingen rute på kartet 
+                    if (!RutePåKartet) // Det finnes ingen rute på kartet 
                     {
                         Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
                         ZoomInvervall = false;
                     }
-                    else // finnes en rute 
+                    else // Finnes minst en rute 
                     {
-                        //legger til alle rutene på kartet i en liste
+                        // Legger til alle rutene på kartet i en liste
                         List<GMapOverlay> Lroutes = new List<GMapOverlay>();
                         for (int i = 0; i < map.Overlays.Count; i++)
                         {
@@ -352,10 +357,10 @@ namespace GMAP_Demo
                             }
                         }
 
-                        //Opptatere kartet (alt blir fjernet med denne metoden og lagt til utenom ruter) 
+                        // Opptatere kartet (alt (uten om rute) blir fjernet med denne metoden og lagt til) 
                         Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
 
-                        //må legge til ruten igjen 
+                        // Må legge til ruten igjen 
                         foreach (var item in Lroutes)
                         {
                             map.Overlays.Add(item);

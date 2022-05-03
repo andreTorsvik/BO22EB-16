@@ -242,15 +242,9 @@ namespace GMAP_Demo
             string Farge = txtFarge.Text;
             int antallPunkter = pointLatLngs.Count;
             int antallTags = lbValgtTags.Items.Count;
-
             List<string> NyTags = lbValgtTags.Items.Cast<string>().ToList();
-            //List<string> NyTags = new List<string>();
-            
-            //foreach (var item in lbValgtTags.Items)
-            //{
-            //    NyTags.Add(item.ToString());
-            //}
 
+            // Legger til, om alt stemmer 
             string SjekkFeil = RedigerOmrådet(Løpenummer_til_redigering, navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags, LGamleTag, NyTags);
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
@@ -264,30 +258,42 @@ namespace GMAP_Demo
             {
                 try
                 {
-
+                    // Sjekker om de kan Konverters og returner feilmeldingen hvis ikke
                     string SjekkLat = Tekstbehandling.sjekkLat(txtLat.Text);
                     string SjekkLang = Tekstbehandling.sjekkLong(txtLong.Text);
                   
                     if (SjekkLat == string.Empty && SjekkLang == string.Empty)
                     {
+                        // Konverterer
                         double lat = Convert.ToDouble(txtLat.Text);
                         double lng = Convert.ToDouble(txtLong.Text);
-                        int rekkefølge = pointLatLngs.Count;
                         PointLatLng point = new PointLatLng(lat, lng);
 
+                        // Legger til rekkefølgen
+                        int rekkefølge = pointLatLngs.Count;
+
+                        // Legger til Punktet i listen
                         pointLatLngs.Add(point);
 
+                        // Legger til den nye markøren
                         Kart.LeggtilMarkør(Kart.MuligKart.Redigering, point, rekkefølge, Globalekonstanter.NavnMarkørForOmråde);
+
+                        // Fjern den som var på kartet før, hvis den er der
                         Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeMarkør);
+
+                        // Oppdatere kartet
                         Kart.reff(Kart.MuligKart.Redigering);
 
+                        // Tilbakestiller de aktuelle tekstfeltene
                         txtLat.Text = Globalekonstanter.tekstLatLong_område;
                         txtLong.Text = Globalekonstanter.tekstLatLong_område;
+
+                        // Oppdatere antall 
                         txtNrPunkt.Text = pointLatLngs.Count.ToString();
                     }
                     else
                     {
-                        //viser kun en av feilene, selv hvis det skulle være 2 
+                        // Viser kun en av feilene, selv hvis det skulle være 2 
                         if (SjekkLang != string.Empty)
                             MessageBox.Show(string.Format("Feil: " + SjekkLang));               
                         else
@@ -309,10 +315,14 @@ namespace GMAP_Demo
 
             if (pointLatLngs.Count > 0)
             {
+                // Kan nå klikke på områder/polygon uten at de hopper in redigeringsformen
                 FrmRediger.instance.cbOmråde.Checked = false;
 
+                // Fjerner hjelpområdet og markører 
                 Kart.FjernHjelpeOmråde();
-                Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeOmråde); 
+                Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeOmråde);
+
+                // Tømmer listen og oppdarer antall
                 pointLatLngs.Clear();
                 txtNrPunkt.Text = pointLatLngs.Count.ToString();
             }
@@ -323,30 +333,38 @@ namespace GMAP_Demo
         {
             if (pointLatLngs.Count > 0)
             {
+                // Kan nå klikke på områder/polygon uten at de hopper in redigeringsformen 
                 FrmRediger.instance.cbOmråde.Checked = false;
 
+                // Fjerner Hjelpeområdet og markøren 
                 Kart.FjernHjelpeOmråde();
-                Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde); 
+                Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde);
 
+                // Fjerner punkt fra listen og oppdaterer antall 
                 pointLatLngs.RemoveAt(pointLatLngs.Count - 1);
                 txtNrPunkt.Text = pointLatLngs.Count.ToString();
 
                 List<PointLatLng> PunktListe = pointLatLngs.ToList();
 
+                // Tegner hjelpeområdet på nytt
                 if (Kart.SjekkKartHarHjelpemarkør_redigier(Globalekonstanter.NavnHjelpeMarkør)) 
                 {
+                    // Hvis man har dobbeltklikket på kartet
                     Kart.TegnHjelpeOmråde_rediger(FrmRediger.DoubleClick_punkt, PunktListe);
                 }
-                else
+                else 
                 {
+                    // Hvis man ikke har dobbeltklikket på kartet
                     Kart.TegnHjelpeOmråde_rediger(PunktListe);
                 }
 
+                // Markerer hjørnene til området med riktig rekkefølge
                 for (int i = 0; i < (pointLatLngs.Count); i++)
                 {
                     Kart.LeggtilMarkør(Kart.MuligKart.Redigering, PunktListe[i], i, Globalekonstanter.NavnMarkørForOmråde); 
                 }
 
+                // Oppdatere kartet  
                 Kart.reff(Kart.MuligKart.Redigering);
 
             }
@@ -365,25 +383,33 @@ namespace GMAP_Demo
 
                 if (utFyllingsmangler == string.Empty)
                 {
-                    var Lområde = DBComOmråde.ListOmrådeFromDb(Løpenummer);
+                    
                     string FeilTallSjekk = Tekstbehandling.sjekkSikkerhetsKlarering(sikkerhetsklarering);
 
                     if (FeilTallSjekk == string.Empty)
                     {
-                        //legge til alle punktene 
+                        //Henter område fra database 
+                        var Lområde = DBComOmråde.ListOmrådeFromDb(Løpenummer);
+
+                        // Legge til alle punktene 
                         List<PointLatLng> pList = new List<PointLatLng>();
                         foreach (var item in pointLatLngs)
                         {
                             pList.Add(item);
                         }
 
+                        //Sjekker endringene i forhold til før 
                         string Endring = Tekstbehandling.SjekkEndringer_Område(Lområde, navn, sikkerhetsklarering, Kommentar, Farge, pList, LGamleTag, NyTags);
+
+                        //sjekk endring i punktnene
                         string enderingIPunkter = Tekstbehandling.sammenlignPunkter(Lområde, pList);
+
                         if (Endring != string.Empty)
                         {
                             string Tittel = "Vil du lagre disse endringene ";
 
                             bool LagreEndring = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
+
                             if (LagreEndring)
                             {
                                 try
@@ -391,12 +417,13 @@ namespace GMAP_Demo
                                     //Oppdtaer info 
                                     DBComOmråde.UpdateOmråde(Løpenummer_til_redigering, navn, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
 
-
+                                    //Punktene 
                                     if (enderingIPunkter != string.Empty)
                                     {
-                                        //SLETTE ALLE punlter KNYTTET TIL området 
+                                        // SLETTE ALLE punktene KNYTTET TIL området 
                                         DBComPunkter_område.DeletePunkter_området(Løpenummer_til_redigering);
-                                        //LEGGE TIL NYE punkter
+
+                                        // Legger til de nye punktene
                                         int rekkefølge = 0;
                                         foreach (var item in pList)
                                         {
@@ -407,20 +434,21 @@ namespace GMAP_Demo
                                         }
                                     }
 
+                                    //tags
                                     List<string> SjekkOmNye1 = NyTags.Except(GamleTags).ToList();
                                     List<string> SjekkOmNye2 = GamleTags.Except(NyTags).ToList();
 
-                                    if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
+                                    if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0) // Hvis begge "SjekkOmNye" er 0,er det ingen nye  
                                     {
-                                        //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
+                                        // SLETTE ALLE TAGS KNYTTET TIL RESSURS 
                                         DBComTag_Område.DeleteTags_Område(Løpenummer_til_redigering);
-                                        //LEGGE TIL NYE
+                                        // Legger til de nye
                                         foreach (var item in lbValgtTags.Items)
                                         {
                                             DBComTag_Område.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_til_redigering);
                                         }
                                     }
-                                    //Da har alt gått igjennom og endringene lagret 
+                                    // Da har alt gått igjennom og endringene lagret 
 
                                 }
                                 catch (Exception Feilmelding)
@@ -428,7 +456,7 @@ namespace GMAP_Demo
                                     feilmelding = Feilmelding.Message;
                                 }
 
-                                //Oppdatere Liste med ressurser 
+                                // Oppdatere Liste med ressurser 
                                 Løpenummer_til_redigering = -1;
 
                                 TømeTekstFeltOgLister();
@@ -467,6 +495,7 @@ namespace GMAP_Demo
             lbTilgjengeligeTags.Items.Clear();
             LastInnTags();
             pointLatLngs.Clear();
+
             txtNrPunkt.Text = pointLatLngs.Count.ToString();
         }
 
