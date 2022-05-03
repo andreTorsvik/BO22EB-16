@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,17 +13,15 @@ namespace GMAP_Demo
 {
     public partial class frm_CP_LoggUt : Form
     {
-        frm_CP_LoggUt instance;
         public frm_CP_LoggUt()
         {
             InitializeComponent();
-            instance = this;
             SetTheme();
         }
 
         private void SetTheme()
         {
-            instance.BackColor = ThemeDesign.colorBackground;
+            this.BackColor = ThemeDesign.colorBackground;
 
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
@@ -49,12 +48,8 @@ namespace GMAP_Demo
         }
 
         private void btnLoggUt_Click(object sender, EventArgs e)
-        {
+        {      
             Application.Restart();
-
-            //fikser bugen men får fremdeles feil på debug
-            //System.Diagnostics.Process.Start(Application.ExecutablePath);
-            //Application.Exit();
         }
 
         private void frm_S_LoggUt_Load(object sender, EventArgs e)

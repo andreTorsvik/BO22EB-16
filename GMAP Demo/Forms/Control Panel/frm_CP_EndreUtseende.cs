@@ -6,7 +6,7 @@ namespace GMAP_Demo
 {
     public partial class frm_CP_EndeUtseende : Form
     {
-        frm_CP_EndeUtseende instance;
+        public static frm_CP_EndeUtseende instance;
         public frm_CP_EndeUtseende()
         {
             InitializeComponent();
@@ -16,7 +16,7 @@ namespace GMAP_Demo
 
         private void SetTheme()
         {
-            instance.BackColor = ThemeDesign.colorBackground;
+            this.BackColor = ThemeDesign.colorBackground;
 
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
@@ -36,25 +36,32 @@ namespace GMAP_Demo
 
         private void btnSelectTheme_Click(object sender, EventArgs e)
         {
+            //invoke metoden og endrer theme 
             object p = mInfos[lbThemes.SelectedIndex].Invoke(null, null);
 
+            //skriver til fil for å lagre 
             FilBehandeling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());
 
-            frmControlPanel.instance.SetTheme();
-            frmInnlogging.instance.SetTheme();
-            
+            //Setter theme på de instance som er oppe
+            if (frmControlPanel.instance != null)
+            {
+                frmControlPanel.instance.SetTheme();
+
+                //endre fargen på knappen til formen 
+                frmControlPanel.instance.OppdaterThemeKnapp();
+            }      
+            if (frmInnlogging.instance != null)
+                frmInnlogging.instance.SetTheme();
+
+            SetTheme();
+
             //endre standerfarge 
-            Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground; 
+            Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground;
             Globalekonstanter.StandarFargeKnapp = ThemeDesign.colorSecondaryBackground;
 
-            //endre fargen på knappen til formen 
-            frmControlPanel.instance.OppdaterThemeKnapp();
-
-            //endre Theme på visning, må derfor åpne den på nytt    
-            frmVisning.instance.startup();//her feilen ligger
-
-            instance.SetTheme();
-
+            //endre Theme på visning, Åpner nå filter uavhengiv va som var der før
+            //for å endre theme 
+            frmVisning.instance.ByttetTheme();
         }
     }
 }
