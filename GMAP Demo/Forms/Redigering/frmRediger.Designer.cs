@@ -34,10 +34,10 @@
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnTilbake = new System.Windows.Forms.Button();
-            this.btnFjern = new System.Windows.Forms.Button();
+            this.btnFjernObjektOmråde = new System.Windows.Forms.Button();
             this.btnLeggTilBilde = new System.Windows.Forms.Button();
             this.btnRedigerOmråde = new System.Windows.Forms.Button();
-            this.btnRediger_objekt = new System.Windows.Forms.Button();
+            this.btnRedigerObjekt = new System.Windows.Forms.Button();
             this.btnLeggTilOmråde = new System.Windows.Forms.Button();
             this.btnLeggTilObjekt = new System.Windows.Forms.Button();
             this.pnlUser = new System.Windows.Forms.Panel();
@@ -75,12 +75,12 @@
             this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(1722, 1384);
+            this.map.Size = new System.Drawing.Size(1726, 1384);
             this.map.TabIndex = 5;
             this.map.Zoom = 0D;
-            this.map.OnMapDoubleClick += new GMap.NET.WindowsForms.MapDoubleClick(this.map_MouseDoubleClick);
-            this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.map_OnMarkerClick);
-            this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
+            this.map.OnMapDoubleClick += new GMap.NET.WindowsForms.MapDoubleClick(this.Map_MouseDoubleClick);
+            this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.Map_OnMarkerClick);
+            this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.Map_OnPolygonClick);
             // 
             // PnlFormLoader
             // 
@@ -96,10 +96,10 @@
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.pnlMenu.Controls.Add(this.pnlNav);
             this.pnlMenu.Controls.Add(this.btnTilbake);
-            this.pnlMenu.Controls.Add(this.btnFjern);
+            this.pnlMenu.Controls.Add(this.btnFjernObjektOmråde);
             this.pnlMenu.Controls.Add(this.btnLeggTilBilde);
             this.pnlMenu.Controls.Add(this.btnRedigerOmråde);
-            this.pnlMenu.Controls.Add(this.btnRediger_objekt);
+            this.pnlMenu.Controls.Add(this.btnRedigerObjekt);
             this.pnlMenu.Controls.Add(this.btnLeggTilOmråde);
             this.pnlMenu.Controls.Add(this.btnLeggTilObjekt);
             this.pnlMenu.Controls.Add(this.pnlUser);
@@ -136,24 +136,24 @@
             this.btnTilbake.UseVisualStyleBackColor = true;
             this.btnTilbake.Click += new System.EventHandler(this.btnTilbake_Click);
             // 
-            // btnFjern
+            // btnFjernObjektOmråde
             // 
-            this.btnFjern.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFjern.FlatAppearance.BorderSize = 0;
-            this.btnFjern.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFjern.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFjern.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.btnFjern.Image = global::GMAP_Demo.Properties.Resources.icons8_trash_can_40;
-            this.btnFjern.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFjern.Location = new System.Drawing.Point(0, 786);
-            this.btnFjern.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btnFjern.Name = "btnFjern";
-            this.btnFjern.Size = new System.Drawing.Size(356, 95);
-            this.btnFjern.TabIndex = 1;
-            this.btnFjern.Text = "Fjern obj/område";
-            this.btnFjern.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnFjern.UseVisualStyleBackColor = true;
-            this.btnFjern.Click += new System.EventHandler(this.btnFjern_Click);
+            this.btnFjernObjektOmråde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFjernObjektOmråde.FlatAppearance.BorderSize = 0;
+            this.btnFjernObjektOmråde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFjernObjektOmråde.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFjernObjektOmråde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnFjernObjektOmråde.Image = global::GMAP_Demo.Properties.Resources.icons8_trash_can_40;
+            this.btnFjernObjektOmråde.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFjernObjektOmråde.Location = new System.Drawing.Point(0, 786);
+            this.btnFjernObjektOmråde.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnFjernObjektOmråde.Name = "btnFjernObjektOmråde";
+            this.btnFjernObjektOmråde.Size = new System.Drawing.Size(356, 95);
+            this.btnFjernObjektOmråde.TabIndex = 1;
+            this.btnFjernObjektOmråde.Text = "Fjern obj/område";
+            this.btnFjernObjektOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnFjernObjektOmråde.UseVisualStyleBackColor = true;
+            this.btnFjernObjektOmråde.Click += new System.EventHandler(this.btnFjernObjektOmråde_Click);
             // 
             // btnLeggTilBilde
             // 
@@ -172,7 +172,7 @@
             this.btnLeggTilBilde.Text = "Endre objektsymbol";
             this.btnLeggTilBilde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLeggTilBilde.UseVisualStyleBackColor = true;
-            this.btnLeggTilBilde.Click += new System.EventHandler(this.BtnLeggTilBilde_Click);
+            this.btnLeggTilBilde.Click += new System.EventHandler(this.BtnEndreObjektsymbol_Click);
             // 
             // btnRedigerOmråde
             // 
@@ -193,24 +193,24 @@
             this.btnRedigerOmråde.UseVisualStyleBackColor = true;
             this.btnRedigerOmråde.Click += new System.EventHandler(this.BtnRedigerOmråde_Click);
             // 
-            // btnRediger_objekt
+            // btnRedigerObjekt
             // 
-            this.btnRediger_objekt.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRediger_objekt.FlatAppearance.BorderSize = 0;
-            this.btnRediger_objekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRediger_objekt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRediger_objekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
-            this.btnRediger_objekt.Image = global::GMAP_Demo.Properties.Resources.icons8_edit_40__1_;
-            this.btnRediger_objekt.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRediger_objekt.Location = new System.Drawing.Point(0, 501);
-            this.btnRediger_objekt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btnRediger_objekt.Name = "btnRediger_objekt";
-            this.btnRediger_objekt.Size = new System.Drawing.Size(356, 95);
-            this.btnRediger_objekt.TabIndex = 1;
-            this.btnRediger_objekt.Text = "Rediger objekt";
-            this.btnRediger_objekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnRediger_objekt.UseVisualStyleBackColor = true;
-            this.btnRediger_objekt.Click += new System.EventHandler(this.BtnRediger_objekt_Click);
+            this.btnRedigerObjekt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRedigerObjekt.FlatAppearance.BorderSize = 0;
+            this.btnRedigerObjekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRedigerObjekt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRedigerObjekt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnRedigerObjekt.Image = global::GMAP_Demo.Properties.Resources.icons8_edit_40__1_;
+            this.btnRedigerObjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRedigerObjekt.Location = new System.Drawing.Point(0, 501);
+            this.btnRedigerObjekt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnRedigerObjekt.Name = "btnRedigerObjekt";
+            this.btnRedigerObjekt.Size = new System.Drawing.Size(356, 95);
+            this.btnRedigerObjekt.TabIndex = 1;
+            this.btnRedigerObjekt.Text = "Rediger objekt";
+            this.btnRedigerObjekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnRedigerObjekt.UseVisualStyleBackColor = true;
+            this.btnRedigerObjekt.Click += new System.EventHandler(this.BtnRediger_objekt_Click);
             // 
             // btnLeggTilOmråde
             // 
@@ -271,11 +271,11 @@
             this.cbOmråde.ForeColor = System.Drawing.Color.Lime;
             this.cbOmråde.Location = new System.Drawing.Point(14, 263);
             this.cbOmråde.Name = "cbOmråde";
-            this.cbOmråde.Size = new System.Drawing.Size(281, 24);
+            this.cbOmråde.Size = new System.Drawing.Size(274, 24);
             this.cbOmråde.TabIndex = 89;
             this.cbOmråde.Text = "Kan klikke på eksisterende område";
             this.cbOmråde.UseVisualStyleBackColor = true;
-            this.cbOmråde.CheckedChanged += new System.EventHandler(this.cbOmråde_CheckedChanged);
+            this.cbOmråde.CheckedChanged += new System.EventHandler(this.CbOmråde_CheckedChanged);
             // 
             // lblUserName
             // 
@@ -315,7 +315,7 @@
             this.btnZoomMinus.TabIndex = 7;
             this.btnZoomMinus.Text = "-";
             this.btnZoomMinus.UseVisualStyleBackColor = false;
-            this.btnZoomMinus.Click += new System.EventHandler(this.btnZoomMinus_Click);
+            this.btnZoomMinus.Click += new System.EventHandler(this.BtnZoomMinus_Click);
             // 
             // btnZoomPluss
             // 
@@ -331,14 +331,14 @@
             this.btnZoomPluss.TabIndex = 6;
             this.btnZoomPluss.Text = "+";
             this.btnZoomPluss.UseVisualStyleBackColor = false;
-            this.btnZoomPluss.Click += new System.EventHandler(this.btnZoomPluss_Click);
+            this.btnZoomPluss.Click += new System.EventHandler(this.BtnZoomPluss_Click);
             // 
-            // frmRediger
+            // FrmRediger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(2538, 1384);
+            this.ClientSize = new System.Drawing.Size(2542, 1384);
             this.Controls.Add(this.btnZoomMinus);
             this.Controls.Add(this.btnZoomPluss);
             this.Controls.Add(this.map);
@@ -346,8 +346,8 @@
             this.Controls.Add(this.pnlMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.MinimumSize = new System.Drawing.Size(2560, 1440);
-            this.Name = "frmRediger";
+            this.MinimumSize = new System.Drawing.Size(2558, 1339);
+            this.Name = "FrmRediger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Rediger ressurser ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRediger_FormClosing);
@@ -368,7 +368,7 @@
         private System.Windows.Forms.Panel pnlNav;
         private System.Windows.Forms.Button btnTilbake;
         private System.Windows.Forms.Button btnRedigerOmråde;
-        private System.Windows.Forms.Button btnRediger_objekt;
+        private System.Windows.Forms.Button btnRedigerObjekt;
         private System.Windows.Forms.Button btnLeggTilOmråde;
         private System.Windows.Forms.Button btnLeggTilObjekt;
         private System.Windows.Forms.Panel pnlUser;
@@ -377,7 +377,7 @@
         private System.Windows.Forms.Button btnZoomMinus;
         private System.Windows.Forms.Button btnZoomPluss;
         private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.Button btnFjern;
+        private System.Windows.Forms.Button btnFjernObjektOmråde;
         public System.Windows.Forms.CheckBox cbOmråde;
     }
 }
