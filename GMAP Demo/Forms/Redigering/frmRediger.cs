@@ -252,10 +252,10 @@ namespace GMAP_Demo
 
         private void FrmRediger_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frmVisning.instance.Size = Size;
-            frmVisning.instance.Location = Location;
-            frmVisning.instance.map.Position = map.Position;
-            frmVisning.instance.map.Zoom = map.Zoom;
+            FrmVisning.instance.Size = Size;
+            FrmVisning.instance.Location = Location;
+            FrmVisning.instance.map.Position = map.Position;
+            FrmVisning.instance.map.Zoom = map.Zoom;
 
 
             PnlFormLoader.Controls.Clear();

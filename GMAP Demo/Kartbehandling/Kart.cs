@@ -92,7 +92,7 @@ namespace GMAP_Demo
             {
                 foreach (var item in Lroutes)
                 {
-                    frmVisning.instance.map.Overlays.Add(item);
+                    FrmVisning.instance.map.Overlays.Add(item);
                 }
             }
         }
@@ -110,10 +110,10 @@ namespace GMAP_Demo
                         Lroutes = LagreRute();
 
                     // Fjerne alt på kartet som programmet har lagt til
-                    frmVisning.instance.map.Overlays.Clear();
+                    FrmVisning.instance.map.Overlays.Clear();
 
                     //objekter til ikke tegnet inn hvis zoomgrensen er utenfor 
-                    if (!frmVisning.instance.UtenforZoomGrense)
+                    if (!FrmVisning.instance.UtenforZoomGrense)
                         LeggTilRessurs(Lressurs, kart);
 
                     // Legger til rute, hvis noen
@@ -468,7 +468,7 @@ namespace GMAP_Demo
             //Enkleste måte å oppdatere kartet på, er å zoom inn og ut.
             //Zoomer inn og ut så lite at det ikke merkes
 
-            frmVisning.instance.KartOppdatere = true;
+            FrmVisning.instance.KartOppdatere = true;
             double PlussMinus = 0.01;
             switch (kart)
             {
@@ -488,7 +488,7 @@ namespace GMAP_Demo
                     FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom - PlussMinus;
                     break;
             }
-            frmVisning.instance.KartOppdatere = false;
+            FrmVisning.instance.KartOppdatere = false;
         }
 
         public static void FinnLokasjon(string Land, string ByKommune, string Adresse)
@@ -555,7 +555,7 @@ namespace GMAP_Demo
             {
                 if (FrmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
                 {
-                    frmVisning.instance.map.Overlays.RemoveAt(i);
+                    FrmVisning.instance.map.Overlays.RemoveAt(i);
                     i--;            
                 }
             }
