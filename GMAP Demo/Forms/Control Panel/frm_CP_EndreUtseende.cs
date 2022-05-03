@@ -55,8 +55,8 @@ namespace GMAP_Demo
                 //endre fargen på knappen til formen 
                 FrmControlPanel.instance.OppdaterThemeKnapp();
             }      
-            if (frmInnlogging.instance != null)
-                frmInnlogging.instance.SetTheme();
+            if (FrmInnlogging.instance != null)
+                FrmInnlogging.instance.SetTheme();
 
             SetTheme();
 

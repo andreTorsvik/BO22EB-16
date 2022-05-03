@@ -46,7 +46,7 @@ namespace GMAP_Demo
 
         private void btnAvbryt_Click(object sender, EventArgs e)
         {
-            frmInnlogging.instance.Location = this.Location;
+            FrmInnlogging.instance.Location = this.Location;
             this.Close();
 
         }
@@ -126,7 +126,7 @@ namespace GMAP_Demo
         private void frmRegistering_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Application.Exit();
-            frmInnlogging.instance.Show();
+            FrmInnlogging.instance.Show();
         }
 
         private void txtTelefon_KeyPress(object sender, KeyPressEventArgs e)

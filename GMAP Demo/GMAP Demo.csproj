@@ -118,11 +118,11 @@
     <Compile Include="Global\ThemeDesign.cs" />
     <Compile Include="Tekstbehandling\FilBehandeling.cs" />
     <Compile Include="Kartbehandling\FilterBehandling.cs" />
-    <Compile Include="Forms\Innlogging\frmInnlogging.cs">
+    <Compile Include="Forms\Innlogging\FrmInnlogging.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Innlogging\frmInnlogging.Designer.cs">
-      <DependentUpon>frmInnlogging.cs</DependentUpon>
+    <Compile Include="Forms\Innlogging\FrmInnlogging.Designer.cs">
+      <DependentUpon>FrmInnlogging.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Visning\frmVisning.cs">
       <SubType>Form</SubType>
@@ -250,8 +250,8 @@
     <EmbeddedResource Include="Forms\Control Panel\Frm_CP_EndreUtseende.resx">
       <DependentUpon>Frm_CP_EndreUtseende.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Innlogging\frmInnlogging.resx">
-      <DependentUpon>frmInnlogging.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Innlogging\FrmInnlogging.resx">
+      <DependentUpon>FrmInnlogging.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Innlogging\frmRegistering.resx">
       <DependentUpon>frmRegistering.cs</DependentUpon>

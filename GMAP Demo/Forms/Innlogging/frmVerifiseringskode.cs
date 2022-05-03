@@ -21,18 +21,18 @@ namespace GMAP_Demo
 
         private void btnVertifiser_Click(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(tbKode.Text) == frmInnlogging.instance.listBruker[0].Tallkode)
+            if(Convert.ToInt32(tbKode.Text) == FrmInnlogging.instance.listBruker[0].Tallkode)
             {
                 //Endre database attributt bruker.godkjent = true
 
                 //endre til updateBruker_vertifisert:
-                DBComBruker.UpdateBruker_Verifisert(frmInnlogging.instance.listBruker[0].Epost, true);
+                DBComBruker.UpdateBruker_Verifisert(FrmInnlogging.instance.listBruker[0].Epost, true);
 
                 //logg inn
-                InnloggetBruker.BrukernavnInnlogget = frmInnlogging.instance.listBruker[0].Epost;
-                InnloggetBruker.Sikkerhetsklarering = frmInnlogging.instance.listBruker[0].Sikkerhetsklarering;
+                InnloggetBruker.BrukernavnInnlogget = FrmInnlogging.instance.listBruker[0].Epost;
+                InnloggetBruker.Sikkerhetsklarering = FrmInnlogging.instance.listBruker[0].Sikkerhetsklarering;
 
-                frmInnlogging.instance.Hide();
+                FrmInnlogging.instance.Hide();
                 this.Close();
                 frmVisning form1 = new frmVisning(); // instance
                 form1.Size = this.Size;

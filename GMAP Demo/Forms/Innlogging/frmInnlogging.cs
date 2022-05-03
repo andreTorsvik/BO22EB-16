@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frmInnlogging : Form
+    public partial class FrmInnlogging : Form
     {
-        public static frmInnlogging instance;
+        public static FrmInnlogging instance;
         public List<Bruker> listBruker;
 
-        public frmInnlogging()
+        public FrmInnlogging()
         {
             InitializeComponent();
             instance = this;
@@ -40,25 +40,25 @@ namespace GMAP_Demo
             btnTestUser.BackColor = ThemeDesign.colorBlue;
         }
 
-        private void frmInnlogging_Load(object sender, EventArgs e)
+        private void FrmInnlogging_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
             listBruker = new List<Bruker>();
 
-            string Epost = tbUserName.Text.ToLower();
+            string epost = tbUserName.Text.ToLower();
             string passord = tbPassword.Text;
          
-            if(Epost.Length > 0 && passord.Length > 0)
-                listBruker = DBComBruker.CheckLoginAgainstDb(Epost, passord).ToList();
+            if(epost.Length > 0 && passord.Length > 0)
+                listBruker = DBComBruker.CheckLoginAgainstDb(epost, passord).ToList();
 
             // if success
             if (listBruker.Count > 0)
             {
-                if (listBruker[0].Epost.ToLower() == Epost)
+                if (listBruker[0].Epost.ToLower() == epost)
                 {
                     if (listBruker[0].Verifisert == true)
                     {
@@ -67,17 +67,20 @@ namespace GMAP_Demo
                         InnloggetBruker.Sikkerhetsklarering = listBruker[0].Sikkerhetsklarering;
 
 
-                        this.Hide();
-                        frmVisning form1 = new frmVisning(); // instance
-                        form1.Size = this.Size;
-                        form1.Show();
+                        Hide();
+                        frmVisning frmVisning = new frmVisning(); // instance
+                        frmVisning.Show();
 
                         if (frmVerifiseringskode.instance != null)
                         {
                             frmVerifiseringskode.instance.Close();
                         }
+                        if (frmRegistering.instance != null)
+                        {
+                            frmRegistering.instance.Close();
+                        }
 
-                        if(InnloggetBruker.Sikkerhetsklarering > Globalekonstanter.MaxSikkerhetsklarering)
+                        if (InnloggetBruker.Sikkerhetsklarering > Globalekonstanter.MaxSikkerhetsklarering)
                         {
                             try
                             {
@@ -94,12 +97,12 @@ namespace GMAP_Demo
                     {
                         if (listBruker[0].Godkjent == true)
                         {
-                            frmVerifiseringskode vertifiseringskode = new frmVerifiseringskode();
-                            vertifiseringskode.Show();
+                            frmVerifiseringskode frmVerifiseringskode = new frmVerifiseringskode();
+                            frmVerifiseringskode.Show();
                         }
                         else if (listBruker[0].Godkjent == false)
                         {
-                            MessageBox.Show("Du har ikke blitt godkjent enda");
+                            MessageBox.Show("Din bruker har ikke blitt godkjent enda");
                         }
                     }
                 }
@@ -110,10 +113,10 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnTestUser_Click(object sender, EventArgs e)
+        private void BtnTestUser_Click(object sender, EventArgs e)
         {
-            tbUserName.Text = "Gjest@stud.hvl.no";
-            tbPassword.Text = "PassGjest";
+            tbUserName.Text = Properties.Settings.Default.GuestAccountEmail;
+            tbPassword.Text = Properties.Settings.Default.GuestAccountPassword;
         }
 
         private void LbNyBruker_MouseEnter(object sender, EventArgs e)
@@ -126,21 +129,12 @@ namespace GMAP_Demo
             lblOpprettBruker.Font = new Font(lblOpprettBruker.Font, FontStyle.Regular);
         }
 
-        private void btNyBruker_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmRegistering frmRegistering = new frmRegistering(); // instance
-            frmRegistering.Size = this.Size;
-            frmRegistering.Location = this.Location;
-            frmRegistering.Show();
-        }
-
         private void LbNyBruker_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmRegistering frmRegistering = new frmRegistering(); // instance
-            frmRegistering.Size = this.Size;
-            frmRegistering.Location = this.Location;
+            frmRegistering.Size = Size;
+            frmRegistering.Location = Location;
             frmRegistering.Show();
         }
     }

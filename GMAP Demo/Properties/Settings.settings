@@ -19,5 +19,11 @@
     <Setting Name="EmailTypeVerifisering" Type="System.String" Scope="Application">
       <Value Profile="(Default)">smtp.gmail.com</Value>
     </Setting>
+    <Setting Name="GuestAccountEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Gjest@stud.hvl.no</Value>
+    </Setting>
+    <Setting Name="GuestAccountPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PassGjest</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

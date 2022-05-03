@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frmInnlogging
+    partial class FrmInnlogging
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInnlogging));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInnlogging));
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -106,7 +106,7 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Logg inn";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // btnTestUser
             // 
@@ -120,7 +120,7 @@
             this.btnTestUser.TabIndex = 6;
             this.btnTestUser.Text = "Testbruker";
             this.btnTestUser.UseVisualStyleBackColor = false;
-            this.btnTestUser.Click += new System.EventHandler(this.btnTestUser_Click);
+            this.btnTestUser.Click += new System.EventHandler(this.BtnTestUser_Click);
             // 
             // lblTest
             // 
@@ -205,7 +205,7 @@
             this.Name = "frmInnlogging";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logg inn";
-            this.Load += new System.EventHandler(this.frmInnlogging_Load);
+            this.Load += new System.EventHandler(this.FrmInnlogging_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
