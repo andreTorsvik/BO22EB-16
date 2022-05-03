@@ -182,6 +182,7 @@ namespace GMAP_Demo
 
             }
             // For at den ikke skal kunne bli trykket på setter man tag til -1. 
+            // metode "Map_OnMarkerClick" i "FrmRediger" sjekker om tag != -1 
             marker.Tag = -1; 
 
             markers.Markers.Add(marker);

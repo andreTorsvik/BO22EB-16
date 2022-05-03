@@ -105,7 +105,7 @@ namespace GMAP_Demo
             Kart.PunktFraForrige = FilBehandeling.HentStartPosisjon(Globalekonstanter.filStartPosisjon);
             Kart.Setup(Kart.MuligKart.Visning, Kart.PunktFraForrige);
 
-            // KategoriListen  på kartet 
+            // KategoriListen på kartet 
             GlobaleLister.InitializekategoriListeVises();
             GlobaleLister.InitializekategoriListeSkjult();
 
