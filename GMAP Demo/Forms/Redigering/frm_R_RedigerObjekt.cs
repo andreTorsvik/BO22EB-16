@@ -112,7 +112,6 @@ namespace GMAP_Demo
                 DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
 
                 lbTilgjengligKategori.Items.Add(nyKategori);
-                lbTilgjengligKategori.Sorted = true;
                 txtNyKategori.Text = "";
             }
 
@@ -130,7 +129,6 @@ namespace GMAP_Demo
                 lbTilgjengeligeTags.Items.Add(item);
             }
 
-            lbTilgjengeligeTags.Sorted = true;
         }
 
         private void lbTilgjengeligeTags_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -165,7 +163,6 @@ namespace GMAP_Demo
             if (!string.IsNullOrEmpty(NyTag))
             {
                 lbTilgjengeligeTags.Items.Add(NyTag);
-                lbTilgjengeligeTags.Sorted = true;
                 txtNyTag.Text = "";
             }
         }
@@ -221,12 +218,8 @@ namespace GMAP_Demo
             string lat = txtLat.Text;
             string lang = txtLong.Text;
             int antallTags = lbValgtTags.Items.Count;
-            List<string> NyTags = new List<string>();
-
-            foreach (var item in lbValgtTags.Items)
-            {
-                NyTags.Add(item.ToString());
-            }
+            List<string> NyTags = lbValgtTags.Items.Cast<string>().ToList();
+           
 
             string SjekkFeil = RedigerObjekt(Løpenummer_til_redigering, navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, antallTags, LGamleTag, NyTags);
 
@@ -252,8 +245,8 @@ namespace GMAP_Demo
                         string Endring = Tekstbehandling.SjekkEndringer_Objekt(ressurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
                         if (Endring != string.Empty)
                         {
-                            string Tittle = "Vil du lagre disse endringene ";
-                            bool lagreEndring = FellesMetoder.MeldingsboksYesNo(Tittle, Endring);
+                            string Tittel = "Vil du lagre disse endringene ";
+                            bool lagreEndring = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
                           
                             if (lagreEndring)
                             {

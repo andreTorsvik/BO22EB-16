@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frmPosisjon
+    partial class Frm_V_Posisjon
     {
         /// <summary>
         /// Required designer variable.
@@ -364,10 +364,6 @@
             this.lblBasertPå2.Size = new System.Drawing.Size(250, 16);
             this.lblBasertPå2.TabIndex = 27;
             this.lblBasertPå2.Text = "Basert på dobbelklikk på kartet eller søk ";
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.ToolTipTitle = "Hjelp:";
             // 
             // frmPosisjon
             // 

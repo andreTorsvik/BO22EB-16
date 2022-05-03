@@ -6,13 +6,13 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frmPosisjon : Form
+    public partial class Frm_V_Posisjon : Form
     {
-        public static frmPosisjon instance;
+        public static Frm_V_Posisjon instance;
         public PointLatLng TilPunkt;
         public PointLatLng FraPunkt;
 
-        public frmPosisjon()
+        public Frm_V_Posisjon()
         {
             InitializeComponent();
             instance = this;

@@ -130,23 +130,23 @@
     <Compile Include="Forms\Visning\frmVisning.Designer.cs">
       <DependentUpon>frmVisning.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Visning\frmFilter.cs">
+    <Compile Include="Forms\Visning\Frm_V_Filter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Visning\frmFilter.Designer.cs">
-      <DependentUpon>frmFilter.cs</DependentUpon>
+    <Compile Include="Forms\Visning\Frm_V_Filter.Designer.cs">
+      <DependentUpon>Frm_V_Filter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Visning\frmHjelp.cs">
+    <Compile Include="Forms\Visning\Frm_V_Hjelp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Visning\frmHjelp.Designer.cs">
-      <DependentUpon>frmHjelp.cs</DependentUpon>
+    <Compile Include="Forms\Visning\Frm_V_Hjelp.Designer.cs">
+      <DependentUpon>Frm_V_Hjelp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Visning\frmPosisjon.cs">
+    <Compile Include="Forms\Visning\Frm_V_Posisjon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Visning\frmPosisjon.Designer.cs">
-      <DependentUpon>frmPosisjon.cs</DependentUpon>
+    <Compile Include="Forms\Visning\Frm_V_Posisjon.Designer.cs">
+      <DependentUpon>Frm_V_Posisjon.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Redigering\FrmRediger.cs">
       <SubType>Form</SubType>
@@ -262,14 +262,14 @@
     <EmbeddedResource Include="Forms\Visning\frmVisning.resx">
       <DependentUpon>frmVisning.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Visning\frmFilter.resx">
-      <DependentUpon>frmFilter.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Visning\Frm_V_Filter.resx">
+      <DependentUpon>Frm_V_Filter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Visning\frmHjelp.resx">
-      <DependentUpon>frmHjelp.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Visning\Frm_V_Hjelp.resx">
+      <DependentUpon>Frm_V_Hjelp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Visning\frmPosisjon.resx">
-      <DependentUpon>frmPosisjon.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Visning\Frm_V_Posisjon.resx">
+      <DependentUpon>Frm_V_Posisjon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Redigering\FrmRediger.resx">
       <DependentUpon>FrmRediger.cs</DependentUpon>

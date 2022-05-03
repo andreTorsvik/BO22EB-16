@@ -191,12 +191,8 @@ namespace GMAP_Demo
             string Farge = txtfarge.Text;
             int antallPunkter = pointLatLngs.Count;
             int antallTags = lbValgtTags.Items.Count;
-
-            List<string> Tags = new List<string>();
-            foreach (var item in lbValgtTags.Items)
-            {
-                Tags.Add(item.ToString());
-            }
+            List<string> Tags = lbValgtTags.Items.Cast<string>().ToList();
+            
 
             string SjekkFeil = LeggTilOmrådet(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags, Tags);
 

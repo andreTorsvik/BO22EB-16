@@ -37,7 +37,7 @@ namespace GMAP_Demo
             FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
 
             this.PnlFormLoader.Controls.Clear();
-            frmFilter frmFilter_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_V_Filter frmFilter_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmFilter_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frmFilter_vrb);
             frmFilter_vrb.Show();
@@ -57,7 +57,7 @@ namespace GMAP_Demo
             FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
 
             this.PnlFormLoader.Controls.Clear();
-            frmFilter frmPosisjon_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_V_Filter frmPosisjon_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
             frmPosisjon_vrb.Show();
@@ -105,7 +105,7 @@ namespace GMAP_Demo
             Kart.PunktFraForrige = FilBehandeling.HentStartPosisjon(Globalekonstanter.filStartPosisjon);
             Kart.Setup(Kart.MuligKart.Visning, Kart.PunktFraForrige);
 
-            // KategoriListen  på kartet 
+            // KategoriListen på kartet 
             GlobaleLister.InitializekategoriListeVises();
             GlobaleLister.InitializekategoriListeSkjult();
 
@@ -134,7 +134,7 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
 
                 this.PnlFormLoader.Controls.Clear();
-                frmPosisjon frmPosisjon_vrb = new frmPosisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                Frm_V_Posisjon frmPosisjon_vrb = new Frm_V_Posisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
                 frmPosisjon_vrb.Show();
@@ -155,7 +155,7 @@ namespace GMAP_Demo
                 FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
 
                 this.PnlFormLoader.Controls.Clear();
-                frmFilter frmPosisjon_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                Frm_V_Filter frmPosisjon_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
                 this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
                 frmPosisjon_vrb.Show();
@@ -229,7 +229,7 @@ namespace GMAP_Demo
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            frmHjelp frmHjelp = new frmHjelp();
+            Frm_V_Hjelp frmHjelp = new Frm_V_Hjelp();
 
             frmHjelp.Location = this.Location;
             frmHjelp.Size = this.Size;
@@ -262,9 +262,9 @@ namespace GMAP_Demo
         {
             ÅpneFilterForm();
 
-            if (frmFilter.instance != null)
+            if (Frm_V_Filter.instance != null)
             {
-                frmFilter.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
+                Frm_V_Filter.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
             }
         }
 
@@ -272,9 +272,9 @@ namespace GMAP_Demo
         {
             ÅpneFilterForm();
 
-            if (frmFilter.instance != null)
+            if (Frm_V_Filter.instance != null)
             {
-                frmFilter.instance.FyllInfoOmråde(Convert.ToInt32(item.Tag));
+                Frm_V_Filter.instance.FyllInfoOmråde(Convert.ToInt32(item.Tag));
             }
         }
 
@@ -287,9 +287,9 @@ namespace GMAP_Demo
                 double lat = DoubleClick_punkt.Lat;
                 double lang = DoubleClick_punkt.Lng;
 
-                if(frmPosisjon.instance != null)
+                if(Frm_V_Posisjon.instance != null)
                 {
-                    frmPosisjon.instance.FyllKoordinater(lat, lang);
+                    Frm_V_Posisjon.instance.FyllKoordinater(lat, lang);
                 }         
             }
         }

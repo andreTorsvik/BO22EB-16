@@ -59,8 +59,7 @@ namespace GMAP_Demo
                 else if (item.Godkjent == false) lbVenterPåGodkjenning.Items.Add(item.BrukerDataTilAdmin); // har ikke gjort det
 
             }
-            lbListeOverbrukere.Sorted = true;
-            lbVenterPåGodkjenning.Sorted = true;
+
         }
 
         private void GodkjentListeSjekk()
@@ -282,7 +281,7 @@ namespace GMAP_Demo
                         int klarering = brukerListe[0].Sikkerhetsklarering;
                         if (InnloggetBruker.BrukernavnInnlogget == epost)
                         {
-                            string Tittel = "Nedgradere av deg selv: ";
+                            string Tittel = "Nedgradere deg selv: ";
                             string Endring = string.Format("{0}", epost);
 
                             bool nedgrader = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
@@ -423,15 +422,11 @@ namespace GMAP_Demo
 
                         if (Tillatelse)
                         {
-                            string caption = "Vil du Virkelig slette denne brukeren: ";
+                            string Tittel = "Vil du Virkelig slette denne brukeren: ";
                             string Endring = string.Format("{0}", epost);
 
-                            bool Fjern = FellesMetoder.MeldingsboksYesNo(caption, Endring);
-                            //MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                            //DialogResult result;
+                            bool Fjern = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
 
-                            //// Displays the MessageBox.
-                            //result = MessageBox.Show(Endring, caption, buttons);
                             if (Fjern)
                             {
                                 FjernBruker(epost, BrukerInfo, selectetItem);

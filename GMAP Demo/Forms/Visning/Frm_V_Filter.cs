@@ -6,14 +6,14 @@ using System.Threading;
 namespace GMAP_Demo
 {
 
-    public partial class frmFilter : Form
+    public partial class Frm_V_Filter : Form
     {
-        public static frmFilter instance;
+        public static Frm_V_Filter instance;
         public int indexRessurs = 0;
         public bool filterOR;
         public bool filterAND;
 
-        public frmFilter()
+        public Frm_V_Filter()
         {
             InitializeComponent();
             instance = this;
