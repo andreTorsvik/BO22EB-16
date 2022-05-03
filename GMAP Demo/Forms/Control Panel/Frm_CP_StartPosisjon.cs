@@ -45,23 +45,21 @@ namespace GMAP_Demo
             txtNyLong.BackColor = ThemeDesign.colorGray4;
             txtNyAdresse.ForeColor = ThemeDesign.colorLabel;
             txtNyAdresse.BackColor = ThemeDesign.colorGray;
-            btnStart.ForeColor = ThemeDesign.colorLabel;
-            btnStart.BackColor = ThemeDesign.colorGray;
+            btnBrukSomStart.ForeColor = ThemeDesign.colorLabel;
+            btnBrukSomStart.BackColor = ThemeDesign.colorGray;
         }
 
         private void Frm_S_StartPosisjon_Load(object sender, EventArgs e)
         {
-            string newLine = Environment.NewLine;
-            lblInfo.Text = string.Format("Dra \"Visnings kartet\" til der du vil at kartet" + newLine + "skal starte når man åpner applikasjonen");
             txtNyLat.Text = frmControlPanel.instance.lat.ToString();
             txtNyLong.Text = frmControlPanel.instance.lng.ToString();
-            PointLatLng nåværendeStartPunkt = hentStartpunktFraFil();
+            PointLatLng nåværendeStartPunkt = HentStartpunktFraFil();
             txtNåværendeLat.Text = nåværendeStartPunkt.Lat.ToString();
             txtNåværendeLong.Text = nåværendeStartPunkt.Lng.ToString();
             Fylltekstfelt();
         }
 
-        private PointLatLng hentStartpunktFraFil()
+        private PointLatLng HentStartpunktFraFil()
         {
 
             PointLatLng svar = new PointLatLng();
@@ -114,7 +112,7 @@ namespace GMAP_Demo
           
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private void BtnBrukSomStart_Click(object sender, EventArgs e)
         {
 
             bool fullført = FilBehandeling.LeggTilStartPosisjon(Globalekonstanter.filStartPosisjon,txtNyLat.Text,txtNyLong.Text);
@@ -127,13 +125,8 @@ namespace GMAP_Demo
             }
             else
             {
-                MessageBox.Show("Noe galt skjedde");
+                MessageBox.Show("Det oppstod en feil, vennligst prøv på nytt.");
             }
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }
