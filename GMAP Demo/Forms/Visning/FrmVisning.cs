@@ -20,7 +20,7 @@ namespace GMAP_Demo
 
         public frmVisning()
         {
-            GMapProviders.GoogleMap.ApiKey = "AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM"; // flytte og oppdatere 
+            GMapProviders.GoogleMap.ApiKey = Properties.Settings.Default.GoogleMapApiKey;
             InitializeComponent();
             instance = this;
 
