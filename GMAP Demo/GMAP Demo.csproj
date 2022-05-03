@@ -166,11 +166,11 @@
     <Compile Include="Forms\Redigering\Frm_R_FjernObjektOmråde.Designer.cs">
       <DependentUpon>Frm_R_FjernObjektOmråde.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Redigering\frm_R_LeggTilObjekt.cs">
+    <Compile Include="Forms\Redigering\Frm_R_LeggTilObjekt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Redigering\frm_R_LeggTilObjekt.Designer.cs">
-      <DependentUpon>frm_R_LeggTilObjekt.cs</DependentUpon>
+    <Compile Include="Forms\Redigering\Frm_R_LeggTilObjekt.Designer.cs">
+      <DependentUpon>Frm_R_LeggTilObjekt.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Redigering\frm_R_LeggTilOmråde.cs">
       <SubType>Form</SubType>
@@ -280,8 +280,8 @@
     <EmbeddedResource Include="Forms\Redigering\Frm_R_FjernObjektOmråde.resx">
       <DependentUpon>Frm_R_FjernObjektOmråde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Redigering\frm_R_LeggTilObjekt.resx">
-      <DependentUpon>frm_R_LeggTilObjekt.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Redigering\Frm_R_LeggTilObjekt.resx">
+      <DependentUpon>Frm_R_LeggTilObjekt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Redigering\frm_R_LeggTilOmråde.resx">
       <DependentUpon>frm_R_LeggTilOmråde.cs</DependentUpon>
