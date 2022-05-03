@@ -3,13 +3,13 @@ using System.Windows.Forms;
 
 namespace GMAP_Demo
 {
-    public partial class frm_R_FjernObjektOmråde : Form
+    public partial class Frm_R_FjernObjektOmråde : Form
     {
         public int Løpenummer_til_objekt;
         public int Løpenummer_til_Område;
 
-        public static frm_R_FjernObjektOmråde instance;
-        public frm_R_FjernObjektOmråde()
+        public static Frm_R_FjernObjektOmråde instance;
+        public Frm_R_FjernObjektOmråde()
         {
             InitializeComponent();
             instance = this;
@@ -41,7 +41,7 @@ namespace GMAP_Demo
             lblSlettet.ForeColor = ThemeDesign.colorLabel;
         }
 
-        public void fyllInfoObjekt(int Tag)
+        public void FyllInfoObjekt(int Tag)
         {
             Løpenummer_til_objekt = GlobaleLister.LRessurs[Tag].Løpenummer_ressurs;
             txtInfo.Text = GlobaleLister.LRessurs[Tag].ToString();
@@ -51,7 +51,7 @@ namespace GMAP_Demo
             if (Løpenummer_til_Område >= 0) Løpenummer_til_Område = -1;
         }
 
-        public void fyllInfoOmråde(int Tag)
+        public void FyllInfoOmråde(int Tag)
         {
             Løpenummer_til_Område = GlobaleLister.LOmråde[Tag].Løpenummer_område;
             txtInfo.Text = GlobaleLister.LOmråde[Tag].ToString();
@@ -61,7 +61,7 @@ namespace GMAP_Demo
             if (Løpenummer_til_objekt >= 0) Løpenummer_til_objekt = -1;
         }
 
-        private void btnFjern_Click(object sender, EventArgs e)
+        private void BtnFjern_Click(object sender, EventArgs e)
         {
             if (Løpenummer_til_Område == -1 && Løpenummer_til_objekt != -1) // sletting av ressurs 
             {
@@ -116,8 +116,6 @@ namespace GMAP_Demo
                 {
                     MessageBox.Show(String.Format("Noe galt skjedde: {0}", feil.Message));
                 }
-
-
             }
         }
 
