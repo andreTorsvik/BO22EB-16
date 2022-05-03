@@ -64,10 +64,6 @@ namespace GMAP_Demo
 
             if (frmControlPanel.instance != null)
                 frmControlPanel.instance = null;
-            //if (frm_CP_EndeUtseende.instance != null)
-            //    frm_CP_EndeUtseende.instance = null;
-
-
         }
 
         internal void AlleKnapperTilStandarfarge()
