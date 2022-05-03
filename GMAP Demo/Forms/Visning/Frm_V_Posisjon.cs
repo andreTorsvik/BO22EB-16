@@ -74,6 +74,7 @@ namespace GMAP_Demo
             string ByKommune = txtByKommune.Text;
             string Adresse = txtAdresse.Text;
                 
+            //Utføres om EN er fylt ut 
             if(!(string.IsNullOrWhiteSpace(Land) && string.IsNullOrWhiteSpace(ByKommune) && string.IsNullOrWhiteSpace(Adresse)))
                 Kart.FinnLokasjon(Land,ByKommune,Adresse);
         }
@@ -85,7 +86,6 @@ namespace GMAP_Demo
                 List<string> LAdresse = new List<string>();
                 try
                 {
-
                     PointLatLng point = new PointLatLng(Convert.ToDouble(txtLat.Text), Convert.ToDouble(txtLong.Text));
                     LAdresse = Kart.FåAddress(point);
                     FraPunkt = point;

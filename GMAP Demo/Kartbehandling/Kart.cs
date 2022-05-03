@@ -14,7 +14,7 @@ namespace GMAP_Demo
     {
         public enum MuligKart { Visning, Redigering, Begge };
         public static PointLatLng PunktFraForrige = new PointLatLng();
-        public static bool ViseOmrådePåKart = true;
+        public static bool VisOmrådePåKart = true;
 
         public static void Setup(MuligKart kart, PointLatLng Startpunkt)
         {
@@ -92,7 +92,7 @@ namespace GMAP_Demo
             LeggTilRessurs(Lressurs, kart);
 
             // Legger til områdene, hvis man "checked" i filter 
-            if (ViseOmrådePåKart) LeggTilOmråde(Lområde, kart);
+            if (VisOmrådePåKart) LeggTilOmråde(Lområde, kart);
 
             // Må oppdatere kartet etter man har lagt til 
             reff(kart); 
