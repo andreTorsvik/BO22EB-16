@@ -82,7 +82,7 @@
             this.btnAvslå.TabIndex = 7;
             this.btnAvslå.Text = "Avslå";
             this.btnAvslå.UseVisualStyleBackColor = true;
-            this.btnAvslå.Click += new System.EventHandler(this.btnAvslå_Click);
+            this.btnAvslå.Click += new System.EventHandler(this.BtnAvslå_Click);
             // 
             // btnNedgrader
             // 
@@ -104,7 +104,7 @@
             this.btnOppgrader.TabIndex = 9;
             this.btnOppgrader.Text = "Oppgrader";
             this.btnOppgrader.UseVisualStyleBackColor = true;
-            this.btnOppgrader.Click += new System.EventHandler(this.btnOppgrader_Click);
+            this.btnOppgrader.Click += new System.EventHandler(this.BtnOppgrader_Click);
             // 
             // lbListeOverbrukere
             // 
@@ -148,7 +148,7 @@
             this.btnFjern.TabIndex = 10;
             this.btnFjern.Text = "Fjern";
             this.btnFjern.UseVisualStyleBackColor = true;
-            this.btnFjern.Click += new System.EventHandler(this.btnFjern_Click);
+            this.btnFjern.Click += new System.EventHandler(this.BtnFjern_Click);
             // 
             // frm_S_Admin
             // 
@@ -170,7 +170,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_S_Admin";
             this.Text = "frm_S_EndreLagretBilde";
-            this.Load += new System.EventHandler(this.frm_S_Admin_Load);
+            this.Load += new System.EventHandler(this.Frm_S_Admin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

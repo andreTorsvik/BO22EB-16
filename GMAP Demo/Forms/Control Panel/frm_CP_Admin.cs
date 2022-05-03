@@ -42,7 +42,7 @@ namespace GMAP_Demo
             lbListeOverbrukere.BackColor = ThemeDesign.colorGray;
         }
 
-        private void frm_S_Admin_Load(object sender, EventArgs e)
+        private void Frm_S_Admin_Load(object sender, EventArgs e)
         {
             FyllListeneBoksene();
             GodkjentListeSjekk();
@@ -158,7 +158,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnAvslå_Click(object sender, EventArgs e)
+        private void BtnAvslå_Click(object sender, EventArgs e)
         {
             if (lbVenterPåGodkjenning.SelectedIndex != -1)
             {
@@ -202,7 +202,7 @@ namespace GMAP_Demo
             return Epost;
         }
 
-        private void btnOppgrader_Click(object sender, EventArgs e)
+        private void BtnOppgrader_Click(object sender, EventArgs e)
         {
             if (lbListeOverbrukere.SelectedIndex != -1)
             {
@@ -400,7 +400,7 @@ namespace GMAP_Demo
             return sjekk;
         }
 
-        private void btnFjern_Click(object sender, EventArgs e)
+        private void BtnFjern_Click(object sender, EventArgs e)
         {
             if (lbListeOverbrukere.SelectedIndex != -1)
             {

@@ -184,11 +184,11 @@
     <Compile Include="Forms\Redigering\frm_R_RedigerObjekt.Designer.cs">
       <DependentUpon>frm_R_RedigerObjekt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Control Panel\frm_CP_FjernKategori.cs">
+    <Compile Include="Forms\Control Panel\Frm_CP_FjernKategori.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Control Panel\frm_CP_FjernKategori.Designer.cs">
-      <DependentUpon>frm_CP_FjernKategori.cs</DependentUpon>
+    <Compile Include="Forms\Control Panel\Frm_CP_FjernKategori.Designer.cs">
+      <DependentUpon>Frm_CP_FjernKategori.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Control Panel\Frm_CP_Admin.cs">
       <SubType>Form</SubType>
@@ -292,8 +292,8 @@
     <EmbeddedResource Include="Forms\Redigering\frm_R_RedigerOmråde.resx">
       <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Control Panel\frm_CP_FjernKategori.resx">
-      <DependentUpon>frm_CP_FjernKategori.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Control Panel\Frm_CP_FjernKategori.resx">
+      <DependentUpon>Frm_CP_FjernKategori.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Control Panel\Frm_CP_Admin.resx">
       <DependentUpon>Frm_CP_Admin.cs</DependentUpon>
