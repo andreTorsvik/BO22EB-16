@@ -26,35 +26,42 @@ namespace GMAP_Demo
             InitializeComponent();
             instance = this;
 
-           startup();
-        }
-
-        public void startup()
-        {
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
 
             // Første gang programmet starter etter innlogging så vises vinduet i midten av skjermen.
             this.CenterToScreen();
 
-            //endre farge
-            btnFilter.BackColor = Globalekonstanter.knapp_trykket;
-
-            //sette Blåpanel til vesntre for Posisjonknapp 
-            FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
-
             SetTheme();
 
-            //start form filter
+            FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
+
             this.PnlFormLoader.Controls.Clear();
             frmFilter frmFilter_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmFilter_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(frmFilter_vrb);
             frmFilter_vrb.Show();
 
-            
+        }
 
-           
+        public void ByttetTheme()
+        {
+            //bytter theme og åpner filter 
+            //må åpne filter igjen, for å få formen med nye farger 
+
+            SetTheme();
+
+            AlleKnapperTilStandarfarge();
+            btnFilter.BackColor = Globalekonstanter.knapp_trykket;
+
+            FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
+
+            this.PnlFormLoader.Controls.Clear();
+            frmFilter frmPosisjon_vrb = new frmFilter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
+            frmPosisjon_vrb.Show();
+
         }
 
         public void SetTheme()
@@ -240,6 +247,7 @@ namespace GMAP_Demo
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+            instance = null;
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
