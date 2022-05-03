@@ -62,8 +62,8 @@ namespace GMAP_Demo
             if (frmVisning.instance != null)
                 frmVisning.instance.Show();
 
-            if (frmControlPanel.instance != null)
-                frmControlPanel.instance = null;
+            if (instance != null)
+                instance = null;
         }
 
         internal void AlleKnapperTilStandardFargeCP()
