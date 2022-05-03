@@ -74,7 +74,7 @@ namespace GMAP_Demo
             string ByKommune = txtByKommune.Text;
             string Adresse = txtAdresse.Text;
                 
-            //Utføres om EN er fylt ut 
+            // Utføres om EN er fylt ut 
             if(!(string.IsNullOrWhiteSpace(Land) && string.IsNullOrWhiteSpace(ByKommune) && string.IsNullOrWhiteSpace(Adresse)))
                 Kart.FinnLokasjon(Land,ByKommune,Adresse);
         }

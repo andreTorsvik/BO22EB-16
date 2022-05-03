@@ -41,6 +41,10 @@ namespace GMAP_Demo
         // Grensen hvor objekter blir borte fra kartet 
         public const int  ZoomLevel = 16;
 
+        // Hvis kartet er utenfor zoom grense 
+        public static bool UtenforZoomGrense = false;
+
+
         // Filnavn
         public const string filStartPosisjon = "StartPosisjon.txt";
         public const string filTheme = "Theme.txt";

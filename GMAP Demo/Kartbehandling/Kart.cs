@@ -15,6 +15,7 @@ namespace GMAP_Demo
         public enum MuligKart { Visning, Redigering, Begge };
         public static PointLatLng PunktFraForrige = new PointLatLng();
         public static bool VisOmrådePåKart = true;
+        public static int RutePåkartet = 0;
 
         public static void Setup(MuligKart kart, PointLatLng Startpunkt)
         {
@@ -70,8 +71,30 @@ namespace GMAP_Demo
             }
         }
 
+        public static List<GMapOverlay> LagreRute()
+        {
+            List<GMapOverlay> Lroutes = new List<GMapOverlay>();
+
+            for (int i = 0; i < frmVisning.instance.map.Overlays.Count; i++)
+            {
+                if (frmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
+                {
+                    Lroutes.Add(frmVisning.instance.map.Overlays[i]);
+
+                }
+            }
+
+            return Lroutes;
+        }
+
         public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
         {
+            List<GMapOverlay> Lroutes = new List<GMapOverlay>();
+            if (RutePåkartet > 0)
+            {
+                Lroutes = LagreRute();
+            }
+
             switch (kart)
             {
                 case MuligKart.Visning:
@@ -88,11 +111,22 @@ namespace GMAP_Demo
                     return;
                     //break;
             }
-            // Legger til objektene 
-            LeggTilRessurs(Lressurs, kart);
+            // Legger til objektene
+            if(!Globalekonstanter.UtenforZoomGrense)
+                LeggTilRessurs(Lressurs, kart);
 
             // Legger til områdene, hvis man "checked" i filter 
             if (VisOmrådePåKart) LeggTilOmråde(Lområde, kart);
+
+            // Legger til rute igjen
+            if(Lroutes.Count > 0)
+            {
+                foreach (var item in Lroutes)
+                {
+                    frmVisning.instance.map.Overlays.Add(item);
+                }
+            }
+            
 
             // Må oppdatere kartet etter man har lagt til 
             reff(kart); 
@@ -342,7 +376,7 @@ namespace GMAP_Demo
             var routes = new GMapOverlay(Globalekonstanter.NavnRute);
             routes.Routes.Add(r);
             frmVisning.instance.map.Overlays.Add(routes);
-
+            RutePåkartet++;
             // Plasser kartet i starten av ruten 
             frmVisning.instance.map.Position = Start;
 
@@ -508,18 +542,21 @@ namespace GMAP_Demo
 
         public static void FjernRute()
         {
-            // Fjern en enkelt rute 
+            // Fjern alle rutene 
             for (int i = 0; i < frmVisning.instance.map.Overlays.Count; i++)
             {
                 if (frmVisning.instance.map.Overlays[i].Id == Globalekonstanter.NavnRute)
                 {
                     frmVisning.instance.map.Overlays.RemoveAt(i);
-                    reff(MuligKart.Visning);
-                    if (Frm_V_Posisjon.instance != null)
-                        Frm_V_Posisjon.instance.lblDistanse.Text = "[Distanse i Km]";
-                    break;
+                    i--;            
                 }
             }
+
+            if (Frm_V_Posisjon.instance != null)
+                Frm_V_Posisjon.instance.lblDistanse.Text = "[Distanse i Km]";
+
+            RutePåkartet = 0;
+            reff(MuligKart.Visning);
         }
 
         public static void FjernAlleMarkører_redigier(string områdeId)
