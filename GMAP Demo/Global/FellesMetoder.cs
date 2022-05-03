@@ -169,13 +169,13 @@ namespace GMAP_Demo
             return AlleTag;
 
         }
-        public static bool MeldingsboksYesNo(string Tittle, string tekst)
+        public static bool MeldingsboksYesNo(string Tittel, string tekst)
         {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
             // Displays the MessageBox.
-            result = MessageBox.Show(tekst, Tittle, buttons);
+            result = MessageBox.Show(tekst, Tittel, buttons);
             if (result == DialogResult.Yes)
             {
                 return true;

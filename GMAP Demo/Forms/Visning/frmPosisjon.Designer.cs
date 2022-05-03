@@ -365,10 +365,6 @@
             this.lblBasertPå2.TabIndex = 27;
             this.lblBasertPå2.Text = "Basert på dobbelklikk på kartet eller søk ";
             // 
-            // toolTip1
-            // 
-            this.toolTip1.ToolTipTitle = "Hjelp:";
-            // 
             // frmPosisjon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

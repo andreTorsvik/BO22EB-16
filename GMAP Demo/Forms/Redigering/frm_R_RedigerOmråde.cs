@@ -366,9 +366,9 @@ namespace GMAP_Demo
                         string enderingIPunkter = Tekstbehandling.sammenlignPunkter(Lområde, pList);
                         if (Endring != string.Empty)
                         {
-                            string Tittle = "Vil du lagre disse endringene ";
+                            string Tittel = "Vil du lagre disse endringene ";
 
-                            bool LagreEndring = FellesMetoder.MeldingsboksYesNo(Tittle, Endring);
+                            bool LagreEndring = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
                             if (LagreEndring)
                             {
                                 try

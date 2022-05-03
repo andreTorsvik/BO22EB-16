@@ -252,8 +252,8 @@ namespace GMAP_Demo
                         string Endring = Tekstbehandling.SjekkEndringer_Objekt(ressurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
                         if (Endring != string.Empty)
                         {
-                            string Tittle = "Vil du lagre disse endringene ";
-                            bool lagreEndring = FellesMetoder.MeldingsboksYesNo(Tittle, Endring);
+                            string Tittel = "Vil du lagre disse endringene ";
+                            bool lagreEndring = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
                           
                             if (lagreEndring)
                             {

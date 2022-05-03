@@ -83,7 +83,7 @@ namespace GMAP_Demo
             if(!string.IsNullOrEmpty( tbValgtKategori.Text))
             {
                 string kategori = tbValgtKategori.Text;
-                string Tittel = "Vil du Fjerne denne Kategorien: ";
+                string Tittel = "Vil du fjerne denne Kategorien: ";
 
                 bool Fjern = FellesMetoder.MeldingsboksYesNo(Tittel, kategori);
 

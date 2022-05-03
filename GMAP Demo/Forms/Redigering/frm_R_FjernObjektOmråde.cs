@@ -67,9 +67,9 @@ namespace GMAP_Demo
             {
                 try
                 {
-                    string Tittle = "Sletting";
+                    string Tittel = "Sletting";
                     string tekst = string.Format("Vil du slette ressurs: {0} ", Løpenummer_til_objekt);
-                    bool Fjern = FellesMetoder.MeldingsboksYesNo(Tittle, tekst);
+                    bool Fjern = FellesMetoder.MeldingsboksYesNo(Tittel, tekst);
 
                     if (Fjern)
                     {
@@ -94,10 +94,10 @@ namespace GMAP_Demo
             {
                 try
                 {
-                    string Tittle = "Sletting";
+                    string Tittel = "Sletting";
                     string tekst = string.Format("Vil du slette Område: {0} ", Løpenummer_til_Område);
 
-                    bool fjern = FellesMetoder.MeldingsboksYesNo(Tittle, tekst);
+                    bool fjern = FellesMetoder.MeldingsboksYesNo(Tittel, tekst);
 
                     if (fjern)
                     {
