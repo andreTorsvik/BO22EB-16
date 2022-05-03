@@ -59,11 +59,15 @@ namespace GMAP_Demo
         private void frmSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
             //PnlFormLoader.Controls.Clear();
-
-            if(frmVisning.instance != null)
+            if (frmVisning.instance != null)
                 frmVisning.instance.Show();
+
             if (frmControlPanel.instance != null)
                 frmControlPanel.instance = null;
+            if (frm_CP_EndeUtseende.instance != null)
+                frm_CP_EndeUtseende.instance = null;
+
+
         }
 
         internal void AlleKnapperTilStandarfarge()

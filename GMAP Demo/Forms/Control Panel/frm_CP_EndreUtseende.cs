@@ -6,8 +6,8 @@ namespace GMAP_Demo
 {
     public partial class Frm_CP_EndeUtseende : Form
     {
-        Frm_CP_EndeUtseende instance;
-        public Frm_CP_EndeUtseende()
+        public static frm_CP_EndeUtseende instance;
+        public frm_CP_EndeUtseende()
         {
             InitializeComponent();
             instance = this;
@@ -16,7 +16,7 @@ namespace GMAP_Demo
 
         private void SetTheme()
         {
-            instance.BackColor = ThemeDesign.colorBackground;
+            this.BackColor = ThemeDesign.colorBackground;
 
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
@@ -39,24 +39,29 @@ namespace GMAP_Demo
             https://docs.microsoft.com/en-us/dotnet/api/system.reflection.methodbase.invoke?view=net-6.0
             mInfos[lbThemes.SelectedIndex].Invoke(null, null);
 
+            //skriver til fil for å lagre 
             FilBehandeling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());
 
-            //endre vinduene du er i nå
-            frmControlPanel.instance.SetTheme();
-            frmInnlogging.instance.SetTheme();
-            
+            //Setter theme på de instance som er oppe
+            if (frmControlPanel.instance != null)
+            {
+                frmControlPanel.instance.SetTheme();
+
+                //endre fargen på knappen til formen 
+                frmControlPanel.instance.OppdaterThemeKnapp();
+            }      
+            if (frmInnlogging.instance != null)
+                frmInnlogging.instance.SetTheme();
+
+            SetTheme();
+
             //endre standerfarge 
-            Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground; 
+            Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground;
             Globalekonstanter.StandarFargeKnapp = ThemeDesign.colorSecondaryBackground;
 
-            //endre fargen på knappen til formen 
-            frmControlPanel.instance.OppdaterThemeKnapp();
-
-            //endre Theme på visning, må derfor åpne den på nytt    
-            frmVisning.instance.startup();//her feilen ligger
-
-            instance.SetTheme();
-
+            //endre Theme på visning, Åpner nå filter uavhengiv va som var der før
+            //for å endre theme 
+            frmVisning.instance.ByttetTheme();
         }
     }
 }
