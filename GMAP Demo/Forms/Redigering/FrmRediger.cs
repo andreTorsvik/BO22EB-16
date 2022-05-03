@@ -138,7 +138,7 @@ namespace GMAP_Demo
 
         private void BtnRediger_objekt_Click(object sender, EventArgs e)
         {
-            frm_R_RedigerObjekt frm_R_RedigerObjekt_vrb = new frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_R_RedigerObjekt frm_R_RedigerObjekt_vrb = new Frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_RedigerObjekt_vrb);
         }
 
@@ -275,8 +275,8 @@ namespace GMAP_Demo
             if (Frm_R_LeggTilOmråde.instance != null)
                 Frm_R_LeggTilOmråde.instance = null;
 
-            if (frm_R_RedigerObjekt.instance != null)
-                frm_R_RedigerObjekt.instance = null;
+            if (Frm_R_RedigerObjekt.instance != null)
+                Frm_R_RedigerObjekt.instance = null;
 
             if (frm_R_RedigerOmråde.instance != null)
                 frm_R_RedigerOmråde.instance = null;
@@ -327,9 +327,9 @@ namespace GMAP_Demo
 
                     }
                 }
-                if (frm_R_RedigerObjekt.instance != null)
+                if (Frm_R_RedigerObjekt.instance != null)
                 {
-                    frm_R_RedigerObjekt.instance.FyllKoordinater(lat, lang);
+                    Frm_R_RedigerObjekt.instance.FyllKoordinater(lat, lang);
                 }
                 if (frm_R_RedigerOmråde.instance != null)
                 {
@@ -365,7 +365,7 @@ namespace GMAP_Demo
                 if (pnlNav.Top == btnRedigerObjekt.Top) { }
                 else if (pnlNav.Top != btnFjernObjektOmråde.Top)
                 {
-                    frm_R_RedigerObjekt frm_R_RedigerObjekt_vrb = new frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                    Frm_R_RedigerObjekt frm_R_RedigerObjekt_vrb = new Frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                     ÅpneFormFraMenyknapp(btnRedigerObjekt, e, frm_R_RedigerObjekt_vrb);
                 }
 
@@ -373,9 +373,9 @@ namespace GMAP_Demo
                 {
                     Frm_R_FjernObjektOmråde.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
                 }
-                if (frm_R_RedigerObjekt.instance != null)
+                if (Frm_R_RedigerObjekt.instance != null)
                 {
-                    frm_R_RedigerObjekt.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
+                    Frm_R_RedigerObjekt.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
                 }
             }
            
@@ -445,9 +445,9 @@ namespace GMAP_Demo
 
         private void ResettLøpenummerTilRedigering()
         {
-            if(frm_R_RedigerObjekt.instance != null)
+            if(Frm_R_RedigerObjekt.instance != null)
             {
-                frm_R_RedigerObjekt.instance.Løpenummer_til_redigering = -1;
+                Frm_R_RedigerObjekt.instance.løpenummer_til_redigering = -1;
             }       
             if (frm_R_RedigerOmråde.instance != null)
             {

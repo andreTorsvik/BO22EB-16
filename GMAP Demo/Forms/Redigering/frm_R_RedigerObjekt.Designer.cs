@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frm_R_RedigerObjekt
+    partial class Frm_R_RedigerObjekt
     {
         /// <summary>
         /// Required designer variable.
@@ -91,7 +91,7 @@
             this.btnLeggTilNyKategori.TabIndex = 86;
             this.btnLeggTilNyKategori.Text = "Legg til ny Kategori";
             this.btnLeggTilNyKategori.UseVisualStyleBackColor = true;
-            this.btnLeggTilNyKategori.Click += new System.EventHandler(this.btnLeggTilNyKategori_Click);
+            this.btnLeggTilNyKategori.Click += new System.EventHandler(this.BtnLeggTilNyKategori_Click);
             // 
             // lbTilgjengligKategori
             // 
@@ -104,7 +104,7 @@
             this.lbTilgjengligKategori.Sorted = true;
             this.lbTilgjengligKategori.TabIndex = 85;
             this.toolTip1.SetToolTip(this.lbTilgjengligKategori, "Dobbelklikk for å velge");
-            this.lbTilgjengligKategori.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengligKategori_MouseClick);            // 
+            this.lbTilgjengligKategori.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LbTilgjengligKategori_MouseClick);            // 
             // lblKategori
             // 
             this.lblKategori.AutoSize = true;
@@ -252,7 +252,7 @@
             this.btnLeggTilTag.TabIndex = 71;
             this.btnLeggTilTag.Text = "Legg til";
             this.btnLeggTilTag.UseVisualStyleBackColor = true;
-            this.btnLeggTilTag.Click += new System.EventHandler(this.btnLeggTilTag_Click);
+            this.btnLeggTilTag.Click += new System.EventHandler(this.BtnLeggTilTag_Click);
             // 
             // lbValgtTags
             // 
@@ -265,7 +265,7 @@
             this.lbValgtTags.Sorted = true;
             this.lbValgtTags.TabIndex = 70;
             this.toolTip1.SetToolTip(this.lbValgtTags, "Dobbelklikk for å flytte over");
-            this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbValgtTags_MouseDoubleClick);
+            this.lbValgtTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LbValgtTags_MouseDoubleClick);
             // 
             // lbTilgjengeligeTags
             // 
@@ -278,7 +278,7 @@
             this.lbTilgjengeligeTags.Sorted = true;
             this.lbTilgjengeligeTags.TabIndex = 69;
             this.toolTip1.SetToolTip(this.lbTilgjengeligeTags, "Dobbelklikk for å flytte over");
-            this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTilgjengeligeTags_MouseDoubleClick);
+            this.lbTilgjengeligeTags.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LbTilgjengeligeTags_MouseDoubleClick);
             // 
             // btnLagreEndring
             // 
@@ -289,7 +289,7 @@
             this.btnLagreEndring.TabIndex = 68;
             this.btnLagreEndring.Text = "Lagre endering";
             this.btnLagreEndring.UseVisualStyleBackColor = true;
-            this.btnLagreEndring.Click += new System.EventHandler(this.btnLeggTilObjekt_Click);
+            this.btnLagreEndring.Click += new System.EventHandler(this.BtnLeggTilObjekt_Click);
             // 
             // lblSikkerhetsklarering
             // 
@@ -390,7 +390,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frm_R_RedigerObjekt";
             this.Text = "frm_R_RedigerObjektOmråde";
-            this.Load += new System.EventHandler(this.frm_R_RedigerObjekt_Load);
+            this.Load += new System.EventHandler(this.Frm_R_RedigerObjekt_Load);
             this.gbObjekt.ResumeLayout(false);
             this.gbObjekt.PerformLayout();
             this.gbTag.ResumeLayout(false);

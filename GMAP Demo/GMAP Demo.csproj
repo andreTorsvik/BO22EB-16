@@ -178,11 +178,11 @@
     <Compile Include="Forms\Redigering\Frm_R_LeggTilOmråde.Designer.cs">
       <DependentUpon>Frm_R_LeggTilOmråde.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Redigering\frm_R_RedigerObjekt.cs">
+    <Compile Include="Forms\Redigering\Frm_R_RedigerObjekt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Redigering\frm_R_RedigerObjekt.Designer.cs">
-      <DependentUpon>frm_R_RedigerObjekt.cs</DependentUpon>
+    <Compile Include="Forms\Redigering\Frm_R_RedigerObjekt.Designer.cs">
+      <DependentUpon>Frm_R_RedigerObjekt.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Control Panel\Frm_CP_FjernKategori.cs">
       <SubType>Form</SubType>
@@ -286,8 +286,8 @@
     <EmbeddedResource Include="Forms\Redigering\Frm_R_LeggTilOmråde.resx">
       <DependentUpon>Frm_R_LeggTilOmråde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Redigering\frm_R_RedigerObjekt.resx">
-      <DependentUpon>frm_R_RedigerObjekt.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Redigering\Frm_R_RedigerObjekt.resx">
+      <DependentUpon>Frm_R_RedigerObjekt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Redigering\frm_R_RedigerOmråde.resx">
       <DependentUpon>frm_R_RedigerOmråde.cs</DependentUpon>
