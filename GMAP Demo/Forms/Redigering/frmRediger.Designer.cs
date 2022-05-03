@@ -134,7 +134,7 @@
             this.btnTilbake.Text = "Tilbake";
             this.btnTilbake.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnTilbake.UseVisualStyleBackColor = true;
-            this.btnTilbake.Click += new System.EventHandler(this.btnTilbake_Click);
+            this.btnTilbake.Click += new System.EventHandler(this.BtnTilbake_Click);
             // 
             // btnFjernObjektOmråde
             // 
@@ -153,7 +153,7 @@
             this.btnFjernObjektOmråde.Text = "Fjern obj/område";
             this.btnFjernObjektOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFjernObjektOmråde.UseVisualStyleBackColor = true;
-            this.btnFjernObjektOmråde.Click += new System.EventHandler(this.btnFjernObjektOmråde_Click);
+            this.btnFjernObjektOmråde.Click += new System.EventHandler(this.BtnFjernObjektOmråde_Click);
             // 
             // btnLeggTilBilde
             // 
@@ -350,7 +350,7 @@
             this.Name = "FrmRediger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Rediger ressurser ";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRediger_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmRediger_FormClosing);
             this.Load += new System.EventHandler(this.FrmRediger_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlUser.ResumeLayout(false);

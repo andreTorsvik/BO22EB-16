@@ -82,7 +82,7 @@ namespace GMAP_Demo
             MinimumSize = Globalekonstanter.frmWithMenuMinimumSize;
         }
 
-        private void btnTilbake_Click(object sender, EventArgs e)
+        private void BtnTilbake_Click(object sender, EventArgs e)
         {
             frmVisning.instance.map.Position = map.Position;
             frmVisning.instance.map.Zoom = map.Zoom;
@@ -229,7 +229,7 @@ namespace GMAP_Demo
             //}
         }
 
-        private void btnFjernObjektOmråde_Click(object sender, EventArgs e)
+        private void BtnFjernObjektOmråde_Click(object sender, EventArgs e)
         {
             frm_R_FjernObjektOmråde frm_R_FjernObjektOmråde_vrb = new frm_R_FjernObjektOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_FjernObjektOmråde_vrb);
@@ -256,18 +256,18 @@ namespace GMAP_Demo
             //}
         }
 
-        private void frmRediger_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmRediger_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frmVisning.instance.Size = this.Size;
-            frmVisning.instance.Location = this.Location;
+            frmVisning.instance.Size = Size;
+            frmVisning.instance.Location = Location;
 
-            this.PnlFormLoader.Controls.Clear();
-            instanceNull();
+            PnlFormLoader.Controls.Clear();
+            InstanceNull();
             
             frmVisning.instance.Show();
         }
 
-        private void instanceNull()
+        private void InstanceNull()
         {
             if (frm_R_FjernObjektOmråde.instance != null)
                 frm_R_FjernObjektOmråde.instance = null;
@@ -287,8 +287,8 @@ namespace GMAP_Demo
             if (frm_R_EndreObjektsymbol.instance != null)
                 frm_R_EndreObjektsymbol.instance = null;
 
-            if (FrmRediger.instance != null)
-                FrmRediger.instance = null;
+            if (instance != null)
+                instance = null;
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
