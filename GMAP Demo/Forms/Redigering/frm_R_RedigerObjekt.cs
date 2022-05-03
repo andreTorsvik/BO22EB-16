@@ -183,17 +183,17 @@ namespace GMAP_Demo
             txtLong.Text = GlobaleLister.LRessurs[Tag].Lang.ToString();
 
 
-            //sletting av eksisterende lister
+            // Sletting av eksisterende lister
             if (lbValgtTags.Items.Count > 0) lbValgtTags.Items.Clear();
             if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
             if (LGamleTag.Count > 0) LGamleTag.Clear();
 
-            //tagliste
+            // Tagliste
             var TagListeTilRessurs = GlobaleLister.LRessurs[Tag].hentTags();
             var AlleTags = FellesMetoder.FåAlleTags();
             var GjenværendeTag = AlleTags.Except(TagListeTilRessurs);
 
-            //sorter Tags
+            // Sorter Tags
             foreach (var tags in TagListeTilRessurs)
             {
                 lbValgtTags.Items.Add(tags);
@@ -216,8 +216,8 @@ namespace GMAP_Demo
             string lang = txtLong.Text;
             int antallTags = lbValgtTags.Items.Count;
             List<string> nyTags = lbValgtTags.Items.Cast<string>().ToList();
-           
 
+            // Legger til, om alt stemmer
             string SjekkFeil = RedigerObjekt(løpenummer_til_redigering, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, antallTags, LGamleTag, nyTags);
 
             if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
