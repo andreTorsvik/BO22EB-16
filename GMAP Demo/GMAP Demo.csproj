@@ -148,11 +148,11 @@
     <Compile Include="Forms\Visning\frmPosisjon.Designer.cs">
       <DependentUpon>frmPosisjon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Redigering\frmRediger.cs">
+    <Compile Include="Forms\Redigering\FrmRediger.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Redigering\frmRediger.Designer.cs">
-      <DependentUpon>frmRediger.cs</DependentUpon>
+    <Compile Include="Forms\Redigering\FrmRediger.Designer.cs">
+      <DependentUpon>FrmRediger.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Control Panel\FrmControlPanel.cs">
       <SubType>Form</SubType>
@@ -271,8 +271,8 @@
     <EmbeddedResource Include="Forms\Visning\frmPosisjon.resx">
       <DependentUpon>frmPosisjon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Redigering\frmRediger.resx">
-      <DependentUpon>frmRediger.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Redigering\FrmRediger.resx">
+      <DependentUpon>FrmRediger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Control Panel\FrmControlPanel.resx">
       <DependentUpon>FrmControlPanel.cs</DependentUpon>

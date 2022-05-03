@@ -1,6 +1,6 @@
 ﻿namespace GMAP_Demo
 {
-    partial class frmRediger
+    partial class FrmRediger
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRediger));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRediger));
             this.map = new GMap.NET.WindowsForms.GMapControl();
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.pnlMenu = new System.Windows.Forms.Panel();
@@ -172,7 +172,7 @@
             this.btnLeggTilBilde.Text = "Endre objektsymbol";
             this.btnLeggTilBilde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLeggTilBilde.UseVisualStyleBackColor = true;
-            this.btnLeggTilBilde.Click += new System.EventHandler(this.btnLeggTilBilde_Click);
+            this.btnLeggTilBilde.Click += new System.EventHandler(this.BtnLeggTilBilde_Click);
             // 
             // btnRedigerOmråde
             // 
@@ -191,7 +191,7 @@
             this.btnRedigerOmråde.Text = "Rediger område";
             this.btnRedigerOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnRedigerOmråde.UseVisualStyleBackColor = true;
-            this.btnRedigerOmråde.Click += new System.EventHandler(this.btnRedigerOmråde_Click);
+            this.btnRedigerOmråde.Click += new System.EventHandler(this.BtnRedigerOmråde_Click);
             // 
             // btnRediger_objekt
             // 
@@ -210,7 +210,7 @@
             this.btnRediger_objekt.Text = "Rediger objekt";
             this.btnRediger_objekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnRediger_objekt.UseVisualStyleBackColor = true;
-            this.btnRediger_objekt.Click += new System.EventHandler(this.btnRediger_objekt_Click);
+            this.btnRediger_objekt.Click += new System.EventHandler(this.BtnRediger_objekt_Click);
             // 
             // btnLeggTilOmråde
             // 
@@ -229,7 +229,7 @@
             this.btnLeggTilOmråde.Text = "Legg til område";
             this.btnLeggTilOmråde.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLeggTilOmråde.UseVisualStyleBackColor = true;
-            this.btnLeggTilOmråde.Click += new System.EventHandler(this.btnOmråde_Click);
+            this.btnLeggTilOmråde.Click += new System.EventHandler(this.BtnOmråde_Click);
             // 
             // btnLeggTilObjekt
             // 
@@ -248,7 +248,7 @@
             this.btnLeggTilObjekt.Text = "Legg til objekt";
             this.btnLeggTilObjekt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLeggTilObjekt.UseVisualStyleBackColor = true;
-            this.btnLeggTilObjekt.Click += new System.EventHandler(this.btnObjekt_Click);
+            this.btnLeggTilObjekt.Click += new System.EventHandler(this.BtnObjekt_Click);
             // 
             // pnlUser
             // 
@@ -351,7 +351,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Rediger ressurser ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRediger_FormClosing);
-            this.Load += new System.EventHandler(this.frmRediger_Load);
+            this.Load += new System.EventHandler(this.FrmRediger_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlUser.ResumeLayout(false);
             this.pnlUser.PerformLayout();

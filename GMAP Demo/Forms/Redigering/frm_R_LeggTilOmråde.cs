@@ -237,7 +237,7 @@ namespace GMAP_Demo
         {
             if (pointLatLngs.Count > 0)
             {
-                frmRediger.instance.cbOmråde.Checked = false;
+                FrmRediger.instance.cbOmråde.Checked = false;
 
                 Kart.FjernHjelpeOmråde();
                 Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde); 
@@ -251,7 +251,7 @@ namespace GMAP_Demo
 
                 if (Kart.SjekkKartHarHjelpemarkør_redigier(Globalekonstanter.NavnHjelpeMarkør)) 
                 {
-                    Kart.TegnHjelpeOmråde_rediger(frmRediger.DoubleClick_punkt, PunktListe);
+                    Kart.TegnHjelpeOmråde_rediger(FrmRediger.DoubleClick_punkt, PunktListe);
                 }
                 else
                 {
@@ -271,7 +271,7 @@ namespace GMAP_Demo
         {
             if (pointLatLngs.Count > 0)
             {
-                frmRediger.instance.cbOmråde.Checked = false;
+                FrmRediger.instance.cbOmråde.Checked = false;
 
                 Kart.FjernHjelpeOmråde();
                 Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde); // "MarkørForOmråde"

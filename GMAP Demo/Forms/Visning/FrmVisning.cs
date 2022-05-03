@@ -207,7 +207,7 @@ namespace GMAP_Demo
             Kart.PunktFraForrige = map.Position;
 
             this.Hide();
-            frmRediger frmRediger = new frmRediger(); // instance 
+            FrmRediger frmRediger = new FrmRediger(); // instance 
             frmRediger.Size = this.Size;
             frmRediger.Location = this.Location;
             frmRediger.Show();
@@ -240,8 +240,8 @@ namespace GMAP_Demo
         void AlleKnapperTilStandarfarge()
         {
             //setter alle nødvendige knappen til standarfarge
-            btnFilter.BackColor = Globalekonstanter.StandarFargeKnapp;
-            btnPosisjon.BackColor = Globalekonstanter.StandarFargeKnapp;
+            btnFilter.BackColor = Globalekonstanter.StandardFargeKnapp;
+            btnPosisjon.BackColor = Globalekonstanter.StandardFargeKnapp;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

@@ -9,6 +9,9 @@ namespace GMAP_Demo
 {
     public class Globalekonstanter
     {
+        // Forms med meny og kart (for å få plass til alle elementer)
+        public static Size frmWithMenuMinimumSize = new Size(1000, 750);
+
         // Sikkerhetsklarering (1-3)
         public const int MaxSikkerhetsklarering = 3;
 
@@ -25,7 +28,7 @@ namespace GMAP_Demo
 
         // Design/Theme
         public static Color knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground; // Farge når knapp er trykket 
-        public static Color StandarFargeKnapp = ThemeDesign.colorSecondaryBackground; // Farge på knapp normalt sett
+        public static Color StandardFargeKnapp = ThemeDesign.colorSecondaryBackground; // Farge på knapp normalt sett
 
         // Navn på Overlays 
         public const  string NavnHjelpeOmråde = "HjelpeOmråde"; // området som blir tegnet underveis, når man skal legge til eller redigere område 

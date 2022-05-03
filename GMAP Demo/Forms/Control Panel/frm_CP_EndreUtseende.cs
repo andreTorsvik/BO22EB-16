@@ -62,7 +62,7 @@ namespace GMAP_Demo
 
             //endre standerfarge 
             Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground;
-            Globalekonstanter.StandarFargeKnapp = ThemeDesign.colorSecondaryBackground;
+            Globalekonstanter.StandardFargeKnapp = ThemeDesign.colorSecondaryBackground;
 
             //endre Theme på visning, Åpner nå filter uavhengiv va som var der før
             //for å endre theme 

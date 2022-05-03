@@ -68,7 +68,7 @@ namespace GMAP_Demo
 
         internal void AlleKnapperTilStandardFargeCP()
         {
-            Color StandarFarge = Globalekonstanter.StandarFargeKnapp;
+            Color StandarFarge = Globalekonstanter.StandardFargeKnapp;
 
             btnLoggUt.BackColor = StandarFarge;
             btnStartPosisjon.BackColor = StandarFarge;

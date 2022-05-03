@@ -153,18 +153,18 @@ namespace GMAP_Demo
 
                 case MuligKart.Redigering:
                     // Hvilket kart 
-                    frmRediger.instance.map.MapProvider = Valgtkart;
+                    FrmRediger.instance.map.MapProvider = Valgtkart;
 
                     // Start posisjon kart
-                    frmRediger.instance.map.Position = Startpunkt; 
+                    FrmRediger.instance.map.Position = Startpunkt; 
 
                     // Settings for kart: zoom
-                    frmRediger.instance.map.MinZoom = minZoom;
-                    frmRediger.instance.map.MaxZoom = maksZoom;
-                    frmRediger.instance.map.Zoom = Zoom;
+                    FrmRediger.instance.map.MinZoom = minZoom;
+                    FrmRediger.instance.map.MaxZoom = maksZoom;
+                    FrmRediger.instance.map.Zoom = Zoom;
 
                     // Gjør det mulig å "dra" kartet 
-                    frmRediger.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
+                    FrmRediger.instance.map.DragButton = System.Windows.Forms.MouseButtons.Left;
                     break;
 
                 case MuligKart.Begge:
@@ -266,7 +266,7 @@ namespace GMAP_Demo
                     break;
                 case MuligKart.Redigering:
                     // Fjerne alt på kartet, programmet har lagt til
-                    frmRediger.instance.map.Overlays.Clear();
+                    FrmRediger.instance.map.Overlays.Clear();
                     break;
                 case MuligKart.Begge:
                     OppdaterKart(MuligKart.Visning, Lressurs, Lområde);
@@ -321,11 +321,11 @@ namespace GMAP_Demo
 
             //legger til i riktig kart 
             if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
-            else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
+            else if (MuligKart.Redigering == kart) FrmRediger.instance.map.Overlays.Add(markers);
             else if (MuligKart.Begge == kart)
             {
                 frmVisning.instance.map.Overlays.Add(markers);
-                frmRediger.instance.map.Overlays.Add(markers);
+                FrmRediger.instance.map.Overlays.Add(markers);
             }
 
             //oppdatere antall objekter i formFilter hvis den er åpen 
@@ -374,7 +374,7 @@ namespace GMAP_Demo
 
             //legger til på riktig kart
             if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(markers);
-            else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(markers);
+            else if (MuligKart.Redigering == kart) FrmRediger.instance.map.Overlays.Add(markers);
 
         }
 
@@ -403,11 +403,11 @@ namespace GMAP_Demo
 
                 // Legger til på riktig kart
                 if (MuligKart.Visning == kart) frmVisning.instance.map.Overlays.Add(polygons);
-                else if (MuligKart.Redigering == kart) frmRediger.instance.map.Overlays.Add(polygons);
+                else if (MuligKart.Redigering == kart) FrmRediger.instance.map.Overlays.Add(polygons);
                 else if (MuligKart.Begge == kart)
                 {
                     frmVisning.instance.map.Overlays.Add(polygons);
-                    frmRediger.instance.map.Overlays.Add(polygons);
+                    FrmRediger.instance.map.Overlays.Add(polygons);
                 }
             }
         }
@@ -564,7 +564,7 @@ namespace GMAP_Demo
                 // Legger til som overlay
                 var routes = new GMapOverlay(Globalekonstanter.NavnHjelpeOmråde);
                 routes.Routes.Add(r);
-                frmRediger.instance.map.Overlays.Add(routes);
+                FrmRediger.instance.map.Overlays.Add(routes);
 
                 // Oppdatere kartet 
                 reff(MuligKart.Redigering);
@@ -595,7 +595,7 @@ namespace GMAP_Demo
                 // Legger til som overlay
                 var routes = new GMapOverlay(Globalekonstanter.NavnHjelpeOmråde);
                 routes.Routes.Add(r);
-                frmRediger.instance.map.Overlays.Add(routes);
+                FrmRediger.instance.map.Overlays.Add(routes);
 
                 // Oppdatere kartet 
                 reff(MuligKart.Redigering);
@@ -620,16 +620,16 @@ namespace GMAP_Demo
                     break;
                 case MuligKart.Redigering:
 
-                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom + PlussMinus;
-                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom - PlussMinus;
+                    FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom + PlussMinus;
+                    FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom - PlussMinus;
 
                     break;
                 case MuligKart.Begge:
                     frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom + PlussMinus;
                     frmVisning.instance.map.Zoom = frmVisning.instance.map.Zoom - PlussMinus;
 
-                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom + PlussMinus;
-                    frmRediger.instance.map.Zoom = frmRediger.instance.map.Zoom - PlussMinus;
+                    FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom + PlussMinus;
+                    FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom - PlussMinus;
                     break;
             }
         }
@@ -710,11 +710,11 @@ namespace GMAP_Demo
         public static void FjernAlleMarkører_redigier(string områdeId)
         {
             // Fjerner alle hjelpemarkør i redigeringskartet
-            for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
+            for (int i = 0; i < FrmRediger.instance.map.Overlays.Count; i++)
             {
-                if (frmRediger.instance.map.Overlays[i].Id == områdeId)
+                if (FrmRediger.instance.map.Overlays[i].Id == områdeId)
                 {
-                    frmRediger.instance.map.Overlays.RemoveAt(i);
+                    FrmRediger.instance.map.Overlays.RemoveAt(i);
                     i--;
                 }
             }
@@ -727,9 +727,9 @@ namespace GMAP_Demo
             // Sjekker om kartet har en hjelpemakør ute nå
             bool svar = false;
 
-            for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
+            for (int i = 0; i < FrmRediger.instance.map.Overlays.Count; i++)
             {
-                if (frmRediger.instance.map.Overlays[i].Id == områdeId)
+                if (FrmRediger.instance.map.Overlays[i].Id == områdeId)
                 {
                     svar = true;
                     break;
@@ -744,11 +744,11 @@ namespace GMAP_Demo
             // Fjerner "Hjelpeområdet"
             // Er kun et Hjelpeområde av gangen 
 
-            for (int i = 0; i < frmRediger.instance.map.Overlays.Count; i++)
+            for (int i = 0; i < FrmRediger.instance.map.Overlays.Count; i++)
             {
-                if (frmRediger.instance.map.Overlays[i].Id == Globalekonstanter.NavnHjelpeOmråde)
+                if (FrmRediger.instance.map.Overlays[i].Id == Globalekonstanter.NavnHjelpeOmråde)
                 {
-                    frmRediger.instance.map.Overlays.RemoveAt(i);
+                    FrmRediger.instance.map.Overlays.RemoveAt(i);
                     break;
                 }
             }
@@ -758,7 +758,7 @@ namespace GMAP_Demo
         {
             //Metode for å gjøre polygoner/områder klikkbare eller uklikkbare 
 
-            foreach (var item in frmRediger.instance.map.Overlays)
+            foreach (var item in FrmRediger.instance.map.Overlays)
             {
                 if (item.Id == Globalekonstanter.NavnOmråde)
                 {
