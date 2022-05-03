@@ -41,22 +41,22 @@ namespace GMAP_Demo
         private void BtnSelectTheme_Click(object sender, EventArgs e)
         {
             https://docs.microsoft.com/en-us/dotnet/api/system.reflection.methodbase.invoke?view=net-6.0
-            //invoke den aktuelle metoden 
+            // Invoke den aktuelle metoden 
             mInfos[lbThemes.SelectedIndex].Invoke(null, null);
 
-            //skriver til fil for å lagre 
+            // Skriver til fil for å lagre 
             FilBehandeling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());
 
-            //endre standerfarge 
+            // Endre standerfarge 
             Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground;
             Globalekonstanter.StandardFargeKnapp = ThemeDesign.colorSecondaryBackground;
 
-            //Setter theme på de instance som er oppe
+            // Setter theme på de instance som er oppe
             if (FrmControlPanel.instance != null)
             {
                 FrmControlPanel.instance.SetTheme();
 
-                //endre fargen på knappen til formen 
+                // Endre fargen på knappen til formen 
                 FrmControlPanel.instance.OppdaterThemeKnapp();
             }      
             if (FrmInnlogging.instance != null)
@@ -64,10 +64,8 @@ namespace GMAP_Demo
 
             SetTheme();
 
-            
-
-            //endre Theme på visning, Åpner nå filter uavhengiv va som var der før
-            //for å endre theme 
+            // Endre Theme på visning, Åpner nå filter uavhengiv va som var der før
+            // For å endre theme 
             frmVisning.instance.ByttetTheme();
         }
     }

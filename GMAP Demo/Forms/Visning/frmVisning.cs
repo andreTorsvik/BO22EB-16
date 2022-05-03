@@ -4,7 +4,6 @@ using GMap.NET.WindowsForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 // Test test
@@ -15,9 +14,9 @@ namespace GMAP_Demo
         //log
         //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
-        
 
-       
+
+
         public static frmVisning instance;
 
         public frmVisning()
@@ -143,7 +142,7 @@ namespace GMAP_Demo
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            ÅpneFilterForm();          
+            ÅpneFilterForm();
         }
         private void ÅpneFilterForm()
         {
@@ -177,7 +176,7 @@ namespace GMAP_Demo
 
                 foreach (var item in map.Overlays)
                 {
-                    if(item.Id == Globalekonstanter.NavnOmråde && !polygon) //"Polygons"
+                    if (item.Id == Globalekonstanter.NavnOmråde && !polygon) //"Polygons"
                     {
                         FellesMetoder.OppdaterListe_området();
                         polygon = true;
@@ -186,10 +185,10 @@ namespace GMAP_Demo
                     {
                         FellesMetoder.OppdaterListe_ressurs();
                         objekt = true;
-                        
+
                     }
 
-                    if(polygon && objekt) // har oppdater begge listene 
+                    if (polygon && objekt) // har oppdater begge listene 
                     {
                         break;
                     }
@@ -246,21 +245,26 @@ namespace GMAP_Demo
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
             instance = null;
+            map = null;
+            Application.Exit();
+            
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
         {
             //henter Høyde på knapp og hvor toppen er plassert 
             pnlNav.Height = høyde;
-            pnlNav.Top = top;      
+            pnlNav.Top = top;
             pnlNav.Left = btnFilter.Left; //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
         }
 
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            ÅpneFilterForm();
+            if (pnlNav.Top != btnFilter.Top)
+            {
+                ÅpneFilterForm();
+            }
 
             if (Frm_V_Filter.instance != null)
             {
@@ -270,7 +274,10 @@ namespace GMAP_Demo
 
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
-            ÅpneFilterForm();
+            if (pnlNav.Top != btnFilter.Top)
+            {
+                ÅpneFilterForm();
+            }
 
             if (Frm_V_Filter.instance != null)
             {
@@ -287,10 +294,10 @@ namespace GMAP_Demo
                 double lat = DoubleClick_punkt.Lat;
                 double lang = DoubleClick_punkt.Lng;
 
-                if(Frm_V_Posisjon.instance != null)
+                if (Frm_V_Posisjon.instance != null)
                 {
                     Frm_V_Posisjon.instance.FyllKoordinater(lat, lang);
-                }         
+                }
             }
         }
 
@@ -303,7 +310,7 @@ namespace GMAP_Demo
 
             //metoden blir ikke påvirket av kart.reff(). 
             //den metoen zoomer ut og inn for å oppdatere kartet 
-            if(!KartOppdatere) 
+            if (!KartOppdatere)
             {
                 if (map.Zoom < ZoomLevel && !ZoomInvervall)
                 {
@@ -319,15 +326,15 @@ namespace GMAP_Demo
                             map.Overlays.RemoveAt(i);
                             i--;
                         }
-                        
+
                     }
 
                     ZoomInvervall = true;
                 }
                 else if (map.Zoom >= ZoomLevel && ZoomInvervall)
                 {
-                   
-                    if(!RutePåKartet) // det finnes ingen rute på kartet 
+
+                    if (!RutePåKartet) // det finnes ingen rute på kartet 
                     {
                         Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
                         ZoomInvervall = false;
@@ -347,7 +354,7 @@ namespace GMAP_Demo
 
                         //Opptatere kartet (alt blir fjernet med denne metoden og lagt til utenom ruter) 
                         Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-                        
+
                         //må legge til ruten igjen 
                         foreach (var item in Lroutes)
                         {
@@ -360,7 +367,7 @@ namespace GMAP_Demo
 
                 }
             }
-            
+
         }
 
         private void btnZoomPluss_Click(object sender, EventArgs e)
