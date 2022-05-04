@@ -52,6 +52,10 @@ namespace GMAP_Demo
             gblLastOppTilDB.BackColor = ThemeDesign.colorBackground;
             btnLeggTilIDb.ForeColor = ThemeDesign.colorLabel;
             btnLeggTilIDb.BackColor = ThemeDesign.colorGray;
+
+
+            pbValgtBilde.BackColor = ThemeDesign.colorGray;
+            pbValgtKategori.BackColor = ThemeDesign.colorGray;
         }
 
         private void LbTilgjengligKategorier_DoubleClick(object sender, EventArgs e)
