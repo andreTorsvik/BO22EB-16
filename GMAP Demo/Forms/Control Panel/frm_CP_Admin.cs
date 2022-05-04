@@ -101,7 +101,7 @@ namespace GMAP_Demo
                     var BrukerListe = DBComBruker.ListBrukerInfoFromDb(TilEpost);
                     DBComBruker.UpdateBruker_Godkjent(BrukerListe[0].Epost, true);
 
-                    int tallkode = BrukerListe[0].Tallkode; ;
+                    int tallkode = BrukerListe[0].Tallkode;
                     try
                     {
                         SendEpost(TilEpost, tallkode);
@@ -153,7 +153,7 @@ namespace GMAP_Demo
                 MessageBox.Show(string.Format("{0} {1}", e.UserState, e.Error), "message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                MessageBox.Show("Mail send");
+                MessageBox.Show("Mail sendt");
             }
         }
 
@@ -205,7 +205,7 @@ namespace GMAP_Demo
         {
             if (lbListeOverbrukere.SelectedIndex != -1)
             {
-                //sjekk om klarering
+                // Sjekk om klarering
                 int selectetItem = lbListeOverbrukere.SelectedIndex;
                 string BrukerInfo;
                 string epost;
@@ -231,13 +231,12 @@ namespace GMAP_Demo
                         if (brukerListe[0].Sikkerhetsklarering < Globalekonstanter.MaxSikkerhetsklarering)
                         {
                             klarering++;
+                            DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
                         }
                         else
                         {
                             MessageBox.Show("Kan ikke oppgradere fordi bruker allerede har høyeste");
                         }
-
-                        DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
 
                         OppdaterListenOverBrukere(selectetItem);
                     }
@@ -284,9 +283,9 @@ namespace GMAP_Demo
                             string Tittel = "Nedgradere deg selv: ";
                             string Endring = string.Format("{0}", epost);
 
-                            bool nedgrader = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
+                            bool ØnskerÅNedgrader = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
                             
-                            if (nedgrader)
+                            if (ØnskerÅNedgrader)
                             {
                                 bool Nedgrader = false;
                                 if (InnloggetBruker.Sikkerhetsklarering == Globalekonstanter.MaxSikkerhetsklarering)
@@ -403,11 +402,11 @@ namespace GMAP_Demo
         {
             if (lbListeOverbrukere.SelectedIndex != -1)
             {
-                //forløpi kun de med sikkerhetsklaering 3 som kan fjerne 
+                // Forløpi kun de med sikkerhetsklaering 3 som kan fjerne 
                 if (InnloggetBruker.Sikkerhetsklarering == Globalekonstanter.MaxSikkerhetsklarering)
                 {
 
-                    //finn mailen
+                    // Finner mailen
                     int selectetItem = lbListeOverbrukere.SelectedIndex;
                     string BrukerInfo = lbListeOverbrukere.SelectedItem.ToString();
                     string epost = HentEpostFraInfo(BrukerInfo);
