@@ -194,7 +194,10 @@ namespace GMAP_Demo
             // Legger til, om alt stemmer 
             string SjekkFeil = LeggTilOmrådet(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags, Tags);
 
-            if (SjekkFeil != string.Empty) MessageBox.Show(SjekkFeil);
+            if (SjekkFeil != string.Empty) 
+                MessageBox.Show(SjekkFeil);
+            else
+                FrmRediger.OmrådeKlikkbare();
 
             FellesMetoder.OppdaterTag_Liste();
         }

@@ -252,7 +252,12 @@ namespace GMAP_Demo
             // Legger til, om alt stemmer 
             string sjekkFeil = RedigerOmrådet(løpenummer_til_redigering, navn, sikkerhetsklarering, kommentar, farge, antallPunkter, antallTags, LGamleTag, nyTags);
 
-            if (sjekkFeil != string.Empty) MessageBox.Show(sjekkFeil);
+            if (sjekkFeil != string.Empty)
+            {
+                MessageBox.Show(sjekkFeil);
+            }
+            else
+                FrmRediger.OmrådeKlikkbare();
 
             FellesMetoder.OppdaterTag_Liste();
         }
