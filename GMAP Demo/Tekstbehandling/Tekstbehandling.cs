@@ -80,7 +80,7 @@ namespace GMAP_Demo
             return utFyllingsmangler;
         }
 
-        public static string SjekkEndringer_Objekt(List<Ressurs> rList, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, List<string> NyTags)
+        public static string SjekkEndringer_Objekt(List<Ressurs> rList, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, HashSet<string> NyTags)
         {
             //Objekt
             //kode for å oppdage endringer og kommentere de,  
@@ -176,7 +176,7 @@ namespace GMAP_Demo
             return utFyllingsmangler;
         }
 
-        public static string SjekkEndringer_Område(List<Område> oList, string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, List<string> GammleTags, List<string> NyTags)
+        public static string SjekkEndringer_Område(List<Område> oList, string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, List<string> GammleTags, HashSet<string> NyTags)
         {
             //område
             //kode for å oppdage endringer og kommentere de,  

@@ -166,11 +166,14 @@ namespace GMAP_Demo
 
         private void BtnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string nyTag = txtNyTag.Text;
+            string nyTag = txtNyTag.Text.Trim();
 
             if (!string.IsNullOrEmpty(nyTag))
             {
-                lbTilgjengeligeTags.Items.Add(nyTag);
+                if(!FellesMetoder.FinnesTag(nyTag))
+                {
+                    lbTilgjengeligeTags.Items.Add(nyTag);             
+                }
                 txtNyTag.Text = "";
             }
         }
@@ -235,13 +238,13 @@ namespace GMAP_Demo
 
         private void BtnLagreEndring_Click(object sender, EventArgs e)
         {
-            string navn = txtNavn.Text;
+            string navn = txtNavn.Text.Trim();
             string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string kommentar = txtKommentar.Text;
+            string kommentar = txtKommentar.Text.Trim();
             string farge = txtFarge.Text;
             int antallPunkter = pointLatLngs.Count;
             int antallTags = lbValgtTags.Items.Count;
-            List<string> nyTags = lbValgtTags.Items.Cast<string>().ToList();
+            HashSet<string> nyTags = new HashSet<string>(lbValgtTags.Items.Cast<string>().ToList() );
 
             // Legger til, om alt stemmer 
             string sjekkFeil = RedigerOmrådet(løpenummer_til_redigering, navn, sikkerhetsklarering, kommentar, farge, antallPunkter, antallTags, LGamleTag, nyTags);
@@ -319,7 +322,7 @@ namespace GMAP_Demo
 
                 // Fjerner hjelpområdet og markører 
                 Kart.FjernHjelpeOmråde();
-                Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeOmråde);
+                Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde); //Globalekonstanter.NavnHjelpeOmråde
 
                 // Tømmer listen og oppdarer antall
                 pointLatLngs.Clear();
@@ -372,7 +375,7 @@ namespace GMAP_Demo
 
         }
 
-        private string RedigerOmrådet(int løpenummer, string navn, string sikkerhetsklarering, string kommentar, string farge, int antallPunkter, int antallTags, List<string> gamleTags, List<string> nyTags)
+        private string RedigerOmrådet(int løpenummer, string navn, string sikkerhetsklarering, string kommentar, string farge, int antallPunkter, int antallTags, List<string> gamleTags, HashSet<string> nyTags)
         {
             if (løpenummer >= 0)
             {
@@ -413,7 +416,7 @@ namespace GMAP_Demo
                             {
                                 try
                                 {
-                                    //Oppdtaer info 
+                                    //Oppdaterer info 
                                     DBComOmråde.UpdateOmråde(løpenummer_til_redigering, navn, Convert.ToInt32(sikkerhetsklarering), kommentar, farge);
 
                                     //Punktene 

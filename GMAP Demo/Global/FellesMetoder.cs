@@ -170,6 +170,20 @@ namespace GMAP_Demo
 
         }
 
+        public static bool FinnesTag(string NyTag)
+        {
+            bool svar = false;
+
+            HashSet<string> AlleTags = FåAlleTags();
+
+            if(AlleTags.Contains(NyTag))
+            {
+                svar = true;
+            }
+
+            return svar;
+        }
+
         public static bool MeldingsboksYesNo(string Tittel, string tekst)
         {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;

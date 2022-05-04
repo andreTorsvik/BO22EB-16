@@ -79,13 +79,17 @@ namespace GMAP_Demo
 
         private void BtnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string nyTag = txtNyTag.Text;
+            string nyTag = txtNyTag.Text.Trim();
 
             if (!string.IsNullOrEmpty(nyTag))
             {
-                lbTilgjengeligeTags.Items.Add(nyTag);
-                txtNyTag.Text = "";
+                if (!FellesMetoder.FinnesTag(nyTag))
+                {
+                    lbTilgjengeligeTags.Items.Add(nyTag);
 
+                }
+                txtNyTag.Text = "";
+               
             }
         }
 
@@ -96,14 +100,14 @@ namespace GMAP_Demo
         }
         private void BtnLeggTilObjekt_Click(object sender, EventArgs e)
         {
-            string navn = txtNavn.Text;
+            string navn = txtNavn.Text.Trim();
             string kategori = txtKategori.Text;
             string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string Kommentar = txtKommentar.Text;
+            string Kommentar = txtKommentar.Text.Trim();
             string lat = txtLat.Text;
             string lang = txtLong.Text;
             int AntallTags = lbValgtTags.Items.Count;
-            List<string> Tags = lbValgtTags.Items.Cast<string>().ToList();
+            HashSet<string> Tags = new HashSet<string> ( lbValgtTags.Items.Cast<string>().ToList());
 
             // Legger til, om alt stemmer 
             string SjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, Tags);
@@ -125,16 +129,24 @@ namespace GMAP_Demo
 
         private void BtnLeggTilNyKategori_Click(object sender, EventArgs e)
         {
-            string nyKategori = txtNyKategori.Text;
+            string nyKategori = txtNyKategori.Text.Trim();
 
             if (!string.IsNullOrEmpty(nyKategori))
             {
                 try
                 {
-                    // Legge til ny kategori i databasen 
-                    DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
-                    lbTilgjengligKategori.Items.Add(nyKategori);
-                    txtKategori.Text = nyKategori;
+                    var antall = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(nyKategori);
+                    if (antall.Count == 0)
+                    {
+                        DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
+                        lbTilgjengligKategori.Items.Add(nyKategori);
+                        txtKategori.Text = nyKategori;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kategori finnes allerede");
+                        
+                    }
                     txtNyKategori.Text = "";
                 }
                 catch (Exception)
@@ -204,7 +216,7 @@ namespace GMAP_Demo
             }
         }
 
-        private string LeggTilObjekt(string navn, string kategori, string sikkerhetsklarering, string Kommentar, string lat, string lang, int AntallTags, List<string> nyTags)
+        private string LeggTilObjekt(string navn, string kategori, string sikkerhetsklarering, string Kommentar, string lat, string lang, int AntallTags, HashSet<string> nyTags)
         {
             string feilmelding = string.Empty;
 
@@ -234,6 +246,7 @@ namespace GMAP_Demo
                     // Laste opp hver enkelt tag 
                     try
                     {
+
                         foreach (var item in nyTags)
                         {
                             DBComTag_Ressurs.InsertTag_RessursToDb(item.ToString(), Løpenummer_Ressurs);

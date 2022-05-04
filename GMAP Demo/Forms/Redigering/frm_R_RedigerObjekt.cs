@@ -103,14 +103,31 @@ namespace GMAP_Demo
 
         private void BtnLeggTilNyKategori_Click(object sender, EventArgs e)
         {
-            string nyKategori = txtNyKategori.Text;
+            string nyKategori = txtNyKategori.Text.Trim();
 
             if (!string.IsNullOrEmpty(nyKategori))
             {
-                DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
+                try
+                {
+                    var antall = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(nyKategori);
+                    if (antall.Count == 0)
+                    {
+                        DBComKategorier_Bilde.InsertKategorier_BildeToDb(nyKategori);
 
-                lbTilgjengligKategori.Items.Add(nyKategori);
-                txtNyKategori.Text = "";
+                        lbTilgjengligKategori.Items.Add(nyKategori);
+                        txtKategori.Text = nyKategori;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kategori finnes allerede");
+                    }
+                    txtNyKategori.Text = "";
+                }
+                catch (Exception)
+                {
+
+                }
+                
             }
 
             FellesMetoder.OppdaterKategoriListe();
@@ -155,12 +172,17 @@ namespace GMAP_Demo
 
         private void BtnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string nyTag = txtNyTag.Text;
+            string nyTag = txtNyTag.Text.Trim();
 
             if (!string.IsNullOrEmpty(nyTag))
             {
-                lbTilgjengeligeTags.Items.Add(nyTag);
+                if (!FellesMetoder.FinnesTag(nyTag))
+                {
+                    lbTilgjengeligeTags.Items.Add(nyTag);
+
+                }
                 txtNyTag.Text = "";
+                
             }
         }
 
@@ -172,9 +194,10 @@ namespace GMAP_Demo
 
         public void FyllInfoObjekt(int Tag)
         {
-            //løpenummeret 
+            // Løpenummeret 
             løpenummer_til_redigering = GlobaleLister.LRessurs[Tag].Løpenummer_ressurs;
-            //info 
+
+            // Info 
             txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
             txtKategori.Text = GlobaleLister.LRessurs[Tag].Kategori;
             txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Tag].Sikkerhetsklarering.ToString();
@@ -208,14 +231,14 @@ namespace GMAP_Demo
 
         private void BtnLeggTilObjekt_Click(object sender, EventArgs e)
         {
-            string navn = txtNavn.Text;
+            string navn = txtNavn.Text.Trim();
             string kategori = txtKategori.Text;
             string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string kommentar = txtKommentar.Text;
+            string kommentar = txtKommentar.Text.Trim();
             string lat = txtLat.Text;
             string lang = txtLong.Text;
             int antallTags = lbValgtTags.Items.Count;
-            List<string> nyTags = lbValgtTags.Items.Cast<string>().ToList();
+            HashSet<string> nyTags = new HashSet<string>( lbValgtTags.Items.Cast<string>().ToList());
 
             // Legger til, om alt stemmer
             string SjekkFeil = RedigerObjekt(løpenummer_til_redigering, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, antallTags, LGamleTag, nyTags);
@@ -225,7 +248,7 @@ namespace GMAP_Demo
             FellesMetoder.OppdaterTag_Liste();
         }
 
-        private string RedigerObjekt(int løpenummer, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags, List<string> GamleTags, List<string> nyTags)
+        private string RedigerObjekt(int løpenummer, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags, List<string> GamleTags, HashSet<string> nyTags)
         {
             if (løpenummer >= 0)
             {
@@ -249,8 +272,10 @@ namespace GMAP_Demo
                             {
                                 try
                                 {
+                                    //Oppdatere med ny info 
                                     DBComRessurs.UpdateRessurs(løpenummer, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
 
+                                    // Oppdatere Tags, hvis det er noen nye 
                                     List<string> SjekkOmNye1 = nyTags.Except(GamleTags).ToList();
                                     List<string> SjekkOmNye2 = GamleTags.Except(nyTags).ToList();
                                     if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
@@ -258,7 +283,7 @@ namespace GMAP_Demo
                                         //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
                                         DBComTag_Ressurs.DeleteTags_Ressurs(løpenummer);
                                         //LEGGE TIL NYE
-                                        foreach (var item in lbValgtTags.Items)
+                                        foreach (var item in nyTags)
                                         {
                                             DBComTag_Ressurs.InsertTag_RessursToDb(item.ToString(), løpenummer);
                                         }

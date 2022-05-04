@@ -159,13 +159,17 @@ namespace GMAP_Demo
 
         private void BtnLeggTilTag_Click(object sender, EventArgs e)
         {
-            string nyTag = txtNyTag.Text;
+            string nyTag = txtNyTag.Text.Trim();
 
             if (!string.IsNullOrEmpty(nyTag))
             {
-                lbTilgjengeligeTags.Items.Add(nyTag);
-                lbTilgjengeligeTags.Sorted = true;
+                if (!FellesMetoder.FinnesTag(nyTag))
+                {
+                    lbTilgjengeligeTags.Items.Add(nyTag);
+
+                }
                 txtNyTag.Text = "";
+                
             }
         }
 
@@ -177,13 +181,13 @@ namespace GMAP_Demo
 
         private void BtnLeggTilOmrådeIDb_Click(object sender, EventArgs e)
         {
-            string navn = txtNavn.Text;
+            string navn = txtNavn.Text.Trim();
             string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string Kommentar = txtKommentar.Text;
+            string Kommentar = txtKommentar.Text.Trim();
             string Farge = txtfarge.Text;
             int antallPunkter = pointLatLngs.Count;
             int antallTags = lbValgtTags.Items.Count;
-            List<string> Tags = lbValgtTags.Items.Cast<string>().ToList();
+            HashSet<string> Tags = new HashSet<string>( lbValgtTags.Items.Cast<string>().ToList());
             
             // Legger til, om alt stemmer 
             string SjekkFeil = LeggTilOmrådet(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags, Tags);
@@ -305,7 +309,7 @@ namespace GMAP_Demo
             }
         }
 
-        private string LeggTilOmrådet(string navn, string sikkerhetsklarering, string Kommentar, string Farge, int AntallPunkter, int AntallTags, List<string> Tags)
+        private string LeggTilOmrådet(string navn, string sikkerhetsklarering, string Kommentar, string Farge, int AntallPunkter, int AntallTags, HashSet<string> Tags)
         {
             string feilmelding = string.Empty;
 
