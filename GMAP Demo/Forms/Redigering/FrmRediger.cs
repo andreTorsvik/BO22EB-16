@@ -102,6 +102,8 @@ namespace GMAP_Demo
         {
             if (pnlNav.Top != sender.Top)
             {
+                
+
                 AlleKnapperTilStandardFargeR();
                 sender.BackColor = Globalekonstanter.knapp_trykket;
 
@@ -124,25 +126,27 @@ namespace GMAP_Demo
 
         private void BtnObjekt_Click(object sender, EventArgs e)
         {
+            InstanceNull(false);
             Frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new Frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_LeggTilObjekt_vrb);
         }
         private void BtnOmråde_Click(object sender, EventArgs e)
         {
+            InstanceNull(false);
             Frm_R_LeggTilOmråde frm_R_LeggTilOmråde_vrb = new Frm_R_LeggTilOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_LeggTilOmråde_vrb);
         }
 
         private void BtnRediger_objekt_Click(object sender, EventArgs e)
         {
+            InstanceNull(false);
             Frm_R_RedigerObjekt frm_R_RedigerObjekt_vrb = new Frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_RedigerObjekt_vrb);
         }
 
-        
-
         private void BtnRedigerOmråde_Click(object sender, EventArgs e)
         {
+            InstanceNull(false);
             Frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new Frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_RedigerOmråde_vrb);
             //ÅpneRediger_områdeForm();
@@ -151,6 +155,7 @@ namespace GMAP_Demo
 
         private void BtnEndreObjektsymbol_Click(object sender, EventArgs e)
         {
+            InstanceNull(false);
             Frm_R_EndreObjektsymbol frm_R_EndreObjektsymbol_vrb = new Frm_R_EndreObjektsymbol() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_EndreObjektsymbol_vrb);
             
@@ -158,6 +163,7 @@ namespace GMAP_Demo
 
         private void BtnFjernObjektOmråde_Click(object sender, EventArgs e)
         {
+            InstanceNull(false);
             Frm_R_FjernObjektOmråde frm_R_FjernObjektOmråde_vrb = new Frm_R_FjernObjektOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             ÅpneFormFraMenyknapp((Button)sender, e, frm_R_FjernObjektOmråde_vrb);
             
@@ -172,12 +178,12 @@ namespace GMAP_Demo
 
 
             PnlFormLoader.Controls.Clear();
-            InstanceNull();
+            InstanceNull(true);
             
             FrmVisning.instance.Show();
         }
 
-        private void InstanceNull()
+        private void InstanceNull(bool avslutt)
         {
             if (Frm_R_FjernObjektOmråde.instance != null)
                 Frm_R_FjernObjektOmråde.instance = null;
@@ -197,8 +203,12 @@ namespace GMAP_Demo
             if (Frm_R_EndreObjektsymbol.instance != null)
                 Frm_R_EndreObjektsymbol.instance = null;
 
-            if (instance != null)
+            if(avslutt)
+            {
+                if (instance != null)
                 instance = null;
+            }
+           
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
@@ -316,10 +326,10 @@ namespace GMAP_Demo
 
                 if (Frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1)
                 {
-                    // Slette hvis det er det 
+                    // Slette hvis det er der 
                     SlettHjelpeMarkørerOgOmråder();
 
-                    //tegn område for valgt
+                    // Tegn området som er valgt
                     List<PointLatLng> PunkteListe = Frm_R_RedigerOmråde.instance.pointLatLngs.ToList();
 
                     if (Kart.SjekkKartHarHjelpemarkør_redigier("HjelpeMarkør"))
@@ -343,7 +353,15 @@ namespace GMAP_Demo
             }
             if (Frm_R_FjernObjektOmråde.instance != null)
             {
+                //tegn område for valgt
                 Frm_R_FjernObjektOmråde.instance.FyllInfoOmråde(Convert.ToInt32(item.Tag));
+
+                Kart.FjernHjelpeOmråde();
+
+                List<PointLatLng> PunkteListe = GlobaleLister.LOmråde[Convert.ToInt32(item.Tag)].HentPunkter();
+
+                Kart.TegnHjelpeOmråde_rediger(PunkteListe);
+
             }
 
         }
