@@ -39,11 +39,13 @@ namespace GMAP_Demo
         public const string NavnMarkørForOmråde = "MarkørForOmråde"; // Markør (blå) for hjørnen i et område som er lagt til  
 
         // Grensen hvor objekter blir borte fra kartet 
-        public const int  ZoomLevel = 16;
+        public const int  ZoomGrense = 16;
 
         // Filnavn
         public const string filStartPosisjon = "StartPosisjon.txt";
         public const string filTheme = "Theme.txt";
+
+        
 
     }
 }

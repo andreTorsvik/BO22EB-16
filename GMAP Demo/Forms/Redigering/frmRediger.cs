@@ -16,7 +16,7 @@ namespace GMAP_Demo
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
         public static FrmRediger instance;
         public static bool OmrådeKlikkBar = true;
-       public static PointLatLng DoubleClick_punkt;
+        public static PointLatLng DoubleClick_punkt;
 
         public FrmRediger()
         {

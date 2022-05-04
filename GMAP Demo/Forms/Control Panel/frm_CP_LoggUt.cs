@@ -48,8 +48,13 @@ namespace GMAP_Demo
         }
 
         private void BtnLoggUt_Click(object sender, EventArgs e)
-        {      
+        {
+            // Litten forsinkelse før appen restarter, må derfor skjule formen
+            FrmControlPanel.instance.Hide();
+            GlobaleVariabler.LoggUt = true;
+            
             Application.Restart();
+            Environment.Exit(0);
         }
 
         private void Frm_S_LoggUt_Load(object sender, EventArgs e)

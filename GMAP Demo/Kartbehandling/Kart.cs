@@ -70,42 +70,37 @@ namespace GMAP_Demo
         } 
 
         public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
-        {
-             
-            switch (kart)
+        {           
+            if(kart == MuligKart.Visning)
             {
-                case MuligKart.Visning:
+                // Lagre ruter, hvis de finnes
+                List<GMapOverlay> Lroutes = new List<GMapOverlay>();
+                if (RutePåkartet > 0)
+                    Lroutes = LagreRuteVisning();
 
-                    //lagrer lagret ruter, hvis de finnes
-                    List<GMapOverlay> Lroutes = new List<GMapOverlay>();
-                    if (RutePåkartet > 0)
-                        Lroutes = LagreRuteVisning();
+                // Fjerne alt på kartet, som programmet har lagt til
+                FrmVisning.instance.map.Overlays.Clear();
 
-                    // Fjerne alt på kartet som programmet har lagt til
-                    FrmVisning.instance.map.Overlays.Clear();
-
-                    //objekter til ikke tegnet inn hvis zoomgrensen er utenfor 
-                    if (!FrmVisning.instance.UtenforZoomGrense)
-                        LeggTilRessurs(Lressurs, kart);
-
-                    // Legger til rute, hvis noen
-                    LeggTilOverlayRute(Lroutes);
-                                      
-                    break;
-
-                case MuligKart.Redigering:
-
-                    // Fjerne alt på kartet som programmet har lagt til
-                    FrmRediger.instance.map.Overlays.Clear();
-
-                    //Tar ikke hensyn til zoom level 
+                // Objekter til ikke tegnet inn, hvis zoomlevel er utenfor grense
+                if (!GlobaleVariabler.UtenforZoomGrense)
                     LeggTilRessurs(Lressurs, kart);
-                    break;
 
-                case MuligKart.Begge:
-                    OppdaterKart(MuligKart.Visning, Lressurs, Lområde);
-                    OppdaterKart(MuligKart.Redigering, Lressurs, Lområde);
-                    return;
+                // Legger til rute, hvis noen
+                LeggTilOverlayRute(Lroutes);
+            }
+            else if(kart == MuligKart.Redigering)
+            {
+                // Fjerne alt på kartet som programmet har lagt til
+                FrmRediger.instance.map.Overlays.Clear();
+
+                //Tar ikke hensyn til zoom level 
+                LeggTilRessurs(Lressurs, kart);
+            }
+            else if(kart == MuligKart.Begge)
+            {
+                OppdaterKart(MuligKart.Visning, Lressurs, Lområde);
+                OppdaterKart(MuligKart.Redigering, Lressurs, Lområde);
+                return;
             }
 
             // Legger til områdene, hvis man ikke har "checked" i filter 
@@ -468,7 +463,7 @@ namespace GMAP_Demo
             //Enkleste måte å oppdatere kartet på, er å zoom inn og ut.
             //Zoomer inn og ut så lite at det ikke merkes
 
-            FrmVisning.instance.KartOppdatere = true;
+            GlobaleVariabler.KartOppdatere = true;
             double PlussMinus = 0.01;
             switch (kart)
             {
@@ -488,7 +483,7 @@ namespace GMAP_Demo
                     FrmRediger.instance.map.Zoom = FrmRediger.instance.map.Zoom - PlussMinus;
                     break;
             }
-            FrmVisning.instance.KartOppdatere = false;
+            GlobaleVariabler.KartOppdatere = false;
         }
 
         public static void FinnLokasjon(string Land, string ByKommune, string Adresse)

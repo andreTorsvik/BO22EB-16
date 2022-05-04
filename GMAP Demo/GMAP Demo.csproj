@@ -114,6 +114,7 @@
     <Compile Include="Forms\Control Panel\Frm_CP_EndreUtseende.Designer.cs">
       <DependentUpon>Frm_CP_EndreUtseende.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global\GlobaleVariabler.cs" />
     <Compile Include="Global\FellesMetoder.cs" />
     <Compile Include="Global\ThemeDesign.cs" />
     <Compile Include="Tekstbehandling\FilBehandeling.cs" />

@@ -139,7 +139,7 @@ namespace GMAP_Demo
         }
 
 
-        public static void OldTheme()
+        public static void OriginalTheme()
         {
             colorRed = Color.FromArgb(255, 69, 58);
             colorOrange = Color.FromArgb(255, 159, 10);
