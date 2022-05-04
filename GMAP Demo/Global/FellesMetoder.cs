@@ -131,7 +131,9 @@ namespace GMAP_Demo
 
         public static void OppdaterKategoriListe()
         {
-            GlobaleLister.kategoriListeVises.Clear();
+            //oppdater VistListe
+
+            if (GlobaleLister.kategoriListeVises.Count > 0) GlobaleLister.kategoriListeVises.Clear();
 
             // Henter alle kategoriene 
             List<Kategorier_Bilde> kategoriListeAlle = DBComKategorier_Bilde.ListAllKategorier_BildeFromDb();
@@ -140,19 +142,8 @@ namespace GMAP_Demo
             List<Kategorier_Bilde> ListeSkjulteKategori = GlobaleLister.kategoriListeSkjult.ToList();
 
             // Sorter ut alle de "skjulte" fra alle kateogirene  
-            List<Kategorier_Bilde> ListeVisteKategorier = new List<Kategorier_Bilde>( kategoriListeAlle);
-            for (int i = 0; i < ListeVisteKategorier.Count; i++)
-            {
-                foreach (var item in ListeSkjulteKategori)
-                {
-                    if(item.Kategorinavn == ListeVisteKategorier[i].Kategorinavn)
-                    {
-                        ListeVisteKategorier.RemoveAt(i);
-                        i--;
-                        break;
-                    }
-                }
-            }
+            List<Kategorier_Bilde> ListeVisteKategorier = new List<Kategorier_Bilde>(kategoriListeAlle);
+            Sortering(ref ListeVisteKategorier, ListeSkjulteKategori);
 
             //legger til etter sortering
             foreach (var item in ListeVisteKategorier)
@@ -160,36 +151,39 @@ namespace GMAP_Demo
                 GlobaleLister.kategoriListeVises.Add(item);
             }
 
-            // oppdatere skjultListe 
+            // Oppdatere skjultListe 
 
             ListeSkjulteKategori.Clear();
             ListeSkjulteKategori = new List<Kategorier_Bilde>(kategoriListeAlle);
 
-            GlobaleLister.kategoriListeSkjult.Clear();
+            if(GlobaleLister.kategoriListeSkjult.Count > 0) GlobaleLister.kategoriListeSkjult.Clear();
 
-            //Sorter ut det som er i "viste" 
-            //med denne metoden å gjøre det på, fjern man eventuelle kategorier, som 
-            //har blitt slettet fra databasen men ikke i programmet enda 
-
-            for (int i = 0; i < ListeSkjulteKategori.Count; i++)
-            {
-                foreach (var item in ListeVisteKategorier)
-                {
-                    if (item.Kategorinavn == ListeSkjulteKategori[i].Kategorinavn)
-                    {
-                        ListeSkjulteKategori.RemoveAt(i);
-                        i--;
-                        break;
-                    }
-                }
-            }
+            // Sorter ut det som er i "viste" 
+            Sortering(ref ListeSkjulteKategori, ListeVisteKategorier);
 
             // Legger til igjen etter sortering 
             foreach (var item in ListeSkjulteKategori)
             {
                 GlobaleLister.kategoriListeSkjult.Add(item);
             }
-            
+
+
+        }
+
+        public static void Sortering(ref List<Kategorier_Bilde> Hovedliste, List<Kategorier_Bilde> filtreringsListe)
+        {
+            for (int i = 0; i < Hovedliste.Count; i++)
+            {
+                foreach (var item in filtreringsListe)
+                {
+                    if (item.Kategorinavn == Hovedliste[i].Kategorinavn)
+                    {
+                        Hovedliste.RemoveAt(i);
+                        i--;
+                        break;
+                    }
+                }
+            }
 
         }
 

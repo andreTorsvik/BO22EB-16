@@ -34,6 +34,7 @@ namespace GMAP_Demo
             SetTheme();
 
             FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
+            btnFilter.BackColor = Globalekonstanter.knapp_trykket;
 
             this.PnlFormLoader.Controls.Clear();
             Frm_V_Filter frmFilter_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };

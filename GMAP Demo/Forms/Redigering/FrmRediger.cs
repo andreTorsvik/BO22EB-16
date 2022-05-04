@@ -388,11 +388,11 @@ namespace GMAP_Demo
             }
         }
 
-        public void OmrådeKlikkbare()
+        public static void OmrådeKlikkbare()
         {
             if(!OmrådeKlikkBar)
             {
-                cbOmråde.Checked = true;
+                instance.cbOmråde.Checked = true;
             }
         }
 
