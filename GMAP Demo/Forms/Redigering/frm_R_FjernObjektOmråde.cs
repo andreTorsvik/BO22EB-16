@@ -126,5 +126,9 @@ namespace GMAP_Demo
             txtNavn.Text = "";
         }
 
+        private void Frm_R_FjernObjektOmråde_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            instance = null;
+        }
     }
 }

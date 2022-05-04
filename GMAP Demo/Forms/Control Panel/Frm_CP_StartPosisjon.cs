@@ -51,11 +51,18 @@ namespace GMAP_Demo
 
         private void Frm_S_StartPosisjon_Load(object sender, EventArgs e)
         {
+            // Disse blir oppdatert når man åpner ControlPanel
             txtNyLat.Text = FrmControlPanel.instance.lat.ToString();
             txtNyLong.Text = FrmControlPanel.instance.lng.ToString();
+
+            //Henter nåværende startpunkt fra fil 
             PointLatLng nåværendeStartPunkt = HentStartpunktFraFil();
+
+            // Skriver dem inn
             txtNåværendeLat.Text = nåværendeStartPunkt.Lat.ToString();
             txtNåværendeLong.Text = nåværendeStartPunkt.Lng.ToString();
+
+            // Fyller tekstfeltene basert på lat og long 
             Fylltekstfelt();
         }
 
@@ -71,6 +78,7 @@ namespace GMAP_Demo
 
         private void Fylltekstfelt()
         {
+            //For å få adresse bruker vi Google Api
 
             List<string> LAdresse = new List<string>();
             try
@@ -90,6 +98,7 @@ namespace GMAP_Demo
                 txtNyAdresse.Text = "Unable to load Address";
 
             if (LAdresse != null) LAdresse.Clear();
+
             //nåværende adresse
 
             try

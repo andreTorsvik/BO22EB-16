@@ -164,7 +164,7 @@
             this.lblInfo.TabIndex = 58;
             this.lblInfo.Text = "Info";
             // 
-            // frm_R_FjernObjektOmråde
+            // Frm_R_FjernObjektOmråde
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -176,8 +176,9 @@
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frm_R_FjernObjektOmråde";
+            this.Name = "Frm_R_FjernObjektOmråde";
             this.Text = "frm_R_FjernObjektOmråde";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_R_FjernObjektOmråde_FormClosing);
             this.gbObjekt.ResumeLayout(false);
             this.gbObjekt.PerformLayout();
             this.ResumeLayout(false);
