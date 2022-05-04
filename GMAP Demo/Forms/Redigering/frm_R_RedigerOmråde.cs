@@ -170,9 +170,13 @@ namespace GMAP_Demo
 
             if (!string.IsNullOrEmpty(nyTag))
             {
-                if(!FellesMetoder.FinnesTag(nyTag))
+                bool sjekk1 = lbTilgjengeligeTags.Items.Contains(nyTag);
+                bool sjekk2 = lbValgtTags.Items.Contains(nyTag);
+
+                // Legger til ny tag, hvis den ikke finnes fra før av
+                if (!(sjekk1 || sjekk2))
                 {
-                    lbTilgjengeligeTags.Items.Add(nyTag);             
+                    lbTilgjengeligeTags.Items.Add(nyTag);
                 }
                 txtNyTag.Text = "";
             }
@@ -182,35 +186,34 @@ namespace GMAP_Demo
         {
             txtLat.Text = lat.ToString();
             txtLong.Text = lang.ToString();
-
-
         }
 
         public void FyllInfoOmråde(int Tag)
         {
-            //løpenummer
+            // Løpenummer
             løpenummer_til_redigering = GlobaleLister.LOmråde[Tag].Løpenummer_område;
-            //info
+
+            // Info
             txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
             txtSikkerhetsklarering.Text = GlobaleLister.LOmråde[Tag].Sikkerhetsklarering.ToString();
             txtKommentar.Text = GlobaleLister.LOmråde[Tag].Kommentar;
             txtFarge.Text = GlobaleLister.LOmråde[Tag].Farge;
 
-            //punkt liste
+            // Punkt liste
             FyllPunktListe(løpenummer_til_redigering);
 
 
-            //Sletting av lister
+            // Sletting av lister
             if (lbValgtTags.Items.Count > 0) lbValgtTags.Items.Clear();
             if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
             if (LGamleTag.Count > 0) LGamleTag.Clear();
 
-            //tags
+            // Tags
             var tagListeTilRessurs = GlobaleLister.LOmråde[Tag].hentTags();
             var alleTags = FellesMetoder.FåAlleTags();
             var gjenværendeTag = alleTags.Except(tagListeTilRessurs);
 
-            //sortering av tags 
+            // Sortering av tags 
             foreach (var tags in tagListeTilRessurs)
             {
                 lbValgtTags.Items.Add(tags);
@@ -256,7 +259,7 @@ namespace GMAP_Demo
 
         private void BtnLeggTilPunkt_Click(object sender, EventArgs e)
         {
-            if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != Globalekonstanter.tekstLatLong_område))
+            if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != Globalekonstanter.tekstLatLong_område) && (txtLong.Text != Globalekonstanter.tekstLatLong_område))
             {
                 try
                 {
@@ -390,7 +393,7 @@ namespace GMAP_Demo
 
                     if (FeilTallSjekk == string.Empty)
                     {
-                        //Henter område fra database 
+                        // Henter område fra database 
                         var Lområde = DBComOmråde.ListOmrådeFromDb(løpenummer);
 
                         // Legge til alle punktene 
@@ -436,7 +439,7 @@ namespace GMAP_Demo
                                         }
                                     }
 
-                                    //tags
+                                    // Tags
                                     List<string> sjekkOmNye1 = nyTags.Except(gamleTags).ToList();
                                     List<string> sjekkOmNye2 = gamleTags.Except(nyTags).ToList();
 

@@ -83,10 +83,13 @@ namespace GMAP_Demo
 
             if (!string.IsNullOrEmpty(nyTag))
             {
-                if (!FellesMetoder.FinnesTag(nyTag))
-                {
-                    lbTilgjengeligeTags.Items.Add(nyTag);
+                bool sjekk1 = lbTilgjengeligeTags.Items.Contains(nyTag);
+                bool sjekk2 = lbValgtTags.Items.Contains(nyTag);
 
+                // Legger til ny tag, hvis den ikke finnes fra før av
+                if (!(sjekk1 || sjekk2))
+                {                
+                    lbTilgjengeligeTags.Items.Add(nyTag);
                 }
                 txtNyTag.Text = "";
                
@@ -231,7 +234,7 @@ namespace GMAP_Demo
                     var løpenummer = DBComRessurs.GetLøpenummer_Ressurs();
                     int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
 
-                    // Laste opp ressurs 
+                    // Lagrer ressurs 
                     try
                     {
                         if (Løpenummer_Ressurs > 0)
@@ -246,7 +249,6 @@ namespace GMAP_Demo
                     // Laste opp hver enkelt tag 
                     try
                     {
-
                         foreach (var item in nyTags)
                         {
                             DBComTag_Ressurs.InsertTag_RessursToDb(item.ToString(), Løpenummer_Ressurs);

@@ -163,13 +163,15 @@ namespace GMAP_Demo
 
             if (!string.IsNullOrEmpty(nyTag))
             {
-                if (!FellesMetoder.FinnesTag(nyTag))
-                {
-                    lbTilgjengeligeTags.Items.Add(nyTag);
+                bool sjekk1 = lbTilgjengeligeTags.Items.Contains(nyTag);
+                bool sjekk2 = lbValgtTags.Items.Contains(nyTag);
 
+                // Legger til ny tag, hvis den ikke finnes fra før av
+                if (!(sjekk1 || sjekk2))
+                {                
+                    lbTilgjengeligeTags.Items.Add(nyTag);
                 }
                 txtNyTag.Text = "";
-                
             }
         }
 
@@ -217,7 +219,7 @@ namespace GMAP_Demo
                         // Legger til rekkefølgen
                         int rekkefølge = pointLatLngs.Count;
 
-                        // Legger til Punktet i listen 
+                        // Legger til punktet i listen 
                         pointLatLngs.Add(point);
 
                         // Legger til den nye markøren
