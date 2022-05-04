@@ -2,6 +2,7 @@
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -244,7 +245,15 @@ namespace GMAP_Demo
             instance = null;
             map = null;
 
-            Environment.Exit(1);
+            if(GlobaleVariabler.LoggUt)
+            {
+                Application.ExitThread();
+                Application.Exit();
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
@@ -298,27 +307,23 @@ namespace GMAP_Demo
 
                 if (Frm_V_Posisjon.instance != null)
                 {
-                    //fyller inn kordinatene, basert på hvor du klikket 
+                    // Fyller inn kordinatene, basert på hvor du klikket 
                     Frm_V_Posisjon.instance.FyllKoordinater(lat, lang);
                 }
             }
         }
 
-        // Hvis kartet er utenfor zoom grense 
-        public bool UtenforZoomGrense = false;
-        // bool variabel hvis kartet holder på å oppdatere 
-        public bool KartOppdatere = false;
 
-        /*public bool KartOppdatere = false;*/ //Hindrer at kart.reff() påvirker denne metoden 
         private void map_OnMapZoomChanged()
         {
-            const int ZoomLevel = Globalekonstanter.ZoomLevel; // zoom = 16
+            // Metoden blir ikke påvirket av kart.reff(), på grunn av "GlobaleVariabler.KartOppdatere". 
+            // kart.reff() zoomer ut og inn for å oppdatere kartet
 
-            //metoden blir ikke påvirket av kart.reff(). 
-            //den metoen zoomer ut og inn for å oppdatere kartet 
-            if (!KartOppdatere)
+            const int ZoomLevel = Globalekonstanter.ZoomGrense; // zoom = 16
+
+            if (!GlobaleVariabler.KartOppdatere)
             {
-                if (map.Zoom < ZoomLevel && !UtenforZoomGrense)
+                if (map.Zoom < ZoomLevel && !GlobaleVariabler.UtenforZoomGrense)
                 {
                     // Fjerner objekt overlays 
                     for (int i = 0; i < map.Overlays.Count; i++)
@@ -330,11 +335,11 @@ namespace GMAP_Demo
                         }
                     }
 
-                    UtenforZoomGrense = true;
+                    GlobaleVariabler.UtenforZoomGrense = true;
                 }
-                else if (map.Zoom >= ZoomLevel && UtenforZoomGrense)
+                else if (map.Zoom >= ZoomLevel && GlobaleVariabler.UtenforZoomGrense)
                 {
-                    UtenforZoomGrense = false;
+                    GlobaleVariabler.UtenforZoomGrense = false;
                     Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
 
                 }
