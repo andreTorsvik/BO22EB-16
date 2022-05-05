@@ -18,7 +18,7 @@ namespace GMAP_Demo
         // Antall tegn man må ha i passordet, når man registerer seg 
         public const int AntalltegnPassord = 4;
 
-        // Antall tall som kommer i talkoden som blir generet når man oppretter en bruker 
+        // Antall siffer som kommer i talkoden som blir generet når man oppretter en bruker 
         public const int AntallSiffer  = 7;
 
         // Default textbox text for input Lat+Long
