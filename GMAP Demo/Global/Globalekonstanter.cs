@@ -16,7 +16,10 @@ namespace GMAP_Demo
         public const int MaxSikkerhetsklarering = 3;
 
         // Antall tegn man må ha i passordet, når man registerer seg 
-        public const int antalltegnPassord = 4;
+        public const int AntalltegnPassord = 4;
+
+        // Antall tall som kommer i talkoden som blir generet når man oppretter en bruker 
+        public const int AntallSiffer  = 7;
 
         // Default textbox text for input Lat+Long
         public const string tekstLatLong_område = "Dobbelklikk på kartet + \"legg til\"";

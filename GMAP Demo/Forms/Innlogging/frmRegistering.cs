@@ -108,7 +108,7 @@ namespace GMAP_Demo
             bool sjekk = true;
             while (sjekk)
             {
-                for (int i = 0; i < 7; i++)
+                for (int i = 0; i < Globalekonstanter.AntallSiffer; i++)
                 {
                     tallkode += r.Next(9) * Math.Pow(10, Convert.ToDouble(i));
 

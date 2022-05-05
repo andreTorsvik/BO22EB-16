@@ -33,7 +33,7 @@ namespace GMAP_Demo
 
             string svar = string.Empty;
             List<string> Lfeil = new List<string>();
-            int antallTegnPassord = Globalekonstanter.antalltegnPassord;
+            int antallTegnPassord = Globalekonstanter.AntalltegnPassord;
 
             //sjekk passord
             if (!(passord == Bepassord))
