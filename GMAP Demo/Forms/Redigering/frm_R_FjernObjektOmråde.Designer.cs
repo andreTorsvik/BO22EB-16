@@ -59,7 +59,7 @@
             this.lblLøpenummer.AutoSize = true;
             this.lblLøpenummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblLøpenummer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblLøpenummer.Location = new System.Drawing.Point(6, 35);
+            this.lblLøpenummer.Location = new System.Drawing.Point(4, 37);
             this.lblLøpenummer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLøpenummer.Name = "lblLøpenummer";
             this.lblLøpenummer.Size = new System.Drawing.Size(68, 13);
@@ -68,7 +68,7 @@
             // 
             // txtLøpenumemr
             // 
-            this.txtLøpenumemr.Location = new System.Drawing.Point(6, 52);
+            this.txtLøpenumemr.Location = new System.Drawing.Point(7, 52);
             this.txtLøpenumemr.Margin = new System.Windows.Forms.Padding(2);
             this.txtLøpenumemr.Name = "txtLøpenumemr";
             this.txtLøpenumemr.ReadOnly = true;
@@ -80,7 +80,7 @@
             this.lblNavn.AutoSize = true;
             this.lblNavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblNavn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNavn.Location = new System.Drawing.Point(6, 72);
+            this.lblNavn.Location = new System.Drawing.Point(3, 74);
             this.lblNavn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNavn.Name = "lblNavn";
             this.lblNavn.Size = new System.Drawing.Size(33, 13);
@@ -89,7 +89,7 @@
             // 
             // txtNavn
             // 
-            this.txtNavn.Location = new System.Drawing.Point(6, 89);
+            this.txtNavn.Location = new System.Drawing.Point(7, 89);
             this.txtNavn.Margin = new System.Windows.Forms.Padding(2);
             this.txtNavn.Name = "txtNavn";
             this.txtNavn.ReadOnly = true;
@@ -98,7 +98,7 @@
             // 
             // txtInfo
             // 
-            this.txtInfo.Location = new System.Drawing.Point(6, 126);
+            this.txtInfo.Location = new System.Drawing.Point(7, 126);
             this.txtInfo.Margin = new System.Windows.Forms.Padding(2);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
@@ -108,7 +108,7 @@
             // 
             // btnFjern
             // 
-            this.btnFjern.Location = new System.Drawing.Point(15, 353);
+            this.btnFjern.Location = new System.Drawing.Point(15, 354);
             this.btnFjern.Margin = new System.Windows.Forms.Padding(2);
             this.btnFjern.Name = "btnFjern";
             this.btnFjern.Size = new System.Drawing.Size(107, 23);
@@ -122,7 +122,7 @@
             this.lblSlettet.AutoSize = true;
             this.lblSlettet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblSlettet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSlettet.Location = new System.Drawing.Point(16, 379);
+            this.lblSlettet.Location = new System.Drawing.Point(13, 379);
             this.lblSlettet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSlettet.Name = "lblSlettet";
             this.lblSlettet.Size = new System.Drawing.Size(37, 13);
@@ -154,7 +154,7 @@
             this.lblKlikkPåObjektet.AutoSize = true;
             this.lblKlikkPåObjektet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblKlikkPåObjektet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKlikkPåObjektet.Location = new System.Drawing.Point(7, 14);
+            this.lblKlikkPåObjektet.Location = new System.Drawing.Point(3, 15);
             this.lblKlikkPåObjektet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKlikkPåObjektet.Name = "lblKlikkPåObjektet";
             this.lblKlikkPåObjektet.Size = new System.Drawing.Size(237, 13);
@@ -166,7 +166,7 @@
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblInfo.Location = new System.Drawing.Point(6, 109);
+            this.lblInfo.Location = new System.Drawing.Point(4, 111);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(25, 13);

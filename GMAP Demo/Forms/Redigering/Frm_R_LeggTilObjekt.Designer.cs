@@ -89,7 +89,7 @@
             this.lblSikkerhetsklarering.AutoSize = true;
             this.lblSikkerhetsklarering.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblSikkerhetsklarering.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(4, 52);
+            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(4, 53);
             this.lblSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSikkerhetsklarering.Name = "lblSikkerhetsklarering";
             this.lblSikkerhetsklarering.Size = new System.Drawing.Size(118, 13);
@@ -111,7 +111,7 @@
             this.lblNavn.AutoSize = true;
             this.lblNavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblNavn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNavn.Location = new System.Drawing.Point(4, 15);
+            this.lblNavn.Location = new System.Drawing.Point(4, 16);
             this.lblNavn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNavn.Name = "lblNavn";
             this.lblNavn.Size = new System.Drawing.Size(33, 13);
@@ -167,7 +167,7 @@
             this.lblKommentar.AutoSize = true;
             this.lblKommentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblKommentar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKommentar.Location = new System.Drawing.Point(4, 161);
+            this.lblKommentar.Location = new System.Drawing.Point(4, 163);
             this.lblKommentar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKommentar.Name = "lblKommentar";
             this.lblKommentar.Size = new System.Drawing.Size(60, 13);
@@ -187,7 +187,7 @@
             this.lblLong.AutoSize = true;
             this.lblLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblLong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblLong.Location = new System.Drawing.Point(4, 236);
+            this.lblLong.Location = new System.Drawing.Point(4, 240);
             this.lblLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLong.Name = "lblLong";
             this.lblLong.Size = new System.Drawing.Size(31, 13);
@@ -210,7 +210,7 @@
             this.lblLat.AutoSize = true;
             this.lblLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblLat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblLat.Location = new System.Drawing.Point(4, 199);
+            this.lblLat.Location = new System.Drawing.Point(4, 201);
             this.lblLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLat.Name = "lblLat";
             this.lblLat.Size = new System.Drawing.Size(22, 13);
@@ -245,7 +245,7 @@
             this.lblNyTag.AutoSize = true;
             this.lblNyTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblNyTag.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNyTag.Location = new System.Drawing.Point(4, 207);
+            this.lblNyTag.Location = new System.Drawing.Point(4, 211);
             this.lblNyTag.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNyTag.Name = "lblNyTag";
             this.lblNyTag.Size = new System.Drawing.Size(45, 13);
@@ -278,7 +278,7 @@
             this.lblValgtForDetteObjektet.AutoSize = true;
             this.lblValgtForDetteObjektet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblValgtForDetteObjektet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblValgtForDetteObjektet.Location = new System.Drawing.Point(114, 31);
+            this.lblValgtForDetteObjektet.Location = new System.Drawing.Point(111, 31);
             this.lblValgtForDetteObjektet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValgtForDetteObjektet.Name = "lblValgtForDetteObjektet";
             this.lblValgtForDetteObjektet.Size = new System.Drawing.Size(68, 13);
@@ -302,7 +302,7 @@
             this.lblKategori.AutoSize = true;
             this.lblKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKategori.Location = new System.Drawing.Point(4, 87);
+            this.lblKategori.Location = new System.Drawing.Point(4, 89);
             this.lblKategori.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKategori.Name = "lblKategori";
             this.lblKategori.Size = new System.Drawing.Size(46, 13);

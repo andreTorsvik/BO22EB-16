@@ -508,8 +508,6 @@ namespace GMAP_Demo
 
             txtNrPunkt.Text = pointLatLngs.Count.ToString();
         }
-
-
     }
 
 }

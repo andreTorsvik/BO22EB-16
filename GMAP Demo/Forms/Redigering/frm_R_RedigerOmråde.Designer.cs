@@ -93,7 +93,7 @@
             this.lblFarge.AutoSize = true;
             this.lblFarge.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFarge.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblFarge.Location = new System.Drawing.Point(4, 121);
+            this.lblFarge.Location = new System.Drawing.Point(4, 124);
             this.lblFarge.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFarge.Name = "lblFarge";
             this.lblFarge.Size = new System.Drawing.Size(34, 13);
@@ -149,7 +149,7 @@
             this.lblValgtForDetteObjektet.AutoSize = true;
             this.lblValgtForDetteObjektet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValgtForDetteObjektet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblValgtForDetteObjektet.Location = new System.Drawing.Point(114, 34);
+            this.lblValgtForDetteObjektet.Location = new System.Drawing.Point(115, 35);
             this.lblValgtForDetteObjektet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValgtForDetteObjektet.Name = "lblValgtForDetteObjektet";
             this.lblValgtForDetteObjektet.Size = new System.Drawing.Size(68, 13);
@@ -161,7 +161,7 @@
             this.lblEksisterende.AutoSize = true;
             this.lblEksisterende.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEksisterende.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblEksisterende.Location = new System.Drawing.Point(4, 34);
+            this.lblEksisterende.Location = new System.Drawing.Point(4, 35);
             this.lblEksisterende.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEksisterende.Name = "lblEksisterende";
             this.lblEksisterende.Size = new System.Drawing.Size(65, 13);
@@ -173,7 +173,7 @@
             this.lblNyTag.AutoSize = true;
             this.lblNyTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNyTag.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNyTag.Location = new System.Drawing.Point(4, 211);
+            this.lblNyTag.Location = new System.Drawing.Point(4, 218);
             this.lblNyTag.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNyTag.Name = "lblNyTag";
             this.lblNyTag.Size = new System.Drawing.Size(45, 13);
@@ -206,7 +206,7 @@
             this.lblLong.AutoSize = true;
             this.lblLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblLong.Location = new System.Drawing.Point(4, 203);
+            this.lblLong.Location = new System.Drawing.Point(4, 206);
             this.lblLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLong.Name = "lblLong";
             this.lblLong.Size = new System.Drawing.Size(31, 13);
@@ -229,7 +229,7 @@
             this.lblLat.AutoSize = true;
             this.lblLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblLat.Location = new System.Drawing.Point(4, 167);
+            this.lblLat.Location = new System.Drawing.Point(4, 170);
             this.lblLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLat.Name = "lblLat";
             this.lblLat.Size = new System.Drawing.Size(22, 13);
@@ -252,7 +252,7 @@
             this.lblKommentar.AutoSize = true;
             this.lblKommentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKommentar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblKommentar.Location = new System.Drawing.Point(4, 86);
+            this.lblKommentar.Location = new System.Drawing.Point(4, 89);
             this.lblKommentar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKommentar.Name = "lblKommentar";
             this.lblKommentar.Size = new System.Drawing.Size(60, 13);
@@ -308,7 +308,7 @@
             this.lblSikkerhetsklarering.AutoSize = true;
             this.lblSikkerhetsklarering.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSikkerhetsklarering.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(4, 50);
+            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(4, 53);
             this.lblSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSikkerhetsklarering.Name = "lblSikkerhetsklarering";
             this.lblSikkerhetsklarering.Size = new System.Drawing.Size(118, 13);
@@ -328,7 +328,7 @@
             this.lblNavn.AutoSize = true;
             this.lblNavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNavn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNavn.Location = new System.Drawing.Point(4, 15);
+            this.lblNavn.Location = new System.Drawing.Point(4, 16);
             this.lblNavn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNavn.Name = "lblNavn";
             this.lblNavn.Size = new System.Drawing.Size(33, 13);
