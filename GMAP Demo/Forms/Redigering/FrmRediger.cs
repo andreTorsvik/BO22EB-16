@@ -79,7 +79,7 @@ namespace GMAP_Demo
         {
             Kart.Setup(Kart.MuligKart.Redigering, Kart.PunktFraForrige);
 
-            Kart.OppdaterKart(Kart.MuligKart.Redigering, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+            Kart.OppdaterKart(Kart.MuligKart.Redigering, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
 
             MinimumSize = Globalekonstanter.frmWithMenuMinimumSize;
         }

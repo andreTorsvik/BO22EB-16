@@ -60,7 +60,7 @@ namespace GMAP_Demo
             FellesMetoder.OppdaterListe_området();
 
             //tegner alt på karet
-            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
 
             Size = Globalekonstanter.frmWithMenuMinimumSize;
             MinimumSize = Globalekonstanter.frmWithMenuMinimumSize;
@@ -187,7 +187,7 @@ namespace GMAP_Demo
                 }
 
                 //Oppdatere kart basert på listene 
-                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
             }
 
         }
@@ -328,7 +328,7 @@ namespace GMAP_Demo
                 else if (map.Zoom >= ZoomLevel && GlobaleVariabler.UtenforZoomGrense)
                 {
                     GlobaleVariabler.UtenforZoomGrense = false;
-                    Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                    Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
 
                 }
             }
