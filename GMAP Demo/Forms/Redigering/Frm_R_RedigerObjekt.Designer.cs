@@ -89,7 +89,7 @@
             this.btnLeggTilNyKategori.Name = "btnLeggTilNyKategori";
             this.btnLeggTilNyKategori.Size = new System.Drawing.Size(140, 28);
             this.btnLeggTilNyKategori.TabIndex = 86;
-            this.btnLeggTilNyKategori.Text = "Legg til ny Kategori";
+            this.btnLeggTilNyKategori.Text = "Legg til ny kategori";
             this.btnLeggTilNyKategori.UseVisualStyleBackColor = true;
             this.btnLeggTilNyKategori.Click += new System.EventHandler(this.BtnLeggTilNyKategori_Click);
             // 

@@ -287,7 +287,7 @@
             this.btnLeggTilPunkt.Name = "btnLeggTilPunkt";
             this.btnLeggTilPunkt.Size = new System.Drawing.Size(104, 28);
             this.btnLeggTilPunkt.TabIndex = 51;
-            this.btnLeggTilPunkt.Text = "Legg til punkt";
+            this.btnLeggTilPunkt.Text = "Legg til";
             this.btnLeggTilPunkt.UseVisualStyleBackColor = true;
             this.btnLeggTilPunkt.Click += new System.EventHandler(this.BtnLeggTilPunktIListe_Click);
             // 
@@ -390,7 +390,6 @@
             this.gbOmråde.TabIndex = 83;
             this.gbOmråde.TabStop = false;
             this.gbOmråde.Text = "Område";
-            this.toolTip1.SetToolTip(this.gbOmråde, "Test");
             // 
             // btnFjernAlle
             // 
@@ -426,10 +425,6 @@
             this.gbTag.TabIndex = 83;
             this.gbTag.TabStop = false;
             this.gbTag.Text = "Tag";
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.ToolTipTitle = "Hjelp";
             // 
             // Frm_R_LeggTilOmråde
             // 
