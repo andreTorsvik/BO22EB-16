@@ -17,7 +17,7 @@ namespace GMAP_Demo
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Tag_Objekt>("[dbo].[PROCEDUREListAllTag_RessursFromDb]").ToList();
+                    var output = connection.Query<Tag_Objekt>("[dbo].[PROCEDUREListAllTag_ObjektFromDb]").ToList();
                     return output;
                 }
             }
@@ -29,7 +29,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void InsertTag_RessursToDb(string Tag, int løpenummer_Til_ressurs)
+        public static void InsertTag_RessursToDb(string Tag, int idObjekt)
         {
             try
             {
@@ -38,10 +38,10 @@ namespace GMAP_Demo
                     Tag_Objekt Tag_RessursToAdd = new Tag_Objekt
                     {
                         Tag = Tag,
-                        IdObjekt = løpenummer_Til_ressurs
+                        IdObjekt = idObjekt
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREinsertIntoTag_Ressurs] @Løpenummer_til_ressurs,@Tag", Tag_RessursToAdd);
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoTag_Objekt] @IdObjekt,@Tag", Tag_RessursToAdd);
                 }
             }
             catch (Exception exeption)
@@ -50,13 +50,13 @@ namespace GMAP_Demo
             }
         }
 
-        public static List<Tag_Objekt> ListTag_ressursFromDb(int løpenummer)
+        public static List<Tag_Objekt> ListTag_ressursFromDb(int idObjekt)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Tag_Objekt>($"SELECT * FROM[dbo].[Tag_ressurs] WHERE(Løpenummer_til_ressurs = '{løpenummer}')").ToList();
+                    var output = connection.Query<Tag_Objekt>($"SELECT * FROM[dbo].[Tag_Objekt] WHERE(IdObjekt = '{idObjekt}')").ToList();
                     return output;
                 }
             }
@@ -68,15 +68,15 @@ namespace GMAP_Demo
             }
         }
 
-        public static void DeleteTags_Ressurs(int løpenummer)
+        public static void DeleteTags_Ressurs(int idObjekt)
         {
             //delete FROM [dbo].[Punkter_område]
-            //WHERE Løpenummer_til_område = 38
+            //WHERE idObjekt = 38
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    connection.Query<Objekt>($"delete FROM [dbo].[Tag_ressurs] WHERE(Løpenummer_til_ressurs = '{løpenummer}')");
+                    connection.Query<Objekt>($"delete FROM [dbo].[Tag_Objekt] WHERE(IdObjekt = '{idObjekt}')");
                 }
             }
             catch (Exception exeption)

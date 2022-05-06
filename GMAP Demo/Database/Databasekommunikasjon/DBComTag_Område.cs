@@ -32,13 +32,13 @@ namespace GMAP_Demo
 
         //ListTag_områdeFromDb
 
-        public static List<Tag_Område> ListTag_områdeFromDb(int løpenummer)
+        public static List<Tag_Område> ListTag_områdeFromDb(int idOmråde)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Tag_Område>($"SELECT * FROM[dbo].[Tag_område] WHERE(Løpenummer_til_område = '{løpenummer}')").ToList();
+                    var output = connection.Query<Tag_Område>($"SELECT * FROM[dbo].[Tag_område] WHERE(IdOmråde = '{idOmråde}')").ToList();
                     return output;
                 }
             }
@@ -51,15 +51,15 @@ namespace GMAP_Demo
         }
 
 
-        public static void DeleteTags_Område(int løpenummer)
+        public static void DeleteTags_Område(int idOmråde)
         {
             //delete FROM [dbo].[Punkter_område]
-            //WHERE Løpenummer_til_område = 38
+            //WHERE IdOmråde = 38
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    connection.Query<Objekt>($"delete FROM [dbo].[Tag_område] WHERE(Løpenummer_til_område = '{løpenummer}')");
+                    connection.Query<Objekt>($"delete FROM [dbo].[Tag_område] WHERE(IdOmråde = '{idOmråde}')");
                 }
             }
             catch (Exception exeption)
@@ -68,7 +68,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void InsertTag_OmrådeToDb(string Tag, int løpenummer_Til_område)
+        public static void InsertTag_OmrådeToDb(string Tag, int idOmråde)
         {
             try
             {
@@ -77,10 +77,10 @@ namespace GMAP_Demo
                     Tag_Område Tag_områdeToAdd = new Tag_Område
                     {
                         Tag = Tag,
-                        IdOmråde = løpenummer_Til_område
+                        IdOmråde = idOmråde
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREinsertIntoTag_område] @Løpenummer_til_område,@Tag", Tag_områdeToAdd);
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoTag_område] @IdOmråde,@Tag", Tag_områdeToAdd);
                 }
             }
             catch (Exception exeption)
