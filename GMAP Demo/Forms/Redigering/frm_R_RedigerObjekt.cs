@@ -9,7 +9,7 @@ namespace GMAP_Demo
     {
 
         public static Frm_R_RedigerObjekt instance;
-        public int løpenummer_til_redigering = -1;
+        public int id_til_redigering = -1;
         public List<string> LGamleTag = new List<string>();
 
         public Frm_R_RedigerObjekt()
@@ -198,7 +198,7 @@ namespace GMAP_Demo
         public void FyllInfoObjekt(int Tag)
         {
             // Løpenummeret 
-            løpenummer_til_redigering = GlobaleLister.LObjekt[Tag].IdObjekt;
+            id_til_redigering = GlobaleLister.LObjekt[Tag].IdObjekt;
 
             // Info 
             txtNavn.Text = GlobaleLister.LObjekt[Tag].Navn;
@@ -244,7 +244,7 @@ namespace GMAP_Demo
             HashSet<string> nyTags = new HashSet<string>( lbValgtTags.Items.Cast<string>().ToList());
 
             // Legger til, om alt stemmer
-            string SjekkFeil = RedigerObjekt(løpenummer_til_redigering, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, antallTags, LGamleTag, nyTags);
+            string SjekkFeil = RedigerObjekt(id_til_redigering, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, antallTags, LGamleTag, nyTags);
 
             if (SjekkFeil != string.Empty)
                 MessageBox.Show(SjekkFeil);
@@ -328,7 +328,7 @@ namespace GMAP_Demo
         private void TømeTekstFeltOgLister()
         {
             //tekstfelt
-            løpenummer_til_redigering = -1;
+            id_til_redigering = -1;
             txtNavn.Text = "";
             txtKategori.Text = "";
             txtKommentar.Text = "";

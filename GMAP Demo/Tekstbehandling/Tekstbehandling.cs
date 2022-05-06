@@ -265,12 +265,12 @@ namespace GMAP_Demo
                 {
                     if (Math.Round(Orginalepunkter[i].Lat, 6) != Math.Round(NyePunkter[i].Lat, 6))
                     {
-                        Endringer += string.Format("Ny punkter" + newLine);
+                        Endringer += string.Format("Punkter: Ny punkter" + newLine);
                         break;
                     }
                     else if (Math.Round(Orginalepunkter[i].Lng, 6) != Math.Round(NyePunkter[i].Lng, 6))
                     {
-                        Endringer += string.Format("Ny punkter" + newLine);
+                        Endringer += string.Format("Punkter: Ny punkter" + newLine);
                         break;
                     }
 
@@ -279,9 +279,9 @@ namespace GMAP_Demo
             else
             {
                 if (Orginalepunkter.Count > NyePunkter.Count)
-                    Endringer += string.Format("færre punkter enn før" + newLine);
+                    Endringer += string.Format("Punkter: Færre punkter enn før" + newLine);
                 else if (Orginalepunkter.Count < NyePunkter.Count)
-                    Endringer += string.Format("flere punkter enn før" + newLine);
+                    Endringer += string.Format("Punkter: Flere punkter enn før" + newLine);
             }
 
             return Endringer;

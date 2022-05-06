@@ -11,7 +11,7 @@ namespace GMAP_Demo
     public partial class Frm_R_RedigerOmråde : Form
     {
         public static Frm_R_RedigerOmråde instance;
-        public int løpenummer_til_redigering = -1;
+        public int id_til_redigering = -1;
         public List<string> LGamleTag = new List<string>();
 
 
@@ -191,7 +191,7 @@ namespace GMAP_Demo
         public void FyllInfoOmråde(int Tag)
         {
             // Løpenummer
-            løpenummer_til_redigering = GlobaleLister.LOmråde[Tag].IdOmråde;
+            id_til_redigering = GlobaleLister.LOmråde[Tag].IdOmråde;
 
             // Info
             txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
@@ -200,7 +200,7 @@ namespace GMAP_Demo
             txtFarge.Text = GlobaleLister.LOmråde[Tag].Farge;
 
             // Punkt liste
-            FyllPunktListe(løpenummer_til_redigering);
+            FyllPunktListe(id_til_redigering);
 
 
             // Sletting av lister
@@ -250,7 +250,7 @@ namespace GMAP_Demo
             HashSet<string> nyTags = new HashSet<string>(lbValgtTags.Items.Cast<string>().ToList() );
 
             // Legger til, om alt stemmer 
-            string sjekkFeil = RedigerOmrådet(løpenummer_til_redigering, navn, sikkerhetsklarering, kommentar, farge, antallPunkter, antallTags, LGamleTag, nyTags);
+            string sjekkFeil = RedigerOmrådet(id_til_redigering, navn, sikkerhetsklarering, kommentar, farge, antallPunkter, antallTags, LGamleTag, nyTags);
 
             if (sjekkFeil != string.Empty)
             {
@@ -383,9 +383,9 @@ namespace GMAP_Demo
 
         }
 
-        private string RedigerOmrådet(int løpenummer, string navn, string sikkerhetsklarering, string kommentar, string farge, int antallPunkter, int antallTags, List<string> gamleTags, HashSet<string> nyTags)
+        private string RedigerOmrådet(int id_til_redigering, string navn, string sikkerhetsklarering, string kommentar, string farge, int antallPunkter, int antallTags, List<string> gamleTags, HashSet<string> nyTags)
         {
-            if (løpenummer >= 0)
+            if (id_til_redigering >= 0)
             {
                 string feilmelding = string.Empty;
 
@@ -399,7 +399,7 @@ namespace GMAP_Demo
                     if (FeilTallSjekk == string.Empty)
                     {
                         // Henter område fra database 
-                        Område OrginaleOmråde = DBComOmråde.ListOmrådeFromDb(løpenummer);
+                        Område OrginaleOmråde = DBComOmråde.ListOmrådeFromDb(id_til_redigering);
 
                         // Legge til alle punktene 
                         List<PointLatLng> pList = new List<PointLatLng>();
@@ -425,13 +425,13 @@ namespace GMAP_Demo
                                 try
                                 {
                                     //Oppdaterer info 
-                                    DBComOmråde.UpdateOmråde(løpenummer_til_redigering, navn, Convert.ToInt32(sikkerhetsklarering), kommentar, farge);
+                                    DBComOmråde.UpdateOmråde(this.id_til_redigering, navn, Convert.ToInt32(sikkerhetsklarering), kommentar, farge);
 
                                     //Punktene 
                                     if (enderingIPunkter != string.Empty)
                                     {
                                         // SLETTE ALLE punktene KNYTTET TIL området 
-                                        DBComPunkter_område.DeletePunkter_området(løpenummer_til_redigering);
+                                        DBComPunkter_område.DeletePunkter_området(this.id_til_redigering);
 
                                         // Legger til de nye punktene
                                         int rekkefølge = 0;
@@ -439,7 +439,7 @@ namespace GMAP_Demo
                                         {
                                             float lat = Convert.ToSingle(item.Lat);
                                             float lang = Convert.ToSingle(item.Lng);
-                                            DBComPunkter_område.InsertPunkter_områdetToDb(løpenummer_til_redigering, lat, lang, rekkefølge);
+                                            DBComPunkter_område.InsertPunkter_områdetToDb(this.id_til_redigering, lat, lang, rekkefølge);
                                             rekkefølge++;
                                         }
                                     }
@@ -451,11 +451,11 @@ namespace GMAP_Demo
                                     if (sjekkOmNye1.Count != 0 || sjekkOmNye2.Count != 0) // Hvis begge "SjekkOmNye" er 0,er det ingen nye  
                                     {
                                         // SLETTE ALLE TAGS KNYTTET TIL RESSURS 
-                                        DBComTag_Område.DeleteTags_Område(løpenummer_til_redigering);
+                                        DBComTag_Område.DeleteTags_Område(this.id_til_redigering);
                                         // Legger til de nye
                                         foreach (var item in lbValgtTags.Items)
                                         {
-                                            DBComTag_Område.InsertTag_OmrådeToDb(item.ToString(), løpenummer_til_redigering);
+                                            DBComTag_Område.InsertTag_OmrådeToDb(item.ToString(), this.id_til_redigering);
                                         }
                                     }
                                     // Da har alt gått igjennom og endringene lagret 
@@ -467,7 +467,7 @@ namespace GMAP_Demo
                                 }
 
                                 // Oppdatere Liste med ressurser 
-                                løpenummer_til_redigering = -1;
+                                this.id_til_redigering = -1;
 
                                 TømeTekstFeltOgLister();
 
