@@ -26,10 +26,5 @@ namespace GMAP_Demo
         {
             this.Dispose();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

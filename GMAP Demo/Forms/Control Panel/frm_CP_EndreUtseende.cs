@@ -30,7 +30,7 @@ namespace GMAP_Demo
             btnSelectTheme.BackColor = ThemeDesign.colorGray;
         }
 
-        //https://www.naveedulhaq.com/index.php/dot-net-core/get-the-list-of-method-names-from-the-c-class/
+        // https://www.naveedulhaq.com/index.php/dot-net-core/get-the-list-of-method-names-from-the-c-class/
         MethodInfo[] mInfos = typeof(ThemeDesign).GetMethods(BindingFlags.Public | BindingFlags.Static);
         private void Frm_CP_EndeUtseende_Load(object sender, EventArgs e)
         {
