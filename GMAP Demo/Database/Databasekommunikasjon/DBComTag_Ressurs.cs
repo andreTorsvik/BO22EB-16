@@ -11,37 +11,37 @@ namespace GMAP_Demo
     internal class DBComTag_Ressurs
     {
         
-        public static List<Tag_Ressurs> ListAllTag_RessursFromDb()
+        public static List<Tag_Objekt> ListAllTag_RessursFromDb()
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Tag_Ressurs>("[dbo].[PROCEDUREListAllTag_RessursFromDb]").ToList();
+                    var output = connection.Query<Tag_Objekt>("[dbo].[PROCEDUREListAllTag_ObjektFromDb]").ToList();
                     return output;
                 }
             }
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Tag_Ressurs> list = new List<Tag_Ressurs>();
+                List<Tag_Objekt> list = new List<Tag_Objekt>();
                 return list;
             }
         }
 
-        public static void InsertTag_RessursToDb(string Tag, int løpenummer_Til_ressurs)
+        public static void InsertTag_RessursToDb(string Tag, int idObjekt)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Tag_Ressurs Tag_RessursToAdd = new Tag_Ressurs
+                    Tag_Objekt Tag_RessursToAdd = new Tag_Objekt
                     {
                         Tag = Tag,
-                        Løpenummer_til_ressurs = løpenummer_Til_ressurs
+                        IdObjekt = idObjekt
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREinsertIntoTag_Ressurs] @Løpenummer_til_ressurs,@Tag", Tag_RessursToAdd);
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoTag_Objekt] @IdObjekt,@Tag", Tag_RessursToAdd);
                 }
             }
             catch (Exception exeption)
@@ -50,33 +50,33 @@ namespace GMAP_Demo
             }
         }
 
-        public static List<Tag_Ressurs> ListTag_ressursFromDb(int løpenummer)
+        public static List<Tag_Objekt> ListTag_ressursFromDb(int idObjekt)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Tag_Ressurs>($"SELECT * FROM[dbo].[Tag_ressurs] WHERE(Løpenummer_til_ressurs = '{løpenummer}')").ToList();
+                    var output = connection.Query<Tag_Objekt>($"SELECT * FROM[dbo].[Tag_Objekt] WHERE(IdObjekt = '{idObjekt}')").ToList();
                     return output;
                 }
             }
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Tag_Ressurs> list = new List<Tag_Ressurs>();
+                List<Tag_Objekt> list = new List<Tag_Objekt>();
                 return list;
             }
         }
 
-        public static void DeleteTags_Ressurs(int løpenummer)
+        public static void DeleteTags_Ressurs(int idObjekt)
         {
             //delete FROM [dbo].[Punkter_område]
-            //WHERE Løpenummer_til_område = 38
+            //WHERE idObjekt = 38
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    connection.Query<Ressurs>($"delete FROM [dbo].[Tag_ressurs] WHERE(Løpenummer_til_ressurs = '{løpenummer}')");
+                    connection.Query<Objekt>($"delete FROM [dbo].[Tag_Objekt] WHERE(IdObjekt = '{idObjekt}')");
                 }
             }
             catch (Exception exeption)

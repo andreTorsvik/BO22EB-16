@@ -10,7 +10,7 @@ namespace GMAP_Demo
 {
     internal class DBComRessurs
     {
-        public static List<Ressurs> ListAllRessursFromDb(int SikkerhetsklareringBruker)
+        public static List<Objekt> ListAllRessursFromDb(int SikkerhetsklareringBruker)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace GMAP_Demo
                     //};
 
                     //var output = connection.Query<Ressurs>("[dbo].[PROCEDUREListAllRessursFromDb] @BrukersSikkerhetsklarering", Sikkerhetsklarering).ToList();
-                    var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE (Sikkerhetsklarering <= '{SikkerhetsklareringBruker}')").ToList();
+                    var output = connection.Query<Objekt>($"SELECT * FROM[dbo].[Objekt] WHERE (Sikkerhetsklarering <= '{SikkerhetsklareringBruker}')").ToList();
 
                     return output;
                 }
@@ -30,59 +30,59 @@ namespace GMAP_Demo
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Ressurs> list = new List<Ressurs>();
+                List<Objekt> list = new List<Objekt>();
                 return list;
             }
         }
         //Where Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}'
-        public static Ressurs RessursFromDb(int løpenummer)
+        public static Objekt ObjektFromDb(int idObjekt)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}' AND Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").FirstOrDefault();
+                    var output = connection.Query<Objekt>($"SELECT * FROM[dbo].[Objekt] WHERE(idObjekt = '{idObjekt}' AND Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").FirstOrDefault();
                     return output;
                 }
             }
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                Ressurs ressurs = new Ressurs();
+                Objekt ressurs = new Objekt();
                 return ressurs;
             }
         }
 
-        public static List<Ressurs> ListRessursBasedonKategori(string Kategori)
+        public static List<Objekt> ListObjektBasedOnKategori(string Kategori)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Kategori = '{Kategori}')").ToList();
+                    var output = connection.Query<Objekt>($"SELECT * FROM[dbo].[Objekt] WHERE(Kategori = '{Kategori}')").ToList();
                     return output;
                 }
             }
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Ressurs> list = new List<Ressurs>();
+                List<Objekt> list = new List<Objekt>();
                 return list;
             }
         }
 
-        public static void DeleteRessurs(int løpeNummer)
+        public static void DeleteRessurs(int idObjekt)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Ressurs DeleteRessurs = new Ressurs
+                    Objekt DeleteRessurs = new Objekt
                     {
-                        Løpenummer_ressurs = løpeNummer
+                        IdObjekt = idObjekt
                     };
 
-                    connection.Execute("[dbo].[PROCEDURERemoveRessurs] @Løpenummer_ressurs", (DeleteRessurs));
+                    connection.Execute("[dbo].[PROCEDURERemoveObjekt] @IdObjekt", (DeleteRessurs));
                 }
             }
             catch (Exception exeption)
@@ -91,15 +91,15 @@ namespace GMAP_Demo
             }
         }
 
-        public static void InsertRessursToDb(int Løpenummer_ressurs, string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
+        public static void InsertRessursToDb(int idObjekt, string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Ressurs ressursToAdd = new Ressurs
+                    Objekt ressursToAdd = new Objekt
                     {
-                        Løpenummer_ressurs = Løpenummer_ressurs,
+                        IdObjekt = idObjekt,
                         Navn = navn,
                         Kategori = kategori,
                         //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
@@ -110,7 +110,7 @@ namespace GMAP_Demo
                         Lang = lang
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREinsertIntoRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (ressursToAdd));
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoObjekt] @IdObjekt, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (ressursToAdd));
                 }
             }
             catch (Exception exeption)
@@ -119,13 +119,13 @@ namespace GMAP_Demo
             }
         }
 
-        public static List<int> GetLøpenummer_Ressurs()
+        public static List<int> GetIdObjekt()
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<int>($"select (NEXT VALUE FOR [dbo].[SEQUENCERessursId]) as int").ToList();
+                    var output = connection.Query<int>($"select (NEXT VALUE FOR [dbo].[SEQUENCEObjektId]) as int").ToList();
                     return output;
                 }
             }
@@ -137,15 +137,15 @@ namespace GMAP_Demo
             }
         }
 
-        public static void UpdateRessurs(int Løpenummer, string navn, string kategori, int sikkerhetsklarering, string kommentar, float lat, float lang)
+        public static void UpdateRessurs(int idObjekt, string navn, string kategori, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Ressurs UpdateRessurs = new Ressurs
+                    Objekt UpdateRessurs = new Objekt
                     {
-                        Løpenummer_ressurs = Løpenummer,
+                        IdObjekt = idObjekt,
                         Navn = navn,
                         Kategori = kategori,
                         //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
@@ -156,7 +156,7 @@ namespace GMAP_Demo
                         Lang = lang
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @Løpenummer_ressurs, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (UpdateRessurs));
+                    connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @IdObjekt, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (UpdateRessurs));
 
                 }
             }

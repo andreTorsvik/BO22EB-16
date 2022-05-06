@@ -105,9 +105,9 @@
     <Compile Include="Database\DataTypes\Måling.cs" />
     <Compile Include="Database\DataTypes\Område.cs" />
     <Compile Include="Database\DataTypes\Tag_Område.cs" />
-    <Compile Include="Database\DataTypes\Tag_Ressurs.cs" />
+    <Compile Include="Database\DataTypes\Tag_Objekt.cs" />
     <Compile Include="Database\DataTypes\Punkter_område.cs" />
-    <Compile Include="Database\DataTypes\Ressurs.cs" />
+    <Compile Include="Database\DataTypes\Objekt.cs" />
     <Compile Include="Forms\Control Panel\Frm_CP_EndreUtseende.cs">
       <SubType>Form</SubType>
     </Compile>

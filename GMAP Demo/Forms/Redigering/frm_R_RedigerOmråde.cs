@@ -191,7 +191,7 @@ namespace GMAP_Demo
         public void FyllInfoOmråde(int Tag)
         {
             // Løpenummer
-            løpenummer_til_redigering = GlobaleLister.LOmråde[Tag].Løpenummer_område;
+            løpenummer_til_redigering = GlobaleLister.LOmråde[Tag].IdOmråde;
 
             // Info
             txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;

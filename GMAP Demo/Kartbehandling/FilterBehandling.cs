@@ -8,14 +8,14 @@ namespace GMAP_Demo
 {
     public class FilterBehandling
     {
-        public static void filtrereBaserPåTagsAND(ref List<Ressurs> Rlist, List<string> TagFilterListe)
+        public static void filtrereBaserPåTagsAND(ref List<Objekt> Rlist, List<string> TagFilterListe)
         {
             // Metode for å filtere objekter/ressurser
             // Filter med AND, det vil si: alt på "TagFilterListe" må stemme 
 
             if (TagFilterListe.Count > 0)
             {
-                List<Ressurs> LRessurs = Rlist;
+                List<Objekt> LRessurs = Rlist;
 
                 for (int i = 0; i < LRessurs.Count; i++)
                 {
@@ -47,7 +47,7 @@ namespace GMAP_Demo
             }
             else
             {
-                List<Ressurs> LRessurs = Rlist;
+                List<Objekt> LRessurs = Rlist;
 
                 LRessurs.Clear();
             }
@@ -97,14 +97,14 @@ namespace GMAP_Demo
             }
         }
 
-        public static void filtrereBaserPåTagsOR(ref List<Ressurs> Rlist, List<string> TagFilterListe)
+        public static void filtrereBaserPåTagsOR(ref List<Objekt> Rlist, List<string> TagFilterListe)
         {
             // Metode for å filtere objekter/ressurser
             // Filter med OR, det vil si: Kun en tag fra "TagFilterListe" må stemme 
 
             if (TagFilterListe.Count > 0)
             {
-                List<Ressurs> LRessurs = Rlist;
+                List<Objekt> LRessurs = Rlist;
 
                 for (int i = 0; i < LRessurs.Count; i++)
                 {
@@ -125,7 +125,7 @@ namespace GMAP_Demo
             }
             else
             {
-                List<Ressurs> LRessurs = Rlist;
+                List<Objekt> LRessurs = Rlist;
 
                 LRessurs.Clear();
             }

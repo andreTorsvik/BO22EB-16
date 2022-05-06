@@ -9,7 +9,7 @@ namespace GMAP_Demo
 {
     public class Område
     {
-        public int Løpenummer_område { get; set; } // Løpenummer_område som skriver til databasen må bruke DEFAULT pga constraintSequence
+        public int IdOmråde { get; set; } // IdOmråde som skriver til databasen må bruke DEFAULT pga constraintSequence
         public string Navn { get; set; }
         public string Dato_opprettet { get; set; } // Dato som skriver til databasen må bruke CURRENT_TIMESTAMP pga DATETIME
         public string Opprettet_av_bruker { get; set; }
@@ -22,7 +22,7 @@ namespace GMAP_Demo
         {
             get
             {
-                return $"({Løpenummer_område} - {Navn} - {Dato_opprettet} - {Opprettet_av_bruker} - {Kommentar} - {Sikkerhetsklarering} - {Farge})";
+                return $"({IdOmråde} - {Navn} - {Dato_opprettet} - {Opprettet_av_bruker} - {Kommentar} - {Sikkerhetsklarering} - {Farge})";
             }
         }
 
@@ -30,7 +30,7 @@ namespace GMAP_Demo
         {
             List<string> tags = new List<string>();
 
-            var TagListe = DBComTag_Område.ListTag_områdeFromDb(Løpenummer_område);
+            var TagListe = DBComTag_Område.ListTag_områdeFromDb(IdOmråde);
 
             foreach (var item in TagListe)
             {
@@ -42,19 +42,19 @@ namespace GMAP_Demo
 
         public override string ToString()
         {
-            return $"({Løpenummer_område} - {Navn} - {Dato_opprettet} - {Opprettet_av_bruker} - {Kommentar} - {Sikkerhetsklarering} - {Farge})";
+            return $"({IdOmråde} - {Navn} - {Dato_opprettet} - {Opprettet_av_bruker} - {Kommentar} - {Sikkerhetsklarering} - {Farge})";
         }
         public List<PointLatLng> HentPunkter()
         {
             //List<PointLatLng> Lsvar = new List<PointLatLng>();
             //var punktListe = DatabaseCommunication.ListAllPunkter_områdeFromDb();
-            
+
             //// https://stackoverflow.com/questions/289010/c-sharp-list-sort-by-x-then-y
-            //punktListe = punktListe.OrderBy(x => x.Løpenummer_til_område).ThenBy(x => x.Rekkefølge_punkter).ToList();
+            //punktListe = punktListe.OrderBy(x => x.IdOmråde).ThenBy(x => x.Rekkefølge_punkter).ToList();
 
             //foreach (var item in punktListe)
             //{      
-            //    if(item.Løpenummer_til_område == Løpenummer_område)
+            //    if(item.IdOmråde == IdOmråde)
             //    {
             //        PointLatLng punkt = new PointLatLng(Convert.ToDouble(item.Lat), Convert.ToDouble(item.Lang));
             //        Lsvar.Add(punkt);
@@ -62,7 +62,7 @@ namespace GMAP_Demo
             //}
 
             List<PointLatLng> Lsvar = new List<PointLatLng>();
-            var PunktListe = DBComPunkter_område.GetPunkter_området(Løpenummer_område);
+            var PunktListe = DBComPunkter_område.GetPunkter_området(IdOmråde);
             PunktListe = PunktListe.OrderBy(x => x.Rekkefølge_punkter).ToList();
             foreach (var item in PunktListe)
             {        

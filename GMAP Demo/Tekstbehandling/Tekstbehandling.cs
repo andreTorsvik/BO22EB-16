@@ -80,7 +80,7 @@ namespace GMAP_Demo
             return utFyllingsmangler;
         }
 
-        public static string SjekkEndringer_Objekt(Ressurs OrginaleRessurs, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, HashSet<string> NyTags)
+        public static string SjekkEndringer_Objekt(Objekt OrginaleRessurs, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, HashSet<string> NyTags)
         {
             // Objekt
             // kode for å oppdage endringer og kommentere de,  

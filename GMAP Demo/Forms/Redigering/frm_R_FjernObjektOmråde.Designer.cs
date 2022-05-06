@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblLøpenummer = new System.Windows.Forms.Label();
-            this.txtLøpenumemr = new System.Windows.Forms.TextBox();
+            this.lblIdOmråde = new System.Windows.Forms.Label();
+            this.txtIdOmråde = new System.Windows.Forms.TextBox();
             this.lblNavn = new System.Windows.Forms.Label();
             this.txtNavn = new System.Windows.Forms.TextBox();
             this.txtInfo = new System.Windows.Forms.TextBox();
@@ -54,26 +54,26 @@
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "Fjern";
             // 
-            // lblLøpenummer
+            // lblIdOmråde
             // 
-            this.lblLøpenummer.AutoSize = true;
-            this.lblLøpenummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblLøpenummer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblLøpenummer.Location = new System.Drawing.Point(4, 37);
-            this.lblLøpenummer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblLøpenummer.Name = "lblLøpenummer";
-            this.lblLøpenummer.Size = new System.Drawing.Size(68, 13);
-            this.lblLøpenummer.TabIndex = 57;
-            this.lblLøpenummer.Text = "Løpenummer";
+            this.lblIdOmråde.AutoSize = true;
+            this.lblIdOmråde.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblIdOmråde.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblIdOmråde.Location = new System.Drawing.Point(4, 37);
+            this.lblIdOmråde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblIdOmråde.Name = "lblIdOmråde";
+            this.lblIdOmråde.Size = new System.Drawing.Size(68, 13);
+            this.lblIdOmråde.TabIndex = 57;
+            this.lblIdOmråde.Text = "IdOmråde";
             // 
-            // txtLøpenumemr
+            // txtIdOmråde
             // 
-            this.txtLøpenumemr.Location = new System.Drawing.Point(7, 52);
-            this.txtLøpenumemr.Margin = new System.Windows.Forms.Padding(2);
-            this.txtLøpenumemr.Name = "txtLøpenumemr";
-            this.txtLøpenumemr.ReadOnly = true;
-            this.txtLøpenumemr.Size = new System.Drawing.Size(53, 20);
-            this.txtLøpenumemr.TabIndex = 56;
+            this.txtIdOmråde.Location = new System.Drawing.Point(7, 52);
+            this.txtIdOmråde.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIdOmråde.Name = "txtIdOmråde";
+            this.txtIdOmråde.ReadOnly = true;
+            this.txtIdOmråde.Size = new System.Drawing.Size(53, 20);
+            this.txtIdOmråde.TabIndex = 56;
             // 
             // lblNavn
             // 
@@ -133,11 +133,11 @@
             // 
             this.gbObjekt.Controls.Add(this.lblKlikkPåObjektet);
             this.gbObjekt.Controls.Add(this.lblInfo);
-            this.gbObjekt.Controls.Add(this.lblLøpenummer);
+            this.gbObjekt.Controls.Add(this.lblIdOmråde);
             this.gbObjekt.Controls.Add(this.txtNavn);
             this.gbObjekt.Controls.Add(this.lblNavn);
             this.gbObjekt.Controls.Add(this.txtInfo);
-            this.gbObjekt.Controls.Add(this.txtLøpenumemr);
+            this.gbObjekt.Controls.Add(this.txtIdOmråde);
             this.gbObjekt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.gbObjekt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbObjekt.Location = new System.Drawing.Point(9, 46);
@@ -199,8 +199,8 @@
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblLøpenummer;
-        private System.Windows.Forms.TextBox txtLøpenumemr;
+        private System.Windows.Forms.Label lblIdOmråde;
+        private System.Windows.Forms.TextBox txtIdOmråde;
         private System.Windows.Forms.Label lblNavn;
         private System.Windows.Forms.TextBox txtNavn;
         private System.Windows.Forms.TextBox txtInfo;

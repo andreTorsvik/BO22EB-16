@@ -198,7 +198,7 @@ namespace GMAP_Demo
         public void FyllInfoObjekt(int Tag)
         {
             // Løpenummeret 
-            løpenummer_til_redigering = GlobaleLister.LRessurs[Tag].Løpenummer_ressurs;
+            løpenummer_til_redigering = GlobaleLister.LRessurs[Tag].IdObjekt;
 
             // Info 
             txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
@@ -264,7 +264,7 @@ namespace GMAP_Demo
 
                 if (utFyllingsmangler == string.Empty)
                 {
-                    Ressurs OrginaleRessurs = DBComRessurs.RessursFromDb(løpenummer);
+                    Objekt OrginaleRessurs = DBComRessurs.ObjektFromDb(løpenummer);
                     string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
 
                     if (FeilTallSjekk == string.Empty)

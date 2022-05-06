@@ -76,7 +76,7 @@ namespace GMAP_Demo
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Ressurs>($"UPDATE [dbo].[Kategorier_Bilde] SET Bilde = null WHERE (Kategorinavn = '{ kategorinavn }')");
+                    var output = connection.Query<Objekt>($"UPDATE [dbo].[Kategorier_Bilde] SET Bilde = null WHERE (Kategorinavn = '{ kategorinavn }')");
 
                 }
             }
@@ -111,7 +111,7 @@ namespace GMAP_Demo
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Ressurs>($"delete FROM [dbo].[Kategorier_Bilde] WHERE (Kategorinavn = '{ kategorinavn }')");
+                    var output = connection.Query<Objekt>($"delete FROM [dbo].[Kategorier_Bilde] WHERE (Kategorinavn = '{ kategorinavn }')");
 
                 }
             }

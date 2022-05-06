@@ -52,7 +52,7 @@ namespace GMAP_Demo
 
             foreach (var Kategori in KategoriListe)
             {
-                var list = DBComRessurs.ListRessursBasedonKategori(Kategori.Kategorinavn);
+                var list = DBComRessurs.ListObjektBasedOnKategori(Kategori.Kategorinavn);
                 if (list.Count == 0)
                 {
                     lbTilgjengligKategorier.Items.Add(Kategori.Kategorinavn);

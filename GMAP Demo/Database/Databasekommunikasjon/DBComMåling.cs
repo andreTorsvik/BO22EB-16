@@ -28,13 +28,13 @@ namespace GMAP_Demo
             }
         }
 
-        public static List<Måling> GetLatestValueMålingFromSelectedRessurs(int løpenummer_til_ressurs)
+        public static List<Måling> GetLatestValueMålingFromSelectedRessurs(int idObjekt)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Måling>($"SELECT TOP(1) Verdi, Dato, Enhet FROM dbo.Måling WHERE Løpenummer_til_ressurs = {løpenummer_til_ressurs} ORDER BY Dato DESC;").ToList();
+                    var output = connection.Query<Måling>($"SELECT TOP(1) Verdi, Dato, Enhet FROM dbo.Måling WHERE IdObjekt = {idObjekt} ORDER BY Dato DESC;").ToList();
 
                     if (output.Count == 0)  // Metoden viser "Ingen måling" for de ressurser som ikke har målinger.
                     {
@@ -42,7 +42,7 @@ namespace GMAP_Demo
                         {
                             Navn_på_sensor = "",
                             Verdi = 0,
-                            Løpenummer_til_ressurs = 0,
+                            IdObjekt = 0,
                             Måling_id = 0,
                             Dato = "Ingen måling",
                             Enhet = ""
@@ -50,7 +50,7 @@ namespace GMAP_Demo
                         };
                         //tomMåling.Navn_på_sensor = "";
                         //tomMåling.Verdi = 0;
-                        //tomMåling.Løpenummer_til_ressurs = 0;
+                        //tomMåling.IdObjekt = 0;
                         //tomMåling.Måling_id = 0;
                         //tomMåling.Dato = "Ingen måling";
                         //tomMåling.Enhet = "";
@@ -67,7 +67,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void UpdateMåling(string navn_på_sensor, float verdi, int løpenummer_til_ressurs, string enhet)
+        public static void UpdateMåling(string navn_på_sensor, float verdi, int idObjekt, string enhet)
         {
             try
             {
@@ -77,11 +77,11 @@ namespace GMAP_Demo
                     {
                         Navn_på_sensor = navn_på_sensor,
                         Verdi = verdi,
-                        Løpenummer_til_ressurs = løpenummer_til_ressurs,
+                        IdObjekt = idObjekt,
                         Enhet = enhet
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREinsertIntoMåling] @Navn_på_sensor, @Verdi, @Løpenummer_til_ressurs, @Enhet", (UpdateMåling));
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoMåling] @Navn_på_sensor, @Verdi, @IdObjekt, @Enhet", (UpdateMåling));
 
                 }
             }

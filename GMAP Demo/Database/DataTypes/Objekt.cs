@@ -7,9 +7,9 @@ using GMap.NET;
 
 namespace GMAP_Demo
 {
-    public class Ressurs
+    public class Objekt
     {
-        public int Løpenummer_ressurs { get; set; } // Løpenummer_ressurs som skriver til databasen må bruke DEFAULT pga constraintSequence
+        public int IdObjekt { get; set; } // IdObjekt som skriver til databasen må bruke DEFAULT pga constraintSequence
         public string Navn { get; set; }
         public string Kategori { get; set; }
         public string Dato_opprettet { get; set; } // Dato_opprettet som skriver til databasen må bruke CURRENT_TIMESTAMP pga DATETIME
@@ -23,7 +23,7 @@ namespace GMAP_Demo
         {
             get
             {
-                return $"({Løpenummer_ressurs} - {Navn} - {Kategori} - {Dato_opprettet} - {Opprettet_av_bruker} - {Sikkerhetsklarering} - {Kommentar} - {Lat} - {Lang})";
+                return $"({IdObjekt} - {Navn} - {Kategori} - {Dato_opprettet} - {Opprettet_av_bruker} - {Sikkerhetsklarering} - {Kommentar} - {Lat} - {Lang})";
             }
         }
 
@@ -37,7 +37,7 @@ namespace GMAP_Demo
         {
             List<string> tags = new List<string>();
 
-            var TagListe = DBComTag_Ressurs.ListTag_ressursFromDb(Løpenummer_ressurs);
+            var TagListe = DBComTag_Ressurs.ListTag_ressursFromDb(IdObjekt);
 
             foreach (var item in TagListe)
             {
@@ -48,7 +48,7 @@ namespace GMAP_Demo
         }
         public override string ToString()
         {
-            return $"({Løpenummer_ressurs} - {Navn} - {Kategori} - {Dato_opprettet} - {Opprettet_av_bruker} - {Sikkerhetsklarering} - {Kommentar} - {Lat} - {Lang})";
+            return $"({IdObjekt} - {Navn} - {Kategori} - {Dato_opprettet} - {Opprettet_av_bruker} - {Sikkerhetsklarering} - {Kommentar} - {Lat} - {Lang})";
         }
     }
 }

@@ -8,7 +8,7 @@ namespace GMAP_Demo
 {
     internal class Punkter_område
     {
-        public int Løpenummer_til_område { get; set; } // Løpenummer_til_område som skriver til databasen må bruke DEFAULT pga constraintSequence
+        public int IdOmråde { get; set; } // IdOmråde som skriver til databasen må bruke DEFAULT pga constraintSequence
         public int Rekkefølge_punkter { get; set; } 
         public float Lat { get; set; }
         public float Lang { get; set; }
@@ -17,7 +17,7 @@ namespace GMAP_Demo
         {
             get
             {
-                return $"({Løpenummer_til_område} - {Rekkefølge_punkter} - {Lat} - {Lang})";
+                return $"({IdOmråde} - {Rekkefølge_punkter} - {Lat} - {Lang})";
             }
         }
     }
