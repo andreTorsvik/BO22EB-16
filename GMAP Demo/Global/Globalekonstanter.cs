@@ -11,7 +11,7 @@ namespace GMAP_Demo
     {
         // Forms med meny og kart (for å få plass til alle elementer)
         public static Size frmWithMenuMinimumSize = new Size(640, 480); // Min size hvis alle elementer skal på samme skjerm uten scrollbar: 1000,750
-
+        //1000,750
         // Sikkerhetsklarering (1-3)
         public const int MaxSikkerhetsklarering = 3;
 

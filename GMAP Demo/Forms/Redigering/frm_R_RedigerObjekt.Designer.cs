@@ -66,10 +66,9 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblTitle.Location = new System.Drawing.Point(9, 7);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(242, 37);
+            this.lblTitle.Size = new System.Drawing.Size(300, 46);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "Rediger Objekt";
             // 
@@ -79,7 +78,7 @@
             this.txtNyKategori.Location = new System.Drawing.Point(4, 141);
             this.txtNyKategori.Margin = new System.Windows.Forms.Padding(2);
             this.txtNyKategori.Name = "txtNyKategori";
-            this.txtNyKategori.Size = new System.Drawing.Size(105, 20);
+            this.txtNyKategori.Size = new System.Drawing.Size(139, 22);
             this.txtNyKategori.TabIndex = 87;
             // 
             // btnLeggTilNyKategori
@@ -88,7 +87,7 @@
             this.btnLeggTilNyKategori.Location = new System.Drawing.Point(114, 136);
             this.btnLeggTilNyKategori.Margin = new System.Windows.Forms.Padding(2);
             this.btnLeggTilNyKategori.Name = "btnLeggTilNyKategori";
-            this.btnLeggTilNyKategori.Size = new System.Drawing.Size(104, 22);
+            this.btnLeggTilNyKategori.Size = new System.Drawing.Size(139, 27);
             this.btnLeggTilNyKategori.TabIndex = 86;
             this.btnLeggTilNyKategori.Text = "Legg til ny Kategori";
             this.btnLeggTilNyKategori.UseVisualStyleBackColor = true;
@@ -100,7 +99,7 @@
             this.lbTilgjengligKategori.Location = new System.Drawing.Point(4, 103);
             this.lbTilgjengligKategori.Margin = new System.Windows.Forms.Padding(2);
             this.lbTilgjengligKategori.Name = "lbTilgjengligKategori";
-            this.lbTilgjengligKategori.Size = new System.Drawing.Size(104, 30);
+            this.lbTilgjengligKategori.Size = new System.Drawing.Size(137, 36);
             this.lbTilgjengligKategori.Sorted = true;
             this.lbTilgjengligKategori.TabIndex = 85;
             this.toolTip1.SetToolTip(this.lbTilgjengligKategori, "Dobbelklikk for å velge");
@@ -125,7 +124,7 @@
             this.txtKategori.Margin = new System.Windows.Forms.Padding(2);
             this.txtKategori.Name = "txtKategori";
             this.txtKategori.ReadOnly = true;
-            this.txtKategori.Size = new System.Drawing.Size(104, 20);
+            this.txtKategori.Size = new System.Drawing.Size(137, 22);
             this.txtKategori.TabIndex = 83;
             // 
             // lblValgtForDetteObjektet
@@ -203,7 +202,7 @@
             this.txtLong.Location = new System.Drawing.Point(4, 255);
             this.txtLong.Margin = new System.Windows.Forms.Padding(2);
             this.txtLong.Name = "txtLong";
-            this.txtLong.Size = new System.Drawing.Size(215, 20);
+            this.txtLong.Size = new System.Drawing.Size(285, 22);
             this.txtLong.TabIndex = 76;
             this.txtLong.Text = "Dobbelklikk på kartet";
             this.toolTip1.SetToolTip(this.txtLong, "Dobbelklikk på kartet");
@@ -226,7 +225,7 @@
             this.txtLat.Location = new System.Drawing.Point(4, 216);
             this.txtLat.Margin = new System.Windows.Forms.Padding(2);
             this.txtLat.Name = "txtLat";
-            this.txtLat.Size = new System.Drawing.Size(216, 20);
+            this.txtLat.Size = new System.Drawing.Size(287, 22);
             this.txtLat.TabIndex = 74;
             this.txtLat.Text = "Dobbelklikk på kartet";
             this.toolTip1.SetToolTip(this.txtLat, "Dobbelklikk på kartet");
@@ -248,7 +247,7 @@
             this.txtKommentar.Location = new System.Drawing.Point(4, 180);
             this.txtKommentar.Margin = new System.Windows.Forms.Padding(2);
             this.txtKommentar.Name = "txtKommentar";
-            this.txtKommentar.Size = new System.Drawing.Size(215, 20);
+            this.txtKommentar.Size = new System.Drawing.Size(285, 22);
             this.txtKommentar.TabIndex = 72;
             // 
             // btnLeggTilTag
@@ -257,7 +256,7 @@
             this.btnLeggTilTag.Location = new System.Drawing.Point(98, 224);
             this.btnLeggTilTag.Margin = new System.Windows.Forms.Padding(2);
             this.btnLeggTilTag.Name = "btnLeggTilTag";
-            this.btnLeggTilTag.Size = new System.Drawing.Size(55, 22);
+            this.btnLeggTilTag.Size = new System.Drawing.Size(73, 27);
             this.btnLeggTilTag.TabIndex = 71;
             this.btnLeggTilTag.Text = "Legg til";
             this.btnLeggTilTag.UseVisualStyleBackColor = true;
@@ -269,7 +268,7 @@
             this.lbValgtTags.Location = new System.Drawing.Point(114, 46);
             this.lbValgtTags.Margin = new System.Windows.Forms.Padding(2);
             this.lbValgtTags.Name = "lbValgtTags";
-            this.lbValgtTags.Size = new System.Drawing.Size(106, 160);
+            this.lbValgtTags.Size = new System.Drawing.Size(140, 196);
             this.lbValgtTags.Sorted = true;
             this.lbValgtTags.TabIndex = 70;
             this.toolTip1.SetToolTip(this.lbValgtTags, "Dobbelklikk for å flytte over");
@@ -281,7 +280,7 @@
             this.lbTilgjengeligeTags.Location = new System.Drawing.Point(4, 46);
             this.lbTilgjengeligeTags.Margin = new System.Windows.Forms.Padding(2);
             this.lbTilgjengeligeTags.Name = "lbTilgjengeligeTags";
-            this.lbTilgjengeligeTags.Size = new System.Drawing.Size(107, 160);
+            this.lbTilgjengeligeTags.Size = new System.Drawing.Size(141, 196);
             this.lbTilgjengeligeTags.Sorted = true;
             this.lbTilgjengeligeTags.TabIndex = 69;
             this.toolTip1.SetToolTip(this.lbTilgjengeligeTags, "Dobbelklikk for å flytte over");
@@ -292,7 +291,7 @@
             this.btnLagreEndring.Location = new System.Drawing.Point(15, 589);
             this.btnLagreEndring.Margin = new System.Windows.Forms.Padding(2);
             this.btnLagreEndring.Name = "btnLagreEndring";
-            this.btnLagreEndring.Size = new System.Drawing.Size(92, 28);
+            this.btnLagreEndring.Size = new System.Drawing.Size(123, 34);
             this.btnLagreEndring.TabIndex = 68;
             this.btnLagreEndring.Text = "Lagre endering";
             this.btnLagreEndring.UseVisualStyleBackColor = true;
@@ -315,7 +314,7 @@
             this.txtSikkerhetsklarering.Location = new System.Drawing.Point(4, 68);
             this.txtSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(2);
             this.txtSikkerhetsklarering.Name = "txtSikkerhetsklarering";
-            this.txtSikkerhetsklarering.Size = new System.Drawing.Size(216, 20);
+            this.txtSikkerhetsklarering.Size = new System.Drawing.Size(287, 22);
             this.txtSikkerhetsklarering.TabIndex = 66;
             // 
             // lblNavn
@@ -335,7 +334,7 @@
             this.txtNavn.Location = new System.Drawing.Point(4, 31);
             this.txtNavn.Margin = new System.Windows.Forms.Padding(2);
             this.txtNavn.Name = "txtNavn";
-            this.txtNavn.Size = new System.Drawing.Size(215, 20);
+            this.txtNavn.Size = new System.Drawing.Size(285, 22);
             this.txtNavn.TabIndex = 64;
             // 
             // gbObjekt
@@ -389,11 +388,11 @@
             // 
             // Frm_R_RedigerObjekt
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(293, 670);
+            this.ClientSize = new System.Drawing.Size(391, 825);
             this.Controls.Add(this.gbTag);
             this.Controls.Add(this.gbObjekt);
             this.Controls.Add(this.btnLagreEndring);

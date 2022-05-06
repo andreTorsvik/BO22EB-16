@@ -23,12 +23,17 @@ namespace GMAP_Demo
             InitializeComponent();
             instance = this;
 
-            //sette oransjePanelet til Posisjonknapp
-            FlyttNavigasjonsPanel(btnLeggTilObjekt.Height, btnLeggTilObjekt.Top);
-            btnLeggTilObjekt.BackColor = Globalekonstanter.knapp_trykket;
+            SetTheme();
 
             // Viser innlogget bruker
             lblUserName.Text = InnloggetBruker.BrukernavnInnlogget;
+
+            // Bruker ikke metoden "ÅpneFormFraMenyknapp", siden
+            // den utfører flere metoder enn det som er nødvendig i starten 
+
+            // Sette oransjePanelet til Posisjonknapp
+            FlyttNavigasjonsPanel(btnLeggTilObjekt.Height, btnLeggTilObjekt.Top);
+            btnLeggTilObjekt.BackColor = Globalekonstanter.knapp_trykket;
 
             PnlFormLoader.Controls.Clear();
             Frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new Frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -36,9 +41,6 @@ namespace GMAP_Demo
             PnlFormLoader.Controls.Add(frm_R_LeggTilObjekt_vrb);
             frm_R_LeggTilObjekt_vrb.Show();
 
-            SetTheme();
-
-            btnLeggTilObjekt.BackColor = Globalekonstanter.knapp_trykket;
         }
 
         private void SetTheme()
@@ -98,12 +100,10 @@ namespace GMAP_Demo
             btnFjernObjektOmråde.BackColor = StandardFarge;
         }
 
-        private void ÅpneFormFraMenyknapp(Button sender, EventArgs e, Form target)
+        private void ÅpneFormFraMenyknapp(Button sender, Form target)
         {
             if (pnlNav.Top != sender.Top)
             {
-                
-
                 AlleKnapperTilStandardFargeR();
                 sender.BackColor = Globalekonstanter.knapp_trykket;
 
@@ -128,28 +128,27 @@ namespace GMAP_Demo
         {
             InstanceNull(false);
             Frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new Frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, e, frm_R_LeggTilObjekt_vrb);
+            ÅpneFormFraMenyknapp((Button)sender, frm_R_LeggTilObjekt_vrb);
         }
         private void BtnOmråde_Click(object sender, EventArgs e)
         {
             InstanceNull(false);
             Frm_R_LeggTilOmråde frm_R_LeggTilOmråde_vrb = new Frm_R_LeggTilOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, e, frm_R_LeggTilOmråde_vrb);
+            ÅpneFormFraMenyknapp((Button)sender, frm_R_LeggTilOmråde_vrb);
         }
 
         private void BtnRediger_objekt_Click(object sender, EventArgs e)
         {
             InstanceNull(false);
             Frm_R_RedigerObjekt frm_R_RedigerObjekt_vrb = new Frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, e, frm_R_RedigerObjekt_vrb);
+            ÅpneFormFraMenyknapp((Button)sender, frm_R_RedigerObjekt_vrb);
         }
 
         private void BtnRedigerOmråde_Click(object sender, EventArgs e)
         {
             InstanceNull(false);
             Frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new Frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, e, frm_R_RedigerOmråde_vrb);
-            //ÅpneRediger_områdeForm();
+            ÅpneFormFraMenyknapp((Button)sender,  frm_R_RedigerOmråde_vrb);
         }
        
 
@@ -157,7 +156,7 @@ namespace GMAP_Demo
         {
             InstanceNull(false);
             Frm_R_EndreObjektsymbol frm_R_EndreObjektsymbol_vrb = new Frm_R_EndreObjektsymbol() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, e, frm_R_EndreObjektsymbol_vrb);
+            ÅpneFormFraMenyknapp((Button)sender, frm_R_EndreObjektsymbol_vrb);
             
         }
 
@@ -165,7 +164,7 @@ namespace GMAP_Demo
         {
             InstanceNull(false);
             Frm_R_FjernObjektOmråde frm_R_FjernObjektOmråde_vrb = new Frm_R_FjernObjektOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, e, frm_R_FjernObjektOmråde_vrb);
+            ÅpneFormFraMenyknapp((Button)sender,  frm_R_FjernObjektOmråde_vrb);
             
         }
 
@@ -183,7 +182,7 @@ namespace GMAP_Demo
             FrmVisning.instance.Show();
         }
 
-        private void InstanceNull(bool avslutt)
+        private void InstanceNull(bool avsluttRediger)
         {
             if (Frm_R_FjernObjektOmråde.instance != null)
                 Frm_R_FjernObjektOmråde.instance = null;
@@ -203,7 +202,7 @@ namespace GMAP_Demo
             if (Frm_R_EndreObjektsymbol.instance != null)
                 Frm_R_EndreObjektsymbol.instance = null;
 
-            if(avslutt)
+            if(avsluttRediger)
             {
                 if (instance != null)
                 instance = null;
@@ -289,7 +288,7 @@ namespace GMAP_Demo
                 else if (pnlNav.Top != btnFjernObjektOmråde.Top)
                 {
                     Frm_R_RedigerObjekt frm_R_RedigerObjekt_vrb = new Frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                    ÅpneFormFraMenyknapp(btnRedigerObjekt, e, frm_R_RedigerObjekt_vrb);
+                    ÅpneFormFraMenyknapp(btnRedigerObjekt, frm_R_RedigerObjekt_vrb);
                 }
 
                 if (Frm_R_FjernObjektOmråde.instance != null)
@@ -315,7 +314,7 @@ namespace GMAP_Demo
             else if (pnlNav.Top != btnFjernObjektOmråde.Top)
             {
                 Frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new Frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                ÅpneFormFraMenyknapp(btnRedigerOmråde, e, frm_R_RedigerOmråde_vrb);
+                ÅpneFormFraMenyknapp(btnRedigerOmråde, frm_R_RedigerOmråde_vrb);
                 //ÅpneRediger_områdeForm();
             }
             
