@@ -38,6 +38,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -136,6 +137,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lblTitle);
             this.panel3.Controls.Add(this.lblMiddle);
             this.panel3.Location = new System.Drawing.Point(238, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
@@ -144,7 +146,18 @@
             this.panel3.TabIndex = 15;
             this.panel3.Click += new System.EventHandler(this.CloseForm);
             // 
-            // frmHjelp
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblTitle.Location = new System.Drawing.Point(57, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(210, 26);
+            this.lblTitle.TabIndex = 7;
+            this.lblTitle.Text = "En kort forklaring av oppbyggingen \r\ntil programmet/forms.";
+            // 
+            // Frm_V_Hjelp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,7 +172,7 @@
             this.ForeColor = System.Drawing.Color.RoyalBlue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(968, 656);
-            this.Name = "frmHjelp";
+            this.Name = "Frm_V_Hjelp";
             this.Opacity = 0.85D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "frmHjelp";
@@ -188,5 +201,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblTitle;
     }
 }
