@@ -5,8 +5,8 @@ namespace GMAP_Demo
 {
     public partial class Frm_R_FjernObjektOmråde : Form
     {
-        public int Løpenummer_til_objekt;
-        public int Løpenummer_til_Område;
+        public int Id_til_objekt;
+        public int Id_til_Område;
 
         public static Frm_R_FjernObjektOmråde instance;
         public Frm_R_FjernObjektOmråde()
@@ -43,39 +43,39 @@ namespace GMAP_Demo
 
         public void FyllInfoObjekt(int Tag)
         {
-            Løpenummer_til_objekt = GlobaleLister.LObjekt[Tag].IdObjekt;
+            Id_til_objekt = GlobaleLister.LObjekt[Tag].IdObjekt;
             txtInfo.Text = GlobaleLister.LObjekt[Tag].ToString();
             txtIdOmråde.Text = GlobaleLister.LObjekt[Tag].IdObjekt.ToString();
             txtNavn.Text = GlobaleLister.LObjekt[Tag].Navn;
 
-            if (Løpenummer_til_Område >= 0) Løpenummer_til_Område = -1;
+            if (Id_til_Område >= 0) Id_til_Område = -1;
         }
 
         public void FyllInfoOmråde(int Tag)
         {
-            Løpenummer_til_Område = GlobaleLister.LOmråde[Tag].IdOmråde;
+            Id_til_Område = GlobaleLister.LOmråde[Tag].IdOmråde;
             txtInfo.Text = GlobaleLister.LOmråde[Tag].ToString();
             txtIdOmråde.Text = GlobaleLister.LOmråde[Tag].IdOmråde.ToString();
             txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
 
-            if (Løpenummer_til_objekt >= 0) Løpenummer_til_objekt = -1;
+            if (Id_til_objekt >= 0) Id_til_objekt = -1;
         }
 
         private void BtnFjern_Click(object sender, EventArgs e)
         {
-            if (Løpenummer_til_Område == -1 && Løpenummer_til_objekt != -1) // sletting av ressurs 
+            if (Id_til_Område == -1 && Id_til_objekt != -1) // sletting av ressurs 
             {
                 try
                 {
                     string Tittel = "Sletting";
-                    string tekst = string.Format("Vil du slette ressurs: {0} ", Løpenummer_til_objekt);
+                    string tekst = string.Format("Vil du slette ressurs: {0} ", Id_til_objekt);
                     bool Fjern = FellesMetoder.MeldingsboksYesNo(Tittel, tekst);
 
                     if (Fjern)
                     {
-                        DBComObjekt.DeleteObjekt(Løpenummer_til_objekt);
-                        lblSlettet.Text = String.Format("Ressurs nr: {0} er slettet", Løpenummer_til_objekt);
-                        Løpenummer_til_objekt = -1;
+                        DBComObjekt.DeleteObjekt(Id_til_objekt);
+                        lblSlettet.Text = String.Format("Ressurs nr: {0} er slettet", Id_til_objekt);
+                        Id_til_objekt = -1;
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart
                         FellesMetoder.OppdaterTag_Liste();
@@ -90,21 +90,21 @@ namespace GMAP_Demo
                     MessageBox.Show(String.Format("Noe galt skjedde: {0}", feil.Message));
                 }
             }
-            else if (Løpenummer_til_objekt == -1 && Løpenummer_til_Område != -1) // sletting av Område
+            else if (Id_til_objekt == -1 && Id_til_Område != -1) // sletting av Område
             {
                 try
                 {
                     string Tittel = "Sletting";
-                    string tekst = string.Format("Vil du slette Område: {0} ", Løpenummer_til_Område);
+                    string tekst = string.Format("Vil du slette Område: {0} ", Id_til_Område);
 
                     bool fjern = FellesMetoder.MeldingsboksYesNo(Tittel, tekst);
 
                     if (fjern)
                     {
-                        DBComPunkter_område.DeletePunkter_området(Løpenummer_til_Område);
-                        DBComOmråde.DeleteOmråde(Løpenummer_til_Område);
-                        lblSlettet.Text = String.Format("Område nr: {0} er slettet", Løpenummer_til_Område);
-                        Løpenummer_til_Område = -1;
+                        DBComPunkter_område.DeletePunkter_området(Id_til_Område);
+                        DBComOmråde.DeleteOmråde(Id_til_Område);
+                        lblSlettet.Text = String.Format("Område nr: {0} er slettet", Id_til_Område);
+                        Id_til_Område = -1;
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart 
                         FellesMetoder.OppdaterTag_Liste();

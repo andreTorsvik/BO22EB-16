@@ -327,7 +327,7 @@ namespace GMAP_Demo
 
                 if (FeilTallSjekk == string.Empty)
                 {
-                    // Hentløpenummer
+                    // Hent id
                     var id = DBComOmråde.GetIdOmråde();
                     int id_område = Convert.ToInt32(id[0]);
 

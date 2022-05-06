@@ -127,7 +127,7 @@ namespace GMAP_Demo
                 {
 
                 }
-                
+
             }
 
             FellesMetoder.OppdaterKategoriListe();
@@ -185,7 +185,7 @@ namespace GMAP_Demo
                     lbTilgjengeligeTags.Items.Add(nyTag);
                 }
                 txtNyTag.Text = "";
-                
+
             }
         }
 
@@ -241,7 +241,7 @@ namespace GMAP_Demo
             string lat = txtLat.Text;
             string lang = txtLong.Text;
             int antallTags = lbValgtTags.Items.Count;
-            HashSet<string> nyTags = new HashSet<string>( lbValgtTags.Items.Cast<string>().ToList());
+            HashSet<string> nyTags = new HashSet<string>(lbValgtTags.Items.Cast<string>().ToList());
 
             // Legger til, om alt stemmer
             string SjekkFeil = RedigerObjekt(id_til_redigering, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, antallTags, LGamleTag, nyTags);
@@ -249,7 +249,11 @@ namespace GMAP_Demo
             if (SjekkFeil != string.Empty)
                 MessageBox.Show(SjekkFeil);
             else
+            {
                 FrmRediger.OmrådeKlikkbare();
+                id_til_redigering = -1;
+            }
+
 
             FellesMetoder.OppdaterTag_Liste();
         }
@@ -274,7 +278,7 @@ namespace GMAP_Demo
                         {
                             string Tittel = "Vil du lagre disse endringene ";
                             bool lagreEndring = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
-                          
+
                             if (lagreEndring)
                             {
                                 try

@@ -257,7 +257,11 @@ namespace GMAP_Demo
                 MessageBox.Show(sjekkFeil);
             }
             else
+            {
                 FrmRediger.OmrådeKlikkbare();
+                id_til_redigering = -1;
+            }
+                
 
             FellesMetoder.OppdaterTag_Liste();
         }
