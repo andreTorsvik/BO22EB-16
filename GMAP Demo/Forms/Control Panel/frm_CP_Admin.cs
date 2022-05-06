@@ -99,7 +99,7 @@ namespace GMAP_Demo
                     string TilEpost = HentEpostFraInfo(BrukerInfo);
 
                     Bruker bruker = DBComBruker.ListBrukerInfoFromDb(TilEpost);
-                    //DBComBruker.UpdateBruker_Godkjent(bruker.Epost, true);
+                    DBComBruker.UpdateBruker_Godkjent(bruker.Epost, true);
 
                     int tallkode = bruker.Tallkode;
                     try
@@ -123,13 +123,13 @@ namespace GMAP_Demo
             try
             {
                 
-                NetworkCredential login = new NetworkCredential("GmapDemo01@gmail.com", "dlpkqccjjxolhvog");//Properties.Settings.Default.EpostVerifisering, Properties.Settings.Default.PassordEpostVerifisering
-                SmtpClient client = new SmtpClient("smtp.gmail.com");//Properties.Settings.Default.EmailTypeVerifisering
+                NetworkCredential login = new NetworkCredential(Properties.Settings.Default.EpostVerifisering, Properties.Settings.Default.PassordEpostVerifisering);//, "dlpkqccjjxolhvog"
+                SmtpClient client = new SmtpClient(Properties.Settings.Default.EmailTypeVerifisering);//Properties.Settings.Default.EmailTypeVerifisering
                 client.Credentials = login;
                 client.Port = 587;
                 client.EnableSsl = true;
 
-                MailMessage msg = new MailMessage("GmapDemo01@gmail.com", TilEpost);
+                MailMessage msg = new MailMessage(Properties.Settings.Default.EpostVerifisering, TilEpost);
                 msg.Subject = "Verifiseringskode:";
                 msg.Body = String.Format(tallkode.ToString());
                 msg.BodyEncoding = Encoding.UTF8;

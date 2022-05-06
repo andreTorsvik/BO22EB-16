@@ -11,7 +11,7 @@
       <Value Profile="(Default)">Server=tcp:bo22eb16.database.windows.net,1433;Initial Catalog=bo22eb16;Persist Security Info=False;User ID=CloudSAbf2a2105;Password=Pass1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</Value>
     </Setting>
     <Setting Name="PassordEpostVerifisering" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Pass_Gmap_Demo_12!</Value>
+      <Value Profile="(Default)">dlpkqccjjxolhvog</Value>
     </Setting>
     <Setting Name="EpostVerifisering" Type="System.String" Scope="Application">
       <Value Profile="(Default)">GmapDemo01@gmail.com</Value>

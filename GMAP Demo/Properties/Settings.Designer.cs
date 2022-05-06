@@ -37,7 +37,7 @@ namespace GMAP_Demo.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Pass_Gmap_Demo_12!")]
+        [global::System.Configuration.DefaultSettingValueAttribute("dlpkqccjjxolhvog")]
         public string PassordEpostVerifisering {
             get {
                 return ((string)(this["PassordEpostVerifisering"]));
