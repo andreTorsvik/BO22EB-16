@@ -147,9 +147,9 @@ namespace GMAP_Demo
             }
 
             //legger til i riktig kart 
-            if (MuligKart.Visning == kart) FrmVisning.instance.map.Overlays.Add(markers);
-            else if (MuligKart.Redigering == kart) FrmRediger.instance.map.Overlays.Add(markers);
-            else if (MuligKart.Begge == kart)
+            if (kart == MuligKart.Visning) FrmVisning.instance.map.Overlays.Add(markers);
+            else if (kart == MuligKart.Redigering ) FrmRediger.instance.map.Overlays.Add(markers);
+            else if (kart ==MuligKart.Begge)
             {
                 FrmVisning.instance.map.Overlays.Add(markers);
                 FrmRediger.instance.map.Overlays.Add(markers);
@@ -162,7 +162,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void LeggtilMarkør(MuligKart kart, PointLatLng punkt, int Rekkefølge, string områdeId)
+        public static void LeggtilMarkør(MuligKart kart, PointLatLng punkt, int Rekkefølge, string MarkørID)
         {
             //Rekkefølge = -1, da vil man ikke få tooltip tekst,- 
             //Det blir brukt som dobbelttrykk (gul markør) på redigeringsformen. 
@@ -171,16 +171,16 @@ namespace GMAP_Demo
             //for enklere kunne gjøre endringer 
 
             GMapMarker marker;
-            GMapOverlay markers = new GMapOverlay(områdeId);
+            GMapOverlay markers = new GMapOverlay(MarkørID);
 
-            if (områdeId == Globalekonstanter.NavnHjelpeMarkør)
+            if (MarkørID == Globalekonstanter.NavnHjelpeMarkør)
             {
-                //gulmarkør
+                // Gulmarkør / dobbelt trykket
                 marker = new GMarkerGoogle(punkt, GMarkerGoogleType.yellow);
             }
             else
             {
-                //blåmarkør 
+                // Blåmarkør / Hjørnet på et området
                 marker = new GMarkerGoogle(punkt, GMarkerGoogleType.blue);
             }
 
@@ -201,8 +201,8 @@ namespace GMAP_Demo
             markers.Markers.Add(marker);
 
             //legger til på riktig kart
-            if (MuligKart.Visning == kart) FrmVisning.instance.map.Overlays.Add(markers);
-            else if (MuligKart.Redigering == kart) FrmRediger.instance.map.Overlays.Add(markers);
+            if (kart == MuligKart.Visning ) FrmVisning.instance.map.Overlays.Add(markers);
+            else if (kart == MuligKart.Redigering ) FrmRediger.instance.map.Overlays.Add(markers);
 
         }
 
@@ -210,7 +210,6 @@ namespace GMAP_Demo
         {
             // Bruker google-API
             // Denne metoden er kun for visningskaret
-
 
             // Henter rute fra googlemap
             var route = GoogleMapProvider.Instance.GetRoute(Start, Mål, false, false, 14);
@@ -224,8 +223,13 @@ namespace GMAP_Demo
             // Legger til i overlays på kartet
             var routes = new GMapOverlay(Globalekonstanter.NavnRute);
             routes.Routes.Add(r);
+
+            // Legg til på visnings kartet            
             FrmVisning.instance.map.Overlays.Add(routes);
+
+            //Lagrer at man har en rute på kartet 
             RutePåkartet++;
+
             // Plasser kartet i starten av ruten 
             FrmVisning.instance.map.Position = Start;
 
@@ -236,7 +240,7 @@ namespace GMAP_Demo
 
         public static List<GMapOverlay> LagreRuteVisning()
         {
-            //lagrer kun rute fra visning-kart 
+            // Lagrer kun rute fra visning-kart 
             List<GMapOverlay> Lroutes = new List<GMapOverlay>();
 
             for (int i = 0; i < FrmVisning.instance.map.Overlays.Count; i++)
@@ -286,9 +290,9 @@ namespace GMAP_Demo
                 polygons.Polygons.Add(polygon);
 
                 // Legger til på riktig kart
-                if (MuligKart.Visning == kart) FrmVisning.instance.map.Overlays.Add(polygons);
-                else if (MuligKart.Redigering == kart) FrmRediger.instance.map.Overlays.Add(polygons);
-                else if (MuligKart.Begge == kart)
+                if ( kart == MuligKart.Visning) FrmVisning.instance.map.Overlays.Add(polygons);
+                else if ( kart == MuligKart.Redigering) FrmRediger.instance.map.Overlays.Add(polygons);
+                else if ( kart == MuligKart.Begge)
                 {
                     FrmVisning.instance.map.Overlays.Add(polygons);
                     FrmRediger.instance.map.Overlays.Add(polygons);
@@ -417,7 +421,7 @@ namespace GMAP_Demo
                     Stroke = new Pen(Color.Magenta, 3)
                 };
 
-                // Legger til som overlay
+                // Legger til som overlay på redigeringskartet 
                 var routes = new GMapOverlay(Globalekonstanter.NavnHjelpeOmråde);
                 routes.Routes.Add(r);
                 FrmRediger.instance.map.Overlays.Add(routes);
@@ -448,7 +452,7 @@ namespace GMAP_Demo
                     Stroke = new Pen(Color.Magenta, 3)
                 };
 
-                // Legger til som overlay
+                // Legger til som overlay på redigeringskartet
                 var routes = new GMapOverlay(Globalekonstanter.NavnHjelpeOmråde);
                 routes.Routes.Add(r);
                 FrmRediger.instance.map.Overlays.Add(routes);
@@ -464,7 +468,7 @@ namespace GMAP_Demo
             //Zoomer inn og ut så lite at det ikke merkes
 
             GlobaleVariabler.KartOppdatere = true;
-            double PlussMinus = 0.01;
+            const double PlussMinus = 0.01;
             switch (kart)
             {
                 case MuligKart.Visning:
@@ -488,27 +492,27 @@ namespace GMAP_Demo
 
         public static void FinnLokasjon(string Land, string ByKommune, string Adresse)
         {
-            //setter sammen strengene til rett format
+            // Setter sammen strengene til rett format
             string sammenSlått = Tekstbehandling.AdresseTekstfelt(Land, ByKommune, Adresse);
 
-            //Posisjon før flytting
+            // Posisjon før flytting
             PointLatLng PosisjonFør = FrmVisning.instance.map.Position;
 
-            //setter kartet til posisjon bassert på tekst 
+            // Setter kartet til posisjon bassert på tekst 
             FrmVisning.instance.map.SetPositionByKeywords(sammenSlått);
 
-            //finne nåværende punkt 
+            // Finne nåværende punkt 
             PointLatLng PosisjonNå = FrmVisning.instance.map.Position;
 
-            //hvis kartet har flyttet seg
+            // Hvis kartet har flyttet seg
             if (PosisjonFør != PosisjonNå)
             {
-                //fyller in kordinater
+                // Fyller in kordinater
                 Frm_V_Posisjon.instance.FyllKoordinater(PosisjonNå.Lat, PosisjonNå.Lng);
 
                 int ZoomLevel = 18;
 
-                //zoomlevel baser på hva du har fylt ut
+                // Zoomlevel baser på hvilke tekstfelt som er fylt ut
                 if (!string.IsNullOrWhiteSpace(Adresse)) ZoomLevel = 18;
                 else if (!string.IsNullOrWhiteSpace(ByKommune)) ZoomLevel = 11;
                 else if (!string.IsNullOrWhiteSpace(Land)) ZoomLevel = 5;
@@ -526,7 +530,7 @@ namespace GMAP_Demo
             try
             {
                 List<Placemark> Info = null;
-                //henter info baser på kordinater 
+                // Henter info baser på kordinater med hjelp av googlemap 
                 var statusCode = GMapProviders.GoogleMap.GetPlacemarks(point, out Info);
                 //var statusCode = GMapProviders.OpenStreetMap.GetPlacemarks(point,out Info); // OpenStreetMap
                 if (statusCode == GeoCoderStatusCode.OK && Info != null)
