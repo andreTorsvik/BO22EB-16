@@ -44,20 +44,20 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblTitle.Location = new System.Drawing.Point(9, 7);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(391, 37);
+            this.lblTitle.Size = new System.Drawing.Size(479, 46);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "Fjern Ubrukte Kategorier";
             // 
             // lbTilgjengligKategorier
             // 
             this.lbTilgjengligKategorier.FormattingEnabled = true;
-            this.lbTilgjengligKategorier.Location = new System.Drawing.Point(12, 84);
-            this.lbTilgjengligKategorier.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.lbTilgjengligKategorier.ItemHeight = 16;
+            this.lbTilgjengligKategorier.Location = new System.Drawing.Point(16, 103);
+            this.lbTilgjengligKategorier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbTilgjengligKategorier.Name = "lbTilgjengligKategorier";
-            this.lbTilgjengligKategorier.Size = new System.Drawing.Size(219, 173);
+            this.lbTilgjengligKategorier.Size = new System.Drawing.Size(291, 212);
             this.lbTilgjengligKategorier.Sorted = true;
             this.lbTilgjengligKategorier.TabIndex = 5;
             this.lbTilgjengligKategorier.DoubleClick += new System.EventHandler(this.LbKategorier_DoubleClick);
@@ -65,10 +65,11 @@
             // tbValgtKategori
             // 
             this.tbValgtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tbValgtKategori.Location = new System.Drawing.Point(235, 84);
-            this.tbValgtKategori.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tbValgtKategori.Location = new System.Drawing.Point(313, 103);
+            this.tbValgtKategori.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbValgtKategori.Name = "tbValgtKategori";
-            this.tbValgtKategori.Size = new System.Drawing.Size(123, 20);
+            this.tbValgtKategori.ReadOnly = true;
+            this.tbValgtKategori.Size = new System.Drawing.Size(163, 22);
             this.tbValgtKategori.TabIndex = 6;
             // 
             // gbFjernKategori
@@ -80,11 +81,11 @@
             this.gbFjernKategori.Controls.Add(this.tbValgtKategori);
             this.gbFjernKategori.Controls.Add(this.lbTilgjengligKategorier);
             this.gbFjernKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.gbFjernKategori.Location = new System.Drawing.Point(11, 47);
-            this.gbFjernKategori.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbFjernKategori.Location = new System.Drawing.Point(15, 58);
+            this.gbFjernKategori.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbFjernKategori.Name = "gbFjernKategori";
-            this.gbFjernKategori.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gbFjernKategori.Size = new System.Drawing.Size(398, 280);
+            this.gbFjernKategori.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbFjernKategori.Size = new System.Drawing.Size(531, 345);
             this.gbFjernKategori.TabIndex = 7;
             this.gbFjernKategori.TabStop = false;
             this.gbFjernKategori.Text = "Fjern Kategori";
@@ -93,10 +94,9 @@
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblInfo.Location = new System.Drawing.Point(6, 14);
-            this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInfo.Location = new System.Drawing.Point(8, 17);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(390, 26);
+            this.lblInfo.Size = new System.Drawing.Size(485, 32);
             this.lblInfo.TabIndex = 9;
             this.lblInfo.Text = "Du må fjerne alle forkomster av kategorien før den kommer opp her.\r\nDet er ikke s" +
     "ikkert du har tilgang til alle objektene på grunn av sikkerhetsklarering";
@@ -105,10 +105,9 @@
             // 
             this.lblValgtKategori.AutoSize = true;
             this.lblValgtKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblValgtKategori.Location = new System.Drawing.Point(235, 69);
-            this.lblValgtKategori.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblValgtKategori.Location = new System.Drawing.Point(313, 85);
             this.lblValgtKategori.Name = "lblValgtKategori";
-            this.lblValgtKategori.Size = new System.Drawing.Size(81, 13);
+            this.lblValgtKategori.Size = new System.Drawing.Size(102, 16);
             this.lblValgtKategori.TabIndex = 8;
             this.lblValgtKategori.Text = "Valgt kategorier";
             // 
@@ -116,20 +115,19 @@
             // 
             this.lblSlettbareKategorier.AutoSize = true;
             this.lblSlettbareKategorier.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSlettbareKategorier.Location = new System.Drawing.Point(10, 69);
-            this.lblSlettbareKategorier.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSlettbareKategorier.Location = new System.Drawing.Point(13, 85);
             this.lblSlettbareKategorier.Name = "lblSlettbareKategorier";
-            this.lblSlettbareKategorier.Size = new System.Drawing.Size(99, 13);
+            this.lblSlettbareKategorier.Size = new System.Drawing.Size(125, 16);
             this.lblSlettbareKategorier.TabIndex = 8;
             this.lblSlettbareKategorier.Text = "Slettbare kategorier";
             // 
             // btnFjern
             // 
             this.btnFjern.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnFjern.Location = new System.Drawing.Point(235, 107);
-            this.btnFjern.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnFjern.Location = new System.Drawing.Point(313, 132);
+            this.btnFjern.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFjern.Name = "btnFjern";
-            this.btnFjern.Size = new System.Drawing.Size(107, 23);
+            this.btnFjern.Size = new System.Drawing.Size(143, 28);
             this.btnFjern.TabIndex = 7;
             this.btnFjern.Text = "Fjern";
             this.btnFjern.UseVisualStyleBackColor = true;
@@ -137,15 +135,15 @@
             // 
             // Frm_CP_FjernKategori
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(960, 670);
+            this.ClientSize = new System.Drawing.Size(1280, 825);
             this.Controls.Add(this.gbFjernKategori);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Name = "Frm_CP_FjernKategori";
             this.Text = "frm_S_BrukerInfo";
             this.Load += new System.EventHandler(this.Frm_S_BrukerInfo_Load);

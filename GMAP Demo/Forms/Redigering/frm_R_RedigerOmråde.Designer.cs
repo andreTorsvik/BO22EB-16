@@ -140,7 +140,7 @@
             this.btnLeggTilPunkt.Name = "btnLeggTilPunkt";
             this.btnLeggTilPunkt.Size = new System.Drawing.Size(104, 28);
             this.btnLeggTilPunkt.TabIndex = 75;
-            this.btnLeggTilPunkt.Text = "Legg til punkt";
+            this.btnLeggTilPunkt.Text = "Legg til";
             this.btnLeggTilPunkt.UseVisualStyleBackColor = true;
             this.btnLeggTilPunkt.Click += new System.EventHandler(this.BtnLeggTilPunkt_Click);
             // 
