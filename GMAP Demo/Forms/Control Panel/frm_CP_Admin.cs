@@ -119,6 +119,7 @@ namespace GMAP_Demo
 
         private void SendEpost(string TilEpost, int tallkode)
         {
+            //https://www.youtube.com/watch?v=4lzZ0wzEK14
             try
             {
                 NetworkCredential login = new NetworkCredential(Properties.Settings.Default.EpostVerifisering, Properties.Settings.Default.PassordEpostVerifisering);
