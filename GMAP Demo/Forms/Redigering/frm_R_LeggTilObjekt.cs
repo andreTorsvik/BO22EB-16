@@ -234,7 +234,7 @@ namespace GMAP_Demo
                 if (feilMelding == string.Empty)
                 {
                     //løpenummer 
-                    var løpenummer = DBComRessurs.GetLøpenummer_Ressurs();
+                    var løpenummer = DBComRessurs.GetIdObjekt();
                     int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
 
                     // Lagrer ressurs 

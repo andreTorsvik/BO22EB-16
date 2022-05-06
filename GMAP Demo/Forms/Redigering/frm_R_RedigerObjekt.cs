@@ -264,7 +264,7 @@ namespace GMAP_Demo
 
                 if (utFyllingsmangler == string.Empty)
                 {
-                    Objekt OrginaleRessurs = DBComRessurs.RessursFromDb(løpenummer);
+                    Objekt OrginaleRessurs = DBComRessurs.ObjektFromDb(løpenummer);
                     string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
 
                     if (FeilTallSjekk == string.Empty)
