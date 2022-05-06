@@ -274,7 +274,7 @@ namespace GMAP_Demo
                 {
                     Frm_R_RedigerOmråde.instance.FyllKoordinater(lat, lang);
 
-                    if (Frm_R_RedigerOmråde.instance.løpenummer_til_redigering != -1) // for å unngå at den tegner hvis den ikke er inni "RedigerOmråde"
+                    if (Frm_R_RedigerOmråde.instance.id_til_redigering != -1) // for å unngå at den tegner hvis den ikke er inni "RedigerOmråde"
                     {
 
                         if (Frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1) // tegne område underveis 
@@ -396,11 +396,11 @@ namespace GMAP_Demo
         {
             if (Frm_R_RedigerObjekt.instance != null)
             {
-                Frm_R_RedigerObjekt.instance.løpenummer_til_redigering = -1;
+                Frm_R_RedigerObjekt.instance.id_til_redigering = -1;
             }
             if (Frm_R_RedigerOmråde.instance != null)
             {
-                Frm_R_RedigerOmråde.instance.løpenummer_til_redigering = -1;
+                Frm_R_RedigerOmråde.instance.id_til_redigering = -1;
             }
         }
 
