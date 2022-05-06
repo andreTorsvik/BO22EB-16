@@ -69,7 +69,7 @@ namespace GMAP_Demo
             }
         } 
 
-        public static void OppdaterKart(MuligKart kart, List<Objekt> Lressurs, List<Område> Lområde)
+        public static void OppdaterKart(MuligKart kart, List<Objekt> listObjekt, List<Område> listOmråde)
         {           
             if(kart == MuligKart.Visning)
             {
@@ -83,7 +83,7 @@ namespace GMAP_Demo
 
                 // Objekter til ikke tegnet inn, hvis zoomlevel er utenfor grense
                 if (!GlobaleVariabler.UtenforZoomGrense)
-                    LeggTilRessurs(Lressurs, kart);
+                    LeggTilObjekt(listObjekt, kart);
 
                 // Legger til rute, hvis noen
                 LeggTilOverlayRute(Lroutes);
@@ -94,24 +94,24 @@ namespace GMAP_Demo
                 FrmRediger.instance.map.Overlays.Clear();
 
                 // Tar ikke hensyn til zoom level 
-                LeggTilRessurs(Lressurs, kart);
+                LeggTilObjekt(listObjekt, kart);
             }
             else if(kart == MuligKart.Begge)
             {
-                OppdaterKart(MuligKart.Visning, Lressurs, Lområde);
-                OppdaterKart(MuligKart.Redigering, Lressurs, Lområde);
+                OppdaterKart(MuligKart.Visning, listObjekt, listOmråde);
+                OppdaterKart(MuligKart.Redigering, listObjekt, listOmråde);
                 return;
             }
 
             // Legger til områdene, hvis man ikke har "checked" i filter 
             if (VisOmrådePåKart) 
-                LeggTilOmråde(Lområde, kart);
+                LeggTilOmråde(listOmråde, kart);
 
             // Må oppdatere kartet etter man har lagt til 
             reff(kart);
         }
 
-        public static void LeggTilRessurs(List<Objekt> Rlist, MuligKart kart)
+        public static void LeggTilObjekt(List<Objekt> Rlist, MuligKart kart)
         {
             int tag = 0; // Index i listen 
             GMapMarker marker;
@@ -122,7 +122,7 @@ namespace GMAP_Demo
                 // Henter koordinater  
                 PointLatLng punkt = item.GiPunktet();
 
-                // Sjekker om objekte/ressurs har et bilde knyttet til seg
+                // Sjekker om objekt har et bilde knyttet til seg
                 if (Bildebehandling.sjekkOmKategoriHarBilde(item)) // Bilde
                 {
                     marker = new GMarkerGoogle(punkt, Bildebehandling.oppdaterBildeForMarkør(item));

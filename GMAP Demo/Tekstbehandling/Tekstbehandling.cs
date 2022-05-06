@@ -80,7 +80,7 @@ namespace GMAP_Demo
             return utFyllingsmangler;
         }
 
-        public static string SjekkEndringer_Objekt(Objekt OrginaleRessurs, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, HashSet<string> NyTags)
+        public static string SjekkEndringer_Objekt(Objekt orginaltObjekt, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, HashSet<string> NyTags)
         {
             // Objekt
             // kode for å oppdage endringer og kommentere de,  
@@ -89,40 +89,40 @@ namespace GMAP_Demo
             string newLine = Environment.NewLine;
 
             // Navn
-            if (OrginaleRessurs.Navn != navn)
-                Endringer += string.Format("Navn: {0} -> {1}" + newLine, OrginaleRessurs.Navn, navn);
+            if (orginaltObjekt.Navn != navn)
+                Endringer += string.Format("Navn: {0} -> {1}" + newLine, orginaltObjekt.Navn, navn);
             
             // Sikkerhetsklarering 
             try
             {
-                if (OrginaleRessurs.Sikkerhetsklarering != Convert.ToInt16(sikkerhetsklarering))
+                if (orginaltObjekt.Sikkerhetsklarering != Convert.ToInt16(sikkerhetsklarering))
                 {
-                    Endringer += string.Format("Sikkerhetsklarering: {0} -> {1}" + newLine, OrginaleRessurs.Sikkerhetsklarering, sikkerhetsklarering);
+                    Endringer += string.Format("Sikkerhetsklarering: {0} -> {1}" + newLine, orginaltObjekt.Sikkerhetsklarering, sikkerhetsklarering);
                 }
             }
             catch (Exception) { }
 
             // Kategori
-            if (OrginaleRessurs.Kategori != kategori)
-                Endringer += string.Format("Kategori: {0} -> {1}" + newLine, OrginaleRessurs.Kategori, kategori);
+            if (orginaltObjekt.Kategori != kategori)
+                Endringer += string.Format("Kategori: {0} -> {1}" + newLine, orginaltObjekt.Kategori, kategori);
 
             // Kommentar 
-            if (OrginaleRessurs.Kommentar != kommentar)
-                Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, OrginaleRessurs.Kommentar, kommentar);
+            if (orginaltObjekt.Kommentar != kommentar)
+                Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, orginaltObjekt.Kommentar, kommentar);
 
             // Lat
             try
             {
-                if (Math.Round(OrginaleRessurs.Lat, 5) != Math.Round(Convert.ToDouble(lat), 5))
-                    Endringer += string.Format("Lat: {0} -> {1}" + newLine, OrginaleRessurs.Lat, lat);
+                if (Math.Round(orginaltObjekt.Lat, 5) != Math.Round(Convert.ToDouble(lat), 5))
+                    Endringer += string.Format("Lat: {0} -> {1}" + newLine, orginaltObjekt.Lat, lat);
             }
             catch (Exception ) { }
            
             // Lang
             try
             {
-                if (Math.Round(OrginaleRessurs.Lang, 5) != Math.Round(Convert.ToDouble(lang), 5))
-                    Endringer += string.Format("Long: {0} -> {1}" + newLine, OrginaleRessurs.Lang, lang);
+                if (Math.Round(orginaltObjekt.Lang, 5) != Math.Round(Convert.ToDouble(lang), 5))
+                    Endringer += string.Format("Long: {0} -> {1}" + newLine, orginaltObjekt.Lang, lang);
             }
             catch (Exception) { }
 
