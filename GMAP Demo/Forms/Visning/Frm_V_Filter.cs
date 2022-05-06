@@ -250,7 +250,7 @@ namespace GMAP_Demo
                     lbTags.Items.Add(tags);
                 }
                 //måling
-                Måling NyesteMåling = DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].Id_ressurs)[0];
+                Måling NyesteMåling = DBComMåling.GetLatestValueMålingFromSelectedRessurs(GlobaleLister.LRessurs[Tag].IdObjekt)[0];
                 if(NyesteMåling != null)
                 {                
                     tbMålingDato.Text = NyesteMåling.Dato;

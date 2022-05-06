@@ -8,7 +8,7 @@ namespace GMAP_Demo
 {
     internal class Tag_Objekt
     {
-        public int IdObjekt { get; set; } // Løpenummer_til_ressurs som skriver til databasen må bruke DEFAULT pga constraintSequence
+        public int IdObjekt { get; set; } // IdObjekt som skriver til databasen må bruke DEFAULT pga constraintSequence
         public string Tag { get; set; }
 
         public string tag_RessursDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox

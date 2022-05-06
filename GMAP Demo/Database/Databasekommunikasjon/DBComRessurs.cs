@@ -79,7 +79,7 @@ namespace GMAP_Demo
                 {
                     Objekt DeleteRessurs = new Objekt
                     {
-                        Id_ressurs = løpeNummer
+                        IdObjekt = løpeNummer
                     };
 
                     connection.Execute("[dbo].[PROCEDURERemoveRessurs] @Løpenummer_ressurs", (DeleteRessurs));
@@ -99,7 +99,7 @@ namespace GMAP_Demo
                 {
                     Objekt ressursToAdd = new Objekt
                     {
-                        Id_ressurs = Løpenummer_ressurs,
+                        IdObjekt = Løpenummer_ressurs,
                         Navn = navn,
                         Kategori = kategori,
                         //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
@@ -145,7 +145,7 @@ namespace GMAP_Demo
                 {
                     Objekt UpdateRessurs = new Objekt
                     {
-                        Id_ressurs = Løpenummer,
+                        IdObjekt = Løpenummer,
                         Navn = navn,
                         Kategori = kategori,
                         //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure

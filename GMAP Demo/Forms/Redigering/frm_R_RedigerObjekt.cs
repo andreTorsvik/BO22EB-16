@@ -198,7 +198,7 @@ namespace GMAP_Demo
         public void FyllInfoObjekt(int Tag)
         {
             // Løpenummeret 
-            løpenummer_til_redigering = GlobaleLister.LRessurs[Tag].Id_ressurs;
+            løpenummer_til_redigering = GlobaleLister.LRessurs[Tag].IdObjekt;
 
             // Info 
             txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;

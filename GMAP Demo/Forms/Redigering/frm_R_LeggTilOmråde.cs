@@ -328,7 +328,7 @@ namespace GMAP_Demo
                 if (FeilTallSjekk == string.Empty)
                 {
                     // Hentløpenummer
-                    var løpenummer = DBComOmråde.GetLøpenummer_område();
+                    var løpenummer = DBComOmråde.GetIdOmråde();
                     int Løpenummer_område = Convert.ToInt32(løpenummer[0]);
 
                     // Laste opp området til database

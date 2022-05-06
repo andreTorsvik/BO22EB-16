@@ -28,13 +28,13 @@ namespace GMAP_Demo
             }
         }
 
-        public static List<Punkter_område> GetPunkter_området(int løpenummer)
+        public static List<Punkter_område> GetPunkter_området(int idOmråde)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Punkter_område>($"select* FROM [dbo].[Punkter_område] WHERE(Løpenummer_til_område = '{løpenummer}')").ToList();
+                    var output = connection.Query<Punkter_område>($"select* FROM [dbo].[Punkter_område] WHERE(IdOmråde = '{idOmråde}')").ToList();
                     return output;
                 }
             }
@@ -46,13 +46,13 @@ namespace GMAP_Demo
             }
         }
 
-        public static void DeletePunkter_området(int løpenummer)
+        public static void DeletePunkter_området(int idOmråde)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    connection.Query<Objekt>($"delete FROM [dbo].[Punkter_område] WHERE(Løpenummer_til_område = '{løpenummer}')");
+                    connection.Query<Objekt>($"delete FROM [dbo].[Punkter_område] WHERE(IdOmråde = '{idOmråde}')");
                 }
             }
             catch (Exception exeption)
@@ -61,7 +61,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void InsertPunkter_områdetToDb(int løpenummer, float lat, float lang, int rekkefølge)
+        public static void InsertPunkter_områdetToDb(int idOmråde, float lat, float lang, int rekkefølge)
         {
             try
             {
@@ -69,13 +69,13 @@ namespace GMAP_Demo
                 {
                     Punkter_område punktToAdd = new Punkter_område
                     {
-                        Løpenummer_til_område = løpenummer,
+                        IdOmråde = idOmråde,
                         Rekkefølge_punkter = rekkefølge,
                         Lat = lat,
                         Lang = lang
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREinsertIntoPunkter_område] @Løpenummer_til_område, @Rekkefølge_punkter, @Lat, @Lang", punktToAdd);
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoPunkter_område] @IdOmråde, @Rekkefølge_punkter, @Lat, @Lang", punktToAdd);
                 }
             }
             catch (Exception exeption)

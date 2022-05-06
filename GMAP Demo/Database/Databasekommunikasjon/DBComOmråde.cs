@@ -29,14 +29,14 @@ namespace GMAP_Demo
             }
         }
 
-        public static Område ListOmrådeFromDb(int løpenummer)
+        public static Område ListOmrådeFromDb(int idOmråde)
         {
             //ListOmrådeFromDb
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Område>($"SELECT * FROM[dbo].[Område] WHERE(Løpenummer_område = '{løpenummer}')").FirstOrDefault();
+                    var output = connection.Query<Område>($"SELECT * FROM[dbo].[Område] WHERE(IdOmråde = '{idOmråde}')").FirstOrDefault();
                     return output;
                 }
             }
@@ -48,7 +48,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void DeleteOmråde(int løpeNummer)
+        public static void DeleteOmråde(int idOmråde)
         {
             try
             {
@@ -56,10 +56,10 @@ namespace GMAP_Demo
                 {
                     Område DeleteOmråde = new Område
                     {
-                        Id_område = løpeNummer
+                        IdOmråde = idOmråde
                     };
 
-                    connection.Execute("[dbo].[PROCEDURERemoveOmråde] @Løpenummer_område", (DeleteOmråde));
+                    connection.Execute("[dbo].[PROCEDURERemoveOmråde] @IdOmråde", (DeleteOmråde));
                 }
             }
             catch (Exception exeption)
@@ -68,7 +68,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void InsertOmrådeToDb(int løpenummer, string navn, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, string farge)
+        public static void InsertOmrådeToDb(int idOmråde, string navn, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, string farge)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace GMAP_Demo
                 {
                     Område OmrådeToAdd = new Område
                     {
-                        Id_område = løpenummer,
+                        IdOmråde = idOmråde,
                         Navn = navn,
                         //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
                         Opprettet_av_bruker = opprettet_av_bruker,
@@ -85,7 +85,7 @@ namespace GMAP_Demo
                         Farge = farge
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREinsertIntoOmråde] @Løpenummer_område, @Navn, @Opprettet_av_bruker,  @Kommentar, @Sikkerhetsklarering, @Farge", OmrådeToAdd);
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoOmråde] @IdOmråde, @Navn, @Opprettet_av_bruker,  @Kommentar, @Sikkerhetsklarering, @Farge", OmrådeToAdd);
                 }
             }
             catch (Exception exeption)
@@ -94,7 +94,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static List<int> GetLøpenummer_område()
+        public static List<int> GetIdOmråde()
         {
             try
             {
@@ -112,7 +112,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void UpdateOmråde(int løpenummer, string navn, int sikkerhetsklarering, string kommentar, string farge)
+        public static void UpdateOmråde(int idOmråde, string navn, int sikkerhetsklarering, string kommentar, string farge)
         {
             try
             {
@@ -120,7 +120,7 @@ namespace GMAP_Demo
                 {
                     Område UpdateOmråde = new Område
                     {
-                        Id_område = løpenummer,
+                        IdOmråde = idOmråde,
                         Navn = navn,
                         //Kategori = kategori,
                         //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
@@ -130,7 +130,7 @@ namespace GMAP_Demo
                         Farge = farge
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREUpdateOmråde] @Løpenummer_område, @Navn, @kommentar, @Sikkerhetsklarering, @farge", UpdateOmråde);
+                    connection.Execute("[dbo].[PROCEDUREUpdateOmråde] @IdOmråde, @Navn, @kommentar, @Sikkerhetsklarering, @farge", UpdateOmråde);
 
                 }
             }

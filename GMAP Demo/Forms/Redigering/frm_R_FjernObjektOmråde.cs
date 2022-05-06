@@ -43,9 +43,9 @@ namespace GMAP_Demo
 
         public void FyllInfoObjekt(int Tag)
         {
-            Løpenummer_til_objekt = GlobaleLister.LRessurs[Tag].Id_ressurs;
+            Løpenummer_til_objekt = GlobaleLister.LRessurs[Tag].IdObjekt;
             txtInfo.Text = GlobaleLister.LRessurs[Tag].ToString();
-            txtLøpenumemr.Text = GlobaleLister.LRessurs[Tag].Id_ressurs.ToString();
+            txtLøpenumemr.Text = GlobaleLister.LRessurs[Tag].IdObjekt.ToString();
             txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
 
             if (Løpenummer_til_Område >= 0) Løpenummer_til_Område = -1;
@@ -53,9 +53,9 @@ namespace GMAP_Demo
 
         public void FyllInfoOmråde(int Tag)
         {
-            Løpenummer_til_Område = GlobaleLister.LOmråde[Tag].Id_område;
+            Løpenummer_til_Område = GlobaleLister.LOmråde[Tag].IdOmråde;
             txtInfo.Text = GlobaleLister.LOmråde[Tag].ToString();
-            txtLøpenumemr.Text = GlobaleLister.LOmråde[Tag].Id_område.ToString();
+            txtLøpenumemr.Text = GlobaleLister.LOmråde[Tag].IdOmråde.ToString();
             txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
 
             if (Løpenummer_til_objekt >= 0) Løpenummer_til_objekt = -1;
