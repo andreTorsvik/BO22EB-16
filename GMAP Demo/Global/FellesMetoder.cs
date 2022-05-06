@@ -38,7 +38,7 @@ namespace GMAP_Demo
                 else if (AND && !OR) // AND
                     FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LOmråde, GlobaleLister.tag_ListeVises.ToList());
             }
-            else // ingen valgte tags 
+            else // Ingen valgte tags 
             {
                 GlobaleLister.LOmråde.Clear();
             }
@@ -47,7 +47,7 @@ namespace GMAP_Demo
 
         public static void OppdaterListe_ressurs()
         {
-            // Tømmerlisten 
+            // Tømmer listen 
             if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
 
             // Henter alle ressurser
@@ -91,9 +91,13 @@ namespace GMAP_Demo
 
         public static void OppdaterTag_Liste()
         {
-            //oppdatere Vises tagliste 
+            // Metoden oppdaterer Taglistene, "tag_ListeVises" og "tag_ListeSkjult" 
+            // Hvis en tag har blitt fjernet, vil den forsvinne fra listene med denne metoden 
+            // Hvis en tag er blitt lagt til, vil den bli lagt til i "tag_ListeVises"
 
-            // Tømer hvis den har innhold 
+            // Oppdatere Vises tagliste 
+
+            // Tømmer hvis den har innhold 
             if (GlobaleLister.tag_ListeVises.Count > 0) GlobaleLister.tag_ListeVises.Clear();
 
             // Henter alle tags fra databasen
@@ -105,21 +109,21 @@ namespace GMAP_Demo
             // Sorter ut alle de "skjulte" fra alle tags  
             List<string> ListeVisteTags = tag_ListeAlle.Except(ListskjultTags).ToList();
 
-            //oppdatere TagVisteListe
+            // Oppdatere TagVisteListe
             foreach (var item in ListeVisteTags)
             {
                 GlobaleLister.tag_ListeVises.Add(item);
             }
 
-            //oppdatere  skjulte taglisten:
+            // Oppdatere  skjulte taglisten:
 
-            //tømer listen 
+            // Tømmer listen 
             if (GlobaleLister.tag_ListeSkjult.Count > 0) GlobaleLister.tag_ListeSkjult.Clear();
 
             // Sorter ut alle de "synlige" fra alle tags 
             ListskjultTags = tag_ListeAlle.Except(ListeVisteTags).ToList();
 
-            //legger dem til 
+            // Legger dem til 
             if (ListskjultTags.Count != 0)
             {
                 foreach (var item in ListskjultTags)
@@ -131,8 +135,13 @@ namespace GMAP_Demo
 
         public static void OppdaterKategoriListe()
         {
-            //oppdater VistListe
+            // Metoden oppdataer kategorilistenen, "kategoriListeVises" og "kategoriListeSkjult" 
+            // Hvis en kategori har blitt fjernet, vil den forsvinne fra listene med denne metoden 
+            // Hvis en kategori er blitt lagt til, vil den bli lagt til i "kategoriListeVises"
 
+            // Oppdatere kategoriListeVises
+
+            // Fjerner innhold i VistListe
             if (GlobaleLister.kategoriListeVises.Count > 0) GlobaleLister.kategoriListeVises.Clear();
 
             // Henter alle kategoriene 
@@ -145,13 +154,13 @@ namespace GMAP_Demo
             List<Kategorier_Bilde> ListeVisteKategorier = new List<Kategorier_Bilde>(kategoriListeAlle);
             FjernLikeForekomster(ref ListeVisteKategorier, ListeSkjulteKategori);
 
-            //legger til etter sortering
+            // Legger til etter sortering
             foreach (var item in ListeVisteKategorier)
             {
                 GlobaleLister.kategoriListeVises.Add(item);
             }
 
-            // Oppdatere skjultListe 
+            // Oppdatere kategoriListeSkjult 
 
             ListeSkjulteKategori.Clear();
             ListeSkjulteKategori = new List<Kategorier_Bilde>(kategoriListeAlle);
@@ -166,12 +175,12 @@ namespace GMAP_Demo
             {
                 GlobaleLister.kategoriListeSkjult.Add(item);
             }
-
-
         }
 
         public static void FjernLikeForekomster(ref List<Kategorier_Bilde> Hovedliste, List<Kategorier_Bilde> filtreringsListe)
         {
+            // Fjern alle like forkomster mellom listene, fra hovedlisten 
+
             for (int i = 0; i < Hovedliste.Count; i++)
             {
                 foreach (var item in filtreringsListe)
@@ -206,9 +215,9 @@ namespace GMAP_Demo
                 }
 
             }
-            catch (Exception)
+            catch (Exception feilmelding)
             {
-
+                DBComLog_feil.LogFeil(typeof(FellesMetoder).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
 
             return AlleTag;
@@ -220,7 +229,7 @@ namespace GMAP_Demo
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
-            // Displays the MessageBox.
+            // Viser messageBox
             result = MessageBox.Show(tekst, Tittel, buttons);
             if (result == DialogResult.Yes)
             {
