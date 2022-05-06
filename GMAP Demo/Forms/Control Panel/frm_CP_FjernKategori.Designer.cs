@@ -65,7 +65,7 @@
             // tbValgtKategori
             // 
             this.tbValgtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tbValgtKategori.Location = new System.Drawing.Point(243, 84);
+            this.tbValgtKategori.Location = new System.Drawing.Point(235, 84);
             this.tbValgtKategori.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbValgtKategori.Name = "tbValgtKategori";
             this.tbValgtKategori.Size = new System.Drawing.Size(123, 20);
@@ -80,11 +80,11 @@
             this.gbFjernKategori.Controls.Add(this.tbValgtKategori);
             this.gbFjernKategori.Controls.Add(this.lbTilgjengligKategorier);
             this.gbFjernKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.gbFjernKategori.Location = new System.Drawing.Point(3, 53);
+            this.gbFjernKategori.Location = new System.Drawing.Point(11, 47);
             this.gbFjernKategori.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbFjernKategori.Name = "gbFjernKategori";
             this.gbFjernKategori.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gbFjernKategori.Size = new System.Drawing.Size(446, 280);
+            this.gbFjernKategori.Size = new System.Drawing.Size(398, 280);
             this.gbFjernKategori.TabIndex = 7;
             this.gbFjernKategori.TabStop = false;
             this.gbFjernKategori.Text = "Fjern Kategori";
@@ -105,7 +105,7 @@
             // 
             this.lblValgtKategori.AutoSize = true;
             this.lblValgtKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblValgtKategori.Location = new System.Drawing.Point(241, 69);
+            this.lblValgtKategori.Location = new System.Drawing.Point(235, 69);
             this.lblValgtKategori.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValgtKategori.Name = "lblValgtKategori";
             this.lblValgtKategori.Size = new System.Drawing.Size(81, 13);
@@ -126,7 +126,7 @@
             // btnFjern
             // 
             this.btnFjern.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnFjern.Location = new System.Drawing.Point(243, 107);
+            this.btnFjern.Location = new System.Drawing.Point(235, 107);
             this.btnFjern.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnFjern.Name = "btnFjern";
             this.btnFjern.Size = new System.Drawing.Size(107, 23);

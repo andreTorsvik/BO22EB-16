@@ -24,6 +24,8 @@ namespace GMAP_Demo
 
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
+            gbUtseende.ForeColor = ThemeDesign.colorLabel;
+            gbUtseende.BackColor = ThemeDesign.colorBackground;
             lbThemes.ForeColor = ThemeDesign.colorLabel;
             lbThemes.BackColor = ThemeDesign.colorGray;
             btnSelectTheme.ForeColor = ThemeDesign.colorLabel;

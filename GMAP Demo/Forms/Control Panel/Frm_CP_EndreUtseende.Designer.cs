@@ -33,7 +33,9 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.lbThemes = new System.Windows.Forms.ListBox();
             this.btnSelectTheme = new System.Windows.Forms.Button();
+            this.gbUtseende = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.gbUtseende.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -51,15 +53,16 @@
             // lbThemes
             // 
             this.lbThemes.FormattingEnabled = true;
-            this.lbThemes.Location = new System.Drawing.Point(16, 57);
+            this.lbThemes.Location = new System.Drawing.Point(5, 18);
             this.lbThemes.Margin = new System.Windows.Forms.Padding(2);
             this.lbThemes.Name = "lbThemes";
-            this.lbThemes.Size = new System.Drawing.Size(253, 56);
+            this.lbThemes.Size = new System.Drawing.Size(243, 56);
             this.lbThemes.TabIndex = 5;
             // 
             // btnSelectTheme
             // 
-            this.btnSelectTheme.Location = new System.Drawing.Point(16, 116);
+            this.btnSelectTheme.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSelectTheme.Location = new System.Drawing.Point(5, 77);
             this.btnSelectTheme.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectTheme.Name = "btnSelectTheme";
             this.btnSelectTheme.Size = new System.Drawing.Size(107, 23);
@@ -68,6 +71,18 @@
             this.btnSelectTheme.UseVisualStyleBackColor = true;
             this.btnSelectTheme.Click += new System.EventHandler(this.BtnSelectTheme_Click);
             // 
+            // gbUtseende
+            // 
+            this.gbUtseende.Controls.Add(this.lbThemes);
+            this.gbUtseende.Controls.Add(this.btnSelectTheme);
+            this.gbUtseende.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.gbUtseende.Location = new System.Drawing.Point(16, 47);
+            this.gbUtseende.Name = "gbUtseende";
+            this.gbUtseende.Size = new System.Drawing.Size(253, 105);
+            this.gbUtseende.TabIndex = 7;
+            this.gbUtseende.TabStop = false;
+            this.gbUtseende.Text = "Endre Utseende";
+            // 
             // Frm_CP_EndreUtseende
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -75,8 +90,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(960, 670);
-            this.Controls.Add(this.btnSelectTheme);
-            this.Controls.Add(this.lbThemes);
+            this.Controls.Add(this.gbUtseende);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -84,6 +98,7 @@
             this.Text = "frm_S_LoggInn";
             this.Load += new System.EventHandler(this.Frm_CP_EndeUtseende_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.gbUtseende.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,5 +110,6 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.ListBox lbThemes;
         private System.Windows.Forms.Button btnSelectTheme;
+        private System.Windows.Forms.GroupBox gbUtseende;
     }
 }
