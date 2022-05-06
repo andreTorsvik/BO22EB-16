@@ -52,7 +52,7 @@ namespace GMAP_Demo
                 Epost = Epost.ToLower();
                 var SjekkEpost = DBComBruker.ListBrukerInfoFromDb(Epost.Trim());
 
-                if (SjekkEpost == null)
+                if (SjekkEpost != null)
                     Lfeil.Add("Mailen eksitere allerede i systemet");
             }
 
