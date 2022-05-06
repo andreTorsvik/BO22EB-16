@@ -59,12 +59,12 @@
             // btnLoggUt
             // 
             this.btnLoggUt.FlatAppearance.BorderSize = 0;
-            this.btnLoggUt.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoggUt.ForeColor = System.Drawing.Color.Black;
+            this.btnLoggUt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnLoggUt.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnLoggUt.Location = new System.Drawing.Point(9, 277);
             this.btnLoggUt.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnLoggUt.Name = "btnLoggUt";
-            this.btnLoggUt.Size = new System.Drawing.Size(91, 42);
+            this.btnLoggUt.Size = new System.Drawing.Size(107, 23);
             this.btnLoggUt.TabIndex = 5;
             this.btnLoggUt.Text = "Logg ut";
             this.btnLoggUt.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;

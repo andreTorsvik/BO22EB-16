@@ -129,7 +129,7 @@
             this.btnFjern.Location = new System.Drawing.Point(243, 107);
             this.btnFjern.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnFjern.Name = "btnFjern";
-            this.btnFjern.Size = new System.Drawing.Size(70, 25);
+            this.btnFjern.Size = new System.Drawing.Size(107, 23);
             this.btnFjern.TabIndex = 7;
             this.btnFjern.Text = "Fjern";
             this.btnFjern.UseVisualStyleBackColor = true;
