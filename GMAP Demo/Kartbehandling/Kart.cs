@@ -93,7 +93,7 @@ namespace GMAP_Demo
                 // Fjerne alt på kartet som programmet har lagt til
                 FrmRediger.instance.map.Overlays.Clear();
 
-                //Tar ikke hensyn til zoom level 
+                // Tar ikke hensyn til zoom level 
                 LeggTilRessurs(Lressurs, kart);
             }
             else if(kart == MuligKart.Begge)
@@ -132,21 +132,21 @@ namespace GMAP_Demo
                     marker = new GMarkerGoogle(punkt, GMarkerGoogleType.green);
                 }
 
-                //tooltip info 
+                // Tooltip info 
                 marker.ToolTipText = String.Format("{0}", item.Navn);
                 marker.ToolTip.Fill = Brushes.Black;
                 marker.ToolTip.Foreground = Brushes.White;
                 marker.ToolTip.Stroke = Pens.Black;
                 marker.ToolTip.TextPadding = new Size(20, 20);
 
-                //tag = plassering i den globalelisten listen 
+                // Tag = plassering i den globalelisten listen 
                 marker.Tag = tag;
                 tag++;
 
                 markers.Markers.Add(marker);
             }
 
-            //legger til i riktig kart 
+            // Legger til i riktig kart 
             if (kart == MuligKart.Visning) FrmVisning.instance.map.Overlays.Add(markers);
             else if (kart == MuligKart.Redigering ) FrmRediger.instance.map.Overlays.Add(markers);
             else if (kart ==MuligKart.Begge)
@@ -155,7 +155,7 @@ namespace GMAP_Demo
                 FrmRediger.instance.map.Overlays.Add(markers);
             }
 
-            //oppdatere antall objekter i formFilter hvis den er åpen 
+            // Oppdatere antall objekter i formFilter hvis den er åpen 
             if (Frm_V_Filter.instance != null)
             {
                 Frm_V_Filter.instance.OppdaterAntall();
@@ -186,7 +186,7 @@ namespace GMAP_Demo
 
             if (Rekkefølge != -1)
             {
-                //tooltip info 
+                // Tooltip info 
                 marker.ToolTipText = String.Format("{0}", Rekkefølge);
                 marker.ToolTip.Fill = Brushes.Black;
                 marker.ToolTip.Foreground = Brushes.White;
@@ -200,7 +200,7 @@ namespace GMAP_Demo
 
             markers.Markers.Add(marker);
 
-            //legger til på riktig kart
+            // Legger til på riktig kart
             if (kart == MuligKart.Visning ) FrmVisning.instance.map.Overlays.Add(markers);
             else if (kart == MuligKart.Redigering ) FrmRediger.instance.map.Overlays.Add(markers);
 
@@ -227,7 +227,7 @@ namespace GMAP_Demo
             // Legg til på visnings kartet            
             FrmVisning.instance.map.Overlays.Add(routes);
 
-            //Lagrer at man har en rute på kartet 
+            // Lagrer at man har en rute på kartet 
             RutePåkartet++;
 
             // Plasser kartet i starten av ruten 
@@ -269,7 +269,7 @@ namespace GMAP_Demo
         public static void LeggTilOmråde(List<Område> Olist, MuligKart kart)
         {
 
-            int Tag = 0; // index i listen 
+            int Tag = 0; // Index i listen 
             foreach (var item in Olist)
             {
                 // Henter punktene i de aktuelle område, metoen sortere også punktene i riktig rekkfølge
@@ -464,8 +464,8 @@ namespace GMAP_Demo
 
         public static void reff(MuligKart kart)
         {
-            //Enkleste måte å oppdatere kartet på, er å zoom inn og ut.
-            //Zoomer inn og ut så lite at det ikke merkes
+            // Enkleste måte å oppdatere kartet på, er å zoom inn og ut.
+            // Zoomer inn og ut så lite at det ikke merkes
 
             GlobaleVariabler.KartOppdatere = true;
             const double PlussMinus = 0.01;
@@ -530,9 +530,11 @@ namespace GMAP_Demo
             try
             {
                 List<Placemark> Info = null;
-                // Henter info baser på kordinater med hjelp av googlemap 
+
+                // Henter info baser på kordinater med hjelp av Googlemap 
                 var statusCode = GMapProviders.GoogleMap.GetPlacemarks(point, out Info);
                 //var statusCode = GMapProviders.OpenStreetMap.GetPlacemarks(point,out Info); // OpenStreetMap
+
                 if (statusCode == GeoCoderStatusCode.OK && Info != null)
                 {
                     List<string> addresse = new List<string>();
@@ -616,7 +618,7 @@ namespace GMAP_Demo
 
         public static void AlleOmrådeTilgjenlighet(bool klikkBar)
         {
-            //Metode for å gjøre polygoner/områder klikkbare eller uklikkbare 
+            // Metode for å gjøre polygoner/områder klikkbare eller uklikkbare 
 
             foreach (var item in FrmRediger.instance.map.Overlays)
             {
