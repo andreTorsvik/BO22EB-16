@@ -55,7 +55,7 @@ namespace GMAP_Demo
             txtNyLat.Text = FrmControlPanel.instance.lat.ToString();
             txtNyLong.Text = FrmControlPanel.instance.lng.ToString();
 
-            //Henter nåværende startpunkt fra fil 
+            // Henter nåværende startpunkt fra fil 
             PointLatLng nåværendeStartPunkt = HentStartpunktFraFil();
 
             // Skriver dem inn
@@ -68,7 +68,6 @@ namespace GMAP_Demo
 
         private PointLatLng HentStartpunktFraFil()
         {
-
             PointLatLng svar = new PointLatLng();
 
             svar = FilBehandeling.HentStartPosisjon(Globalekonstanter.filStartPosisjon);

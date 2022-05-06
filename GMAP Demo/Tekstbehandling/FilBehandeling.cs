@@ -38,7 +38,7 @@ namespace GMAP_Demo
                 
         public static PointLatLng HentStartPosisjon(string FilNavn)
         {
-            PointLatLng svar = new PointLatLng(60.36893643470203, 5.350878781967968); // Over høyskolen, hvis filen klare å hente noe 
+            PointLatLng svar = new PointLatLng(60.36893643470203, 5.350878781967968); // Over høyskolen, hvis filen ikke klare å hente noe kordinater
 
             if (File.Exists(FilNavn))
             {
@@ -64,9 +64,9 @@ namespace GMAP_Demo
                         ferdig = sr.EndOfStream;
                     }
                 }
-                catch (Exception)
+                catch (Exception feilmelding)
                 {
-
+                    DBComLog_feil.LogFeil(typeof(FilBehandeling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
                 finally
                 {
@@ -101,7 +101,7 @@ namespace GMAP_Demo
 
         public static void HentTheme(string FilNavn)
         {
-            string midlertidig = "";
+            string ThemeFraFil = "";
 
             //finnne theme 
             if (File.Exists(FilNavn))
@@ -118,7 +118,7 @@ namespace GMAP_Demo
 
                         if (text.Contains("Theme"))
                         {
-                            midlertidig = Tekstbehandling.hentTheme(text);
+                            ThemeFraFil = Tekstbehandling.hentTheme(text);
                         }
                         ferdig = sr.EndOfStream;
                     }
@@ -134,13 +134,13 @@ namespace GMAP_Demo
 
             }
 
-            //utfører theme vis man kan 
-            //hvis ikke bruker den default 
+            // Utfører theme vis man kan 
+            // Hvis ikke bruker den default 
             foreach (MethodInfo item in typeof(ThemeDesign).GetMethods())
             {
-               if(item.Name == midlertidig)
+               if(item.Name == ThemeFraFil)
                {
-                    object p = item.Invoke(null,null);
+                    item.Invoke(null,null);
                     break;
                }
             }
