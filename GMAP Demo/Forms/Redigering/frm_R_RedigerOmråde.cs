@@ -116,7 +116,7 @@ namespace GMAP_Demo
                 lbTilgjengeligeTags.Items.Add(item);
             }
 
-            
+
         }
 
         private void LastInnFargerMulighet()
@@ -247,7 +247,7 @@ namespace GMAP_Demo
             string farge = txtFarge.Text;
             int antallPunkter = pointLatLngs.Count;
             int antallTags = lbValgtTags.Items.Count;
-            HashSet<string> nyTags = new HashSet<string>(lbValgtTags.Items.Cast<string>().ToList() );
+            HashSet<string> nyTags = new HashSet<string>(lbValgtTags.Items.Cast<string>().ToList());
 
             // Legger til, om alt stemmer 
             string sjekkFeil = RedigerOmrådet(id_til_redigering, navn, sikkerhetsklarering, kommentar, farge, antallPunkter, antallTags, LGamleTag, nyTags);
@@ -266,57 +266,65 @@ namespace GMAP_Demo
         {
             if ((txtLat.Text != null) && (txtLong.Text != null) && (txtLat.Text != Globalekonstanter.tekstLatLong_område) && (txtLong.Text != Globalekonstanter.tekstLatLong_område))
             {
-                try
+                if (id_til_redigering != -1)
                 {
-                    // Sjekker om de kan Konverters og returner feilmeldingen hvis ikke
-                    string sjekkLat = Tekstbehandling.sjekkLat(txtLat.Text);
-                    string sjekkLang = Tekstbehandling.sjekkLong(txtLong.Text);
-                  
-                    if (sjekkLat == string.Empty && sjekkLang == string.Empty)
+                    try
                     {
-                        // Konverterer
-                        double lat = Convert.ToDouble(txtLat.Text);
-                        double lng = Convert.ToDouble(txtLong.Text);
-                        PointLatLng point = new PointLatLng(lat, lng);
+                        // Sjekker om de kan Konverters og returner feilmeldingen hvis ikke
+                        string sjekkLat = Tekstbehandling.sjekkLat(txtLat.Text);
+                        string sjekkLang = Tekstbehandling.sjekkLong(txtLong.Text);
 
-                        // Legger til rekkefølgen
-                        int rekkefølge = pointLatLngs.Count;
+                        if (sjekkLat == string.Empty && sjekkLang == string.Empty)
+                        {
+                            // Konverterer
+                            double lat = Convert.ToDouble(txtLat.Text);
+                            double lng = Convert.ToDouble(txtLong.Text);
+                            PointLatLng point = new PointLatLng(lat, lng);
 
-                        // Legger til Punktet i listen
-                        pointLatLngs.Add(point);
+                            // Legger til rekkefølgen
+                            int rekkefølge = pointLatLngs.Count;
 
-                        // Legger til den nye markøren
-                        Kart.LeggtilMarkør(Kart.MuligKart.Redigering, point, rekkefølge, Globalekonstanter.NavnMarkørForOmråde);
+                            // Legger til Punktet i listen
+                            pointLatLngs.Add(point);
 
-                        // Fjern den som var på kartet før, hvis den er der
-                        Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeMarkør);
+                            // Legger til den nye markøren
+                            Kart.LeggtilMarkør(Kart.MuligKart.Redigering, point, rekkefølge, Globalekonstanter.NavnMarkørForOmråde);
 
-                        // Oppdatere kartet
-                        Kart.reff(Kart.MuligKart.Redigering);
+                            // Fjern den som var på kartet før, hvis den er der
+                            Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeMarkør);
 
-                        // Tilbakestiller de aktuelle tekstfeltene
-                        txtLat.Text = Globalekonstanter.tekstLatLong_område;
-                        txtLong.Text = Globalekonstanter.tekstLatLong_område;
+                            // Oppdatere kartet
+                            Kart.reff(Kart.MuligKart.Redigering);
 
-                        // Oppdatere antall 
-                        txtNrPunkt.Text = pointLatLngs.Count.ToString();
-                    }
-                    else
-                    {
-                        // Viser kun en av feilene, selv hvis det skulle være 2 
-                        if (sjekkLang != string.Empty)
-                            MessageBox.Show(string.Format("Feil: " + sjekkLang));               
+                            // Tilbakestiller de aktuelle tekstfeltene
+                            txtLat.Text = Globalekonstanter.tekstLatLong_område;
+                            txtLong.Text = Globalekonstanter.tekstLatLong_område;
+
+                            // Oppdatere antall 
+                            txtNrPunkt.Text = pointLatLngs.Count.ToString();
+                        }
                         else
-                            MessageBox.Show(string.Format("Feil: " + sjekkLat));
-                    }
+                        {
+                            // Viser kun en av feilene, selv hvis det skulle være 2 
+                            if (sjekkLang != string.Empty)
+                                MessageBox.Show(string.Format("Feil: " + sjekkLang));
+                            else
+                                MessageBox.Show(string.Format("Feil: " + sjekkLat));
+                        }
 
-                   
+
+                    }
+                    catch (Exception feilmelding)
+                    {
+                        DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                        MessageBox.Show("Punktet ble ikke lagret, sjekk instatset data");
+                    }
                 }
-                catch (Exception feilmelding)
+                else 
                 {
-                    DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
-                    MessageBox.Show("Punktet ble ikke lagret, sjekk instatset data");
+                    MessageBox.Show("Klikk på område du ønsker å endre");
                 }
+
             }
         }
 
@@ -357,12 +365,12 @@ namespace GMAP_Demo
                 List<PointLatLng> punktListe = pointLatLngs.ToList();
 
                 // Tegner hjelpeområdet på nytt
-                if (Kart.SjekkKartHarHjelpemarkør_redigier(Globalekonstanter.NavnHjelpeMarkør)) 
+                if (Kart.SjekkKartHarHjelpemarkør_redigier(Globalekonstanter.NavnHjelpeMarkør))
                 {
                     // Hvis man har dobbeltklikket på kartet
                     Kart.TegnHjelpeOmråde_rediger(FrmRediger.DoubleClick_punkt, punktListe);
                 }
-                else 
+                else
                 {
                     // Hvis man ikke har dobbeltklikket på kartet
                     Kart.TegnHjelpeOmråde_rediger(punktListe);
@@ -371,7 +379,7 @@ namespace GMAP_Demo
                 // Markerer hjørnene til området med riktig rekkefølge
                 for (int i = 0; i < (pointLatLngs.Count); i++)
                 {
-                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, punktListe[i], i, Globalekonstanter.NavnMarkørForOmråde); 
+                    Kart.LeggtilMarkør(Kart.MuligKart.Redigering, punktListe[i], i, Globalekonstanter.NavnMarkørForOmråde);
                 }
 
                 // Oppdatere kartet  
@@ -393,7 +401,7 @@ namespace GMAP_Demo
 
                 if (utFyllingsmangler == string.Empty)
                 {
-                    
+
                     string FeilTallSjekk = Tekstbehandling.sjekkSikkerhetsKlarering(sikkerhetsklarering);
 
                     if (FeilTallSjekk == string.Empty)

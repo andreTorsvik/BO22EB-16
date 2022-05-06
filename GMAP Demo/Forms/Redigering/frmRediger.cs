@@ -113,7 +113,7 @@ namespace GMAP_Demo
 
                 OmrådeKlikkbare();
 
-                ResettLøpenummerTilRedigering();
+                ResettIdTilRedigering();
 
                 //legge inn rett form i panelet
                 PnlFormLoader.Controls.Clear();
@@ -392,7 +392,7 @@ namespace GMAP_Demo
             map.Zoom--;
         }
 
-        private void ResettLøpenummerTilRedigering()
+        private void ResettIdTilRedigering()
         {
             if (Frm_R_RedigerObjekt.instance != null)
             {

@@ -254,9 +254,9 @@ namespace GMAP_Demo
             FellesMetoder.OppdaterTag_Liste();
         }
 
-        private string RedigerObjekt(int løpenummer, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags, List<string> GamleTags, HashSet<string> nyTags)
+        private string RedigerObjekt(int IDObjekt, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags, List<string> GamleTags, HashSet<string> nyTags)
         {
-            if (løpenummer >= 0)
+            if (IDObjekt >= 0)
             {
                 string feilmelding = string.Empty;
 
@@ -264,7 +264,7 @@ namespace GMAP_Demo
 
                 if (utFyllingsmangler == string.Empty)
                 {
-                    Objekt OrginaleRessurs = DBComObjekt.ObjektFromDb(løpenummer);
+                    Objekt OrginaleRessurs = DBComObjekt.ObjektFromDb(IDObjekt);
                     string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
 
                     if (FeilTallSjekk == string.Empty)
@@ -280,7 +280,7 @@ namespace GMAP_Demo
                                 try
                                 {
                                     //Oppdatere med ny info 
-                                    DBComObjekt.UpdateObjekt(løpenummer, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
+                                    DBComObjekt.UpdateObjekt(IDObjekt, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
 
                                     // Oppdatere Tags, hvis det er noen nye 
                                     List<string> SjekkOmNye1 = nyTags.Except(GamleTags).ToList();
@@ -288,11 +288,11 @@ namespace GMAP_Demo
                                     if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
                                     {
                                         //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
-                                        DBComTag_Objekt.DeleteTags_Objekt(løpenummer);
+                                        DBComTag_Objekt.DeleteTags_Objekt(IDObjekt);
                                         //LEGGE TIL NYE
                                         foreach (var item in nyTags)
                                         {
-                                            DBComTag_Objekt.InsertTag_ObjektToDb(item.ToString(), løpenummer);
+                                            DBComTag_Objekt.InsertTag_ObjektToDb(item.ToString(), IDObjekt);
                                         }
                                     }
                                 }

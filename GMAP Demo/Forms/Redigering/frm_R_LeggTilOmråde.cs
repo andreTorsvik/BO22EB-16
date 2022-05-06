@@ -328,13 +328,13 @@ namespace GMAP_Demo
                 if (FeilTallSjekk == string.Empty)
                 {
                     // Hentløpenummer
-                    var løpenummer = DBComOmråde.GetIdOmråde();
-                    int Løpenummer_område = Convert.ToInt32(løpenummer[0]);
+                    var id = DBComOmråde.GetIdOmråde();
+                    int id_område = Convert.ToInt32(id[0]);
 
                     // Laste opp området til database
                     try
                     {
-                        DBComOmråde.InsertOmrådeToDb(Løpenummer_område, navn, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
+                        DBComOmråde.InsertOmrådeToDb(id_område, navn, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
                     }
                     catch (Exception feil)
                     {
@@ -349,7 +349,7 @@ namespace GMAP_Demo
                         {
                             float lat = Convert.ToSingle(item.Lat);
                             float lang = Convert.ToSingle(item.Lng);
-                            DBComPunkter_område.InsertPunkter_områdetToDb(Løpenummer_område, lat, lang, rekkefølge);
+                            DBComPunkter_område.InsertPunkter_områdetToDb(id_område, lat, lang, rekkefølge);
                             rekkefølge++;
                         }
                     }
@@ -363,7 +363,7 @@ namespace GMAP_Demo
                     {
                         foreach (var item in Tags)
                         {
-                            DBComTag_Område.InsertTag_OmrådeToDb(item.ToString(), Løpenummer_område);
+                            DBComTag_Område.InsertTag_OmrådeToDb(item.ToString(), id_område);
                         }
                     }
                     catch (Exception feil)
