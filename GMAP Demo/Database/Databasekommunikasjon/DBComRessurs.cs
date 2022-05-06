@@ -35,21 +35,21 @@ namespace GMAP_Demo
             }
         }
         //Where Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}'
-        public static List<Ressurs> ListRessursFromDb(int løpenummer)
+        public static Ressurs RessursFromDb(int løpenummer)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}' AND Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").ToList();
+                    var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}' AND Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").FirstOrDefault();
                     return output;
                 }
             }
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Ressurs> list = new List<Ressurs>();
-                return list;
+                Ressurs ressurs = new Ressurs();
+                return ressurs;
             }
         }
 

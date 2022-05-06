@@ -59,14 +59,14 @@ namespace GMAP_Demo
 
         private void Frm_S_LoggUt_Load(object sender, EventArgs e)
         {
-            List<Bruker> listBruker = new List<Bruker>();
-            listBruker = DBComBruker.ListBrukerInfoFromDb(InnloggetBruker.BrukernavnInnlogget.ToString());
+            Bruker bruker = new Bruker();
+            bruker = DBComBruker.ListBrukerInfoFromDb(InnloggetBruker.BrukernavnInnlogget.ToString());
 
-            tbFornavn.Text = listBruker[0].Fornavn.ToString();
-            tbEtternavn.Text = listBruker[0].Etternavn.ToString();
-            tbTelefonnummer.Text = listBruker[0].Telefonnummer.ToString();
-            tbEpost.Text = listBruker[0].Epost.ToString();
-            tbSikkerhetsklarering.Text = listBruker[0].Sikkerhetsklarering.ToString();
+            tbFornavn.Text = bruker.Fornavn.ToString();
+            tbEtternavn.Text = bruker.Etternavn.ToString();
+            tbTelefonnummer.Text = bruker.Telefonnummer.ToString();
+            tbEpost.Text = bruker.Epost.ToString();
+            tbSikkerhetsklarering.Text = bruker.Sikkerhetsklarering.ToString();
 
         }
     }

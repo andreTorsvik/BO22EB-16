@@ -85,21 +85,21 @@ namespace GMAP_Demo
 
         }
 
-        public static List<Bruker> ListBrukerInfoFromDb(string username)
+        public static Bruker ListBrukerInfoFromDb(string username)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Bruker>($"SELECT * FROM [dbo].[Bruker] WHERE (Epost = '{username}')").ToList();
+                    var output = connection.Query<Bruker>($"SELECT * FROM [dbo].[Bruker] WHERE (Epost = '{username}')").First();
                     return output;
                 }
             }
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Bruker> list = new List<Bruker>();
-                return list;
+                Bruker bruker = new Bruker();
+                return bruker;
             }
         }
 
