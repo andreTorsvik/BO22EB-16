@@ -128,14 +128,14 @@
             this.lbPunkter.Location = new System.Drawing.Point(5, 340);
             this.lbPunkter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbPunkter.Name = "lbPunkter";
-            this.lbPunkter.Size = new System.Drawing.Size(285, 72);
+            this.lbPunkter.Size = new System.Drawing.Size(287, 72);
             this.lbPunkter.TabIndex = 76;
             this.toolTip1.SetToolTip(this.lbPunkter, "Markøren på kartet er blå når den er lagt til");
             // 
             // btnLeggTilPunkt
             // 
             this.btnLeggTilPunkt.ForeColor = System.Drawing.Color.Black;
-            this.btnLeggTilPunkt.Location = new System.Drawing.Point(5, 306);
+            this.btnLeggTilPunkt.Location = new System.Drawing.Point(5, 307);
             this.btnLeggTilPunkt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLeggTilPunkt.Name = "btnLeggTilPunkt";
             this.btnLeggTilPunkt.Size = new System.Drawing.Size(104, 28);
@@ -171,7 +171,7 @@
             this.lblNyTag.AutoSize = true;
             this.lblNyTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNyTag.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNyTag.Location = new System.Drawing.Point(5, 252);
+            this.lblNyTag.Location = new System.Drawing.Point(6, 249);
             this.lblNyTag.Name = "lblNyTag";
             this.lblNyTag.Size = new System.Drawing.Size(58, 17);
             this.lblNyTag.TabIndex = 72;
@@ -214,7 +214,7 @@
             this.txtLong.Location = new System.Drawing.Point(5, 277);
             this.txtLong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLong.Name = "txtLong";
-            this.txtLong.Size = new System.Drawing.Size(285, 23);
+            this.txtLong.Size = new System.Drawing.Size(287, 23);
             this.txtLong.TabIndex = 68;
             this.txtLong.Text = "Dobbelklikk på kartet + \"legg til\"";
             this.toolTip1.SetToolTip(this.txtLong, "Dobbelklikk på kartet + \"legg til\"");
@@ -257,7 +257,7 @@
             this.txtKommentar.Location = new System.Drawing.Point(5, 128);
             this.txtKommentar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKommentar.Name = "txtKommentar";
-            this.txtKommentar.Size = new System.Drawing.Size(285, 23);
+            this.txtKommentar.Size = new System.Drawing.Size(287, 23);
             this.txtKommentar.TabIndex = 64;
             // 
             // btnLeggTilTag
@@ -333,13 +333,13 @@
             this.txtNavn.Location = new System.Drawing.Point(5, 37);
             this.txtNavn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNavn.Name = "txtNavn";
-            this.txtNavn.Size = new System.Drawing.Size(285, 23);
+            this.txtNavn.Size = new System.Drawing.Size(287, 23);
             this.txtNavn.TabIndex = 57;
             // 
             // btnFjernSistepunkt
             // 
             this.btnFjernSistepunkt.ForeColor = System.Drawing.Color.Black;
-            this.btnFjernSistepunkt.Location = new System.Drawing.Point(149, 308);
+            this.btnFjernSistepunkt.Location = new System.Drawing.Point(153, 307);
             this.btnFjernSistepunkt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFjernSistepunkt.Name = "btnFjernSistepunkt";
             this.btnFjernSistepunkt.Size = new System.Drawing.Size(93, 28);
@@ -350,7 +350,7 @@
             // 
             // btnLagreEndring
             // 
-            this.btnLagreEndring.Location = new System.Drawing.Point(15, 798);
+            this.btnLagreEndring.Location = new System.Drawing.Point(15, 789);
             this.btnLagreEndring.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLagreEndring.Name = "btnLagreEndring";
             this.btnLagreEndring.Size = new System.Drawing.Size(123, 34);
@@ -385,7 +385,7 @@
             this.gbOmråde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbOmråde.Name = "gbOmråde";
             this.gbOmråde.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbOmråde.Size = new System.Drawing.Size(332, 432);
+            this.gbOmråde.Size = new System.Drawing.Size(332, 421);
             this.gbOmråde.TabIndex = 83;
             this.gbOmråde.TabStop = false;
             this.gbOmråde.Text = "Område";
@@ -395,7 +395,7 @@
             this.btnFjernAlle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.btnFjernAlle.ForeColor = System.Drawing.Color.Black;
             this.btnFjernAlle.Image = global::GMAP_Demo.Properties.Resources.trash_20px;
-            this.btnFjernAlle.Location = new System.Drawing.Point(248, 304);
+            this.btnFjernAlle.Location = new System.Drawing.Point(257, 304);
             this.btnFjernAlle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFjernAlle.Name = "btnFjernAlle";
             this.btnFjernAlle.Size = new System.Drawing.Size(35, 34);
@@ -416,11 +416,11 @@
             this.gbTag.Controls.Add(this.lblNyTag);
             this.gbTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTag.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.gbTag.Location = new System.Drawing.Point(15, 494);
+            this.gbTag.Location = new System.Drawing.Point(15, 482);
             this.gbTag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbTag.Name = "gbTag";
             this.gbTag.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbTag.Size = new System.Drawing.Size(359, 299);
+            this.gbTag.Size = new System.Drawing.Size(335, 303);
             this.gbTag.TabIndex = 83;
             this.gbTag.TabStop = false;
             this.gbTag.Text = "Tag";
