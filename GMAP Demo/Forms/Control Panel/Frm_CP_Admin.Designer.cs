@@ -119,24 +119,24 @@
             // lblVenterGodkjenning
             // 
             this.lblVenterGodkjenning.AutoSize = true;
-            this.lblVenterGodkjenning.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVenterGodkjenning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.lblVenterGodkjenning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblVenterGodkjenning.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblVenterGodkjenning.Location = new System.Drawing.Point(56, 58);
             this.lblVenterGodkjenning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVenterGodkjenning.Name = "lblVenterGodkjenning";
-            this.lblVenterGodkjenning.Size = new System.Drawing.Size(137, 13);
+            this.lblVenterGodkjenning.Size = new System.Drawing.Size(116, 13);
             this.lblVenterGodkjenning.TabIndex = 11;
             this.lblVenterGodkjenning.Text = "Venter på Godkjenning";
             // 
             // lblListeOverBrukere
             // 
             this.lblListeOverBrukere.AutoSize = true;
-            this.lblListeOverBrukere.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListeOverBrukere.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.lblListeOverBrukere.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblListeOverBrukere.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblListeOverBrukere.Location = new System.Drawing.Point(56, 246);
             this.lblListeOverBrukere.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblListeOverBrukere.Name = "lblListeOverBrukere";
-            this.lblListeOverBrukere.Size = new System.Drawing.Size(247, 13);
+            this.lblListeOverBrukere.Size = new System.Drawing.Size(204, 13);
             this.lblListeOverBrukere.TabIndex = 12;
             this.lblListeOverBrukere.Text = "Lister over brukere, og sikkerhetsklarering";
             // 

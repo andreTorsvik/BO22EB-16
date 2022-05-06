@@ -63,12 +63,12 @@
             // lblNyLong
             // 
             this.lblNyLong.AutoSize = true;
-            this.lblNyLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNyLong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.lblNyLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblNyLong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblNyLong.Location = new System.Drawing.Point(5, 108);
             this.lblNyLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNyLong.Name = "lblNyLong";
-            this.lblNyLong.Size = new System.Drawing.Size(44, 17);
+            this.lblNyLong.Size = new System.Drawing.Size(31, 13);
             this.lblNyLong.TabIndex = 24;
             this.lblNyLong.Text = "Long";
             // 
@@ -86,12 +86,12 @@
             // lblNyLat
             // 
             this.lblNyLat.AutoSize = true;
-            this.lblNyLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNyLat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.lblNyLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblNyLat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblNyLat.Location = new System.Drawing.Point(5, 62);
             this.lblNyLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNyLat.Name = "lblNyLat";
-            this.lblNyLat.Size = new System.Drawing.Size(31, 17);
+            this.lblNyLat.Size = new System.Drawing.Size(22, 13);
             this.lblNyLat.TabIndex = 22;
             this.lblNyLat.Text = "Lat";
             // 
@@ -121,12 +121,12 @@
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblInfo.Location = new System.Drawing.Point(37, 23);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(247, 48);
+            this.lblInfo.Size = new System.Drawing.Size(201, 39);
             this.lblInfo.TabIndex = 26;
             this.lblInfo.Text = "Flytt kartet i \"Filter\" eller \"Posisjon\" til der \r\ndu vil at kartet skal starte n" +
     "år man åpner \r\napplikasjonen";
@@ -144,12 +144,12 @@
             // lblNåLong
             // 
             this.lblNåLong.AutoSize = true;
-            this.lblNåLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNåLong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.lblNåLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblNåLong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblNåLong.Location = new System.Drawing.Point(5, 71);
             this.lblNåLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNåLong.Name = "lblNåLong";
-            this.lblNåLong.Size = new System.Drawing.Size(44, 17);
+            this.lblNåLong.Size = new System.Drawing.Size(31, 13);
             this.lblNåLong.TabIndex = 31;
             this.lblNåLong.Text = "Long";
             // 
@@ -167,12 +167,12 @@
             // lblNåLat
             // 
             this.lblNåLat.AutoSize = true;
-            this.lblNåLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNåLat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.lblNåLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblNåLat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblNåLat.Location = new System.Drawing.Point(5, 25);
             this.lblNåLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNåLat.Name = "lblNåLat";
-            this.lblNåLat.Size = new System.Drawing.Size(31, 17);
+            this.lblNåLat.Size = new System.Drawing.Size(22, 13);
             this.lblNåLat.TabIndex = 29;
             this.lblNåLat.Text = "Lat";
             // 
@@ -214,7 +214,8 @@
             this.gbNåverendeStartpunkt.Controls.Add(this.txtNåværendeLat);
             this.gbNåverendeStartpunkt.Controls.Add(this.txtNåværendeLong);
             this.gbNåverendeStartpunkt.Controls.Add(this.lblNåLong);
-            this.gbNåverendeStartpunkt.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.gbNåverendeStartpunkt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gbNåverendeStartpunkt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbNåverendeStartpunkt.Location = new System.Drawing.Point(9, 83);
             this.gbNåverendeStartpunkt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbNåverendeStartpunkt.Name = "gbNåverendeStartpunkt";
@@ -233,7 +234,8 @@
             this.gbNyttStartpunkt.Controls.Add(this.txtNyLong);
             this.gbNyttStartpunkt.Controls.Add(this.lblNyLong);
             this.gbNyttStartpunkt.Controls.Add(this.btnBrukSomStart);
-            this.gbNyttStartpunkt.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.gbNyttStartpunkt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gbNyttStartpunkt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbNyttStartpunkt.Location = new System.Drawing.Point(9, 235);
             this.gbNyttStartpunkt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbNyttStartpunkt.Name = "gbNyttStartpunkt";
@@ -254,6 +256,8 @@
             this.Controls.Add(this.gbNåverendeStartpunkt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Frm_CP_StartPosisjon";

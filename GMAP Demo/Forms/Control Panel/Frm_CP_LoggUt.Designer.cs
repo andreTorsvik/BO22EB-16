@@ -83,7 +83,8 @@
             this.gblInnloggetBruker.Controls.Add(this.tbEpost);
             this.gblInnloggetBruker.Controls.Add(this.tbTelefonnummer);
             this.gblInnloggetBruker.Controls.Add(this.lblTelefonnummer);
-            this.gblInnloggetBruker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.gblInnloggetBruker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gblInnloggetBruker.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gblInnloggetBruker.Location = new System.Drawing.Point(9, 58);
             this.gblInnloggetBruker.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.gblInnloggetBruker.Name = "gblInnloggetBruker";
@@ -96,24 +97,24 @@
             // lblFornavn
             // 
             this.lblFornavn.AutoSize = true;
-            this.lblFornavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFornavn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.lblFornavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblFornavn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblFornavn.Location = new System.Drawing.Point(4, 14);
             this.lblFornavn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFornavn.Name = "lblFornavn";
-            this.lblFornavn.Size = new System.Drawing.Size(67, 17);
+            this.lblFornavn.Size = new System.Drawing.Size(46, 13);
             this.lblFornavn.TabIndex = 6;
             this.lblFornavn.Text = "Fornavn";
             // 
             // lblSikkerhetsklarering
             // 
             this.lblSikkerhetsklarering.AutoSize = true;
-            this.lblSikkerhetsklarering.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSikkerhetsklarering.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.lblSikkerhetsklarering.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblSikkerhetsklarering.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblSikkerhetsklarering.Location = new System.Drawing.Point(3, 170);
             this.lblSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSikkerhetsklarering.Name = "lblSikkerhetsklarering";
-            this.lblSikkerhetsklarering.Size = new System.Drawing.Size(148, 17);
+            this.lblSikkerhetsklarering.Size = new System.Drawing.Size(97, 13);
             this.lblSikkerhetsklarering.TabIndex = 14;
             this.lblSikkerhetsklarering.Text = "Sikkerhetsklarering";
             // 
@@ -147,24 +148,24 @@
             // lblEpost
             // 
             this.lblEpost.AutoSize = true;
-            this.lblEpost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEpost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.lblEpost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblEpost.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblEpost.Location = new System.Drawing.Point(4, 131);
             this.lblEpost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEpost.Name = "lblEpost";
-            this.lblEpost.Size = new System.Drawing.Size(49, 17);
+            this.lblEpost.Size = new System.Drawing.Size(34, 13);
             this.lblEpost.TabIndex = 12;
             this.lblEpost.Text = "Epost";
             // 
             // lblEtternavn
             // 
             this.lblEtternavn.AutoSize = true;
-            this.lblEtternavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEtternavn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.lblEtternavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblEtternavn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblEtternavn.Location = new System.Drawing.Point(4, 53);
             this.lblEtternavn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEtternavn.Name = "lblEtternavn";
-            this.lblEtternavn.Size = new System.Drawing.Size(78, 17);
+            this.lblEtternavn.Size = new System.Drawing.Size(53, 13);
             this.lblEtternavn.TabIndex = 8;
             this.lblEtternavn.Text = "Etternavn";
             // 
@@ -189,12 +190,12 @@
             // lblTelefonnummer
             // 
             this.lblTelefonnummer.AutoSize = true;
-            this.lblTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefonnummer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
+            this.lblTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblTelefonnummer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTelefonnummer.Location = new System.Drawing.Point(4, 92);
             this.lblTelefonnummer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefonnummer.Name = "lblTelefonnummer";
-            this.lblTelefonnummer.Size = new System.Drawing.Size(120, 17);
+            this.lblTelefonnummer.Size = new System.Drawing.Size(80, 13);
             this.lblTelefonnummer.TabIndex = 10;
             this.lblTelefonnummer.Text = "Telefonnummer";
             // 

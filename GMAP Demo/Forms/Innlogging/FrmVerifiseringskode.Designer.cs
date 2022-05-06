@@ -49,21 +49,22 @@
             // lblSkrivInn
             // 
             this.lblSkrivInn.AutoSize = true;
-            this.lblSkrivInn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkrivInn.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSkrivInn.Location = new System.Drawing.Point(36, 25);
             this.lblSkrivInn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSkrivInn.Name = "lblSkrivInn";
-            this.lblSkrivInn.Size = new System.Drawing.Size(168, 13);
+            this.lblSkrivInn.Size = new System.Drawing.Size(177, 12);
             this.lblSkrivInn.TabIndex = 1;
             this.lblSkrivInn.Text = "Skriv inn verifiseringskoden:";
             // 
             // lblKommetPåMail
             // 
             this.lblKommetPåMail.AutoSize = true;
+            this.lblKommetPåMail.Font = new System.Drawing.Font("Lucida Sans", 8.25F);
             this.lblKommetPåMail.Location = new System.Drawing.Point(36, 92);
             this.lblKommetPåMail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKommetPåMail.Name = "lblKommetPåMail";
-            this.lblKommetPåMail.Size = new System.Drawing.Size(132, 13);
+            this.lblKommetPåMail.Size = new System.Drawing.Size(147, 14);
             this.lblKommetPåMail.TabIndex = 2;
             this.lblKommetPåMail.Text = "Koden har kommet på mail";
             // 
@@ -92,10 +93,11 @@
             // lblSjekkSøppelpost
             // 
             this.lblSjekkSøppelpost.AutoSize = true;
+            this.lblSjekkSøppelpost.Font = new System.Drawing.Font("Lucida Sans", 8.25F);
             this.lblSjekkSøppelpost.Location = new System.Drawing.Point(36, 105);
             this.lblSjekkSøppelpost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSjekkSøppelpost.Name = "lblSjekkSøppelpost";
-            this.lblSjekkSøppelpost.Size = new System.Drawing.Size(96, 13);
+            this.lblSjekkSøppelpost.Size = new System.Drawing.Size(108, 14);
             this.lblSjekkSøppelpost.TabIndex = 6;
             this.lblSjekkSøppelpost.Text = "(Sjekk Søppelpost)";
             // 
