@@ -473,7 +473,7 @@ namespace GMAP_Demo
 
 
                                 FellesMetoder.OppdaterListe_området();
-                                Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                                Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
                             }
                         }
                         else MessageBox.Show("Ingen Endring");

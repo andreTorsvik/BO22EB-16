@@ -28,7 +28,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static List<Måling> GetLatestValueMålingFromSelectedRessurs(int idObjekt)
+        public static List<Måling> GetLatestValueMålingFromSelectedObjekt(int idObjekt)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace GMAP_Demo
                 {
                     var output = connection.Query<Måling>($"SELECT TOP(1) Verdi, Dato, Enhet FROM dbo.Måling WHERE IdObjekt = {idObjekt} ORDER BY Dato DESC;").ToList();
 
-                    if (output.Count == 0)  // Metoden viser "Ingen måling" for de ressurser som ikke har målinger.
+                    if (output.Count == 0)  // Metoden viser "Ingen måling" for de objekter som ikke har målinger.
                     {
                         Måling tomMåling = new Måling()
                         {

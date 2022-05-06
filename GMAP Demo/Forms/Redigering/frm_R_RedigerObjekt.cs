@@ -198,15 +198,15 @@ namespace GMAP_Demo
         public void FyllInfoObjekt(int Tag)
         {
             // Løpenummeret 
-            løpenummer_til_redigering = GlobaleLister.LRessurs[Tag].IdObjekt;
+            løpenummer_til_redigering = GlobaleLister.listObjekt[Tag].IdObjekt;
 
             // Info 
-            txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
-            txtKategori.Text = GlobaleLister.LRessurs[Tag].Kategori;
-            txtSikkerhetsklarering.Text = GlobaleLister.LRessurs[Tag].Sikkerhetsklarering.ToString();
-            txtKommentar.Text = GlobaleLister.LRessurs[Tag].Kommentar;
-            txtLat.Text = GlobaleLister.LRessurs[Tag].Lat.ToString();
-            txtLong.Text = GlobaleLister.LRessurs[Tag].Lang.ToString();
+            txtNavn.Text = GlobaleLister.listObjekt[Tag].Navn;
+            txtKategori.Text = GlobaleLister.listObjekt[Tag].Kategori;
+            txtSikkerhetsklarering.Text = GlobaleLister.listObjekt[Tag].Sikkerhetsklarering.ToString();
+            txtKommentar.Text = GlobaleLister.listObjekt[Tag].Kommentar;
+            txtLat.Text = GlobaleLister.listObjekt[Tag].Lat.ToString();
+            txtLong.Text = GlobaleLister.listObjekt[Tag].Lang.ToString();
 
 
             // Sletting av eksisterende lister
@@ -215,7 +215,7 @@ namespace GMAP_Demo
             if (LGamleTag.Count > 0) LGamleTag.Clear();
 
             // Tagliste
-            var TagListeTilRessurs = GlobaleLister.LRessurs[Tag].hentTags();
+            var TagListeTilRessurs = GlobaleLister.listObjekt[Tag].hentTags();
             var AlleTags = FellesMetoder.FåAlleTags();
             var GjenværendeTag = AlleTags.Except(TagListeTilRessurs);
 
@@ -264,7 +264,7 @@ namespace GMAP_Demo
 
                 if (utFyllingsmangler == string.Empty)
                 {
-                    Objekt OrginaleRessurs = DBComRessurs.ObjektFromDb(løpenummer);
+                    Objekt OrginaleRessurs = DBComObjekt.ObjektFromDb(løpenummer);
                     string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
 
                     if (FeilTallSjekk == string.Empty)
@@ -280,7 +280,7 @@ namespace GMAP_Demo
                                 try
                                 {
                                     //Oppdatere med ny info 
-                                    DBComRessurs.UpdateRessurs(løpenummer, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
+                                    DBComObjekt.UpdateObjekt(løpenummer, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
 
                                     // Oppdatere Tags, hvis det er noen nye 
                                     List<string> SjekkOmNye1 = nyTags.Except(GamleTags).ToList();
@@ -288,11 +288,11 @@ namespace GMAP_Demo
                                     if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
                                     {
                                         //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
-                                        DBComTag_Ressurs.DeleteTags_Ressurs(løpenummer);
+                                        DBComTag_Objekt.DeleteTags_Objekt(løpenummer);
                                         //LEGGE TIL NYE
                                         foreach (var item in nyTags)
                                         {
-                                            DBComTag_Ressurs.InsertTag_RessursToDb(item.ToString(), løpenummer);
+                                            DBComTag_Objekt.InsertTag_ObjektToDb(item.ToString(), løpenummer);
                                         }
                                     }
                                 }
@@ -306,8 +306,8 @@ namespace GMAP_Demo
 
                                 //Oppdatere Liste med ressurser 
 
-                                FellesMetoder.OppdaterListe_ressurs();
-                                Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                                FellesMetoder.OppdaterListe_Objekt();
+                                Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
 
                             }
                         }

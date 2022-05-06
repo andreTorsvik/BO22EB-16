@@ -52,15 +52,15 @@ namespace GMAP_Demo
             GlobaleLister.InitializekategoriListeSkjult();
 
             // TagListene på kartet
-            GlobaleLister.InitializeTag_RessursListeVises();
-            GlobaleLister.InitializeTag_RessursListeSkjult();
+            GlobaleLister.InitializeTag_ObjektListeVises();
+            GlobaleLister.InitializeTag_ObjektListeSkjult();
 
             //legget til alle ressurser i lister 
-            FellesMetoder.OppdaterListe_ressurs();
+            FellesMetoder.OppdaterListe_Objekt();
             FellesMetoder.OppdaterListe_området();
 
             //tegner alt på karet
-            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
 
             Size = Globalekonstanter.frmWithMenuMinimumSize;
             MinimumSize = Globalekonstanter.frmWithMenuMinimumSize;
@@ -175,7 +175,7 @@ namespace GMAP_Demo
                     }
                     if (item.Id == Globalekonstanter.NavnObjekter && !objekt) //"Objekter"
                     {
-                        FellesMetoder.OppdaterListe_ressurs();
+                        FellesMetoder.OppdaterListe_Objekt();
                         objekt = true;
 
                     }
@@ -187,7 +187,7 @@ namespace GMAP_Demo
                 }
 
                 //Oppdatere kart basert på listene 
-                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
             }
 
         }
@@ -328,7 +328,7 @@ namespace GMAP_Demo
                 else if (map.Zoom >= ZoomLevel && GlobaleVariabler.UtenforZoomGrense)
                 {
                     GlobaleVariabler.UtenforZoomGrense = false;
-                    Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                    Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
 
                 }
             }

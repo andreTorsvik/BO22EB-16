@@ -133,7 +133,7 @@ Selve kartet blir laget av biblioteket GMAP.
 Kartet, zooming, panning mm ordnes av GMAP.
 Knapper på top av kartet er lagt til av oss.
 
-Ressurspunkter som tegnes i kartet er laget av oss 
+Objekter som tegnes i kartet er laget av oss 
 og inneholder lengde og breddegrader i tilleg til annen info.
 
 GMAP plasserer markørene på kartet ihht lengde og breddegraden.

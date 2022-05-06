@@ -69,8 +69,8 @@
             this.lbMålingDato = new System.Windows.Forms.Label();
             this.tbMålingDato = new System.Windows.Forms.TextBox();
             this.btnTimerMåling = new System.Windows.Forms.Button();
-            this.btnNesteRessurs = new System.Windows.Forms.Button();
-            this.btnForrigeRessurs = new System.Windows.Forms.Button();
+            this.btnNesteObjekt = new System.Windows.Forms.Button();
+            this.btnForrigeObjekt = new System.Windows.Forms.Button();
             this.gbObjekt = new System.Windows.Forms.GroupBox();
             this.tbAntallObjekter = new System.Windows.Forms.TextBox();
             this.lblObjektAntall = new System.Windows.Forms.Label();
@@ -563,43 +563,43 @@
             this.btnTimerMåling.UseVisualStyleBackColor = true;
             this.btnTimerMåling.Click += new System.EventHandler(this.BtnTimerMåling_Click);
             // 
-            // btnNesteRessurs
+            // btnNesteObjekt
             // 
-            this.btnNesteRessurs.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNesteRessurs.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
-            this.btnNesteRessurs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNesteRessurs.Location = new System.Drawing.Point(192, 30);
-            this.btnNesteRessurs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnNesteRessurs.Name = "btnNesteRessurs";
-            this.btnNesteRessurs.Size = new System.Drawing.Size(82, 28);
-            this.btnNesteRessurs.TabIndex = 37;
-            this.btnNesteRessurs.Text = "Til Neste";
-            this.btnNesteRessurs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNesteRessurs.UseVisualStyleBackColor = true;
-            this.btnNesteRessurs.Click += new System.EventHandler(this.BtnNesteRessurs_Click);
+            this.btnNesteObjekt.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnNesteObjekt.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
+            this.btnNesteObjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNesteObjekt.Location = new System.Drawing.Point(192, 30);
+            this.btnNesteObjekt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNesteObjekt.Name = "btnNesteObjekt";
+            this.btnNesteObjekt.Size = new System.Drawing.Size(82, 28);
+            this.btnNesteObjekt.TabIndex = 37;
+            this.btnNesteObjekt.Text = "Til Neste";
+            this.btnNesteObjekt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNesteObjekt.UseVisualStyleBackColor = true;
+            this.btnNesteObjekt.Click += new System.EventHandler(this.BtnNesteObjekt_Click);
             // 
-            // btnForrigeRessurs
+            // btnForrigeObjekt
             // 
-            this.btnForrigeRessurs.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnForrigeRessurs.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
-            this.btnForrigeRessurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnForrigeRessurs.Location = new System.Drawing.Point(8, 30);
-            this.btnForrigeRessurs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnForrigeRessurs.Name = "btnForrigeRessurs";
-            this.btnForrigeRessurs.Size = new System.Drawing.Size(82, 28);
-            this.btnForrigeRessurs.TabIndex = 36;
-            this.btnForrigeRessurs.Text = "Til Forrige";
-            this.btnForrigeRessurs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnForrigeRessurs.UseVisualStyleBackColor = true;
-            this.btnForrigeRessurs.Click += new System.EventHandler(this.BtnForrigeRessurs_Click);
+            this.btnForrigeObjekt.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnForrigeObjekt.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
+            this.btnForrigeObjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnForrigeObjekt.Location = new System.Drawing.Point(8, 30);
+            this.btnForrigeObjekt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnForrigeObjekt.Name = "btnForrigeObjekt";
+            this.btnForrigeObjekt.Size = new System.Drawing.Size(82, 28);
+            this.btnForrigeObjekt.TabIndex = 36;
+            this.btnForrigeObjekt.Text = "Til Forrige";
+            this.btnForrigeObjekt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnForrigeObjekt.UseVisualStyleBackColor = true;
+            this.btnForrigeObjekt.Click += new System.EventHandler(this.BtnForrigeObjekt_Click);
             // 
             // gbObjekt
             // 
             this.gbObjekt.Controls.Add(this.tbAntallObjekter);
             this.gbObjekt.Controls.Add(this.lblObjektAntall);
             this.gbObjekt.Controls.Add(this.lblHoppTilEtOmråde);
-            this.gbObjekt.Controls.Add(this.btnNesteRessurs);
-            this.gbObjekt.Controls.Add(this.btnForrigeRessurs);
+            this.gbObjekt.Controls.Add(this.btnNesteObjekt);
+            this.gbObjekt.Controls.Add(this.btnForrigeObjekt);
             this.gbObjekt.ForeColor = System.Drawing.SystemColors.Control;
             this.gbObjekt.Location = new System.Drawing.Point(7, 299);
             this.gbObjekt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -704,8 +704,8 @@
         private System.Windows.Forms.TextBox tbMåling;
         private System.Windows.Forms.Label lblMåling;
         private System.Windows.Forms.GroupBox gbInfo;
-        private System.Windows.Forms.Button btnForrigeRessurs;
-        private System.Windows.Forms.Button btnNesteRessurs;
+        private System.Windows.Forms.Button btnForrigeObjekt;
+        private System.Windows.Forms.Button btnNesteObjekt;
         private System.Windows.Forms.CheckBox cbAND;
         private System.Windows.Forms.CheckBox cbOR;
         public System.Windows.Forms.TextBox tbEnhetMåling;

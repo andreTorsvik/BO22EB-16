@@ -19,7 +19,7 @@ namespace GMAP_Demo
         public float Lat { get; set; }
         public float Lang { get; set; }
 
-        public string ressursDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
+        public string objektDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
         {
             get
             {
@@ -37,7 +37,7 @@ namespace GMAP_Demo
         {
             List<string> tags = new List<string>();
 
-            var TagListe = DBComTag_Ressurs.ListTag_ressursFromDb(IdObjekt);
+            var TagListe = DBComTag_Objekt.ListTag_ObjektFromDb(IdObjekt);
 
             foreach (var item in TagListe)
             {

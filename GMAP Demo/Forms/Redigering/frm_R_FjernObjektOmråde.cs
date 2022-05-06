@@ -43,10 +43,10 @@ namespace GMAP_Demo
 
         public void FyllInfoObjekt(int Tag)
         {
-            Løpenummer_til_objekt = GlobaleLister.LRessurs[Tag].IdObjekt;
-            txtInfo.Text = GlobaleLister.LRessurs[Tag].ToString();
-            txtIdOmråde.Text = GlobaleLister.LRessurs[Tag].IdObjekt.ToString();
-            txtNavn.Text = GlobaleLister.LRessurs[Tag].Navn;
+            Løpenummer_til_objekt = GlobaleLister.listObjekt[Tag].IdObjekt;
+            txtInfo.Text = GlobaleLister.listObjekt[Tag].ToString();
+            txtIdOmråde.Text = GlobaleLister.listObjekt[Tag].IdObjekt.ToString();
+            txtNavn.Text = GlobaleLister.listObjekt[Tag].Navn;
 
             if (Løpenummer_til_Område >= 0) Løpenummer_til_Område = -1;
         }
@@ -73,15 +73,15 @@ namespace GMAP_Demo
 
                     if (Fjern)
                     {
-                        DBComRessurs.DeleteRessurs(Løpenummer_til_objekt);
+                        DBComObjekt.DeleteObjekt(Løpenummer_til_objekt);
                         lblSlettet.Text = String.Format("Ressurs nr: {0} er slettet", Løpenummer_til_objekt);
                         Løpenummer_til_objekt = -1;
                         TømInnholdTekstboks();
                         //Må oppdtaere listene og kart
                         FellesMetoder.OppdaterTag_Liste();
                         FellesMetoder.OppdaterKategoriListe();
-                        FellesMetoder.OppdaterListe_ressurs();
-                        Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                        FellesMetoder.OppdaterListe_Objekt();
+                        Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
                     }
 
                 }
@@ -109,7 +109,7 @@ namespace GMAP_Demo
                         //Må oppdtaere listene og kart 
                         FellesMetoder.OppdaterTag_Liste();
                         FellesMetoder.OppdaterListe_området();
-                        Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                        Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
                     }
                 }
                 catch (Exception feil)

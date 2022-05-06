@@ -234,14 +234,14 @@ namespace GMAP_Demo
                 if (feilMelding == string.Empty)
                 {
                     //løpenummer 
-                    var løpenummer = DBComRessurs.GetIdObjekt();
+                    var løpenummer = DBComObjekt.GetIdObjekt();
                     int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
 
                     // Lagrer ressurs 
                     try
                     {
                         if (Løpenummer_Ressurs > 0)
-                            DBComRessurs.InsertRessursToDb(Løpenummer_Ressurs, navn, kategori, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
+                            DBComObjekt.InsertObjektToDb(Løpenummer_Ressurs, navn, kategori, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
 
                     }
                     catch (Exception feil)
@@ -254,7 +254,7 @@ namespace GMAP_Demo
                     {
                         foreach (var item in nyTags)
                         {
-                            DBComTag_Ressurs.InsertTag_RessursToDb(item.ToString(), Løpenummer_Ressurs);
+                            DBComTag_Objekt.InsertTag_ObjektToDb(item.ToString(), Løpenummer_Ressurs);
                         }
 
                     }
@@ -265,8 +265,8 @@ namespace GMAP_Demo
                     //tøme tekstfelt og lister 
                     TømeTekstFeltOgLister();
 
-                    FellesMetoder.OppdaterListe_ressurs();
-                    Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+                    FellesMetoder.OppdaterListe_Objekt();
+                    Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
                 }
                 else MessageBox.Show(feilMelding);
             }

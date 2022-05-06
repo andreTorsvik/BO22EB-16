@@ -28,7 +28,7 @@ namespace GMAP_Demo
             }
         }
 
-        internal static bool sjekkOmKategoriHarBilde(Objekt item) // Mottar en ressurs og ser om ressursens kategori har et tilhørende bilde.
+        internal static bool sjekkOmKategoriHarBilde(Objekt item) // Mottar et objekt og ser om objektets kategori har et tilhørende bilde.
         {
             List<Kategorier_Bilde> kategorier_Bilde = new List<Kategorier_Bilde>();
             kategorier_Bilde = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(item.Kategori);

@@ -45,22 +45,22 @@ namespace GMAP_Demo
 
         }
 
-        public static void OppdaterListe_ressurs()
+        public static void OppdaterListe_Objekt()
         {
             // Tømmer listen 
-            if (GlobaleLister.LRessurs.Count > 0) GlobaleLister.LRessurs.Clear();
+            if (GlobaleLister.listObjekt.Count > 0) GlobaleLister.listObjekt.Clear();
 
-            // Henter alle ressurser
-            var RessursList = DBComRessurs.ListAllRessursFromDb(InnloggetBruker.Sikkerhetsklarering);
+            // Henter alle objekter
+            var objektList = DBComObjekt.ListAllObjektFromDb(InnloggetBruker.Sikkerhetsklarering);
 
             // Legger til i den globale listen, men basert på kategorilisten 
-            foreach (var item in RessursList)
+            foreach (var item in objektList)
             {
                 foreach (var item2 in GlobaleLister.kategoriListeVises)
                 {
                     if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
                     {
-                        GlobaleLister.LRessurs.Add(item);
+                        GlobaleLister.listObjekt.Add(item);
                         break;
                     }
                 }
@@ -77,15 +77,15 @@ namespace GMAP_Demo
                 {
                     if (GlobaleLister.kategoriListeSkjult.Count != 0 || GlobaleLister.tag_ListeSkjult.Count != 0)
                     {
-                        FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LRessurs, GlobaleLister.tag_ListeVises.ToList());
+                        FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.listObjekt, GlobaleLister.tag_ListeVises.ToList());
                     }
                 }
                 else if (AND && !OR) // AND
-                    FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LRessurs, GlobaleLister.tag_ListeVises.ToList());
+                    FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.listObjekt, GlobaleLister.tag_ListeVises.ToList());
             }
             else // Ingen valgte tags 
             {
-                GlobaleLister.LRessurs.Clear();
+                GlobaleLister.listObjekt.Clear();
             }
         }
 
@@ -208,7 +208,7 @@ namespace GMAP_Demo
                     AlleTag.Add(item.Tag.ToString());
                 }
 
-                var TagRListe = DBComTag_Ressurs.ListAllTag_RessursFromDb();
+                var TagRListe = DBComTag_Objekt.ListAllTag_ObjektFromDb();
                 foreach (var item in TagRListe)
                 {
                     AlleTag.Add(item.Tag.ToString());

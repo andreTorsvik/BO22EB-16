@@ -9,7 +9,7 @@ namespace GMAP_Demo
 {
     internal class GlobaleLister
     {
-        public static List<Objekt> LRessurs = new List<Objekt>();
+        public static List<Objekt> listObjekt = new List<Objekt>();
         public static  List<Område> LOmråde = new List<Område>();
         public static  List<Kategorier_Bilde> LKategori = new List<Kategorier_Bilde>();
 
@@ -42,7 +42,7 @@ namespace GMAP_Demo
             kategoriListeSkjult.RaiseListChangedEvents = true;
         }
 
-        internal static void InitializeTag_RessursListeVises()
+        internal static void InitializeTag_ObjektListeVises()
         {
             tag_ListeVises.AllowNew = true;
             tag_ListeVises.AllowRemove = true;
@@ -55,7 +55,7 @@ namespace GMAP_Demo
             }
         }
 
-        internal static void InitializeTag_RessursListeSkjult()
+        internal static void InitializeTag_ObjektListeSkjult()
         {
             tag_ListeSkjult.AllowNew = true;
             tag_ListeSkjult.AllowRemove = true;

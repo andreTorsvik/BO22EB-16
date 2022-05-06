@@ -8,20 +8,20 @@ using Dapper;
 
 namespace GMAP_Demo
 {
-    internal class DBComRessurs
+    internal class DBComObjekt
     {
-        public static List<Objekt> ListAllRessursFromDb(int SikkerhetsklareringBruker)
+        public static List<Objekt> ListAllObjektFromDb(int SikkerhetsklareringBruker)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    //Ressurs Sikkerhetsklarering = new Ressurs
+                    //Objekt Sikkerhetsklarering = new Objekt
                     //{
                     //    Sikkerhetsklarering = SikkerhetsklareringBruker
                     //};
 
-                    //var output = connection.Query<Ressurs>("[dbo].[PROCEDUREListAllRessursFromDb] @BrukersSikkerhetsklarering", Sikkerhetsklarering).ToList();
+                    //var output = connection.Query<Objekt>("[dbo].[PROCEDUREListAllObjektFromDb] @BrukersSikkerhetsklarering", Sikkerhetsklarering).ToList();
                     var output = connection.Query<Objekt>($"SELECT * FROM[dbo].[Objekt] WHERE (Sikkerhetsklarering <= '{SikkerhetsklareringBruker}')").ToList();
 
                     return output;
@@ -48,8 +48,8 @@ namespace GMAP_Demo
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                Objekt ressurs = new Objekt();
-                return ressurs;
+                Objekt Objekt = new Objekt();
+                return Objekt;
             }
         }
 
@@ -71,18 +71,18 @@ namespace GMAP_Demo
             }
         }
 
-        public static void DeleteRessurs(int idObjekt)
+        public static void DeleteObjekt(int idObjekt)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Objekt DeleteRessurs = new Objekt
+                    Objekt deleteObjekt = new Objekt
                     {
                         IdObjekt = idObjekt
                     };
 
-                    connection.Execute("[dbo].[PROCEDURERemoveObjekt] @IdObjekt", (DeleteRessurs));
+                    connection.Execute("[dbo].[PROCEDURERemoveObjekt] @IdObjekt", (deleteObjekt));
                 }
             }
             catch (Exception exeption)
@@ -91,13 +91,13 @@ namespace GMAP_Demo
             }
         }
 
-        public static void InsertRessursToDb(int idObjekt, string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
+        public static void InsertObjektToDb(int idObjekt, string navn, string kategori, string opprettet_av_bruker, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Objekt ressursToAdd = new Objekt
+                    Objekt objektToAdd = new Objekt
                     {
                         IdObjekt = idObjekt,
                         Navn = navn,
@@ -110,7 +110,7 @@ namespace GMAP_Demo
                         Lang = lang
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREinsertIntoObjekt] @IdObjekt, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (ressursToAdd));
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoObjekt] @IdObjekt, @Navn, @Kategori, @Opprettet_av_bruker, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (objektToAdd));
                 }
             }
             catch (Exception exeption)
@@ -137,13 +137,13 @@ namespace GMAP_Demo
             }
         }
 
-        public static void UpdateRessurs(int idObjekt, string navn, string kategori, int sikkerhetsklarering, string kommentar, float lat, float lang)
+        public static void UpdateObjekt(int idObjekt, string navn, string kategori, int sikkerhetsklarering, string kommentar, float lat, float lang)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Objekt UpdateRessurs = new Objekt
+                    Objekt updateObjekt = new Objekt
                     {
                         IdObjekt = idObjekt,
                         Navn = navn,
@@ -156,7 +156,7 @@ namespace GMAP_Demo
                         Lang = lang
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREUpdateRessurs] @IdObjekt, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (UpdateRessurs));
+                    connection.Execute("[dbo].[PROCEDUREUpdateObjekt] @IdObjekt, @Navn, @Kategori, @Sikkerhetsklarering, @Kommentar, @Lat, @Lang", (updateObjekt));
 
                 }
             }

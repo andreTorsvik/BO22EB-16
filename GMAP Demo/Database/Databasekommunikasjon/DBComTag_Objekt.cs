@@ -8,10 +8,10 @@ using Dapper;
 
 namespace GMAP_Demo
 {
-    internal class DBComTag_Ressurs
+    internal class DBComTag_Objekt
     {
         
-        public static List<Tag_Objekt> ListAllTag_RessursFromDb()
+        public static List<Tag_Objekt> ListAllTag_ObjektFromDb()
         {
             try
             {
@@ -29,19 +29,19 @@ namespace GMAP_Demo
             }
         }
 
-        public static void InsertTag_RessursToDb(string Tag, int idObjekt)
+        public static void InsertTag_ObjektToDb(string Tag, int idObjekt)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Tag_Objekt Tag_RessursToAdd = new Tag_Objekt
+                    Tag_Objekt tag_ObjektToAdd = new Tag_Objekt
                     {
                         Tag = Tag,
                         IdObjekt = idObjekt
                     };
 
-                    connection.Execute("[dbo].[PROCEDUREinsertIntoTag_Objekt] @IdObjekt,@Tag", Tag_RessursToAdd);
+                    connection.Execute("[dbo].[PROCEDUREinsertIntoTag_Objekt] @IdObjekt,@Tag", tag_ObjektToAdd);
                 }
             }
             catch (Exception exeption)
@@ -50,7 +50,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static List<Tag_Objekt> ListTag_ressursFromDb(int idObjekt)
+        public static List<Tag_Objekt> ListTag_ObjektFromDb(int idObjekt)
         {
             try
             {
@@ -68,7 +68,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void DeleteTags_Ressurs(int idObjekt)
+        public static void DeleteTags_Objekt(int idObjekt)
         {
             //delete FROM [dbo].[Punkter_område]
             //WHERE idObjekt = 38

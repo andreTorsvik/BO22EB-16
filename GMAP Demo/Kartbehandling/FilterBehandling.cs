@@ -8,19 +8,19 @@ namespace GMAP_Demo
 {
     public class FilterBehandling
     {
-        public static void filtrereBaserPåTagsAND(ref List<Objekt> Rlist, List<string> TagFilterListe)
+        public static void filtrereBaserPåTagsAND(ref List<Objekt> objektlist, List<string> TagFilterListe)
         {
-            // Metode for å filtere objekter/ressurser
+            // Metode for å filtere objekter
             // Filter med AND, det vil si: alt på "TagFilterListe" må stemme 
 
             if (TagFilterListe.Count > 0)
             {
-                List<Objekt> LRessurs = Rlist;
+                List<Objekt> listObjekt = objektlist;
 
-                for (int i = 0; i < LRessurs.Count; i++)
+                for (int i = 0; i < listObjekt.Count; i++)
                 {
-                    // Henter tag(s) til den aktuelle ressusen 
-                    List<string> TagsItem = LRessurs[i].hentTags();
+                    // Henter tag(s) til det aktuelle objektet 
+                    List<string> TagsItem = listObjekt[i].hentTags();
                     int antallTags = TagsItem.Count;
                     
                     // Antallet må være likt for at alt skal stemme 
@@ -34,22 +34,22 @@ namespace GMAP_Demo
                         // "TagFilterListe" og "TagsItem" ikke er identiske 
                         if (gjenværende != 0) 
                         {
-                            LRessurs.RemoveAt(i);
+                            listObjekt.RemoveAt(i);
                             i--;
                         }
                     }
                     else
                     {
-                        LRessurs.RemoveAt(i);
+                        listObjekt.RemoveAt(i);
                         i--;
                     }
                 }
             }
             else
             {
-                List<Objekt> LRessurs = Rlist;
+                List<Objekt> listObjekt = objektlist;
 
-                LRessurs.Clear();
+                listObjekt.Clear();
             }
         }
 
@@ -99,17 +99,17 @@ namespace GMAP_Demo
 
         public static void filtrereBaserPåTagsOR(ref List<Objekt> Rlist, List<string> TagFilterListe)
         {
-            // Metode for å filtere objekter/ressurser
+            // Metode for å filtere objekter
             // Filter med OR, det vil si: Kun en tag fra "TagFilterListe" må stemme 
 
             if (TagFilterListe.Count > 0)
             {
-                List<Objekt> LRessurs = Rlist;
+                List<Objekt> listObjekt = Rlist;
 
-                for (int i = 0; i < LRessurs.Count; i++)
+                for (int i = 0; i < listObjekt.Count; i++)
                 {
-                    // Henter tag(s) til den aktuelle ressusen 
-                    List<string> TagsItem = LRessurs[i].hentTags(); ;
+                    // Henter tag(s) til det aktuelle objektet 
+                    List<string> TagsItem = listObjekt[i].hentTags(); ;
                     int antallTags = TagsItem.Count; 
 
                     // Sjekker om de har noen til felles 
@@ -118,16 +118,16 @@ namespace GMAP_Demo
 
                     if ((antallTags == gjenværende)) // Ingen like 
                     {
-                        LRessurs.RemoveAt(i);
+                        listObjekt.RemoveAt(i);
                         i--;
                     }
                 }
             }
             else
             {
-                List<Objekt> LRessurs = Rlist;
+                List<Objekt> listObjekt = Rlist;
 
-                LRessurs.Clear();
+                listObjekt.Clear();
             }
         }
 
@@ -142,7 +142,7 @@ namespace GMAP_Demo
 
                 for (int i = 0; i < LOmråde.Count; i++)
                 {
-                    // Henter tag(s) til den aktuelle ressusen
+                    // Henter tag(s) til det aktuelle objektet
                     List<string> TagsItem = LOmråde[i].hentTags(); ;
                     int antallTags = TagsItem.Count;
 
