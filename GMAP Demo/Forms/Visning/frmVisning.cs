@@ -33,35 +33,61 @@ namespace GMAP_Demo
 
             SetTheme();
 
-            FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
-            btnFilter.BackColor = Globalekonstanter.knapp_trykket;
+            //FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
+            //btnFilter.BackColor = Globalekonstanter.knapp_trykket;
 
-            this.PnlFormLoader.Controls.Clear();
+            //this.PnlFormLoader.Controls.Clear();
             Frm_V_Filter frmFilter_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmFilter_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(frmFilter_vrb);
-            frmFilter_vrb.Show();
+            //frmFilter_vrb.FormBorderStyle = FormBorderStyle.None;
+            //this.PnlFormLoader.Controls.Add(frmFilter_vrb);
+            //frmFilter_vrb.Show();
 
+            ÅpneFormFraMenyknapp(btnFilter, frmFilter_vrb);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            //midtstille brukernavn iforhold til "bilde"
+            lblUserName.TextAlign = ContentAlignment.MiddleCenter;
+
+            //Startpoisjon og setup av kart 
+            Kart.PunktFraForrige = FilBehandeling.HentStartPosisjon(Globalekonstanter.filStartPosisjon);
+            Kart.Setup(Kart.MuligKart.Visning, Kart.PunktFraForrige);
+
+            // KategoriListen på kartet 
+            GlobaleLister.InitializekategoriListeVises();
+            GlobaleLister.InitializekategoriListeSkjult();
+
+            // TagListene på kartet
+            GlobaleLister.InitializeTag_RessursListeVises();
+            GlobaleLister.InitializeTag_RessursListeSkjult();
+
+            //legget til alle ressurser i lister 
+            FellesMetoder.OppdaterListe_ressurs();
+            FellesMetoder.OppdaterListe_området();
+
+            //tegner alt på karet
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
+
+            Size = Globalekonstanter.frmWithMenuMinimumSize;
+            MinimumSize = Globalekonstanter.frmWithMenuMinimumSize;
         }
 
         public void ByttetTheme()
         {
-            //bytter theme og åpner filter 
-            //må åpne filter igjen, for å få formen med nye farger 
+            // Bytter theme og åpner filter 
+            // Må åpne filter igjen, for å få formen med nye farger 
 
             SetTheme();
 
-            AlleKnapperTilStandarfargeV();
-            btnFilter.BackColor = Globalekonstanter.knapp_trykket;
+            // Må flytte Navigasjonspanelet (hvis panelet er på filter) for å få lov til å bruke "ÅpneFormFraMenyknapp"
+            // panelet blir flyttet på rett plass i "ÅpneFormFraMenyknapp"
+            FlyttNavigasjonsPanel(btnOppdater.Height, btnOppdater.Top);
 
-            FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
-
-            this.PnlFormLoader.Controls.Clear();
-            Frm_V_Filter frmPosisjon_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
-            frmPosisjon_vrb.Show();
-
+            Frm_V_Filter frmFilter_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            ÅpneFormFraMenyknapp(btnFilter, frmFilter_vrb);
         }
 
         public void SetTheme()
@@ -94,8 +120,21 @@ namespace GMAP_Demo
 
             PnlFormLoader.BackColor = ThemeDesign.colorTertiaryBackground;
         }
+   
+        private void BtnPosisjon_Click(object sender, EventArgs e)
+        {
+            Frm_V_Posisjon frmPosisjon_vrb = new Frm_V_Posisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            ÅpneFormFraMenyknapp((Button)sender,  frmPosisjon_vrb);
 
-        private void ÅpneFormFraMenyknapp(Button sender, EventArgs e, Form target)
+        }
+
+        private void BtnFilter_Click(object sender, EventArgs e)
+        {
+            Frm_V_Filter frm_V_Filter_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            ÅpneFormFraMenyknapp((Button)sender, frm_V_Filter_vrb);
+        }
+
+        private void ÅpneFormFraMenyknapp(Button sender, Form target)
         {
             if (pnlNav.Top != sender.Top)
             {
@@ -113,77 +152,15 @@ namespace GMAP_Demo
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void FlyttNavigasjonsPanel(int høyde, int top)
         {
+            //Henter høyde til knappen og hvor toppen er plassert 
+            pnlNav.Height = høyde;
+            pnlNav.Top = top;
 
-            //midtstille brukernavn iforhold til "bilde"
-            lblUserName.TextAlign = ContentAlignment.MiddleCenter;
-
-            //Startpoisjon og setup av kart 
-            Kart.PunktFraForrige = FilBehandeling.HentStartPosisjon(Globalekonstanter.filStartPosisjon);
-            Kart.Setup(Kart.MuligKart.Visning, Kart.PunktFraForrige);
-
-            // KategoriListen på kartet 
-            GlobaleLister.InitializekategoriListeVises();
-            GlobaleLister.InitializekategoriListeSkjult();
-
-            // TagListene på kartet
-            GlobaleLister.InitializeTag_RessursListeVises();
-            GlobaleLister.InitializeTag_RessursListeSkjult();
-
-            //legget til alle ressurser i lister 
-            FellesMetoder.OppdaterListe_ressurs();
-            FellesMetoder.OppdaterListe_området();
-
-            //tegner alt på karet
-            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
-
-            Size = Globalekonstanter.frmWithMenuMinimumSize;
-            MinimumSize = Globalekonstanter.frmWithMenuMinimumSize;
+            //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
+            pnlNav.Left = btnFilter.Left;
         }
-
-        private void BtnPosisjon_Click(object sender, EventArgs e)
-        {
-            Frm_V_Posisjon frmPosisjon_vrb = new Frm_V_Posisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, e, frmPosisjon_vrb);
-            //if (pnlNav.Top != btnPosisjon.Top)
-            //{
-            //    AlleKnapperTilStandarfargeV();
-            //    btnPosisjon.BackColor = Globalekonstanter.knapp_trykket;
-
-            //    FlyttNavigasjonsPanel(btnPosisjon.Height, btnPosisjon.Top);
-
-            //    this.PnlFormLoader.Controls.Clear();
-
-            //    frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
-            //    this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
-            //    frmPosisjon_vrb.Show();
-            //}
-        }
-
-        private void BtnFilter_Click(object sender, EventArgs e)
-        {
-            Frm_V_Filter frm_V_Filter_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, e, frm_V_Filter_vrb);
-            //ÅpneFilterForm();
-        }
-        //private void ÅpneFilterForm()
-        //{
-        //    if (pnlNav.Top != btnFilter.Top)
-        //    {
-        //        AlleKnapperTilStandarfargeV();
-        //        btnFilter.BackColor = Globalekonstanter.knapp_trykket;
-
-        //        FlyttNavigasjonsPanel(btnFilter.Height, btnFilter.Top);
-
-        //        this.PnlFormLoader.Controls.Clear();
-        //        Frm_V_Filter frmPosisjon_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-        //        frmPosisjon_vrb.FormBorderStyle = FormBorderStyle.None;
-        //        this.PnlFormLoader.Controls.Add(frmPosisjon_vrb);
-        //        frmPosisjon_vrb.Show();
-        //    }
-
-        //}
 
         private void BtnOppdater_Click(object sender, EventArgs e)
         {
@@ -278,24 +255,14 @@ namespace GMAP_Demo
                 Environment.Exit(0);
             }
         }
-
-        public void FlyttNavigasjonsPanel(int høyde, int top)
-        {
-            //Henter høyde til knappen og hvor toppen er plassert 
-            pnlNav.Height = høyde;
-            pnlNav.Top = top;
-
-            //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
-            pnlNav.Left = btnFilter.Left;
-        }
-
+ 
         private void Map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
             // Åpner filter hvis du er en annen plass 
             if (pnlNav.Top != btnFilter.Top)
             {
                 Frm_V_Filter frm_V_Filter_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                ÅpneFormFraMenyknapp(btnPosisjon, e, frm_V_Filter_vrb);
+                ÅpneFormFraMenyknapp(btnPosisjon,  frm_V_Filter_vrb);
             }
 
             if (Frm_V_Filter.instance != null)
@@ -311,7 +278,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnFilter.Top)
             {
                 Frm_V_Filter frm_V_Filter_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                ÅpneFormFraMenyknapp(btnFilter, e, frm_V_Filter_vrb);
+                ÅpneFormFraMenyknapp(btnFilter,  frm_V_Filter_vrb);
             }
 
             if (Frm_V_Filter.instance != null)
@@ -337,7 +304,6 @@ namespace GMAP_Demo
                 }
             }
         }
-
 
         private void map_OnMapZoomChanged()
         {
