@@ -77,7 +77,7 @@ namespace GMAP_Demo
                     Tag_Område Tag_områdeToAdd = new Tag_Område
                     {
                         Tag = Tag,
-                        Løpenummer_til_område = løpenummer_Til_område
+                        IdOmråde = løpenummer_Til_område
                     };
 
                     connection.Execute("[dbo].[PROCEDUREinsertIntoTag_område] @Løpenummer_til_område,@Tag", Tag_områdeToAdd);

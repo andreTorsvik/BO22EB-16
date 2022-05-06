@@ -11,20 +11,20 @@ namespace GMAP_Demo
     internal class DBComTag_Ressurs
     {
         
-        public static List<Tag_Ressurs> ListAllTag_RessursFromDb()
+        public static List<Tag_Objekt> ListAllTag_RessursFromDb()
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Tag_Ressurs>("[dbo].[PROCEDUREListAllTag_RessursFromDb]").ToList();
+                    var output = connection.Query<Tag_Objekt>("[dbo].[PROCEDUREListAllTag_RessursFromDb]").ToList();
                     return output;
                 }
             }
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Tag_Ressurs> list = new List<Tag_Ressurs>();
+                List<Tag_Objekt> list = new List<Tag_Objekt>();
                 return list;
             }
         }
@@ -35,10 +35,10 @@ namespace GMAP_Demo
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Tag_Ressurs Tag_RessursToAdd = new Tag_Ressurs
+                    Tag_Objekt Tag_RessursToAdd = new Tag_Objekt
                     {
                         Tag = Tag,
-                        Løpenummer_til_ressurs = løpenummer_Til_ressurs
+                        IdObjekt = løpenummer_Til_ressurs
                     };
 
                     connection.Execute("[dbo].[PROCEDUREinsertIntoTag_Ressurs] @Løpenummer_til_ressurs,@Tag", Tag_RessursToAdd);
@@ -50,20 +50,20 @@ namespace GMAP_Demo
             }
         }
 
-        public static List<Tag_Ressurs> ListTag_ressursFromDb(int løpenummer)
+        public static List<Tag_Objekt> ListTag_ressursFromDb(int løpenummer)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Tag_Ressurs>($"SELECT * FROM[dbo].[Tag_ressurs] WHERE(Løpenummer_til_ressurs = '{løpenummer}')").ToList();
+                    var output = connection.Query<Tag_Objekt>($"SELECT * FROM[dbo].[Tag_ressurs] WHERE(Løpenummer_til_ressurs = '{løpenummer}')").ToList();
                     return output;
                 }
             }
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Tag_Ressurs> list = new List<Tag_Ressurs>();
+                List<Tag_Objekt> list = new List<Tag_Objekt>();
                 return list;
             }
         }
