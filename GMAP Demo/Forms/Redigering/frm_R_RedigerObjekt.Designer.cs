@@ -169,7 +169,7 @@
             this.txtNyTag.Location = new System.Drawing.Point(3, 226);
             this.txtNyTag.Margin = new System.Windows.Forms.Padding(2);
             this.txtNyTag.Name = "txtNyTag";
-            this.txtNyTag.Size = new System.Drawing.Size(121, 22);
+            this.txtNyTag.Size = new System.Drawing.Size(92, 20);
             this.txtNyTag.TabIndex = 79;
             // 
             // lblVelgTags

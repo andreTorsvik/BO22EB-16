@@ -74,8 +74,6 @@
             // 
             // btnLeggTilObjekt
             // 
-            this.btnLeggTilObjekt.Location = new System.Drawing.Point(20, 722);
-            this.btnLeggTilObjekt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLeggTilObjekt.Location = new System.Drawing.Point(15, 587);
             this.btnLeggTilObjekt.Margin = new System.Windows.Forms.Padding(2);
             this.btnLeggTilObjekt.Name = "btnLeggTilObjekt";
