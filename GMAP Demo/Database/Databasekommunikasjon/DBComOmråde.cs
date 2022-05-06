@@ -56,7 +56,7 @@ namespace GMAP_Demo
                 {
                     Område DeleteOmråde = new Område
                     {
-                        Løpenummer_område = løpeNummer
+                        Id_område = løpeNummer
                     };
 
                     connection.Execute("[dbo].[PROCEDURERemoveOmråde] @Løpenummer_område", (DeleteOmråde));
@@ -76,7 +76,7 @@ namespace GMAP_Demo
                 {
                     Område OmrådeToAdd = new Område
                     {
-                        Løpenummer_område = løpenummer,
+                        Id_område = løpenummer,
                         Navn = navn,
                         //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
                         Opprettet_av_bruker = opprettet_av_bruker,
@@ -120,7 +120,7 @@ namespace GMAP_Demo
                 {
                     Område UpdateOmråde = new Område
                     {
-                        Løpenummer_område = løpenummer,
+                        Id_område = løpenummer,
                         Navn = navn,
                         //Kategori = kategori,
                         //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure

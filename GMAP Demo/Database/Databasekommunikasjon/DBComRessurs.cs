@@ -10,7 +10,7 @@ namespace GMAP_Demo
 {
     internal class DBComRessurs
     {
-        public static List<Ressurs> ListAllRessursFromDb(int SikkerhetsklareringBruker)
+        public static List<Objekt> ListAllRessursFromDb(int SikkerhetsklareringBruker)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace GMAP_Demo
                     //};
 
                     //var output = connection.Query<Ressurs>("[dbo].[PROCEDUREListAllRessursFromDb] @BrukersSikkerhetsklarering", Sikkerhetsklarering).ToList();
-                    var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE (Sikkerhetsklarering <= '{SikkerhetsklareringBruker}')").ToList();
+                    var output = connection.Query<Objekt>($"SELECT * FROM[dbo].[Ressurs] WHERE (Sikkerhetsklarering <= '{SikkerhetsklareringBruker}')").ToList();
 
                     return output;
                 }
@@ -30,43 +30,43 @@ namespace GMAP_Demo
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Ressurs> list = new List<Ressurs>();
+                List<Objekt> list = new List<Objekt>();
                 return list;
             }
         }
         //Where Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}'
-        public static Ressurs RessursFromDb(int løpenummer)
+        public static Objekt RessursFromDb(int løpenummer)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}' AND Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").FirstOrDefault();
+                    var output = connection.Query<Objekt>($"SELECT * FROM[dbo].[Ressurs] WHERE(Løpenummer_ressurs = '{løpenummer}' AND Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").FirstOrDefault();
                     return output;
                 }
             }
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                Ressurs ressurs = new Ressurs();
+                Objekt ressurs = new Objekt();
                 return ressurs;
             }
         }
 
-        public static List<Ressurs> ListRessursBasedonKategori(string Kategori)
+        public static List<Objekt> ListRessursBasedonKategori(string Kategori)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Ressurs>($"SELECT * FROM[dbo].[Ressurs] WHERE(Kategori = '{Kategori}')").ToList();
+                    var output = connection.Query<Objekt>($"SELECT * FROM[dbo].[Ressurs] WHERE(Kategori = '{Kategori}')").ToList();
                     return output;
                 }
             }
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Ressurs> list = new List<Ressurs>();
+                List<Objekt> list = new List<Objekt>();
                 return list;
             }
         }
@@ -77,9 +77,9 @@ namespace GMAP_Demo
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Ressurs DeleteRessurs = new Ressurs
+                    Objekt DeleteRessurs = new Objekt
                     {
-                        Løpenummer_ressurs = løpeNummer
+                        Id_ressurs = løpeNummer
                     };
 
                     connection.Execute("[dbo].[PROCEDURERemoveRessurs] @Løpenummer_ressurs", (DeleteRessurs));
@@ -97,9 +97,9 @@ namespace GMAP_Demo
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Ressurs ressursToAdd = new Ressurs
+                    Objekt ressursToAdd = new Objekt
                     {
-                        Løpenummer_ressurs = Løpenummer_ressurs,
+                        Id_ressurs = Løpenummer_ressurs,
                         Navn = navn,
                         Kategori = kategori,
                         //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure
@@ -143,9 +143,9 @@ namespace GMAP_Demo
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    Ressurs UpdateRessurs = new Ressurs
+                    Objekt UpdateRessurs = new Objekt
                     {
-                        Løpenummer_ressurs = Løpenummer,
+                        Id_ressurs = Løpenummer,
                         Navn = navn,
                         Kategori = kategori,
                         //Dato_opprettet = "CURRENT_TIMESTAMP", ordnes av Procedure

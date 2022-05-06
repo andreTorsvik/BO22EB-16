@@ -76,7 +76,7 @@ namespace GMAP_Demo
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    connection.Query<Ressurs>($"delete FROM [dbo].[Tag_ressurs] WHERE(Løpenummer_til_ressurs = '{løpenummer}')");
+                    connection.Query<Objekt>($"delete FROM [dbo].[Tag_ressurs] WHERE(Løpenummer_til_ressurs = '{løpenummer}')");
                 }
             }
             catch (Exception exeption)

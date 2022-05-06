@@ -69,7 +69,7 @@ namespace GMAP_Demo
             }
         } 
 
-        public static void OppdaterKart(MuligKart kart, List<Ressurs> Lressurs, List<Område> Lområde)
+        public static void OppdaterKart(MuligKart kart, List<Objekt> Lressurs, List<Område> Lområde)
         {           
             if(kart == MuligKart.Visning)
             {
@@ -111,7 +111,7 @@ namespace GMAP_Demo
             reff(kart);
         }
 
-        public static void LeggTilRessurs(List<Ressurs> Rlist, MuligKart kart)
+        public static void LeggTilRessurs(List<Objekt> Rlist, MuligKart kart)
         {
             int tag = 0; // Index i listen 
             GMapMarker marker;
