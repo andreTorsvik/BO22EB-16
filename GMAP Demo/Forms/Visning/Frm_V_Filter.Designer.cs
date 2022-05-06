@@ -229,7 +229,7 @@
             this.lbKategorierSkjult.Sorted = true;
             this.lbKategorierSkjult.TabIndex = 25;
             this.ttTimerMåling.SetToolTip(this.lbKategorierSkjult, "Dobbelklikk for å flytte over");
-            this.lbKategorierSkjult.DoubleClick += new System.EventHandler(this.lbKategorierSkjult_DoubleClick);
+            this.lbKategorierSkjult.DoubleClick += new System.EventHandler(this.LbKategorierSkjult_DoubleClick);
             // 
             // lblKategorierSkjult
             // 
@@ -263,7 +263,7 @@
             this.lbKategorierVises.Sorted = true;
             this.lbKategorierVises.TabIndex = 27;
             this.ttTimerMåling.SetToolTip(this.lbKategorierVises, "Dobbelklikk for å flytte over");
-            this.lbKategorierVises.DoubleClick += new System.EventHandler(this.lbKategorierVises_DoubleClick);
+            this.lbKategorierVises.DoubleClick += new System.EventHandler(this.LbKategorierVises_DoubleClick);
             // 
             // lbTagsSkjult
             // 
@@ -275,7 +275,7 @@
             this.lbTagsSkjult.Sorted = true;
             this.lbTagsSkjult.TabIndex = 25;
             this.ttTimerMåling.SetToolTip(this.lbTagsSkjult, "Dobbelklikk for å flytte over");
-            this.lbTagsSkjult.DoubleClick += new System.EventHandler(this.lbTagsSkjult_DoubleClick);
+            this.lbTagsSkjult.DoubleClick += new System.EventHandler(this.LbTagsSkjult_DoubleClick);
             // 
             // lblTagsSkjult
             // 
@@ -298,7 +298,7 @@
             this.lbTagsVises.Sorted = true;
             this.lbTagsVises.TabIndex = 27;
             this.ttTimerMåling.SetToolTip(this.lbTagsVises, "Dobbelklikk for å flytte over");
-            this.lbTagsVises.DoubleClick += new System.EventHandler(this.lbTagsVises_DoubleClick);
+            this.lbTagsVises.DoubleClick += new System.EventHandler(this.LbTagsVises_DoubleClick);
             // 
             // lblTagsVises
             // 
@@ -323,7 +323,7 @@
             this.cbViseOmråde.Text = "Skjule område";
             this.ttTimerMåling.SetToolTip(this.cbViseOmråde, "Skjuler alle områder");
             this.cbViseOmråde.UseVisualStyleBackColor = true;
-            this.cbViseOmråde.CheckedChanged += new System.EventHandler(this.cbViseOmråde_CheckedChanged);
+            this.cbViseOmråde.CheckedChanged += new System.EventHandler(this.CbViseOmråde_CheckedChanged);
             // 
             // gbFilter
             // 
@@ -363,7 +363,7 @@
             this.cbAND.Text = "AND";
             this.ttTimerMåling.SetToolTip(this.cbAND, "Alle tag(ene) må stemme for å visses\r\npå kartet \r\n");
             this.cbAND.UseVisualStyleBackColor = true;
-            this.cbAND.CheckedChanged += new System.EventHandler(this.cbAND_CheckedChanged);
+            this.cbAND.CheckedChanged += new System.EventHandler(this.CbAND_CheckedChanged);
             // 
             // cbOR
             // 
@@ -378,7 +378,7 @@
             this.cbOR.Text = "OR";
             this.ttTimerMåling.SetToolTip(this.cbOR, "Kun en av tag(ene) trenger å stemme for å \r\nvisses på kartet");
             this.cbOR.UseVisualStyleBackColor = true;
-            this.cbOR.CheckedChanged += new System.EventHandler(this.cbOR_CheckedChanged);
+            this.cbOR.CheckedChanged += new System.EventHandler(this.CbOR_CheckedChanged);
             // 
             // btnTagFjernAlle
             // 
@@ -391,7 +391,7 @@
             this.btnTagFjernAlle.TabIndex = 34;
             this.ttTimerMåling.SetToolTip(this.btnTagFjernAlle, "Fjern alle");
             this.btnTagFjernAlle.UseVisualStyleBackColor = true;
-            this.btnTagFjernAlle.Click += new System.EventHandler(this.btnTagFjernAlle_Click);
+            this.btnTagFjernAlle.Click += new System.EventHandler(this.BtnTagFjernAlle_Click);
             // 
             // btnKategoriFjernAlle
             // 
@@ -404,7 +404,7 @@
             this.btnKategoriFjernAlle.TabIndex = 32;
             this.ttTimerMåling.SetToolTip(this.btnKategoriFjernAlle, "Fjern alle");
             this.btnKategoriFjernAlle.UseVisualStyleBackColor = true;
-            this.btnKategoriFjernAlle.Click += new System.EventHandler(this.btnKategoriFjernAlle_Click);
+            this.btnKategoriFjernAlle.Click += new System.EventHandler(this.BtnKategoriFjernAlle_Click);
             // 
             // btnTagLeggTilAlle
             // 
@@ -417,7 +417,7 @@
             this.btnTagLeggTilAlle.TabIndex = 33;
             this.ttTimerMåling.SetToolTip(this.btnTagLeggTilAlle, "Legg til alle");
             this.btnTagLeggTilAlle.UseVisualStyleBackColor = true;
-            this.btnTagLeggTilAlle.Click += new System.EventHandler(this.btnTagLeggTilAlle_Click);
+            this.btnTagLeggTilAlle.Click += new System.EventHandler(this.BtnTagLeggTilAlle_Click);
             // 
             // btnKategoriLeggTilAlle
             // 
@@ -430,7 +430,7 @@
             this.btnKategoriLeggTilAlle.TabIndex = 31;
             this.ttTimerMåling.SetToolTip(this.btnKategoriLeggTilAlle, "Legg til alle ");
             this.btnKategoriLeggTilAlle.UseVisualStyleBackColor = true;
-            this.btnKategoriLeggTilAlle.Click += new System.EventHandler(this.btnKategoriLeggTilAlle_Click);
+            this.btnKategoriLeggTilAlle.Click += new System.EventHandler(this.BtnKategoriLeggTilAlle_Click);
             // 
             // lblTag
             // 
@@ -559,7 +559,7 @@
             this.btnTimerMåling.Text = "Simulering av målinger inaktiv";
             this.ttTimerMåling.SetToolTip(this.btnTimerMåling, resources.GetString("btnTimerMåling.ToolTip"));
             this.btnTimerMåling.UseVisualStyleBackColor = true;
-            this.btnTimerMåling.Click += new System.EventHandler(this.btnTimerMåling_Click);
+            this.btnTimerMåling.Click += new System.EventHandler(this.BtnTimerMåling_Click);
             // 
             // btnNesteRessurs
             // 
@@ -574,7 +574,7 @@
             this.btnNesteRessurs.Text = "Til Neste";
             this.btnNesteRessurs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNesteRessurs.UseVisualStyleBackColor = true;
-            this.btnNesteRessurs.Click += new System.EventHandler(this.btnNesteRessurs_Click);
+            this.btnNesteRessurs.Click += new System.EventHandler(this.BtnNesteRessurs_Click);
             // 
             // btnForrigeRessurs
             // 
@@ -589,7 +589,7 @@
             this.btnForrigeRessurs.Text = "Til Forrige";
             this.btnForrigeRessurs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnForrigeRessurs.UseVisualStyleBackColor = true;
-            this.btnForrigeRessurs.Click += new System.EventHandler(this.btnForrigeRessurs_Click);
+            this.btnForrigeRessurs.Click += new System.EventHandler(this.BtnForrigeRessurs_Click);
             // 
             // gbObjekt
             // 
@@ -655,7 +655,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Frm_V_Filter";
             this.Text = "frmFilter";
-            this.Load += new System.EventHandler(this.frmFilter_Load);
+            this.Load += new System.EventHandler(this.FrmFilter_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
             this.gbInfo.ResumeLayout(false);
