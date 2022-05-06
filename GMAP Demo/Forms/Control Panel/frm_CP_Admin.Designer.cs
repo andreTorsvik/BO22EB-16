@@ -55,7 +55,7 @@
             // lbVenterPåGodkjenning
             // 
             this.lbVenterPåGodkjenning.FormattingEnabled = true;
-            this.lbVenterPåGodkjenning.Location = new System.Drawing.Point(59, 74);
+            this.lbVenterPåGodkjenning.Location = new System.Drawing.Point(11, 60);
             this.lbVenterPåGodkjenning.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lbVenterPåGodkjenning.Name = "lbVenterPåGodkjenning";
             this.lbVenterPåGodkjenning.Size = new System.Drawing.Size(373, 160);
@@ -64,7 +64,7 @@
             // 
             // btnGodta
             // 
-            this.btnGodta.Location = new System.Drawing.Point(439, 74);
+            this.btnGodta.Location = new System.Drawing.Point(388, 60);
             this.btnGodta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnGodta.Name = "btnGodta";
             this.btnGodta.Size = new System.Drawing.Size(107, 23);
@@ -75,7 +75,7 @@
             // 
             // btnAvslå
             // 
-            this.btnAvslå.Location = new System.Drawing.Point(439, 103);
+            this.btnAvslå.Location = new System.Drawing.Point(388, 89);
             this.btnAvslå.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAvslå.Name = "btnAvslå";
             this.btnAvslå.Size = new System.Drawing.Size(107, 23);
@@ -86,7 +86,7 @@
             // 
             // btnNedgrader
             // 
-            this.btnNedgrader.Location = new System.Drawing.Point(439, 289);
+            this.btnNedgrader.Location = new System.Drawing.Point(388, 275);
             this.btnNedgrader.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnNedgrader.Name = "btnNedgrader";
             this.btnNedgrader.Size = new System.Drawing.Size(107, 23);
@@ -97,7 +97,7 @@
             // 
             // btnOppgrader
             // 
-            this.btnOppgrader.Location = new System.Drawing.Point(439, 261);
+            this.btnOppgrader.Location = new System.Drawing.Point(388, 247);
             this.btnOppgrader.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnOppgrader.Name = "btnOppgrader";
             this.btnOppgrader.Size = new System.Drawing.Size(107, 23);
@@ -109,7 +109,7 @@
             // lbListeOverbrukere
             // 
             this.lbListeOverbrukere.FormattingEnabled = true;
-            this.lbListeOverbrukere.Location = new System.Drawing.Point(59, 261);
+            this.lbListeOverbrukere.Location = new System.Drawing.Point(11, 247);
             this.lbListeOverbrukere.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lbListeOverbrukere.Name = "lbListeOverbrukere";
             this.lbListeOverbrukere.Size = new System.Drawing.Size(373, 160);
@@ -121,7 +121,7 @@
             this.lblVenterGodkjenning.AutoSize = true;
             this.lblVenterGodkjenning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblVenterGodkjenning.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblVenterGodkjenning.Location = new System.Drawing.Point(56, 58);
+            this.lblVenterGodkjenning.Location = new System.Drawing.Point(11, 44);
             this.lblVenterGodkjenning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVenterGodkjenning.Name = "lblVenterGodkjenning";
             this.lblVenterGodkjenning.Size = new System.Drawing.Size(116, 13);
@@ -133,7 +133,7 @@
             this.lblListeOverBrukere.AutoSize = true;
             this.lblListeOverBrukere.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblListeOverBrukere.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblListeOverBrukere.Location = new System.Drawing.Point(56, 246);
+            this.lblListeOverBrukere.Location = new System.Drawing.Point(11, 232);
             this.lblListeOverBrukere.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblListeOverBrukere.Name = "lblListeOverBrukere";
             this.lblListeOverBrukere.Size = new System.Drawing.Size(204, 13);
@@ -142,7 +142,7 @@
             // 
             // btnFjern
             // 
-            this.btnFjern.Location = new System.Drawing.Point(439, 396);
+            this.btnFjern.Location = new System.Drawing.Point(388, 382);
             this.btnFjern.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnFjern.Name = "btnFjern";
             this.btnFjern.Size = new System.Drawing.Size(107, 23);
