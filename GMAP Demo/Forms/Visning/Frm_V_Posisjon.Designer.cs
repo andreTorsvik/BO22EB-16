@@ -335,7 +335,7 @@
             this.gbKoordinater.Size = new System.Drawing.Size(236, 113);
             this.gbKoordinater.TabIndex = 24;
             this.gbKoordinater.TabStop = false;
-            this.gbKoordinater.Text = "koordinater";
+            this.gbKoordinater.Text = "Koordinater";
             // 
             // lblBasertPå
             // 
