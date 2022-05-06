@@ -52,7 +52,7 @@
             // 
             this.lbThemes.FormattingEnabled = true;
             this.lbThemes.Location = new System.Drawing.Point(16, 57);
-            this.lbThemes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbThemes.Margin = new System.Windows.Forms.Padding(2);
             this.lbThemes.Name = "lbThemes";
             this.lbThemes.Size = new System.Drawing.Size(253, 56);
             this.lbThemes.TabIndex = 5;
@@ -60,9 +60,9 @@
             // btnSelectTheme
             // 
             this.btnSelectTheme.Location = new System.Drawing.Point(16, 116);
-            this.btnSelectTheme.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelectTheme.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectTheme.Name = "btnSelectTheme";
-            this.btnSelectTheme.Size = new System.Drawing.Size(82, 29);
+            this.btnSelectTheme.Size = new System.Drawing.Size(107, 23);
             this.btnSelectTheme.TabIndex = 6;
             this.btnSelectTheme.Text = "Endre Utseende";
             this.btnSelectTheme.UseVisualStyleBackColor = true;

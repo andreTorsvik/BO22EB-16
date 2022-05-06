@@ -79,7 +79,7 @@
             this.gbFjernKategori.Controls.Add(this.btnFjern);
             this.gbFjernKategori.Controls.Add(this.tbValgtKategori);
             this.gbFjernKategori.Controls.Add(this.lbTilgjengligKategorier);
-            this.gbFjernKategori.ForeColor = System.Drawing.SystemColors.Control;
+            this.gbFjernKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbFjernKategori.Location = new System.Drawing.Point(3, 53);
             this.gbFjernKategori.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbFjernKategori.Name = "gbFjernKategori";
@@ -92,6 +92,7 @@
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
+            this.lblInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblInfo.Location = new System.Drawing.Point(6, 14);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInfo.Name = "lblInfo";
@@ -103,6 +104,7 @@
             // lblValgtKategori
             // 
             this.lblValgtKategori.AutoSize = true;
+            this.lblValgtKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblValgtKategori.Location = new System.Drawing.Point(241, 69);
             this.lblValgtKategori.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValgtKategori.Name = "lblValgtKategori";
@@ -113,6 +115,7 @@
             // lblSlettbareKategorier
             // 
             this.lblSlettbareKategorier.AutoSize = true;
+            this.lblSlettbareKategorier.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblSlettbareKategorier.Location = new System.Drawing.Point(10, 69);
             this.lblSlettbareKategorier.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSlettbareKategorier.Name = "lblSlettbareKategorier";
@@ -126,7 +129,7 @@
             this.btnFjern.Location = new System.Drawing.Point(243, 107);
             this.btnFjern.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnFjern.Name = "btnFjern";
-            this.btnFjern.Size = new System.Drawing.Size(70, 25);
+            this.btnFjern.Size = new System.Drawing.Size(107, 23);
             this.btnFjern.TabIndex = 7;
             this.btnFjern.Text = "Fjern";
             this.btnFjern.UseVisualStyleBackColor = true;

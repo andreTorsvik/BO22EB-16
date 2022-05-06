@@ -69,7 +69,7 @@
             // 
             this.btnLVelgBildeFraFiler.ForeColor = System.Drawing.Color.Black;
             this.btnLVelgBildeFraFiler.Location = new System.Drawing.Point(4, 32);
-            this.btnLVelgBildeFraFiler.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLVelgBildeFraFiler.Margin = new System.Windows.Forms.Padding(2);
             this.btnLVelgBildeFraFiler.Name = "btnLVelgBildeFraFiler";
             this.btnLVelgBildeFraFiler.Size = new System.Drawing.Size(166, 44);
             this.btnLVelgBildeFraFiler.TabIndex = 63;
@@ -81,7 +81,7 @@
             // 
             this.lbTilgjengligKategorier.FormattingEnabled = true;
             this.lbTilgjengligKategorier.Location = new System.Drawing.Point(5, 32);
-            this.lbTilgjengligKategorier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbTilgjengligKategorier.Margin = new System.Windows.Forms.Padding(2);
             this.lbTilgjengligKategorier.Name = "lbTilgjengligKategorier";
             this.lbTilgjengligKategorier.Size = new System.Drawing.Size(166, 134);
             this.lbTilgjengligKategorier.Sorted = true;
@@ -93,7 +93,7 @@
             // 
             this.tbValgtKategori.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbValgtKategori.Location = new System.Drawing.Point(177, 32);
-            this.tbValgtKategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbValgtKategori.Margin = new System.Windows.Forms.Padding(2);
             this.tbValgtKategori.Name = "tbValgtKategori";
             this.tbValgtKategori.ReadOnly = true;
             this.tbValgtKategori.Size = new System.Drawing.Size(104, 20);
@@ -102,48 +102,48 @@
             // lblTilgjengeligeKategorier
             // 
             this.lblTilgjengeligeKategorier.AutoSize = true;
-            this.lblTilgjengeligeKategorier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTilgjengeligeKategorier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblTilgjengeligeKategorier.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblTilgjengeligeKategorier.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTilgjengeligeKategorier.Location = new System.Drawing.Point(5, 15);
             this.lblTilgjengeligeKategorier.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTilgjengeligeKategorier.Name = "lblTilgjengeligeKategorier";
-            this.lblTilgjengeligeKategorier.Size = new System.Drawing.Size(162, 15);
+            this.lblTilgjengeligeKategorier.Size = new System.Drawing.Size(117, 13);
             this.lblTilgjengeligeKategorier.TabIndex = 66;
             this.lblTilgjengeligeKategorier.Text = "Tilgjengelige Kategorier";
             // 
             // lblValgtKategori
             // 
             this.lblValgtKategori.AutoSize = true;
-            this.lblValgtKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValgtKategori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblValgtKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblValgtKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblValgtKategori.Location = new System.Drawing.Point(174, 15);
             this.lblValgtKategori.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValgtKategori.Name = "lblValgtKategori";
-            this.lblValgtKategori.Size = new System.Drawing.Size(97, 15);
+            this.lblValgtKategori.Size = new System.Drawing.Size(73, 13);
             this.lblValgtKategori.TabIndex = 67;
             this.lblValgtKategori.Text = "Valgt Kategori";
             // 
             // lblValgtBilde
             // 
             this.lblValgtBilde.AutoSize = true;
-            this.lblValgtBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValgtBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblValgtBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblValgtBilde.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblValgtBilde.Location = new System.Drawing.Point(174, 15);
             this.lblValgtBilde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValgtBilde.Name = "lblValgtBilde";
-            this.lblValgtBilde.Size = new System.Drawing.Size(76, 15);
+            this.lblValgtBilde.Size = new System.Drawing.Size(57, 13);
             this.lblValgtBilde.TabIndex = 70;
             this.lblValgtBilde.Text = "Valgt Bilde";
             // 
             // lblVelgBilde
             // 
             this.lblVelgBilde.AutoSize = true;
-            this.lblVelgBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVelgBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.lblVelgBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblVelgBilde.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblVelgBilde.Location = new System.Drawing.Point(5, 15);
             this.lblVelgBilde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVelgBilde.Name = "lblVelgBilde";
-            this.lblVelgBilde.Size = new System.Drawing.Size(72, 15);
+            this.lblVelgBilde.Size = new System.Drawing.Size(54, 13);
             this.lblVelgBilde.TabIndex = 69;
             this.lblVelgBilde.Text = "Velg Bilde";
             // 
@@ -151,7 +151,7 @@
             // 
             this.btnLeggTilIDb.ForeColor = System.Drawing.Color.Black;
             this.btnLeggTilIDb.Location = new System.Drawing.Point(5, 15);
-            this.btnLeggTilIDb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLeggTilIDb.Margin = new System.Windows.Forms.Padding(2);
             this.btnLeggTilIDb.Name = "btnLeggTilIDb";
             this.btnLeggTilIDb.Size = new System.Drawing.Size(166, 44);
             this.btnLeggTilIDb.TabIndex = 71;
@@ -191,11 +191,12 @@
             // 
             this.gblLastOppTilDB.Controls.Add(this.lblLastOppTilDB);
             this.gblLastOppTilDB.Controls.Add(this.btnLeggTilIDb);
-            this.gblLastOppTilDB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.gblLastOppTilDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gblLastOppTilDB.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gblLastOppTilDB.Location = new System.Drawing.Point(7, 416);
-            this.gblLastOppTilDB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gblLastOppTilDB.Margin = new System.Windows.Forms.Padding(2);
             this.gblLastOppTilDB.Name = "gblLastOppTilDB";
-            this.gblLastOppTilDB.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gblLastOppTilDB.Padding = new System.Windows.Forms.Padding(2);
             this.gblLastOppTilDB.Size = new System.Drawing.Size(284, 69);
             this.gblLastOppTilDB.TabIndex = 73;
             this.gblLastOppTilDB.TabStop = false;
@@ -207,11 +208,12 @@
             this.gbBilde.Controls.Add(this.btnLVelgBildeFraFiler);
             this.gbBilde.Controls.Add(this.pbValgtBilde);
             this.gbBilde.Controls.Add(this.lblVelgBilde);
-            this.gbBilde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.gbBilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gbBilde.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbBilde.Location = new System.Drawing.Point(7, 258);
-            this.gbBilde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbBilde.Margin = new System.Windows.Forms.Padding(2);
             this.gbBilde.Name = "gbBilde";
-            this.gbBilde.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbBilde.Padding = new System.Windows.Forms.Padding(2);
             this.gbBilde.Size = new System.Drawing.Size(284, 154);
             this.gbBilde.TabIndex = 74;
             this.gbBilde.TabStop = false;
@@ -225,11 +227,12 @@
             this.gbKategori.Controls.Add(this.tbValgtKategori);
             this.gbKategori.Controls.Add(this.pbValgtKategori);
             this.gbKategori.Controls.Add(this.lblValgtKategori);
-            this.gbKategori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.gbKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gbKategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbKategori.Location = new System.Drawing.Point(7, 39);
-            this.gbKategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbKategori.Margin = new System.Windows.Forms.Padding(2);
             this.gbKategori.Name = "gbKategori";
-            this.gbKategori.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbKategori.Padding = new System.Windows.Forms.Padding(2);
             this.gbKategori.Size = new System.Drawing.Size(284, 216);
             this.gbKategori.TabIndex = 74;
             this.gbKategori.TabStop = false;
@@ -239,7 +242,7 @@
             // 
             this.btnFjernBilde.ForeColor = System.Drawing.Color.Black;
             this.btnFjernBilde.Location = new System.Drawing.Point(177, 167);
-            this.btnFjernBilde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFjernBilde.Margin = new System.Windows.Forms.Padding(2);
             this.btnFjernBilde.Name = "btnFjernBilde";
             this.btnFjernBilde.Size = new System.Drawing.Size(98, 44);
             this.btnFjernBilde.TabIndex = 63;
@@ -259,7 +262,7 @@
             this.Controls.Add(this.gblLastOppTilDB);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Frm_R_EndreObjektsymbol";
             this.Text = "frm_S_LeggTilBilde";
             this.Load += new System.EventHandler(this.Frm_S_LeggTilBilde_Load);

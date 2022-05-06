@@ -85,7 +85,7 @@
             // 
             this.lblLand.AutoSize = true;
             this.lblLand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblLand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
+            this.lblLand.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblLand.Location = new System.Drawing.Point(4, 15);
             this.lblLand.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLand.Name = "lblLand";
@@ -97,7 +97,7 @@
             // 
             this.lblByKommune.AutoSize = true;
             this.lblByKommune.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblByKommune.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
+            this.lblByKommune.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblByKommune.Location = new System.Drawing.Point(4, 52);
             this.lblByKommune.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblByKommune.Name = "lblByKommune";
@@ -117,7 +117,7 @@
             // 
             this.lblAdresse.AutoSize = true;
             this.lblAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblAdresse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
+            this.lblAdresse.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblAdresse.Location = new System.Drawing.Point(4, 89);
             this.lblAdresse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAdresse.Name = "lblAdresse";
@@ -172,7 +172,7 @@
             // 
             this.lblFra.AutoSize = true;
             this.lblFra.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblFra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
+            this.lblFra.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblFra.Location = new System.Drawing.Point(2, 76);
             this.lblFra.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFra.Name = "lblFra";
@@ -184,7 +184,7 @@
             // 
             this.lblTil.AutoSize = true;
             this.lblTil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblTil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
+            this.lblTil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTil.Location = new System.Drawing.Point(122, 76);
             this.lblTil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTil.Name = "lblTil";
@@ -232,7 +232,7 @@
             // 
             this.lblLong.AutoSize = true;
             this.lblLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblLong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
+            this.lblLong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblLong.Location = new System.Drawing.Point(4, 71);
             this.lblLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLong.Name = "lblLong";
@@ -255,7 +255,7 @@
             // 
             this.lblLat.AutoSize = true;
             this.lblLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblLat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
+            this.lblLat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblLat.Location = new System.Drawing.Point(4, 33);
             this.lblLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLat.Name = "lblLat";
@@ -289,7 +289,8 @@
             // lblDistanse
             // 
             this.lblDistanse.AutoSize = true;
-            this.lblDistanse.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDistanse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblDistanse.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblDistanse.Location = new System.Drawing.Point(3, 217);
             this.lblDistanse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDistanse.Name = "lblDistanse";
@@ -306,7 +307,8 @@
             this.gbPosisjon.Controls.Add(this.txtAdresse);
             this.gbPosisjon.Controls.Add(this.lblAdresse);
             this.gbPosisjon.Controls.Add(this.btnSøk);
-            this.gbPosisjon.ForeColor = System.Drawing.SystemColors.Control;
+            this.gbPosisjon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gbPosisjon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbPosisjon.Location = new System.Drawing.Point(15, 57);
             this.gbPosisjon.Margin = new System.Windows.Forms.Padding(2);
             this.gbPosisjon.Name = "gbPosisjon";
@@ -324,7 +326,8 @@
             this.gbKoordinater.Controls.Add(this.txtLat);
             this.gbKoordinater.Controls.Add(this.txtLong);
             this.gbKoordinater.Controls.Add(this.lblLong);
-            this.gbKoordinater.ForeColor = System.Drawing.SystemColors.Control;
+            this.gbKoordinater.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gbKoordinater.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbKoordinater.Location = new System.Drawing.Point(15, 234);
             this.gbKoordinater.Margin = new System.Windows.Forms.Padding(2);
             this.gbKoordinater.Name = "gbKoordinater";
@@ -332,11 +335,13 @@
             this.gbKoordinater.Size = new System.Drawing.Size(236, 113);
             this.gbKoordinater.TabIndex = 24;
             this.gbKoordinater.TabStop = false;
-            this.gbKoordinater.Text = "koordinater";
+            this.gbKoordinater.Text = "Koordinater";
             // 
             // lblBasertPå
             // 
             this.lblBasertPå.AutoSize = true;
+            this.lblBasertPå.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblBasertPå.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblBasertPå.Location = new System.Drawing.Point(4, 20);
             this.lblBasertPå.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBasertPå.Name = "lblBasertPå";
@@ -356,7 +361,8 @@
             this.gbRute.Controls.Add(this.lblTil);
             this.gbRute.Controls.Add(this.btnFinnRute);
             this.gbRute.Controls.Add(this.btnSlutt);
-            this.gbRute.ForeColor = System.Drawing.SystemColors.Control;
+            this.gbRute.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gbRute.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbRute.Location = new System.Drawing.Point(15, 362);
             this.gbRute.Margin = new System.Windows.Forms.Padding(2);
             this.gbRute.Name = "gbRute";
@@ -369,6 +375,8 @@
             // lblBasertPå2
             // 
             this.lblBasertPå2.AutoSize = true;
+            this.lblBasertPå2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblBasertPå2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblBasertPå2.Location = new System.Drawing.Point(5, 20);
             this.lblBasertPå2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBasertPå2.Name = "lblBasertPå2";
