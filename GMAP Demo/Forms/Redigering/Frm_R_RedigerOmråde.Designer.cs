@@ -69,19 +69,20 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Location = new System.Drawing.Point(9, 7);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(327, 46);
+            this.lblTitle.Size = new System.Drawing.Size(266, 37);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "Rediger Område";
             // 
             // lbTilgjengligFarge
             // 
             this.lbTilgjengligFarge.FormattingEnabled = true;
-            this.lbTilgjengligFarge.Location = new System.Drawing.Point(4, 138);
+            this.lbTilgjengligFarge.Location = new System.Drawing.Point(4, 141);
             this.lbTilgjengligFarge.Margin = new System.Windows.Forms.Padding(2);
             this.lbTilgjengligFarge.Name = "lbTilgjengligFarge";
-            this.lbTilgjengligFarge.Size = new System.Drawing.Size(137, 36);
+            this.lbTilgjengligFarge.Size = new System.Drawing.Size(104, 30);
             this.lbTilgjengligFarge.Sorted = true;
             this.lbTilgjengligFarge.TabIndex = 80;
             this.toolTip1.SetToolTip(this.lbTilgjengligFarge, "Dobbelklikk for å velge");
@@ -92,7 +93,7 @@
             this.lblFarge.AutoSize = true;
             this.lblFarge.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFarge.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblFarge.Location = new System.Drawing.Point(4, 124);
+            this.lblFarge.Location = new System.Drawing.Point(4, 126);
             this.lblFarge.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFarge.Name = "lblFarge";
             this.lblFarge.Size = new System.Drawing.Size(34, 13);
@@ -102,21 +103,21 @@
             // txtFarge
             // 
             this.txtFarge.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtFarge.Location = new System.Drawing.Point(114, 138);
+            this.txtFarge.Location = new System.Drawing.Point(115, 151);
             this.txtFarge.Margin = new System.Windows.Forms.Padding(2);
             this.txtFarge.Name = "txtFarge";
             this.txtFarge.ReadOnly = true;
-            this.txtFarge.Size = new System.Drawing.Size(137, 22);
+            this.txtFarge.Size = new System.Drawing.Size(104, 20);
             this.txtFarge.TabIndex = 78;
             // 
             // txtNrPunkt
             // 
             this.txtNrPunkt.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtNrPunkt.Location = new System.Drawing.Point(87, 245);
+            this.txtNrPunkt.Location = new System.Drawing.Point(86, 252);
             this.txtNrPunkt.Margin = new System.Windows.Forms.Padding(2);
             this.txtNrPunkt.Name = "txtNrPunkt";
             this.txtNrPunkt.ReadOnly = true;
-            this.txtNrPunkt.Size = new System.Drawing.Size(28, 22);
+            this.txtNrPunkt.Size = new System.Drawing.Size(22, 20);
             this.txtNrPunkt.TabIndex = 77;
             this.txtNrPunkt.Text = "0";
             // 
@@ -124,20 +125,20 @@
             // 
             this.lbPunkter.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lbPunkter.FormattingEnabled = true;
-            this.lbPunkter.Location = new System.Drawing.Point(4, 271);
+            this.lbPunkter.Location = new System.Drawing.Point(4, 276);
             this.lbPunkter.Margin = new System.Windows.Forms.Padding(2);
             this.lbPunkter.Name = "lbPunkter";
-            this.lbPunkter.Size = new System.Drawing.Size(285, 84);
+            this.lbPunkter.Size = new System.Drawing.Size(215, 69);
             this.lbPunkter.TabIndex = 76;
             this.toolTip1.SetToolTip(this.lbPunkter, "Markøren på kartet er blå når den er lagt til");
             // 
             // btnLeggTilPunkt
             // 
             this.btnLeggTilPunkt.ForeColor = System.Drawing.Color.Black;
-            this.btnLeggTilPunkt.Location = new System.Drawing.Point(4, 243);
+            this.btnLeggTilPunkt.Location = new System.Drawing.Point(4, 249);
             this.btnLeggTilPunkt.Margin = new System.Windows.Forms.Padding(2);
             this.btnLeggTilPunkt.Name = "btnLeggTilPunkt";
-            this.btnLeggTilPunkt.Size = new System.Drawing.Size(104, 28);
+            this.btnLeggTilPunkt.Size = new System.Drawing.Size(78, 23);
             this.btnLeggTilPunkt.TabIndex = 75;
             this.btnLeggTilPunkt.Text = "Legg til punkt";
             this.btnLeggTilPunkt.UseVisualStyleBackColor = true;
@@ -148,7 +149,7 @@
             this.lblValgtForDetteObjektet.AutoSize = true;
             this.lblValgtForDetteObjektet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValgtForDetteObjektet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblValgtForDetteObjektet.Location = new System.Drawing.Point(115, 35);
+            this.lblValgtForDetteObjektet.Location = new System.Drawing.Point(112, 28);
             this.lblValgtForDetteObjektet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValgtForDetteObjektet.Name = "lblValgtForDetteObjektet";
             this.lblValgtForDetteObjektet.Size = new System.Drawing.Size(68, 13);
@@ -160,7 +161,7 @@
             this.lblEksisterende.AutoSize = true;
             this.lblEksisterende.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEksisterende.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblEksisterende.Location = new System.Drawing.Point(4, 35);
+            this.lblEksisterende.Location = new System.Drawing.Point(4, 28);
             this.lblEksisterende.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEksisterende.Name = "lblEksisterende";
             this.lblEksisterende.Size = new System.Drawing.Size(65, 13);
@@ -172,7 +173,7 @@
             this.lblNyTag.AutoSize = true;
             this.lblNyTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNyTag.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNyTag.Location = new System.Drawing.Point(4, 218);
+            this.lblNyTag.Location = new System.Drawing.Point(4, 205);
             this.lblNyTag.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNyTag.Name = "lblNyTag";
             this.lblNyTag.Size = new System.Drawing.Size(45, 13);
@@ -182,10 +183,10 @@
             // txtNyTag
             // 
             this.txtNyTag.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNyTag.Location = new System.Drawing.Point(4, 233);
+            this.txtNyTag.Location = new System.Drawing.Point(4, 218);
             this.txtNyTag.Margin = new System.Windows.Forms.Padding(2);
             this.txtNyTag.Name = "txtNyTag";
-            this.txtNyTag.Size = new System.Drawing.Size(121, 22);
+            this.txtNyTag.Size = new System.Drawing.Size(104, 20);
             this.txtNyTag.TabIndex = 71;
             // 
             // lblVelgTags
@@ -205,7 +206,7 @@
             this.lblLong.AutoSize = true;
             this.lblLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblLong.Location = new System.Drawing.Point(4, 206);
+            this.lblLong.Location = new System.Drawing.Point(4, 210);
             this.lblLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLong.Name = "lblLong";
             this.lblLong.Size = new System.Drawing.Size(31, 13);
@@ -215,10 +216,10 @@
             // txtLong
             // 
             this.txtLong.BackColor = System.Drawing.SystemColors.Control;
-            this.txtLong.Location = new System.Drawing.Point(4, 220);
+            this.txtLong.Location = new System.Drawing.Point(4, 225);
             this.txtLong.Margin = new System.Windows.Forms.Padding(2);
             this.txtLong.Name = "txtLong";
-            this.txtLong.Size = new System.Drawing.Size(285, 22);
+            this.txtLong.Size = new System.Drawing.Size(215, 20);
             this.txtLong.TabIndex = 68;
             this.txtLong.Text = "Dobbelklikk på kartet + \"legg til\"";
             this.toolTip1.SetToolTip(this.txtLong, "Dobbelklikk på kartet + \"legg til\"");
@@ -228,7 +229,7 @@
             this.lblLat.AutoSize = true;
             this.lblLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblLat.Location = new System.Drawing.Point(4, 170);
+            this.lblLat.Location = new System.Drawing.Point(4, 173);
             this.lblLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLat.Name = "lblLat";
             this.lblLat.Size = new System.Drawing.Size(22, 13);
@@ -238,10 +239,10 @@
             // txtLat
             // 
             this.txtLat.BackColor = System.Drawing.SystemColors.Control;
-            this.txtLat.Location = new System.Drawing.Point(4, 184);
+            this.txtLat.Location = new System.Drawing.Point(4, 188);
             this.txtLat.Margin = new System.Windows.Forms.Padding(2);
             this.txtLat.Name = "txtLat";
-            this.txtLat.Size = new System.Drawing.Size(287, 22);
+            this.txtLat.Size = new System.Drawing.Size(216, 20);
             this.txtLat.TabIndex = 66;
             this.txtLat.Text = "Dobbelklikk på kartet + \"legg til\"";
             this.toolTip1.SetToolTip(this.txtLat, "Dobbelklikk på kartet + \"legg til\"");
@@ -260,19 +261,19 @@
             // 
             // txtKommentar
             // 
-            this.txtKommentar.Location = new System.Drawing.Point(4, 102);
+            this.txtKommentar.Location = new System.Drawing.Point(4, 104);
             this.txtKommentar.Margin = new System.Windows.Forms.Padding(2);
             this.txtKommentar.Name = "txtKommentar";
-            this.txtKommentar.Size = new System.Drawing.Size(285, 22);
+            this.txtKommentar.Size = new System.Drawing.Size(215, 20);
             this.txtKommentar.TabIndex = 64;
             // 
             // btnLeggTilTag
             // 
             this.btnLeggTilTag.ForeColor = System.Drawing.Color.Black;
-            this.btnLeggTilTag.Location = new System.Drawing.Point(100, 232);
+            this.btnLeggTilTag.Location = new System.Drawing.Point(115, 215);
             this.btnLeggTilTag.Margin = new System.Windows.Forms.Padding(2);
             this.btnLeggTilTag.Name = "btnLeggTilTag";
-            this.btnLeggTilTag.Size = new System.Drawing.Size(73, 27);
+            this.btnLeggTilTag.Size = new System.Drawing.Size(104, 23);
             this.btnLeggTilTag.TabIndex = 63;
             this.btnLeggTilTag.Text = "Legg til";
             this.btnLeggTilTag.UseVisualStyleBackColor = true;
@@ -281,10 +282,10 @@
             // lbValgtTags
             // 
             this.lbValgtTags.FormattingEnabled = true;
-            this.lbValgtTags.Location = new System.Drawing.Point(114, 50);
+            this.lbValgtTags.Location = new System.Drawing.Point(115, 43);
             this.lbValgtTags.Margin = new System.Windows.Forms.Padding(2);
             this.lbValgtTags.Name = "lbValgtTags";
-            this.lbValgtTags.Size = new System.Drawing.Size(140, 196);
+            this.lbValgtTags.Size = new System.Drawing.Size(106, 160);
             this.lbValgtTags.Sorted = true;
             this.lbValgtTags.TabIndex = 62;
             this.toolTip1.SetToolTip(this.lbValgtTags, "Dobbelklikk for å flytte over");
@@ -293,10 +294,10 @@
             // lbTilgjengeligeTags
             // 
             this.lbTilgjengeligeTags.FormattingEnabled = true;
-            this.lbTilgjengeligeTags.Location = new System.Drawing.Point(4, 50);
+            this.lbTilgjengeligeTags.Location = new System.Drawing.Point(4, 43);
             this.lbTilgjengeligeTags.Margin = new System.Windows.Forms.Padding(2);
             this.lbTilgjengeligeTags.Name = "lbTilgjengeligeTags";
-            this.lbTilgjengeligeTags.Size = new System.Drawing.Size(141, 196);
+            this.lbTilgjengeligeTags.Size = new System.Drawing.Size(107, 160);
             this.lbTilgjengeligeTags.Sorted = true;
             this.lbTilgjengeligeTags.TabIndex = 61;
             this.toolTip1.SetToolTip(this.lbTilgjengeligeTags, "Dobbelklikk for å flytte over");
@@ -307,7 +308,7 @@
             this.lblSikkerhetsklarering.AutoSize = true;
             this.lblSikkerhetsklarering.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSikkerhetsklarering.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(4, 53);
+            this.lblSikkerhetsklarering.Location = new System.Drawing.Point(4, 52);
             this.lblSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSikkerhetsklarering.Name = "lblSikkerhetsklarering";
             this.lblSikkerhetsklarering.Size = new System.Drawing.Size(118, 13);
@@ -319,7 +320,7 @@
             this.txtSikkerhetsklarering.Location = new System.Drawing.Point(4, 67);
             this.txtSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(2);
             this.txtSikkerhetsklarering.Name = "txtSikkerhetsklarering";
-            this.txtSikkerhetsklarering.Size = new System.Drawing.Size(287, 22);
+            this.txtSikkerhetsklarering.Size = new System.Drawing.Size(216, 20);
             this.txtSikkerhetsklarering.TabIndex = 59;
             // 
             // lblNavn
@@ -327,7 +328,7 @@
             this.lblNavn.AutoSize = true;
             this.lblNavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNavn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNavn.Location = new System.Drawing.Point(4, 16);
+            this.lblNavn.Location = new System.Drawing.Point(4, 15);
             this.lblNavn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNavn.Name = "lblNavn";
             this.lblNavn.Size = new System.Drawing.Size(33, 13);
@@ -336,19 +337,19 @@
             // 
             // txtNavn
             // 
-            this.txtNavn.Location = new System.Drawing.Point(4, 31);
+            this.txtNavn.Location = new System.Drawing.Point(4, 30);
             this.txtNavn.Margin = new System.Windows.Forms.Padding(2);
             this.txtNavn.Name = "txtNavn";
-            this.txtNavn.Size = new System.Drawing.Size(285, 22);
+            this.txtNavn.Size = new System.Drawing.Size(215, 20);
             this.txtNavn.TabIndex = 57;
             // 
             // btnFjernSistepunkt
             // 
             this.btnFjernSistepunkt.ForeColor = System.Drawing.Color.Black;
-            this.btnFjernSistepunkt.Location = new System.Drawing.Point(116, 243);
+            this.btnFjernSistepunkt.Location = new System.Drawing.Point(112, 250);
             this.btnFjernSistepunkt.Margin = new System.Windows.Forms.Padding(2);
             this.btnFjernSistepunkt.Name = "btnFjernSistepunkt";
-            this.btnFjernSistepunkt.Size = new System.Drawing.Size(93, 28);
+            this.btnFjernSistepunkt.Size = new System.Drawing.Size(70, 23);
             this.btnFjernSistepunkt.TabIndex = 81;
             this.btnFjernSistepunkt.Text = "Fjern siste";
             this.btnFjernSistepunkt.UseVisualStyleBackColor = true;
@@ -356,10 +357,10 @@
             // 
             // btnLagreEndring
             // 
-            this.btnLagreEndring.Location = new System.Drawing.Point(15, 648);
+            this.btnLagreEndring.Location = new System.Drawing.Point(11, 648);
             this.btnLagreEndring.Margin = new System.Windows.Forms.Padding(2);
             this.btnLagreEndring.Name = "btnLagreEndring";
-            this.btnLagreEndring.Size = new System.Drawing.Size(123, 34);
+            this.btnLagreEndring.Size = new System.Drawing.Size(92, 28);
             this.btnLagreEndring.TabIndex = 82;
             this.btnLagreEndring.Text = "Lagre endring";
             this.btnLagreEndring.UseVisualStyleBackColor = true;
@@ -387,11 +388,11 @@
             this.gbOmråde.Controls.Add(this.lblLong);
             this.gbOmråde.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOmråde.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.gbOmråde.Location = new System.Drawing.Point(15, 46);
+            this.gbOmråde.Location = new System.Drawing.Point(11, 46);
             this.gbOmråde.Margin = new System.Windows.Forms.Padding(2);
             this.gbOmråde.Name = "gbOmråde";
             this.gbOmråde.Padding = new System.Windows.Forms.Padding(2);
-            this.gbOmråde.Size = new System.Drawing.Size(224, 343);
+            this.gbOmråde.Size = new System.Drawing.Size(269, 351);
             this.gbOmråde.TabIndex = 83;
             this.gbOmråde.TabStop = false;
             this.gbOmråde.Text = "Område";
@@ -401,10 +402,10 @@
             this.btnFjernAlle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.btnFjernAlle.ForeColor = System.Drawing.Color.Black;
             this.btnFjernAlle.Image = global::GMAP_Demo.Properties.Resources.trash_20px;
-            this.btnFjernAlle.Location = new System.Drawing.Point(191, 240);
+            this.btnFjernAlle.Location = new System.Drawing.Point(186, 247);
             this.btnFjernAlle.Margin = new System.Windows.Forms.Padding(2);
             this.btnFjernAlle.Name = "btnFjernAlle";
-            this.btnFjernAlle.Size = new System.Drawing.Size(35, 34);
+            this.btnFjernAlle.Size = new System.Drawing.Size(26, 28);
             this.btnFjernAlle.TabIndex = 81;
             this.toolTip1.SetToolTip(this.btnFjernAlle, "Fjern alle punkter");
             this.btnFjernAlle.UseVisualStyleBackColor = false;
@@ -422,22 +423,22 @@
             this.gbTag.Controls.Add(this.lblNyTag);
             this.gbTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTag.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.gbTag.Location = new System.Drawing.Point(15, 389);
+            this.gbTag.Location = new System.Drawing.Point(11, 401);
             this.gbTag.Margin = new System.Windows.Forms.Padding(2);
             this.gbTag.Name = "gbTag";
             this.gbTag.Padding = new System.Windows.Forms.Padding(2);
-            this.gbTag.Size = new System.Drawing.Size(224, 254);
+            this.gbTag.Size = new System.Drawing.Size(269, 243);
             this.gbTag.TabIndex = 83;
             this.gbTag.TabStop = false;
             this.gbTag.Text = "Tag";
             // 
             // Frm_R_RedigerOmråde
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(391, 835);
+            this.ClientSize = new System.Drawing.Size(293, 678);
             this.Controls.Add(this.gbTag);
             this.Controls.Add(this.gbOmråde);
             this.Controls.Add(this.btnLagreEndring);
