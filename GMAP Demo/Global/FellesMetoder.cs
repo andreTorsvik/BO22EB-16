@@ -152,7 +152,7 @@ namespace GMAP_Demo
 
             // Sorter ut alle de "skjulte" fra alle kateogirene  
             List<Kategorier_Bilde> ListeVisteKategorier = new List<Kategorier_Bilde>(kategoriListeAlle);
-            Sortering(ref ListeVisteKategorier, ListeSkjulteKategori);
+            FjernLikeForekomster(ref ListeVisteKategorier, ListeSkjulteKategori);
 
             // Legger til etter sortering
             foreach (var item in ListeVisteKategorier)
@@ -168,7 +168,7 @@ namespace GMAP_Demo
             if(GlobaleLister.kategoriListeSkjult.Count > 0) GlobaleLister.kategoriListeSkjult.Clear();
 
             // Sorter ut det som er i "viste" 
-            Sortering(ref ListeSkjulteKategori, ListeVisteKategorier);
+            FjernLikeForekomster(ref ListeSkjulteKategori, ListeVisteKategorier);
 
             // Legger til igjen etter sortering 
             foreach (var item in ListeSkjulteKategori)
@@ -177,7 +177,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void Sortering(ref List<Kategorier_Bilde> Hovedliste, List<Kategorier_Bilde> filtreringsListe)
+        public static void FjernLikeForekomster(ref List<Kategorier_Bilde> Hovedliste, List<Kategorier_Bilde> filtreringsListe)
         {
             // Fjern alle like forkomster mellom listene, fra hovedlisten 
 
