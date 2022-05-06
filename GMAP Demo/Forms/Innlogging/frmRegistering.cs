@@ -67,6 +67,7 @@ namespace GMAP_Demo
         private bool OpprettBruker()
         {
             bool svar = false;
+
             string fornavn = tbFornavn.Text;
             string etternavn = tbEtternavn.Text;
             string telefon = tbTelefonnummer.Text;
