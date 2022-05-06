@@ -13,6 +13,10 @@ namespace GMAP_Demo
         public bool filterOR;
         public bool filterAND;
 
+        // For timing til simulering av målinger:
+        static bool målingRunning = false;
+        public static System.Threading.Timer timer = new System.Threading.Timer(MålingSim.TimerProc);
+
         public Frm_V_Filter()
         {
             InitializeComponent();
@@ -110,13 +114,13 @@ namespace GMAP_Demo
             btnTimerMåling.BackColor = ThemeDesign.colorGray;
         }
 
-        private void frmFilter_Load(object sender, EventArgs e)
+        private void FrmFilter_Load(object sender, EventArgs e)
         {
             filterOR = true;
             if(GlobaleLister.LRessurs.Count > 0) tbAntallObjekter.Text = GlobaleLister.LRessurs.Count.ToString();
         }
 
-        private void lbKategorierVises_DoubleClick(object sender, EventArgs e)
+        private void LbKategorierVises_DoubleClick(object sender, EventArgs e)
         {
             if (lbKategorierVises.Items.Count > 0)
             {
@@ -132,7 +136,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void lbKategorierSkjult_DoubleClick(object sender, EventArgs e)
+        private void LbKategorierSkjult_DoubleClick(object sender, EventArgs e)
         {
             if (lbKategorierSkjult.Items.Count > 0)
             {
@@ -148,7 +152,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void lbTagsVises_DoubleClick(object sender, EventArgs e)
+        private void LbTagsVises_DoubleClick(object sender, EventArgs e)
         {
             if (lbTagsVises.Items.Count > 0)
             {
@@ -165,7 +169,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void lbTagsSkjult_DoubleClick(object sender, EventArgs e)
+        private void LbTagsSkjult_DoubleClick(object sender, EventArgs e)
         {
             if (lbTagsSkjult.Items.Count > 0)
             {
@@ -182,7 +186,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void cbViseOmråde_CheckedChanged(object sender, EventArgs e)
+        private void CbViseOmråde_CheckedChanged(object sender, EventArgs e)
         {
             if (cbViseOmråde.Checked) Kart.VisOmrådePåKart = false;
             else Kart.VisOmrådePåKart = true;
@@ -190,7 +194,7 @@ namespace GMAP_Demo
             Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
         }
 
-        private void btnNesteRessurs_Click(object sender, EventArgs e)
+        private void BtnNesteRessurs_Click(object sender, EventArgs e)
         {
             indexRessurs++;
             if (indexRessurs >= GlobaleLister.LRessurs.Count) indexRessurs = 0;
@@ -202,7 +206,7 @@ namespace GMAP_Demo
             FlyttTilObjekt(indexRessurs);
         }
 
-        private void btnForrigeRessurs_Click(object sender, EventArgs e)
+        private void BtnForrigeRessurs_Click(object sender, EventArgs e)
         {
             indexRessurs--;
             if (indexRessurs < 0) indexRessurs = GlobaleLister.LRessurs.Count - 1;
@@ -288,7 +292,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void cbOR_CheckedChanged(object sender, EventArgs e)
+        private void CbOR_CheckedChanged(object sender, EventArgs e)
         {
             if (cbOR.Checked)
                 cbAND.Checked = false;
@@ -298,7 +302,7 @@ namespace GMAP_Demo
             OppdatarKartMedFilter();
         }
 
-        private void cbAND_CheckedChanged(object sender, EventArgs e)
+        private void CbAND_CheckedChanged(object sender, EventArgs e)
         {
             if (cbAND.Checked) 
                 cbOR.Checked = false;
@@ -322,13 +326,12 @@ namespace GMAP_Demo
             Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LRessurs, GlobaleLister.LOmråde);
         }
 
-        private void btnTagFjernAlle_Click(object sender, EventArgs e)
+        private void BtnTagFjernAlle_Click(object sender, EventArgs e)
         {
             if (lbTagsVises.Items.Count > 0)
             {
                 // Legger over alle til den andre listen
-                int antall = lbTagsVises.Items.Count;
-                for (int i = 0; i < antall; i++)
+                for (int i = 0; i < lbTagsVises.Items.Count; i++)
                 {
                     GlobaleLister.tag_ListeSkjult.Add((string)lbTagsVises.Items[0]);
                     GlobaleLister.tag_ListeVises.Remove((string)lbTagsVises.Items[0]);
@@ -347,13 +350,12 @@ namespace GMAP_Demo
 
         }
 
-        private void btnTagLeggTilAlle_Click(object sender, EventArgs e)
+        private void BtnTagLeggTilAlle_Click(object sender, EventArgs e)
         {
             if (lbTagsSkjult.Items.Count > 0)
             {
                 // Legger over alle til den andre listen
-                int antall = lbTagsSkjult.Items.Count;
-                for (int i = 0; i < antall; i++)
+                for (int i = 0; i < lbTagsSkjult.Items.Count; i++)
                 {
                     GlobaleLister.tag_ListeVises.Add((string)lbTagsSkjult.Items[0]);
                     GlobaleLister.tag_ListeSkjult.Remove((string)lbTagsSkjult.Items[0]);
@@ -369,13 +371,12 @@ namespace GMAP_Demo
 
         }
 
-        private void btnKategoriFjernAlle_Click(object sender, EventArgs e)
+        private void BtnKategoriFjernAlle_Click(object sender, EventArgs e)
         {
             if (lbKategorierVises.Items.Count > 0)
             {
                 // Legger over alle til den andre listen
-                int antall = lbKategorierVises.Items.Count;
-                for (int i = 0; i < antall; i++)
+                for (int i = 0; i < lbKategorierVises.Items.Count; i++)
                 {
                     GlobaleLister.kategoriListeSkjult.Add((Kategorier_Bilde)lbKategorierVises.Items[0]);
                     GlobaleLister.kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.Items[0]);
@@ -392,13 +393,12 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnKategoriLeggTilAlle_Click(object sender, EventArgs e)
+        private void BtnKategoriLeggTilAlle_Click(object sender, EventArgs e)
         {
             if (lbKategorierSkjult.Items.Count > 0)
             {
                 // Legger over alle til den andre listen
-                int antall = lbKategorierSkjult.Items.Count;
-                for (int i = 0; i < antall; i++)
+                for (int i = 0; i < lbKategorierSkjult.Items.Count; i++)
                 {
                     GlobaleLister.kategoriListeVises.Add((Kategorier_Bilde)lbKategorierSkjult.Items[0]);
                     GlobaleLister.kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.Items[0]);
@@ -412,9 +412,8 @@ namespace GMAP_Demo
             }
         }
 
-        static bool målingRunning = false;
-        public static System.Threading.Timer timer = new System.Threading.Timer(MålingSim.TimerProc);
-        internal void btnTimerMåling_Click(object sender, EventArgs e)
+
+        internal void BtnTimerMåling_Click(object sender, EventArgs e)
         {
             if (målingRunning)
             {

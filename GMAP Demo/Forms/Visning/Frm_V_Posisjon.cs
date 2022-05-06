@@ -68,18 +68,18 @@ namespace GMAP_Demo
             tbTil.BackColor = ThemeDesign.colorGray4;
         }
 
-        private void btnSøk_Click(object sender, EventArgs e)
+        private void BtnSøk_Click(object sender, EventArgs e)
         {
-            string Land = txtLand.Text;
-            string ByKommune = txtByKommune.Text;
-            string Adresse = txtAdresse.Text;
+            string land = txtLand.Text;
+            string byKommune = txtByKommune.Text;
+            string adresse = txtAdresse.Text;
                 
             // Utføres om EN er fylt ut 
-            if(!(string.IsNullOrWhiteSpace(Land) && string.IsNullOrWhiteSpace(ByKommune) && string.IsNullOrWhiteSpace(Adresse)))
-                Kart.FinnLokasjon(Land,ByKommune,Adresse);
+            if(!(string.IsNullOrWhiteSpace(land) && string.IsNullOrWhiteSpace(byKommune) && string.IsNullOrWhiteSpace(adresse)))
+                Kart.FinnLokasjon(land,byKommune,adresse);
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private void BtnStart_Click(object sender, EventArgs e)
         {
             if(txtLat.Text != "Dobbelklikk på kart" && txtLong.Text != "Dobbelklikk på kart")
             {
@@ -103,7 +103,7 @@ namespace GMAP_Demo
            
         }
 
-        private void btnSlutt_Click(object sender, EventArgs e)
+        private void BtnSlutt_Click(object sender, EventArgs e)
         {
             if (txtLat.Text != "Dobbelklikk på kart" && txtLong.Text != "Dobbelklikk på kart")
             {
@@ -126,7 +126,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnFinnRute_Click(object sender, EventArgs e)
+        private void BtnFinnRute_Click(object sender, EventArgs e)
         {
             if (!FraPunkt.IsEmpty && !TilPunkt.IsEmpty)
             {
@@ -141,7 +141,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void btnFjernRute_Click(object sender, EventArgs e)
+        private void BtnFjernRute_Click(object sender, EventArgs e)
         {
             Kart.FjernRute();
         }
@@ -150,11 +150,6 @@ namespace GMAP_Demo
         {
             txtLat.Text = lat.ToString();
             txtLong.Text = lang.ToString();
-        }
-
-        private void frmPosisjon_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
