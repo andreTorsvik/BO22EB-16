@@ -180,7 +180,7 @@ namespace GMAP_Demo
         private void OppdaterKart()
         {
             //Kart.OppdaterListe_ressurs();
-            Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+            Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
         }
     }
 }

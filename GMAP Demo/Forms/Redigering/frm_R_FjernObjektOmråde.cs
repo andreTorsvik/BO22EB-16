@@ -43,10 +43,10 @@ namespace GMAP_Demo
 
         public void FyllInfoObjekt(int Tag)
         {
-            Løpenummer_til_objekt = GlobaleLister.listObjekt[Tag].IdObjekt;
-            txtInfo.Text = GlobaleLister.listObjekt[Tag].ToString();
-            txtIdOmråde.Text = GlobaleLister.listObjekt[Tag].IdObjekt.ToString();
-            txtNavn.Text = GlobaleLister.listObjekt[Tag].Navn;
+            Løpenummer_til_objekt = GlobaleLister.LObjekt[Tag].IdObjekt;
+            txtInfo.Text = GlobaleLister.LObjekt[Tag].ToString();
+            txtIdOmråde.Text = GlobaleLister.LObjekt[Tag].IdObjekt.ToString();
+            txtNavn.Text = GlobaleLister.LObjekt[Tag].Navn;
 
             if (Løpenummer_til_Område >= 0) Løpenummer_til_Område = -1;
         }
@@ -81,7 +81,7 @@ namespace GMAP_Demo
                         FellesMetoder.OppdaterTag_Liste();
                         FellesMetoder.OppdaterKategoriListe();
                         FellesMetoder.OppdaterListe_Objekt();
-                        Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                        Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
                     }
 
                 }
@@ -109,7 +109,7 @@ namespace GMAP_Demo
                         //Må oppdtaere listene og kart 
                         FellesMetoder.OppdaterTag_Liste();
                         FellesMetoder.OppdaterListe_området();
-                        Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                        Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
                     }
                 }
                 catch (Exception feil)

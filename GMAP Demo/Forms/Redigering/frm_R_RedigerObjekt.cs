@@ -198,15 +198,15 @@ namespace GMAP_Demo
         public void FyllInfoObjekt(int Tag)
         {
             // Løpenummeret 
-            løpenummer_til_redigering = GlobaleLister.listObjekt[Tag].IdObjekt;
+            løpenummer_til_redigering = GlobaleLister.LObjekt[Tag].IdObjekt;
 
             // Info 
-            txtNavn.Text = GlobaleLister.listObjekt[Tag].Navn;
-            txtKategori.Text = GlobaleLister.listObjekt[Tag].Kategori;
-            txtSikkerhetsklarering.Text = GlobaleLister.listObjekt[Tag].Sikkerhetsklarering.ToString();
-            txtKommentar.Text = GlobaleLister.listObjekt[Tag].Kommentar;
-            txtLat.Text = GlobaleLister.listObjekt[Tag].Lat.ToString();
-            txtLong.Text = GlobaleLister.listObjekt[Tag].Lang.ToString();
+            txtNavn.Text = GlobaleLister.LObjekt[Tag].Navn;
+            txtKategori.Text = GlobaleLister.LObjekt[Tag].Kategori;
+            txtSikkerhetsklarering.Text = GlobaleLister.LObjekt[Tag].Sikkerhetsklarering.ToString();
+            txtKommentar.Text = GlobaleLister.LObjekt[Tag].Kommentar;
+            txtLat.Text = GlobaleLister.LObjekt[Tag].Lat.ToString();
+            txtLong.Text = GlobaleLister.LObjekt[Tag].Lang.ToString();
 
 
             // Sletting av eksisterende lister
@@ -215,7 +215,7 @@ namespace GMAP_Demo
             if (LGamleTag.Count > 0) LGamleTag.Clear();
 
             // Tagliste
-            var TagListeTilRessurs = GlobaleLister.listObjekt[Tag].hentTags();
+            var TagListeTilRessurs = GlobaleLister.LObjekt[Tag].hentTags();
             var AlleTags = FellesMetoder.FåAlleTags();
             var GjenværendeTag = AlleTags.Except(TagListeTilRessurs);
 
@@ -307,7 +307,7 @@ namespace GMAP_Demo
                                 //Oppdatere Liste med ressurser 
 
                                 FellesMetoder.OppdaterListe_Objekt();
-                                Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                                Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
 
                             }
                         }

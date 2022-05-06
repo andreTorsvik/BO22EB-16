@@ -48,7 +48,7 @@ namespace GMAP_Demo
         public static void OppdaterListe_Objekt()
         {
             // Tømmer listen 
-            if (GlobaleLister.listObjekt.Count > 0) GlobaleLister.listObjekt.Clear();
+            if (GlobaleLister.LObjekt.Count > 0) GlobaleLister.LObjekt.Clear();
 
             // Henter alle objekter
             var objektList = DBComObjekt.ListAllObjektFromDb(InnloggetBruker.Sikkerhetsklarering);
@@ -60,7 +60,7 @@ namespace GMAP_Demo
                 {
                     if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
                     {
-                        GlobaleLister.listObjekt.Add(item);
+                        GlobaleLister.LObjekt.Add(item);
                         break;
                     }
                 }
@@ -77,15 +77,15 @@ namespace GMAP_Demo
                 {
                     if (GlobaleLister.kategoriListeSkjult.Count != 0 || GlobaleLister.tag_ListeSkjult.Count != 0)
                     {
-                        FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.listObjekt, GlobaleLister.tag_ListeVises.ToList());
+                        FilterBehandling.filtrereBaserPåTagsOR(ref GlobaleLister.LObjekt, GlobaleLister.tag_ListeVises.ToList());
                     }
                 }
                 else if (AND && !OR) // AND
-                    FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.listObjekt, GlobaleLister.tag_ListeVises.ToList());
+                    FilterBehandling.filtrereBaserPåTagsAND(ref GlobaleLister.LObjekt, GlobaleLister.tag_ListeVises.ToList());
             }
             else // Ingen valgte tags 
             {
-                GlobaleLister.listObjekt.Clear();
+                GlobaleLister.LObjekt.Clear();
             }
         }
 

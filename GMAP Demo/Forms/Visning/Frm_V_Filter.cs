@@ -117,7 +117,7 @@ namespace GMAP_Demo
         private void FrmFilter_Load(object sender, EventArgs e)
         {
             filterOR = true;
-            if(GlobaleLister.listObjekt.Count > 0) tbAntallObjekter.Text = GlobaleLister.listObjekt.Count.ToString();
+            if(GlobaleLister.LObjekt.Count > 0) tbAntallObjekter.Text = GlobaleLister.LObjekt.Count.ToString();
         }
 
         private void LbKategorierVises_DoubleClick(object sender, EventArgs e)
@@ -132,7 +132,7 @@ namespace GMAP_Demo
                 FellesMetoder.OppdaterListe_Objekt();
 
                 // Oppdaterer kartet 
-                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
             }
         }
 
@@ -148,7 +148,7 @@ namespace GMAP_Demo
                 FellesMetoder.OppdaterListe_Objekt();
 
                 // Oppdaterer kartet 
-                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
             }
         }
 
@@ -165,7 +165,7 @@ namespace GMAP_Demo
                 FellesMetoder.OppdaterListe_området();
 
                 // Oppdaterer kartet 
-                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
             }
         }
 
@@ -182,7 +182,7 @@ namespace GMAP_Demo
                 FellesMetoder.OppdaterListe_området();
 
                 // Oppdaterer kartet
-                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
             }
         }
 
@@ -191,13 +191,13 @@ namespace GMAP_Demo
             if (cbViseOmråde.Checked) Kart.VisOmrådePåKart = false;
             else Kart.VisOmrådePåKart = true;
 
-            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
         }
 
         private void BtnNesteObjekt_Click(object sender, EventArgs e)
         {
             indexRessurs++;
-            if (indexRessurs >= GlobaleLister.listObjekt.Count) indexRessurs = 0;
+            if (indexRessurs >= GlobaleLister.LObjekt.Count) indexRessurs = 0;
 
             // Fyller inn info om objektet i filter 
             FyllInfoObjekt(indexRessurs);
@@ -209,8 +209,8 @@ namespace GMAP_Demo
         private void BtnForrigeObjekt_Click(object sender, EventArgs e)
         {
             indexRessurs--;
-            if (indexRessurs < 0) indexRessurs = GlobaleLister.listObjekt.Count - 1;
-            else if (indexRessurs >= GlobaleLister.listObjekt.Count) indexRessurs = GlobaleLister.listObjekt.Count - 1;
+            if (indexRessurs < 0) indexRessurs = GlobaleLister.LObjekt.Count - 1;
+            else if (indexRessurs >= GlobaleLister.LObjekt.Count) indexRessurs = GlobaleLister.LObjekt.Count - 1;
             
             // Fyller inn info om objektet i filter 
             FyllInfoObjekt(indexRessurs);
@@ -221,9 +221,9 @@ namespace GMAP_Demo
 
         private void FlyttTilObjekt(int index)
         {
-            if(GlobaleLister.listObjekt.Count > 0)
+            if(GlobaleLister.LObjekt.Count > 0)
             {
-                PointLatLng point = GlobaleLister.listObjekt[index].GiPunktet();
+                PointLatLng point = GlobaleLister.LObjekt[index].GiPunktet();
 
                 FrmVisning.instance.map.Position = point;
             }         
@@ -231,26 +231,26 @@ namespace GMAP_Demo
 
         public void FyllInfoObjekt(int Tag)
         {
-            if(GlobaleLister.listObjekt.Count > 0)
+            if(GlobaleLister.LObjekt.Count > 0)
             {
                 // Info
-                tbNavn.Text = GlobaleLister.listObjekt[Tag].Navn;
-                tbKategori.Text = GlobaleLister.listObjekt[Tag].Kategori;
-                tbDato_opprettet.Text = GlobaleLister.listObjekt[Tag].Dato_opprettet;
-                tbOpprettetAvBruker.Text = GlobaleLister.listObjekt[Tag].Opprettet_av_bruker;
-                tbSikkerhetsklarering.Text = GlobaleLister.listObjekt[Tag].Sikkerhetsklarering.ToString();
-                tbKommentar.Text = GlobaleLister.listObjekt[Tag].Kommentar;
+                tbNavn.Text = GlobaleLister.LObjekt[Tag].Navn;
+                tbKategori.Text = GlobaleLister.LObjekt[Tag].Kategori;
+                tbDato_opprettet.Text = GlobaleLister.LObjekt[Tag].Dato_opprettet;
+                tbOpprettetAvBruker.Text = GlobaleLister.LObjekt[Tag].Opprettet_av_bruker;
+                tbSikkerhetsklarering.Text = GlobaleLister.LObjekt[Tag].Sikkerhetsklarering.ToString();
+                tbKommentar.Text = GlobaleLister.LObjekt[Tag].Kommentar;
 
                 // Tags
                 if (lbTags.Items.Count > 0) lbTags.Items.Clear();
 
-                var TagListeTilRessurs = GlobaleLister.listObjekt[Tag].hentTags();
+                var TagListeTilRessurs = GlobaleLister.LObjekt[Tag].hentTags();
                 foreach (var tags in TagListeTilRessurs)
                 {
                     lbTags.Items.Add(tags);
                 }
                 //måling
-                Måling NyesteMåling = DBComMåling.GetLatestValueMålingFromSelectedObjekt(GlobaleLister.listObjekt[Tag].IdObjekt)[0];
+                Måling NyesteMåling = DBComMåling.GetLatestValueMålingFromSelectedObjekt(GlobaleLister.LObjekt[Tag].IdObjekt)[0];
                 if(NyesteMåling != null)
                 {                
                     tbMålingDato.Text = NyesteMåling.Dato;
@@ -323,7 +323,7 @@ namespace GMAP_Demo
             FellesMetoder.OppdaterListe_området();
 
             //Oppdatere kartet
-            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+            Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
         }
 
         private void BtnTagFjernAlle_Click(object sender, EventArgs e)
@@ -341,13 +341,13 @@ namespace GMAP_Demo
 
                 //Tømmer listene, siden ingen tags er valgt 
                 GlobaleLister.LOmråde.Clear();
-                GlobaleLister.listObjekt.Clear();
+                GlobaleLister.LObjekt.Clear();
 
                 // Oppdatere antall
-                tbAntallObjekter.Text = GlobaleLister.listObjekt.Count.ToString();
+                tbAntallObjekter.Text = GlobaleLister.LObjekt.Count.ToString();
 
                 // Oppdater kartet
-                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
             }
 
         }
@@ -369,7 +369,7 @@ namespace GMAP_Demo
                 FellesMetoder.OppdaterListe_området();
 
                 // Oppdatere kartet 
-                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
             }
 
         }
@@ -387,13 +387,13 @@ namespace GMAP_Demo
                 }
 
                 // Tømmer listene, siden ingen kategori er valgt 
-                GlobaleLister.listObjekt.Clear();
+                GlobaleLister.LObjekt.Clear();
 
                 // Oppdatere antall
-                tbAntallObjekter.Text = GlobaleLister.listObjekt.Count.ToString();
+                tbAntallObjekter.Text = GlobaleLister.LObjekt.Count.ToString();
 
                 // Oppdatere kartet 
-                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
             }
         }
 
@@ -413,7 +413,7 @@ namespace GMAP_Demo
                 FellesMetoder.OppdaterListe_Objekt();
 
                 // Oppdatere kartet 
-                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
             }
         }
 
@@ -436,7 +436,7 @@ namespace GMAP_Demo
 
         public void OppdaterAntall()
         {
-            tbAntallObjekter.Text = GlobaleLister.listObjekt.Count.ToString();
+            tbAntallObjekter.Text = GlobaleLister.LObjekt.Count.ToString();
         }
     }
 }

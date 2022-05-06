@@ -9,7 +9,7 @@ namespace GMAP_Demo
 {
     internal class GlobaleLister
     {
-        public static List<Objekt> listObjekt = new List<Objekt>();
+        public static List<Objekt> LObjekt = new List<Objekt>();
         public static  List<Område> LOmråde = new List<Område>();
         public static  List<Kategorier_Bilde> LKategori = new List<Kategorier_Bilde>();
 

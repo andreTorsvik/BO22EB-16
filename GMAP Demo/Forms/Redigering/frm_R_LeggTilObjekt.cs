@@ -266,7 +266,7 @@ namespace GMAP_Demo
                     TømeTekstFeltOgLister();
 
                     FellesMetoder.OppdaterListe_Objekt();
-                    Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.listObjekt, GlobaleLister.LOmråde);
+                    Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
                 }
                 else MessageBox.Show(feilMelding);
             }
