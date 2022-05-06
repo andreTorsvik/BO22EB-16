@@ -3,8 +3,8 @@ using GMap.NET.WindowsForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Linq;
+using System.Windows.Forms;
 
 
 namespace GMAP_Demo
@@ -126,46 +126,63 @@ namespace GMAP_Demo
 
         private void BtnObjekt_Click(object sender, EventArgs e)
         {
-            InstanceNull(false);
-            Frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new Frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, frm_R_LeggTilObjekt_vrb);
+            if ((sender as Button).Top != pnlNav.Top)
+            {
+                InstanceNull(false);
+                Frm_R_LeggTilObjekt frm_R_LeggTilObjekt_vrb = new Frm_R_LeggTilObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                ÅpneFormFraMenyknapp((Button)sender, frm_R_LeggTilObjekt_vrb);
+            }
         }
+
         private void BtnOmråde_Click(object sender, EventArgs e)
         {
-            InstanceNull(false);
-            Frm_R_LeggTilOmråde frm_R_LeggTilOmråde_vrb = new Frm_R_LeggTilOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, frm_R_LeggTilOmråde_vrb);
+            if ((sender as Button).Top != pnlNav.Top)
+            {
+                InstanceNull(false);
+                Frm_R_LeggTilOmråde frm_R_LeggTilOmråde_vrb = new Frm_R_LeggTilOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                ÅpneFormFraMenyknapp((Button)sender, frm_R_LeggTilOmråde_vrb);
+            }
         }
 
         private void BtnRediger_objekt_Click(object sender, EventArgs e)
         {
-            InstanceNull(false);
-            Frm_R_RedigerObjekt frm_R_RedigerObjekt_vrb = new Frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, frm_R_RedigerObjekt_vrb);
+            if ((sender as Button).Top != pnlNav.Top)
+            {
+                InstanceNull(false);
+                Frm_R_RedigerObjekt frm_R_RedigerObjekt_vrb = new Frm_R_RedigerObjekt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                ÅpneFormFraMenyknapp((Button)sender, frm_R_RedigerObjekt_vrb);
+            }
         }
 
         private void BtnRedigerOmråde_Click(object sender, EventArgs e)
         {
-            InstanceNull(false);
-            Frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new Frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender,  frm_R_RedigerOmråde_vrb);
+            if ((sender as Button).Top != pnlNav.Top)
+            {
+                InstanceNull(false);
+                Frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new Frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                ÅpneFormFraMenyknapp((Button)sender, frm_R_RedigerOmråde_vrb);
+            }
         }
-       
+
 
         private void BtnEndreObjektsymbol_Click(object sender, EventArgs e)
         {
-            InstanceNull(false);
-            Frm_R_EndreObjektsymbol frm_R_EndreObjektsymbol_vrb = new Frm_R_EndreObjektsymbol() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender, frm_R_EndreObjektsymbol_vrb);
-            
+            if ((sender as Button).Top != pnlNav.Top)
+            {
+                InstanceNull(false);
+                Frm_R_EndreObjektsymbol frm_R_EndreObjektsymbol_vrb = new Frm_R_EndreObjektsymbol() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                ÅpneFormFraMenyknapp((Button)sender, frm_R_EndreObjektsymbol_vrb);
+            }
         }
 
         private void BtnFjernObjektOmråde_Click(object sender, EventArgs e)
         {
-            InstanceNull(false);
-            Frm_R_FjernObjektOmråde frm_R_FjernObjektOmråde_vrb = new Frm_R_FjernObjektOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            ÅpneFormFraMenyknapp((Button)sender,  frm_R_FjernObjektOmråde_vrb);
-            
+            if ((sender as Button).Top != pnlNav.Top)
+            {
+                InstanceNull(false);
+                Frm_R_FjernObjektOmråde frm_R_FjernObjektOmråde_vrb = new Frm_R_FjernObjektOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                ÅpneFormFraMenyknapp((Button)sender, frm_R_FjernObjektOmråde_vrb);
+            }
         }
 
         private void FrmRediger_FormClosing(object sender, FormClosingEventArgs e)
@@ -178,7 +195,7 @@ namespace GMAP_Demo
 
             PnlFormLoader.Controls.Clear();
             InstanceNull(true);
-            
+
             FrmVisning.instance.Show();
         }
 
@@ -202,12 +219,12 @@ namespace GMAP_Demo
             if (Frm_R_EndreObjektsymbol.instance != null)
                 Frm_R_EndreObjektsymbol.instance = null;
 
-            if(avsluttRediger)
+            if (avsluttRediger)
             {
                 if (instance != null)
-                instance = null;
+                    instance = null;
             }
-           
+
         }
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
@@ -239,12 +256,12 @@ namespace GMAP_Demo
                     Frm_R_LeggTilOmråde.instance.FyllKoordinater(lat, lang);
 
                     //tegner hjelpeområde, med punkt burker har klikket 
-                    if(Frm_R_LeggTilOmråde.instance.pointLatLngs.Count >= 1)
+                    if (Frm_R_LeggTilOmråde.instance.pointLatLngs.Count >= 1)
                     {
                         Kart.FjernHjelpeOmråde();
 
                         List<PointLatLng> Punkter = Frm_R_LeggTilOmråde.instance.pointLatLngs.ToList();
-                        
+
                         Kart.TegnHjelpeOmråde_rediger(DoubleClick_punkt, Punkter);
 
                     }
@@ -259,7 +276,7 @@ namespace GMAP_Demo
 
                     if (Frm_R_RedigerOmråde.instance.løpenummer_til_redigering != -1) // for å unngå at den tegner hvis den ikke er inni "RedigerOmråde"
                     {
-                        
+
                         if (Frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1) // tegne område underveis 
                         {
                             Kart.FjernHjelpeOmråde();
@@ -270,7 +287,7 @@ namespace GMAP_Demo
 
                         }
                     }
-                   
+
                 }
 
                 Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnHjelpeMarkør); //"HjelpeMarkør"
@@ -281,7 +298,7 @@ namespace GMAP_Demo
 
         public void Map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            if(Convert.ToInt32(item.Tag) != -1)
+            if (Convert.ToInt32(item.Tag) != -1)
             {
                 //skal ikke åpne redigeringform hvis den er på fjerne eller er der allerede 
                 if (pnlNav.Top == btnRedigerObjekt.Top) { }
@@ -304,20 +321,20 @@ namespace GMAP_Demo
                     Frm_R_RedigerObjekt.instance.FyllInfoObjekt(Convert.ToInt32(item.Tag));
                 }
             }
-           
+
         }
 
         private void Map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
             //skal ikke åpne redigeringform hvis den er på fjerne eller er der allerede 
-            if (pnlNav.Top == btnRedigerOmråde.Top) {  }  
+            if (pnlNav.Top == btnRedigerOmråde.Top) { }
             else if (pnlNav.Top != btnFjernObjektOmråde.Top)
             {
                 Frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new Frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ÅpneFormFraMenyknapp(btnRedigerOmråde, frm_R_RedigerOmråde_vrb);
                 //ÅpneRediger_områdeForm();
             }
-            
+
 
             if (Frm_R_RedigerOmråde.instance != null)
             {
@@ -341,13 +358,13 @@ namespace GMAP_Demo
                     }
 
                     // Sett inn markører i eksisterende områder 
-                    for (int i = 0; i < (PunkteListe.Count -1); i++)
+                    for (int i = 0; i < (PunkteListe.Count - 1); i++)
                     {
                         Kart.LeggtilMarkør(Kart.MuligKart.Redigering, PunkteListe[i], i, Globalekonstanter.NavnMarkørForOmråde);
                     }
 
                     Kart.reff(Kart.MuligKart.Redigering);
-                   
+
                 }
             }
             if (Frm_R_FjernObjektOmråde.instance != null)
@@ -377,10 +394,10 @@ namespace GMAP_Demo
 
         private void ResettLøpenummerTilRedigering()
         {
-            if(Frm_R_RedigerObjekt.instance != null)
+            if (Frm_R_RedigerObjekt.instance != null)
             {
                 Frm_R_RedigerObjekt.instance.løpenummer_til_redigering = -1;
-            }       
+            }
             if (Frm_R_RedigerOmråde.instance != null)
             {
                 Frm_R_RedigerOmråde.instance.løpenummer_til_redigering = -1;
@@ -389,7 +406,7 @@ namespace GMAP_Demo
 
         public static void OmrådeKlikkbare()
         {
-            if(!OmrådeKlikkBar)
+            if (!OmrådeKlikkBar)
             {
                 instance.cbOmråde.Checked = true;
             }
@@ -413,7 +430,7 @@ namespace GMAP_Demo
                     break;
                 }
             }
-            foreach(var item in map.Overlays)
+            foreach (var item in map.Overlays)
             {
                 if (item.Id == Globalekonstanter.NavnHjelpeOmråde) // "HjelpeOmråde"
                 {
