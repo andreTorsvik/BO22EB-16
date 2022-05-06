@@ -52,7 +52,7 @@ namespace GMAP_Demo
                 Epost = Epost.ToLower();
                 var SjekkEpost = DBComBruker.ListBrukerInfoFromDb(Epost.Trim());
 
-                if (SjekkEpost.Count != 0)
+                if (SjekkEpost == null)
                     Lfeil.Add("Mailen eksitere allerede i systemet");
             }
 
@@ -80,54 +80,54 @@ namespace GMAP_Demo
             return utFyllingsmangler;
         }
 
-        public static string SjekkEndringer_Objekt(List<Ressurs> rList, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, HashSet<string> NyTags)
+        public static string SjekkEndringer_Objekt(Ressurs OrginaleRessurs, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, HashSet<string> NyTags)
         {
-            //Objekt
-            //kode for å oppdage endringer og kommentere de,  
-            //ingen av try-catch skal feile, siden de allrede er sjekket  
+            // Objekt
+            // kode for å oppdage endringer og kommentere de,  
+            // ingen av try-catch skal feile, siden de allerede er sjekket  
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
 
-            //navn
-            if (rList[0].Navn != navn)
-                Endringer += string.Format("Navn: {0} -> {1}" + newLine, rList[0].Navn, navn);
+            // Navn
+            if (OrginaleRessurs.Navn != navn)
+                Endringer += string.Format("Navn: {0} -> {1}" + newLine, OrginaleRessurs.Navn, navn);
             
-            //Sikkerhetsklarering 
+            // Sikkerhetsklarering 
             try
             {
-                if (rList[0].Sikkerhetsklarering != Convert.ToInt16(sikkerhetsklarering))
+                if (OrginaleRessurs.Sikkerhetsklarering != Convert.ToInt16(sikkerhetsklarering))
                 {
-                    Endringer += string.Format("Sikkerhetsklarering: {0} -> {1}" + newLine, rList[0].Sikkerhetsklarering, sikkerhetsklarering);
+                    Endringer += string.Format("Sikkerhetsklarering: {0} -> {1}" + newLine, OrginaleRessurs.Sikkerhetsklarering, sikkerhetsklarering);
                 }
             }
             catch (Exception) { }
 
-            //kategori
-            if (rList[0].Kategori != kategori)
-                Endringer += string.Format("Kategori: {0} -> {1}" + newLine, rList[0].Kategori, kategori);
+            // Kategori
+            if (OrginaleRessurs.Kategori != kategori)
+                Endringer += string.Format("Kategori: {0} -> {1}" + newLine, OrginaleRessurs.Kategori, kategori);
 
-            //kommentar 
-            if (rList[0].Kommentar != kommentar)
-                Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, rList[0].Kommentar, kommentar);
+            // Kommentar 
+            if (OrginaleRessurs.Kommentar != kommentar)
+                Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, OrginaleRessurs.Kommentar, kommentar);
 
-            //Lat
+            // Lat
             try
             {
-                if (Math.Round(rList[0].Lat, 5) != Math.Round(Convert.ToDouble(lat), 5))
-                    Endringer += string.Format("Lat: {0} -> {1}" + newLine, rList[0].Lat, lat);
+                if (Math.Round(OrginaleRessurs.Lat, 5) != Math.Round(Convert.ToDouble(lat), 5))
+                    Endringer += string.Format("Lat: {0} -> {1}" + newLine, OrginaleRessurs.Lat, lat);
             }
             catch (Exception ) { }
            
-            //lang
+            // Lang
             try
             {
-                if (Math.Round(rList[0].Lang, 5) != Math.Round(Convert.ToDouble(lang), 5))
-                    Endringer += string.Format("Long: {0} -> {1}" + newLine, rList[0].Lang, lang);
+                if (Math.Round(OrginaleRessurs.Lang, 5) != Math.Round(Convert.ToDouble(lang), 5))
+                    Endringer += string.Format("Long: {0} -> {1}" + newLine, OrginaleRessurs.Lang, lang);
             }
             catch (Exception) { }
 
 
-            //tags
+            // Tags
             List<string> SjekkOmNye1 = NyTags.Except(GammleTags).ToList();
             List<string> SjekkOmNye2 = GammleTags.Except(NyTags).ToList();
 
@@ -176,41 +176,41 @@ namespace GMAP_Demo
             return utFyllingsmangler;
         }
 
-        public static string SjekkEndringer_Område(List<Område> oList, string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, List<string> GammleTags, HashSet<string> NyTags)
+        public static string SjekkEndringer_Område(Område OrginaleOmråde, string navn, string sikkerhetsklarering, string kommentar, string farge, List<PointLatLng> pList, List<string> GammleTags, HashSet<string> NyTags)
         {
-            //område
-            //kode for å oppdage endringer og kommentere de,  
-            //ingen av try-catch skal feile, siden de allrede er sjekket
+            // Område
+            // kode for å oppdage endringer og kommentere de,  
+            // ingen av try-catch skal feile, siden de allrede er sjekket
 
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
 
-            //navn
-            if (oList[0].Navn != navn)
-                Endringer += string.Format("Navn: {0} -> {1}" + newLine, oList[0].Navn, navn);
+            // Navn
+            if (OrginaleOmråde.Navn != navn)
+                Endringer += string.Format("Navn: {0} -> {1}" + newLine, OrginaleOmråde.Navn, navn);
 
-            //Sikkerhetsklarering 
+            // Sikkerhetsklarering 
             try
             {
-                if (oList[0].Sikkerhetsklarering != Convert.ToInt16(sikkerhetsklarering))
+                if (OrginaleOmråde.Sikkerhetsklarering != Convert.ToInt16(sikkerhetsklarering))
                 {
-                    Endringer += string.Format("Sikkerhetsklarering: {0} -> {1}" + newLine, oList[0].Sikkerhetsklarering, sikkerhetsklarering);
+                    Endringer += string.Format("Sikkerhetsklarering: {0} -> {1}" + newLine, OrginaleOmråde.Sikkerhetsklarering, sikkerhetsklarering);
                 }
             }
             catch (Exception) { }
            
-            //kommentarr 
-            if (oList[0].Kommentar != kommentar)
-                Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, oList[0].Kommentar, kommentar);
+            // Kommentarr 
+            if (OrginaleOmråde.Kommentar != kommentar)
+                Endringer += string.Format("Kommentar: {0} -> {1}" + newLine, OrginaleOmråde.Kommentar, kommentar);
 
-            //Farge 
-            if (oList[0].Farge != farge)
-                Endringer += string.Format("Farge: {0} -> {1}" + newLine, oList[0].Farge, farge);
+            // Farge 
+            if (OrginaleOmråde.Farge != farge)
+                Endringer += string.Format("Farge: {0} -> {1}" + newLine, OrginaleOmråde.Farge, farge);
 
-            //Punkter 
-            Endringer += sammenlignPunkter(oList, pList);
+            // Punkter 
+            Endringer += sammenlignPunkter(OrginaleOmråde, pList);
 
-            //tags
+            // Tags
             List<string> SjekkOmNye1 = NyTags.Except(GammleTags).ToList();
             List<string> SjekkOmNye2 = GammleTags.Except(NyTags).ToList();
 
@@ -247,17 +247,17 @@ namespace GMAP_Demo
             return svar;
         }
 
-        public static string sammenlignPunkter(List<Område> oList, List<PointLatLng> NyePunkter)
+        public static string sammenlignPunkter(Område OrginaleOmråde, List<PointLatLng> NyePunkter)
         {
-            //kode for å sjekke om det er nye punkter i ommrådet 
-            //koden skriver kun tilbakemelding på om det er flere, fære eller om det er nye punkter.
-            //ikke hvilket punkter som er forandret 
-            //koden runder av, slik at hvis de nye punktene er for nærme ogrinalpunktene vil den ikke oppdage enderingen
+            // Kode for å sjekke om det er nye punkter i ommrådet 
+            // koden skriver kun tilbakemelding på om det er flere, fære eller om det er nye punkter.
+            // ikke hvilket punkter som er forandret 
+            // koden runder av, slik at hvis de nye punktene er for nærme ogrinalpunktene vil den ikke oppdage enderingen
 
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
             //sjekk punkter 
-            List<PointLatLng> Orginalepunkter = oList[0].HentPunkter();
+            List<PointLatLng> Orginalepunkter = OrginaleOmråde.HentPunkter();
 
             if (Orginalepunkter.Count == NyePunkter.Count)
             {
@@ -310,8 +310,8 @@ namespace GMAP_Demo
 
         public static string sjekkSikkerhetsKlarering(string sikkerhetsKlarering)
         {
-            //metoden blir brukt for å sjekke at den nye objekte eller området
-            //er i riktig range 
+            // Metoden blir brukt for å sjekke at den nye objekte eller området
+            // er i riktig range 
             string svar = string.Empty;
 
             try
@@ -381,9 +381,9 @@ namespace GMAP_Demo
                 string sjekk = text.Substring(startIndex);
                 lat = Convert.ToDouble(sjekk);
             }
-            catch (Exception)
+            catch (Exception feilmelding)
             {
-
+                DBComLog_feil.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
 
             }
 
@@ -400,9 +400,9 @@ namespace GMAP_Demo
                 string sjekk = text.Substring(startIndex);
                 lang = Convert.ToDouble(sjekk);
             }
-            catch (Exception)
+            catch (Exception feilmelding)
             {
-
+                DBComLog_feil.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
 
             }
 
@@ -427,9 +427,9 @@ namespace GMAP_Demo
 
                 svar = sjekk;
             }
-            catch (Exception)
+            catch (Exception feilmelding)
             {
-
+                DBComLog_feil.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
 
             }
 

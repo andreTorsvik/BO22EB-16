@@ -28,22 +28,23 @@ namespace GMAP_Demo
                 return list;
             }
         }
-        public static List<Område> ListOmrådeFromDb(int løpenummer)
+
+        public static Område ListOmrådeFromDb(int løpenummer)
         {
             //ListOmrådeFromDb
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    var output = connection.Query<Område>($"SELECT * FROM[dbo].[Område] WHERE(Løpenummer_område = '{løpenummer}')").ToList();
+                    var output = connection.Query<Område>($"SELECT * FROM[dbo].[Område] WHERE(Løpenummer_område = '{løpenummer}')").FirstOrDefault();
                     return output;
                 }
             }
             catch (Exception exeption)
             {
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Område> list = new List<Område>();
-                return list;
+                Område område = new Område();
+                return område;
             }
         }
 

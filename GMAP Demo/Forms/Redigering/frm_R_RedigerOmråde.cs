@@ -399,7 +399,7 @@ namespace GMAP_Demo
                     if (FeilTallSjekk == string.Empty)
                     {
                         // Henter område fra database 
-                        var Lområde = DBComOmråde.ListOmrådeFromDb(løpenummer);
+                        Område OrginaleOmråde = DBComOmråde.ListOmrådeFromDb(løpenummer);
 
                         // Legge til alle punktene 
                         List<PointLatLng> pList = new List<PointLatLng>();
@@ -409,10 +409,10 @@ namespace GMAP_Demo
                         }
 
                         //Sjekker endringene i forhold til før 
-                        string Endring = Tekstbehandling.SjekkEndringer_Område(Lområde, navn, sikkerhetsklarering, kommentar, farge, pList, LGamleTag, nyTags);
+                        string Endring = Tekstbehandling.SjekkEndringer_Område(OrginaleOmråde, navn, sikkerhetsklarering, kommentar, farge, pList, LGamleTag, nyTags);
 
                         //sjekk endring i punktnene
-                        string enderingIPunkter = Tekstbehandling.sammenlignPunkter(Lområde, pList);
+                        string enderingIPunkter = Tekstbehandling.sammenlignPunkter(OrginaleOmråde, pList);
 
                         if (Endring != string.Empty)
                         {

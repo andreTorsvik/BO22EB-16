@@ -98,10 +98,10 @@ namespace GMAP_Demo
                     string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
                     string TilEpost = HentEpostFraInfo(BrukerInfo);
 
-                    var BrukerListe = DBComBruker.ListBrukerInfoFromDb(TilEpost);
-                    DBComBruker.UpdateBruker_Godkjent(BrukerListe[0].Epost, true);
+                    Bruker bruker = DBComBruker.ListBrukerInfoFromDb(TilEpost);
+                    DBComBruker.UpdateBruker_Godkjent(bruker.Epost, true);
 
-                    int tallkode = BrukerListe[0].Tallkode;
+                    int tallkode = bruker.Tallkode;
                     try
                     {
                         SendEpost(TilEpost, tallkode);
@@ -224,11 +224,11 @@ namespace GMAP_Demo
                     bool tillatelse = KanOppgradere(InnloggetBruker.BrukernavnInnlogget, epost);
                     if (tillatelse)
                     {
-                        var brukerListe = DBComBruker.ListBrukerInfoFromDb(epost);
+                        Bruker bruker = DBComBruker.ListBrukerInfoFromDb(epost);
 
-                        int klarering = brukerListe[0].Sikkerhetsklarering;
+                        int klarering = bruker.Sikkerhetsklarering;
 
-                        if (brukerListe[0].Sikkerhetsklarering < Globalekonstanter.MaxSikkerhetsklarering)
+                        if (bruker.Sikkerhetsklarering < Globalekonstanter.MaxSikkerhetsklarering)
                         {
                             klarering++;
                             DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
@@ -275,9 +275,9 @@ namespace GMAP_Demo
                     bool tillatelse = KanNedgradereEllerFjerne(InnloggetBruker.BrukernavnInnlogget, epost);
                     if (tillatelse)
                     {
-                        var brukerListe = DBComBruker.ListBrukerInfoFromDb(epost);
+                        Bruker AktuellBruker = DBComBruker.ListBrukerInfoFromDb(epost);
 
-                        int klarering = brukerListe[0].Sikkerhetsklarering;
+                        int klarering = AktuellBruker.Sikkerhetsklarering;
                         if (InnloggetBruker.BrukernavnInnlogget == epost)
                         {
                             string Tittel = "Nedgradere deg selv: ";
@@ -322,7 +322,7 @@ namespace GMAP_Demo
 
                             }
                         }
-                        else if (brukerListe[0].Sikkerhetsklarering >= Globalekonstanter.MaxSikkerhetsklarering-1) // 2
+                        else if (AktuellBruker.Sikkerhetsklarering >= Globalekonstanter.MaxSikkerhetsklarering-1) // 2
                         {
                             klarering--;
                             DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
@@ -350,13 +350,13 @@ namespace GMAP_Demo
 
             try
             {
-                var InnloggetBruker = DBComBruker.ListBrukerInfoFromDb(Innlogget);
-                var AktuellBruker = DBComBruker.ListBrukerInfoFromDb(Aktuell);
+                Bruker InnloggetBruker = DBComBruker.ListBrukerInfoFromDb(Innlogget);
+                Bruker AktuellBruker = DBComBruker.ListBrukerInfoFromDb(Aktuell);
 
-                if (InnloggetBruker[0].Sikkerhetsklarering > Globalekonstanter.MaxSikkerhetsklarering)
-                    InnloggetBruker[0].Sikkerhetsklarering = Globalekonstanter.MaxSikkerhetsklarering;
+                if (InnloggetBruker.Sikkerhetsklarering > Globalekonstanter.MaxSikkerhetsklarering)
+                    InnloggetBruker.Sikkerhetsklarering = Globalekonstanter.MaxSikkerhetsklarering;
 
-                if (InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
+                if (InnloggetBruker.Sikkerhetsklarering > AktuellBruker.Sikkerhetsklarering)
                 {
                     sjekk = true;
                 }
@@ -377,15 +377,15 @@ namespace GMAP_Demo
 
             try
             {
-                var InnloggetBruker = DBComBruker.ListBrukerInfoFromDb(Innlogget);
-                var AktuellBruker = DBComBruker.ListBrukerInfoFromDb(Aktuell);
+                Bruker InnloggetBruker = DBComBruker.ListBrukerInfoFromDb(Innlogget);
+                Bruker AktuellBruker = DBComBruker.ListBrukerInfoFromDb(Aktuell);
 
 
-                if (InnloggetBruker[0].Sikkerhetsklarering > AktuellBruker[0].Sikkerhetsklarering)
+                if (InnloggetBruker.Sikkerhetsklarering > AktuellBruker.Sikkerhetsklarering)
                 {
                     sjekk = true;
                 }
-                if (InnloggetBruker[0].Epost == AktuellBruker[0].Epost)
+                if (InnloggetBruker.Epost == AktuellBruker.Epost)
                 {
                     sjekk = true;
                 }

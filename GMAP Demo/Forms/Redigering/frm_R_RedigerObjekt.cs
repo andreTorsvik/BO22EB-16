@@ -264,11 +264,12 @@ namespace GMAP_Demo
 
                 if (utFyllingsmangler == string.Empty)
                 {
-                    var ressurs = DBComRessurs.ListRessursFromDb(løpenummer);
+                    Ressurs OrginaleRessurs = DBComRessurs.RessursFromDb(løpenummer);
                     string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
+
                     if (FeilTallSjekk == string.Empty)
                     {
-                        string Endring = Tekstbehandling.SjekkEndringer_Objekt(ressurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
+                        string Endring = Tekstbehandling.SjekkEndringer_Objekt(OrginaleRessurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
                         if (Endring != string.Empty)
                         {
                             string Tittel = "Vil du lagre disse endringene ";
