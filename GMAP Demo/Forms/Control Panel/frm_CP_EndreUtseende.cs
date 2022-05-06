@@ -40,7 +40,7 @@ namespace GMAP_Demo
 
         private void BtnSelectTheme_Click(object sender, EventArgs e)
         {
-            https://docs.microsoft.com/en-us/dotnet/api/system.reflection.methodbase.invoke?view=net-6.0
+            // https://docs.microsoft.com/en-us/dotnet/api/system.reflection.methodbase.invoke?view=net-6.0
             // Invoke den aktuelle metoden 
             mInfos[lbThemes.SelectedIndex].Invoke(null, null);
 
