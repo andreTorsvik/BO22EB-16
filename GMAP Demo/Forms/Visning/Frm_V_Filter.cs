@@ -331,7 +331,9 @@ namespace GMAP_Demo
             if (lbTagsVises.Items.Count > 0)
             {
                 // Legger over alle til den andre listen
-                for (int i = 0; i < lbTagsVises.Items.Count; i++)
+
+                int antall = lbTagsVises.Items.Count;
+                for (int i = 0; i < antall; i++)
                 {
                     GlobaleLister.tag_ListeSkjult.Add((string)lbTagsVises.Items[0]);
                     GlobaleLister.tag_ListeVises.Remove((string)lbTagsVises.Items[0]);
@@ -355,7 +357,8 @@ namespace GMAP_Demo
             if (lbTagsSkjult.Items.Count > 0)
             {
                 // Legger over alle til den andre listen
-                for (int i = 0; i < lbTagsSkjult.Items.Count; i++)
+                int antall = lbTagsSkjult.Items.Count;
+                for (int i = 0; i < antall; i++)
                 {
                     GlobaleLister.tag_ListeVises.Add((string)lbTagsSkjult.Items[0]);
                     GlobaleLister.tag_ListeSkjult.Remove((string)lbTagsSkjult.Items[0]);
@@ -376,7 +379,8 @@ namespace GMAP_Demo
             if (lbKategorierVises.Items.Count > 0)
             {
                 // Legger over alle til den andre listen
-                for (int i = 0; i < lbKategorierVises.Items.Count; i++)
+                int antall = lbKategorierVises.Items.Count;
+                for (int i = 0; i < antall; i++)
                 {
                     GlobaleLister.kategoriListeSkjult.Add((Kategorier_Bilde)lbKategorierVises.Items[0]);
                     GlobaleLister.kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.Items[0]);
@@ -398,7 +402,8 @@ namespace GMAP_Demo
             if (lbKategorierSkjult.Items.Count > 0)
             {
                 // Legger over alle til den andre listen
-                for (int i = 0; i < lbKategorierSkjult.Items.Count; i++)
+                int antall = lbKategorierSkjult.Items.Count;
+                for (int i = 0; i < antall; i++)
                 {
                     GlobaleLister.kategoriListeVises.Add((Kategorier_Bilde)lbKategorierSkjult.Items[0]);
                     GlobaleLister.kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.Items[0]);
