@@ -53,7 +53,8 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblTitle.Location = new System.Drawing.Point(14, 11);
+            this.lblTitle.Location = new System.Drawing.Point(9, 7);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(229, 37);
             this.lblTitle.TabIndex = 4;
@@ -64,7 +65,8 @@
             this.lblNyLong.AutoSize = true;
             this.lblNyLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNyLong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.lblNyLong.Location = new System.Drawing.Point(7, 166);
+            this.lblNyLong.Location = new System.Drawing.Point(5, 108);
+            this.lblNyLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNyLong.Name = "lblNyLong";
             this.lblNyLong.Size = new System.Drawing.Size(44, 17);
             this.lblNyLong.TabIndex = 24;
@@ -73,11 +75,11 @@
             // txtNyLong
             // 
             this.txtNyLong.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtNyLong.Location = new System.Drawing.Point(10, 192);
-            this.txtNyLong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNyLong.Location = new System.Drawing.Point(7, 125);
+            this.txtNyLong.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNyLong.Name = "txtNyLong";
             this.txtNyLong.ReadOnly = true;
-            this.txtNyLong.Size = new System.Drawing.Size(293, 26);
+            this.txtNyLong.Size = new System.Drawing.Size(197, 20);
             this.txtNyLong.TabIndex = 23;
             this.txtNyLong.Text = "Dobbelklikk på kart";
             // 
@@ -86,7 +88,8 @@
             this.lblNyLat.AutoSize = true;
             this.lblNyLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNyLat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.lblNyLat.Location = new System.Drawing.Point(7, 95);
+            this.lblNyLat.Location = new System.Drawing.Point(5, 62);
+            this.lblNyLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNyLat.Name = "lblNyLat";
             this.lblNyLat.Size = new System.Drawing.Size(31, 17);
             this.lblNyLat.TabIndex = 22;
@@ -95,21 +98,21 @@
             // txtNyLat
             // 
             this.txtNyLat.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtNyLat.Location = new System.Drawing.Point(10, 121);
-            this.txtNyLat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNyLat.Location = new System.Drawing.Point(7, 79);
+            this.txtNyLat.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNyLat.Name = "txtNyLat";
             this.txtNyLat.ReadOnly = true;
-            this.txtNyLat.Size = new System.Drawing.Size(293, 26);
+            this.txtNyLat.Size = new System.Drawing.Size(197, 20);
             this.txtNyLat.TabIndex = 21;
             this.txtNyLat.Text = "Dobbelklikk på kart";
             // 
             // btnBrukSomStart
             // 
             this.btnBrukSomStart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBrukSomStart.Location = new System.Drawing.Point(11, 242);
-            this.btnBrukSomStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBrukSomStart.Location = new System.Drawing.Point(7, 157);
+            this.btnBrukSomStart.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnBrukSomStart.Name = "btnBrukSomStart";
-            this.btnBrukSomStart.Size = new System.Drawing.Size(143, 42);
+            this.btnBrukSomStart.Size = new System.Drawing.Size(95, 27);
             this.btnBrukSomStart.TabIndex = 25;
             this.btnBrukSomStart.Text = "Bruk som start";
             this.btnBrukSomStart.UseVisualStyleBackColor = true;
@@ -120,7 +123,8 @@
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblInfo.Location = new System.Drawing.Point(56, 35);
+            this.lblInfo.Location = new System.Drawing.Point(37, 23);
+            this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(247, 48);
             this.lblInfo.TabIndex = 26;
@@ -130,9 +134,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 184);
+            this.label2.Location = new System.Drawing.Point(17, 120);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 20);
+            this.label2.Size = new System.Drawing.Size(114, 13);
             this.label2.TabIndex = 32;
             this.label2.Text = "Nåværende startpunkt";
             // 
@@ -141,7 +146,8 @@
             this.lblNåLong.AutoSize = true;
             this.lblNåLong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNåLong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.lblNåLong.Location = new System.Drawing.Point(7, 109);
+            this.lblNåLong.Location = new System.Drawing.Point(5, 71);
+            this.lblNåLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNåLong.Name = "lblNåLong";
             this.lblNåLong.Size = new System.Drawing.Size(44, 17);
             this.lblNåLong.TabIndex = 31;
@@ -150,11 +156,11 @@
             // txtNåværendeLong
             // 
             this.txtNåværendeLong.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtNåværendeLong.Location = new System.Drawing.Point(10, 135);
-            this.txtNåværendeLong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNåværendeLong.Location = new System.Drawing.Point(7, 88);
+            this.txtNåværendeLong.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNåværendeLong.Name = "txtNåværendeLong";
             this.txtNåværendeLong.ReadOnly = true;
-            this.txtNåværendeLong.Size = new System.Drawing.Size(293, 26);
+            this.txtNåværendeLong.Size = new System.Drawing.Size(197, 20);
             this.txtNåværendeLong.TabIndex = 30;
             this.txtNåværendeLong.Text = "Dobbelklikk på kart";
             // 
@@ -163,7 +169,8 @@
             this.lblNåLat.AutoSize = true;
             this.lblNåLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNåLat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(82)))), ((int)(((byte)(222)))));
-            this.lblNåLat.Location = new System.Drawing.Point(7, 38);
+            this.lblNåLat.Location = new System.Drawing.Point(5, 25);
+            this.lblNåLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNåLat.Name = "lblNåLat";
             this.lblNåLat.Size = new System.Drawing.Size(31, 17);
             this.lblNåLat.TabIndex = 29;
@@ -172,32 +179,32 @@
             // txtNåværendeLat
             // 
             this.txtNåværendeLat.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtNåværendeLat.Location = new System.Drawing.Point(10, 64);
-            this.txtNåværendeLat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNåværendeLat.Location = new System.Drawing.Point(7, 42);
+            this.txtNåværendeLat.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNåværendeLat.Name = "txtNåværendeLat";
             this.txtNåværendeLat.ReadOnly = true;
-            this.txtNåværendeLat.Size = new System.Drawing.Size(293, 26);
+            this.txtNåværendeLat.Size = new System.Drawing.Size(197, 20);
             this.txtNåværendeLat.TabIndex = 28;
             this.txtNåværendeLat.Text = "Dobbelklikk på kart";
             // 
             // txtNåværendeAdresse
             // 
-            this.txtNåværendeAdresse.Location = new System.Drawing.Point(345, 64);
-            this.txtNåværendeAdresse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNåværendeAdresse.Location = new System.Drawing.Point(230, 42);
+            this.txtNåværendeAdresse.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNåværendeAdresse.Multiline = true;
             this.txtNåværendeAdresse.Name = "txtNåværendeAdresse";
             this.txtNåværendeAdresse.ReadOnly = true;
-            this.txtNåværendeAdresse.Size = new System.Drawing.Size(173, 98);
+            this.txtNåværendeAdresse.Size = new System.Drawing.Size(117, 65);
             this.txtNåværendeAdresse.TabIndex = 33;
             // 
             // txtNyAdresse
             // 
-            this.txtNyAdresse.Location = new System.Drawing.Point(345, 121);
-            this.txtNyAdresse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNyAdresse.Location = new System.Drawing.Point(230, 79);
+            this.txtNyAdresse.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNyAdresse.Multiline = true;
             this.txtNyAdresse.Name = "txtNyAdresse";
             this.txtNyAdresse.ReadOnly = true;
-            this.txtNyAdresse.Size = new System.Drawing.Size(173, 98);
+            this.txtNyAdresse.Size = new System.Drawing.Size(117, 65);
             this.txtNyAdresse.TabIndex = 34;
             // 
             // gbNåverendeStartpunkt
@@ -208,11 +215,11 @@
             this.gbNåverendeStartpunkt.Controls.Add(this.txtNåværendeLong);
             this.gbNåverendeStartpunkt.Controls.Add(this.lblNåLong);
             this.gbNåverendeStartpunkt.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.gbNåverendeStartpunkt.Location = new System.Drawing.Point(14, 128);
-            this.gbNåverendeStartpunkt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbNåverendeStartpunkt.Location = new System.Drawing.Point(9, 83);
+            this.gbNåverendeStartpunkt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbNåverendeStartpunkt.Name = "gbNåverendeStartpunkt";
-            this.gbNåverendeStartpunkt.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbNåverendeStartpunkt.Size = new System.Drawing.Size(526, 200);
+            this.gbNåverendeStartpunkt.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbNåverendeStartpunkt.Size = new System.Drawing.Size(351, 130);
             this.gbNåverendeStartpunkt.TabIndex = 35;
             this.gbNåverendeStartpunkt.TabStop = false;
             this.gbNåverendeStartpunkt.Text = "Nåværende startpunkt";
@@ -227,27 +234,28 @@
             this.gbNyttStartpunkt.Controls.Add(this.lblNyLong);
             this.gbNyttStartpunkt.Controls.Add(this.btnBrukSomStart);
             this.gbNyttStartpunkt.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.gbNyttStartpunkt.Location = new System.Drawing.Point(14, 361);
-            this.gbNyttStartpunkt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gbNyttStartpunkt.Location = new System.Drawing.Point(9, 235);
+            this.gbNyttStartpunkt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbNyttStartpunkt.Name = "gbNyttStartpunkt";
-            this.gbNyttStartpunkt.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbNyttStartpunkt.Size = new System.Drawing.Size(526, 302);
+            this.gbNyttStartpunkt.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbNyttStartpunkt.Size = new System.Drawing.Size(351, 196);
             this.gbNyttStartpunkt.TabIndex = 36;
             this.gbNyttStartpunkt.TabStop = false;
             this.gbNyttStartpunkt.Text = "Nytt Startpunkt";
             // 
             // Frm_CP_StartPosisjon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1440, 1031);
+            this.ClientSize = new System.Drawing.Size(960, 670);
             this.Controls.Add(this.gbNyttStartpunkt);
             this.Controls.Add(this.gbNåverendeStartpunkt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Frm_CP_StartPosisjon";
             this.Load += new System.EventHandler(this.Frm_S_StartPosisjon_Load);
             this.gbNåverendeStartpunkt.ResumeLayout(false);

@@ -76,7 +76,7 @@
             // txtLand
             // 
             this.txtLand.Location = new System.Drawing.Point(7, 32);
-            this.txtLand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLand.Margin = new System.Windows.Forms.Padding(2);
             this.txtLand.Name = "txtLand";
             this.txtLand.Size = new System.Drawing.Size(197, 20);
             this.txtLand.TabIndex = 3;
@@ -108,7 +108,7 @@
             // txtByKommune
             // 
             this.txtByKommune.Location = new System.Drawing.Point(7, 69);
-            this.txtByKommune.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtByKommune.Margin = new System.Windows.Forms.Padding(2);
             this.txtByKommune.Name = "txtByKommune";
             this.txtByKommune.Size = new System.Drawing.Size(197, 20);
             this.txtByKommune.TabIndex = 5;
@@ -128,7 +128,7 @@
             // txtAdresse
             // 
             this.txtAdresse.Location = new System.Drawing.Point(7, 106);
-            this.txtAdresse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAdresse.Margin = new System.Windows.Forms.Padding(2);
             this.txtAdresse.Name = "txtAdresse";
             this.txtAdresse.Size = new System.Drawing.Size(197, 20);
             this.txtAdresse.TabIndex = 7;
@@ -137,7 +137,7 @@
             // 
             this.btnSøk.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnSøk.Location = new System.Drawing.Point(8, 129);
-            this.btnSøk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSøk.Margin = new System.Windows.Forms.Padding(2);
             this.btnSøk.Name = "btnSøk";
             this.btnSøk.Size = new System.Drawing.Size(72, 28);
             this.btnSøk.TabIndex = 9;
@@ -150,7 +150,7 @@
             // 
             this.tbFra.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbFra.Location = new System.Drawing.Point(5, 95);
-            this.tbFra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFra.Margin = new System.Windows.Forms.Padding(2);
             this.tbFra.Multiline = true;
             this.tbFra.Name = "tbFra";
             this.tbFra.ReadOnly = true;
@@ -161,7 +161,7 @@
             // 
             this.tbTil.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbTil.Location = new System.Drawing.Point(125, 95);
-            this.tbTil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbTil.Margin = new System.Windows.Forms.Padding(2);
             this.tbTil.Multiline = true;
             this.tbTil.Name = "tbTil";
             this.tbTil.ReadOnly = true;
@@ -196,7 +196,7 @@
             // 
             this.btnStart.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnStart.Location = new System.Drawing.Point(4, 46);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(95, 28);
             this.btnStart.TabIndex = 14;
@@ -208,7 +208,7 @@
             // 
             this.btnSlutt.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnSlutt.Location = new System.Drawing.Point(124, 46);
-            this.btnSlutt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSlutt.Margin = new System.Windows.Forms.Padding(2);
             this.btnSlutt.Name = "btnSlutt";
             this.btnSlutt.Size = new System.Drawing.Size(87, 28);
             this.btnSlutt.TabIndex = 15;
@@ -220,7 +220,7 @@
             // 
             this.btnFinnRute.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnFinnRute.Location = new System.Drawing.Point(4, 187);
-            this.btnFinnRute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFinnRute.Margin = new System.Windows.Forms.Padding(2);
             this.btnFinnRute.Name = "btnFinnRute";
             this.btnFinnRute.Size = new System.Drawing.Size(76, 28);
             this.btnFinnRute.TabIndex = 16;
@@ -244,7 +244,7 @@
             // 
             this.txtLong.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txtLong.Location = new System.Drawing.Point(6, 88);
-            this.txtLong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLong.Margin = new System.Windows.Forms.Padding(2);
             this.txtLong.Name = "txtLong";
             this.txtLong.ReadOnly = true;
             this.txtLong.Size = new System.Drawing.Size(197, 20);
@@ -267,7 +267,7 @@
             // 
             this.txtLat.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txtLat.Location = new System.Drawing.Point(7, 50);
-            this.txtLat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLat.Margin = new System.Windows.Forms.Padding(2);
             this.txtLat.Name = "txtLat";
             this.txtLat.ReadOnly = true;
             this.txtLat.Size = new System.Drawing.Size(197, 20);
@@ -278,7 +278,7 @@
             // 
             this.btnFjernRute.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnFjernRute.Location = new System.Drawing.Point(124, 187);
-            this.btnFjernRute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFjernRute.Margin = new System.Windows.Forms.Padding(2);
             this.btnFjernRute.Name = "btnFjernRute";
             this.btnFjernRute.Size = new System.Drawing.Size(76, 28);
             this.btnFjernRute.TabIndex = 21;
@@ -308,9 +308,9 @@
             this.gbPosisjon.Controls.Add(this.btnSøk);
             this.gbPosisjon.ForeColor = System.Drawing.SystemColors.Control;
             this.gbPosisjon.Location = new System.Drawing.Point(15, 57);
-            this.gbPosisjon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbPosisjon.Margin = new System.Windows.Forms.Padding(2);
             this.gbPosisjon.Name = "gbPosisjon";
-            this.gbPosisjon.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbPosisjon.Padding = new System.Windows.Forms.Padding(2);
             this.gbPosisjon.Size = new System.Drawing.Size(236, 162);
             this.gbPosisjon.TabIndex = 23;
             this.gbPosisjon.TabStop = false;
@@ -326,9 +326,9 @@
             this.gbKoordinater.Controls.Add(this.lblLong);
             this.gbKoordinater.ForeColor = System.Drawing.SystemColors.Control;
             this.gbKoordinater.Location = new System.Drawing.Point(15, 234);
-            this.gbKoordinater.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbKoordinater.Margin = new System.Windows.Forms.Padding(2);
             this.gbKoordinater.Name = "gbKoordinater";
-            this.gbKoordinater.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbKoordinater.Padding = new System.Windows.Forms.Padding(2);
             this.gbKoordinater.Size = new System.Drawing.Size(236, 113);
             this.gbKoordinater.TabIndex = 24;
             this.gbKoordinater.TabStop = false;
@@ -358,9 +358,9 @@
             this.gbRute.Controls.Add(this.btnSlutt);
             this.gbRute.ForeColor = System.Drawing.SystemColors.Control;
             this.gbRute.Location = new System.Drawing.Point(15, 362);
-            this.gbRute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbRute.Margin = new System.Windows.Forms.Padding(2);
             this.gbRute.Name = "gbRute";
-            this.gbRute.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbRute.Padding = new System.Windows.Forms.Padding(2);
             this.gbRute.Size = new System.Drawing.Size(236, 248);
             this.gbRute.TabIndex = 25;
             this.gbRute.TabStop = false;
@@ -380,6 +380,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(306, 708);
             this.Controls.Add(this.gbRute);
@@ -387,7 +388,7 @@
             this.Controls.Add(this.gbPosisjon);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Frm_V_Posisjon";
             this.Text = "frmPosisjon";
             this.gbPosisjon.ResumeLayout(false);

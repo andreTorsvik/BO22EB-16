@@ -84,6 +84,7 @@
             // 
             // PnlFormLoader
             // 
+            this.PnlFormLoader.AutoScroll = true;
             this.PnlFormLoader.Dock = System.Windows.Forms.DockStyle.Left;
             this.PnlFormLoader.Location = new System.Drawing.Point(237, 0);
             this.PnlFormLoader.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -93,6 +94,7 @@
             // 
             // pnlMenu
             // 
+            this.pnlMenu.AutoScroll = true;
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.pnlMenu.Controls.Add(this.pnlNav);
             this.pnlMenu.Controls.Add(this.btnTilbake);
@@ -270,7 +272,7 @@
             this.cbOmråde.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbOmråde.ForeColor = System.Drawing.Color.Lime;
             this.cbOmråde.Location = new System.Drawing.Point(9, 171);
-            this.cbOmråde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbOmråde.Margin = new System.Windows.Forms.Padding(2);
             this.cbOmråde.Name = "cbOmråde";
             this.cbOmråde.Size = new System.Drawing.Size(192, 17);
             this.cbOmråde.TabIndex = 89;

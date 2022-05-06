@@ -97,7 +97,7 @@
             // 
             this.tbNavn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbNavn.Location = new System.Drawing.Point(110, 23);
-            this.tbNavn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbNavn.Margin = new System.Windows.Forms.Padding(2);
             this.tbNavn.Multiline = true;
             this.tbNavn.Name = "tbNavn";
             this.tbNavn.ReadOnly = true;
@@ -168,7 +168,7 @@
             // 
             this.tbKategori.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbKategori.Location = new System.Drawing.Point(110, 46);
-            this.tbKategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbKategori.Margin = new System.Windows.Forms.Padding(2);
             this.tbKategori.Multiline = true;
             this.tbKategori.Name = "tbKategori";
             this.tbKategori.ReadOnly = true;
@@ -179,7 +179,7 @@
             // 
             this.tbDato_opprettet.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbDato_opprettet.Location = new System.Drawing.Point(110, 118);
-            this.tbDato_opprettet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbDato_opprettet.Margin = new System.Windows.Forms.Padding(2);
             this.tbDato_opprettet.Multiline = true;
             this.tbDato_opprettet.Name = "tbDato_opprettet";
             this.tbDato_opprettet.ReadOnly = true;
@@ -190,7 +190,7 @@
             // 
             this.tbOpprettetAvBruker.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbOpprettetAvBruker.Location = new System.Drawing.Point(110, 142);
-            this.tbOpprettetAvBruker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbOpprettetAvBruker.Margin = new System.Windows.Forms.Padding(2);
             this.tbOpprettetAvBruker.Multiline = true;
             this.tbOpprettetAvBruker.Name = "tbOpprettetAvBruker";
             this.tbOpprettetAvBruker.ReadOnly = true;
@@ -201,7 +201,7 @@
             // 
             this.tbSikkerhetsklarering.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbSikkerhetsklarering.Location = new System.Drawing.Point(110, 166);
-            this.tbSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSikkerhetsklarering.Margin = new System.Windows.Forms.Padding(2);
             this.tbSikkerhetsklarering.Multiline = true;
             this.tbSikkerhetsklarering.Name = "tbSikkerhetsklarering";
             this.tbSikkerhetsklarering.ReadOnly = true;
@@ -212,7 +212,7 @@
             // 
             this.tbKommentar.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbKommentar.Location = new System.Drawing.Point(110, 189);
-            this.tbKommentar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbKommentar.Margin = new System.Windows.Forms.Padding(2);
             this.tbKommentar.Multiline = true;
             this.tbKommentar.Name = "tbKommentar";
             this.tbKommentar.ReadOnly = true;
@@ -223,7 +223,7 @@
             // 
             this.lbKategorierSkjult.FormattingEnabled = true;
             this.lbKategorierSkjult.Location = new System.Drawing.Point(14, 32);
-            this.lbKategorierSkjult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbKategorierSkjult.Margin = new System.Windows.Forms.Padding(2);
             this.lbKategorierSkjult.Name = "lbKategorierSkjult";
             this.lbKategorierSkjult.Size = new System.Drawing.Size(85, 69);
             this.lbKategorierSkjult.Sorted = true;
@@ -257,7 +257,7 @@
             // 
             this.lbKategorierVises.FormattingEnabled = true;
             this.lbKategorierVises.Location = new System.Drawing.Point(192, 32);
-            this.lbKategorierVises.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbKategorierVises.Margin = new System.Windows.Forms.Padding(2);
             this.lbKategorierVises.Name = "lbKategorierVises";
             this.lbKategorierVises.Size = new System.Drawing.Size(85, 69);
             this.lbKategorierVises.Sorted = true;
@@ -269,7 +269,7 @@
             // 
             this.lbTagsSkjult.FormattingEnabled = true;
             this.lbTagsSkjult.Location = new System.Drawing.Point(15, 120);
-            this.lbTagsSkjult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbTagsSkjult.Margin = new System.Windows.Forms.Padding(2);
             this.lbTagsSkjult.Name = "lbTagsSkjult";
             this.lbTagsSkjult.Size = new System.Drawing.Size(85, 69);
             this.lbTagsSkjult.Sorted = true;
@@ -292,7 +292,7 @@
             // 
             this.lbTagsVises.FormattingEnabled = true;
             this.lbTagsVises.Location = new System.Drawing.Point(193, 120);
-            this.lbTagsVises.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbTagsVises.Margin = new System.Windows.Forms.Padding(2);
             this.lbTagsVises.Name = "lbTagsVises";
             this.lbTagsVises.Size = new System.Drawing.Size(85, 69);
             this.lbTagsVises.Sorted = true;
@@ -316,7 +316,7 @@
             this.cbViseOmråde.AutoSize = true;
             this.cbViseOmråde.ForeColor = System.Drawing.SystemColors.Control;
             this.cbViseOmråde.Location = new System.Drawing.Point(15, 193);
-            this.cbViseOmråde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbViseOmråde.Margin = new System.Windows.Forms.Padding(2);
             this.cbViseOmråde.Name = "cbViseOmråde";
             this.cbViseOmråde.Size = new System.Drawing.Size(93, 17);
             this.cbViseOmråde.TabIndex = 29;
@@ -344,9 +344,9 @@
             this.gbFilter.Controls.Add(this.lbKategorierSkjult);
             this.gbFilter.ForeColor = System.Drawing.SystemColors.Control;
             this.gbFilter.Location = new System.Drawing.Point(7, 59);
-            this.gbFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbFilter.Margin = new System.Windows.Forms.Padding(2);
             this.gbFilter.Name = "gbFilter";
-            this.gbFilter.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbFilter.Padding = new System.Windows.Forms.Padding(2);
             this.gbFilter.Size = new System.Drawing.Size(290, 236);
             this.gbFilter.TabIndex = 30;
             this.gbFilter.TabStop = false;
@@ -356,7 +356,7 @@
             // 
             this.cbAND.AutoSize = true;
             this.cbAND.Location = new System.Drawing.Point(192, 214);
-            this.cbAND.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbAND.Margin = new System.Windows.Forms.Padding(2);
             this.cbAND.Name = "cbAND";
             this.cbAND.Size = new System.Drawing.Size(49, 17);
             this.cbAND.TabIndex = 36;
@@ -371,7 +371,7 @@
             this.cbOR.Checked = true;
             this.cbOR.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbOR.Location = new System.Drawing.Point(193, 193);
-            this.cbOR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbOR.Margin = new System.Windows.Forms.Padding(2);
             this.cbOR.Name = "cbOR";
             this.cbOR.Size = new System.Drawing.Size(42, 17);
             this.cbOR.TabIndex = 35;
@@ -385,7 +385,7 @@
             this.btnTagFjernAlle.ForeColor = System.Drawing.Color.Coral;
             this.btnTagFjernAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
             this.btnTagFjernAlle.Location = new System.Drawing.Point(116, 157);
-            this.btnTagFjernAlle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTagFjernAlle.Margin = new System.Windows.Forms.Padding(2);
             this.btnTagFjernAlle.Name = "btnTagFjernAlle";
             this.btnTagFjernAlle.Size = new System.Drawing.Size(56, 24);
             this.btnTagFjernAlle.TabIndex = 34;
@@ -398,7 +398,7 @@
             this.btnKategoriFjernAlle.ForeColor = System.Drawing.Color.Crimson;
             this.btnKategoriFjernAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
             this.btnKategoriFjernAlle.Location = new System.Drawing.Point(116, 68);
-            this.btnKategoriFjernAlle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKategoriFjernAlle.Margin = new System.Windows.Forms.Padding(2);
             this.btnKategoriFjernAlle.Name = "btnKategoriFjernAlle";
             this.btnKategoriFjernAlle.Size = new System.Drawing.Size(56, 24);
             this.btnKategoriFjernAlle.TabIndex = 32;
@@ -411,7 +411,7 @@
             this.btnTagLeggTilAlle.ForeColor = System.Drawing.Color.Coral;
             this.btnTagLeggTilAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
             this.btnTagLeggTilAlle.Location = new System.Drawing.Point(116, 128);
-            this.btnTagLeggTilAlle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTagLeggTilAlle.Margin = new System.Windows.Forms.Padding(2);
             this.btnTagLeggTilAlle.Name = "btnTagLeggTilAlle";
             this.btnTagLeggTilAlle.Size = new System.Drawing.Size(56, 24);
             this.btnTagLeggTilAlle.TabIndex = 33;
@@ -424,7 +424,7 @@
             this.btnKategoriLeggTilAlle.ForeColor = System.Drawing.Color.Coral;
             this.btnKategoriLeggTilAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
             this.btnKategoriLeggTilAlle.Location = new System.Drawing.Point(116, 40);
-            this.btnKategoriLeggTilAlle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKategoriLeggTilAlle.Margin = new System.Windows.Forms.Padding(2);
             this.btnKategoriLeggTilAlle.Name = "btnKategoriLeggTilAlle";
             this.btnKategoriLeggTilAlle.Size = new System.Drawing.Size(56, 24);
             this.btnKategoriLeggTilAlle.TabIndex = 31;
@@ -447,7 +447,7 @@
             this.lbTags.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lbTags.FormattingEnabled = true;
             this.lbTags.Location = new System.Drawing.Point(110, 254);
-            this.lbTags.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbTags.Margin = new System.Windows.Forms.Padding(2);
             this.lbTags.Name = "lbTags";
             this.lbTags.Size = new System.Drawing.Size(164, 56);
             this.lbTags.Sorted = true;
@@ -457,7 +457,7 @@
             // 
             this.tbMåling.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbMåling.Location = new System.Drawing.Point(110, 94);
-            this.tbMåling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMåling.Margin = new System.Windows.Forms.Padding(2);
             this.tbMåling.Multiline = true;
             this.tbMåling.Name = "tbMåling";
             this.tbMåling.ReadOnly = true;
@@ -498,9 +498,9 @@
             this.gbInfo.Controls.Add(this.tbNavn);
             this.gbInfo.ForeColor = System.Drawing.SystemColors.Control;
             this.gbInfo.Location = new System.Drawing.Point(7, 365);
-            this.gbInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbInfo.Margin = new System.Windows.Forms.Padding(2);
             this.gbInfo.Name = "gbInfo";
-            this.gbInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbInfo.Padding = new System.Windows.Forms.Padding(2);
             this.gbInfo.Size = new System.Drawing.Size(290, 316);
             this.gbInfo.TabIndex = 35;
             this.gbInfo.TabStop = false;
@@ -510,7 +510,7 @@
             // 
             this.tbEnhetMåling.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbEnhetMåling.Location = new System.Drawing.Point(239, 94);
-            this.tbEnhetMåling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbEnhetMåling.Margin = new System.Windows.Forms.Padding(2);
             this.tbEnhetMåling.Multiline = true;
             this.tbEnhetMåling.Name = "tbEnhetMåling";
             this.tbEnhetMåling.ReadOnly = true;
@@ -541,7 +541,7 @@
             // 
             this.tbMålingDato.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbMålingDato.Location = new System.Drawing.Point(110, 70);
-            this.tbMålingDato.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMålingDato.Margin = new System.Windows.Forms.Padding(2);
             this.tbMålingDato.Multiline = true;
             this.tbMålingDato.Name = "tbMålingDato";
             this.tbMålingDato.ReadOnly = true;
@@ -567,7 +567,7 @@
             this.btnNesteRessurs.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
             this.btnNesteRessurs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNesteRessurs.Location = new System.Drawing.Point(192, 30);
-            this.btnNesteRessurs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNesteRessurs.Margin = new System.Windows.Forms.Padding(2);
             this.btnNesteRessurs.Name = "btnNesteRessurs";
             this.btnNesteRessurs.Size = new System.Drawing.Size(82, 28);
             this.btnNesteRessurs.TabIndex = 37;
@@ -582,7 +582,7 @@
             this.btnForrigeRessurs.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
             this.btnForrigeRessurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnForrigeRessurs.Location = new System.Drawing.Point(8, 30);
-            this.btnForrigeRessurs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnForrigeRessurs.Margin = new System.Windows.Forms.Padding(2);
             this.btnForrigeRessurs.Name = "btnForrigeRessurs";
             this.btnForrigeRessurs.Size = new System.Drawing.Size(82, 28);
             this.btnForrigeRessurs.TabIndex = 36;
@@ -600,9 +600,9 @@
             this.gbObjekt.Controls.Add(this.btnForrigeRessurs);
             this.gbObjekt.ForeColor = System.Drawing.SystemColors.Control;
             this.gbObjekt.Location = new System.Drawing.Point(7, 299);
-            this.gbObjekt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbObjekt.Margin = new System.Windows.Forms.Padding(2);
             this.gbObjekt.Name = "gbObjekt";
-            this.gbObjekt.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbObjekt.Padding = new System.Windows.Forms.Padding(2);
             this.gbObjekt.Size = new System.Drawing.Size(290, 62);
             this.gbObjekt.TabIndex = 39;
             this.gbObjekt.TabStop = false;
@@ -612,7 +612,7 @@
             // 
             this.tbAntallObjekter.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbAntallObjekter.Location = new System.Drawing.Point(142, 35);
-            this.tbAntallObjekter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAntallObjekter.Margin = new System.Windows.Forms.Padding(2);
             this.tbAntallObjekter.Name = "tbAntallObjekter";
             this.tbAntallObjekter.ReadOnly = true;
             this.tbAntallObjekter.Size = new System.Drawing.Size(22, 20);
@@ -644,6 +644,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(306, 708);
             this.Controls.Add(this.gbObjekt);
@@ -652,7 +653,7 @@
             this.Controls.Add(this.gbFilter);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Frm_V_Filter";
             this.Text = "frmFilter";
             this.Load += new System.EventHandler(this.FrmFilter_Load);
