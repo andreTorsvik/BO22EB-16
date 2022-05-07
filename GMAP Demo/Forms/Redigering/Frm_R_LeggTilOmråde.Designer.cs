@@ -401,7 +401,7 @@
             this.btnFjernAlle.Name = "btnFjernAlle";
             this.btnFjernAlle.Size = new System.Drawing.Size(35, 34);
             this.btnFjernAlle.TabIndex = 84;
-            this.toolTip1.SetToolTip(this.btnFjernAlle, "Fjern alle punkter");
+            this.toolTip1.SetToolTip(this.btnFjernAlle, "Fjern alle punktene");
             this.btnFjernAlle.UseVisualStyleBackColor = false;
             this.btnFjernAlle.Click += new System.EventHandler(this.BtnFjernAlle_Click);
             // 
