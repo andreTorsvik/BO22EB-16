@@ -53,7 +53,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(52, 12);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(68, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -76,7 +76,7 @@
             // 
             this.tbEtternavn.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbEtternavn.Location = new System.Drawing.Point(193, 151);
-            this.tbEtternavn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbEtternavn.Margin = new System.Windows.Forms.Padding(4);
             this.tbEtternavn.Name = "tbEtternavn";
             this.tbEtternavn.Size = new System.Drawing.Size(199, 22);
             this.tbEtternavn.TabIndex = 14;
@@ -85,7 +85,7 @@
             // 
             this.tbFornavn.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbFornavn.Location = new System.Drawing.Point(193, 121);
-            this.tbFornavn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFornavn.Margin = new System.Windows.Forms.Padding(4);
             this.tbFornavn.Name = "tbFornavn";
             this.tbFornavn.Size = new System.Drawing.Size(199, 22);
             this.tbFornavn.TabIndex = 13;
@@ -130,7 +130,7 @@
             // 
             this.tbEpost.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbEpost.Location = new System.Drawing.Point(193, 212);
-            this.tbEpost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbEpost.Margin = new System.Windows.Forms.Padding(4);
             this.tbEpost.Name = "tbEpost";
             this.tbEpost.Size = new System.Drawing.Size(199, 22);
             this.tbEpost.TabIndex = 20;
@@ -139,7 +139,7 @@
             // 
             this.tbTelefonnummer.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbTelefonnummer.Location = new System.Drawing.Point(193, 181);
-            this.tbTelefonnummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTelefonnummer.Margin = new System.Windows.Forms.Padding(4);
             this.tbTelefonnummer.Name = "tbTelefonnummer";
             this.tbTelefonnummer.Size = new System.Drawing.Size(199, 22);
             this.tbTelefonnummer.TabIndex = 19;
@@ -173,7 +173,7 @@
             // 
             this.tbBekreftPassord.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbBekreftPassord.Location = new System.Drawing.Point(193, 271);
-            this.tbBekreftPassord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbBekreftPassord.Margin = new System.Windows.Forms.Padding(4);
             this.tbBekreftPassord.Name = "tbBekreftPassord";
             this.tbBekreftPassord.Size = new System.Drawing.Size(199, 22);
             this.tbBekreftPassord.TabIndex = 24;
@@ -183,7 +183,7 @@
             // 
             this.tbPassord.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbPassord.Location = new System.Drawing.Point(193, 241);
-            this.tbPassord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPassord.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassord.Name = "tbPassord";
             this.tbPassord.Size = new System.Drawing.Size(199, 22);
             this.tbPassord.TabIndex = 23;
@@ -197,9 +197,9 @@
             this.lblBekreftPassord.Location = new System.Drawing.Point(72, 273);
             this.lblBekreftPassord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBekreftPassord.Name = "lblBekreftPassord";
-            this.lblBekreftPassord.Size = new System.Drawing.Size(110, 16);
+            this.lblBekreftPassord.Size = new System.Drawing.Size(112, 16);
             this.lblBekreftPassord.TabIndex = 22;
-            this.lblBekreftPassord.Text = "Bekreft Passord";
+            this.lblBekreftPassord.Text = "Bekreft passord";
             // 
             // lblPassord
             // 
