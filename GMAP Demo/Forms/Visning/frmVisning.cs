@@ -259,7 +259,7 @@ namespace GMAP_Demo
             if (pnlNav.Top != btnFilter.Top)
             {
                 Frm_V_Filter frm_V_Filter_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                ÅpneFormFraMenyknapp(btnPosisjon, frm_V_Filter_vrb);
+                ÅpneFormFraMenyknapp(btnFilter, frm_V_Filter_vrb);
             }
 
             if (Frm_V_Filter.instance != null)
