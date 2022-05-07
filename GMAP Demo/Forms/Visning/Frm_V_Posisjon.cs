@@ -81,7 +81,7 @@ namespace GMAP_Demo
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            if(txtLat.Text != "Dobbelklikk på kart" && txtLong.Text != "Dobbelklikk på kart")
+            if(txtLat.Text != Globalekonstanter.tekstLatLong_objekt && txtLong.Text != Globalekonstanter.tekstLatLong_objekt) // "Dobbelklikk på kartet"
             {
                 List<string> LAdresse = new List<string>();
                 try
@@ -105,7 +105,7 @@ namespace GMAP_Demo
 
         private void BtnSlutt_Click(object sender, EventArgs e)
         {
-            if (txtLat.Text != "Dobbelklikk på kart" && txtLong.Text != "Dobbelklikk på kart")
+            if (txtLat.Text != Globalekonstanter.tekstLatLong_objekt && txtLong.Text != Globalekonstanter.tekstLatLong_objekt)
             {
                 List<string> LAdresse = new List<string>();
                 try
