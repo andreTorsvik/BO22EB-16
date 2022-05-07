@@ -9,7 +9,9 @@ namespace GMAP_Demo
 {
     public partial class Frm_CP_Admin : Form
     {
+        public Bruker GodkjentBruker;
         Frm_CP_Admin instance;
+
         public Frm_CP_Admin()
         {
             InitializeComponent();
@@ -44,12 +46,14 @@ namespace GMAP_Demo
 
         private void Frm_S_Admin_Load(object sender, EventArgs e)
         {
-            FyllListeneBoksene();
-            GodkjentListeSjekk();
+            FyllListeneBoksene();       
         }
 
         private void FyllListeneBoksene()
         {
+            if(lbListeOverbrukere.Items.Count > 0) lbListeOverbrukere.Items.Clear();
+            if (lbVenterPåGodkjenning.Items.Count > 0) lbVenterPåGodkjenning.Items.Clear();
+
             var BrukerListe = DBComBruker.ListAllBrukerFromDb();
 
             //liste over brukere 
@@ -59,7 +63,7 @@ namespace GMAP_Demo
                 else if (item.Godkjent == false) lbVenterPåGodkjenning.Items.Add(item.BrukerDataTilAdmin); // har ikke gjort det
 
             }
-
+            GodkjentListeSjekk();
         }
 
         private void GodkjentListeSjekk()
@@ -98,14 +102,24 @@ namespace GMAP_Demo
                     string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
                     string TilEpost = HentEpostFraInfo(BrukerInfo);
 
-                    Bruker bruker = DBComBruker.ListBrukerInfoFromDb(TilEpost);
-                    DBComBruker.UpdateBruker_Godkjent(bruker.Epost, true);
+                    // Henter infoen om brukern som nettopp har blitt godkjent med hjelp av eposten  
+                    GodkjentBruker = DBComBruker.ListBrukerInfoFromDb(TilEpost);
 
-                    int tallkode = bruker.Tallkode;
+                    //DBComBruker.UpdateBruker_Godkjent(GodkjentBruker.Epost, true);
+
+                    // Henter tallkoden som ble laget når brukern ble opprettet 
+                    int tallkode = GodkjentBruker.Tallkode;
                     try
                     {
+
+                        // Sener epost med tallkode 
                         SendEpost(TilEpost, tallkode);
+
+                        // Fjerner brukeren fra listen 
                         lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
+
+                        string newLine = Environment.NewLine;
+                        MessageBox.Show(String.Format("Ikke avslutt applikasjonen før du får beskjeden: Mail sendt" + newLine + "kan ta opptil 1 minutt"));
                     }
                     catch (Exception feilmelding)
                     {
@@ -143,9 +157,11 @@ namespace GMAP_Demo
             }
             catch (Exception) 
             {
-
+                GodkjentBruker = null;
             }
         }
+
+        
 
         private void SendCompletedCallBack(object sender, AsyncCompletedEventArgs e)
         {
@@ -159,6 +175,9 @@ namespace GMAP_Demo
             else
             {
                 MessageBox.Show("Mail sendt");
+                DBComBruker.UpdateBruker_Godkjent(GodkjentBruker.Epost, true);
+                GodkjentBruker = null;
+                FyllListeneBoksene();
             }
         }
 
