@@ -49,7 +49,8 @@ namespace GMAP_Demo
             pnlUser.BackColor = ThemeDesign.colorSecondaryBackground;
             lblUserName.ForeColor = ThemeDesign.colorOrange;
             lblUserName.BackColor = ThemeDesign.colorSecondaryBackground;
-            cbOmråde.ForeColor = ThemeDesign.colorGreen;
+            //cbOmråde.ForeColor = ThemeDesign.colorGreen;
+            cbOmråde.ForeColor = Color.White;
 
             pnlMenu.BackColor = ThemeDesign.colorSecondaryBackground;
             btnLeggTilObjekt.ForeColor = ThemeDesign.colorOrange;
@@ -448,8 +449,10 @@ namespace GMAP_Demo
             if (cbOmråde.Checked)
             {
                 cbOmråde.Text = "Kan klikke på eksisterende område";
-                cbOmråde.BackColor = ThemeDesign.colorSecondaryBackground;
-                cbOmråde.ForeColor = ThemeDesign.colorGreen;
+                //cbOmråde.BackColor = ThemeDesign.colorSecondaryBackground;
+                //cbOmråde.ForeColor = ThemeDesign.colorGreen;
+                cbOmråde.BackColor = Color.Green;
+                cbOmråde.ForeColor = Color.White;
 
                 FrmRediger.OmrådeKlikkBar = true;
                 Kart.AlleOmrådesTilgjenlighet(true);

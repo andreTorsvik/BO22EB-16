@@ -244,9 +244,9 @@
             this.lblKategorierSkjult.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblKategorierSkjult.Location = new System.Drawing.Point(16, 20);
             this.lblKategorierSkjult.Name = "lblKategorierSkjult";
-            this.lblKategorierSkjult.Size = new System.Drawing.Size(101, 16);
+            this.lblKategorierSkjult.Size = new System.Drawing.Size(111, 16);
             this.lblKategorierSkjult.TabIndex = 26;
-            this.lblKategorierSkjult.Text = "Skjul Kategorier";
+            this.lblKategorierSkjult.Text = "Skjulte kategorier";
             // 
             // lblKategorierVises
             // 
@@ -254,9 +254,9 @@
             this.lblKategorierVises.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblKategorierVises.Location = new System.Drawing.Point(253, 20);
             this.lblKategorierVises.Name = "lblKategorierVises";
-            this.lblKategorierVises.Size = new System.Drawing.Size(91, 16);
+            this.lblKategorierVises.Size = new System.Drawing.Size(116, 16);
             this.lblKategorierVises.TabIndex = 28;
-            this.lblKategorierVises.Text = "Vis Kategorier";
+            this.lblKategorierVises.Text = "Synlige kategorier";
             // 
             // lbKategorierVises
             // 
@@ -290,9 +290,9 @@
             this.lblTagsSkjult.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTagsSkjult.Location = new System.Drawing.Point(16, 129);
             this.lblTagsSkjult.Name = "lblTagsSkjult";
-            this.lblTagsSkjult.Size = new System.Drawing.Size(74, 16);
+            this.lblTagsSkjult.Size = new System.Drawing.Size(76, 16);
             this.lblTagsSkjult.TabIndex = 26;
-            this.lblTagsSkjult.Text = "Skjult Tags";
+            this.lblTagsSkjult.Text = "Skjulte tags";
             // 
             // lbTagsVises
             // 
@@ -313,9 +313,9 @@
             this.lblTagsVises.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTagsVises.Location = new System.Drawing.Point(253, 129);
             this.lblTagsVises.Name = "lblTagsVises";
-            this.lblTagsVises.Size = new System.Drawing.Size(72, 16);
+            this.lblTagsVises.Size = new System.Drawing.Size(81, 16);
             this.lblTagsVises.TabIndex = 28;
-            this.lblTagsVises.Text = "Viste Tags";
+            this.lblTagsVises.Text = "Synlige tags";
             // 
             // cbViseOmråde
             // 
@@ -565,7 +565,7 @@
             this.btnTimerMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimerMåling.ForeColor = System.Drawing.Color.Black;
             this.btnTimerMåling.Location = new System.Drawing.Point(9, 843);
-            this.btnTimerMåling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTimerMåling.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimerMåling.Name = "btnTimerMåling";
             this.btnTimerMåling.Size = new System.Drawing.Size(388, 23);
             this.btnTimerMåling.TabIndex = 38;

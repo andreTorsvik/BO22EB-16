@@ -56,9 +56,9 @@
             this.lblTitle.Location = new System.Drawing.Point(9, 7);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(229, 37);
+            this.lblTitle.Size = new System.Drawing.Size(266, 46);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "Start Posisjon";
+            this.lblTitle.Text = "Startposisjon";
             // 
             // lblNyLong
             // 
@@ -68,7 +68,7 @@
             this.lblNyLong.Location = new System.Drawing.Point(5, 108);
             this.lblNyLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNyLong.Name = "lblNyLong";
-            this.lblNyLong.Size = new System.Drawing.Size(31, 13);
+            this.lblNyLong.Size = new System.Drawing.Size(40, 17);
             this.lblNyLong.TabIndex = 24;
             this.lblNyLong.Text = "Long";
             // 
@@ -79,7 +79,7 @@
             this.txtNyLong.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNyLong.Name = "txtNyLong";
             this.txtNyLong.ReadOnly = true;
-            this.txtNyLong.Size = new System.Drawing.Size(197, 20);
+            this.txtNyLong.Size = new System.Drawing.Size(197, 23);
             this.txtNyLong.TabIndex = 23;
             this.txtNyLong.Text = "Dobbelklikk på kart";
             // 
@@ -91,7 +91,7 @@
             this.lblNyLat.Location = new System.Drawing.Point(5, 62);
             this.lblNyLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNyLat.Name = "lblNyLat";
-            this.lblNyLat.Size = new System.Drawing.Size(22, 13);
+            this.lblNyLat.Size = new System.Drawing.Size(28, 17);
             this.lblNyLat.TabIndex = 22;
             this.lblNyLat.Text = "Lat";
             // 
@@ -102,7 +102,7 @@
             this.txtNyLat.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNyLat.Name = "txtNyLat";
             this.txtNyLat.ReadOnly = true;
-            this.txtNyLat.Size = new System.Drawing.Size(197, 20);
+            this.txtNyLat.Size = new System.Drawing.Size(197, 23);
             this.txtNyLat.TabIndex = 21;
             this.txtNyLat.Text = "Dobbelklikk på kart";
             // 
@@ -126,7 +126,7 @@
             this.lblInfo.Location = new System.Drawing.Point(37, 23);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(201, 39);
+            this.lblInfo.Size = new System.Drawing.Size(267, 51);
             this.lblInfo.TabIndex = 26;
             this.lblInfo.Text = "Flytt kartet i \"Filter\" eller \"Posisjon\" til der \r\ndu vil at kartet skal starte n" +
     "år man åpner \r\napplikasjonen";
@@ -137,7 +137,7 @@
             this.label2.Location = new System.Drawing.Point(17, 120);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 13);
+            this.label2.Size = new System.Drawing.Size(150, 17);
             this.label2.TabIndex = 32;
             this.label2.Text = "Nåværende startpunkt";
             // 
@@ -149,7 +149,7 @@
             this.lblNåLong.Location = new System.Drawing.Point(5, 71);
             this.lblNåLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNåLong.Name = "lblNåLong";
-            this.lblNåLong.Size = new System.Drawing.Size(31, 13);
+            this.lblNåLong.Size = new System.Drawing.Size(40, 17);
             this.lblNåLong.TabIndex = 31;
             this.lblNåLong.Text = "Long";
             // 
@@ -160,7 +160,7 @@
             this.txtNåværendeLong.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNåværendeLong.Name = "txtNåværendeLong";
             this.txtNåværendeLong.ReadOnly = true;
-            this.txtNåværendeLong.Size = new System.Drawing.Size(197, 20);
+            this.txtNåværendeLong.Size = new System.Drawing.Size(197, 23);
             this.txtNåværendeLong.TabIndex = 30;
             this.txtNåværendeLong.Text = "Dobbelklikk på kart";
             // 
@@ -172,7 +172,7 @@
             this.lblNåLat.Location = new System.Drawing.Point(5, 25);
             this.lblNåLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNåLat.Name = "lblNåLat";
-            this.lblNåLat.Size = new System.Drawing.Size(22, 13);
+            this.lblNåLat.Size = new System.Drawing.Size(28, 17);
             this.lblNåLat.TabIndex = 29;
             this.lblNåLat.Text = "Lat";
             // 
@@ -183,7 +183,7 @@
             this.txtNåværendeLat.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNåværendeLat.Name = "txtNåværendeLat";
             this.txtNåværendeLat.ReadOnly = true;
-            this.txtNåværendeLat.Size = new System.Drawing.Size(197, 20);
+            this.txtNåværendeLat.Size = new System.Drawing.Size(197, 23);
             this.txtNåværendeLat.TabIndex = 28;
             this.txtNåværendeLat.Text = "Dobbelklikk på kart";
             // 
@@ -247,7 +247,7 @@
             // 
             // Frm_CP_StartPosisjon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
