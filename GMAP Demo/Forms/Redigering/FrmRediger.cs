@@ -201,6 +201,10 @@ namespace GMAP_Demo
 
         private void InstanceNull(bool avsluttRediger)
         {
+            // Gjør at alle instancer blir null
+            // avslutter man redigerings programmet skal ha "true" 
+            // som argumeent 
+
             if (Frm_R_FjernObjektOmråde.instance != null)
                 Frm_R_FjernObjektOmråde.instance = null;
 
@@ -326,13 +330,12 @@ namespace GMAP_Demo
 
         private void Map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
-            //skal ikke åpne redigeringform hvis den er på fjerne eller er der allerede 
+            // Skal ikke åpne redigeringform hvis den er på fjerne eller er der allerede 
             if (pnlNav.Top == btnRedigerOmråde.Top) { }
             else if (pnlNav.Top != btnFjernObjektOmråde.Top)
             {
                 Frm_R_RedigerOmråde frm_R_RedigerOmråde_vrb = new Frm_R_RedigerOmråde() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ÅpneFormFraMenyknapp(btnRedigerOmråde, frm_R_RedigerOmråde_vrb);
-                //ÅpneRediger_områdeForm();
             }
 
 
@@ -449,7 +452,7 @@ namespace GMAP_Demo
                 cbOmråde.ForeColor = ThemeDesign.colorGreen;
 
                 FrmRediger.OmrådeKlikkBar = true;
-                Kart.AlleOmrådeTilgjenlighet(true);
+                Kart.AlleOmrådesTilgjenlighet(true);
             }
             else
             {
@@ -458,7 +461,7 @@ namespace GMAP_Demo
                 cbOmråde.ForeColor = Color.Black;
 
                 FrmRediger.OmrådeKlikkBar = false;
-                Kart.AlleOmrådeTilgjenlighet(false);
+                Kart.AlleOmrådesTilgjenlighet(false);
             }
         }
     }
