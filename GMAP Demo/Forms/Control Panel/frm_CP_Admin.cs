@@ -9,7 +9,6 @@ namespace GMAP_Demo
 {
     public partial class Frm_CP_Admin : Form
     {
-        public Bruker GodkjentBruker;
         Frm_CP_Admin instance;
 
         public Frm_CP_Admin()
@@ -33,6 +32,11 @@ namespace GMAP_Demo
             lbVenterPåGodkjenning.ForeColor = ThemeDesign.colorLabel;
             lbVenterPåGodkjenning.BackColor = ThemeDesign.colorGray;
 
+            lblListeOverIkkeVertifiserte.ForeColor = ThemeDesign.colorLabel;
+            lbIkkeVerifisert.BackColor = ThemeDesign.colorGray;
+            lbIkkeVerifisert.ForeColor = ThemeDesign.colorLabel;
+            
+
             lblListeOverBrukere.ForeColor = ThemeDesign.colorLabel;
             btnOppgrader.ForeColor = ThemeDesign.colorLabel;
             btnOppgrader.BackColor = ThemeDesign.colorGray;
@@ -42,6 +46,8 @@ namespace GMAP_Demo
             btnFjern.BackColor = ThemeDesign.colorGray;
             lbListeOverbrukere.ForeColor = ThemeDesign.colorLabel;
             lbListeOverbrukere.BackColor = ThemeDesign.colorGray;
+
+
         }
 
         private void Frm_S_Admin_Load(object sender, EventArgs e)
@@ -59,7 +65,12 @@ namespace GMAP_Demo
             //liste over brukere 
             foreach (var item in BrukerListe)
             {
-                if (item.Godkjent == true) lbListeOverbrukere.Items.Add(item.BrukerDataTilAdmin); // har logget in med vertifiseringskode
+                if (item.Godkjent == true) 
+                    if(item.Verifisert == true)// Har logget inn med vertifiseringskode
+                    lbListeOverbrukere.Items.Add(item.BrukerDataTilAdmin); 
+                    else
+                    lbIkkeVerifisert.Items.Add(item.BrukerDataIkkeVertifisert);
+
                 else if (item.Godkjent == false) lbVenterPåGodkjenning.Items.Add(item.BrukerDataTilAdmin); // har ikke gjort det
 
             }
@@ -103,9 +114,9 @@ namespace GMAP_Demo
                     string TilEpost = HentEpostFraInfo(BrukerInfo);
 
                     // Henter infoen om brukern som nettopp har blitt godkjent med hjelp av eposten  
-                    GodkjentBruker = DBComBruker.ListBrukerInfoFromDb(TilEpost);
+                    Bruker GodkjentBruker = DBComBruker.ListBrukerInfoFromDb(TilEpost);
 
-                    //DBComBruker.UpdateBruker_Godkjent(GodkjentBruker.Epost, true);
+                    DBComBruker.UpdateBruker_Godkjent(GodkjentBruker.Epost, true);
 
                     // Henter tallkoden som ble laget når brukern ble opprettet 
                     int tallkode = GodkjentBruker.Tallkode;
@@ -117,6 +128,7 @@ namespace GMAP_Demo
 
                         // Fjerner brukeren fra listen 
                         lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
+                        lbIkkeVerifisert.Items.Add(GodkjentBruker.BrukerDataIkkeVertifisert);
 
                         string newLine = Environment.NewLine;
                         MessageBox.Show(String.Format("Ikke avslutt applikasjonen før du får beskjeden: Mail sendt" + newLine + "kan ta opptil 1 minutt"));
@@ -157,7 +169,7 @@ namespace GMAP_Demo
             }
             catch (Exception) 
             {
-                GodkjentBruker = null;
+
             }
         }
 
@@ -175,9 +187,9 @@ namespace GMAP_Demo
             else
             {
                 MessageBox.Show("Mail sendt");
-                DBComBruker.UpdateBruker_Godkjent(GodkjentBruker.Epost, true);
-                GodkjentBruker = null;
-                FyllListeneBoksene();
+                //DBComBruker.UpdateBruker_Godkjent(GodkjentBruker.Epost, true);
+                //GodkjentBruker = null;
+                //FyllListeneBoksene();
             }
         }
 

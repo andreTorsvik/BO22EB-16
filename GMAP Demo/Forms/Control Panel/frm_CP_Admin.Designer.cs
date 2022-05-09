@@ -38,6 +38,8 @@
             this.lblVenterGodkjenning = new System.Windows.Forms.Label();
             this.lblListeOverBrukere = new System.Windows.Forms.Label();
             this.btnFjern = new System.Windows.Forms.Button();
+            this.lbIkkeVerifisert = new System.Windows.Forms.ListBox();
+            this.lblListeOverIkkeVertifiserte = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -45,29 +47,29 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblTitle.Location = new System.Drawing.Point(9, 7);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(114, 37);
+            this.lblTitle.Size = new System.Drawing.Size(138, 46);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "Admin";
             // 
             // lbVenterPåGodkjenning
             // 
             this.lbVenterPåGodkjenning.FormattingEnabled = true;
-            this.lbVenterPåGodkjenning.Location = new System.Drawing.Point(11, 60);
-            this.lbVenterPåGodkjenning.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.lbVenterPåGodkjenning.ItemHeight = 16;
+            this.lbVenterPåGodkjenning.Location = new System.Drawing.Point(13, 74);
+            this.lbVenterPåGodkjenning.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbVenterPåGodkjenning.Name = "lbVenterPåGodkjenning";
-            this.lbVenterPåGodkjenning.Size = new System.Drawing.Size(373, 160);
+            this.lbVenterPåGodkjenning.Size = new System.Drawing.Size(496, 196);
             this.lbVenterPåGodkjenning.Sorted = true;
             this.lbVenterPåGodkjenning.TabIndex = 5;
             // 
             // btnGodta
             // 
-            this.btnGodta.Location = new System.Drawing.Point(388, 60);
-            this.btnGodta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnGodta.Location = new System.Drawing.Point(517, 74);
+            this.btnGodta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGodta.Name = "btnGodta";
-            this.btnGodta.Size = new System.Drawing.Size(107, 23);
+            this.btnGodta.Size = new System.Drawing.Size(143, 28);
             this.btnGodta.TabIndex = 6;
             this.btnGodta.Text = "Godta";
             this.btnGodta.UseVisualStyleBackColor = true;
@@ -75,10 +77,10 @@
             // 
             // btnAvslå
             // 
-            this.btnAvslå.Location = new System.Drawing.Point(388, 89);
-            this.btnAvslå.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnAvslå.Location = new System.Drawing.Point(517, 110);
+            this.btnAvslå.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAvslå.Name = "btnAvslå";
-            this.btnAvslå.Size = new System.Drawing.Size(107, 23);
+            this.btnAvslå.Size = new System.Drawing.Size(143, 28);
             this.btnAvslå.TabIndex = 7;
             this.btnAvslå.Text = "Avslå";
             this.btnAvslå.UseVisualStyleBackColor = true;
@@ -86,10 +88,10 @@
             // 
             // btnNedgrader
             // 
-            this.btnNedgrader.Location = new System.Drawing.Point(388, 275);
-            this.btnNedgrader.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnNedgrader.Location = new System.Drawing.Point(517, 440);
+            this.btnNedgrader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNedgrader.Name = "btnNedgrader";
-            this.btnNedgrader.Size = new System.Drawing.Size(107, 23);
+            this.btnNedgrader.Size = new System.Drawing.Size(143, 28);
             this.btnNedgrader.TabIndex = 10;
             this.btnNedgrader.Text = "Nedgrader";
             this.btnNedgrader.UseVisualStyleBackColor = true;
@@ -97,10 +99,10 @@
             // 
             // btnOppgrader
             // 
-            this.btnOppgrader.Location = new System.Drawing.Point(388, 247);
-            this.btnOppgrader.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnOppgrader.Location = new System.Drawing.Point(517, 406);
+            this.btnOppgrader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOppgrader.Name = "btnOppgrader";
-            this.btnOppgrader.Size = new System.Drawing.Size(107, 23);
+            this.btnOppgrader.Size = new System.Drawing.Size(143, 28);
             this.btnOppgrader.TabIndex = 9;
             this.btnOppgrader.Text = "Oppgrader";
             this.btnOppgrader.UseVisualStyleBackColor = true;
@@ -109,10 +111,11 @@
             // lbListeOverbrukere
             // 
             this.lbListeOverbrukere.FormattingEnabled = true;
-            this.lbListeOverbrukere.Location = new System.Drawing.Point(11, 247);
-            this.lbListeOverbrukere.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.lbListeOverbrukere.ItemHeight = 16;
+            this.lbListeOverbrukere.Location = new System.Drawing.Point(13, 406);
+            this.lbListeOverbrukere.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbListeOverbrukere.Name = "lbListeOverbrukere";
-            this.lbListeOverbrukere.Size = new System.Drawing.Size(373, 160);
+            this.lbListeOverbrukere.Size = new System.Drawing.Size(496, 196);
             this.lbListeOverbrukere.Sorted = true;
             this.lbListeOverbrukere.TabIndex = 8;
             // 
@@ -121,10 +124,9 @@
             this.lblVenterGodkjenning.AutoSize = true;
             this.lblVenterGodkjenning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblVenterGodkjenning.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblVenterGodkjenning.Location = new System.Drawing.Point(11, 44);
-            this.lblVenterGodkjenning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVenterGodkjenning.Location = new System.Drawing.Point(15, 54);
             this.lblVenterGodkjenning.Name = "lblVenterGodkjenning";
-            this.lblVenterGodkjenning.Size = new System.Drawing.Size(116, 13);
+            this.lblVenterGodkjenning.Size = new System.Drawing.Size(154, 17);
             this.lblVenterGodkjenning.TabIndex = 11;
             this.lblVenterGodkjenning.Text = "Venter på Godkjenning";
             // 
@@ -133,31 +135,54 @@
             this.lblListeOverBrukere.AutoSize = true;
             this.lblListeOverBrukere.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblListeOverBrukere.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblListeOverBrukere.Location = new System.Drawing.Point(11, 232);
-            this.lblListeOverBrukere.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblListeOverBrukere.Location = new System.Drawing.Point(15, 385);
             this.lblListeOverBrukere.Name = "lblListeOverBrukere";
-            this.lblListeOverBrukere.Size = new System.Drawing.Size(204, 13);
+            this.lblListeOverBrukere.Size = new System.Drawing.Size(275, 17);
             this.lblListeOverBrukere.TabIndex = 12;
             this.lblListeOverBrukere.Text = "Lister over brukere, og sikkerhetsklarering";
             // 
             // btnFjern
             // 
-            this.btnFjern.Location = new System.Drawing.Point(388, 382);
-            this.btnFjern.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnFjern.Location = new System.Drawing.Point(517, 572);
+            this.btnFjern.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btnFjern.Name = "btnFjern";
-            this.btnFjern.Size = new System.Drawing.Size(107, 23);
+            this.btnFjern.Size = new System.Drawing.Size(143, 28);
             this.btnFjern.TabIndex = 10;
             this.btnFjern.Text = "Fjern";
             this.btnFjern.UseVisualStyleBackColor = true;
             this.btnFjern.Click += new System.EventHandler(this.BtnFjern_Click);
             // 
+            // lbIkkeVerifisert
+            // 
+            this.lbIkkeVerifisert.FormattingEnabled = true;
+            this.lbIkkeVerifisert.ItemHeight = 16;
+            this.lbIkkeVerifisert.Location = new System.Drawing.Point(13, 304);
+            this.lbIkkeVerifisert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lbIkkeVerifisert.Name = "lbIkkeVerifisert";
+            this.lbIkkeVerifisert.Size = new System.Drawing.Size(496, 68);
+            this.lbIkkeVerifisert.Sorted = true;
+            this.lbIkkeVerifisert.TabIndex = 13;
+            // 
+            // lblListeOverIkkeVertifiserte
+            // 
+            this.lblListeOverIkkeVertifiserte.AutoSize = true;
+            this.lblListeOverIkkeVertifiserte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblListeOverIkkeVertifiserte.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblListeOverIkkeVertifiserte.Location = new System.Drawing.Point(15, 283);
+            this.lblListeOverIkkeVertifiserte.Name = "lblListeOverIkkeVertifiserte";
+            this.lblListeOverIkkeVertifiserte.Size = new System.Drawing.Size(200, 17);
+            this.lblListeOverIkkeVertifiserte.TabIndex = 14;
+            this.lblListeOverIkkeVertifiserte.Text = "Brukere som ikke er verifisert: ";
+            // 
             // Frm_CP_Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(960, 670);
+            this.ClientSize = new System.Drawing.Size(1280, 825);
+            this.Controls.Add(this.lblListeOverIkkeVertifiserte);
+            this.Controls.Add(this.lbIkkeVerifisert);
             this.Controls.Add(this.lblListeOverBrukere);
             this.Controls.Add(this.lblVenterGodkjenning);
             this.Controls.Add(this.btnFjern);
@@ -169,7 +194,7 @@
             this.Controls.Add(this.lbVenterPåGodkjenning);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Frm_CP_Admin";
             this.Text = "frm_S_EndreLagretBilde";
             this.Load += new System.EventHandler(this.Frm_S_Admin_Load);
@@ -190,5 +215,7 @@
         private System.Windows.Forms.Label lblVenterGodkjenning;
         private System.Windows.Forms.Label lblListeOverBrukere;
         private System.Windows.Forms.Button btnFjern;
+        private System.Windows.Forms.ListBox lbIkkeVerifisert;
+        private System.Windows.Forms.Label lblListeOverIkkeVertifiserte;
     }
 }

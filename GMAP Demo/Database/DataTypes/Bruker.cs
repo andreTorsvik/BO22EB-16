@@ -35,5 +35,13 @@ namespace GMAP_Demo
             }
         }
 
+        public string BrukerDataIkkeVertifisert
+        {
+            get
+            {
+                return $"{Epost} - {Tallkode}";
+            }
+        }
+
     }
 }
