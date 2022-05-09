@@ -117,7 +117,7 @@
     <Compile Include="Global\GlobaleVariabler.cs" />
     <Compile Include="Global\FellesMetoder.cs" />
     <Compile Include="Global\ThemeDesign.cs" />
-    <Compile Include="Tekstbehandling\FilBehandeling.cs" />
+    <Compile Include="Tekstbehandling\FilBehandling.cs" />
     <Compile Include="Kartbehandling\FilterBehandling.cs" />
     <Compile Include="Forms\Innlogging\FrmInnlogging.cs">
       <SubType>Form</SubType>

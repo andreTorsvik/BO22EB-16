@@ -12,7 +12,7 @@ namespace GMAP_Demo
     public partial class FrmRediger : Form
     {
         //log
-        //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
+        //DBComLog_feil.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
         public static FrmRediger instance;
         public static bool OmrådeKlikkBar = true;

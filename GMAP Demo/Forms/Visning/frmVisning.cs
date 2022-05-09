@@ -44,7 +44,7 @@ namespace GMAP_Demo
             lblUserName.TextAlign = ContentAlignment.MiddleCenter;
 
             // Startpoisjon og setup av kart 
-            Kart.PunktFraForrige = FilBehandeling.HentStartPosisjon(Globalekonstanter.filStartPosisjon);
+            Kart.PunktFraForrige = FilBehandling.HentStartPosisjon(Globalekonstanter.filStartPosisjon);
             Kart.Setup(Kart.MuligKart.Visning, Kart.PunktFraForrige);
 
             // KategoriListen på kartet 

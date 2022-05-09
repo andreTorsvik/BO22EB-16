@@ -47,7 +47,7 @@ namespace GMAP_Demo
             mInfos[lbThemes.SelectedIndex].Invoke(null, null);
 
             // Skriver til fil for å lagre 
-            FilBehandeling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());
+            FilBehandling.LagreTheme(Globalekonstanter.filTheme, lbThemes.SelectedItem.ToString());
 
             // Endre standerfarge 
             Globalekonstanter.knapp_trykket = ThemeDesign.colorSecondaryGroupedBackground;

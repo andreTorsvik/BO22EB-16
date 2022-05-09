@@ -51,23 +51,30 @@ namespace GMAP_Demo
             if (GlobaleLister.LObjekt.Count > 0) GlobaleLister.LObjekt.Clear();
 
             // Henter alle objekter
-            var objektList = DBComObjekt.ListAllObjektFromDb(InnloggetBruker.Sikkerhetsklarering);
-
-            // Legger til i den globale listen, men basert på kategorilisten 
-            foreach (var item in objektList)
+            if(GlobaleLister.kategoriListeVises.Count != 0)
             {
-                foreach (var item2 in GlobaleLister.kategoriListeVises)
-                {
-                    if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
-                    {
-                        GlobaleLister.LObjekt.Add(item);
-                        break;
-                    }
-                }
-            }
+                var objektList = DBComObjekt.ListAllObjektFromDb(InnloggetBruker.Sikkerhetsklarering);
 
+                // Legger til i den globale listen, men basert på kategorilisten 
+                foreach (var item in objektList)
+                {
+                    foreach (var item2 in GlobaleLister.kategoriListeVises)
+                    {
+                        if (item.Kategori.ToString() == item2.Kategorinavn.ToString())
+                        {
+                            GlobaleLister.LObjekt.Add(item);
+                            break;
+                        }
+                    }
+                }   
+            }
+            else
+            {
+                return;
+            }
+            
             // Filtrering ut objekter baser på tag
-            if (GlobaleLister.kategoriListeVises.Count != 0 || GlobaleLister.tag_ListeVises.Count != 0)
+            if ( GlobaleLister.tag_ListeVises.Count != 0)
             {
                 // Finner ut hvilket filter man skal bruke 
                 bool OR = GlobaleVariabler.filterOR;

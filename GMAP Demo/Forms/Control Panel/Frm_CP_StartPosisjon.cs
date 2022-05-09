@@ -70,7 +70,7 @@ namespace GMAP_Demo
         {
             PointLatLng svar = new PointLatLng();
 
-            svar = FilBehandeling.HentStartPosisjon(Globalekonstanter.filStartPosisjon);
+            svar = FilBehandling.HentStartPosisjon(Globalekonstanter.filStartPosisjon);
            
             return svar;
         }
@@ -123,7 +123,7 @@ namespace GMAP_Demo
         private void BtnBrukSomStart_Click(object sender, EventArgs e)
         {
 
-            bool fullført = FilBehandeling.LeggTilStartPosisjon(Globalekonstanter.filStartPosisjon,txtNyLat.Text,txtNyLong.Text);
+            bool fullført = FilBehandling.LeggTilStartPosisjon(Globalekonstanter.filStartPosisjon,txtNyLat.Text,txtNyLong.Text);
 
             if(fullført)
             {

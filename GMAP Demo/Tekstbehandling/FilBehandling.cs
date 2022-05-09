@@ -9,7 +9,7 @@ using GMap.NET;
 
 namespace GMAP_Demo
 {
-    public class FilBehandeling
+    public class FilBehandling
     {
         public static bool LeggTilStartPosisjon(string FilNavn,string lat, string lang)
         {
@@ -26,7 +26,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DBComLog_feil.LogFeil(typeof(FilBehandeling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(typeof(FilBehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
             finally
             {
@@ -66,7 +66,7 @@ namespace GMAP_Demo
                 }
                 catch (Exception feilmelding)
                 {
-                    DBComLog_feil.LogFeil(typeof(FilBehandeling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                    DBComLog_feil.LogFeil(typeof(FilBehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
                 finally
                 {
@@ -89,7 +89,7 @@ namespace GMAP_Demo
             }
             catch (Exception feilmelding)
             {
-                DBComLog_feil.LogFeil(typeof(FilBehandeling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                DBComLog_feil.LogFeil(typeof(FilBehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
             finally
             {
@@ -125,7 +125,7 @@ namespace GMAP_Demo
                 }
                 catch (Exception feilmelding)
                 {
-                    DBComLog_feil.LogFeil(typeof(FilBehandeling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                    DBComLog_feil.LogFeil(typeof(FilBehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
                 }
                 finally
                 {
