@@ -68,14 +68,14 @@
             this.lblTitle2.Location = new System.Drawing.Point(47, 65);
             this.lblTitle2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle2.Name = "lblTitle2";
-            this.lblTitle2.Size = new System.Drawing.Size(380, 27);
+            this.lblTitle2.Size = new System.Drawing.Size(359, 54);
             this.lblTitle2.TabIndex = 15;
-            this.lblTitle2.Text = "OpenStreetMap i programmer ";
+            this.lblTitle2.Text = "Kartprogram for industriell \r\nanvendelse med .NET og SQL";
             // 
             // tbEtternavn
             // 
             this.tbEtternavn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tbEtternavn.Location = new System.Drawing.Point(193, 151);
+            this.tbEtternavn.Location = new System.Drawing.Point(193, 173);
             this.tbEtternavn.Margin = new System.Windows.Forms.Padding(4);
             this.tbEtternavn.Name = "tbEtternavn";
             this.tbEtternavn.Size = new System.Drawing.Size(199, 22);
@@ -84,7 +84,7 @@
             // tbFornavn
             // 
             this.tbFornavn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tbFornavn.Location = new System.Drawing.Point(193, 121);
+            this.tbFornavn.Location = new System.Drawing.Point(193, 143);
             this.tbFornavn.Margin = new System.Windows.Forms.Padding(4);
             this.tbFornavn.Name = "tbFornavn";
             this.tbFornavn.Size = new System.Drawing.Size(199, 22);
@@ -95,7 +95,7 @@
             this.lblEtternavn.AutoSize = true;
             this.lblEtternavn.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEtternavn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblEtternavn.Location = new System.Drawing.Point(72, 154);
+            this.lblEtternavn.Location = new System.Drawing.Point(72, 176);
             this.lblEtternavn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEtternavn.Name = "lblEtternavn";
             this.lblEtternavn.Size = new System.Drawing.Size(70, 16);
@@ -107,7 +107,7 @@
             this.lbFornavn.AutoSize = true;
             this.lbFornavn.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFornavn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lbFornavn.Location = new System.Drawing.Point(72, 124);
+            this.lbFornavn.Location = new System.Drawing.Point(72, 146);
             this.lbFornavn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbFornavn.Name = "lbFornavn";
             this.lbFornavn.Size = new System.Drawing.Size(62, 16);
@@ -129,7 +129,7 @@
             // tbEpost
             // 
             this.tbEpost.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tbEpost.Location = new System.Drawing.Point(193, 212);
+            this.tbEpost.Location = new System.Drawing.Point(193, 234);
             this.tbEpost.Margin = new System.Windows.Forms.Padding(4);
             this.tbEpost.Name = "tbEpost";
             this.tbEpost.Size = new System.Drawing.Size(199, 22);
@@ -138,7 +138,7 @@
             // tbTelefonnummer
             // 
             this.tbTelefonnummer.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tbTelefonnummer.Location = new System.Drawing.Point(193, 181);
+            this.tbTelefonnummer.Location = new System.Drawing.Point(193, 203);
             this.tbTelefonnummer.Margin = new System.Windows.Forms.Padding(4);
             this.tbTelefonnummer.Name = "tbTelefonnummer";
             this.tbTelefonnummer.Size = new System.Drawing.Size(199, 22);
@@ -150,7 +150,7 @@
             this.lblEpost.AutoSize = true;
             this.lblEpost.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEpost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblEpost.Location = new System.Drawing.Point(72, 214);
+            this.lblEpost.Location = new System.Drawing.Point(72, 236);
             this.lblEpost.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEpost.Name = "lblEpost";
             this.lblEpost.Size = new System.Drawing.Size(48, 16);
@@ -162,7 +162,7 @@
             this.lblTelefonnummer.AutoSize = true;
             this.lblTelefonnummer.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefonnummer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblTelefonnummer.Location = new System.Drawing.Point(72, 185);
+            this.lblTelefonnummer.Location = new System.Drawing.Point(72, 207);
             this.lblTelefonnummer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTelefonnummer.Name = "lblTelefonnummer";
             this.lblTelefonnummer.Size = new System.Drawing.Size(108, 16);
@@ -172,7 +172,7 @@
             // tbBekreftPassord
             // 
             this.tbBekreftPassord.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tbBekreftPassord.Location = new System.Drawing.Point(193, 271);
+            this.tbBekreftPassord.Location = new System.Drawing.Point(193, 293);
             this.tbBekreftPassord.Margin = new System.Windows.Forms.Padding(4);
             this.tbBekreftPassord.Name = "tbBekreftPassord";
             this.tbBekreftPassord.Size = new System.Drawing.Size(199, 22);
@@ -182,7 +182,7 @@
             // tbPassord
             // 
             this.tbPassord.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tbPassord.Location = new System.Drawing.Point(193, 241);
+            this.tbPassord.Location = new System.Drawing.Point(193, 263);
             this.tbPassord.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassord.Name = "tbPassord";
             this.tbPassord.Size = new System.Drawing.Size(199, 22);
@@ -194,7 +194,7 @@
             this.lblBekreftPassord.AutoSize = true;
             this.lblBekreftPassord.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBekreftPassord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblBekreftPassord.Location = new System.Drawing.Point(72, 273);
+            this.lblBekreftPassord.Location = new System.Drawing.Point(72, 295);
             this.lblBekreftPassord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBekreftPassord.Name = "lblBekreftPassord";
             this.lblBekreftPassord.Size = new System.Drawing.Size(112, 16);
@@ -206,7 +206,7 @@
             this.lblPassord.AutoSize = true;
             this.lblPassord.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.lblPassord.Location = new System.Drawing.Point(72, 244);
+            this.lblPassord.Location = new System.Drawing.Point(72, 266);
             this.lblPassord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassord.Name = "lblPassord";
             this.lblPassord.Size = new System.Drawing.Size(59, 16);
@@ -219,7 +219,7 @@
             this.btnOpprettbruker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpprettbruker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpprettbruker.ForeColor = System.Drawing.Color.White;
-            this.btnOpprettbruker.Location = new System.Drawing.Point(193, 312);
+            this.btnOpprettbruker.Location = new System.Drawing.Point(193, 334);
             this.btnOpprettbruker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOpprettbruker.Name = "btnOpprettbruker";
             this.btnOpprettbruker.Size = new System.Drawing.Size(111, 32);
@@ -234,7 +234,7 @@
             this.btnAvbryt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAvbryt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAvbryt.ForeColor = System.Drawing.Color.White;
-            this.btnAvbryt.Location = new System.Drawing.Point(193, 352);
+            this.btnAvbryt.Location = new System.Drawing.Point(193, 374);
             this.btnAvbryt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAvbryt.Name = "btnAvbryt";
             this.btnAvbryt.Size = new System.Drawing.Size(111, 32);
