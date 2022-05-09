@@ -128,10 +128,7 @@ namespace GMAP_Demo
 
                         // Fjerner brukeren fra listen 
                         lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
-                        lbIkkeVerifisert.Items.Add(GodkjentBruker.BrukerDataIkkeVertifisert);
-
-                        string newLine = Environment.NewLine;
-                        MessageBox.Show(String.Format("Ikke avslutt applikasjonen før du får beskjeden: Mail sendt" + newLine + "kan ta opptil 1 minutt"));
+                        lbIkkeVerifisert.Items.Add(GodkjentBruker.BrukerDataIkkeVertifisert);                 
                     }
                     catch (Exception feilmelding)
                     {
