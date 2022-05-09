@@ -616,7 +616,7 @@ namespace GMAP_Demo
             }
         }
 
-        public static void AlleOmrådeTilgjenlighet(bool klikkBar)
+        public static void AlleOmrådesTilgjenlighet(bool klikkBar)
         {
             // Metode for å gjøre polygoner/områder klikkbare eller uklikkbare 
 

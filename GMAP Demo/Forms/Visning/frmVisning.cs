@@ -40,10 +40,10 @@ namespace GMAP_Demo
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            //midtstille brukernavn iforhold til "bilde"
+            // Midtstille brukernavn iforhold til "bilde"
             lblUserName.TextAlign = ContentAlignment.MiddleCenter;
 
-            //Startpoisjon og setup av kart 
+            // Startpoisjon og setup av kart 
             Kart.PunktFraForrige = FilBehandeling.HentStartPosisjon(Globalekonstanter.filStartPosisjon);
             Kart.Setup(Kart.MuligKart.Visning, Kart.PunktFraForrige);
 
@@ -55,11 +55,11 @@ namespace GMAP_Demo
             GlobaleLister.InitializeTag_ObjektListeVises();
             GlobaleLister.InitializeTag_ObjektListeSkjult();
 
-            //legget til alle ressurser i lister 
+            // Legget til alle ressurser i lister 
             FellesMetoder.OppdaterListe_Objekt();
             FellesMetoder.OppdaterListe_området();
 
-            //tegner alt på karet
+            // Tegner alt på karet
             Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
 
             Size = Globalekonstanter.frmWithMenuMinimumSize;
@@ -114,7 +114,7 @@ namespace GMAP_Demo
 
         private void BtnPosisjon_Click(object sender, EventArgs e)
         {
-            if ((sender as Button).Top != pnlNav.Top)
+            if ((sender as Button).Top != pnlNav.Top) // Sjekker om man allerede har opp den aktuelle formen 
             {
                 Frm_V_Posisjon frmPosisjon_vrb = new Frm_V_Posisjon() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ÅpneFormFraMenyknapp((Button)sender, frmPosisjon_vrb);

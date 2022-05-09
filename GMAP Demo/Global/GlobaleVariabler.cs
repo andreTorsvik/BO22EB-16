@@ -17,6 +17,8 @@ namespace GMAP_Demo
         // bool variabel visser hvis kartet holder på å oppdatere 
         public static bool KartOppdatere = false;
 
-
+        // Boolske variabeler for hvilket filter som skal bli brukt
+        public static bool filterOR;
+        public static bool filterAND;
     }
 }

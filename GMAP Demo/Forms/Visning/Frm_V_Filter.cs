@@ -10,8 +10,7 @@ namespace GMAP_Demo
     {
         public static Frm_V_Filter instance;
         public int indexRessurs = 0;
-        public bool filterOR;
-        public bool filterAND;
+       
 
         // For timing til simulering av målinger:
         static bool målingRunning = false;
@@ -116,7 +115,7 @@ namespace GMAP_Demo
 
         private void FrmFilter_Load(object sender, EventArgs e)
         {
-            filterOR = true;
+            GlobaleVariabler.filterOR = true;
             if(GlobaleLister.LObjekt.Count > 0) tbAntallObjekter.Text = GlobaleLister.LObjekt.Count.ToString();
         }
 
@@ -315,8 +314,8 @@ namespace GMAP_Demo
         private void OppdatarKartMedFilter()
         {
             //bool variabler til det "checked" valget 
-            filterOR = cbOR.Checked;
-            filterAND = cbAND.Checked;
+            GlobaleVariabler.filterOR = cbOR.Checked;
+            GlobaleVariabler.filterAND = cbAND.Checked;
 
             //Oppdaterer listene 
             FellesMetoder.OppdaterListe_Objekt();

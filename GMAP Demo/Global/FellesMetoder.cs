@@ -25,8 +25,8 @@ namespace GMAP_Demo
             if (GlobaleLister.tag_ListeVises.Count != 0)
             {
                 // Finner ut hvilket filter man skal bruke 
-                bool OR = Frm_V_Filter.instance.filterOR;
-                bool AND = Frm_V_Filter.instance.filterAND;
+                bool OR = GlobaleVariabler.filterOR;
+                bool AND = GlobaleVariabler.filterAND;
 
                 if (OR && !AND) // OR
                 {
@@ -70,8 +70,8 @@ namespace GMAP_Demo
             if (GlobaleLister.kategoriListeVises.Count != 0 || GlobaleLister.tag_ListeVises.Count != 0)
             {
                 // Finner ut hvilket filter man skal bruke 
-                bool OR = Frm_V_Filter.instance.filterOR;
-                bool AND = Frm_V_Filter.instance.filterAND;
+                bool OR = GlobaleVariabler.filterOR;
+                bool AND = GlobaleVariabler.filterAND;
 
                 if (OR && !AND) // OR
                 {
@@ -165,7 +165,7 @@ namespace GMAP_Demo
             ListeSkjulteKategori.Clear();
             ListeSkjulteKategori = new List<Kategorier_Bilde>(kategoriListeAlle);
 
-            if(GlobaleLister.kategoriListeSkjult.Count > 0) GlobaleLister.kategoriListeSkjult.Clear();
+            if (GlobaleLister.kategoriListeSkjult.Count > 0) GlobaleLister.kategoriListeSkjult.Clear();
 
             // Sorter ut det som er i "viste" 
             FjernLikeForekomster(ref ListeSkjulteKategori, ListeVisteKategorier);
@@ -202,12 +202,14 @@ namespace GMAP_Demo
 
             try
             {
+                // Henter alle tags som er knyttet til områder 
                 var TagOListe = DBComTag_Område.ListAllTag_OmrådeFromDb();
                 foreach (var item in TagOListe)
                 {
                     AlleTag.Add(item.Tag.ToString());
                 }
 
+                // Henter alle tags som er knyttet til objekter 
                 var TagRListe = DBComTag_Objekt.ListAllTag_ObjektFromDb();
                 foreach (var item in TagRListe)
                 {
@@ -242,6 +244,8 @@ namespace GMAP_Demo
 
 
         }
+
+        
 
     }
 }
