@@ -31,7 +31,7 @@ namespace GMAP_Demo
             lbTagsSkjult.DisplayMember = "Tag";
             SetTheme();
 
-
+            // For å vise riktig verdig i formen, når man åpner den
             cbViseOmråde.Checked = !Kart.VisOmrådePåKart;
         }
 
