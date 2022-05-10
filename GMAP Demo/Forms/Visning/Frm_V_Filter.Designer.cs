@@ -367,7 +367,7 @@
             this.cbAND.Size = new System.Drawing.Size(58, 20);
             this.cbAND.TabIndex = 36;
             this.cbAND.Text = "AND";
-            this.ttTimerMåling.SetToolTip(this.cbAND, "Alle tag(ene) må stemme for å vises\r\n på kartet \r\n");
+            this.ttTimerMåling.SetToolTip(this.cbAND, "Alle tag(ene) må være identiske for å vises\r\n på kartet \r\n");
             this.cbAND.UseVisualStyleBackColor = true;
             this.cbAND.CheckedChanged += new System.EventHandler(this.CbAND_CheckedChanged);
             // 
@@ -382,7 +382,7 @@
             this.cbOR.Size = new System.Drawing.Size(49, 20);
             this.cbOR.TabIndex = 35;
             this.cbOR.Text = "OR";
-            this.ttTimerMåling.SetToolTip(this.cbOR, "Kun en av tag(ene) trenger å stemme for å \r\nvises  på kartet");
+            this.ttTimerMåling.SetToolTip(this.cbOR, "Kun en av tag(ene) trenger å være like for å \r\nvises på kartet");
             this.cbOR.UseVisualStyleBackColor = true;
             this.cbOR.CheckedChanged += new System.EventHandler(this.CbOR_CheckedChanged);
             // 
