@@ -196,8 +196,7 @@ namespace GMAP_Demo
 
             if (SjekkFeil != string.Empty) 
                 MessageBox.Show(SjekkFeil);
-            else
-                FrmRediger.OmrådeKlikkbare();
+
 
             FellesMetoder.OppdaterTag_Liste();
         }
@@ -377,6 +376,8 @@ namespace GMAP_Demo
 
                     // fjerne "hjelpe" markører 
                     Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde); // 
+
+                    FrmRediger.OmrådeKlikkbare();
 
                     // Legge til de nye området på kartet 
                     FellesMetoder.OppdaterListe_området();

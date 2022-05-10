@@ -10,7 +10,7 @@ namespace GMAP_Demo
     {
         public static Frm_V_Filter instance;
         public int indexRessurs = 0;
-       
+        
 
         // For timing til simulering av målinger:
         static bool målingRunning = false;
@@ -30,6 +30,9 @@ namespace GMAP_Demo
             lbTagsSkjult.DataSource = GlobaleLister.tag_ListeSkjult;
             lbTagsSkjult.DisplayMember = "Tag";
             SetTheme();
+
+
+            cbViseOmråde.Checked = !Kart.VisOmrådePåKart;
         }
 
         private void SetTheme()

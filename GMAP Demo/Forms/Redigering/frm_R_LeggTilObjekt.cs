@@ -117,8 +117,6 @@ namespace GMAP_Demo
 
             if (SjekkFeil != string.Empty) 
                 MessageBox.Show(SjekkFeil);
-            else
-                FrmRediger.OmrådeKlikkbare();
 
             FellesMetoder.OppdaterTag_Liste();
         }
@@ -264,6 +262,8 @@ namespace GMAP_Demo
                     }
                     //tøme tekstfelt og lister 
                     TømeTekstFeltOgLister();
+
+                    FrmRediger.OmrådeKlikkbare();
 
                     FellesMetoder.OppdaterListe_Objekt();
                     Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);

@@ -248,11 +248,7 @@ namespace GMAP_Demo
 
             if (SjekkFeil != string.Empty)
                 MessageBox.Show(SjekkFeil);
-            else
-            {
-                FrmRediger.OmrådeKlikkbare();
-                id_til_redigering = -1;
-            }
+
 
 
             FellesMetoder.OppdaterTag_Liste();
@@ -307,6 +303,9 @@ namespace GMAP_Demo
                                 }
                                 //tøme tekstfelt og lister 
                                 TømeTekstFeltOgLister();
+
+                                FrmRediger.OmrådeKlikkbare();
+                                id_til_redigering = -1;
 
                                 //Oppdatere Liste med ressurser 
 

@@ -255,13 +255,7 @@ namespace GMAP_Demo
             if (sjekkFeil != string.Empty)
             {
                 MessageBox.Show(sjekkFeil);
-            }
-            else
-            {
-                FrmRediger.OmrådeKlikkbare();
-                id_til_redigering = -1;
-            }
-                
+            }                
 
             FellesMetoder.OppdaterTag_Liste();
         }
@@ -483,6 +477,8 @@ namespace GMAP_Demo
 
                                 TømeTekstFeltOgLister();
 
+                                FrmRediger.OmrådeKlikkbare();
+                                id_til_redigering = -1;
 
                                 FellesMetoder.OppdaterListe_området();
                                 Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
