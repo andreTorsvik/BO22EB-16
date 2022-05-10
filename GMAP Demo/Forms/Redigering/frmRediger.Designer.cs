@@ -275,9 +275,9 @@
             this.cbOmråde.Location = new System.Drawing.Point(12, 210);
             this.cbOmråde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbOmråde.Name = "cbOmråde";
-            this.cbOmråde.Size = new System.Drawing.Size(240, 20);
+            this.cbOmråde.Size = new System.Drawing.Size(177, 20);
             this.cbOmråde.TabIndex = 89;
-            this.cbOmråde.Text = "Kan klikke på eksisterende område";
+            this.cbOmråde.Text = "Områdevelger er aktivert";
             this.cbOmråde.UseVisualStyleBackColor = false;
             this.cbOmråde.CheckedChanged += new System.EventHandler(this.CbOmråde_CheckedChanged);
             // 

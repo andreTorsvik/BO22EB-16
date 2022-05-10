@@ -448,9 +448,10 @@ namespace GMAP_Demo
         {
             if (cbOmråde.Checked)
             {
-                cbOmråde.Text = "Kan klikke på eksisterende område";
+                //cbOmråde.Text = "Kan klikke på eksisterende område";
                 //cbOmråde.BackColor = ThemeDesign.colorSecondaryBackground;
                 //cbOmråde.ForeColor = ThemeDesign.colorGreen;
+                cbOmråde.Text = "Områdevelger er aktivert";       
                 cbOmråde.BackColor = Color.Green;
                 cbOmråde.ForeColor = Color.White;
 
@@ -459,7 +460,8 @@ namespace GMAP_Demo
             }
             else
             {
-                cbOmråde.Text = "Kan ikke klikke på eksisterende område";
+                //cbOmråde.Text = "Kan ikke klikke på eksisterende område";
+                cbOmråde.Text = "Områdevelger er deaktivert";
                 cbOmråde.BackColor = Color.Red;
                 cbOmråde.ForeColor = Color.Black;
 
