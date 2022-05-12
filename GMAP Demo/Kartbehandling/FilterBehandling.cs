@@ -8,14 +8,14 @@ namespace GMAP_Demo
 {
     public class FilterBehandling
     {
-        public static void filtrereBaserPåTagsAND(ref List<Objekt> objektlist, List<string> TagFilterListe)
+        public static void filtrereBaserPåTagsAND(ref List<Objekt> olist, List<string> TagFilterListe)
         {
             // Metode for å filtere objekter
             // Filter med AND, det vil si: alt på "TagFilterListe" må stemme 
 
             if (TagFilterListe.Count > 0)
             {
-                List<Objekt> listObjekt = objektlist;
+                List<Objekt> listObjekt = olist;
 
                 for (int i = 0; i < listObjekt.Count; i++)
                 {
@@ -47,7 +47,7 @@ namespace GMAP_Demo
             }
             else
             {
-                List<Objekt> listObjekt = objektlist;
+                List<Objekt> listObjekt = olist;
 
                 listObjekt.Clear();
             }

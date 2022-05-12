@@ -51,7 +51,7 @@ namespace GMAP_Demo
             if (GlobaleLister.LObjekt.Count > 0) GlobaleLister.LObjekt.Clear();
 
             // Henter alle objekter
-            if(GlobaleLister.kategoriListeVises.Count != 0)
+            if (GlobaleLister.kategoriListeVises.Count != 0)
             {
                 var objektList = DBComObjekt.ListAllObjektFromDb(InnloggetBruker.Sikkerhetsklarering);
 
@@ -66,15 +66,15 @@ namespace GMAP_Demo
                             break;
                         }
                     }
-                }   
+                }
             }
             else
             {
                 return;
             }
-            
+
             // Filtrering ut objekter baser på tag
-            if ( GlobaleLister.tag_ListeVises.Count != 0)
+            if (GlobaleLister.tag_ListeVises.Count != 0)
             {
                 // Finner ut hvilket filter man skal bruke 
                 bool OR = GlobaleVariabler.filterOR;
@@ -252,7 +252,10 @@ namespace GMAP_Demo
 
         }
 
-        
-
     }
 }
+
+
+
+
+
