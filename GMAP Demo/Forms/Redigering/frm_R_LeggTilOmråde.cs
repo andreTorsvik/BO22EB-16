@@ -315,79 +315,78 @@ namespace GMAP_Demo
 
         private string LeggTilOmrådet(string navn, string sikkerhetsklarering, string Kommentar, string Farge, int AntallPunkter, int AntallTags, HashSet<string> Tags)
         {
-            string feilmelding = string.Empty;
-
             string utFyllingsmangler = Tekstbehandling.AltUtfylt_Område(navn, sikkerhetsklarering, Kommentar, Farge, AntallPunkter, AntallTags);
 
-            if (utFyllingsmangler == string.Empty)
+            if (utFyllingsmangler != string.Empty)
             {
-                // Sjekker om de er feil med intastet data  
-                string FeilTallSjekk = Tekstbehandling.sjekkSikkerhetsKlarering(sikkerhetsklarering);
-
-                if (FeilTallSjekk == string.Empty)
-                {
-                    // Hent id
-                    var id = DBComOmråde.GetIdOmråde();
-                    int id_område = Convert.ToInt32(id[0]);
-
-                    // Laste opp området til database
-                    try
-                    {
-                        DBComOmråde.InsertOmrådeToDb(id_område, navn, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
-                    }
-                    catch (Exception feil)
-                    {
-                        feilmelding += feil.Message;
-                    }
-
-                    // Legge til hvert punkt
-                    try
-                    {
-                        int rekkefølge = 0;
-                        foreach (var item in pointLatLngs)
-                        {
-                            float lat = Convert.ToSingle(item.Lat);
-                            float lang = Convert.ToSingle(item.Lng);
-                            DBComPunkter_område.InsertPunkter_områdetToDb(id_område, lat, lang, rekkefølge);
-                            rekkefølge++;
-                        }
-                    }
-                    catch (Exception feil)
-                    {
-                        feilmelding += feil.Message;
-                    }
-
-                    // Legge til hver tag
-                    try
-                    {
-                        foreach (var item in Tags)
-                        {
-                            DBComTag_Område.InsertTag_OmrådeToDb(item.ToString(), id_område);
-                        }
-                    }
-                    catch (Exception feil)
-                    {
-                        feilmelding += feil.Message;
-                    }
-
-
-                    // Slete innhold
-                    TømeTekstfeltOgLister();
-
-                    // fjerne "hjelpe" markører 
-                    Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde); // 
-
-                    FrmRediger.OmrådeKlikkbare();
-
-                    // Legge til de nye området på kartet 
-                    FellesMetoder.OppdaterListe_området();
-                    Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
-                }
-                else MessageBox.Show(FeilTallSjekk);
+                return utFyllingsmangler;
             }
-            else MessageBox.Show(utFyllingsmangler);
 
-            return feilmelding;
+            // Sjekker om de er feil med intastet data  
+            string FeilTallSjekk = Tekstbehandling.sjekkSikkerhetsKlarering(sikkerhetsklarering);
+
+            if (FeilTallSjekk != string.Empty)
+            {
+                return FeilTallSjekk;
+            }
+
+            // Hent id
+            var id = DBComOmråde.GetIdOmråde();
+            int id_område = Convert.ToInt32(id[0]);
+
+            // Laste opp området til database
+            try
+            {
+                DBComOmråde.InsertOmrådeToDb(id_område, navn, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Farge);
+            }
+            catch (Exception feilmelding)
+            {
+                return feilmelding.Message;
+            }
+
+            // Legge til hvert punkt
+            try
+            {
+                int rekkefølge = 0;
+                foreach (var item in pointLatLngs)
+                {
+                    float lat = Convert.ToSingle(item.Lat);
+                    float lang = Convert.ToSingle(item.Lng);
+                    DBComPunkter_område.InsertPunkter_områdetToDb(id_område, lat, lang, rekkefølge);
+                    rekkefølge++;
+                }
+            }
+            catch (Exception feilmelding)
+            {
+                return feilmelding.Message;
+            }
+
+            // Legge til hver tag
+            try
+            {
+                foreach (var item in Tags)
+                {
+                    DBComTag_Område.InsertTag_OmrådeToDb(item.ToString(), id_område);
+                }
+            }
+            catch (Exception feilmelding)
+            {
+                return feilmelding.Message;
+            }
+
+            // Slete innhold
+            TømeTekstfeltOgLister();
+
+            // fjerne "hjelpe" markører 
+            Kart.FjernAlleMarkører_redigier(Globalekonstanter.NavnMarkørForOmråde);
+
+            FrmRediger.OmrådeKlikkbare();
+
+            // Legge til de nye området på kartet 
+            FellesMetoder.OppdaterListe_området();
+            Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
+
+            return string.Empty;      
         }
         
         private void TømeTekstfeltOgLister()

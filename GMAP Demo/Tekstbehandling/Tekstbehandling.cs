@@ -325,8 +325,7 @@ namespace GMAP_Demo
                 {
                     svar = "Sikkerhetsklarering kan ikke være lavere enn 1 ";
                 }
-
-                if (sjekk > InnloggetBruker.Sikkerhetsklarering)
+                else if (sjekk > InnloggetBruker.Sikkerhetsklarering)
                 {
                     svar = "Sikkerhetsklaering kan ikke være høyre enn din egen";
                 }

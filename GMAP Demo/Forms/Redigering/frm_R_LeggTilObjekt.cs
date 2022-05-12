@@ -101,25 +101,7 @@ namespace GMAP_Demo
             txtLat.Text = lat.ToString();
             txtLong.Text = lang.ToString();
         }
-        private void BtnLeggTilObjekt_Click(object sender, EventArgs e)
-        {
-            string navn = txtNavn.Text.Trim();
-            string kategori = txtKategori.Text;
-            string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string Kommentar = txtKommentar.Text.Trim();
-            string lat = txtLat.Text;
-            string lang = txtLong.Text;
-            int AntallTags = lbValgtTags.Items.Count;
-            HashSet<string> Tags = new HashSet<string> ( lbValgtTags.Items.Cast<string>().ToList());
-
-            // Legger til, om alt stemmer 
-            string SjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, Tags);
-
-            if (SjekkFeil != string.Empty) 
-                MessageBox.Show(SjekkFeil);
-
-            FellesMetoder.OppdaterTag_Liste();
-        }
+       
 
         private void LbTilgjengligKategori_MouseClick(object sender, MouseEventArgs e)
         {
@@ -220,59 +202,81 @@ namespace GMAP_Demo
             }
         }
 
+        private void BtnLeggTilObjekt_Click(object sender, EventArgs e)
+        {
+            string navn = txtNavn.Text.Trim();
+            string kategori = txtKategori.Text;
+            string sikkerhetsklarering = txtSikkerhetsklarering.Text;
+            string Kommentar = txtKommentar.Text.Trim();
+            string lat = txtLat.Text;
+            string lang = txtLong.Text;
+            int AntallTags = lbValgtTags.Items.Count;
+            HashSet<string> Tags = new HashSet<string>(lbValgtTags.Items.Cast<string>().ToList());
+
+            // Legger til, om alt stemmer 
+            string SjekkFeil = LeggTilObjekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, Tags);
+
+            if (SjekkFeil != string.Empty)
+                MessageBox.Show(SjekkFeil);
+
+            FellesMetoder.OppdaterTag_Liste();
+        }
+
         private string LeggTilObjekt(string navn, string kategori, string sikkerhetsklarering, string Kommentar, string lat, string lang, int AntallTags, HashSet<string> nyTags)
         {
-            string feilmelding = string.Empty;
-
             string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, Kommentar, lat, lang, AntallTags, Globalekonstanter.tekstLatLong_objekt);
 
-            if (utFyllingsmangler == string.Empty)
+            if (utFyllingsmangler != string.Empty)
             {
-                string feilMelding = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
-                if (feilMelding == string.Empty)
-                {
-                    //løpenummer 
-                    var løpenummer = DBComObjekt.GetIdObjekt();
-                    int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
-
-                    // Lagrer ressurs 
-                    try
-                    {
-                        if (Løpenummer_Ressurs > 0)
-                            DBComObjekt.InsertObjektToDb(Løpenummer_Ressurs, navn, kategori, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
-
-                    }
-                    catch (Exception feil)
-                    {
-                        feilmelding += feil.Message;
-                    }
-
-                    // Laste opp hver enkelt tag 
-                    try
-                    {
-                        foreach (var item in nyTags)
-                        {
-                            DBComTag_Objekt.InsertTag_ObjektToDb(item.ToString(), Løpenummer_Ressurs);
-                        }
-
-                    }
-                    catch (Exception feil)
-                    {
-                        feilmelding += feil.Message;
-                    }
-                    //tøme tekstfelt og lister 
-                    TømeTekstFeltOgLister();
-
-                    FrmRediger.OmrådeKlikkbare();
-
-                    FellesMetoder.OppdaterListe_Objekt();
-                    Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
-                }
-                else MessageBox.Show(feilMelding);
+                return utFyllingsmangler;
             }
-            else MessageBox.Show(utFyllingsmangler);
 
-            return feilmelding;
+            string FeilMelding = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
+            if (FeilMelding != string.Empty)
+            {
+                return FeilMelding;
+            }
+
+            //løpenummer 
+            var løpenummer = DBComObjekt.GetIdObjekt();
+            int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
+
+            // Lagrer ressurs 
+            try
+            {
+                if (Løpenummer_Ressurs > 0)
+                    DBComObjekt.InsertObjektToDb(Løpenummer_Ressurs, navn, kategori, InnloggetBruker.BrukernavnInnlogget, Convert.ToInt32(sikkerhetsklarering), Kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
+
+            }
+            catch (Exception feilmelding)
+            {
+                return feilmelding.Message;
+            }
+
+            // Laste opp hver enkelt tag 
+            try
+            {
+                foreach (var item in nyTags)
+                {
+                    DBComTag_Objekt.InsertTag_ObjektToDb(item.ToString(), Løpenummer_Ressurs);
+                }
+
+            }
+            catch (Exception feilmelding)
+            {
+                return feilmelding.Message;
+            }
+
+            // Tøme tekstfelt og lister 
+            TømeTekstFeltOgLister();
+
+            FrmRediger.OmrådeKlikkbare();
+
+            FellesMetoder.OppdaterListe_Objekt();
+            Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
+
+            return string.Empty;
+            
         }
 
         private void TømeTekstFeltOgLister()

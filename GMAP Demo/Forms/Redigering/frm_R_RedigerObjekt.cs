@@ -256,94 +256,108 @@ namespace GMAP_Demo
 
         private string RedigerObjekt(int IDObjekt, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags, List<string> GamleTags, HashSet<string> nyTags)
         {
-            if (IDObjekt >= 0)
-            {
-                string feilmelding = string.Empty;
-
-                string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, AntallTags, Globalekonstanter.tekstLatLong_objekt);
-
-                if (utFyllingsmangler == string.Empty)
-                {
-                    Objekt OrginaleRessurs = DBComObjekt.ObjektFromDb(IDObjekt);
-                    string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
-
-                    if (FeilTallSjekk == string.Empty)
-                    {
-                        string Endring = Tekstbehandling.SjekkEndringer_Objekt(OrginaleRessurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
-                        if (Endring != string.Empty)
-                        {
-                            string Tittel = "Vil du lagre disse endringene ";
-                            bool lagreEndring = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
-
-                            if (lagreEndring)
-                            {
-                                try
-                                {
-                                    //Oppdatere med ny info 
-                                    DBComObjekt.UpdateObjekt(IDObjekt, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
-
-                                    // Oppdatere Tags, hvis det er noen nye 
-                                    List<string> SjekkOmNye1 = nyTags.Except(GamleTags).ToList();
-                                    List<string> SjekkOmNye2 = GamleTags.Except(nyTags).ToList();
-                                    if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
-                                    {
-                                        //SLETTE ALLE TAGS KNYTTET TIL RESSURS 
-                                        DBComTag_Objekt.DeleteTags_Objekt(IDObjekt);
-                                        //LEGGE TIL NYE
-                                        foreach (var item in nyTags)
-                                        {
-                                            DBComTag_Objekt.InsertTag_ObjektToDb(item.ToString(), IDObjekt);
-                                        }
-                                    }
-                                }
-                                catch (Exception Feilmelding)
-                                {
-                                    feilmelding = Feilmelding.Message;
-
-                                }
-                                //tøme tekstfelt og lister 
-                                TømeTekstFeltOgLister();
-
-                                FrmRediger.OmrådeKlikkbare();
-                                id_til_redigering = -1;
-
-                                //Oppdatere Liste med ressurser 
-
-                                FellesMetoder.OppdaterListe_Objekt();
-                                Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
-
-                            }
-                        }
-                        else MessageBox.Show("Ingen Endring");
-                    }
-                    else MessageBox.Show(FeilTallSjekk);
-                }
-                else MessageBox.Show(utFyllingsmangler);
-                return feilmelding;
-            }
-            else
+            // Sjekker at man har klikket på et objekt
+            if (IDObjekt < 0)
             {
                 return String.Format("Klikk på objekt du ønsker å endre");
             }
 
-        }
+            //sjekker om man har fylt ut alt 
+            string utFyllingsmangler = Tekstbehandling.AltUtfylt_Objekt(navn, kategori, sikkerhetsklarering, kommentar, lat, lang, AntallTags, Globalekonstanter.tekstLatLong_objekt);
+            if (utFyllingsmangler != string.Empty)
+            {
+                return utFyllingsmangler;
+            }
 
-        private void TømeTekstFeltOgLister()
-        {
-            //tekstfelt
+            // Sjekker om man har fylt inn gylidge tall 
+            string FeilTallSjekk = Tekstbehandling.sjekkGyldigTallData_objekt(sikkerhetsklarering, lat, lang);
+            if (FeilTallSjekk != string.Empty)
+            {
+                return FeilTallSjekk;
+            }
+
+            // Sjekker hvilke endringer som er blitt gjort, hvis det er noen 
+            Objekt OrginaleRessurs = DBComObjekt.ObjektFromDb(IDObjekt);
+            string Endring = Tekstbehandling.SjekkEndringer_Objekt(OrginaleRessurs, navn, kategori, sikkerhetsklarering, kommentar, lat, lang, GamleTags, nyTags);
+            if (Endring == string.Empty)
+            {
+                return string.Format("Ingen endring");
+            }
+
+            // Spør om man ønsker å lagre endringene 
+            string Tittel = "Vil du lagre disse endringene ";
+            bool lagreEndring = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
+            if (!lagreEndring)
+            {
+                return string.Empty;
+            }
+
+            // Oppdatere med ny info 
+            try
+            {
+                DBComObjekt.UpdateObjekt(IDObjekt, navn, kategori, Convert.ToInt32(sikkerhetsklarering), kommentar, Convert.ToSingle(lat), Convert.ToSingle(lang));
+            }
+            catch (Exception Feilmelding)
+            {
+                return Feilmelding.Message;
+            }
+
+            // Oppdatere Tags, hvis det er noen nye 
+            try
+            {
+                List<string> SjekkOmNye1 = nyTags.Except(GamleTags).ToList();
+                List<string> SjekkOmNye2 = GamleTags.Except(nyTags).ToList();
+
+                // Hvis begge listene er 0, er det ingen endring
+                if (SjekkOmNye1.Count != 0 || SjekkOmNye2.Count != 0)
+                {
+                    // Sletter alle gamle tags
+                    DBComTag_Objekt.DeleteTags_Objekt(IDObjekt);
+
+                    // Legger til de nye
+                    foreach (var item in nyTags)
+                    {
+                        DBComTag_Objekt.InsertTag_ObjektToDb(item.ToString(), IDObjekt);
+                    }
+                }
+            }
+            catch (Exception Feilmelding)
+            {
+                return Feilmelding.Message;
+            }
+
+            // Tøme tekstfelt og lister 
+            TømeTekstFeltOgLister();
+
+            FrmRediger.OmrådeKlikkbare();
             id_til_redigering = -1;
-            txtNavn.Text = "";
-            txtKategori.Text = "";
-            txtKommentar.Text = "";
-            txtSikkerhetsklarering.Text = "";
-            txtLat.Text = Globalekonstanter.tekstLatLong_objekt;
-            txtLong.Text = Globalekonstanter.tekstLatLong_objekt;
 
-            //lister
-            lbValgtTags.Items.Clear();
-            lbTilgjengeligeTags.Items.Clear();
-            LastInnTags();
+            // Oppdatere Liste med ressurser 
+
+            FellesMetoder.OppdaterListe_Objekt();
+            Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
+            return string.Empty;
         }
 
+       
+        
+
+    private void TømeTekstFeltOgLister()
+    {
+        //tekstfelt
+        id_til_redigering = -1;
+        txtNavn.Text = "";
+        txtKategori.Text = "";
+        txtKommentar.Text = "";
+        txtSikkerhetsklarering.Text = "";
+        txtLat.Text = Globalekonstanter.tekstLatLong_objekt;
+        txtLong.Text = Globalekonstanter.tekstLatLong_objekt;
+
+        //lister
+        lbValgtTags.Items.Clear();
+        lbTilgjengeligeTags.Items.Clear();
+        LastInnTags();
     }
+
+}
 }
