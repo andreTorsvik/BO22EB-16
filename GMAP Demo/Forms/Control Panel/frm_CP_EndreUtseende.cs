@@ -9,12 +9,12 @@ namespace GMAP_Demo
 {
     public partial class Frm_CP_EndreUtseende : Form
     {
-        public static Frm_CP_EndreUtseende instance;
+       // public static Frm_CP_EndreUtseende instance;
         
         public Frm_CP_EndreUtseende()
         {
             InitializeComponent();
-            instance = this;
+            //instance = this;
             SetTheme();
         }
 

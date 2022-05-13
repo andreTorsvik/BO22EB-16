@@ -9,18 +9,19 @@ namespace GMAP_Demo
 {
     public partial class Frm_CP_Admin : Form
     {
-        Frm_CP_Admin instance;
+        //Frm_CP_Admin instance;
 
         public Frm_CP_Admin()
         {
             InitializeComponent();
-            instance = this;
+            //instance = this;
             SetTheme();
         }
 
         private void SetTheme()
         {
-            instance.BackColor = ThemeDesign.colorBackground;
+            //instance.BackColor = ThemeDesign.colorBackground;
+            BackColor = ThemeDesign.colorBackground;
 
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
@@ -92,7 +93,7 @@ namespace GMAP_Demo
 
             var BrukerListe = DBComBruker.ListAllBrukerFromDb();
 
-            //liste over brukere 
+            // Liste over brukere 
             foreach (var item in BrukerListe)
             {
                 if (item.Godkjent == true) lbListeOverbrukere.Items.Add(item.BrukerDataTilAdmin);
@@ -368,7 +369,7 @@ namespace GMAP_Demo
                 }
 
             }
-            else if (AktuellBruker.Sikkerhetsklarering == 1)
+            else if (AktuellBruker.Sikkerhetsklarering <= 1)
             {
                 MessageBox.Show("Kan ikke nedgradere fordi bruker allerede har laveste");
                 return;
@@ -464,7 +465,7 @@ namespace GMAP_Demo
 
             Bruker AktuellBruker = DBComBruker.ListBrukerInfoFromDb(epost);
 
-            //sjekker om man har høyre enn den aktuell brukeren 
+            // Sjekker om man har høyre enn den aktuell brukeren 
             bool Tillatelse = KanNedgradereEllerFjerne(InnloggetBruker.BrukernavnInnlogget, AktuellBruker);
             if (!Tillatelse)
             {

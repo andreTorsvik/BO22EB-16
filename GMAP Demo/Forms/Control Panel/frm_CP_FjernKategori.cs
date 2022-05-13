@@ -12,17 +12,19 @@ namespace GMAP_Demo
 {
     public partial class Frm_CP_FjernKategori : Form
     {
-        Frm_CP_FjernKategori instance;
+        //Frm_CP_FjernKategori instance;
         public Frm_CP_FjernKategori()
         {
             InitializeComponent();
-            instance = this;
+            //instance = this;
             SetTheme();
         }
 
         private void SetTheme()
         {
-            instance.BackColor = ThemeDesign.colorBackground;
+            //instance.BackColor = ThemeDesign.colorBackground;
+
+            BackColor = ThemeDesign.colorBackground;
 
             lblTitle.ForeColor = ThemeDesign.colorPurple;
 
@@ -79,7 +81,7 @@ namespace GMAP_Demo
 
         private void BtnFjern_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty( tbValgtKategori.Text))
+            if(!string.IsNullOrEmpty(tbValgtKategori.Text))
             {
                 string kategori = tbValgtKategori.Text;
                 string Tittel = "Vil du fjerne denne Kategorien: ";
