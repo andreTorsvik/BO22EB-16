@@ -43,10 +43,13 @@ namespace GMAP_Demo
 
         public void FyllInfoObjekt(int Tag)
         {
+
             Id_til_objekt = GlobaleLister.LObjekt[Tag].IdObjekt;
-            txtInfo.Text = GlobaleLister.LObjekt[Tag].ToString();
+           
             txtIdOmråde.Text = GlobaleLister.LObjekt[Tag].IdObjekt.ToString();
             txtNavn.Text = GlobaleLister.LObjekt[Tag].Navn;
+            string newLine = Environment.NewLine;
+            txtInfo.Text = "Objekt: "+ newLine + GlobaleLister.LObjekt[Tag].ToString();
 
             if (Id_til_Område >= 0) Id_til_Område = -1;
         }
@@ -54,29 +57,32 @@ namespace GMAP_Demo
         public void FyllInfoOmråde(int Tag)
         {
             Id_til_Område = GlobaleLister.LOmråde[Tag].IdOmråde;
-            txtInfo.Text = GlobaleLister.LOmråde[Tag].ToString();
+            
             txtIdOmråde.Text = GlobaleLister.LOmråde[Tag].IdOmråde.ToString();
             txtNavn.Text = GlobaleLister.LOmråde[Tag].Navn;
+            string newLine = Environment.NewLine;
+            txtInfo.Text = "Område: "+ newLine + GlobaleLister.LOmråde[Tag].ToString();
 
             if (Id_til_objekt >= 0) Id_til_objekt = -1;
         }
 
         private void BtnFjern_Click(object sender, EventArgs e)
         {
-            if (Id_til_Område == -1 && Id_til_objekt != -1) // sletting av ressurs 
+            if (Id_til_Område == -1 && Id_til_objekt != -1) // Sletting av objekt 
             {
                 try
                 {
                     string Tittel = "Sletting";
-                    string tekst = string.Format("Vil du slette ressurs: {0} ", Id_til_objekt);
+                    string tekst = string.Format("Vil du slette objekt: {0} ", Id_til_objekt);
                     bool Fjern = FellesMetoder.MeldingsboksYesNo(Tittel, tekst);
 
                     if (Fjern)
                     {
                         DBComObjekt.DeleteObjekt(Id_til_objekt);
-                        lblSlettet.Text = String.Format("Ressurs nr: {0} er slettet", Id_til_objekt);
+                        lblSlettet.Text = String.Format("Objekt nr: {0} er slettet", Id_til_objekt);
                         Id_til_objekt = -1;
                         TømInnholdTekstboks();
+
                         //Må oppdtaere listene og kart
                         FellesMetoder.OppdaterTag_Liste();
                         FellesMetoder.OppdaterKategoriListe();
@@ -85,12 +91,13 @@ namespace GMAP_Demo
                     }
 
                 }
-                catch (Exception feil)
+                catch (Exception feilmelding)
                 {
-                    MessageBox.Show(String.Format("Noe galt skjedde: {0}", feil.Message));
+                    DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                    MessageBox.Show(String.Format("Noe galt skjedde: {0}", feilmelding.Message));
                 }
             }
-            else if (Id_til_objekt == -1 && Id_til_Område != -1) // sletting av Område
+            else if (Id_til_objekt == -1 && Id_til_Område != -1) // Sletting av Område
             {
                 try
                 {
@@ -104,18 +111,26 @@ namespace GMAP_Demo
                         DBComPunkter_område.DeletePunkter_området(Id_til_Område);
                         DBComOmråde.DeleteOmråde(Id_til_Område);
                         lblSlettet.Text = String.Format("Område nr: {0} er slettet", Id_til_Område);
+
+                        
                         Id_til_Område = -1;
                         TømInnholdTekstboks();
+
                         //Må oppdtaere listene og kart 
                         FellesMetoder.OppdaterTag_Liste();
                         FellesMetoder.OppdaterListe_området();
                         Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
                     }
                 }
-                catch (Exception feil)
+                catch (Exception feilmelding)
                 {
-                    MessageBox.Show(String.Format("Noe galt skjedde: {0}", feil.Message));
+                    DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                    MessageBox.Show(String.Format("Noe galt skjedde: {0}", feilmelding.Message));
                 }
+            }
+            else
+            {
+                MessageBox.Show("Ingen er valgt");
             }
         }
 
