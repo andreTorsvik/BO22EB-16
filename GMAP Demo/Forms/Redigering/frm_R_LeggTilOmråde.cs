@@ -181,25 +181,7 @@ namespace GMAP_Demo
             txtLong.Text = lang.ToString();
         }
 
-        private void BtnLeggTilOmrådeIDb_Click(object sender, EventArgs e)
-        {
-            string navn = txtNavn.Text.Trim();
-            string sikkerhetsklarering = txtSikkerhetsklarering.Text;
-            string Kommentar = txtKommentar.Text.Trim();
-            string Farge = txtfarge.Text;
-            int antallPunkter = pointLatLngs.Count;
-            int antallTags = lbValgtTags.Items.Count;
-            HashSet<string> Tags = new HashSet<string>( lbValgtTags.Items.Cast<string>().ToList());
-            
-            // Legger til, om alt stemmer 
-            string SjekkFeil = LeggTilOmrådet(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags, Tags);
-
-            if (SjekkFeil != string.Empty) 
-                MessageBox.Show(SjekkFeil);
-
-
-            FellesMetoder.OppdaterTag_Liste();
-        }
+       
 
         private void BtnLeggTilPunktIListe_Click(object sender, EventArgs e)
         {
@@ -311,6 +293,26 @@ namespace GMAP_Demo
                 pointLatLngs.Clear();
                 txtNrPunkt.Text = pointLatLngs.Count.ToString();
             }
+        }
+
+        private void BtnLeggTilOmrådeIDb_Click(object sender, EventArgs e)
+        {
+            string navn = txtNavn.Text.Trim();
+            string sikkerhetsklarering = txtSikkerhetsklarering.Text;
+            string Kommentar = txtKommentar.Text.Trim();
+            string Farge = txtfarge.Text;
+            int antallPunkter = pointLatLngs.Count;
+            int antallTags = lbValgtTags.Items.Count;
+            HashSet<string> Tags = new HashSet<string>(lbValgtTags.Items.Cast<string>().ToList());
+
+            // Legger til, om alt stemmer 
+            string SjekkFeil = LeggTilOmrådet(navn, sikkerhetsklarering, Kommentar, Farge, antallPunkter, antallTags, Tags);
+
+            if (SjekkFeil != string.Empty)
+                MessageBox.Show(SjekkFeil);
+
+
+            FellesMetoder.OppdaterTag_Liste();
         }
 
         private string LeggTilOmrådet(string navn, string sikkerhetsklarering, string Kommentar, string Farge, int AntallPunkter, int AntallTags, HashSet<string> Tags)

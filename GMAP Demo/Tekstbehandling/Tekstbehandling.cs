@@ -163,7 +163,7 @@ namespace GMAP_Demo
             string utFyllingsmangler = string.Empty;
             List<string> Lfeil = new List<string>();
 
-            //kode for sjekk at alle felten er utfylt
+            // Kode for sjekk at alle felten er utfylt
             if (string.IsNullOrWhiteSpace(navn)) Lfeil.Add("Navn");
             if (string.IsNullOrWhiteSpace(sikkerhetsklarering)) Lfeil.Add("Sikkerhetsklarering");
             if (string.IsNullOrWhiteSpace(kommentar)) Lfeil.Add("Kommentar");
@@ -327,7 +327,9 @@ namespace GMAP_Demo
                 }
                 else if (sjekk > InnloggetBruker.Sikkerhetsklarering)
                 {
-                    svar = "Sikkerhetsklaering kan ikke være høyre enn din egen";
+                    string newLine = Environment.NewLine;
+                    svar = String.Format("Sikkerhetsklarering kan ikke være høyre enn din egen." + newLine +
+                           "Du har: {0}",InnloggetBruker.Sikkerhetsklarering);
                 }
             }
             catch (Exception)
@@ -405,7 +407,6 @@ namespace GMAP_Demo
 
             }
 
-
             return lang;
         }
 
@@ -431,7 +432,6 @@ namespace GMAP_Demo
                 DBComLog_feil.LogFeil(typeof(Tekstbehandling).Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
 
             }
-
 
             return svar;
         }

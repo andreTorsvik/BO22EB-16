@@ -86,7 +86,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void OppdaterListenOverBrukere(int index)
+        private void OppdaterListenOverBrukere() // int index
         {
             lbListeOverbrukere.Items.Clear();
 
@@ -97,16 +97,16 @@ namespace GMAP_Demo
             {
                 if (item.Godkjent == true) lbListeOverbrukere.Items.Add(item.BrukerDataTilAdmin);
             }
-            if (index < lbListeOverbrukere.Items.Count)
-                lbListeOverbrukere.SelectedIndex = index;
-            else
-                lbListeOverbrukere.SelectedIndex = index - 1;
+            //if (index < lbListeOverbrukere.Items.Count)
+            //    lbListeOverbrukere.SelectedIndex = index;
+            //else
+            //    lbListeOverbrukere.SelectedIndex = index - 1;
 
         }
 
         private void btnGodta_Click(object sender, EventArgs e)
         {
-            if (lbVenterPåGodkjenning.SelectedIndex != -1)
+            if (lbVenterPåGodkjenning.SelectedIndex == -1)
             {
                 return;
             }
@@ -125,15 +125,16 @@ namespace GMAP_Demo
 
             DBComBruker.UpdateBruker_Godkjent(GodkjentBruker.Epost, true);
 
-            // Henter tallkoden som ble laget når brukern ble opprettet 
+            // lagrer tallkoden som ble laget når brukern ble opprettet 
             int tallkode = GodkjentBruker.Tallkode;
+
             try
             {
 
                 // Sender epost med tallkode 
                 SendEpost(TilEpost, tallkode);
 
-                // Fjerner brukeren fra listen og legger til i venter listen
+                // Fjerner brukeren fra listen og legger til i vente listen
                 lbVenterPåGodkjenning.Items.Remove(BrukerInfo);
                 lbIkkeVerifisert.Items.Add(GodkjentBruker.BrukerDataIkkeVertifisert);
             }
@@ -142,8 +143,6 @@ namespace GMAP_Demo
                 DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
             }
             GodkjentListeSjekk();
-
-
         }
 
         private void SendEpost(string TilEpost, int tallkode)
@@ -175,8 +174,6 @@ namespace GMAP_Demo
 
             }
         }
-
-
 
         private void SendCompletedCallBack(object sender, AsyncCompletedEventArgs e)
         {
@@ -250,7 +247,6 @@ namespace GMAP_Demo
                 return;
             }
 
-            int selectetItem = lbListeOverbrukere.SelectedIndex;
             string BrukerInfo;
             string epost;
             // Henter epost adresse fra listen
@@ -265,7 +261,7 @@ namespace GMAP_Demo
                 return;
             }
 
-            // Henter infomasjon om brukeren 
+            // Henter infomasjon om brukeren,  
             Bruker AkutellBruker = DBComBruker.ListBrukerInfoFromDb(epost);
 
             // Sjekker man har tillatelse til å oppgradere 
@@ -275,7 +271,7 @@ namespace GMAP_Demo
                 string newLine = Environment.NewLine;
                 MessageBox.Show(string.Format(
                       "Du kan ikke oppgradere denne brukeren." + newLine
-                    + "Du må ha høyre sikkerhetsklarering enn brukeren" + newLine
+                    + "Du må ha høyre sikkerhetsklarering enn brukeren." + newLine
                     + "Du har: {0}", InnloggetBruker.Sikkerhetsklarering));
 
                 return;
@@ -293,7 +289,7 @@ namespace GMAP_Demo
             klarering++;
 
             DBComBruker.UpdateBruker_Sikkerhetsklarering(AkutellBruker.Epost, klarering);
-            OppdaterListenOverBrukere(selectetItem);
+            OppdaterListenOverBrukere(); //selectetItem
         }
 
         private void BtnNedgrader_Click(object sender, EventArgs e)
@@ -304,7 +300,6 @@ namespace GMAP_Demo
                 return;
             }
 
-            int selectetItem = lbListeOverbrukere.SelectedIndex;
             string BrukerInfo;
             string epost;
 
@@ -331,7 +326,7 @@ namespace GMAP_Demo
                 string newLine = Environment.NewLine;
                 MessageBox.Show(string.Format(
                      "Du kan ikke nedgradere denne brukeren." + newLine
-                   + "Du må ha høyre sikkerhetsklarering enn brukeren" + newLine
+                   + "Du må ha høyre sikkerhetsklarering enn brukeren." + newLine
                    + "Du har: {0}", InnloggetBruker.Sikkerhetsklarering));
 
                 return;
@@ -381,10 +376,11 @@ namespace GMAP_Demo
 
             int klarering = AktuellBruker.Sikkerhetsklarering;
             klarering--;
+
             DBComBruker.UpdateBruker_Sikkerhetsklarering(epost, klarering);
             if (epost == InnloggetBruker.BrukernavnInnlogget) InnloggetBruker.Sikkerhetsklarering--;
 
-            OppdaterListenOverBrukere(selectetItem);
+            OppdaterListenOverBrukere();
 
         }
 
@@ -449,7 +445,7 @@ namespace GMAP_Demo
             if (InnloggetBruker.Sikkerhetsklarering != Globalekonstanter.MaxSikkerhetsklarering)
             {
                 string newLine = Environment.NewLine;
-                MessageBox.Show(string.Format("Du Må ha høyeste sikkerhetsklarering: {0}." + newLine + "Du har: {1}",
+                MessageBox.Show(string.Format("Du må ha høyeste sikkerhetsklarering: {0}." + newLine + "Du har: {1}",
                     Globalekonstanter.MaxSikkerhetsklarering.ToString(), InnloggetBruker.Sikkerhetsklarering.ToString()));
 
                 return;
