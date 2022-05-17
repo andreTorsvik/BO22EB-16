@@ -353,7 +353,7 @@
             this.MinimumSize = new System.Drawing.Size(1918, 1018);
             this.Name = "FrmRediger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Rediger objekter ";
+            this.Text = "Rediger ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmRediger_FormClosing);
             this.Load += new System.EventHandler(this.FrmRediger_Load);
             this.pnlMenu.ResumeLayout(false);
