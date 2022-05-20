@@ -237,7 +237,6 @@
     <Compile Include="Global\GlobaleLister.cs" />
     <Compile Include="Global\InnloggetBruker.cs" />
     <Compile Include="Kartbehandling\Kart.cs" />
-    <Compile Include="Kartbehandling\Kartbehandlingsmetoder.cs" />
     <Compile Include="Database\DataTypes\log_feil.cs" />
     <Compile Include="MålingSim\MålingSim.cs" />
     <Compile Include="Program.cs" />
