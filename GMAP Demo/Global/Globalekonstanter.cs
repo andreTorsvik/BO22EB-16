@@ -48,6 +48,9 @@ namespace GMAP_Demo
         public const string filStartPosisjon = "StartPosisjon.txt";
         public const string filTheme = "Theme.txt";
 
+        // Hvor ofte Simulering av målinger skal sende data til databasen når den funksjonen er aktiv
+        public const int målingSimIntervall = 10000; // 10 sekunder
+
         
 
     }

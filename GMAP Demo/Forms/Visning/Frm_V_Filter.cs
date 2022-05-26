@@ -432,7 +432,7 @@ namespace GMAP_Demo
             {
                 målingRunning = true;
                 btnTimerMåling.Text = "Simulering av målinger aktiv";
-                timer.Change(0, 10000); // Starter timeren og simulering av måling gjentaes hvert 10sek.
+                timer.Change(0, Globalekonstanter.målingSimIntervall); // Starter timeren og simulering av måling gjentaes hvert 10sek.
             }
         }
 
