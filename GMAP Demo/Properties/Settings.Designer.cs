@@ -82,7 +82,7 @@ namespace GMAP_Demo.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("AIzaSyCX2Zw8uHqIpPr8wCYEdXu5I8udus5P8fM")]
+        [global::System.Configuration.DefaultSettingValueAttribute("AIzaSyAscP0-KTblEGKCQaNr1BgOj8Nv0By5fLw")]
         public string GoogleMapApiKey {
             get {
                 return ((string)(this["GoogleMapApiKey"]));

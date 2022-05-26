@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 
+// Det er vårt ønske at alt av koden og tilhørende rapport, som ikke omfattes av allerede eksisterende lisenser, skal være fritt tilgjengelig under «Creative Commons Attribution 4.0 International Public License».
+// https://creativecommons.org/licenses/by/4.0/legalcode
+
 namespace GMAP_Demo
 {
     internal static class Program
