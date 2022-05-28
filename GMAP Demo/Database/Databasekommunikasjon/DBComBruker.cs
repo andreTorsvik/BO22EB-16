@@ -47,25 +47,6 @@ namespace GMAP_Demo
 
         }
 
-        public static List<Bruker> StartupConnectionTest()
-        {
-            try
-            {
-                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
-                {
-                    var output = connection.Query<Bruker>("[dbo].[PROCEDUREListAllBrukerFromDb]").ToList();
-                    return output;
-                }
-            }
-            catch (Exception exeption)
-            {
-                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Bruker> list = new List<Bruker>();
-                return list;
-            }
-        }
-
-
         public static List<Bruker> ListAllBrukerFromDbWithMaksSikkerhetsklarering(int Sikkerhetsklarering)
         {
             try
@@ -151,6 +132,7 @@ namespace GMAP_Demo
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
+
         public static void UpdateBruker_Verifisert(string epost, bool godkjent)
         {
             try
@@ -171,6 +153,7 @@ namespace GMAP_Demo
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
+
         public static void UpdateBruker_Sikkerhetsklarering(string epost, int klarering)
         {
             try
@@ -191,7 +174,6 @@ namespace GMAP_Demo
                 DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
             }
         }
-
 
         public static void DeleteBruker(string username)
         {

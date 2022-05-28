@@ -70,8 +70,6 @@ namespace GMAP_Demo
 
         public static void DeleteTags_Objekt(int idObjekt)
         {
-            //delete FROM [dbo].[Punkter_område]
-            //WHERE idObjekt = 38
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))

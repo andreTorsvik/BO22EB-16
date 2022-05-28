@@ -16,12 +16,10 @@ namespace GMAP_Demo
     {
         public static string bo22eb16DatabasePathUrlLocation = "GMAP_Demo.Properties.Settings.bo22eb16ConnectionString";
 
-
         public static string CnnVal(string name)
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
-
 
         public static void FeilmeldingFikkIkkeKontaktMedDatabasen(Exception exception)
         {

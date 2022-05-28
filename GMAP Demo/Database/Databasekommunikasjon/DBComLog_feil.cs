@@ -10,6 +10,7 @@ namespace GMAP_Demo
 {
     internal class DBComLog_feil
     {
+
         public static void LogFeil(string klasse, string Metode, string feilmelding)
         {
             try

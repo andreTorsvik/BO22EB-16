@@ -10,13 +10,13 @@ namespace GMAP_Demo
 {
     internal class DBComOmråde
     {
+
         public static List<Område> ListAllOmrådeFromDb()
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    //var output = connection.Query<Område>("[dbo].[PROCEDUREListAllOmrådeFromDb]").ToList();
                     var output = connection.Query<Område>($"SELECT * FROM[dbo].[Område] WHERE (Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}')").ToList();
                     return output;
                 }
@@ -31,7 +31,6 @@ namespace GMAP_Demo
 
         public static Område ListOmrådeFromDb(int idOmråde)
         {
-            //ListOmrådeFromDb
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))

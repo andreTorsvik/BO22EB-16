@@ -10,6 +10,7 @@ namespace GMAP_Demo
 {
     internal class DBComKategorier_Bilde
     {
+
         public static List<Kategorier_Bilde> ListAllKategorier_BildeFromDb()
         {
             try
@@ -77,7 +78,6 @@ namespace GMAP_Demo
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
                     var output = connection.Query<Objekt>($"UPDATE [dbo].[Kategorier_Bilde] SET Bilde = null WHERE (Kategorinavn = '{ kategorinavn }')");
-
                 }
             }
             catch (Exception exeption)

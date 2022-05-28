@@ -10,23 +10,6 @@ namespace GMAP_Demo
 {
     internal class DBComMåling
     {
-        public static List<Måling> ListAllMålingFromDb()
-        {
-            try
-            {
-                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
-                {
-                    var output = connection.Query<Måling>("[dbo].[PROCEDUREListAllMålingFromDb]").ToList();
-                    return output;
-                }
-            }
-            catch (Exception exeption)
-            {
-                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Måling> list = new List<Måling>();
-                return list;
-            }
-        }
 
         public static List<Måling> GetLatestValueMålingFromSelectedObjekt(int idObjekt)
         {
@@ -48,12 +31,6 @@ namespace GMAP_Demo
                             Enhet = ""
 
                         };
-                        //tomMåling.Navn_på_sensor = "";
-                        //tomMåling.Verdi = 0;
-                        //tomMåling.IdObjekt = 0;
-                        //tomMåling.Måling_id = 0;
-                        //tomMåling.Dato = "Ingen måling";
-                        //tomMåling.Enhet = "";
                         output.Add(tomMåling);
                     }
                     return output;

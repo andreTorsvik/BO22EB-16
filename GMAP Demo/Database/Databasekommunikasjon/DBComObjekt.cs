@@ -10,20 +10,14 @@ namespace GMAP_Demo
 {
     internal class DBComObjekt
     {
+
         public static List<Objekt> ListAllObjektFromDb(int SikkerhetsklareringBruker)
         {
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
                 {
-                    //Objekt Sikkerhetsklarering = new Objekt
-                    //{
-                    //    Sikkerhetsklarering = SikkerhetsklareringBruker
-                    //};
-
-                    //var output = connection.Query<Objekt>("[dbo].[PROCEDUREListAllObjektFromDb] @BrukersSikkerhetsklarering", Sikkerhetsklarering).ToList();
                     var output = connection.Query<Objekt>($"SELECT * FROM[dbo].[Objekt] WHERE (Sikkerhetsklarering <= '{SikkerhetsklareringBruker}')").ToList();
-
                     return output;
                 }
             }
@@ -34,7 +28,7 @@ namespace GMAP_Demo
                 return list;
             }
         }
-        //Where Sikkerhetsklarering <= '{InnloggetBruker.Sikkerhetsklarering}'
+
         public static Objekt ObjektFromDb(int idObjekt)
         {
             try

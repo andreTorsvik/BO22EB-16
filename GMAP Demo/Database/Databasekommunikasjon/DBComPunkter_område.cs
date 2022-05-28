@@ -10,24 +10,6 @@ namespace GMAP_Demo
 {
     internal class DBComPunkter_område
     {
-        public static List<Punkter_område> ListAllPunkter_områdeFromDb()
-        {
-            try
-            {
-                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
-                {
-                    var output = connection.Query<Punkter_område>("[dbo].[PROCEDUREListAllPunkter_områdeFromDb]").ToList();
-                    return output;
-                }
-            }
-            catch (Exception exeption)
-            {
-                DatabaseCommunication.FeilmeldingFikkIkkeKontaktMedDatabasen(exeption);
-                List<Punkter_område> list = new List<Punkter_område>();
-                return list;
-            }
-        }
-
         public static List<Punkter_område> GetPunkter_området(int idOmråde)
         {
             try

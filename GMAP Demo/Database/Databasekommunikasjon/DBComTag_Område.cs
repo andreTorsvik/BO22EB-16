@@ -29,9 +29,6 @@ namespace GMAP_Demo
             }
         }
 
-
-        //ListTag_områdeFromDb
-
         public static List<Tag_Område> ListTag_områdeFromDb(int idOmråde)
         {
             try
@@ -50,11 +47,8 @@ namespace GMAP_Demo
             }
         }
 
-
         public static void DeleteTags_Område(int idOmråde)
         {
-            //delete FROM [dbo].[Punkter_område]
-            //WHERE IdOmråde = 38
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DatabaseCommunication.CnnVal(DatabaseCommunication.bo22eb16DatabasePathUrlLocation)))
