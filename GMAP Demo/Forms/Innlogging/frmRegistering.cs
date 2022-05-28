@@ -90,9 +90,13 @@ namespace GMAP_Demo
                         //legge til i database
                         DBComBruker.InsertBrukerToDb(fornavn, etternavn, Convert.ToInt32(telefon), epost.Trim(), passord, Tallkode);
 
+                        // har opprettet 
                         svar = true;
                     }
-                    catch (Exception) { }
+                    catch (Exception feilmelding) 
+                    {
+                        DBComLog_feil.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message);
+                    }
 
                 }
                 else MessageBox.Show(feil);
@@ -132,6 +136,9 @@ namespace GMAP_Demo
 
         private void TxtTelefon_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Metode som kun tiltater tall i teksfeltet 
+            // Hindrer ikke "lim inn"
+
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
