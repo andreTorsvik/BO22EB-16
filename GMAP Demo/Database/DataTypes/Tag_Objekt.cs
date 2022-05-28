@@ -11,12 +11,5 @@ namespace GMAP_Demo
         public int IdObjekt { get; set; } // IdObjekt som skriver til databasen må bruke DEFAULT pga constraintSequence
         public string Tag { get; set; }
 
-        public string tag_ObjektDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
-        {
-            get
-            {
-                return $"({IdObjekt} - {Tag})";
-            }
-        }
     }
 }

@@ -19,13 +19,6 @@ namespace GMAP_Demo
         public float Lat { get; set; }
         public float Lang { get; set; }
 
-        public string objektDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
-        {
-            get
-            {
-                return $"({IdObjekt} - {Navn} - {Kategori} - {Dato_opprettet} - {Opprettet_av_bruker} - {Sikkerhetsklarering} - {Kommentar} - {Lat} - {Lang})";
-            }
-        }
 
         public PointLatLng GiPunktet()
         {
@@ -46,6 +39,7 @@ namespace GMAP_Demo
 
             return tags;
         }
+
         public override string ToString()
         {
             return $"({IdObjekt} - {Navn} - {Kategori} - {Dato_opprettet} - {Opprettet_av_bruker} - {Sikkerhetsklarering} - {Kommentar} - {Lat} - {Lang})";

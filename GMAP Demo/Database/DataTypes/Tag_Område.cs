@@ -11,12 +11,5 @@ namespace GMAP_Demo
         public int IdOmråde { get; set; } // IdOmråde som skriver til databasen må bruke DEFAULT pga constraintSequence
         public string Tag { get; set; }
 
-        public string tag_OmrådeDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
-        {
-            get
-            {
-                return $"({IdOmråde} - {Tag})";
-            }
-        }
     }
 }

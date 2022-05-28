@@ -13,12 +13,5 @@ namespace GMAP_Demo
         public float Lat { get; set; }
         public float Lang { get; set; }
 
-        public string punkter_områdeDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
-        {
-            get
-            {
-                return $"({IdOmråde} - {Rekkefølge_punkter} - {Lat} - {Lang})";
-            }
-        }
     }
 }

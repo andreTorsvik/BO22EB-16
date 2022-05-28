@@ -15,13 +15,5 @@ namespace GMAP_Demo
         public string Dato { get; set; } // Dato som skriver til databasen må bruke CURRENT_TIMESTAMP pga DATETIME
         public string Enhet { get; set; }
 
-
-        public string målingDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
-        {
-            get
-            {
-                return $"({Navn_på_sensor} - {Verdi} - {IdObjekt} - {Måling_id} - {Dato} - {Enhet})";
-            }
-        }
     }
 }

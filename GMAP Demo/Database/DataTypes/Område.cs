@@ -18,14 +18,6 @@ namespace GMAP_Demo
         public string Farge { get; set; }
 
 
-        public string områdeDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
-        {
-            get
-            {
-                return $"({IdOmråde} - {Navn} - {Dato_opprettet} - {Opprettet_av_bruker} - {Kommentar} - {Sikkerhetsklarering} - {Farge})";
-            }
-        }
-
         public List<string> hentTags()
         {
             List<string> tags = new List<string>();
@@ -44,25 +36,18 @@ namespace GMAP_Demo
         {
             return $"({IdOmråde} - {Navn} - {Dato_opprettet} - {Opprettet_av_bruker} - {Kommentar} - {Sikkerhetsklarering} - {Farge})";
         }
+
         public List<PointLatLng> HentPunkter()
         {
-            //List<PointLatLng> Lsvar = new List<PointLatLng>();
-            //var punktListe = DatabaseCommunication.ListAllPunkter_områdeFromDb();
-
-            //// https://stackoverflow.com/questions/289010/c-sharp-list-sort-by-x-then-y
-            //punktListe = punktListe.OrderBy(x => x.IdOmråde).ThenBy(x => x.Rekkefølge_punkter).ToList();
-
-            //foreach (var item in punktListe)
-            //{      
-            //    if(item.IdOmråde == IdOmråde)
-            //    {
-            //        PointLatLng punkt = new PointLatLng(Convert.ToDouble(item.Lat), Convert.ToDouble(item.Lang));
-            //        Lsvar.Add(punkt);
-            //    }
-            //}
+            // for å sortere med lamda notasjon 
+            // https://stackoverflow.com/questions/289010/c-sharp-list-sort-by-x-then-y
 
             List<PointLatLng> Lsvar = new List<PointLatLng>();
+
+            // Få alle punktene knyttet til området
             var PunktListe = DBComPunkter_område.GetPunkter_området(IdOmråde);
+
+            // Sorter punktene etter røkkefølge 
             PunktListe = PunktListe.OrderBy(x => x.Rekkefølge_punkter).ToList();
             foreach (var item in PunktListe)
             {        

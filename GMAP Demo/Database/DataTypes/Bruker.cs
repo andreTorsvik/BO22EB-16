@@ -19,14 +19,6 @@ namespace GMAP_Demo
         public bool Verifisert { get; set; }
 
 
-        public string brukerDataTypeToString // Her kan vi definere en versjon av string som viser datatypen i listbox
-        {
-            get
-            {
-                return $"({Fornavn} - {Etternavn} - {Telefonnummer} - {Epost} - {Sikkerhetsklarering} - {Passord} - {Tallkode} - {Godkjent} - {Verifisert})";
-            }
-        }
-
         public string BrukerDataTilAdmin
         {
             get
