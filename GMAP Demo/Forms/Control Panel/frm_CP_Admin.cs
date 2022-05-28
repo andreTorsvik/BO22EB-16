@@ -9,18 +9,15 @@ namespace GMAP_Demo
 {
     public partial class Frm_CP_Admin : Form
     {
-        //Frm_CP_Admin instance;
 
         public Frm_CP_Admin()
         {
             InitializeComponent();
-            //instance = this;
             SetTheme();
         }
 
         private void SetTheme()
         {
-            //instance.BackColor = ThemeDesign.colorBackground;
             BackColor = ThemeDesign.colorBackground;
 
             lblTitle.ForeColor = ThemeDesign.colorPurple;
@@ -47,8 +44,6 @@ namespace GMAP_Demo
             btnFjern.BackColor = ThemeDesign.colorGray;
             lbListeOverbrukere.ForeColor = ThemeDesign.colorLabel;
             lbListeOverbrukere.BackColor = ThemeDesign.colorGray;
-
-
         }
 
         private void Frm_S_Admin_Load(object sender, EventArgs e)
@@ -87,7 +82,7 @@ namespace GMAP_Demo
             }
         }
 
-        private void OppdaterListenOverBrukere() // int index
+        private void OppdaterListenOverBrukere()
         {
             lbListeOverbrukere.Items.Clear();
 
@@ -98,11 +93,6 @@ namespace GMAP_Demo
             {
                 if (item.Godkjent == true) lbListeOverbrukere.Items.Add(item.BrukerDataTilAdmin);
             }
-            //if (index < lbListeOverbrukere.Items.Count)
-            //    lbListeOverbrukere.SelectedIndex = index;
-            //else
-            //    lbListeOverbrukere.SelectedIndex = index - 1;
-
         }
 
         private void btnGodta_Click(object sender, EventArgs e)
@@ -126,7 +116,7 @@ namespace GMAP_Demo
 
             DBComBruker.UpdateBruker_Godkjent(GodkjentBruker.Epost, true);
 
-            // lagrer tallkoden som ble laget når brukern ble opprettet 
+            // Lagrer tallkoden som ble laget når brukern ble opprettet 
             int tallkode = GodkjentBruker.Tallkode;
 
             try
@@ -207,7 +197,7 @@ namespace GMAP_Demo
                 return;
             }
 
-            // Finn mailen
+            // Finner mailen, og fjerner brukeren som ikke ble godkjent fra databasen 
             string BrukerInfo = lbVenterPåGodkjenning.SelectedItem.ToString();
             string epost = HentEpostFraInfo(BrukerInfo);
             FjernBruker(epost, BrukerInfo);
@@ -217,7 +207,7 @@ namespace GMAP_Demo
 
         private void FjernBruker(string epost, string BrukerInfo)
         {
-            //fjern fra databasen 
+            // Fjern fra databasen 
             try
             {
                 DBComBruker.DeleteBruker(epost);
@@ -235,7 +225,7 @@ namespace GMAP_Demo
         {
             string Epost = info.Substring(0, info.IndexOf(" "));
 
-            //eposten skal være uten mellom fra før av men kun for sikkerhetsskyld 
+            // Eposten skal være uten mellom fra før av men kun for sikkerhetsskyld 
             Epost.Trim();
 
             return Epost;
@@ -250,6 +240,7 @@ namespace GMAP_Demo
 
             string BrukerInfo;
             string epost;
+
             // Henter epost adresse fra listen
             try
             {
@@ -393,7 +384,7 @@ namespace GMAP_Demo
             {
                 Bruker InnloggetBruker = DBComBruker.ListBrukerInfoFromDb(Innlogget);
 
-                //Hvis man med en feil har høyre enn maks 
+                // Hvis man med en feil har høyre enn maks 
                 if (InnloggetBruker.Sikkerhetsklarering > Globalekonstanter.MaxSikkerhetsklarering)
                     InnloggetBruker.Sikkerhetsklarering = Globalekonstanter.MaxSikkerhetsklarering;
 
@@ -412,6 +403,9 @@ namespace GMAP_Demo
 
         private bool KanNedgradereEllerFjerne(string Innlogget, Bruker AktuellBruker)
         {
+            // Sjekker om man kan nedgrdaere eller fjerne en bruker 
+            // Kravene for å fjerne og nedgradere er de samme 
+
             bool sjekk = false;
 
             try

@@ -77,7 +77,7 @@ namespace GMAP_Demo
 
         private void Fylltekstfelt()
         {
-            //For å få adresse bruker vi Google Api
+            //For å få adresse i tekstfeltet bruker vi Google Api
 
             List<string> LAdresse = new List<string>();
             try

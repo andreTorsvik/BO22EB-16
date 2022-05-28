@@ -12,18 +12,15 @@ namespace GMAP_Demo
 {
     public partial class Frm_CP_FjernKategori : Form
     {
-        //Frm_CP_FjernKategori instance;
+
         public Frm_CP_FjernKategori()
         {
             InitializeComponent();
-            //instance = this;
             SetTheme();
         }
 
         private void SetTheme()
         {
-            //instance.BackColor = ThemeDesign.colorBackground;
-
             BackColor = ThemeDesign.colorBackground;
 
             lblTitle.ForeColor = ThemeDesign.colorPurple;
@@ -54,6 +51,7 @@ namespace GMAP_Demo
 
             foreach (var Kategori in KategoriListe)
             {
+                // Sjekker om det er 0 forkomster av kategorien 
                 var list = DBComObjekt.ListObjektBasedOnKategori(Kategori.Kategorinavn);
                 if (list.Count == 0)
                 {
@@ -84,7 +82,7 @@ namespace GMAP_Demo
             if(!string.IsNullOrEmpty(tbValgtKategori.Text))
             {
                 string kategori = tbValgtKategori.Text;
-                string Tittel = "Vil du fjerne denne Kategorien: ";
+                string Tittel = "Vil du fjerne denne kategorien: ";
 
                 bool Fjern = Tekstbehandling.MeldingsboksYesNo(Tittel, kategori);
 
