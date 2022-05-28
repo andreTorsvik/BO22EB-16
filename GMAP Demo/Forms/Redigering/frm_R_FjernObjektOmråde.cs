@@ -68,6 +68,10 @@ namespace GMAP_Demo
 
         private void BtnFjern_Click(object sender, EventArgs e)
         {
+            // Hvis id_til_område er -1, betyr det at det er et objekt som ervalgt 
+            // hvis id_til_objekt er -1, betyr det at det et område som er valgt 
+            // hvis begge er -1 har man ikke klikket på noen enda
+
             if (Id_til_Område == -1 && Id_til_objekt != -1) // Sletting av objekt 
             {
                 try
@@ -78,12 +82,15 @@ namespace GMAP_Demo
 
                     if (Fjern)
                     {
+                        // Sletting av objektet 
                         DBComObjekt.DeleteObjekt(Id_til_objekt);
                         lblSlettet.Text = String.Format("Objekt nr: {0} er slettet", Id_til_objekt);
+
+                        // Tømmer liste og setter Id til -1 
                         Id_til_objekt = -1;
                         TømInnholdTekstboks();
 
-                        //Må oppdtaere listene og kart
+                        // Må oppdtaere listene og kart
                         GlobaleLister.OppdaterTag_Liste();
                         GlobaleLister.OppdaterKategoriListe();
                         GlobaleLister.OppdaterListe_Objekt();
@@ -102,21 +109,22 @@ namespace GMAP_Demo
                 try
                 {
                     string Tittel = "Sletting";
-                    string tekst = string.Format("Vil du slette Område: {0} ", Id_til_Område);
+                    string tekst = string.Format("Vil du slette område: {0} ", Id_til_Område);
 
                     bool fjern = Tekstbehandling.MeldingsboksYesNo(Tittel, tekst);
 
                     if (fjern)
                     {
+                        // Sletter området 
                         DBComPunkter_område.DeletePunkter_området(Id_til_Område);
                         DBComOmråde.DeleteOmråde(Id_til_Område);
                         lblSlettet.Text = String.Format("Område nr: {0} er slettet", Id_til_Område);
 
-                        
+                        // tømmer listene og setter Id til -1 
                         Id_til_Område = -1;
                         TømInnholdTekstboks();
 
-                        //Må oppdtaere listene og kart 
+                        // Må oppdtaere listene og kart 
                         GlobaleLister.OppdaterTag_Liste();
                         GlobaleLister.OppdaterListe_området();
                         Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
@@ -145,5 +153,6 @@ namespace GMAP_Demo
         {
             instance = null;
         }
+
     }
 }

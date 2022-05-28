@@ -102,7 +102,6 @@ namespace GMAP_Demo
             txtLong.Text = lang.ToString();
         }
        
-
         private void LbTilgjengligKategori_MouseClick(object sender, MouseEventArgs e)
         {
             if (lbTilgjengligKategori.SelectedIndex != -1)
@@ -130,8 +129,7 @@ namespace GMAP_Demo
                     }
                     else
                     {
-                        MessageBox.Show("Kategori finnes allerede");
-                        
+                        MessageBox.Show("Kategori finnes allerede");                       
                     }
                     txtNyKategori.Text = "";
                 }
@@ -237,7 +235,7 @@ namespace GMAP_Demo
                 return FeilMelding;
             }
 
-            //løpenummer 
+            // Får neste ID fra databasen 
             var løpenummer = DBComObjekt.GetIdObjekt();
             int Løpenummer_Ressurs = Convert.ToInt32(løpenummer[0]);
 
@@ -281,7 +279,7 @@ namespace GMAP_Demo
 
         private void TømeTekstFeltOgLister()
         {
-            //tekstfelt
+            // Tekstfelt
             txtNavn.Text = "";
             txtKategori.Text = "";
             txtKommentar.Text = "";
@@ -289,7 +287,7 @@ namespace GMAP_Demo
             txtLat.Text = Globalekonstanter.tekstLatLong_objekt;
             txtLong.Text = Globalekonstanter.tekstLatLong_objekt;
 
-            //lister
+            // Listene
             lbValgtTags.Items.Clear();
             lbTilgjengeligeTags.Items.Clear();
             LastInnTags();

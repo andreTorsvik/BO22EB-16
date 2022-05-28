@@ -508,7 +508,7 @@ namespace GMAP_Demo
 
         private void TømeTekstFeltOgLister()
         {
-            //tekstfelt
+            // Tekstfelt
             txtNavn.Text = "";
             txtKommentar.Text = "";
             txtFarge.Text = "";
@@ -516,7 +516,7 @@ namespace GMAP_Demo
             txtLat.Text = Globalekonstanter.tekstLatLong_område;
             txtLong.Text = Globalekonstanter.tekstLatLong_område;
 
-            //lister
+            // Lister
             lbValgtTags.Items.Clear();
             lbTilgjengeligeTags.Items.Clear();
             LastInnTags();

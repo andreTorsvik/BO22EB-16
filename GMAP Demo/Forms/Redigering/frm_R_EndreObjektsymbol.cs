@@ -73,7 +73,6 @@ namespace GMAP_Demo
                     List<Kategorier_Bilde> kategori = DBComKategorier_Bilde.GetBildeForKategoriFromDbKategorier_Bilde(valgtKategori);
                     if (kategori[0].Bilde != null) // Sjekk om kategori har bilde
                     {
-
                         image = Bildebehandling.byteArrayToImage(kategori[0].Bilde);
 
                         pbValgtKategori.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -85,8 +84,6 @@ namespace GMAP_Demo
                     {
                         pbValgtKategori.Visible = false;
                     }
-
-
                 }
             }
             
@@ -129,7 +126,6 @@ namespace GMAP_Demo
                 GlobaleLister.LKategori.Add(item);
                 lbTilgjengligKategorier.Items.Add(item.Kategorinavn);
             }
-
         }
 
         private void BtnLeggTilIDb_Click(object sender, EventArgs e)

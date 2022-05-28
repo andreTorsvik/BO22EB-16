@@ -332,7 +332,7 @@ namespace GMAP_Demo
                 return FeilTallSjekk;
             }
 
-            // Hent id
+            // Hent ny ID fra databasen 
             var id = DBComOmråde.GetIdOmråde();
             int id_område = Convert.ToInt32(id[0]);
 
@@ -401,7 +401,7 @@ namespace GMAP_Demo
             txtLat.Text = Globalekonstanter.tekstLatLong_område;
             txtLong.Text = Globalekonstanter.tekstLatLong_område;
             
-            // Lister
+            // Listene
             lbValgtTags.Items.Clear();
             lbTilgjengeligeTags.Items.Clear();
             LastInnTags();

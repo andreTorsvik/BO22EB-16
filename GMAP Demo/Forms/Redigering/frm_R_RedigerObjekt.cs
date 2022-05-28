@@ -197,7 +197,7 @@ namespace GMAP_Demo
 
         public void FyllInfoObjekt(int Tag)
         {
-            // Løpenummeret 
+            // ID 
             id_til_redigering = GlobaleLister.LObjekt[Tag].IdObjekt;
 
             // Info 
@@ -341,7 +341,7 @@ namespace GMAP_Demo
 
     private void TømeTekstFeltOgLister()
     {
-        //tekstfelt
+        // Tekstfelt
         id_til_redigering = -1;
         txtNavn.Text = "";
         txtKategori.Text = "";
@@ -350,7 +350,7 @@ namespace GMAP_Demo
         txtLat.Text = Globalekonstanter.tekstLatLong_objekt;
         txtLong.Text = Globalekonstanter.tekstLatLong_objekt;
 
-        //lister
+        // Listene
         lbValgtTags.Items.Clear();
         lbTilgjengeligeTags.Items.Clear();
         LastInnTags();

@@ -49,7 +49,6 @@ namespace GMAP_Demo
             pnlUser.BackColor = ThemeDesign.colorSecondaryBackground;
             lblUserName.ForeColor = ThemeDesign.colorOrange;
             lblUserName.BackColor = ThemeDesign.colorSecondaryBackground;
-            //cbOmråde.ForeColor = ThemeDesign.colorGreen;
             cbOmråde.ForeColor = Color.White;
 
             pnlMenu.BackColor = ThemeDesign.colorSecondaryBackground;
@@ -89,6 +88,7 @@ namespace GMAP_Demo
         {
             Close();
         }
+
         void AlleKnapperTilStandardFargeR()
         {
             Color StandardFarge = Globalekonstanter.StandardFargeKnapp;
@@ -116,7 +116,7 @@ namespace GMAP_Demo
 
                 ResettIdTilRedigering();
 
-                //legge inn rett form i panelet
+                // Legge inn rett form i panelet
                 PnlFormLoader.Controls.Clear();
 
                 target.FormBorderStyle = FormBorderStyle.None;
@@ -165,7 +165,6 @@ namespace GMAP_Demo
             }
         }
 
-
         private void BtnEndreObjektsymbol_Click(object sender, EventArgs e)
         {
             if ((sender as Button).Top != pnlNav.Top)
@@ -203,7 +202,7 @@ namespace GMAP_Demo
         private void InstanceNull(bool avsluttRediger)
         {
             // Gjør at alle instancer blir null
-            // avslutter man redigerings programmet skal ha "true" 
+            // avslutter man redigerings formen skal man ha "true" 
             // som argumeent 
 
             if (Frm_R_FjernObjektOmråde.instance != null)
@@ -234,10 +233,10 @@ namespace GMAP_Demo
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
         {
-            //henter Høyde på knapp og hvor toppen er plassert 
+            // Henter Høyde på knapp og hvor toppen er plassert 
             pnlNav.Height = høyde;
             pnlNav.Top = top;
-            //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
+            // Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
             pnlNav.Left = btnLeggTilObjekt.Left;
         }
 
@@ -246,8 +245,6 @@ namespace GMAP_Demo
             if (e.Button == MouseButtons.Left)
             {
                 DoubleClick_punkt = map.FromLocalToLatLng(e.X, e.Y);
-                //List<PointLatLng> Lpunkt = new List<PointLatLng>();
-                //Lpunkt.Add(DoubleClick_punkt);
 
                 double lat = DoubleClick_punkt.Lat;
                 double lang = DoubleClick_punkt.Lng;
@@ -260,7 +257,7 @@ namespace GMAP_Demo
                 {
                     Frm_R_LeggTilOmråde.instance.FyllKoordinater(lat, lang);
 
-                    //tegner hjelpeområde, med punkt burker har klikket 
+                    // Tegner hjelpeområde, med punkt burker har klikket 
                     if (Frm_R_LeggTilOmråde.instance.pointLatLngs.Count >= 1)
                     {
                         Kart.FjernHjelpeOmråde();
@@ -279,10 +276,10 @@ namespace GMAP_Demo
                 {
                     Frm_R_RedigerOmråde.instance.FyllKoordinater(lat, lang);
 
-                    if (Frm_R_RedigerOmråde.instance.id_til_redigering != -1) // for å unngå at den tegner hvis den ikke er inni "RedigerOmråde"
+                    if (Frm_R_RedigerOmråde.instance.id_til_redigering != -1) // For å unngå at den tegner hvis den ikke er inni "RedigerOmråde"
                     {
 
-                        if (Frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1) // tegne område underveis 
+                        if (Frm_R_RedigerOmråde.instance.pointLatLngs.Count >= 1) // Tegne område underveis 
                         {
                             Kart.FjernHjelpeOmråde();
 
@@ -305,7 +302,7 @@ namespace GMAP_Demo
         {
             if (Convert.ToInt32(item.Tag) != -1)
             {
-                //skal ikke åpne redigeringform hvis den er på fjerne eller er der allerede 
+                // Skal ikke åpne redigeringform hvis den er på fjerne eller er der allerede 
                 if (pnlNav.Top == btnRedigerObjekt.Top) { }
                 else if (pnlNav.Top != btnFjernObjektOmråde.Top)
                 {
@@ -373,7 +370,7 @@ namespace GMAP_Demo
             }
             if (Frm_R_FjernObjektOmråde.instance != null)
             {
-                //tegn område for valgt
+                // Tegn område for valgt
                 Frm_R_FjernObjektOmråde.instance.FyllInfoOmråde(Convert.ToInt32(item.Tag));
 
                 Kart.FjernHjelpeOmråde();
@@ -446,11 +443,13 @@ namespace GMAP_Demo
 
         private void CbOmråde_CheckedChanged(object sender, EventArgs e)
         {
+            // Metoden gjør at man kan velge hva som skjer når man trykker på områder
+            // 2 alternativer: 
+            // 1. Man åpner redigerings formen og legger inn informasjonen om området 
+            // 2. Ingenting skjer om man klikker på områdene 
+
             if (cbOmråde.Checked)
             {
-                //cbOmråde.Text = "Kan klikke på eksisterende område";
-                //cbOmråde.BackColor = ThemeDesign.colorSecondaryBackground;
-                //cbOmråde.ForeColor = ThemeDesign.colorGreen;
                 cbOmråde.Text = "Områdevelger er aktivert";       
                 cbOmråde.BackColor = Color.Green;
                 cbOmråde.ForeColor = Color.White;
@@ -460,7 +459,6 @@ namespace GMAP_Demo
             }
             else
             {
-                //cbOmråde.Text = "Kan ikke klikke på eksisterende område";
                 cbOmråde.Text = "Områdevelger er deaktivert";
                 cbOmråde.BackColor = Color.Red;
                 cbOmråde.ForeColor = Color.Black;
