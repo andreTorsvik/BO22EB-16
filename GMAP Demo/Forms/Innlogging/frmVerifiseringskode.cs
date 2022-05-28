@@ -13,6 +13,7 @@ namespace GMAP_Demo
     public partial class FrmVerifiseringskode : Form
     {
         public static FrmVerifiseringskode instance;
+
         public FrmVerifiseringskode()
         {
             InitializeComponent();
@@ -25,16 +26,18 @@ namespace GMAP_Demo
             {
                 //Endre database attributt bruker.godkjent = true
 
-                //endre til updateBruker_verifisert:
+                // Endre til updateBruker_verifisert:
                 DBComBruker.UpdateBruker_Verifisert(FrmInnlogging.instance.listBruker[0].Epost, true);
 
-                //logg inn
+                // Logg inn
                 InnloggetBruker.BrukernavnInnlogget = FrmInnlogging.instance.listBruker[0].Epost;
                 InnloggetBruker.Sikkerhetsklarering = FrmInnlogging.instance.listBruker[0].Sikkerhetsklarering;
 
                 FrmInnlogging.instance.Hide();
                 Close();
-                FrmVisning frmVisning = new FrmVisning(); // instance
+
+                // Åpner visnings formen 
+                FrmVisning frmVisning = new FrmVisning(); 
                 frmVisning.Size = Size;
                 frmVisning.Show();
             }
