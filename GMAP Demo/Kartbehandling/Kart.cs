@@ -532,7 +532,7 @@ namespace GMAP_Demo
                 List<Placemark> Info = null;
 
                 // Henter info baser på kordinater med hjelp av Googlemap 
-                var statusCode = GMapProviders.GoogleMap.GetPlacemarks(point, out Info);
+                var statusCode = GMapProviders.GoogleMap.GetPlacemarks(point, out Info); // googlemap
                 //var statusCode = GMapProviders.OpenStreetMap.GetPlacemarks(point,out Info); // OpenStreetMap
 
                 if (statusCode == GeoCoderStatusCode.OK && Info != null)
