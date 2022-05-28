@@ -49,9 +49,10 @@
             this.lblMenu.AutoSize = true;
             this.lblMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenu.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMenu.Location = new System.Drawing.Point(12, 125);
+            this.lblMenu.Location = new System.Drawing.Point(16, 154);
+            this.lblMenu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(206, 104);
+            this.lblMenu.Size = new System.Drawing.Size(259, 136);
             this.lblMenu.TabIndex = 0;
             this.lblMenu.Text = resources.GetString("lblMenu.Text");
             // 
@@ -61,9 +62,10 @@
             this.lblMap.AutoSize = true;
             this.lblMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMap.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMap.Location = new System.Drawing.Point(570, 163);
+            this.lblMap.Location = new System.Drawing.Point(739, 201);
+            this.lblMap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMap.Name = "lblMap";
-            this.lblMap.Size = new System.Drawing.Size(386, 143);
+            this.lblMap.Size = new System.Drawing.Size(498, 187);
             this.lblMap.TabIndex = 1;
             this.lblMap.Text = resources.GetString("lblMap.Text");
             // 
@@ -72,9 +74,10 @@
             this.lblBruker.AutoSize = true;
             this.lblBruker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBruker.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblBruker.Location = new System.Drawing.Point(12, 80);
+            this.lblBruker.Location = new System.Drawing.Point(16, 98);
+            this.lblBruker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBruker.Name = "lblBruker";
-            this.lblBruker.Size = new System.Drawing.Size(223, 26);
+            this.lblBruker.Size = new System.Drawing.Size(285, 34);
             this.lblBruker.TabIndex = 4;
             this.lblBruker.Text = "\"Label\"s oppdateres med informasjon\r\nknyttet til brukeren du logget inn med.";
             // 
@@ -83,9 +86,10 @@
             this.lblMiddle.AutoSize = true;
             this.lblMiddle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMiddle.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblMiddle.Location = new System.Drawing.Point(58, 521);
+            this.lblMiddle.Location = new System.Drawing.Point(77, 641);
+            this.lblMiddle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMiddle.Name = "lblMiddle";
-            this.lblMiddle.Size = new System.Drawing.Size(209, 65);
+            this.lblMiddle.Size = new System.Drawing.Size(262, 85);
             this.lblMiddle.TabIndex = 6;
             this.lblMiddle.Text = "Seksjonen i midten er et \"Panel\"\r\n som viser et eget \"Form\".\r\n\r\n\"Button\"s til ven" +
     "stre kan laste\r\nforskjellige \"Forms\" i dette \"Panel\".";
@@ -95,9 +99,10 @@
             this.llblOSM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.llblOSM.AutoSize = true;
             this.llblOSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblOSM.Location = new System.Drawing.Point(618, 430);
+            this.llblOSM.Location = new System.Drawing.Point(803, 530);
+            this.llblOSM.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.llblOSM.Name = "llblOSM";
-            this.llblOSM.Size = new System.Drawing.Size(187, 13);
+            this.llblOSM.Size = new System.Drawing.Size(231, 17);
             this.llblOSM.TabIndex = 14;
             this.llblOSM.TabStop = true;
             this.llblOSM.Text = "https://www.openstreetmap.org";
@@ -107,9 +112,10 @@
             this.llblGMAP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.llblGMAP.AutoSize = true;
             this.llblGMAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblGMAP.Location = new System.Drawing.Point(618, 452);
+            this.llblGMAP.Location = new System.Drawing.Point(803, 557);
+            this.llblGMAP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.llblGMAP.Name = "llblGMAP";
-            this.llblGMAP.Size = new System.Drawing.Size(253, 13);
+            this.llblGMAP.Size = new System.Drawing.Size(311, 17);
             this.llblGMAP.TabIndex = 14;
             this.llblGMAP.TabStop = true;
             this.llblGMAP.Text = "https://github.com/judero01col/GMap.NET";
@@ -120,17 +126,17 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 202);
+            this.panel1.Size = new System.Drawing.Size(316, 249);
             this.panel1.TabIndex = 15;
             this.panel1.Click += new System.EventHandler(this.CloseForm);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.lblMenu);
-            this.panel2.Location = new System.Drawing.Point(0, 202);
+            this.panel2.Location = new System.Drawing.Point(0, 249);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(237, 454);
+            this.panel2.Size = new System.Drawing.Size(316, 559);
             this.panel2.TabIndex = 15;
             this.panel2.Click += new System.EventHandler(this.CloseForm);
             // 
@@ -138,10 +144,10 @@
             // 
             this.panel3.Controls.Add(this.lblTitle);
             this.panel3.Controls.Add(this.lblMiddle);
-            this.panel3.Location = new System.Drawing.Point(238, 0);
+            this.panel3.Location = new System.Drawing.Point(317, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(307, 656);
+            this.panel3.Size = new System.Drawing.Size(409, 807);
             this.panel3.TabIndex = 15;
             this.panel3.Click += new System.EventHandler(this.CloseForm);
             // 
@@ -150,19 +156,20 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblTitle.Location = new System.Drawing.Point(57, 9);
+            this.lblTitle.Location = new System.Drawing.Point(76, 11);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(210, 26);
+            this.lblTitle.Size = new System.Drawing.Size(268, 34);
             this.lblTitle.TabIndex = 7;
             this.lblTitle.Text = "En kort forklaring av oppbyggingen \r\ntil programmet/forms.";
             // 
             // Frm_V_Hjelp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(968, 656);
+            this.ClientSize = new System.Drawing.Size(1291, 807);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -171,7 +178,8 @@
             this.Controls.Add(this.lblMap);
             this.ForeColor = System.Drawing.Color.RoyalBlue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(968, 656);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1291, 807);
             this.Name = "Frm_V_Hjelp";
             this.Opacity = 0.85D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

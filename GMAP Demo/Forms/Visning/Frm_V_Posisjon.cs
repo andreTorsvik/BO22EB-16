@@ -83,6 +83,7 @@ namespace GMAP_Demo
         {
             if(txtLat.Text != Globalekonstanter.tekstLatLong_objekt && txtLong.Text != Globalekonstanter.tekstLatLong_objekt) // "Dobbelklikk på kartet"
             {
+                // Legger til addresse basert på koordinatene i lat og long i starttekstfeltet
                 List<string> LAdresse = new List<string>();
                 try
                 {
@@ -107,6 +108,7 @@ namespace GMAP_Demo
         {
             if (txtLat.Text != Globalekonstanter.tekstLatLong_objekt && txtLong.Text != Globalekonstanter.tekstLatLong_objekt)
             {
+                // Legger til addresse basert på koordinatene i lat og long i måltekstfeltet
                 List<string> LAdresse = new List<string>();
                 try
                 {
