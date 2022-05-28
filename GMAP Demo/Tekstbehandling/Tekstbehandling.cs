@@ -29,26 +29,26 @@ namespace GMAP_Demo
 
         static public string SjekkGyldigDataRegistering(string Epost, string passord, string Bepassord)
         {
-            //kode for å sjekke de viktige opplysningene når man registere seg 
+            // Kode for å sjekke de viktige opplysningene når man registere seg 
 
             string svar = string.Empty;
             List<string> Lfeil = new List<string>();
             int antallTegnPassord = Globalekonstanter.AntalltegnPassord;
 
-            //sjekk passord
+            // Sjekk passord
             if (!(passord == Bepassord))
                 Lfeil.Add("Passord samsvarer ikke");
             else if (passord.Length < antallTegnPassord)
                 Lfeil.Add(String.Format("Passord er for kort, må minst være: {0}", antallTegnPassord)); 
 
-            //Sjekk epost 
+            // Sjekk epost 
             if (!ErEmailGodkjent(Epost))
             {
                 Lfeil.Add("Ikke oppgitt en mail adresse");
             }
             else
             {
-                //om Eposten er i systemet allerede 
+                // Om Eposten er i systemet allerede 
                 Epost = Epost.ToLower();
                 var SjekkEpost = DBComBruker.ListBrukerInfoFromDb(Epost.Trim());
 
@@ -83,8 +83,8 @@ namespace GMAP_Demo
         public static string SjekkEndringer_Objekt(Objekt orginaltObjekt, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, List<string> GammleTags, HashSet<string> NyTags)
         {
             // Objekt
-            // kode for å oppdage endringer og kommentere de,  
-            // ingen av try-catch skal feile, siden de allerede er sjekket  
+            // Kode for å oppdage endringer og kommentere de,  
+            // Ingen av try-catch skal feile, siden de allerede er sjekket  
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
 
@@ -250,18 +250,18 @@ namespace GMAP_Demo
         public static string sammenlignPunkter(Område OrginaleOmråde, List<PointLatLng> NyePunkter)
         {
             // Kode for å sjekke om det er nye punkter i ommrådet 
-            // koden skriver kun tilbakemelding på om det er flere, fære eller om det er nye punkter.
+            // koden skriver kun tilbakemelding på om det er flere, færre eller om det er nye punkter.
             // ikke hvilket punkter som er forandret 
             // koden runder av, slik at hvis de nye punktene er for nærme ogrinalpunktene vil den ikke oppdage enderingen
 
             string Endringer = string.Empty;
             string newLine = Environment.NewLine;
-            //sjekk punkter 
+            // Sjekk punkter 
             List<PointLatLng> Orginalepunkter = OrginaleOmråde.HentPunkter();
 
             if (Orginalepunkter.Count == NyePunkter.Count)
             {
-                for (int i = 0; i < NyePunkter.Count; i++) // må sjekke om punktene er de samme som før 
+                for (int i = 0; i < NyePunkter.Count; i++) // Må sjekke om punktene er de samme som før 
                 {
                     if (Math.Round(Orginalepunkter[i].Lat, 6) != Math.Round(NyePunkter[i].Lat, 6))
                     {
@@ -412,18 +412,19 @@ namespace GMAP_Demo
 
         public static string hentTheme(string text)
         {
-            //kommer som " Void DarkTheme()"
+            // Kommer som " Void DarkTheme()"
             string svar = "";
 
             try
             {
-                //" Void DarkTheme()"
+                // Kommentarene viser hva som erijgne av strengen etter funksjoen, med " Void DarkTheme()" som eks
+
                 int startIndex = text.IndexOf(" ");
                 string sjekk = text.Substring(startIndex); //Void DarkTheme()
                 startIndex = text.IndexOf(" ");
                 sjekk = sjekk.Substring(startIndex); //DarkTheme()
 
-                sjekk = sjekk.Substring(0,sjekk.Length-2); //DarkTheme
+                sjekk = sjekk.Substring(0,sjekk.Length-2); // DarkTheme
 
                 svar = sjekk;
             }
@@ -435,6 +436,7 @@ namespace GMAP_Demo
 
             return svar;
         }
+
         public static bool MeldingsboksYesNo(string Tittel, string tekst)
         {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;

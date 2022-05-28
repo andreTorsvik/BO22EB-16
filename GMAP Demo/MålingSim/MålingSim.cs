@@ -13,6 +13,9 @@ namespace GMAP_Demo
         public static void TimerProc(object state)
         {
             // perform the operation
+            // Simulerer kun målinger for 2 objekter, 
+            // disse er hardkodet inn, har tagen "SimMåling"
+
             float måling = (Convert.ToSingle(random.Next(30)) + Convert.ToSingle(random.NextDouble()));
             måling = (float)Math.Round(måling, 2);
             DBComMåling.UpdateMåling("Termomåler 9001", (måling), 0, "C");

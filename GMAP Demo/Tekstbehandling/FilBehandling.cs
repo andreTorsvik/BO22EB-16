@@ -17,7 +17,8 @@ namespace GMAP_Demo
             if (File.Exists(FilNavn)) File.Delete(FilNavn);
 
             StreamWriter sw = File.CreateText(FilNavn); ;
-            //sjekk at man kan 
+
+            // Sjekk at man kan 
             try
             {
                 sw.WriteLine("Lat: {0}", lat);
@@ -71,8 +72,7 @@ namespace GMAP_Demo
                 finally
                 {
                     sr.Close();
-                }
-                
+                }         
             }
             return svar;
         }
@@ -81,8 +81,9 @@ namespace GMAP_Demo
         {
             if (File.Exists(FilNavn)) File.Delete(FilNavn);
 
-            StreamWriter sw = File.CreateText(FilNavn); ;
-            //sjekk at man kan 
+            StreamWriter sw = File.CreateText(FilNavn);
+
+            // Sjekk at man kan 
             try
             {
                 sw.WriteLine("Theme: " + theme );
@@ -94,16 +95,14 @@ namespace GMAP_Demo
             finally
             {
                 sw.Close();
-
             }
-
         }
 
         public static void HentTheme(string FilNavn)
         {
             string ThemeFraFil = "";
 
-            //finnne theme 
+            // Finnne theme 
             if (File.Exists(FilNavn))
             {
                 StreamReader sr = File.OpenText(FilNavn); ;
@@ -140,6 +139,7 @@ namespace GMAP_Demo
             {
                if(item.Name == ThemeFraFil)
                {
+                    // utfører metoden med samme navn som er hentet fra filen 
                     item.Invoke(null,null);
                     break;
                }
