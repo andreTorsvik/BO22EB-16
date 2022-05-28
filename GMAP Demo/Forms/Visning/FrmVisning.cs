@@ -14,8 +14,6 @@ namespace GMAP_Demo
         //DatabaseCommunication.LogFeil(typeof(classname).Name,System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); // hvis static 
         //DatabaseCommunication.LogFeil(GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name, feilmelding.Message); 
 
-
-
         public static FrmVisning instance;
 
         public FrmVisning()
@@ -74,7 +72,7 @@ namespace GMAP_Demo
             SetTheme();
 
             // Må flytte Navigasjonspanelet (hvis panelet er på filter) for å få lov til å bruke "ÅpneFormFraMenyknapp"
-            // panelet blir flyttet på rett plass i "ÅpneFormFraMenyknapp"
+            // Panelet blir flyttet på rett plass i "ÅpneFormFraMenyknapp"
             FlyttNavigasjonsPanel(btnOppdater.Height, btnOppdater.Top);
 
             Frm_V_Filter frmFilter_vrb = new Frm_V_Filter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -140,7 +138,7 @@ namespace GMAP_Demo
 
                 FlyttNavigasjonsPanel(sender.Height, sender.Top);
 
-                //legge inn rett form i panelet
+                // Legge inn rett form i panelet
                 PnlFormLoader.Controls.Clear();
 
                 target.FormBorderStyle = FormBorderStyle.None;
@@ -151,11 +149,11 @@ namespace GMAP_Demo
 
         public void FlyttNavigasjonsPanel(int høyde, int top)
         {
-            //Henter høyde til knappen og hvor toppen er plassert 
+            // Henter høyde til knappen og hvor toppen er plassert 
             pnlNav.Height = høyde;
             pnlNav.Top = top;
 
-            //Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
+            // Denne trenger kun å bli utført en gang, men er med forsikkerhetskyld 
             pnlNav.Left = btnFilter.Left;
         }
 
@@ -180,7 +178,7 @@ namespace GMAP_Demo
 
                     }
 
-                    if (polygon && objekt) // har oppdater begge listene 
+                    if (polygon && objekt) // Har oppdater begge listene 
                     {
                         break;
                     }
