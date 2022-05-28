@@ -435,5 +435,23 @@ namespace GMAP_Demo
 
             return svar;
         }
+        public static bool MeldingsboksYesNo(string Tittel, string tekst)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            // Viser messageBox
+            result = MessageBox.Show(tekst, Tittel, buttons);
+            if (result == DialogResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
     }
 }

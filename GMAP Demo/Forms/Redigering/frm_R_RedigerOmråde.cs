@@ -109,7 +109,7 @@ namespace GMAP_Demo
         {
             if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
 
-            HashSet<string> AlleTag = FellesMetoder.FåAlleTags();
+            HashSet<string> AlleTag = GlobaleLister.FåAlleTags();
 
             foreach (var item in AlleTag)
             {
@@ -210,7 +210,7 @@ namespace GMAP_Demo
 
             // Tags
             var tagListeTilRessurs = GlobaleLister.LOmråde[Tag].hentTags();
-            var alleTags = FellesMetoder.FåAlleTags();
+            var alleTags = GlobaleLister.FåAlleTags();
             var gjenværendeTag = alleTags.Except(tagListeTilRessurs);
 
             // Sortering av tags 
@@ -254,9 +254,8 @@ namespace GMAP_Demo
 
             if (sjekkFeil != string.Empty)
                 MessageBox.Show(sjekkFeil);
-                          
 
-            FellesMetoder.OppdaterTag_Liste();
+            GlobaleLister.OppdaterTag_Liste();
         }
 
         private void BtnLeggTilPunkt_Click(object sender, EventArgs e)
@@ -428,7 +427,7 @@ namespace GMAP_Demo
             }
 
             string Tittel = "Vil du lagre disse endringene ";
-            bool LagreEndring = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
+            bool LagreEndring = Tekstbehandling.MeldingsboksYesNo(Tittel, Endring);
             if (!LagreEndring)
             {
                 return string.Empty;
@@ -502,7 +501,7 @@ namespace GMAP_Demo
 
             FrmRediger.OmrådeKlikkbare();
 
-            FellesMetoder.OppdaterListe_området();
+            GlobaleLister.OppdaterListe_området();
             Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
             return string.Empty;
         }

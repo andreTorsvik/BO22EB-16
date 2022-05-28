@@ -56,8 +56,8 @@ namespace GMAP_Demo
             GlobaleLister.InitializeTag_ObjektListeSkjult();
 
             // Legget til alle ressurser i lister 
-            FellesMetoder.OppdaterListe_Objekt();
-            FellesMetoder.OppdaterListe_området();
+            GlobaleLister.OppdaterListe_Objekt();
+            GlobaleLister.OppdaterListe_området();
 
             // Tegner alt på karet
             Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
@@ -170,12 +170,12 @@ namespace GMAP_Demo
                 {
                     if (item.Id == Globalekonstanter.NavnOmråde && !polygon) //"Områder/Polygons"
                     {
-                        FellesMetoder.OppdaterListe_området();
+                        GlobaleLister.OppdaterListe_området();
                         polygon = true;
                     }
                     if (item.Id == Globalekonstanter.NavnObjekter && !objekt) //"Objekter"
                     {
-                        FellesMetoder.OppdaterListe_Objekt();
+                        GlobaleLister.OppdaterListe_Objekt();
                         objekt = true;
 
                     }

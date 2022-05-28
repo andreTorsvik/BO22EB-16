@@ -131,7 +131,7 @@ namespace GMAP_Demo
                 GlobaleLister.kategoriListeVises.Remove((Kategorier_Bilde)lbKategorierVises.SelectedItem);
 
                 // Oppdaterer ressurs liste 
-                FellesMetoder.OppdaterListe_Objekt();
+                GlobaleLister.OppdaterListe_Objekt();
 
                 // Oppdaterer kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
@@ -147,7 +147,7 @@ namespace GMAP_Demo
                 GlobaleLister.kategoriListeSkjult.Remove((Kategorier_Bilde)lbKategorierSkjult.SelectedItem);
 
                 // Oppdaterer ressurs liste
-                FellesMetoder.OppdaterListe_Objekt();
+                GlobaleLister.OppdaterListe_Objekt();
 
                 // Oppdaterer kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
@@ -163,8 +163,8 @@ namespace GMAP_Demo
                 GlobaleLister.tag_ListeVises.Remove((string)lbTagsVises.SelectedItem);
 
                 // Oppdaterer begge liste
-                FellesMetoder.OppdaterListe_Objekt();
-                FellesMetoder.OppdaterListe_området();
+                GlobaleLister.OppdaterListe_Objekt();
+                GlobaleLister.OppdaterListe_området();
 
                 // Oppdaterer kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
@@ -180,8 +180,8 @@ namespace GMAP_Demo
                 GlobaleLister.tag_ListeSkjult.Remove((string)lbTagsSkjult.SelectedItem);
 
                 // Oppdaterer begge liste
-                FellesMetoder.OppdaterListe_Objekt();
-                FellesMetoder.OppdaterListe_området();
+                GlobaleLister.OppdaterListe_Objekt();
+                GlobaleLister.OppdaterListe_området();
 
                 // Oppdaterer kartet
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
@@ -321,8 +321,8 @@ namespace GMAP_Demo
             GlobaleVariabler.filterAND = cbAND.Checked;
 
             //Oppdaterer listene 
-            FellesMetoder.OppdaterListe_Objekt();
-            FellesMetoder.OppdaterListe_området();
+            GlobaleLister.OppdaterListe_Objekt();
+            GlobaleLister.OppdaterListe_området();
 
             //Oppdatere kartet
             Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
@@ -365,10 +365,10 @@ namespace GMAP_Demo
                     GlobaleLister.tag_ListeVises.Add((string)lbTagsSkjult.Items[0]);
                     GlobaleLister.tag_ListeSkjult.Remove((string)lbTagsSkjult.Items[0]);
                 }
-                
+
                 // Oppdatere listene 
-                FellesMetoder.OppdaterListe_Objekt();
-                FellesMetoder.OppdaterListe_området();
+                GlobaleLister.OppdaterListe_Objekt();
+                GlobaleLister.OppdaterListe_området();
 
                 // Oppdatere kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
@@ -412,7 +412,7 @@ namespace GMAP_Demo
                 }
 
                 // Oppdatere listen 
-                FellesMetoder.OppdaterListe_Objekt();
+                GlobaleLister.OppdaterListe_Objekt();
 
                 // Oppdatere kartet 
                 Kart.OppdaterKart(Kart.MuligKart.Visning, GlobaleLister.LObjekt, GlobaleLister.LOmråde);

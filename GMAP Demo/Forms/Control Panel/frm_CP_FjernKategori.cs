@@ -86,7 +86,7 @@ namespace GMAP_Demo
                 string kategori = tbValgtKategori.Text;
                 string Tittel = "Vil du fjerne denne Kategorien: ";
 
-                bool Fjern = FellesMetoder.MeldingsboksYesNo(Tittel, kategori);
+                bool Fjern = Tekstbehandling.MeldingsboksYesNo(Tittel, kategori);
 
                 if (Fjern)
                 {
@@ -94,7 +94,7 @@ namespace GMAP_Demo
                     tbValgtKategori.Text = string.Empty;
 
                     OppdaterKategoriListe();
-                    FellesMetoder.OppdaterKategoriListe();
+                    GlobaleLister.OppdaterKategoriListe();
                 }
             }
         }

@@ -74,7 +74,7 @@ namespace GMAP_Demo
                 {
                     string Tittel = "Sletting";
                     string tekst = string.Format("Vil du slette objekt: {0} ", Id_til_objekt);
-                    bool Fjern = FellesMetoder.MeldingsboksYesNo(Tittel, tekst);
+                    bool Fjern = Tekstbehandling.MeldingsboksYesNo(Tittel, tekst);
 
                     if (Fjern)
                     {
@@ -84,9 +84,9 @@ namespace GMAP_Demo
                         TømInnholdTekstboks();
 
                         //Må oppdtaere listene og kart
-                        FellesMetoder.OppdaterTag_Liste();
-                        FellesMetoder.OppdaterKategoriListe();
-                        FellesMetoder.OppdaterListe_Objekt();
+                        GlobaleLister.OppdaterTag_Liste();
+                        GlobaleLister.OppdaterKategoriListe();
+                        GlobaleLister.OppdaterListe_Objekt();
                         Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
                     }
 
@@ -104,7 +104,7 @@ namespace GMAP_Demo
                     string Tittel = "Sletting";
                     string tekst = string.Format("Vil du slette Område: {0} ", Id_til_Område);
 
-                    bool fjern = FellesMetoder.MeldingsboksYesNo(Tittel, tekst);
+                    bool fjern = Tekstbehandling.MeldingsboksYesNo(Tittel, tekst);
 
                     if (fjern)
                     {
@@ -117,8 +117,8 @@ namespace GMAP_Demo
                         TømInnholdTekstboks();
 
                         //Må oppdtaere listene og kart 
-                        FellesMetoder.OppdaterTag_Liste();
-                        FellesMetoder.OppdaterListe_området();
+                        GlobaleLister.OppdaterTag_Liste();
+                        GlobaleLister.OppdaterListe_området();
                         Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
                     }
                 }

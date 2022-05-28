@@ -361,7 +361,7 @@ namespace GMAP_Demo
                 string Tittel = "Nedgradere deg selv: ";
                 string Endring = string.Format("{0}", epost);
 
-                bool ØnskerÅNedgrader = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
+                bool ØnskerÅNedgrader = Tekstbehandling.MeldingsboksYesNo(Tittel, Endring);
 
                 if (!ØnskerÅNedgrader)
                 {
@@ -475,7 +475,7 @@ namespace GMAP_Demo
 
             string Tittel = "Vil du virkelig slette denne brukeren: ";
             string Endring = string.Format("{0}", epost);
-            bool Fjern = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
+            bool Fjern = Tekstbehandling.MeldingsboksYesNo(Tittel, Endring);
 
             if (Fjern)
             {

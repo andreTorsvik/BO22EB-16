@@ -130,14 +130,14 @@ namespace GMAP_Demo
 
             }
 
-            FellesMetoder.OppdaterKategoriListe();
+            GlobaleLister.OppdaterKategoriListe();
         }
 
         private void LastInnTags()
         {
             if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
 
-            HashSet<string> AlleTag = FellesMetoder.FåAlleTags();
+            HashSet<string> AlleTag = GlobaleLister.FåAlleTags();
 
             foreach (var item in AlleTag)
             {
@@ -216,7 +216,7 @@ namespace GMAP_Demo
 
             // Tagliste
             var TagListeTilRessurs = GlobaleLister.LObjekt[Tag].hentTags();
-            var AlleTags = FellesMetoder.FåAlleTags();
+            var AlleTags = GlobaleLister.FåAlleTags();
             var GjenværendeTag = AlleTags.Except(TagListeTilRessurs);
 
             // Sorter Tags
@@ -249,9 +249,7 @@ namespace GMAP_Demo
             if (SjekkFeil != string.Empty)
                 MessageBox.Show(SjekkFeil);
 
-
-
-            FellesMetoder.OppdaterTag_Liste();
+            GlobaleLister.OppdaterTag_Liste();
         }
 
         private string RedigerObjekt(int IDObjekt, string navn, string kategori, string sikkerhetsklarering, string kommentar, string lat, string lang, int AntallTags, List<string> GamleTags, HashSet<string> nyTags)
@@ -286,7 +284,7 @@ namespace GMAP_Demo
 
             // Spør om man ønsker å lagre endringene 
             string Tittel = "Vil du lagre disse endringene ";
-            bool lagreEndring = FellesMetoder.MeldingsboksYesNo(Tittel, Endring);
+            bool lagreEndring = Tekstbehandling.MeldingsboksYesNo(Tittel, Endring);
             if (!lagreEndring)
             {
                 return string.Empty;
@@ -333,8 +331,7 @@ namespace GMAP_Demo
             id_til_redigering = -1;
 
             // Oppdatere Liste med ressurser 
-
-            FellesMetoder.OppdaterListe_Objekt();
+            GlobaleLister.OppdaterListe_Objekt();
             Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
             return string.Empty;
         }

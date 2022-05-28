@@ -141,7 +141,7 @@ namespace GMAP_Demo
                 }
                
             }
-            FellesMetoder.OppdaterKategoriListe();
+            GlobaleLister.OppdaterKategoriListe();
         }
 
         private void LastInnKategorier()
@@ -161,7 +161,7 @@ namespace GMAP_Demo
         {
             lbTilgjengeligeTags.Items.Clear();
 
-            HashSet<string> AlleTags = FellesMetoder.FåAlleTags();
+            HashSet<string> AlleTags = GlobaleLister.FåAlleTags();
 
             foreach (var item in AlleTags)
             {
@@ -219,7 +219,7 @@ namespace GMAP_Demo
             if (SjekkFeil != string.Empty)
                 MessageBox.Show(SjekkFeil);
 
-            FellesMetoder.OppdaterTag_Liste();
+            GlobaleLister.OppdaterTag_Liste();
         }
 
         private string LeggTilObjekt(string navn, string kategori, string sikkerhetsklarering, string Kommentar, string lat, string lang, int AntallTags, HashSet<string> nyTags)
@@ -272,7 +272,7 @@ namespace GMAP_Demo
 
             FrmRediger.OmrådeKlikkbare();
 
-            FellesMetoder.OppdaterListe_Objekt();
+            GlobaleLister.OppdaterListe_Objekt();
             Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
 
             return string.Empty;

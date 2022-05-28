@@ -105,7 +105,7 @@ namespace GMAP_Demo
         {
             if (lbTilgjengeligeTags.Items.Count > 0) lbTilgjengeligeTags.Items.Clear();
 
-            HashSet<string> AlleTags = FellesMetoder.FåAlleTags();
+            HashSet<string> AlleTags = GlobaleLister.FåAlleTags();
 
             foreach (var item in AlleTags)
             {
@@ -312,7 +312,7 @@ namespace GMAP_Demo
                 MessageBox.Show(SjekkFeil);
 
 
-            FellesMetoder.OppdaterTag_Liste();
+            GlobaleLister.OppdaterTag_Liste();
         }
 
         private string LeggTilOmrådet(string navn, string sikkerhetsklarering, string Kommentar, string Farge, int AntallPunkter, int AntallTags, HashSet<string> Tags)
@@ -385,7 +385,7 @@ namespace GMAP_Demo
             FrmRediger.OmrådeKlikkbare();
 
             // Legge til de nye området på kartet 
-            FellesMetoder.OppdaterListe_området();
+            GlobaleLister.OppdaterListe_området();
             Kart.OppdaterKart(Kart.MuligKart.Begge, GlobaleLister.LObjekt, GlobaleLister.LOmråde);
 
             return string.Empty;      
