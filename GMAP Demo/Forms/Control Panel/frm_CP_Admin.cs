@@ -91,7 +91,7 @@ namespace GMAP_Demo
             // Liste over brukere 
             foreach (var item in BrukerListe)
             {
-                if (item.Godkjent == true) lbListeOverbrukere.Items.Add(item.BrukerDataTilAdmin);
+                if (item.Verifisert == true) lbListeOverbrukere.Items.Add(item.BrukerDataTilAdmin);
             }
         }
 
@@ -475,6 +475,7 @@ namespace GMAP_Demo
             {
                 FjernBruker(epost, BrukerInfo);
             }
+            OppdaterListenOverBrukere();
         }
     }
 }
