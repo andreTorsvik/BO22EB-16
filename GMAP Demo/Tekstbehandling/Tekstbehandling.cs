@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Windows.Forms;
 
-namespace GMAP_Demo
+namespace BO22EB16
 {
     public class Tekstbehandling
     {

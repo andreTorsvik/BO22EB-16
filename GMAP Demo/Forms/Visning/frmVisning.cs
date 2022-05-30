@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 // Test test
-namespace GMAP_Demo
+namespace BO22EB16
 {
     public partial class FrmVisning : Form
     {

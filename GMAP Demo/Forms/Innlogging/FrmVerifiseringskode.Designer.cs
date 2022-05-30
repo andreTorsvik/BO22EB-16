@@ -1,4 +1,4 @@
-﻿namespace GMAP_Demo
+﻿namespace BO22EB16
 {
     partial class FrmVerifiseringskode
     {

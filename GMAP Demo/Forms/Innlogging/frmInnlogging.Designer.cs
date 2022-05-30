@@ -1,4 +1,4 @@
-﻿namespace GMAP_Demo
+﻿namespace BO22EB16
 {
     partial class FrmInnlogging
     {
@@ -155,7 +155,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::GMAP_Demo.Properties.Resources.HVL;
+            this.pictureBox1.Image = global::BO22EB16.Properties.Resources.HVL;
             this.pictureBox1.Location = new System.Drawing.Point(56, 19);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
-namespace GMAP_Demo
+namespace BO22EB16
 {
     public partial class Frm_CP_StartPosisjon : Form
     {

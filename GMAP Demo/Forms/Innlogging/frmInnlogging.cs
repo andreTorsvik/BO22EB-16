@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security;
 using System.Windows.Forms;
 
-namespace GMAP_Demo
+namespace BO22EB16
 {
     public partial class FrmInnlogging : Form
     {

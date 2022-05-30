@@ -1,4 +1,4 @@
-﻿namespace GMAP_Demo
+﻿namespace BO22EB16
 {
     partial class Frm_R_LeggTilOmråde
     {
@@ -395,7 +395,7 @@
             // 
             this.btnFjernAlle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.btnFjernAlle.ForeColor = System.Drawing.Color.Black;
-            this.btnFjernAlle.Image = global::GMAP_Demo.Properties.Resources.trash_20px;
+            this.btnFjernAlle.Image = global::BO22EB16.Properties.Resources.trash_20px;
             this.btnFjernAlle.Location = new System.Drawing.Point(254, 304);
             this.btnFjernAlle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFjernAlle.Name = "btnFjernAlle";

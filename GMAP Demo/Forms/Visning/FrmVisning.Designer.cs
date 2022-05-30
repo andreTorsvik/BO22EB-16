@@ -1,4 +1,4 @@
-﻿namespace GMAP_Demo
+﻿namespace BO22EB16
 {
     partial class FrmVisning
     {
@@ -91,7 +91,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.pictureBox1.Image = global::GMAP_Demo.Properties.Resources.icons8_person_64;
+            this.pictureBox1.Image = global::BO22EB16.Properties.Resources.icons8_person_64;
             this.pictureBox1.Location = new System.Drawing.Point(87, 32);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -134,7 +134,7 @@
             this.btnControlPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnControlPanel.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnControlPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnControlPanel.Image = global::GMAP_Demo.Properties.Resources.settings_40px;
+            this.btnControlPanel.Image = global::BO22EB16.Properties.Resources.settings_40px;
             this.btnControlPanel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnControlPanel.Location = new System.Drawing.Point(0, 1024);
             this.btnControlPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -153,7 +153,7 @@
             this.btnRediger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRediger.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRediger.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.btnRediger.Image = global::GMAP_Demo.Properties.Resources.map_editing_40px;
+            this.btnRediger.Image = global::BO22EB16.Properties.Resources.map_editing_40px;
             this.btnRediger.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRediger.Location = new System.Drawing.Point(0, 501);
             this.btnRediger.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -172,7 +172,7 @@
             this.btnOppdater.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOppdater.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOppdater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.btnOppdater.Image = global::GMAP_Demo.Properties.Resources.refresh_40px;
+            this.btnOppdater.Image = global::BO22EB16.Properties.Resources.refresh_40px;
             this.btnOppdater.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOppdater.Location = new System.Drawing.Point(0, 417);
             this.btnOppdater.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -191,7 +191,7 @@
             this.btnPosisjon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPosisjon.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPosisjon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.btnPosisjon.Image = global::GMAP_Demo.Properties.Resources.location_40px;
+            this.btnPosisjon.Image = global::BO22EB16.Properties.Resources.location_40px;
             this.btnPosisjon.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPosisjon.Location = new System.Drawing.Point(0, 333);
             this.btnPosisjon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -210,7 +210,7 @@
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
-            this.btnFilter.Image = global::GMAP_Demo.Properties.Resources.filter_40px;
+            this.btnFilter.Image = global::BO22EB16.Properties.Resources.filter_40px;
             this.btnFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFilter.Location = new System.Drawing.Point(0, 249);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

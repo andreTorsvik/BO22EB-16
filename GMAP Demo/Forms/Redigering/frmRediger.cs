@@ -7,7 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 
-namespace GMAP_Demo
+namespace BO22EB16
 {
     public partial class FrmRediger : Form
     {
