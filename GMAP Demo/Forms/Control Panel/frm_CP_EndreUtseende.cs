@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Net;
 
 
-namespace GMAP_Demo
+namespace BO22EB16
 {
     public partial class Frm_CP_EndreUtseende : Form
     {

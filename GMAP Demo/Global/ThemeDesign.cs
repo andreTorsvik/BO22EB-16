@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GMAP_Demo
+namespace BO22EB16
 {// https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/
     
     public class ThemeDesign

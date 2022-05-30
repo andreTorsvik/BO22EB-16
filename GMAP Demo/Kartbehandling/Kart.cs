@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace GMAP_Demo
+namespace BO22EB16
 {
     internal class Kart
     {

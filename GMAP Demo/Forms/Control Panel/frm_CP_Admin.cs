@@ -5,7 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GMAP_Demo
+namespace BO22EB16
 {
     public partial class Frm_CP_Admin : Form
     {

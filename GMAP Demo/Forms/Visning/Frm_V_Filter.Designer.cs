@@ -1,4 +1,4 @@
-﻿namespace GMAP_Demo
+﻿namespace BO22EB16
 {
     partial class Frm_V_Filter
     {
@@ -389,7 +389,7 @@
             // btnTagFjernAlle
             // 
             this.btnTagFjernAlle.ForeColor = System.Drawing.Color.Coral;
-            this.btnTagFjernAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
+            this.btnTagFjernAlle.Image = global::BO22EB16.Properties.Resources.arrow_24px1;
             this.btnTagFjernAlle.Location = new System.Drawing.Point(174, 241);
             this.btnTagFjernAlle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTagFjernAlle.Name = "btnTagFjernAlle";
@@ -402,7 +402,7 @@
             // btnKategoriFjernAlle
             // 
             this.btnKategoriFjernAlle.ForeColor = System.Drawing.Color.Crimson;
-            this.btnKategoriFjernAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
+            this.btnKategoriFjernAlle.Image = global::BO22EB16.Properties.Resources.arrow_24px1;
             this.btnKategoriFjernAlle.Location = new System.Drawing.Point(174, 105);
             this.btnKategoriFjernAlle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKategoriFjernAlle.Name = "btnKategoriFjernAlle";
@@ -415,7 +415,7 @@
             // btnTagLeggTilAlle
             // 
             this.btnTagLeggTilAlle.ForeColor = System.Drawing.Color.Coral;
-            this.btnTagLeggTilAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
+            this.btnTagLeggTilAlle.Image = global::BO22EB16.Properties.Resources.arrow_24px;
             this.btnTagLeggTilAlle.Location = new System.Drawing.Point(174, 198);
             this.btnTagLeggTilAlle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTagLeggTilAlle.Name = "btnTagLeggTilAlle";
@@ -428,7 +428,7 @@
             // btnKategoriLeggTilAlle
             // 
             this.btnKategoriLeggTilAlle.ForeColor = System.Drawing.Color.Coral;
-            this.btnKategoriLeggTilAlle.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
+            this.btnKategoriLeggTilAlle.Image = global::BO22EB16.Properties.Resources.arrow_24px;
             this.btnKategoriLeggTilAlle.Location = new System.Drawing.Point(174, 61);
             this.btnKategoriLeggTilAlle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKategoriLeggTilAlle.Name = "btnKategoriLeggTilAlle";
@@ -577,7 +577,7 @@
             // btnNesteObjekt
             // 
             this.btnNesteObjekt.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNesteObjekt.Image = global::GMAP_Demo.Properties.Resources.arrow_24px;
+            this.btnNesteObjekt.Image = global::BO22EB16.Properties.Resources.arrow_24px;
             this.btnNesteObjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNesteObjekt.Location = new System.Drawing.Point(288, 46);
             this.btnNesteObjekt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -592,7 +592,7 @@
             // btnForrigeObjekt
             // 
             this.btnForrigeObjekt.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnForrigeObjekt.Image = global::GMAP_Demo.Properties.Resources.arrow_24px1;
+            this.btnForrigeObjekt.Image = global::BO22EB16.Properties.Resources.arrow_24px1;
             this.btnForrigeObjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnForrigeObjekt.Location = new System.Drawing.Point(12, 46);
             this.btnForrigeObjekt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

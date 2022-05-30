@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GMAP_Demo
+namespace BO22EB16
 {
     public class log_feil
     {

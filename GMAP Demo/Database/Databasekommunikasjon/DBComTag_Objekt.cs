@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using Dapper;
 
-namespace GMAP_Demo
+namespace BO22EB16
 {
     internal class DBComTag_Objekt
     {

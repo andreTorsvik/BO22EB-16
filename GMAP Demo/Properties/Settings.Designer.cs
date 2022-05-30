@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GMAP_Demo.Properties {
+namespace BO22EB16.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

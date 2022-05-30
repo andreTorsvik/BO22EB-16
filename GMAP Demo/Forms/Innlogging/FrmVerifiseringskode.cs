@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GMAP_Demo
+namespace BO22EB16
 {
     public partial class FrmVerifiseringskode : Form
     {
