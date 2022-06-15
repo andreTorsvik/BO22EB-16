@@ -26,9 +26,10 @@ namespace BO22EB16.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=tcp:bo22eb16.database.windows.net,1433;Initial Catalog=bo22eb16;Persist Se" +
-            "curity Info=False;User ID=CloudSAbf2a2105;Password=Pass1234;MultipleActiveResult" +
-            "Sets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=YOUR_SERVER_HERE,YOUR_PORT_HERE;Initial Catalog=YOUR_CATALOG_HERE;Persist " +
+            "Security Info=False;User ID=YOUR_USERID_HERE;Password=YOUR_PASSWORD_HERE;Multipl" +
+            "eActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Tim" +
+            "eout=30;")]
         public string bo22eb16ConnectionString {
             get {
                 return ((string)(this["bo22eb16ConnectionString"]));
@@ -37,7 +38,7 @@ namespace BO22EB16.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("dlpkqccjjxolhvog")]
+        [global::System.Configuration.DefaultSettingValueAttribute("YOUR_EMAIL_ADDRESS_PASSWORD_FOR_VERIFICATION_HERE")]
         public string PassordEpostVerifisering {
             get {
                 return ((string)(this["PassordEpostVerifisering"]));
@@ -46,7 +47,7 @@ namespace BO22EB16.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("GmapDemo01@gmail.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("YOUR_EMAIL_ADDRESS_FOR_VERIFICATION_HERE")]
         public string EpostVerifisering {
             get {
                 return ((string)(this["EpostVerifisering"]));
@@ -64,7 +65,7 @@ namespace BO22EB16.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Gjest@stud.hvl.no")]
+        [global::System.Configuration.DefaultSettingValueAttribute("YOUR_APP_DEMO_LOGGIN_EMAIL_HERE")]
         public string GuestAccountEmail {
             get {
                 return ((string)(this["GuestAccountEmail"]));
@@ -73,7 +74,7 @@ namespace BO22EB16.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("PassGjest")]
+        [global::System.Configuration.DefaultSettingValueAttribute("YOUR_APP_DEMO_LOGGIN_PASSWORD_HERE")]
         public string GuestAccountPassword {
             get {
                 return ((string)(this["GuestAccountPassword"]));
@@ -82,7 +83,7 @@ namespace BO22EB16.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("AIzaSyAscP0-KTblEGKCQaNr1BgOj8Nv0By5fLw")]
+        [global::System.Configuration.DefaultSettingValueAttribute("YOUR_GOOGLE_CLOUD_API_KEY_HERE")]
         public string GoogleMapApiKey {
             get {
                 return ((string)(this["GoogleMapApiKey"]));
